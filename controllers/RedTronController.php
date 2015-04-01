@@ -36,14 +36,14 @@ class RedTronController extends Controller
     {
         $this->View->SetCss(array('tron_red_amigo_general','tron_Planes_funcionalidades'));
         $this->View->SetJs(array('tron_btn_ir_arriba'));
-        $this->View->Mostrar_Vista("Planes_de_Registro");
+        $this->View->Mostrar_Vista("planes_de_registro");
     }
 
         public function Funcionalidades_Interesantes()
     {
         $this->View->SetCss(array('tron_red_amigo_general','tron_Planes_funcionalidades'));
         $this->View->SetJs(array('tron_btn_ir_arriba'));
-        $this->View->Mostrar_Vista("Funcionalidades_Interesantes");
+        $this->View->Mostrar_Vista("funcionalidades_interesantes");
     }
 
         public function tron_medios_pago()
