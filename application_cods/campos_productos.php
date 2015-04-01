@@ -11,10 +11,10 @@
        $idnompresentacion    = 'nompresentacion'.$Productos['idproducto'];
        $idnomproducto        = 'nomproducto'.$Productos['idproducto'];
        $idproducto           = $Productos['idproducto'];
-       $nom_agrupacion       = String_Functions::Formato_Texto($Productos['nom_agrupacion']);
-       $nom_producto         = String_Functions::Formato_Texto($Productos['nom_producto']);
+       $nom_agrupacion       = $Productos['nom_agrupacion'];
+       $nom_producto         =  $Productos['nom_producto'];
        $nombre_imagen        = $Productos['nombre_imagen'];
-       $nompresentacion      = String_Functions::Formato_Texto($Productos['nompresentacion']);
+       $nompresentacion      =  $Productos['nompresentacion'];
        $pv_ocasional         = Numeric_Functions::Formato_Numero($Productos['pv_ocasional']);
        $pv_tron              = Numeric_Functions::Formato_Numero($Productos['pv_tron']);
        $pv_tron_escala_a     = $Productos['pv_tron_escala_a'];
