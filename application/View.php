@@ -53,7 +53,7 @@
 
             }
             else {
-                //Debug::Mostrar($RutaView);
+                Debug::Mostrar($RutaView);
                 throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
             }
 
