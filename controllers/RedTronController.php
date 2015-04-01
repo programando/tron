@@ -32,14 +32,14 @@ class RedTronController extends Controller
     }
 
 
-        public function Planes_de_Registro()
+        public function planes_de_registro()
     {
         $this->View->SetCss(array('tron_red_amigo_general','tron_Planes_funcionalidades'));
         $this->View->SetJs(array('tron_btn_ir_arriba'));
         $this->View->Mostrar_Vista("planes_de_registro");
     }
 
-        public function Funcionalidades_Interesantes()
+        public function funcionalidades_interesantes()
     {
         $this->View->SetCss(array('tron_red_amigo_general','tron_Planes_funcionalidades'));
         $this->View->SetJs(array('tron_btn_ir_arriba'));
@@ -81,7 +81,7 @@ class RedTronController extends Controller
         $this->View->Mostrar_Vista("comisiones");
     }
 
-           public function Bonificaciones()
+           public function bonificaciones()
     {
         $this->View->SetCss(array('tron_red_amigo_general'));
         $this->View->SetJs(array('tron_btn_ir_arriba'));
