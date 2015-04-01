@@ -10,7 +10,7 @@
                 <ul class="nav" >
                   <?php foreach ($this->Productos_Categorias_Nv_1  as $Categorias_Nv_1)
                     {
-                      $orden_nivel_1 = String_Functions::Formato_Texto($Categorias_Nv_1['orden_nivel_1']);
+                      $orden_nivel_1 = S $Categorias_Nv_1['orden_nivel_1'];
                       $idorden_nv_1  = $Categorias_Nv_1['idorden_nv_1'];   // Id del menu
                       $nombre_clase  = 'orden_nivel_'.$idorden_nv_1 ;
                     ?>
@@ -27,7 +27,7 @@
                             foreach($this->Productos_Categorias_Nv_2  as $Categorias_Nv_2)
                             {
                               $idorden_nv_1_en_nv_2 = $Categorias_Nv_2['idorden_menu_nivel_1']; // Campo que relaciona Categoria y subcategoria
-                              $orden_nivel_2        = String_Functions::Formato_Texto($Categorias_Nv_2['orden_nivel_2']) ;
+                              $orden_nivel_2        =  $Categorias_Nv_2['orden_nivel_2'] ;
                               $orden_nivel_2        = $orden_nivel_2  .' (' . $Categorias_Nv_2['cantidad'] . ')';
 
                               $idorden_nv_2         = $Categorias_Nv_2['idorden_nv_2'] ;
