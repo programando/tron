@@ -1,0 +1,114 @@
+
+
+/*Recuperar contraseña*/
+
+
+.formulario-olvide-password
+{
+   display: none ;
+}
+
+.cont-btn-enviar
+{
+	   margin-left: 15px;
+	   display: block;
+}
+
+#dv-img-cargando
+{
+	display: none;
+}
+
+ #dv-img-cargando-recomendar-producto
+ {
+ 	display: none;
+ }
+/*Recuperar contraseña*/
+
+
+
+/*INICIO CONTENEDOR DEL FORMULARIO DE INICIAR SEICION*/
+
+ .header-login
+ {
+ 	text-align: center;
+ 	background-color: #003e90;
+ 	color: white;
+ 	font-size: 18px;
+ 	width: 100%;
+ }
+
+#login-fom-btn-x
+{
+	color: white;
+	font-size: 16px;
+}
+#loginbox
+{
+   margin-top:10px;
+   width: 100%;
+   margin: 0px auto;
+   padding:0px;
+}
+
+.formulario_ingresar
+{
+	  width:100%;
+   padding: 0px;
+}
+
+
+/*FIN CONTENEDOR DEL FORULARIO DE INICIAR SEICION*/
+
+/*INICIO ENCABEZADO DEL FORMULARIO*/
+
+.encabezado_formulario
+{
+	    background: #003e90;
+}
+
+.titulo_formulario
+{
+	    color:white;
+}
+
+/*FIN ENCABEZADO DEL FORMULARIO*/
+
+
+/*INICIO CUERPO DEL FORMULARIO => INPUTS , BOTONES , CHECKBOX*/
+
+.cuerpo_formulario
+{
+    padding-top:30px;
+    background:white;
+}
+
+.input-group
+{
+	   margin-bottom: 25px
+}
+
+/*FIN CUERPO DEL FORMULARIO => INPUTS , BOTONES , CHECKBOX*/
+
+
+/*INICIO RECORDAR CONTRASEÑA*/
+
+.olvide_contraseña
+{
+
+	    margin-top:-25px;
+	    padding-left:40px;
+}
+
+/*FIN RECORDAR CONTRASEÑA*/
+
+/*BOTON => INICIAR SESION*/
+
+.boton
+{
+	    margin-bottom:5px;
+}
+
+/*BOTON => INICIAR SESION*/
+
+

@@ -1,0 +1,33 @@
+<!-- INICIO SECCION NOVEDADES -////////////////////////////////////////////////////////////////////////////  -->
+ <div id="contenido-productos">
+  <section>
+    <div class="row">
+       <div class="col-lg-12">
+           <h3 id="ofertas"><strong>OFERTAS</strong></h3>
+       </div>
+      </div>
+  </section>
+
+
+<div  name="ofertas">  </div>
+
+ <section>
+    <div class="container productos-center"><!--Class=Productos-Center => Se Encuentra En Los //Estilos-Titulos De Destacados , Ofertas y edades //-->
+       <div class="row">
+       <!-- INFORMACION DEL PRODUCTO -> OFERTAS-->
+          <?php
+             foreach ($this->Productos_Ofertas as $Productos)
+             {
+                include (APPLICATION_CODS . 'campos_productos.php');
+                $mostrar_imagen_varias_referencias=true;
+              ?>
+          <div class="col-lg-2  col-md-2 col-sm-2  col-xs-2"  id="articulos">
+              <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
+                </div><!-- FINAL COLUMNAS -->
+               <?php }?>
+              </div><!-- FINAL ROW -->
+         </div><!-- FINAL CONTAINER-->
+       </section><!-- FINAL SECCION OFERTAS -->
+       </div>
+
+

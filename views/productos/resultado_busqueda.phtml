@@ -1,0 +1,30 @@
+<div id="contenido-productos">
+    <section >
+      <div class="row">
+         <div class="col-lg-12">
+             <h3   id="destacados"><strong>RESULTADO BÚSQUEDA</strong></h3>
+         </div>
+      </div>
+   </section>
+ <!-- INICIO SECCION DESTACADOS -/////////////////////////////////////////////////////////////////////////////////////////////////  -->
+ <section>
+    <div class="container productos-center"><!--Class=Productos-Center => Se Encuentra En Los //Estilos-Titulos De Destacados , Ofertas y Novedades //-->
+       <div class="row">
+       <!-- INFORMACION DEL PRODUCTO -->
+          <?php
+             foreach ($this->Productos as $Productos)
+             {
+                $mostrar_imagen_varias_referencias=true;
+                include (APPLICATION_CODS . 'campos_productos.php');
+
+              ?>
+          <div class="col-lg-2  col-md-2 col-sm-2  col-xs-2"  id="articulos">
+               <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
+            </div><!-- FINAL COLUMNAS -->
+
+           <?php }?>
+          </div><!-- FINAL ROW -->
+     </div><!-- FINAL CONTAINER-->
+     <?php if(isset($this->Paginacion)) echo $this->Paginacion; ?>
+   </section><!-- FINAL SECCION DESTACADOS -->
+   </div>

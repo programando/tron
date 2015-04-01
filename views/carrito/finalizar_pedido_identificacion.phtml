@@ -1,0 +1,113 @@
+<!--
+    Los Estilos CSS => carpeta CSS => tron_carrito_identificacion.css
+          ********* Carrito-paso Indentificacion  *******
+-->
+
+<div class ="contenedor"><!--contenedor principal -->
+    <div class =" row">
+
+     <!--- //// Linea de tiempo //// -->
+          <div class="col-lg-12">
+              <div>
+                   <p class="text-center">
+                      <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
+                          <img src="<?=  BASE_IMG_TIENDA ;?>line_identificacion.png" class="line_tiempo">
+                        <?php else : ?>
+                          <img src="<?=  BASE_IMG_TIENDA ;?>line_identificacion_industrial.png" class="line_tiempo">
+                        <?php endif ;?>
+                   </p>
+              </div>
+          </div>
+     <!--- //// Linea de tiempo //// -->
+
+
+     <!-- //// division_pagina = identificacion /// -->
+         <div class="cuerpo-pagina">
+
+         <!-- Titulo -->
+        	   <div class =" col-lg-12 col-md-12 col-sm-12">
+               <div class="cont-titulo"><!-- Contenedor-titulo -->
+               	   <h2 class="titulo"><strong>Paso 1 </strong> <br> Identificación </h2><!--Titulo -->
+               </div><!-- Contenedor-titulo -->
+        	   </div>
+
+   <div class ="formulario"> <!-- Contenedor del formulario -->
+
+        <!-- Seleccion = identificacion -->
+        <div class =" col-lg-12 col-md-12 col-sm-12">
+			        	<div class="cont-seleccion-ident">
+                     <form class ="form-group" role ="form">
+
+                      <div class ="cont-ingresar"><!-- Ingresar -->
+                         <a href="#myModal" class="ing-mi-cuenta" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-user"></span>  Ingresar a mi cuenta
+                         </a>
+                      </div><!-- Ingresar -->
+
+                      <div class ="cont-registrar"><!-- Registrarse -->
+      		        			   <input type ="radio" name ="radio"  class ="registrarme" id ="registrarme">
+      		        			   <label for  ="registrarme" class="seleccion-indt-label"> Registrarme para finalizar compra</label>
+      		        		</div><!-- Registrarse -->
+
+
+      		        		<div class ="cont-pedido-amigo"><!-- Pedido-Amigo -->
+      		        			   <input type ="radio" name ="radio" class ="pedido_para_amigo" id ="pedido-amigo">
+      		        			   <label for ="pedido-amigo" class="seleccion-indt-label"> Hacer pedido para un amigo</label>
+      		        		</div><!-- Pedido-Amigo -->
+
+                     </form>
+			        	</div>
+        </div>
+        <!-- Seleccion = identificacion -->
+
+
+
+
+
+        <!-- /// Hacer pedido amigo /// -->
+            <div class =" col-lg-12 col-md-12 col-sm-12 pedido-amigo" id="pedido_amigo">
+
+                <div class="cont-formulario"><!-- Contenedor del formulario -->
+                	   <form class ="form-group">
+
+                         <div><!--Cedula de tu amigo -->
+                         	   <label for ="cedula-amigo" class ="text-label">Número cedula de tu amigo :</label>
+                         	   <input type ="text" class ="form-control" id ="cedula-amigo">
+					                        <div class="msj-validacion-cedu-amigo">
+					                            <img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img">
+								        			   	          Debes rellenar los campos obligatorios..!!
+								        			          </div>
+                         </div><br><!--Cedula de tu amigo -->
+
+                         <div><!-- Codigo usuario de tu amigo -->
+                         	   <label for="usuario-amigo" class ="text-label">Código usuario de tu amigo :</label>
+                         	   <input type="text" class= "form-control" id ="usuario-amigo">
+					                        <div class="msj-validacion-amigo">
+					                            <img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img">
+								        			   	          Debes rellenar los campos obligatorios..!!
+								        			          </div>
+                         </div><br><!-- Codigo usuario de tu amigo -->
+
+                         <div class ="cont-btn-ing-amigo"><!-- boton -->
+                         	   <button type ="button" class ="btn-ing-por-amigo" id ="btn-ing-por-amigo" >Ingresar por amigo</button>
+                         </div><!-- boton -->
+
+                	   </form>
+                </div><!-- Contenedor del formulario -->
+
+            </div>
+
+        <!-- /// Hacer pedido amigo /// -->
+
+   </div><!-- Contenedor del formulario -->
+
+         </div>
+     <!-- //// division_pagina = identificacion /// -->
+
+
+    </div>
+</div><!--contenedor principal -->
+<br><br><br>
+
+
+

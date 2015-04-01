@@ -1,0 +1,273 @@
+
+.contenedor
+{
+	  width: 95%;
+	  margin: 0px auto;
+}
+
+
+/*
+________ Mensaje Validacion ________
+*/
+.msj-validacion-direccion
+{				background: #ffeded;
+				color     : black;
+				display   : none;
+				text-align: center;
+}
+
+
+/*
+____ Ventana Modal = Editar direccion ________
+*/
+
+.ventana-editar-direccion
+{
+
+	   -webkit-border-radius: 	8px;
+	   -moz-border-radius: 	8px;
+	   border-radius: 	8px;
+
+}
+.cabezera-modal-editar
+{
+	   background: #003e90;
+	   color: white;
+	   font-weight: bold;
+				-webkit-border-radius: 	5px 5px 0px 0px;
+				-moz-border-radius   : 	5px 5px 0px 0px;
+				border-radius        : 	5px 5px 0px 0px;
+				border: none;
+}
+
+.cabezera-modal-error
+{
+	   background: #9e160c;
+	   color: white;
+	   font-weight: bold;
+				-webkit-border-radius: 	5px 5px 0px 0px;
+				-moz-border-radius   : 	5px 5px 0px 0px;
+				border-radius        : 	5px 5px 0px 0px;
+				border: none;
+}
+
+#texto-mensaje
+{
+			color : black;
+			font-size: 16px;
+}
+
+.cont-fromulario
+{
+	   width: 90%;
+	   margin: 10px auto;
+	   padding: 5px;
+}
+
+.text-label
+{
+	   color: #003e90;
+}
+
+/*
+__________ TItulo ____________
+*/
+
+.cont-titulo
+{
+	   display: block;
+	   margin-bottom: 30px;
+}
+
+.titulo ,
+.sutb-titulo
+{
+	   color: #003e90;
+}
+
+/*
+______ Cuerpo pagina _______
+*/
+
+.cuerpo-pagina
+{
+				margin: 0px auto;
+		 width : 85%;
+}
+
+
+/*
+_____ Infromacion comprador _______
+*/
+
+.infromacion-comprador
+{
+   display: block;
+	  width: 95%;
+	  margin: 0px auto;
+}
+
+.datos-comprador
+{
+    display: block;
+    margin-bottom: 20px;
+}
+
+/*
+________ Inptu = Radio  _________
+*/
+
+#direccion1 ,
+#direccion2 ,
+#direccion3
+{
+    float: left;
+    display: block;
+    margin-top: 30px;
+}
+
+
+/*
+_______ Dreccion  _________
+*/
+
+.fila-direcciones
+{
+    display: block;
+}
+
+.cont-direccion
+{
+    display: inline-block;
+}
+
+.direccion
+{
+    display: block;
+    float: left;
+    width: 85%;
+    margin-top: 3px;
+    padding-left: 3px;
+}
+
+
+.direccion1 ,
+.direccion2 ,
+.direccion3
+{
+			-moz-border-radius   : 8px;
+			-webkit-border-radius: 8px;
+			border-radius        : 8px;
+			border       : 1px solid #aaaaaa;
+			display      : block;
+			height       : 100px;
+			margin-bottom: 20px;
+			margin-left  : 5px;
+			max-height   : 100px;
+			max-width    : 330px;
+			padding      : 10px 10px;
+			text-align   : left;
+			width        : 330px;
+			font-size: 13px;
+}
+
+.direccion1:hover
+{
+	  background: #cecece;
+	  cursor: pointer;
+}
+
+.direccion2:hover
+{
+	  background: #cecece;
+	  cursor: pointer;
+}
+
+.direccion3:hover
+{
+	  background: #cecece;
+	  cursor: pointer;
+}
+
+/*
+___________ Editar-direccion ____________
+*/
+
+.cont-editar
+{
+	   display: block;
+	   width: 10%;
+	   float: right;
+	   margin-top: 25px;
+}
+
+.img-editar
+{
+   width: 30px;
+}
+/*
+____ Link = Crear Drireccion ______
+*/
+
+.crear-direccion
+{
+	   color: #003e90;
+	   margin-left: 15px;
+
+
+}
+
+/*
+________ button Continuar __________
+*/
+
+.cont-btn-continuar
+{
+	   display: block;
+	   text-align: center;
+}
+
+
+.btn-continuar
+{
+  -moz-box-shadow      : inset 0px 1px 0px 0px #f7c5c0;
+  -webkit-box-shadow   : inset 0px 1px 0px 0px #f7c5c0;
+  box-shadow           : inset 0px 1px 0px 0px #f7c5c0;
+  background           : -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fc8d83), color-stop(1, #e4685d));
+  background           : -moz-linear-gradient(top, #fc8d83 5%, #e4685d100%);
+  background           : -webkit-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
+  background           : -o-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
+  background           : -ms-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
+  background           : linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
+  filter               : progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc8d83', endColorstr='#e4685d',GradientType=0);
+  background-color     : #fc8d83;
+  -moz-border-radius   : 6px;
+  -webkit-border-radius: 6px;
+  border-radius        : 6px;
+  border               : 1px solid #d83526;
+  color                : #ffffff;
+  font-size            : 15px;
+  font-weight          : bold;
+  padding              : 6px 24px;
+  text-decoration      : none;
+  text-shadow          : 0px 1px 0px #b23e35;
+  cursor               : pointer;
+}
+
+.btn-continuar:hover
+{
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4685d), color-stop(1, #fc8d83));
+    background:-moz-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:-webkit-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:-o-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:-ms-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4685d', endColorstr='#fc8d83',GradientType=0);
+    background-color:#e4685d;
+}
+
+.btn-continuar:active
+{
+    position:relative;
+    top:1px;
+}

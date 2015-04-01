@@ -1,0 +1,40 @@
+
+/*INICIO-SLIDER*/
+
+.adaptar
+{
+   width: 100%;
+}
+
+/*FINAL-SLIDER*/
+
+/*INICIO-IMG-AVISOS ACERCA DE LA RED , PASES ,PLANES , FUNCIONALIDADES*/
+
+#info img
+{
+   width: 100%;
+}
+
+
+#info
+{
+			background    : #f6f5f5;
+			display       : block;
+			margin-bottom :11%;
+			margin-right  : 20px;
+			vertical-align: center;
+}
+
+#info a
+{
+			text-decoration:none;
+}
+
+#info:hover
+{
+			-moz-box-shadow   : 0px 5px 10px 5px #828282 ;
+			-webkit-box-shadow: 0px 5px 10px 5px #828282 ;
+			box-shadow        : 0px 5px 10px 5px #828282 ;
+}
+
+/*FIN-IMG-AVISOS ACERCA DE LA RED , PASES ,PLANES , FUNCIONALIDADES*/

@@ -1,0 +1,166 @@
+
+.container-registro
+{
+   margin:-20px auto;
+   width: 98%;
+}
+
+/*Campos Ocultos*/
+
+.campos-cedu-ciudadana
+{
+   display: block;
+}
+
+.campos-nit /*Campos de formularios NIT que se enceuntran escondidos*/
+{
+	  display: block;
+}
+
+/*Campos Ocultos*/
+
+
+/* Menseja De Validacion*/
+
+.error-img /* IMG = ( X )*/
+{
+    width: 12px;
+
+}
+
+.mjs-valid-d_cumento     ,
+.mjs-valid-nit           ,
+.mjs-valid-D-V           ,
+.mjs-valid-Confi-NIT     ,
+.mjs-valid-confi-D-V     ,
+.mjs-valid-nit-razon-scl ,
+.mjs-valid-Num-dcto      ,
+.mjs-valid-nombre        ,
+.mjs-valid-pais          ,
+.mjs-valid-confi-num-dcto,
+.mjs-valid-apellidos     ,
+.mjs-valid-departamento  ,
+.mjs-valid-genero        ,
+.mjs-valid-municipio     ,
+.mjs-valid-residencia    ,
+.mjs-valid-barrio        ,
+.mjs-valid-correo        ,
+.mjs-valid-cel           ,
+.mjs-valid-confi-correo
+{
+     -moz-border-radius   : 4px;
+     -ms-border-radius    : 4px;
+     -o-border-radius     : 4px;
+     -webkit-border-radius: 4px;
+     background           : #ffeded;
+     border-radius        : 4px;
+     color                : black;
+     display              : none;
+     height               : auto;
+     text-align           : center;
+}
+
+.mensaje-error-tipo-documento
+{
+	  width: 32%;
+}
+
+.mjs-valid-barrio
+{
+	  width: 83%;
+}
+
+.mjs-valid-correo
+{
+    width: 83%;
+}
+
+/* Menseja De Validacion*/
+
+
+/* Formulario */
+
+.contenedor-formulario
+{
+   display: block;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   -ms-border-radius: 8px;
+   -o-border-radius: 8px;
+   border-radius: 8px;
+	  width: 80%;
+	  margin: -20px auto;
+	  padding: 20px;
+	  -webkit-box-shadow: 0px 5px 25px 0px #000000;
+	  box-shadow: 0px 5px 25px 0px #000000;
+}
+
+#tipo-document
+{
+	  width: 150px;
+}
+
+
+.text-label
+{
+	  color: #003e90;
+}
+
+.seleccion-genero
+{
+	  margin-top: 52px;
+}
+
+
+/* Formulario */
+
+
+/*Boton Continuar*/
+
+.contenedor-flechas-pasos
+{
+   display: block;
+   width: 82%;
+   margin: 0px auto;
+}
+
+
+
+.cont-btn-continuar
+{
+	  width: 15%;
+	  margin: 10px auto;
+	  display: block;
+}
+
+.btn-continuar
+{
+		   background: #003e90;
+		   color:white;
+}
+
+.btn-continuar:hover
+{
+	  color: white;
+   background: #0469ed;
+}
+
+
+.btn-continuar:link
+{
+   background: #0469ed;
+   color: white;
+}
+
+.btn-continuar:visited
+{
+   background: #0469ed;
+   color: white;
+}
+
+.btn-continuar:active
+{
+   background: #0469ed;
+   color: white;
+}
+/* Boton Continuar*/

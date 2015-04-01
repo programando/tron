@@ -1,0 +1,9 @@
+
+ /**   Efecto activo en la barra-menu
+       Este efecto corresponde a novedades
+**/
+
+.active_novedades
+{
+    background: #0469ED;
+}

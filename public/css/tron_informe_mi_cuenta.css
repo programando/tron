@@ -1,0 +1,125 @@
+
+.contenedor
+{
+	    width: 95%;
+	    margin:0px auto;
+}
+
+/*
+_____ Estado cuenta dinero ,
+      Estado de mi cuenta puntos _______
+*/
+.Estado-cuenta
+{
+	   font-size: 28px;
+    text-align: center;
+}
+
+.saldos
+{
+	  font-size: 54px;
+	  text-align: center;
+}
+
+/*
+______ Cabezara de la tabla ________
+*/
+
+.cont-cabezera-tabla-dinero /* Tabla-dinero */
+{
+	   display: block;
+	   border-bottom: 2px solid #009900;
+	   padding-bottom: 2px;
+}
+
+.Cabezera-tabla /* Tabla-dinero */
+{
+				display: inline-block;
+				margin: 0px;
+				color: #009900;
+}
+
+.cont-cabezera-tabla-puntos/* Tabla-puntos */
+{
+	   display: block;
+	   border-bottom: 2px solid #ff6600;
+	   padding-bottom: 2px;
+}
+
+.Cabezera-tabla-puntos/* Tabla-puntos */
+{
+				display: inline-block;
+				margin: 0px;
+				color: #ff6600;
+}
+
+/*
+_______ Cuerpo de la tabla ________
+*/
+
+.cuerpo-tabla/* Cuerpo-tabla= scroll */
+{
+   overflow:auto;
+   height:200px;
+   display: block;
+   padding: 0px;
+
+}
+.fecha
+{
+ width: 4%;
+ max-width: 50px;
+font-size: 13px
+}
+
+.concepto
+{
+ width: 30%;
+ max-width: 50px;
+ font-size: 13px
+}
+
+.entran
+{
+	width: 5%;
+	max-width: 50px;
+	font-size: 13px
+}
+.salen
+{
+	width: 5%;
+	max-width: 50px;
+	font-size: 13px
+}
+.saldo
+{
+	width: 5%;
+	max-width: 50px;
+	font-size: 13px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hol
+{
+	   border: 1px solid black;
+	   width: 600px;
+	   display: block;
+}

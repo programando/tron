@@ -1,0 +1,68 @@
+<!-- Los estilos Css se encuentran en el documento CSS => tron_carrito_forma_pago.css
+                    ******** Paso 4 = Seleccion de froma de pago ********
+-->
+
+<div class="contenedor"><!-- Contenedor -->
+	   <div class="row">
+
+    <!-- /// Linea de tiempo /// -->
+          <div class="col-lg-12">
+              <div>
+                   <p class="text-center">
+                        <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
+                        <img src="<?=  BASE_IMG_TIENDA ;?>line_forma_pago.png" class="line_tiempo">
+                        <?php else : ?>
+                        <img src="<?=  BASE_IMG_TIENDA ;?>line_forma_pago_industrial.png" class="line_tiempo">
+                        <?php endif ;?>
+                   </p>
+              </div>
+          </div>
+    <!-- /// Linea de tiempo /// -->
+
+   <!-- /// Cuerpo  de la pagina ///  -->
+        <div class="cuerpo-pagina"><!-- Contenedor de la pagina -->
+
+            <!-- Titulo -->
+       	   <div class=" col-lg-12 col-md-12 col-sm-12">
+              <div class="cont-titulo"><!-- Contenedor-titulo -->
+              	   <h2 class="titulo"><strong>Paso 4 </strong> <br>
+                       <small class="sutb-titulo">selección de forma de pago.</small>
+              	   </h2><!--Titulo -->
+              </div><!-- Contenedor-titulo -->
+       	   </div>
+            <!-- Titulo -->
+
+
+           <!-- opciones de pago -->
+		           <div>
+		           	<div class="col-lg-12 col-md-12 col-sm-12">
+		           		<div class="cont-opciones-pago"><!-- Cont-optiones-pago-->
+
+		           			<div class="option-pago1"><!-- Forma-pago1 -->
+		           				   <img src="<?= BASE_IMG_TIENDA ;?>forma-pago1.png" class="img-pago1" />
+		           			</div><!-- Forma-pago1 -->
+
+		           			<div class="option-pago2"><!-- Forma-pago2 -->
+		           				   <img src="<?= BASE_IMG_TIENDA ;?>forma-pago2.jpg" class="img-pago2" />
+		           			</div><!-- Forma-pago2 -->
+
+		           		</div>
+		           	</div>
+		           </div>
+           <!-- opciones de pago -->
+
+           <!-- Boton = Seleccionar modo de pago despues -->
+														<div class="col-lg-12 col-md-12 col-sm-12">
+														    <div class="cont-btn-slec-forma-pago"><!-- contenedor del boton  -->
+														        <button type="button" class="btn-forma-pago">Seleccionar forma de pago más tarde</button>
+														    </div>
+														</div>
+           <!-- Boton = Seleccionar modo de pago despues -->
+
+        </div><!-- Contenedor de la pagina -->
+
+   <!-- /// Cuerpo  de la pagina ///  -->
+
+	   </div>
+</div><!-- Contenedor -->
+<br><br><br>

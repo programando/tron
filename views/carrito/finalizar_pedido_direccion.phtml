@@ -1,0 +1,107 @@
+<!-- Los Estilos css Se encuentran en CSS => tron_carrito_confi_envio.css -->
+
+<div class="contenedor"><!-- Contenedor principal -->
+ <div class="row">
+
+   <!--- //// Linea de tiempo //// -->
+          <div class="col-lg-12">
+              <div>
+                   <p class="text-center">
+                        <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
+                        <img src="<?=  BASE_IMG_TIENDA ;?>linea_confirmacion_envio.png" class="line_tiempo">
+                        <?php else : ?>
+                        <img src="<?=  BASE_IMG_TIENDA ;?>linea_confirmacion_envio_industrial.png" class="line_tiempo">
+                        <?php endif ;?>
+                   </p>
+              </div>
+          </div>
+  <!--- //// Linea de tiempo //// -->
+
+  <!-- /// Cuerpo de la pagina  /// -->
+  <div class="cuerpo-pagina"><!-- Contenedor del cuepro de la pagina -->
+
+   <!-- Titulo -->
+   <div class =" col-lg-12 col-md-12 col-sm-12">
+     <div class="cont-titulo"><!-- Contenedor-titulo -->
+       <h2 class="titulo"><strong>Paso 2 </strong> <br>
+        <small class="sutb-titulo">Usuario Pedido y Confirmación dirección de envío</small>
+      </h2><!--Titulo -->
+    </div><!-- Contenedor-titulo -->
+  </div>
+  <!-- Titulo -->
+
+  <!-- Barrar = Usiario -->
+  <div class="col-lg-12 col-md-12 col-sm-12">
+   <div class="barra-usurarios"><!-- Barraar -->
+
+     <div class="col-lg-3 col-md-3 col-sm-3 colum-usuarios-rgts">
+      <div class="mis_usuarios"> Mis Usuarios Registrados: </div>
+    </div>
+
+    <div class="col-lg-9 col-md-9 col-sm-9 colum-usurarios">
+      <div><!-- Cont-Usuarios -->
+       <ul class="ul-usuarios">
+        <?php
+        $Usuarios  = Session::Get('codigos_usuario');
+        foreach ($Usuarios  as $Usuario) : ;?>
+          <li class="usuarios usu-1 li-usuarios"
+              idtercero-pedido        = <?= $Usuario['idtercero'] ;?>
+              cantidad-direcciones    = <?= $Usuario['cantidad_direcciones'] ;?>
+              id = <?= $Usuario['idtercero'] ;?>
+        >
+        <?= $Usuario['codigousuario'] ;?> </li><!-- Usuario -->
+      <?php endforeach ;?>
+    </ul>
+  </div>
+</div>
+
+</div><!-- Barraar -->
+</div>
+<!-- Barrar = Usiario -->
+
+<!-- Formulario -->
+<div class="col-lg-12 col-md-12 col-sm-12">
+   <div class="fila-direcciones"><!-- Direccion -->
+   <span class="sutb-titulo" style="margin-left: 5px;">Seleccione la dirección a donde será enviado el pedido...</span>
+  <?php if (Session::Get('cantidad_direcciones') < 3)  :;?>
+    <span>
+          <a href="#venta_editar"
+            class="btn-editar-direccion"
+            iddirecciondespacho   = "0" >
+          o cree una nueva dirección
+        </a>
+    </span>
+  <?php endif;?>
+  <br>
+    <?php
+          $I = 0;
+            foreach($this->Direcciones as $Direccion) {
+              include (APPLICATION_CODS . 'campos_direccion_usuario.php'); // Carga las variables direcciones
+    ;?>
+    <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion_datos.php');?>
+    <?php };?>
+  </div><!-- Direccion -->
+</div>
+
+
+
+<!-- /// Button /// -->
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <div class="cont-btn-continuar">
+    <button type="button" class="btn-continuar">Continuar</button>
+  </div>
+</div>
+<!-- /// Button /// -->
+
+</div><!-- Contenedor del cuepro de la pagina -->
+<!-- /// Cuerpo de la pagina  /// -->
+
+</div>
+</div><!-- Contenedor principal -->
+   <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion.php');?>
+   <?php include (APPLICATION_SECTIONS . 'ventana_mensaje_error.php');?>
+
+<br><br>
+
+
+

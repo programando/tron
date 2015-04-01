@@ -1,0 +1,19 @@
+ <div id="contenido-productos">
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <?php
+            foreach ($this->Productos_Pagina as $Productos)
+            {
+                $mostrar_imagen_varias_referencias=true;
+                include (APPLICATION_CODS . 'campos_productos.php');
+
+              ?>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="articulos"><!--Articulos -->
+                 <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
+
+              </div><!--Articulos col-lg-3 col-md-3 col-sm-3 col-xs-3" id="articulos -->
+          <?php };?>
+
+              <?php if(isset($this->Paginacion)) echo $this->Paginacion; ?>
+</div>
+</div>
+

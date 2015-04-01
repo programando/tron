@@ -1,0 +1,66 @@
+		@font-face {
+		font-family   : 'icomoon';
+		src           : url('../fonts/icomoon.eot?xccaiv');
+		src           : url('../fonts/icomoon.eot?#iefixxccaiv') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?xccaiv') format('woff'),
+		url('../fonts/icomoon.ttf?xccaiv') format('truetype'),
+		url('../fonts/icomoon.svg?xccaiv#icomoon') format('svg');
+		font-weight   : normal;
+		font-style    : normal;
+		}
+
+		[class^       ="icon-"], [class*=" icon-"] {
+		font-family   : 'icomoon';
+		speak         : none;
+		font-style    : normal;
+		font-weight   : normal;
+		font-variant  : normal;
+		text-transform: none;
+		line-height   : 1;x-font-smoothing: grayscale;
+}
+
+.inicio:before {
+	content: "\e600";
+	font-family   : 'icomoon';
+}
+
+.mis_pedidos:before {
+	content: "\e601";
+	font-family   : 'icomoon';
+}
+
+.comisiones:before {
+	content: "\e602";
+	font-family   : 'icomoon';
+}
+
+.registrar_amigo:before {
+	content: "\e604";
+	font-family   : 'icomoon';
+}
+
+.llave-cont:before {
+	content: "\e603";
+	font-family   : 'icomoon';
+}
+
+.configuracion:before {
+	content: "\e605";
+	font-family   : 'icomoon';
+}
+
+.favoritos:before {
+	content: "\e606";
+	font-family   : 'icomoon';
+}
+
+.enter:before {
+	content: "\e607";
+	font-family   : 'icomoon';
+}
+
+.exit:before {
+	content: "\e608";
+	font-family   : 'icomoon';
+}
+

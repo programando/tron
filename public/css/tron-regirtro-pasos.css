@@ -1,0 +1,92 @@
+/*Flechas Superiores = Pasos de Registro*/
+
+
+
+.cont-flechas-pasos
+{
+			color     : white;
+			min-width : 300px;
+			padding-top   : 0px;
+			text-align: center;
+			width     : 100%;
+			height: 50px;
+}
+
+.pasosPedido
+{
+    height     : 50px;
+    list-style : none;
+    margin-left     : -25px ;
+    min-width  : 300px;
+    overflow   : hidden;
+    padding-top: 10px;
+    text-align : center;
+    width      : 90%;
+}
+
+.pasosPedido li
+{
+			float    : left;
+			font-size: 12px;
+			padding  : 5px 7px 5px 35px;
+			width    : 300px;
+}
+
+.pasosPedido li.arrow_box
+{
+			background: none repeat scroll 0 0 #003e90;/*#E8EEEE*/
+			position  : relative;
+}
+
+.pasosPedido .arrow_box:after, .pasosPedido .arrow_box:before
+{
+			border        : solid transparent;
+			content       : " ";
+			height        : 0;
+			left          : 100%;
+			pointer-events: none;
+			position      : absolute;
+			top           : 50%;
+			width         : 0;
+}
+.pasosPedido .arrow_box:after
+{
+			border-color     : none;/*rgba(232, 238, 238, 0)*/
+			border-left-color: #003e90;/*#e8eeee*/
+			border-width     : 18px;
+			margin-top       : -18px;
+}
+
+
+.pasosPedido .op1
+{
+    z-index: 3;
+}
+
+.pasosPedido .op2
+{
+    z-index: 2;
+}
+
+.pasosPedido .op3
+{
+    z-index: 1;
+}
+
+.pasosPedido li.inactivo-2
+{
+   background-color: #9e9e9e;/*#BBC6C8*/
+}
+.pasosPedido li.inactivo-2:after {
+    border-color: rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) #9e9e9e;/*#BBC6C8*/
+}
+
+.pasosPedido li.inactivo-3
+{
+   background-color: #cecece;/*#BBC6C8*/
+}
+.pasosPedido li.inactivo-3:after {
+    border-color: rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) #cecece;/*#BBC6C8*/
+}
+
+/*Flechas Superiores = Pasos de Registro*/

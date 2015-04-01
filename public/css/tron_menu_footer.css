@@ -1,0 +1,600 @@
+
+/*..............ESTILOS DE EL HEADER Y FOOTER........*/
+.header-tron
+{
+	   padding: 0px;
+	   display: block;
+	   width: 100%;
+}
+
+.cont-per
+{
+     display: block;
+     padding: 0px ;
+}
+
+
+body
+{
+   background: #ffffff;
+}
+
+ul, li, a
+{
+		cursor: pointer;
+}
+
+.img-logo
+{
+    margin-bottom: 0px;
+}
+
+.mensaje-agregar_producto
+{
+				bottom  : 5px;
+				display : none;
+				height  : auto;
+				position: fixed;
+				right   : 10px;
+				z-index : 999999;
+}
+
+.columna-logo ,
+.contenedor-input ,
+.columna-tabs
+{
+			margin : 0px;
+			padding: 0px;
+}
+
+/* form buscar*/
+
+
+
+.contenido-input-buscar
+{
+			-moz-border-radius   : 	8px;
+			-ms-border-radius    : 	8px;
+			-o-border-radius     : 	8px;
+			-webkit-border-radius: 	8px;
+			border               :  3px solid  #b5b5b5;
+			border-radius        : 	8px;
+			display              :  block;
+			margin-bottom        :  0px;
+			margin-top           :  45px;
+			min-width            :  447px;
+			padding              :  0px;
+			width                :  350px;
+}
+
+
+.columan-input
+{
+			margin-right: -5px;
+			max-width   : 360px;
+			min-width   : 360px;
+			padding     : 0px;
+
+}
+
+.input-buscar
+{
+				border    : none;
+				text-align: center;
+				z-index   : 1;
+
+}
+
+.btn-buscar:hover
+{
+			background: #0469ed;
+			color     : white;
+}
+
+.btn-buscar
+{
+				background           : #003e90;
+				color                : white;
+				height               : 34px;
+				border               : none;
+				z-index              : 500;
+				width                : 86px;
+				-webkit-border-radius: 0px 5px 5px 0px;
+				-moz-border-radius   : 0px 5px 5px 0px;
+				-ms-border-radius    : 0px 5px 5px 0px;
+				-o-border-radius     : 0px 5px 5px 0px;
+				border-radius        : 0px 5px 5px 0px;
+}
+
+.btn-buscar:link
+{
+			color     : white;
+			background: #003e90;
+}
+
+.btn-buscar:visited
+{
+			background: #0469ed;
+			color     : white;
+}
+
+.btn-buscar:active
+{
+			color     : white;
+			background: #003e90;
+}
+
+.cont-selec-busquedad
+{
+	   display: block;
+	   text-align: center;
+	   margin-top: 0px;
+}
+
+.option-busquedad
+{
+	   display: inline-block;
+}
+
+#marcas         ,
+#nombre-product ,
+#palabra-clave
+{
+	   margin-left: 5px;
+	   margin-right: 5px;
+	   margin-top: 4px;
+	   float: left;
+}
+
+.text-label
+{
+	    font-weight: normal;
+	    color: #003e90;
+	    display: inline-block;
+}
+
+/* Innput buscar */
+
+/*INFORMACION ACERCA DE CUENTAS : REGISTRAR , INGRESAR , REGISTRAR A AMIGO*/
+
+
+
+#personal
+{
+			color        : #003e90;
+			float        : right;
+			font-size    : 13px;
+   margin-top   : 5px;
+   margin-right : 0px;
+   margin-bottom: -10px;
+   padding      :  0px;
+}
+
+.ing , .rgs
+{
+			color        : #003e90;
+			margin-bottom: 0px;
+			text-align   :center;
+}
+
+#personal ul li
+{
+   display: inline-block;
+}
+
+#personal ul li a
+{
+	  font-size    : 13px;
+   padding: 0px;
+	  display: block;
+}
+
+#personal ul li .menu li
+{
+     display: block;
+     width: 90%;
+     color: ;
+     text-align: left;
+     margin: 0px auto;
+     margin-top: 2px;
+}
+
+.menu li a:hover
+{
+				color  : white;
+				display: block;
+				background: #0469ed;
+				-webkit-border-radius: 2px;
+				-moz-border-radius: 2px;
+				border-radius: 2px;
+}
+
+/* FINAL INFORMACION ACERCA DE CUENTAS : REGISTRAR , INGRESAR , REGISTRAR A AMIGO*/
+
+
+/* TABLA ..*/
+
+.cont-carrito-compras
+{
+				-moz-border-radius   : 5px ;
+				-ms-border-radius    : 5px ;
+				-o-border-radius     : 5px ;
+				-webkit-border-radius: 5px ;
+				border               : 2px solid #b5b5b5;
+				border-radius        : 5px ;
+				display              : block;
+				float                : right;
+				font-size            : 11px;
+				margin-right         : 0px;
+				min-width            : 200px;
+				width                : 50%;
+}
+
+.cont-carrito-compras:hover
+{
+    background: #eaeaea;
+    cursor: pointer;
+
+}
+
+.imagen-carrito
+{
+			float       : left;
+			height      : 47px;
+			width       : 50px;
+			border-right: 2px solid #b5b5b5;
+}
+
+.Cont-precios
+{
+   margin-left: 50px;
+}
+
+.precio-ocacional , .precio-cliente-tron
+{
+			display       : block;
+			height        : 23px;
+			padding-bottom: -3px;
+			padding-left  : 10px;
+			padding-right : 10px;
+			padding-top   : 4px;
+}
+
+.precio-ocacional
+{
+   padding-left: 18px;
+}
+
+.img-cliente-precios
+{
+			float       : left;
+			height      : 15px;
+			margin-right: 3px;
+}
+
+.precio-ocacional
+{
+		 border-bottom: 2px solid #b5b5b5;
+}
+
+/* FINAL DE TABLA*/
+
+
+/* TABS = Hogar-Industrila*/
+
+.tabs-menu
+{
+		float        : right;
+		margin-bottom: -5px;
+		margin-right : -20px;
+		min-width    : 270px;
+		width        : 270px;
+		margin-top: 5px;
+}
+
+
+
+.tab-hogar ,
+.tab-industrial
+{
+			display              : inline-block;
+			width                : 130px;
+			text-align           : center;
+			color                : white;
+			text-decoration      : none;
+			height               : 28px;
+			padding-top          : -2px;
+			-webkit-border-radius: 10px 10px 0px 0px;
+			-moz-border-radius   : 10px 10px 0px 0px;
+			-ms-border-radius    : 10px 10px 0px 0px;
+			-o-border-radius     : 10px 10px 0px 0px;
+			border-radius        : 10px 10px 0px 0px;
+}
+
+/* Tab = Hogar*/
+
+
+.tab-hogar
+{
+			background    : #003e90;
+			display       : inline-block;
+			padding-bottom: 40px;
+			padding-top   : 1px;
+}
+
+.tab-hogar:link
+{
+			color          :white;
+			margin-bottom  : -2px;
+			text-decoration: none;
+}
+
+.tab-hogar:visited
+{
+			color          :white;
+			text-decoration: none;
+}
+
+
+.tab-hogar:hover
+{
+			background     : #0469ed;
+			color          :white;
+			text-decoration: none;
+}
+
+.tab-hogar:active
+{
+			color          :white;
+			text-decoration: none;
+}
+
+
+/* Tab = Industrila*/
+
+.logo-indusrial
+{
+			height       : 17px;
+			margin-bottom: 5px;
+}
+
+.tab-industrial
+{
+		background    : #7d170f;
+		padding-bottom: 40px;
+		padding-top   : -2px;
+
+}
+
+.tab-industrial:link
+{
+			color          :white;
+			text-decoration: none;
+}
+
+.tab-industrial:visited
+{
+			color          :white;
+			text-decoration: none;
+}
+
+.tab-industrial:hover
+{
+			background     : #ba070d;
+			color          :white;
+			text-decoration: none;
+}
+
+.tab-industrial:active
+{
+			color          :white;
+			text-decoration: none;
+}
+
+/* TABS = Hogar-Industrila*/
+
+
+
+/* MENU-HOGAR = MENU-PRINCIPAL DE PROYECTO TRON*/
+
+
+ul .selected{color:red;}
+
+
+
+
+#menu
+{
+			background: #003e90;
+			border    : none;
+}
+
+#menu ul li .list-menu
+{
+	  color: white;
+	  margin-left: 5px;
+}
+
+#flecha ,
+#inicio-menu
+{
+	  color: white;
+}
+
+#inicio-menu
+{
+	   margin-right: 5px;
+}
+
+#inicio-menu:hover
+{
+	  background: #0469ed
+}
+
+#flecha:hover
+{
+	  background: #0469ed
+}
+
+.img-industrial
+{
+			height    : 20px;
+			margin-top: -5px;
+			width     : 20px;
+}
+
+.campo-industrial
+{
+   margin-left:110px;
+}
+
+#menu ul li .list-menu:hover
+{
+	  background: #0469ed;
+}
+
+#menu ul li .list-menu:active
+{
+	  background: #0469ed;
+}
+
+
+/*
+    Header2-Menu-Fijo-Hogar
+*/
+
+.header2
+{
+				-moz-box-shadow   : 0px 2px 20px 5px  #282828;
+				-o-box-shadow     : 0px 2px 20px 5px  #282828;
+				-webkit-box-shadow: 0px 2px 20px 5px  #282828;
+				background        : #ffffff;
+				box-shadow        : 0px 2px 20px 5px  #282828;
+				display           : block;
+				height            : 125px;
+				margin            : 0;
+				max-height        :
+				overflow          : hidden;
+				position          : fixed;
+				width             : 100%;
+				z-index           : 100;
+}
+
+.header2 .img-logo
+{
+	   width:200px;
+    margin-top: -5px;
+    padding: 0px;
+    height: 80px;
+}
+
+.header2  .cont-carrito-compras
+{
+   float: left;
+   margin-left: -70px;
+   margin-top: -10px;
+   margin-bottom: -30px;
+
+}
+
+.header2 .contenido-input-buscar
+{
+	   margin-top:15px;
+	   margin-bottom: 0px;
+    margin-left: -80px;
+	   display: block;
+
+}
+
+.header2 .col-selec-busquedad
+{
+     display: block;
+     margin-left: -80px;
+     height: 20px;
+}
+
+/*Header2-Menu-Fijo-Hogar*/
+
+
+/*MENU-INDUSTRIAL , MENU-FIJO*/
+
+.index_industral
+{
+	   background:  #ba070d;
+}
+
+.text-label-industrila /* tipo-busquedad = margas , nombre-prod , palabra-clave */
+{
+    color: #7d170f;
+}
+
+#menu-industial
+{
+				background: #7d170f;
+				border    : 0px;
+				color     : white;
+				display   : block;
+}
+
+#flecha-industrial,
+#inicio-menu-industrial
+{
+	  color: white;
+	  margin-right: 5px;
+}
+
+#inicio-menu-industrial:hover
+{
+	  background: #ba070d;
+}
+
+#menu-industial ul li .list-indust:hover
+{
+	  background: #ba070d;
+}
+
+#menu-industial ul li .list-indust
+{
+	  color: white;
+	  margin-right: 5px;
+}
+
+/*MENU-INDUSTRIAL , MENU-FIJO*/
+
+
+
+/*FOOTER ...*/
+
+footer
+{
+		  background: #333333;
+		  padding   : 10px 0px;
+		  width:100%;
+}
+
+#tl
+{
+		  border-bottom: 1px solid white;
+		  color        : white;
+		  display      : block;
+		  width        : 160px;
+}
+
+footer ul li a
+{
+    color: #969696;
+}
+
+footer ul li a:hover
+{
+	   color: white;
+}
+
+.footer-ing ,
+.footer-rgs
+{
+   color: #969696;
+}
+/*FINAL FOOTER ...*/
+
+

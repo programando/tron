@@ -1,0 +1,53 @@
+.contenedor
+{
+	   width: 95%;
+	   margin: 0px auto;
+}
+
+/*
+______ Section = Amigos Inactivos _______
+*/
+
+.cont-info-amigos-inactivos
+{
+	   display: block;
+	   padding: 10px;
+}
+
+/*
+_________ Amigos Marzo __________
+*/
+
+.numero_marzo
+{
+	   float: left;
+	   font-size: 80px;
+	   margin-top: -20px;
+	   margin-right: 10px;
+	   color: #009900;
+}
+
+.text-amigo_marzo
+{
+	    margin-top: 5px;
+	    color: #009900;
+}
+
+/*
+________ Amigos ( 1 ) mes _______
+*/
+
+.numero-2-mes
+{
+	   float: left;
+	   font-size: 80px;
+	   margin-top: -20px;
+	   margin-right: 10px;
+	   color: #ff6600;
+}
+
+.text-amigo-2-mes
+{
+	    margin-top: 5px;
+	    color: #ff6600;
+}

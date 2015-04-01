@@ -1,0 +1,296 @@
+
+/*
+_______ Efecto = Activo => menu _______
+*/
+
+
+/*Presentacion Del Producto*/
+
+.contenedor_del_producto_presentado
+{
+     border:1px solid  #999999;
+     padding:5px;
+     width:90%;
+     display:block;
+     float:right;
+}
+
+.presentacion_del_producto
+{
+    cursor: pointer;
+}
+
+.nombre_del_producto
+{
+    color: #4168a3;
+    margin: 5px 0px;
+}
+
+.aviso_de_los_cojines
+{
+    font-size: 13px;
+    color: #999999;
+}
+
+.precio_publico-ocacional
+{
+    font-size:16px;
+}
+
+.precio_del_cliente_tron
+{
+    font-size:20px;
+    color:red;
+}
+
+.Precio_varia_segun_la_cantidad
+{
+	       font-size: 13px;
+	       color:red;
+}
+
+.titulo_fragancia ,
+.titulo_de_accesorios
+{
+	    display:block;
+	    padding:5px 10px;
+	    border-bottom:1px solid #003E90;
+	    width:95%;
+	    color:#003E90;
+}
+
+.contenido_por_fragancia
+{
+	    display:block;
+}
+
+.imagen_fragancias
+{
+     margin:5px auto;
+     width:99px;
+}
+
+.datos_acerca_del_accesorio
+{
+	    color: #003E90;
+	    font-size:14px;
+	    display:block;
+	    border:1px solid black;
+	    width:100px;
+	    min-width:100px;
+	    max-width:100px;
+}
+
+.precios_accesorio
+{
+	   font-size:14px;
+}
+
+.precios_accesorio-rojo
+{
+	  color:red;
+	  font-size:14px;
+}
+
+/*Presentacion Del Producto*/
+
+
+
+/*Resumen-Carrito*/
+
+.carrito-resumen-pedido
+{
+					border   : 1px solid #999999;
+					max-width: 250px;
+					min-width: 250px;
+					padding  : 10px;
+					width    : 250px;
+     position : fixed;
+     z-index:6;
+     margin-top:0px;/*Se Debe incluir un Margen Superior Para Evitar Que el Carrioto quede Detras de el Menu Fijo*/
+     background:white;
+}
+
+.titulo-resumen-pedido
+{
+				border-bottom: 1px solid #999999;
+				color        : #003e90;
+				display      : block;
+				margin       :0px auto;
+				padding      : 5px;
+				width        : 90%;
+}
+
+.fila-cant_precio_borrar
+{
+				border-bottom: 2px solid #003e90;
+				margin       : 10px auto;
+				text-align   : center;
+				width        : 90%;
+				padding-top  : 5px;
+				padding-right  : 5px;
+				padding-left : 5px;
+}
+
+.resumen-cant,
+.resumen-precio,
+.resumen-borrar
+{
+				display       : inline-block;
+				padding-bottom: 1px;
+				padding-left  : 0px;
+				padding-right : 5px;
+				padding-top   : 10px;
+}
+
+.resumen-cant
+{
+	   float: left;
+}
+
+.resumen-borrar
+{
+	   float: right;
+}
+
+.datos_producto_seleccionado
+{
+				margin    : 0px auto;
+				max-height: 260px;
+				min-height: 80px;
+				overflow  : auto;
+				padding   : 5px;
+				text-align: center;
+				width     : 90%;
+
+}
+
+.nombre_producto
+{
+				display    : block;
+				padding-top: 5px;
+				text-align : justify;
+}
+
+.fila_por_producto
+{
+				border-bottom: 1px solid #999999;
+				color        : #999999;
+				padding      : 5px;
+}
+
+.fila_por_producto:hover
+{
+				border-bottom: 1px solid #0052bf;
+				color        : #0052bf;
+}
+
+.cantidad-producto,
+.precio-porducto,
+.borrar-producto
+{
+				display       : inline-block;
+				padding-bottom: 1px;
+				padding-left  : 5px;
+				padding-right : 5px;
+				padding-top   : 10px;
+}
+
+.cantidad-producto
+{
+     float: left;
+}
+
+.borrar-producto
+{
+      float: right;
+}
+
+.tabla-cont-datos-porducto-seleccionado
+{
+	    width: 100%;
+}
+
+.resumen_datos_precios
+{
+				margin    : 0px auto;
+				text-align: center;
+				width     : 90%;
+}
+
+.resumen_precio_ocacional
+{
+	   font-size: 16px;
+}
+
+.resumen_precio_clien-tron
+{
+				color    : red;
+				font-size: 30px;
+}
+
+.resumen-pedido-img
+{
+	   cursor: pointer;
+}
+
+.resumen-pedido-botones
+{
+	    width: 90%;
+	    margin: 0px auto;
+}
+
+#boton-ir-carrito ,
+#boton-otros-productos
+{
+   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	   background: #ea5b57; /* Old browsers */
+	   background: -moz-linear-gradient(top,  #ea5b57 0%, #be3730 100%); /* FF3.6+ */
+	   background: -ms-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* IE10+ */
+	   background: -o-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* Opera 11.10+ */
+   	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea5b57), color-stop(100%,#be3730)); /* Chrome,Safari4+ */
+   	background: -webkit-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* Chrome10+,Safari5.1+ */
+   	background: linear-gradient(to bottom,  #ea5b57 0%,#be3730 100%); /* W3C */
+   	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhNWI1NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiZTM3MzAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+   	color     : white;
+	    filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5b57', endColorstr='#be3730',GradientType=0 ); /* IE6-8 */
+			-webkit-border-radius: 4px ;
+			-moz-border-radius   : 4px ;
+			-ms-border-radius    : 4px ;
+			-o-border-radius     : 4px ;
+			border-radius        : 4px ;
+}
+
+#boton-ir-carrito:hover
+{
+   	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: #be3730; /* Old browsers */
+	background: -moz-linear-gradient(top,  #be3730 0%, #ea5b57 100%); /* FF3.6+ */
+	background: -ms-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* IE10+ */
+	background: -o-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Opera 11.10+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#be3730), color-stop(100%,#ea5b57)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #be3730 0%,#ea5b57 100%); /* W3C */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JlMzczMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYTViNTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	color     : white;
+	filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#be3730', endColorstr='#ea5b57',GradientType=0 ); /* IE6-8 */
+}
+
+#boton-otros-productos:hover
+{
+   	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: #be3730; /* Old browsers */
+	background: -moz-linear-gradient(top,  #be3730 0%, #ea5b57 100%); /* FF3.6+ */
+	background: -ms-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* IE10+ */
+	background: -o-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Opera 11.10+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#be3730), color-stop(100%,#ea5b57)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #be3730 0%,#ea5b57 100%); /* W3C */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JlMzczMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYTViNTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	color     : white;
+	filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#be3730', endColorstr='#ea5b57',GradientType=0 ); /* IE6-8 */
+}
+
+
+/*Resumen-Carrito*/
+

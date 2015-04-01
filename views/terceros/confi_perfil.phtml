@@ -1,0 +1,403 @@
+<!--
+       Js          => Carpeta JS  => cuenta_configuracion_perfil.js
+       Estilos-Css => carpeta CSS => tron_confi_perfil.css
+       ******** Configuracion del perfil *********
+-->
+<div class="contenedor"><!-- Contenedor-pagina -->
+    <div class="row">
+
+<!-- /// Ventana-modal ( 1 ) = editar informacion personal /// -->
+    <?php include (APPLICATION_SECTIONS .'verificar_contrasena.php');?>
+
+<!-- /// Ventana-modal ( 2 ) = editar contraseña /// -->
+    <?php include (APPLICATION_SECTIONS .'editar_contrasena.php');?>
+
+
+        <!-- /// Titulo pagina /// -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h2 style="color: #003e90; margin-top: -10px;"><strong>Mi Perfil</strong></h2>
+            </div>
+        <!-- /// Titulo pagina /// -->
+
+
+        <!-- /// Cabezera = plan-tron , pases de cortesia /// -->
+           <div class="col-lg-12 col-md-12 col-sm-12">
+           	  <div class="banner-cabezera"><!--- Contenedor -->
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6"><!-- Plan Empresario Tron -->
+                        <div class="cont-img_plan-empresario">
+                            <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" class="img-empresario-tron" /><!-- IMG = Empresario tron -->
+                            <p class="text-perteneces-A"> Perteneces al <br> PLAN EMPRESARIO TRON</p><!-- Perteneces -->
+                        </div>
+                     </div><!-- Plan Empresario Tron -->
+
+                      <div class="col-lg-6 col-md-6 col-sm-6"><!-- Pases de cortesia -->
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                               <a href="#">
+                                  <img src="<?= BASE_IMG_EMPRESA ; ?>pases-version2.png"class="img-pases-cortesia" />
+                               </a><!-- IMG = Pases de cortesia -->
+                            </div>
+
+                           <div class="col-lg-6 col-md-6 col-sm-6">
+                               <p class="text-center">Entre todos tus usuarios posees 12 Pases de Cortesía.</p>
+                               <a href="<?= BASE_URL ;?>Terceros/cuenta_pases_de_cortesia" class="btn-Enviar-o-comprar" >Enviar o Comprar</a><br>
+                               <a href="<?= BASE_URL ;?>RedTron/pases_de_cortesia" class="link-pases-cortesia">¿Qué son los pases de cortesía?</a>
+                           </div>
+                      </div><!-- Pases de cortesia -->
+                  </div>
+           	  </div><!--- Contenedor -->
+           </div>
+        <!-- /// Cabezera = plan-tron , pases de cortesia /// -->
+
+
+        <!-- /// Mi información personal /// -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="mi-informacion"><!-- Contenedor -->
+                  <div class="row">
+                <!-- Titulo -->
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div><!--- Cont-titulo -->
+
+                            <h4 class="text-left titulo-info"> Mi información personal
+
+                               <small>
+                                  <a href="#verificar-contrasena" class="link-editar" data-toggle="modal" data-target="#verificar-contrasena"><img src="<?= BASE_IMG_EMPRESA ; ?>editar-info.jpg"><!-- ventana modal ( 1 ) -->
+                                      <span class="editar"> Editar</span> <!-- Editar Informacion -->
+                                   </a>
+                               </small>
+                             </h4><!-- Titulo -->
+                          </div><!--- Cont-titulo -->
+                      </div>
+                <!-- Titulo -->
+
+
+                <!-- Cont-formulario -->
+                     <div class="col-lg-12 col-md-12 col-sm-12 cont-info-personal">
+                      <!--
+                            class="datos-persolanles" =  datos que piden el formulario
+                            class="respuesta-datos"   =  respuesta al formulario
+                            class ="puntos"           =  Puntos-division ( pregunta / respuesta) -->
+
+
+                         <div class="cont-datos-personales">
+                           <!-- Datos Personales -->
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <p class ="datos-persolanles">Identificación</p>
+                                <p class ="datos-persolanles">Nombre </p>
+                                <p class ="datos-persolanles">Mi código de usuario para presentar amigos a la red</p>
+                                <p class ="datos-persolanles">Convenio comercial</p>
+                                <p class ="datos-persolanles">Tabla de comisiones</p>
+                                <p class ="datos-persolanles">Celular</p>
+                                <p class ="datos-persolanles">Dirección</p>
+                                <p class ="datos-persolanles">Barrio</p>
+                                <p class ="datos-persolanles">Ciudad/Depto</p>
+                                <p class ="datos-persolanles">E-mail</p>
+                                <p class ="datos-persolanles">Recibir correos electrónicos de información comercial y promociones</p>
+                                <p class ="datos-persolanles">Recibir mensajes de texto (SMS) de información comercial y promociones</p>
+                            </div>
+                          <!-- Datos Personales -->
+
+                          <!--  Puntos-divicion -->
+                            <div class=" col-lg-1 col-md-1 col-sm-1">
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p>
+                               <p class ="puntos">:</p><br>
+                               <p class ="puntos">:</p><br>
+                               <p class ="puntos">:</p>
+                            </div>
+                          <!--  Puntos-divicion -->
+
+                          <!-- respuesta-datos.personales -->
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <p class ="respuesta-datos">94491178</p>
+                                <p class ="respuesta-datos"> JHON JAMES MONTANO</p>
+                                <p class ="respuesta-datos">JM2011TRON</p>
+                                <p class ="respuesta-datos"><a href="#">Ver / Imprimir</a></p>
+                                <p class ="respuesta-datos"><a href="#">Ver</a></p>
+                                <p class ="respuesta-datos">3113369005</p>
+                                <p class ="respuesta-datos">CRA 3 NTE 34 N 107 BLQ 10 APTO 313</p>
+                                <p class ="respuesta-datos">BUENO MADRID</p>
+                                <p class ="respuesta-datos">CALI / VALLE DEL CAUCA</p>
+                                <p class ="respuesta-datos">jhonjamesmg@hotmail.com</p><br>
+                                <p class ="respuesta-datos">Si</p><br>
+                                <p class ="respuesta-datos">Si</p>
+                            </div>
+                         <!-- respuesta-datos.personales -->
+
+                         <!-- Ver direcciones -->
+                             <div class="col-lg-12">
+                                <div>
+                                     <a href="#">Ver mis direcciones </a>
+                                </div>
+                             </div>
+                         <!-- Ver direcciones -->
+                         </div>
+                     </div>
+                <!-- Cont-formulario -->
+                </div>
+             </div><!-- Contenedor -->
+            </div>
+        <!-- /// Mi información personal /// -->
+
+
+        <!-- /// Configuración de mi cuenta /// -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="cont-configuracion-cuenta"><!-- contenedor -->
+                 <div class="row">
+                <!-- Titulo -->
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div><!--- Cont-titulo -->
+
+                            <h4 class="text-left titulo-info"> Configuración de mi cuenta
+
+                               <small>
+                                  <a href="#verificar-contrasena" class="link-editar" data-toggle="modal" data-target="#verificar-contrasena"><img src="<?= BASE_IMG_EMPRESA ; ?>editar-info.jpg">
+                                      <span class="editar"> Editar</span> <!-- Editar Informacion -->
+                                   </a>
+                               </small>
+                             </h4><!-- Titulo -->
+                          </div><!--- Cont-titulo -->
+                      </div>
+                <!-- Titulo -->
+
+              <!-- Formilario -->
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                     <div class="cont-datos-configuracion"><!-- Contenedor -->
+
+                   <!-- Datos Personales -->
+                     <div class="col-lg-5 col-md-5 col-sm-5">
+                         <p class ="text-left">Mis datos son privados hacia la red</p>
+                         <p class ="text-left">Medio de cobro</p>
+                     </div>
+                   <!-- Datos Personales -->
+
+                   <!--  Puntos-divicion -->
+                     <div class="col-lg-2 col-md-2 col-sm-2">
+                         <p class ="text-center">:</p>
+                         <p class ="text-center">:</p>
+                     </div>
+                   <!--  Puntos-divicion -->
+
+                   <!-- respuesta-datos.personales -->
+                     <div class="col-lg-5 col-md-5 col-sm-5">
+                        <p style="font-weight: bold;" class ="text-center">No</p>
+                        <p style="font-weight: bold;" class ="text-center"> Vía Efecty </p>
+                     </div>
+                   <!-- respuesta-datos.personales -->
+
+                  </div>
+                </div>
+              <!-- Formilario -->
+              </div>
+              </div><!-- contenedor -->
+            </div>
+        <!-- /// Configuración de mi cuenta /// -->
+
+
+        <!-- /// Recomienda el modelo de negocio a un amigo /// -->
+             <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="cont-recomendar-negocio"><!-- Contenedor -->
+                 <div class="row">
+                <!-- Titulo -->
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div><!--- Cont-titulo -->
+
+                            <h4 class="text-left titulo-info"> Recomienda el modelo de negocio a un amigo
+
+                               <small>
+                                  <a href="#" class="link-editar"><img src="<?= BASE_IMG_EMPRESA ; ?>info.png">
+                                      <span class="editar"> Info</span> <!-- Editar Informacion -->
+                                   </a>
+                               </small>
+                             </h4><!-- Titulo -->
+                          </div><!--- Cont-titulo -->
+                      </div>
+                <!-- Titulo -->
+
+              <!-- informacion -->
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div>
+                          <p>
+                             Recuerda que al compartir tu URL Única, se relaciona
+                             automáticamente a quien la recibe con tu código de
+                             usuario permitiendo que sus compras te generen comisiones. </p> <br>
+
+                           <p>
+                              <strong>Método 1:</strong>Correo prediseñado
+                           </p>
+
+                           <p><!-- Invitacion-tron -->
+                              <a href="#">
+                                  <img src="<?= BASE_IMG_EMPRESA ; ?>enviar.png"> Eviar Invitación de la Red TRON
+                              </a>
+                           </p><!-- Invitacion-tron -->
+
+                           <p>
+                               <strong>Método 2:</strong>
+                               Copia y pega tu URL en sitios como: Redes sociales, blogs, comunidades o en tu correo electrónico.
+                               Url única para referidos.
+                               <strong>http://entreamigosalcanzamos.com/colombia/ref/80021.html</strong>
+                           </p>
+
+                      </div>
+                  </div>
+              <!-- informacion -->
+               </div>
+               </div><!-- Contenedor -->
+             </div>
+        <!-- /// Recomienda el modelo de negocio a un amigo /// -->
+
+
+        <!-- /// Estado de Mis Cuentas /// -->
+             <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="cont-estado-mi-cuenta"><!-- Contenedor -->
+                 <div class="row">
+
+                <!-- Titulo -->
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div><!--- Cont-titulo -->
+
+                            <h4 class="text-left titulo-info"> Estado de Mis Cuentas
+
+                               <small>
+                                  <a href="<?= BASE_URL ;?>Terceros/informacion_mi_cuenta" class="link-editar"><img src="<?= BASE_IMG_EMPRESA ; ?>inof-externa-ver.png">
+                                      <span class="editar"> Ver Reporte completo</span> <!-- Editar Informacion -->
+                                   </a>
+                               </small>
+                             </h4><!-- Titulo -->
+                          </div><!--- Cont-titulo -->
+                      </div>
+                <!-- Titulo -->
+
+              <!-- Formulario -->
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+
+                      <!-- Saldo cuenta dinero -->
+                         <div class="col-lg-6 col-md-6 col-sm-6">
+                             <p class="numero-cuenta-dinero">$0</p>
+                             <p class="text-cuenta-dinero">Saldo Cuenta Dinero</p>
+                         </div>
+                      <!-- Saldo cuenta dinero -->
+
+                      <!-- Saldo cuenta puntos-->
+                         <div class="col-lg-6 col-md-6 col-sm-6">
+                             <p class="numeor-cuenta-puntos">0</p>
+                             <p class="text-cuenta-puntos"> Saldo cuenta puntos</p>
+                         </div>
+                      <!--  Saldo cuenta puntos -->
+
+                  </div>
+              <!-- Formulario -->
+
+              </div>
+              </div><!-- Contenedor -->
+             </div>
+        <!-- /// Estado de Mis Cuentas /// -->
+
+
+        <!-- /// Mis últimos Pedidos /// -->
+             <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="cont-mis-pedidos"><!-- Contenedor -->
+                <div class="row">
+                <!-- Titulo -->
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div><!--- Cont-titulo -->
+
+                            <h4 class="text-left titulo-info"> Mis últimos Pedidos
+
+                               <small>
+                                  <a href="<?= BASE_URL ;?>Terceros/historial_mis_pedidos" class="link-editar"><img src="<?= BASE_IMG_EMPRESA ; ?>inof-externa-ver.png">
+                                      <span class="editar"> Ver todos mis Pedidos</span> <!-- Editar Informacion -->
+                                   </a>
+                               </small>
+                             </h4><!-- Titulo -->
+                          </div><!--- Cont-titulo -->
+                      </div>
+                <!-- Titulo -->
+
+              <!-- Formulario -->
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+
+                       <table class="table table-condensed"><!--- Table -->
+                            <thead><!-- Cabezera -->
+                               <tr>
+                                   <th>Fecha</th>
+                                   <th>Número Pedido</th>
+                                   <th>Valor Pedido</th>
+                                   <th>Valor Pagado</th>
+                                   <th> Número Factura  </th>
+                                   <th>Estado</th>
+                               </tr>
+                            </thead><!-- Cabezera -->
+
+                            <tbody><!-- Cuerpo -->
+                                <tr>
+                                     <td>2015-03-03</td>
+                                     <td>Selecciona forma de pago </td>
+                                     <td>65.700 </td>
+                                     <td>65.700 </td>
+                                     <td></td>
+                                     <td>Pago recibido. Pendiente facturación</td>
+                                </tr>
+
+                                <tr>
+                                     <td>2015-03-02</td>
+                                     <td>Selecciona forma de pago </td>
+                                     <td>18.006</td>
+                                     <td>18.006</td>
+                                     <td></td>
+                                     <td>Pago recibido. Pendiente facturación</td>
+                                </tr>
+
+                                <tr>
+                                     <td>2015-03-02</td>
+                                     <td>Selecciona forma de pago </td>
+                                     <td>18.006</td>
+                                     <td>18.006</td>
+                                     <td></td>
+                                     <td>Pago recibido. Pendiente facturación</td>
+                                </tr>
+                            </tbody><!-- Cuerpo -->
+                       </table><!--- Table -->
+
+                  </div>
+              <!-- Formulario -->
+              </div>
+              </div><!-- Contenedor -->
+             </div>
+        <!-- /// Mis últimos Pedidos /// -->
+
+
+        <!-- /// contraseña /// -->
+             <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="cont-contrasena"><!-- ccontenedor -->
+                   <div class="row">
+
+                        <div class="col-lg-6"><!-- Contraseña  -->
+                          <p style="margin-top: 10px;">Mi contraseña: *********</p>
+                        </div><!-- Contraseña  -->
+
+                       <div class ="col-lg-6"><!-- Editar contraseña -->
+                          <p class="text-right" style="margin-top: 10px;">
+                            <a href="#editar-contrasena" class="link-editar" data-toggle="modal" data-target="#editar-contrasena"><!-- ventana modal ( 2 ) -->
+                               <img src="<?= BASE_IMG_EMPRESA ; ?>editar-info.jpg">
+                               <span style="color: #595959;"> Editar</span> <!-- Editar Informacion -->
+                            </a>
+                          </p>
+                       </div><!-- Editar contraseña -->
+
+                   </div>
+               </div><!-- ccontenedor -->
+             </div>
+        <!-- /// contraseña /// -->
+
+    </div>
+</div><!-- Contenedor-pagina -->
+<br><br><br>

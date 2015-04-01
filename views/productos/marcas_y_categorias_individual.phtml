@@ -1,0 +1,40 @@
+
+<!--PORDUCTOS CATEGORIAS MARCAS -->
+<div class="contenido"><!--CONTENIDO GENERAL = TODA LA PAGINA -->
+
+  <div class="row">
+    <div id="menu-izq-otros-productos">
+
+      <div class="col-lg-3  col-md-3 col-sm-3 columna_categorias-marcas">
+            <div class="panel-group" id="accordion">
+                <?php include (APPLICATION_SECTIONS .'otros_productos_categorias.php');?><!--Llamado Al Menu-Industrial -->
+                <?php include (APPLICATION_SECTIONS .'otros_productos_marcas.php');?><!--Llamado Al Menu-Industrial -->
+                <?php include (APPLICATION_SECTIONS .'otros_productos_empresas.php');?><!--Llamado Al Menu-Industrial -->
+            </div>
+        </div>
+      </div>
+
+        <!-- INICIA PRESENTACIÓN DE PRODUCTOS -->
+        <div class="row"> <!-- Row Productos -->
+            <?php include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');?><!--Llamado Al Menu-Industrial -->
+            <div id="contenido-productos"> <!--Section = Innicio-Presentacion del Producto  CONTENEDOR DE PRDUCTOS -->
+              <div class="col-lg-9 col-md-9 col-sm-9">
+                  <?php
+                  foreach ($this->Productos_Pagina as $Productos)
+                  {
+                         $mostrar_imagen_varias_referencias=true;
+                         include (APPLICATION_CODS . 'campos_productos.php');
+                    ?>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="articulos"><!--Articulos -->
+                       <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
+                    </div><!--Articulos col-lg-3 col-md-3 col-sm-3 col-xs-3" id="articulos -->
+                <?php };?>
+
+                  <?php if(isset($this->Paginacion)) echo $this->Paginacion; ?>
+              </div><!--Division De la Pagina = Producto -->
+            </div>
+    </div><!--Fin-row  Row Productos -->
+
+
+  </div> <!-- Fin Row -->
+</div><!-- FIN class="contenido" -->

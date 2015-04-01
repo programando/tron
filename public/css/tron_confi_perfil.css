@@ -1,0 +1,344 @@
+
+.contenedor
+{
+			margin: 0px auto;
+			width : 70%;
+}
+
+/* Ventana Modal  */
+
+.cont-cabezera-modal
+{
+			background: #003e90;
+			color     : white;
+			text-align: center;
+}
+
+.cont-cuerpo-modal
+{
+				display: block;
+				width  : 90%;
+				margin : 0px auto;
+}
+
+.tex-label-modal
+{
+	  color: #003e90;
+}
+
+.cont-mensj-validacion     ,
+.msj-valida-conta-anterior ,
+.msj-valida-new-contrasena ,
+.msj-valida-no-contrasena
+{
+			display              : none;
+			background           : #ffeded;
+			color                : black;
+			text-align           : center;
+
+			-webkit-border-radius: 4px;
+			-moz-border-radius   : 4px;
+			border-radius        : 4px;
+}
+
+/*
+_________ Titulos _________
+*/
+
+.titulo-info
+{
+				display      : block;
+				border-bottom: 1px solid black;
+				padding      : 5px;
+				margin-bottom: 15px;
+}
+
+.link-editar
+{
+				float  : right;
+				display: block;
+}
+
+.editar
+{
+				display    : block;
+				margin-top : 2px;
+				float      : right;
+				margin-left: 2px;
+				color      : #595959;
+}
+
+.editar:hover
+{
+text-decoration: underline;
+}
+
+/*
+_________ Cabezera _________
+*/
+
+.banner-cabezera
+{
+			display              : block;
+			background           : #efefff;
+			padding              : 10px;
+			border               : 1px solid #c2c2d1;
+			margin-bottom        : 20px;
+
+			-webkit-border-radius: 8px;
+			-moz-border-radius   : 8px;
+			border-radius        : 8px;
+
+
+}
+.cont-img_plan-empresario
+{
+			display: block;
+}
+
+.img-empresario-tron
+{
+				display: block;
+				float  : left;
+				width  : 30%;
+				margin-top: -50px;
+}
+
+.text-perteneces-A
+{
+				display: block;
+				margin : 50px 0px;
+}
+
+/*
+____ pases-cortesia ____
+*/
+
+.img-pases-cortesia
+{
+			display: block;
+			width  : 70%;
+			margin : -20px auto;
+}
+
+.link-pases-cortesia
+{
+	   font-size: 13px;
+	   text-decoration:  underline;
+}
+
+/*
+___ btn = Enviar o comprar _____
+*/
+
+
+
+.btn-Enviar-o-comprar
+{
+	   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	   background: #ea5b57; /* Old browsers */
+	   background: -moz-linear-gradient(top,  #ea5b57 0%, #be3730 100%); /* FF3.6+ */
+	   background: -ms-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* IE10+ */
+	   background: -o-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* Opera 11.10+ */
+   	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea5b57), color-stop(100%,#be3730)); /* Chrome,Safari4+ */
+   	background: -webkit-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* Chrome10+,Safari5.1+ */
+   	background: linear-gradient(to bottom,  #ea5b57 0%,#be3730 100%); /* W3C */
+   	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhNWI1NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiZTM3MzAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+   	color     : white;
+					filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5b57', endColorstr='#be3730',GradientType=0 ); /* IE6-8 */
+					padding-top: 5px;
+					color  : white;
+					border :2px solid #da4e48;
+					height :33px;
+					display: block;
+					width  : 70%;
+					margin : 0px auto;
+					text-decoration: none;
+					text-align:center;
+}
+
+.btn-Enviar-o-comprar:hover
+{
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: #be3730; /* Old browsers */
+	background: -moz-linear-gradient(top,  #be3730 0%, #ea5b57 100%); /* FF3.6+ */
+	background: -ms-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* IE10+ */
+	background: -o-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Opera 11.10+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#be3730), color-stop(100%,#ea5b57)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #be3730 0%,#ea5b57 100%); /* W3C */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JlMzczMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYTViNTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	color     : white;
+	filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#be3730', endColorstr='#ea5b57',GradientType=0 ); /* IE6-8 */
+		text-decoration: none;
+}
+
+.btn-Enviar-o-comprar:active
+{
+					color          : white;
+					text-decoration: none;
+}
+
+.btn-Enviar-o-comprar:link
+{
+		color          : white;
+		text-decoration: none;
+}
+
+/*
+_____  Mi información personal ______
+*/
+
+
+.mi-informacion
+{
+			display              : block;
+			background           : #efefff;
+			padding              : 20px;
+			border               : 1px solid #c2c2d1;
+			margin-bottom        : 20px;
+
+		-webkit-border-radius: 8px;
+		-moz-border-radius   : 8px;
+		border-radius        : 8px;
+}
+
+.datos-persolanles
+{
+	  text-align: left;
+}
+
+.respuesta-datos
+{
+				text-align : left;
+				display    : block;
+				font-weight: bold;
+}
+
+.puntos
+{
+	  text-align: left;
+}
+
+.cont-datos-personales
+{
+				width : 90%;
+				margin: 0px auto;
+}
+
+/*
+_____ Configuración de mi cuenta ______
+*/
+
+.cont-configuracion-cuenta
+{
+		display              : block;
+		background           : #efefff;
+		padding              : 20px;
+		border               : 1px solid #c2c2d1;
+		margin-bottom        : 20px;
+
+		-webkit-border-radius: 8px;
+		-moz-border-radius   : 8px;
+		border-radius        : 8px;
+}
+.cont-datos-configuracion
+{
+				width : 90%;
+				margin: 0px auto;
+}
+
+/*
+_____ Recomienda Negocio ______
+*/
+
+.cont-recomendar-negocio
+{
+			display              : block;
+			background           : #efefff;
+			padding              : 20px;
+			border               : 1px solid #c2c2d1;
+			margin-bottom        : 20px;
+
+			-webkit-border-radius: 8px;
+			-moz-border-radius   : 8px;
+			border-radius        : 8px;
+}
+
+/*
+_____ Estado de Mis Cuentas ______
+*/
+
+.cont-estado-mi-cuenta
+{
+			display              : block;
+			background           : #efefff;
+			padding              : 20px;
+			border               : 1px solid #c2c2d1;
+			margin-bottom        : 20px;
+
+			-webkit-border-radius: 8px;
+			-moz-border-radius   : 8px;
+			border-radius        : 8px;
+}
+
+.numero-cuenta-dinero ,
+.numeor-cuenta-puntos
+{
+				font-size   : 60px;
+				float       : left;
+				margin-left : 150px;
+				margin-right: 20px;
+}
+
+.numero-cuenta-dinero ,
+.text-cuenta-dinero
+{
+	  color: #009900;
+}
+
+.numeor-cuenta-puntos ,
+.text-cuenta-puntos
+{
+    color: #fd7924;
+}
+
+.text-cuenta-dinero ,
+.text-cuenta-puntos
+{
+	   margin-top: 35px;
+}
+
+/*
+_____ Mis últimos Pedidos ______
+*/
+
+.cont-mis-pedidos
+{
+				display              : block;
+				background           : #efefff;
+				padding              : 20px;
+				border               : 1px solid #c2c2d1;
+				margin-bottom        : 20px;
+
+				-webkit-border-radius: 8px;
+				-moz-border-radius   : 8px;
+				border-radius        : 8px;
+}
+
+/*
+_________ contraseña ________
+*/
+
+.cont-contrasena
+{
+			display              : block;
+			background           : #efefff;
+			padding              : 20px;
+			border               : 1px solid #c2c2d1;
+			margin-bottom        : 20px;
+
+			-webkit-border-radius: 8px;
+			-moz-border-radius   : 8px;
+			border-radius        : 8px;
+}
