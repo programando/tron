@@ -291,8 +291,8 @@ class ProductosController extends Controller
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
       */
-      if (!isset($pagina)) { $pagina=false;}
-      if ($pagina==false) {   $pagina = 1 ;};
+      if (!isset($pagina)) { $pagina = false;  };
+      if ($pagina==false)  { $pagina = 1 ;     };
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
 
