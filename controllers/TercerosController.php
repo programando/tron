@@ -272,7 +272,7 @@ class TercerosController extends Controller
     public function registro()
     {
     //tron_redtron_registro
-        $this->View->SetCss(array('tron_menu_footer','tron_registro','tron_registro','tron-regirtro-pasos','tron_dptos_mcipios'));
+        $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro'));
         $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios'));
         $this->View->Departamentos = $this->Departamentos->Consultar();
         $this->View->Mostrar_Vista('registro');

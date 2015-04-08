@@ -93,7 +93,7 @@ class ProductosController extends Controller
     public function Destacados()
     {
          $this->View->Productos_Destacados = $this->Productos->Destacados_Index();
-         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_destacados_active'));
+         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_3'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('destacados');
     }
@@ -107,7 +107,7 @@ class ProductosController extends Controller
     public function Ofertas()
     {
          $this->View->Productos_Ofertas = $this->Productos->Ofertas_Index();
-         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_ofertas_active'));
+         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_4'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('ofertas');
     }
@@ -116,7 +116,7 @@ class ProductosController extends Controller
      public function Productos_Tron()
     {
          Session::Set('Id_Area_Consulta','2');
-         $this->View->SetCss(array('tron_carrito','tron_estilos_productos_tron','tron_productos_tron_active'));
+         $this->View->SetCss(array('tron_carrito','tron_estilos_productos_tron','tron_productos_tron_active','tron_campo_1'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','resumen_pedido_tron'));
 
          $this->Productos_Tron_Ropa();
@@ -145,7 +145,7 @@ class ProductosController extends Controller
     public function Novedades()
     {
          $this->View->Productos_Novedades = $this->Productos->Novedades_Ofertas();
-         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_novedades_active'));
+         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_5'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('novedades');
     }
@@ -220,7 +220,7 @@ class ProductosController extends Controller
      if ($pagina==false) {   $pagina = 1 ;};
       $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
 
-      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_categorias_marcas_active'));
+      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
       $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
 
       $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);

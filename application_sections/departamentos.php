@@ -1,4 +1,4 @@
-<select class="form-control" id="departamento">
+<select class="form-control input_campo_datos" id="iddpto">
 	<option value="0">Seleccione un Departamento</option>
 	<?php
 	foreach ($this->Departamentos as $Departamento) {

@@ -39,22 +39,32 @@
           <ul class="nav navbar-nav">
 
             <li class="felcha-atras">
-            <a class="navbar-brand" href="javascript:history.go(-1)" id="flecha" ><span class="glyphicon glyphicon-chevron-left"></span> </a></li>
+               <a class="navbar-brand" href="javascript:history.go(-1)" id="flecha" ><span class="glyphicon glyphicon-chevron-left"></span> </a>
+            </li>
             <li class="selected">
-            <a class="list-menu active" id="hogar_produc"     href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a></li>
-            <li><a class="list-menu active" id="hogar_otros"      href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
-            <li><a class="list-menu active" id="hogar_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
-            <li><a class="list-menu active" id="hogar_ofertas"    href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
-            <li><a class="list-menu active" id="hogar_novedades"  href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
+               <a class="list-menu  campo_1" id="hogar_produc"     href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a>
+            </li>
+            <li><a class="list-menu campo_2" id="hogar_otros"      href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
+            <li><a class="list-menu campo_3" id="hogar_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
+            <li><a class="list-menu campo_4" id="hogar_ofertas"    href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
+            <li><a class="list-menu campo_5" id="hogar_novedades"  href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
 
           </ul>
-          <!-- AREAS DE CONSULTA CORRESPONDEN A LOS TIPOS DE PRODUCTOS ( HOGAR / INDUSTRIAL)
-            id-area-consulta ="2" ES HOGAR
-            id-area-consulta ="1" ES INDUSTRIAL
-            class="active" = Efecto => identificar en que campo del menu se encuentra el usiario
-          -->
-
           </div>
         </nav>
 
+<!--
+      /.. AREAS DE CONSULTA CORRESPONDEN A LOS TIPOS DE PRODUCTOS ( HOGAR / INDUSTRIAL)
+      id-area-consulta ="2" ES HOGAR
+      id-area-consulta ="1" ES INDUSTRIAL .../
 
+      /.. Esta  TABLA es para indicar en donde se encuentra cada efecto activo del menu-tron ../
+
+                  CAMPO           CLASE         DOCUMENTO         CONTOLLER-VISTA
+
+              PRODUCTOS TRON  =  campo_1  =  tron_campo_1.css  =  Productos_Tron
+              OTROS PRODUCTOS =  campo_2  =  tron_campo_2.css  =  categorias_marcas ( otros productos )
+              DESTACADOS      =  campo_3  =  tron_campo_3.css  =  Destacados
+              OFERTAS         =  campo_4  =  tron_campo_4.css  =  ofertas
+              NOVEDADES       =  campo_5  =  tron_campo_5.css  =  novedades
+-->
