@@ -1,6 +1,3 @@
-
-
-
    $(document).ready(function(){
       $('#btn-continuar').click(function(){
 
@@ -175,7 +172,55 @@
    });
 
 
-// https://www.youtube.com/watch?v=N8_bRPd6Z6o  =>> esta lo que sige confirmar
+
+$(document).ready(function(){
+//  Aparicion de los campos  por medio de botones -----------------
+
+//  Passo 1 => Continuar => paso 2
+
+  $('#btn_continura').on('click',function(){
+
+      $('#rgts_paso_1').slideUp();   // Paso 1
+      $('#rgts_paso_2').slideDown(); // Paso 2
+
+  });
+
+// Passo 2 => Continuar => paso 3
+
+  $('#btn_paso_2_continuar').on('click',function(){
+
+      $('#rgts_paso_2').slideUp();
+      $('#rgts_paso_3').slideDown();
+
+  });
+
+// Passo 2 => anterior => paso 1
+
+  $('#btn_paso_2_anterior').on('click',function(){
+
+      $('#rgts_paso_2').slideUp();
+      $('#rgts_paso_1').slideDown();
+
+  });
+
+// Passo 3 => anterior => paso 2
+
+  $('#btn_paso_3_anterior').on('click',function(){
+
+      $('#rgts_paso_3').slideUp();
+      $('#rgts_paso_2').slideDown();
+
+  });
+
+
+
+
+
+
+
+});
+
+
 
 
 

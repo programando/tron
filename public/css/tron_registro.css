@@ -1,32 +1,63 @@
-
-.container-registro
+.cont_pagina_registro
 {
-   margin: 0px auto;
-   width: 98%;
+    display: block;
+    width: 85%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+
+   -webkit-border-radius: 4px;
+   -moz-border-radius   : 4px;
+   -ms-border-radius    : 4px;
+   -o-border-radius     : 4px;
+   border-radius        : 4px;
+
+   -webkit-box-shadow: 0px 3px 5px 0px #000000;
+    box-shadow: 0px 3px 5px 0px #000000;
 }
 
-/*Campos Ocultos*/
+/* Diseño => lista => pasos */
 
-.campos-cedu-ciudadana
+#li_paso_1
+{
+     background: #003E90;
+     color: white;
+}
+
+.cont-list-pasos
+{
+      display: block;
+      margin-bottom: 20px;
+}
+
+.li_pasos_registro
+{
+      display: inline-block;
+      padding: 5px 10px;
+      text-align: center;
+      list-style: none;
+      font-weight: bold;
+      color: gray;
+
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+}
+
+/* diseño paso 1 */
+
+.campos-cedu-ciudadana /*Campos Ocultos*/
 {
    display: block;
 }
 
-.campos-nit /*Campos de formularios NIT que se enceuntran escondidos*/
+#campos-nit   /*Campos Ocultos*/
 {
-	  display: block;
+    display: none;
 }
 
-/*Campos Ocultos*/
 
-
-/* Menseja De Validacion*/
-
-.error-img /* IMG = ( X )*/
-{
-    width: 12px;
-
-}
+/* diseño = mensaje de validacion */
 
 .mjs-valid-d_cumento     ,
 .mjs-valid-nit           ,
@@ -60,107 +91,73 @@
      text-align           : center;
 }
 
-.mensaje-error-tipo-documento
+
+
+/*Boton Continuar , Anterior*/
+
+.cont-btn-bottom
 {
-	  width: 32%;
+     text-align: center;
+     display: block;
+     width: 20%;
+     margin: 0px auto;
 }
-
-.mjs-valid-barrio
-{
-	  width: 83%;
-}
-
-.mjs-valid-correo
-{
-    width: 83%;
-}
-
-/* Menseja De Validacion*/
-
-
-/* Formulario */
-
-.contenedor-formulario
-{
-   display: block;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   -ms-border-radius: 8px;
-   -o-border-radius: 8px;
-   border-radius: 8px;
-	  width: 80%;
-	  margin: 0px auto;
-	  padding: 10px;
-    background: white;
-	  -webkit-box-shadow: 0px 5px 25px 0px #000000;
-	  box-shadow: 0px 5px 25px 0px #000000;
-}
-
-#tipo-document
-{
-	  width: 150px;
-}
-
-.text-label
-{
-	  color: #003e90;
-}
-
-.seleccion-genero
-{
-	  margin-top: 52px;
-}
-
-
-/* Formulario */
-
-
-/*Boton Continuar*/
-
-.contenedor-flechas-pasos
-{
-   display: block;
-   width: 82%;
-   margin: 0px auto;
-}
-
-
 
 .cont-btn-continuar
 {
-	  width: 15%;
-	  margin: 10px auto;
-	  display: block;
+    width: 15%;
+    display: block;
 }
 
 .btn-continuar
 {
-		   background: #003e90;
-		   color:white;
+       background: #003e90;
+       color:white;
 }
 
 .btn-continuar:hover
 {
-	  color: white;
+    color: white;
    background: #0469ed;
 }
 
+/* Boton Continuar , anterior*/
 
-.btn-continuar:link
+#tipo-document
 {
-   background: #0469ed;
-   color: white;
+    width: 150px;
 }
 
-.btn-continuar:visited
+.text-label
 {
-   background: #0469ed;
-   color: white;
+    color: #003e90;
 }
 
-.btn-continuar:active
+.seleccion-genero
 {
-   background: #0469ed;
-   color: white;
+    margin-top: 52px;
 }
-/* Boton Continuar*/
+
+
+/*Campos Ocultos*/
+
+.campos-cedu-ciudadana
+{
+   display: block;
+}
+
+.campos-nit /*Campos de formularios NIT que se enceuntran escondidos*/
+{
+    display: block;
+}
+
+/*Campos Ocultos*/
+
+
+/* Menseja De Validacion*/
+
+.error-img /* IMG = ( X )*/
+{
+    width: 12px;
+
+}

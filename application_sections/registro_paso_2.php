@@ -1,11 +1,13 @@
 <!--
-   Estilos Css => Capeta Css => tron-registron-p2.css
+    EStilos Css => Carpeta Css => tron_registro.css
+    Js          => Carpeta Js  => tron_terceros_registro.js
 -->
 
-<div class="container"><!--Contenedor de la pagina -->
-   <div class=" row"><!--Fila -->
 
-      <div class="cont-tabla-planes"><!--Contenedor de la tanla de seleccion de planes -->
+<div  class="col-lg-12"><!--Contenedor de la pagina -->
+   <div class="cont-tabla-planes"><!--Fila -->
+
+      <div><!--Contenedor de la tanla de seleccion de planes -->
           <table class="table table-condenced table-hover"><!--Tabla -->
 
              <thead><!--Emcabezado -->
@@ -109,13 +111,9 @@
      <!-- ====( Btn = Anterior - Siguiente )==== -->
       <div class="row">
           <div class="col-lg-12">
-               <div><!-- Cont -->
-                   <nav>
-                     <ul  >
-                        <li><a href="#paso_1" data-toggle="tab">Previous</a></li>
-                        <li><a href="#paso_3" data-toggle="tab">Next</a></li>
-                     </ul>
-                   </nav>
+               <div class="cont-btn-bottom"><!-- Cont -->
+                    <button type="button" class="btn btn-danger" id="btn_paso_2_anterior">Anterior</button>
+                    <button type="button" class="btn btn-defautl  btn-continuar" id="btn_paso_2_continuar">Continuar</button>
                </div><!-- Cont -->
           </div>
       </div>
