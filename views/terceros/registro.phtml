@@ -3,30 +3,43 @@
     Js          => Carpeta Js  => tron_terceros_registro.js
 -->
 
-<div class="cont_pagina_registro"><!-- Cont = Principal -->
+<div class="contenedor_pagina"><!-- Cont = Principal -->
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <!--/////// LINEA  = PASOS REGISTRAR ///////// -->
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <!--/////// LINEA  = PASOS REGISTRAR ///////// -->
              <?php include (APPLICATION_SECTIONS .'list_paso_.php');?>
-          <!--/////// LINEA  = PASOS REGISTRAR ///////// -->
-           <div><!-- Contenedor = 1 -->
+        <!--/////// LINEA  = PASOS REGISTRAR ///////// -->
+      </div>
+    </div>
 
-              <!-- Formulario Registro -->
-               <article class="rgts_paso_1" id="rgts_paso_1">
-                   <?php include (APPLICATION_SECTIONS .'registro_paso_1.php');?>
-               </article>
+    <div class="cont_pagina_registro">
+        <div class="row">
 
-              <!-- Paso 2 -->
-               <article class="rgts_paso_2" id="rgts_paso_2" style="display: none">
-                   <?php include (APPLICATION_SECTIONS .'registro_paso_2.php');?>
-               </article>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+             <div><!-- Contenedor = 1 -->
+                <!-- Formulario Registro -->
+                 <article class="rgts_paso_1" id="rgts_paso_1">
+                     <?php include (APPLICATION_SECTIONS .'registro_paso_1.php');?>
+                 </article>
 
-              <!-- Paso 3 -->
-               <article class="rgts_paso_3" id="rgts_paso_3" style="display: none">
-                   <?php include (APPLICATION_SECTIONS .'registro_paso_3.php');?>
-               </article>
+                <!-- Paso 2 -->
+                 <article class="rgts_paso_2" id="rgts_paso_2" style="display: none">
+                     <?php include (APPLICATION_SECTIONS .'registro_paso_2.php');?>
+                 </article>
 
-           </div><!-- Contenedor = 1 -->
+                <!-- Paso 3 -->
+                 <article class="rgts_paso_3" id="rgts_paso_3" style="display: none">
+                     <?php include (APPLICATION_SECTIONS .'registro_paso_3.php');?>
+                 </article>
+             </div><!-- Contenedor = 1 -->
+          </div>
+
         </div>
     </div>
+
+    </div>
 </div><!-- Cont = Principal -->
+<br>
+<br>
