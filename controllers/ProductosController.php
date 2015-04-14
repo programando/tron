@@ -54,9 +54,9 @@ class ProductosController extends Controller
     {
       /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
       */
-      $Id_Area_Consulta      = Session::Get('Id_Area_Consulta');
-      $Texto_Busqueda        = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
-      $Tipo_Busqueda        = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
+      $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+      $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
+      $Tipo_Busqueda    = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
 
       if (strlen($Texto_Busqueda)>0){
 
