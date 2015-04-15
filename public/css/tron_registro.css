@@ -1,4 +1,4 @@
-.contenedor_pagina
+ .contenedor_pagina
 {
      width: 95%;
      margin: 10px auto;
@@ -52,6 +52,11 @@
 
 /* diseño paso 1 */
 
+.input_campo_datos
+{
+   text-transform: uppercase;
+}
+
 .campos-cedu-ciudadana /*Campos Ocultos*/
 {
    display: block;
@@ -59,7 +64,7 @@
 
 #campos-nit   /*Campos Ocultos*/
 {
-    display:  none;
+    display:   ;
 }
 
 

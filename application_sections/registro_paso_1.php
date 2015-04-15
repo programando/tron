@@ -24,38 +24,6 @@
           </div>
         </div><!--TIpo-Document -->
 
-          <div class="col-lg-7" style="display: none;">
-             <div class="col-lg-6">
-              <div class="form-group campos-cedu-ciudadana"><!--Numero-documento -->
-               <label for="identificacion_nat"  class="well  col-lg-7 "><p class="text-label ">Número  Documento:</p></label>
-               <div class="well col-lg-4">
-                 <input type="text" class="form-control input_campo_datos" id="identificacion_nat">
-               </div>
-
-               <div class ="col-lg-12"><!--Mensaje de validacion -->
-                 <div class ="mjs-valid-Num-dcto"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img"> Campo Vacio !!</div>
-               </div><!--Mensaje de validacion -->
-
-             </div><!--Numero-documento -->
-             </div>
-
-             <div class="col-lg-5">
-                 <div class="form-group campos-cedu-ciudadana"><!--Confirmar -->
-                   <label for="identificacion_nat_confirm" class="col-lg-4 control-label" ><p class="text-label ">Confirmar:</p></label>
-                   <div class="col-lg-8 cont-input">
-                    <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm" style="background: red;">
-                  </div>
-
-                  <div class="col-lg-12"><!--Mensaje de validacion -->
-                    <div class="mjs-valid-confi-num-dcto"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img"> Campo Vacio !!</div>
-                  </div><!--Mensaje de validacion -->
-
-                </div><!--Confirmar -->
-             </div>
-
-
-         </div>
-
 
         <!--Campos NIT -->
 
@@ -147,7 +115,7 @@
 
                  <div class="col-lg-4 col-md-4 col-sm-4"><!--Columan Contiene => numero-documento , nombres , pais -->
 
-                   <div style="display: none;">
+                   <div  >
                    <div class="form-group campos-cedu-ciudadana"><!--Numero-documento -->
                      <label for="identificacion_nat"  class=" col-lg-6 "><p class="text-label ">Número  Documento:</p></label>
                      <div class="col-lg-6 ">
@@ -196,11 +164,11 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-4" id="columna-2"><!--Columan Contine => Confirmar , apellidos , departamento -->
 
-                <div style="display: none;">
+                <div>
                  <div class="form-group campos-cedu-ciudadana"><!--Confirmar -->
                    <label for="identificacion_nat_confirm" class="col-lg-4 control-label" ><p class="text-label ">Confirmar:</p></label>
                    <div class="col-lg-8 cont-input">
-                    <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm" style="background: red;">
+                    <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm">
                   </div>
 
                   <div class="col-lg-12"><!--Mensaje de validacion -->
