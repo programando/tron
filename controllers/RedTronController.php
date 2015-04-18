@@ -111,8 +111,13 @@ class RedTronController extends Controller
 
             public function contactanos()
     {
+<<<<<<< HEAD
         $this->View->SetCss(array('tron_red_amigo_general'));
         $this->View->SetJs(array('tron_redtron_formulario','tron_btn_ir_arriba', 'tron_contactos'));
+=======
+        $this->View->SetCss(array('tron_red_amigo_general','tron_campo_6','tron_indus_campo_3'));
+        $this->View->SetJs(array('tron_redtron_formulario','tron_btn_ir_arriba'));
+>>>>>>> origin/master
         $this->View->Mostrar_Vista("contactanos");
     }
 

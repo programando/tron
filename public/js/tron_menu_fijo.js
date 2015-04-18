@@ -4,7 +4,7 @@
 
     $(window).scroll(function(){
 
-       if($(this).scrollTop() >  ){
+       if($(this).scrollTop() > 0 ){
 
           $('header').addClass('header2');
          	$('.header2').css("display", "block");

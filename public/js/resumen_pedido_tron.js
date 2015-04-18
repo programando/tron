@@ -5,17 +5,11 @@ $(document).ready(function(){
 
        if($(this).scrollTop() > 0){
 
-       $('.carrito-resumen-pedido').animate({
-
-                'margin-top':'200px'
-       },500);
+       $('.carrito-resumen-pedido').css('margin-top','150px');
 
       } else {
 
-      	  $('.carrito-resumen-pedido').animate({
-
-              'margin-top':'0px'
-      },100);
+      	  $('.carrito-resumen-pedido').css('margin-top','0px');
 
       }
 
