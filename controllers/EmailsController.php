@@ -15,6 +15,13 @@
       public function Index() { }
 
 
+      /** ENVIO DE CORREOS DESDE EL FORMULARIO DE CONTACTOS
+       *    ABRIL 16 DE 2015
+       */
+      public function envio_correo_contactos(){
+
+      }
+
 
       public function Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto   )
       { /** ENERO 31 DE 2015
