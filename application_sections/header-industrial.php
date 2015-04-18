@@ -41,8 +41,9 @@
           <ul class="nav navbar-nav">
             <li></li>
             <li><a class="navbar-brand list-indust"  href="javascript:history.go(-1)" id="flecha-industrial" ><span class="glyphicon glyphicon-chevron-left"></span> </a></li>
-            <li><a class="list-indust tron_indu_produ_active" id="indus_productos" href="#">PRODUCTOS</a></li>
-            <li><a class="list-indust tron_indu_destacados_active" id="indus_destacados" href="#">DESTACADOS</a></li>
+            <li><a class="list-indust indus_campo_1"  id="indus_productos"  href="#">PRODUCTOS</a></li>
+            <li><a class="list-indust indus_campo_2"  id="indus_destacados" href="#">DESTACADOS</a></li>
+            <li><a class="list-indust indus_campo_3"                        href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
           </ul>
 
         </div>
@@ -50,3 +51,13 @@
     </div>
 
     <!--Menu-Vista-Industrial -->
+
+<!--
+      /.. Esta  TABLA es para indicar en donde se encuentra cada efecto activo del menu-tron ../
+
+                  CAMPO              CLASE               DOCUMENTO            CONTOLLER-VISTA
+
+               PRODUCTOS      =  indus_campo_1  =  tron_indus_campo_1.css  =
+               DESTACADOS     =  indus_campo_2  =  tron_indus_campo_2.css  =
+               CONTACTANOS    =  indus_campo_3  =  tron_indus_campo_3.css  =  contactos
+-->

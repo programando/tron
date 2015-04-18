@@ -48,6 +48,7 @@
             <li><a class="list-menu campo_3" id="hogar_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
             <li><a class="list-menu campo_4" id="hogar_ofertas"    href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
             <li><a class="list-menu campo_5" id="hogar_novedades"  href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
+            <li><a class="list-menu campo_6"                       href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
 
           </ul>
           </div>
@@ -67,4 +68,5 @@
               DESTACADOS      =  campo_3  =  tron_campo_3.css  =  Destacados
               OFERTAS         =  campo_4  =  tron_campo_4.css  =  ofertas
               NOVEDADES       =  campo_5  =  tron_campo_5.css  =  novedades
+              COCTACTOS      =   campo_6  =  tron_campo_6.css  =  contactanos
 -->
