@@ -48,7 +48,7 @@
             <li><a class="list-menu campo_3" id="hogar_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
             <li><a class="list-menu campo_4" id="hogar_ofertas"    href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
             <li><a class="list-menu campo_5" id="hogar_novedades"  href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
-            <li><a class="list-menu campo_6"                       href="<?=BASE_URL ;?>Redtron/contactanos">CONTACTOS</a></li>
+            <li><a class="list-menu campo_6"                       href="<?=BASE_URL ;?>RedTron/contactanos">CONTACTOS</a></li>
 
           </ul>
           </div>
