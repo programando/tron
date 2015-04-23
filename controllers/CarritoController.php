@@ -434,7 +434,7 @@ class CarritoController extends Controller
       $this->compras_accesorios         = 0 ;
 
 
-      if ($this->Carrito_Habilitado==false)
+      if ($this->Carrito_Habilitado == false)
       {
         return ;
       }
@@ -449,7 +449,7 @@ class CarritoController extends Controller
           $this->Total_Parcial_pv_tron         = $this->Total_Parcial_pv_tron        + $Productos['sub_total_pv_tron'] ;
           $this->Peso_Total_Pedido_Kilos       = $this->Peso_Total_Pedido_Kilos      + $peso_total_producto ;
 
-          if ($Productos['idtipo_producto']!='PRD') // PRODUCTOS QUE NO SON TRON ( OTROS, ACC, INDUSTRIALES)
+          if ($Productos['idtipo_producto'] !='PRD' ) // PRODUCTOS QUE NO SON TRON ( OTROS, ACC, INDUSTRIALES, PROMOCIONALES)
           {
             $this->Tron_Peso_Total_Gramos  = $this->Tron_Peso_Total_Gramos    + $peso_total_producto  ;
             $this->Tron_Cmv_Total          = $this->Tron_Cmv_Total            + $Productos['cmv'];
@@ -470,7 +470,7 @@ class CarritoController extends Controller
 
         $this->Determinar_Precio_Real_Producto($this->compras_tron ,$this->compras_industrial );
         $this->Totalizar_Pedido_x_Categoria_Producto();         // Totaliza categorias de productos, para grabar en el pedido
-        $this->Calcular_Flete($this->Peso_Total_Pedido_Kilos,$this->Valor_Declarado );
+        $this->Calcular_Flete($this->Valor_Declarado );
         $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
         $this->Peso_Total_Pedido_Kilos   = (int)$this->Peso_Total_Pedido_Kilos ;
 
@@ -488,16 +488,26 @@ class CarritoController extends Controller
     {/** MARZO 19 DE 2015
       *       TOTALIZA LOS VALORES DEL PEDIDO POR CATEGORIA DE PRODUCTO. TRON, INDUSTRIALES, ACCESORIOS, OTROS
       */
-      $this->compras_tron               = 0;
-      $this->compras_industrial         = 0 ;
-      $this->compras_otros_productos    = 0 ;
-      $this->compras_accesorios         = 0 ;
-      $i                                = 0;
+      $this->compras_tron            = 0;
+      $this->compras_industrial      = 0 ;
+      $this->compras_otros_productos = 0 ;
+      $this->compras_accesorios      = 0 ;
+      $i                             = 0;
+      $peso_productos_tron           = 0;
+      $peso_productos_industriales   = 0;
+      $peso_otros_productos          = 0;
+      $peso_accesorios               = 0; // Contine peso de accesorios y productos promocionales
 
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0 );
       Session::Set('compra_otros_productos',0);
       Session::Set('compra_accesorios',0);
+      //Peso de productos segun categoria
+      Session::Set('peso_productos_tron',0);
+      Session::Set('peso_productos_industriales',0);
+      Session::Set('peso_otros_productos',0);
+      Session::Set('peso_accesorios',0);
+
 
       $this->Depurar_Carrito();
       $this->Iniciar_Procesos_Carro();
@@ -508,22 +518,27 @@ class CarritoController extends Controller
           $precio_unitario       = $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
           $total_item            = $precio_unitario *  $cantidad ;
+          $peso_gramos           = $this->Datos_Carro[$i]['peso_gramos'] *  $cantidad  ;
 
           if ($id_categoria_producto >= 1 and $id_categoria_producto <= 4)
           {
                $this->compras_tron  = $this->compras_tron + $total_item  ;
+               $peso_productos_tron = $peso_productos_tron  + $peso_gramos ;
           }
           if ($id_categoria_producto == 6) // Industiales
           {
-               $this->compras_industrial   = $this->compras_industrial  + $total_item  ;
+                $this->compras_industrial   = $this->compras_industrial  + $total_item  ;
+                $peso_productos_industriales  = $peso_productos_industriales  + $peso_gramos ;
           }
           if ($id_categoria_producto == 7) // otros productos
           {
-               $this->compras_otros_productos   = $this->compras_otros_productos  +  $total_item  ;
+               $this->compras_otros_productos = $this->compras_otros_productos  +  $total_item  ;
+               $peso_otros_productos          = $peso_otros_productos  + $peso_gramos ;
           }
-          if ($id_categoria_producto == 5) // Accesorios
+          if ($id_categoria_producto == 5 || $id_categoria_producto == 8 ) // Accesorios y productos promocionales
           {
-               $this->compras_accesorios    = $this->compras_accesorios  +  $total_item ;
+               $this->compras_accesorios = $this->compras_accesorios  +  $total_item ;
+               $peso_accesorios          = $peso_accesorios  + $peso_gramos ;
           }
         }
 
@@ -531,8 +546,11 @@ class CarritoController extends Controller
       Session::Set('compra_productos_industriales',$this->compras_industrial );
       Session::Set('compra_otros_productos',$this->compras_otros_productos);
       Session::Set('compra_accesorios',$this->compras_accesorios );
-
-
+      //
+      Session::Set('peso_productos_tron',$peso_productos_tron);
+      Session::Set('peso_productos_industriales',$peso_productos_industriales );
+      Session::Set('peso_otros_productos',$peso_otros_productos);
+      Session::Set('peso_accesorios',$peso_accesorios );
 
       $this->Cerrar_Procesos_Carro();
     }
@@ -597,22 +615,26 @@ class CarritoController extends Controller
           $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $this->Datos_Carro [$i]['cantidad'];
           }
         }
-
+        //Debug::Mostrar($this->Datos_Carro);
         $this->Cerrar_Procesos_Carro();
     } // Fin Hallar_Valor_Escalas_Productos
 
 
 
 
-    public function Calcular_Flete($peso_kilos_pedido, $valor_declarado)
+    public function Calcular_Flete( $valor_declarado)
     {/** MARZO 09 DE 2015
       *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
       */
-      $this->Cant_Unidades_Despacho    = 0;
-      $Fletes_Cobrados_Transportadoras = array(
-                                         array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
+      $this->Cant_Unidades_Despacho = 0;
+      $peso_kilos_pedido            = 0;
+
+      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
                                                'transportador'=>'', 'tipo_tarifa'=>''));
       Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+
+      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
+      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
       $this->Calcular_Numero_Unidades_Despacho  ($peso_kilos_pedido);
       $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
@@ -620,6 +642,27 @@ class CarritoController extends Controller
       $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado,$this->Cant_Unidades_Despacho);
       $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
       $this->Encontrar_Mejor_Flete();
+      //ind_ot_acc_pp = Productos industriales, otros productos, accesorio y productos promocionales
+      $mis_fletes = array("fletes"   => array("tron","ind_ot_acc_pp"),
+                          "subsidio" => array("tron","ind_ot_acc_pp"),
+                          "recaudo"  => array("tron","ind_ot_acc_pp"));
+
+      /*$mis_fletes["fletes"]['0']          = 100;
+      $mis_fletes["fletes"]['industrial']    = 200;
+      $mis_fletes["fletes"]['otros']         = 300;
+      $mis_fletes["fletes"]['accesorios']    = 400;
+      $mis_fletes["fletes"]['promocionales'] = 500;
+      //
+      $mis_fletes["subsidio"]['tron']          = 100;
+      $mis_fletes["subsidio"]['industrial']    = 200;
+      $mis_fletes["subsidio"]['otros']         = 300;
+      $mis_fletes["subsidio"]['accesorios']    = 400;
+      $mis_fletes["subsidio"]['promocionales'] = 500;
+
+      foreach ($mis_fletes as $key) {
+       Debug::Mostrar($key[0]);
+      }
+*/
 
     }
 
@@ -629,21 +672,15 @@ class CarritoController extends Controller
     {/**  MARZO 12 DE 2015
       *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
       */
-      $Fletes_Evaluados                = array(array('idtercero'=>0,'valor_flete'=>0, 'tipo_tarifa'=>'' ));
       $this->Vr_Transporte_Cliente     = 0;
       $i                               = 0;
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
       $Asignar_Flete                   = TRUE;
-      //Debug::Mostrar($Fletes_Cobrados_Transportadoras);
+      Debug::Mostrar($Fletes_Cobrados_Transportadoras);
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
       {
         if ($Fletes['valor_flete'] >0 )
         {
-            $Fletes_Evaluados[$i]['idtercero']   = $Fletes['idtercero'];
-            $Fletes_Evaluados[$i]['valor_flete'] = $Fletes['valor_flete'];
-            $Fletes_Evaluados[$i]['tipo_tarifa'] = $Fletes['tipo_tarifa'];
-            $i++;
-
             if ($Asignar_Flete == TRUE)
             {
               $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
@@ -660,7 +697,7 @@ class CarritoController extends Controller
       }
       $this->Vr_Transporte_Cliente = $Mejor_Flete['valor_flete'];
       Session::Set('flete_cobrado', $Mejor_Flete);
-
+      Debug::Mostrar($Mejor_Flete);
     }
 
 

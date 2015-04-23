@@ -119,20 +119,21 @@ class ProductosController extends Controller
          $this->View->SetCss(array('tron_carrito','tron_estilos_productos_tron','tron_productos_tron_active','tron_campo_1'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','resumen_pedido_tron'));
 
-         $this->Productos_Tron_Ropa();
-         $this->View->Accesorios          = $this->_Accesorios_Tron;
-         $this->View->Productos_Tron_Ropa = $this->_Productos_Tron;
+         $Id_Categoria_Ropa                = 1;
+         $this->Productos_Tron_Consultar($Id_Categoria_Ropa);
+         $this->View->Accesorios_Tron_Ropa = $this->_Accesorios_Tron;
+         $this->View->Productos_Tron_Ropa  = $this->_Productos_Tron;
 
 
          $this->View->Mostrar_Vista('productos_tron');
     }
 
 
-    public function Productos_Tron_Ropa()
+    public function Productos_Tron_Consultar($Id_Categoria)
     {
-      $Id_Categoria_Ropa = 1;
-      $this->_Productos_Tron  = $this->Productos->Productos_Tron_x_Id_Categoria_Producto($Id_Categoria_Ropa);
-      $this->_Accesorios_Tron = $this->Productos->Productos_Tron_Accesorios_x_Id_Categoria_Producto($Id_Categoria_Ropa);
+
+      $this->_Productos_Tron  = $this->Productos->Productos_Tron_x_Id_Categoria_Producto($Id_Categoria);
+      $this->_Accesorios_Tron = $this->Productos->Productos_Tron_Accesorios_x_Id_Categoria_Producto($Id_Categoria);
 
     }
 

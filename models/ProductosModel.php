@@ -50,11 +50,6 @@
         }
 
 
-
-
-
-
-
         public function Productos_x_Agrupacion($id_agrupacion)
         {
             /**ENERO 16 DE 2014

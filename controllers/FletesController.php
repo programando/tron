@@ -340,16 +340,16 @@
 																				if ($courrier_regional ==0)
 																					{
 																						$this->valor_flete   = $carga_regional ;
-																						$this->tipo_tarifa = 'CARGA REGIONAL';
+																						$this->tipo_tarifa   = 'CARGA REGIONAL';
 																					}
 																			}else
 																			{
 																				$this->valor_flete  	= $courrier_nacional;//vr_flete_courrier_nacional
-																				$this->tipo_tarifa = 'COURRIER NACIONAL';
-																				if ($this->valor_flete ==0)
+																				$this->tipo_tarifa   = 'COURRIER NACIONAL';
+																				if ( $this->valor_flete == 0 )
 																				{
 																					$this->valor_flete  = $courrier_regional;//vr_flete_carga_nacional
-																					$this->tipo_tarifa = 'COURRIER REGIONAL';
+																					$this->tipo_tarifa  = 'COURRIER REGIONAL';
 																				}
 																			}
 																		 break;
@@ -357,11 +357,11 @@
 										 					case '1':
 																			if ($iddpto==32)
 																			{
-																				$this->valor_flete      = $re_expedicion_regional;
+																				$this->valor_flete = $re_expedicion_regional;
 																				$this->tipo_tarifa = 'RE-EXPEDICION REGIONAL';
 																			}else
 																			{
-																				$this->valor_flete  		 = $re_expedicion_nacional ;
+																				$this->valor_flete = $re_expedicion_nacional ;
 																				$this->tipo_tarifa = 'RE-EXPEDICION NACIONAL';
 																			}
 																		break;

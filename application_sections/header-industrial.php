@@ -41,8 +41,8 @@
           <ul class="nav navbar-nav">
             <li></li>
             <li><a class="navbar-brand list-indust"  href="javascript:history.go(-1)" id="flecha-industrial" ><span class="glyphicon glyphicon-chevron-left"></span> </a></li>
-            <li><a class="list-indust indus_campo_1"  id="indus_productos"  href="#">PRODUCTOS</a></li>
-            <li><a class="list-indust indus_campo_2"  id="indus_destacados" href="#">DESTACADOS</a></li>
+            <li><a class="list-indust indus_campo_1"  id="indus_productos"  href="<?=BASE_URL ;?>productos/categorias_marcas/">PRODUCTOS</a></li>
+            <li><a class="list-indust indus_campo_2"  id="indus_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
             <li><a class="list-indust indus_campo_3"                        href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
           </ul>
 
