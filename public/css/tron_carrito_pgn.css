@@ -111,10 +111,11 @@ _____ Diseño x columnas ______
 
 }
 
-.presentacion-producto
+#presentacion-producto
 {
     width: 100%;
     display: block;
+    border-top: none;
 }
 
 .col-tabla-cantidad  /* Cantidad */

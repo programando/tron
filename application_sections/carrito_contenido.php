@@ -51,7 +51,7 @@
           </p>
        </td><!--Nombre del producto -->
 
-      <td class="presentacion-producto"><!-- Presentacon = Producto -->
+      <td id="presentacion-producto"><!-- Presentacon = Producto -->
           <p class="text-center info-tabla"> <?= $nompresentacion ;?> </p>
       </td><!-- Presentacon = Producto -->
 
