@@ -52,19 +52,6 @@ $numero_nit.on('focus',function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Passo 2 => Continuar => paso 3
 
   $('#btn_paso_2_continuar').on('click',function(){
