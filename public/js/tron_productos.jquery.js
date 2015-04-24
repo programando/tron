@@ -194,9 +194,6 @@ $('#btn-recomendar-producto').on('click',function(){
 //  FIN RECOMENDAR PRODUCTO A MI AMIGO
 
 
-
-
-
 // EVENTOS SOBRE PRODUCTOS TRON
 $('#contenido-productos').on('keyup','.CantProdCompraTron',function(){
 			$IdProducto    = $(this).attr("idproducto");
@@ -209,13 +206,7 @@ $('#contenido-productos').on('keyup','.CantProdCompraTron',function(){
 });
 
 
-$('#contenido-productos').on('click','.btns-carritoTronMas',function(){
 
-});
-
-$('#contenido-productos').on('click','.btns-carritoTronMenos',function(){
-
-});
 
 
 $('#contenido-productos').on('click','.carrito-resumen-mas',function(){

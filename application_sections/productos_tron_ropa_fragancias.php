@@ -22,13 +22,9 @@
 
                    <div class="col-xs-4" id="cont-digitos">
                       <div class="form-group"><!--Inicio Input-->
-                         <input type        = "text"  value="0"
+                         <input type        = "text"  value="<?= $Cantidad_Comprada ;?> "
                           id                = "<?=$id_controles ;?>"
-                          class             = "digitos btn-carrito-input CantProdCompraTron"
-                          id-idescala       = "<?= $idescala;?>"
-                          pv-tron-escala-a  = "<?= $pv_tron_escala_a ;?>"
-                          pv-tron-escala-b  = "<?= $pv_tron_escala_b ;?>"
-                          pv-tron-escala-c  = "<?= $pv_tron_escala_c ;?>"
+                          class             = "digitos btn-carrito-input CantProdCompraTronFragancias"
                           precio-amigo-tron = "<?= $id_pv_tron ;?>"
                           idproducto        =  "<?= $idproducto ;?>"
                           es-tron           =  "true"

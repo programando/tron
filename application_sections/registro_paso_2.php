@@ -13,7 +13,7 @@
              <thead><!--Emcabezado -->
                  <tr>
                      <th>BENEFICIOS</th>
-                     <th class="text-center"><a href="#">PLAN COMPRADOR OCACIONAL</a></th>
+                     <th class="text-center"><a href="#">PLAN COMPRADOR OCASIONAL</a></th>
                      <th class="text-center"><a href="#">PLAN CLIENTE TRON</a></th>
                      <th class="text-center"><a href="#">PLAN EMPRESARIO TRON</a></th>
                  </tr>

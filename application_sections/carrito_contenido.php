@@ -24,9 +24,11 @@
           $Vr_Total_Item_Ocasional = Numeric_Functions::Formato_Numero($Vr_Total_Item_Ocasional ) ;
           $Vr_Total_Item_Tron      = Numeric_Functions::Formato_Numero($ProductosCarro['sub_total_pv_tron']);
 
+
           $Vr_Unit_Real_Producto  = Numeric_Functions::Formato_Numero($ProductosCarro['precio_unitario_produc_pedido']);
           $Vr_Total_Real_Producto = Numeric_Functions::Formato_Numero($ProductosCarro['precio_total_produc_pedido']);
-
+          $NombreArray            = 'TRON'.$idproducto;
+          $Cantidad_Comprada      = Session::Get($NombreArray );
       ?>
 
       <tr class="fila">
@@ -121,10 +123,10 @@
     <?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) :?>
       <td class="col-tabla-preci2" title="Precio unitario para clientes/empresarios TRON" >
           <p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_tron ;?> </p>
-      </td><!--Precio UNIT. -->
+      </td><!--Precio UNIT. $Vr_Total_Item_Tron-->
 
       <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
-        <p class="info-tabla"> <?= $Vr_Total_Item_Tron  ;?>   </p>
+        <p class="info-tabla"> <?=    $Vr_Total_Item_Tron  ;?>   </p>
       </td>
     <?php endif ;?>
 

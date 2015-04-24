@@ -37,12 +37,14 @@ class CarritoController extends Controller
     {
         parent::__construct();
 
-        $this->Escalas       = $this->Load_Controller('ProductosEscalas');
-        $this->Parametros    = $this->Load_Controller('Parametros');
-        $this->Terceros      = $this->Load_Controller('Terceros');
-        $this->Fletes        = $this->Load_Controller('Fletes');
-        $this->Departamentos = $this->Load_Model('Departamentos');
-        $this->Productos     = $this->Load_Model('Productos');
+        $this->Escalas        = $this->Load_Controller('ProductosEscalas');
+        $this->Parametros     = $this->Load_Controller('Parametros');
+        $this->Terceros       = $this->Load_Controller('Terceros');
+        $this->Fletes         = $this->Load_Controller('Fletes');
+        $this->Productos_Tron = $this->Load_Controller('ProductosTron');
+        $this->Departamentos  = $this->Load_Model('Departamentos');
+        $this->Productos      = $this->Load_Model('Productos');
+
 
     }
     public function index() {}
@@ -98,7 +100,8 @@ class CarritoController extends Controller
     }
 
     public function Finalizar_Pedido_Direccion_Envio()
-    {/** FEBRERO 28 DE 2015
+    {
+      /** FEBRERO 28 DE 2015
           DETERMINA EL SIGUIENTE PASO EN LA FINALIZACIÓN DEL PEDIDO.  IDENTIFICACION O CONFIRMACIÓN DE ENVÍO
       */
       $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
@@ -130,20 +133,18 @@ class CarritoController extends Controller
     }
 
     public function Finalizar_Pedido_Identificacion()
-    {/** FEBRERO 28 DE 2015
+    {
+    /** FEBRERO 28 DE 2015
           DETERMINA EL SIGUIENTE PASO EN LA FINALIZACIÓN DEL PEDIDO.
           IDENTIFICACION O CONFIRMACIÓN DE ENVÍO
       */
       $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
       $this->View->SetCss(array('tron_carrito','tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios','tron_estilos_linea_tiempo'));
       $this->View->Departamentos = $this->Departamentos->Consultar();
-      if (Session::Get('autenticado')==false)
-      {
+      if (Session::Get('autenticado')==false) {
         Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
-
-      }else
-      {
+      }else      {
         $this->View->Direcciones = $this->Terceros->Direcciones_Despacho();
         Session::Set('iddireccion_despacho',   0 );
         $this->View->Mostrar_Vista('finalizar_pedido_direccion');
@@ -188,9 +189,10 @@ class CarritoController extends Controller
       */
       $this->Iniciar_Procesos_Carro();
 
-      $i=0;
       $IdProducto        = General_Functions::Validar_Entrada('IdProducto','NUM');
       $Cantidad          = General_Functions::Validar_Entrada('Cantidad','NUM');
+      $i                 = 0;
+      $NombreArray       = 'TRON'.$IdProducto;              // CAPTURA CANTIDAD DE PRODUCTO TRON COMPRADO
 
       foreach ($this->Datos_Carro as $key => $productos)
       {
@@ -198,20 +200,23 @@ class CarritoController extends Controller
         {
             $cantidad_producto = $this->Datos_Carro[$key]['cantidad'];
             $cantidad_producto = $cantidad_producto - $Cantidad;
-            if ($cantidad_producto<=0)
+            Session::Set($NombreArray,$cantidad_producto);
+            if ($cantidad_producto <= 0)
             {
-              unset($this->Datos_Carro[$key]);
+              array_splice($this->Datos_Carro, $i, 1);
+              Session::Set($NombreArray,0);
             }else
             {
              $this->Datos_Carro[$key]['cantidad'] = $cantidad_producto;
             }
         }
+        $i++;
       }
 
       $this->Cerrar_Procesos_Carro();
       $this->Hallar_Valor_Escalas_Productos();
       $this->Totalizar_Carrito();
-      $this->Retornar_Totales_Carro_Json(); // Retorna totales en formato JSON
+      $this->Retornar_Totales_Carro_Json();
 
   }
 
@@ -232,8 +237,9 @@ class CarritoController extends Controller
        {
            if ($Productos['cantidad'] ==0 )
              {
-               unset($Productos['idproducto']);
+                array_splice($this->Datos_Carro, $i, 1);
              }
+             $i++;
        }
       $this->Cerrar_Procesos_Carro();
 
@@ -253,7 +259,7 @@ class CarritoController extends Controller
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
 
-      if ($this->Cantidad_Filas_Carrito==0)
+      if ($this->Cantidad_Filas_Carrito == 0)
       {
         if ($Tipo_Vista==1)
         {
@@ -479,8 +485,6 @@ class CarritoController extends Controller
         Session::Set('Total_Parcial_pv_tron',       $this->Total_Parcial_pv_tron );
         Session::Set('vr_transporte_cliente',       $this->Vr_Transporte_Cliente );
 
-
-
         $this->Cerrar_Procesos_Carro();
     }
 
@@ -514,6 +518,8 @@ class CarritoController extends Controller
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
        {
           // COMPRAS POR CADA TIPO DE PRODUCTO
+
+
           $id_categoria_producto = $this->Datos_Carro[$i]['id_categoria_producto'] ;
           $precio_unitario       = $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
@@ -541,6 +547,7 @@ class CarritoController extends Controller
                $peso_accesorios          = $peso_accesorios  + $peso_gramos ;
           }
         }
+
 
       Session::Set('compra_productos_tron',$this->compras_tron);
       Session::Set('compra_productos_industriales',$this->compras_industrial );
@@ -581,6 +588,7 @@ class CarritoController extends Controller
       $i   = 0;
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
        {
+
            if ($this->Datos_Carro [$i]['cantidad']>0)
            {
             // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
@@ -611,6 +619,7 @@ class CarritoController extends Controller
                     $precio_unitario_producto  = $this->Datos_Carro[$i]['pv_tron'];
                   }
             }
+
           $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] = $precio_unitario_producto;
           $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $this->Datos_Carro [$i]['cantidad'];
           }
@@ -676,7 +685,7 @@ class CarritoController extends Controller
       $i                               = 0;
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
       $Asignar_Flete                   = TRUE;
-      Debug::Mostrar($Fletes_Cobrados_Transportadoras);
+      //Debug::Mostrar($Fletes_Cobrados_Transportadoras);
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
       {
         if ($Fletes['valor_flete'] >0 )
@@ -697,7 +706,7 @@ class CarritoController extends Controller
       }
       $this->Vr_Transporte_Cliente = $Mejor_Flete['valor_flete'];
       Session::Set('flete_cobrado', $Mejor_Flete);
-      Debug::Mostrar($Mejor_Flete);
+      //Debug::Mostrar($Mejor_Flete);
     }
 
 
@@ -764,10 +773,15 @@ class CarritoController extends Controller
     public function Hallar_Valor_Escalas_Productos()
     {
         $this->Iniciar_Procesos_Carro();
+        //Debug::Mostrar($this->Cantidad_Filas_Carrito);
+        //Debug::Mostrar($this->Datos_Carro);
         $i   = 0;
+
         for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
          {
-             if ($this->Datos_Carro [$i]['cantidad'] >0 and $this->Datos_Carro[$i]['idescala']>0)
+            $this->Datos_Carro[$i]['sub_total_pv_tron'] = $this->Datos_Carro[$i]['cantidad'] *  $this->Datos_Carro[$i]['pv_tron'];
+
+            if ($this->Datos_Carro [$i]['cantidad'] >0 and $this->Datos_Carro[$i]['idescala']>0)
              {
               $cantidad         = $this->Datos_Carro[$i]['cantidad'];
               $idescala         = $this->Datos_Carro[$i]['idescala'];
@@ -785,12 +799,7 @@ class CarritoController extends Controller
               $this->Datos_Carro[$i]['pv_tron']           = $this->Escalas->Precio_Final_Tron;
               $this->Datos_Carro[$i]['posicion_escala']   = $this->Escalas->Posicion_Escala;  // PUEDE SER 0, 1, 2, 3 .. IMPORTANTE PARA LOS PRESUPUESTOS
               $this->Datos_Carro[$i]['idescala_dt']       = $this->Escalas->IdEscala_Compra;  // IDENTIFICADOR DE LA ESCALA CON LA QUE SE COMPRA
-              $this->Datos_Carro[$i]['sub_total_pv_tron'] = $this->Datos_Carro[$i]['cantidad']  * $this->Datos_Carro[$i]['pv_tron'] ;
-
-              $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] = 50;
-              $this->Datos_Carro[$i]['precio_total_produc_pedido']    = 100;
-
-
+              $this->Datos_Carro[$i]['sub_total_pv_tron'] = $this->Datos_Carro[$i]['cantidad'] *  $this->Datos_Carro[$i]['pv_tron'];
             }
           }
 
@@ -799,7 +808,7 @@ class CarritoController extends Controller
 
 
 
-	public function Agregar_Producto()
+public function Agregar_Producto()
     {
       /** ENERO 06 DE 2014
       *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
@@ -809,10 +818,12 @@ class CarritoController extends Controller
         $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
         $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
         $ProdTronAcc      = General_Functions::Validar_Entrada('es_tron_acc','BOL');
+        $NombreArray      = 'TRON'.$IdProducto ;
+        Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
 
         if (!isset($_SESSION['carrito']))
         {
-           $_SESSION['carrito'] = array();
+          $_SESSION['carrito'] = array();
         }
         $Carrito_Actual     = $_SESSION['carrito'];
         $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada);
@@ -827,27 +838,42 @@ class CarritoController extends Controller
             if ($IdProducto_Carro==$IdProducto )
             {
               $Carrito_Actual[$i]['cantidad'] = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
+              $Cantidad_Total                 = $Carrito_Actual[$i]['cantidad'] ;
               $i                              = $Cantidad_Filas+1;
               $Existe_Id_Producto             = true;
+              Session::Set($NombreArray,$Cantidad_Total); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
             }
-
           }
+
          if ($Existe_Id_Producto==false)
-         {
-          array_push($Carrito_Actual, $Ultima_Compra);
-         }
+          {
+            array_push($Carrito_Actual, $Ultima_Compra);
+          }
 
         $_SESSION['carrito'] = $Carrito_Actual;
 
-        //
-
         $this->Depurar_Carrito();
         $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
-        $this->Hallar_Valor_Escalas_Productos();
+        if ( $ProdTron == FALSE ){
+          $this->Hallar_Valor_Escalas_Productos();
+        }
+        if ($ProdTron == TRUE)
+        {
+
+        }
         $this->Totalizar_Carrito();
         $this->Retornar_Totales_Carro_Json();
 
-    } // Fin Agregar_Producto
+    }
+
+  public function  Calcular_Precios_Por_Categoria_Productos_Tron()
+  {
+    /**  ABRIL 24 DE 2015...
+     *   CALCULAR PRECIOS POR CATEGORIA EN LOS PRODUCTOS TRON
+     */
+
+
+  }
 
 
 
