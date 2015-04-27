@@ -1,5 +1,4 @@
 <?php
-
        $en_oferta            = $Productos['en_oferta'];
        $fabricado_x_ta       = $Productos['fabricado_x_ta'];
        $id_agrupacion        = $Productos['id_agrupacion'];
@@ -12,9 +11,9 @@
        $idnomproducto        = 'nomproducto'.$Productos['idproducto'];
        $idproducto           = $Productos['idproducto'];
        $nom_agrupacion       = $Productos['nom_agrupacion'];
-       $nom_producto         =  $Productos['nom_producto'];
+       $nom_producto         = trim($Productos['nom_producto']);
        $nombre_imagen        = $Productos['nombre_imagen'];
-       $nompresentacion      =  $Productos['nompresentacion'];
+       $nompresentacion      = trim( $Productos['nompresentacion']);
        $pv_ocasional         = Numeric_Functions::Formato_Numero($Productos['pv_ocasional']);
        $pv_tron              = Numeric_Functions::Formato_Numero($Productos['pv_tron']);
        $pv_tron_escala_a     = $Productos['pv_tron_escala_a'];

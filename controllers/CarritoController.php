@@ -518,8 +518,6 @@ class CarritoController extends Controller
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
        {
           // COMPRAS POR CADA TIPO DE PRODUCTO
-
-
           $id_categoria_producto = $this->Datos_Carro[$i]['id_categoria_producto'] ;
           $precio_unitario       = $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
@@ -566,8 +564,6 @@ class CarritoController extends Controller
     {/** MARZO 20 DE 2015
       *     DETERMINA EL PRECIO A DAR POR LA COMPRA ACTUAL TENIENDO EN CUENTA LOS MÍNIMOS DE COMPRA PARA PRODUCTOS TRON
       */
-
-
       $precio_unitario_producto           = 0;
       $precio_total_producto              = 0;
 
