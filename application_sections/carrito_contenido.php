@@ -53,11 +53,9 @@
           </p>
        </td><!--Nombre del producto -->
 
-      <td id="presentacion-producto"><!-- Presentacon = Producto -->
-          <p class="text-center info-tabla"> <?= $nompresentacion ;?> </p>
-      </td><!-- Presentacon = Producto -->
-
-
+       <td><!-- Presentacon -->
+             <p class="text-center info-tabla"> <?= $nompresentacion ;?> </p>
+       </td> <!-- Presentacon -->
 
        <td class="col-tabla-cantidad" ><!--Botones => Cantidad -->
         <p class="text-center">
