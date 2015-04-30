@@ -23,7 +23,7 @@
 
                 <?php if ($fabricado_x_ta ==1): ?>
                 <!--IMG-tecnologias -->
-                  <div class="img-tecnologias" title="Producto Fabricado por Tecnologias Aplicadas S.A.">
+                  <div class="img-tecnologias" title="Producto Fabricado por Balquimia S.A.S.">
 
                   </div> <!--IMG-tecnologias -->
                 <?php endif ?>

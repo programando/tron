@@ -28,6 +28,9 @@ class CarritoController extends Controller
     private $compras_industrial         = 0;
     private $compras_otros_productos    = 0;
     private $compras_accesorios         = 0;
+    private $PayuLatam_Recaudo          = 0;
+    private $PayuLatam_Valor_Minimo     = 0;
+    private $PayuLatam_Valor_Adicional  = 0;
 
 
 
@@ -439,6 +442,7 @@ class CarritoController extends Controller
       $this->compras_otros_productos    = 0 ;
       $this->compras_accesorios         = 0 ;
 
+      $presupuesto_flete                = 0;
 
       if ($this->Carrito_Habilitado == false)
       {
@@ -454,13 +458,14 @@ class CarritoController extends Controller
           $this->Total_Parcial_pv_ocasional    = $this->Total_Parcial_pv_ocasional   + $Productos['sub_total_pv_ocasional'] ;
           $this->Total_Parcial_pv_tron         = $this->Total_Parcial_pv_tron        + $Productos['sub_total_pv_tron'] ;
           $this->Peso_Total_Pedido_Kilos       = $this->Peso_Total_Pedido_Kilos      + $peso_total_producto ;
+          $presupuesto_flete                   = $presupuesto_flete + ( $Productos['costo_sin_iva'] *  $cantidad * $Productos['ppto_fletes']  );
 
           if ($Productos['idtipo_producto'] !='PRD' ) // PRODUCTOS QUE NO SON TRON ( OTROS, ACC, INDUSTRIALES, PROMOCIONALES)
           {
             $this->Tron_Peso_Total_Gramos  = $this->Tron_Peso_Total_Gramos    + $peso_total_producto  ;
             $this->Tron_Cmv_Total          = $this->Tron_Cmv_Total            + $Productos['cmv'];
             $this->Tron_Precio_Lista_Total = $this->Tron_Precio_Lista_Total   + $Productos['sub_total_pv_tron'] ;
-            $this->Valor_Declarado         = $Productos['sub_total_pv_tron']  * $Productos['margen_bruta_inicial']/100;
+            $this->Valor_Declarado         = $Productos['sub_total_pv_tron']  * $Productos['margen_bruta_inicial'];
           }
 
           // COMPRAS POR CADA TIPO DE PRODUCTO
@@ -475,17 +480,34 @@ class CarritoController extends Controller
         }
 
         $this->Determinar_Precio_Real_Producto($this->compras_tron ,$this->compras_industrial );
-        $this->Totalizar_Pedido_x_Categoria_Producto();         // Totaliza categorias de productos, para grabar en el pedido
+        $this->Totalizar_Pedido_x_Categoria_Producto();              // Totaliza categorias de productos, para grabar en el pedido
         $this->Calcular_Flete($this->Valor_Declarado );
         $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
+
         $this->Peso_Total_Pedido_Kilos   = (int)$this->Peso_Total_Pedido_Kilos ;
 
         Session::Set('Peso_Total_Pedido_Kilos',     $this->Peso_Total_Pedido_Kilos);
         Session::Set('Total_Parcial_pv_ocasional',  $this->Total_Parcial_pv_ocasional );
         Session::Set('Total_Parcial_pv_tron',       $this->Total_Parcial_pv_tron );
         Session::Set('vr_transporte_cliente',       $this->Vr_Transporte_Cliente );
+        Session::Set('presupuesto_flete',           $presupuesto_flete );
+
+
+
 
         $this->Cerrar_Procesos_Carro();
+    }
+
+    public function Calcular_Valor_Recaudo()
+    {
+      /** ABRIL 25 DE 2015
+       *   CALCULA EL VALOR DE RECAUDO DE ACUERDO AL PEDIDO
+       */
+        $sub_total_pedido  = Session::Get('sub_total_pedido');
+        $flete_cobrado     = Session::Get('vr_transporte_cliente');
+        $presupuesto_flete = Session::Get('presupuesto_flete');
+
+
     }
 
     public function Totalizar_Pedido_x_Categoria_Producto()
@@ -506,6 +528,7 @@ class CarritoController extends Controller
       Session::Set('compra_productos_industriales',0 );
       Session::Set('compra_otros_productos',0);
       Session::Set('compra_accesorios',0);
+
       //Peso de productos segun categoria
       Session::Set('peso_productos_tron',0);
       Session::Set('peso_productos_industriales',0);
@@ -523,6 +546,7 @@ class CarritoController extends Controller
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
           $total_item            = $precio_unitario *  $cantidad ;
           $peso_gramos           = $this->Datos_Carro[$i]['peso_gramos'] *  $cantidad  ;
+
 
           if ($id_categoria_producto >= 1 and $id_categoria_producto <= 4)
           {
@@ -566,6 +590,7 @@ class CarritoController extends Controller
       */
       $precio_unitario_producto           = 0;
       $precio_total_producto              = 0;
+      $sub_total_pedido                   = 0;
 
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0);
@@ -584,8 +609,7 @@ class CarritoController extends Controller
       $i   = 0;
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
        {
-
-           if ($this->Datos_Carro [$i]['cantidad']>0)
+           if ( $this->Datos_Carro [$i]['cantidad'] > 0 )
            {
             // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
             if ( ( $compras_este_mes_tron        + $compras_tron       )  >= $compra_minima_productos_tron ||
@@ -599,30 +623,24 @@ class CarritoController extends Controller
                 $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
               }
 
-              // DETERMINA EL PRECIO QUE SE DARÁ AL USUARIO
-              if ($Logueado == FALSE)
+              if ($Cumple_Condic_Cpras_Tron_Industial  == FALSE)
               {
-                  $precio_unitario_producto  = $this->Datos_Carro[$i]['pv_ocasional'];
-              }
-
-              if ($Logueado == TRUE)// LOGUEADO PERO NO CUMPLE COMPRA MÍNIMA DE COMPRA TRON O COMPRA INDUSTRIAL, SE DA PRECIO NORMAL
+                $precio_unitario_producto  = $this->Datos_Carro[$i]['pv_ocasional'];
+              }else
               {
-                  if ($Cumple_Condic_Cpras_Tron_Industial  == FALSE)
-                  {
-                    $precio_unitario_producto  = $this->Datos_Carro[$i]['pv_ocasional'];
-                  }else
-                  {
-                    $precio_unitario_producto  = $this->Datos_Carro[$i]['pv_tron'];
-                  }
+                $precio_unitario_producto  = $this->Datos_Carro[$i]['pv_tron'];
             }
 
           $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] = $precio_unitario_producto;
           $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $this->Datos_Carro [$i]['cantidad'];
+          $sub_total_pedido                                       = $sub_total_pedido  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
+          $this->Datos_Carro[$i]['sub_total_pedido']              = $sub_total_pedido ;
+
           }
         }
-        //Debug::Mostrar($this->Datos_Carro);
+        Session::Set('sub_total_pedido' , $sub_total_pedido);
         $this->Cerrar_Procesos_Carro();
-    } // Fin Hallar_Valor_Escalas_Productos
+    }
 
 
 
@@ -850,14 +868,9 @@ public function Agregar_Producto()
 
         $this->Depurar_Carrito();
         $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
-        if ( $ProdTron == FALSE ){
-          $this->Hallar_Valor_Escalas_Productos();
-        }
-        if ($ProdTron == TRUE)
-        {
-
-        }
+        $this->Hallar_Valor_Escalas_Productos();
         $this->Totalizar_Carrito();
+
         $this->Retornar_Totales_Carro_Json();
 
     }
@@ -867,8 +880,6 @@ public function Agregar_Producto()
     /**  ABRIL 24 DE 2015...
      *   CALCULAR PRECIOS POR CATEGORIA EN LOS PRODUCTOS TRON
      */
-
-
   }
 
 
@@ -912,12 +923,19 @@ public function Agregar_Producto()
                                         'dscto_precio_mercado_1_ropa'=>0, 'dscto_precio_mercado_2_banos'=>0,
                                         'dscto_precio_mercado_3_pisos'=>0, 'dscto_precio_mercado_4_loza'=>0,
                                         'id_categoria_producto'=>0, 'margen_bruta_inicial'=>0 , 'valor_declarado'=>0,
-                                        'precio_unitario_produc_pedido'=>0, 'precio_total_produc_pedido'=>0);
+                                        'precio_unitario_produc_pedido'=>0, 'precio_total_produc_pedido'=>0, 'sub_total_pedido'=>0);
 
         if (!isset( $Parametros))
         {
+          $Parametros                      = $this->Parametros->Transportadoras();
+          $this->PayuLatam_Recaudo         = $Parametros[0]['py_porciento_recaudo'] / 100;
+          $this->PayuLatam_Valor_Minimo    = $Parametros[0]['py_vr_min_recaudo'];
+          $this->PayuLatam_Valor_Adicional = $Parametros[0]['py_vr_adicional'];
+
           $Parametros = $this->Parametros->Consultar();
         }
+
+
 
         $CarroFinalCompleto = array();
         $Datos_Carro        = $_SESSION['carrito'];
@@ -949,7 +967,7 @@ public function Agregar_Producto()
                 $CarroTemporal['nombre_imagen']          = $ProductoComprado[0]['nombre_imagen'];
                 $CarroTemporal['nompresentacion']        = $ProductoComprado[0]['nompresentacion'];
                 $CarroTemporal['peso_gramos']            = $ProductoComprado[0]['peso_gramos'];
-                $CarroTemporal['ppto_fletes']            = $ProductoComprado[0]['ppto_fletes'];
+                $CarroTemporal['ppto_fletes']            = $ProductoComprado[0]['ppto_fletes'] / 100;
                 $CarroTemporal['ppto_fletes_escala_a']   = $ProductoComprado[0]['ppto_fletes_escala_a'];
                 $CarroTemporal['ppto_fletes_escala_b']   = $ProductoComprado[0]['ppto_fletes_escala_b'];
                 $CarroTemporal['ppto_fletes_escala_c']   = $ProductoComprado[0]['ppto_fletes_escala_c'];
@@ -959,13 +977,11 @@ public function Agregar_Producto()
                 $CarroTemporal['pv_tron_escala_b']       = $ProductoComprado[0]['pv_tron_escala_b'];
                 $CarroTemporal['pv_tron_escala_c']       = $ProductoComprado[0]['pv_tron_escala_c'];
                 $CarroTemporal['tipo_despacho']          = $ProductoComprado[0]['tipo_despacho'];
-                $CarroTemporal['margen_bruta_inicial']   = $ProductoComprado[0]['margen_bruta_inicial'];
+                $CarroTemporal['margen_bruta_inicial']   = $ProductoComprado[0]['margen_bruta_inicial'] / 100 ;
 
                 $CarroTemporal['sub_total_pv_ocasional'] = 0;
                 $CarroTemporal['sub_total_pv_tron']      = 0;
 
-                //$CarroTemporal['precio_unitario_produc_pedido'] =  $CarroTemporal['pv_ocasional'];
-                //$CarroTemporal['precio_total_produc_pedido']    = $CarroTemporal['cantidad']  * $CarroTemporal['pv_ocasional'] ;
 
                 //------------------------------------------------------------------------------------------------------
                 // DATOS PUESTOS PARA PRODUCTOS TRON

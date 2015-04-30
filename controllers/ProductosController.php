@@ -20,7 +20,6 @@ class ProductosController extends Controller
         $this->Paginador          = $this->Load_External_Library('paginador');
         $this->Paginador          = new Paginador();
 
-
     }
 
     public function Index() {}
@@ -63,8 +62,6 @@ class ProductosController extends Controller
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
         $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
-
-
         $this->View->Mostrar_Vista('resultado_busqueda');
       }
 

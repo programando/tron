@@ -28,6 +28,7 @@
        // CONSULTA CONTENIDO ARRAY DE CANT. DE PRODUCTOS TRON COMPRADOS
        $NombreArray            = 'TRON'.$idproducto;
        $Cantidad_Comprada      = Session::Get($NombreArray );
+
 ?>
 
 

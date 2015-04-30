@@ -149,13 +149,13 @@
              <div class="">
                 <div class="div-content">
 
-                  <a herf="#" title="Los productos que compras con frecuencia agregalos a Favoritos para acceder a ellos facilmente desde Mi Cuenta .">
+                  <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
                     <p>
                        <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar Favoritos
                     </p>
                   </a>
 
-                  <a herf="#" title="Si tu recomendacion  es efectiva ganaras comisiones si eres Empresario Tron." data-toggle="modal" data-target="#recomendar">
+                  <a herf="#" title="Si tu recomendación  es efectiva ganaras comisiones si eres Empresario Tron." data-toggle="modal" data-target="#recomendar">
                     <p>
                       <span class="recomendar">
                          <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
@@ -172,14 +172,14 @@
 
                 <?php if ($idgrupo>0) :?>
                    <div class="imagen_grupo_producto"
-                      title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contactanos a:  contactos@tecnoaplicadas.com !">
+                      title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contáctanos a:  contactos@tecnoaplicadas.com !">
                       <strong><?= $codigo_grupo  ;?></strong>
                     </div>
                 <?php endif ;?>
 
 
                 <?php if ($fabricado_x_ta==1) :?>
-                   <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por Tecnologías Aplicadas S.A.">
+                   <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por: Balquimia S.A.S.">
                       <img class="img-Producto_fabricado_por_Tecnologías" src="<?= BASE_IMG_PRODUCTOS ;?>22.png" alt="">
                    </div>
 
@@ -195,6 +195,7 @@
          </div><br><!--FIN DE HIJA-FILA-->
 
 
+<?php if ( $idescala > 0 ) : ?>
 <!-- TABLA-->
    <div class="row">
        <div class="col-lg-12">
@@ -242,6 +243,8 @@
 
        </div>
    </div>
+<?php endif ;?>
+
 </div> <!-- FIN DE LA TABLA-->
 </div>
 <br>
@@ -250,7 +253,7 @@
 
 
 <!--INICIO- TABS DEL PRODUCTO-->
-<?php if ($this->Cantidad_Tabs>0) : ?>
+<?php if ( $this->Cantidad_Tabs > 0 ) : ?>
       <div class="row">
         <div class="col-lg-12">
           <div class="gene-tabs">
