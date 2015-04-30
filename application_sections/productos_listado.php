@@ -16,16 +16,12 @@
 
                 <?php if ($en_oferta ==1): ?>
                   <!--IMG-ofertas -->
-                  <div class="img-ofertas" title="Producto en Oferta">
-
-                  </div> <!--IMG-ofertas -->
+                  <div class="img-ofertas" title="Producto en Oferta"> </div>
                <?php endif ?>
 
                 <?php if ($fabricado_x_ta ==1): ?>
                 <!--IMG-tecnologias -->
-                  <div class="img-tecnologias" title="Producto Fabricado por Balquimia S.A.S.">
-
-                  </div> <!--IMG-tecnologias -->
+                  <div class="img-tecnologias" title="Producto Fabricado por Balquimia S.A.S."></div>
                 <?php endif ?>
 
                 </div>
