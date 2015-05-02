@@ -7,7 +7,7 @@
 
            <div class="modal-header encabezado-modal"><!--Emcabezado de la ventana modal -->
            	   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--BTN = cerrar ventana modal -->
-           	   <h4>Si crees que algún amigo necesita éste producto,<br> ¡ Recomiéndaselo !</h4>
+           	   <h4>Si crees que algún amigo necesita este producto,<br> ¡ Recomiéndaselo !</h4>
            </div><!--Emcabezado de la ventana modal -->
 
           <div class="modal-body cuerpo-modal"><!--Cuerpo de la ventana modal -->

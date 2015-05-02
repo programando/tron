@@ -58,18 +58,18 @@ function Agregar_Producto_a_Carrito(NomProducto,Parametros)
 					type:     'post',
      success:  function (resultado)
     	 {
-    	 		Imprimir_Totales_Carrito_Header(resultado);
+    	 		Imprimir_Totales_Carrito_Header( resultado.SubTotal_Pedido_Ocasional, resultado.SubTotal_Pedido_Amigos );
     	 }
 
 					});
 }
 
-function Imprimir_Totales_Carrito_Header(resultado)
+function Imprimir_Totales_Carrito_Header(VrOcasional, VrTron)
 {
-	  $Total_Venta_Ocasional.html(resultado.Total_Parcial_pv_ocasional);
-   $Total_Venta_Tron.html(resultado.Total_Parcial_pv_tron);
-
+   $Total_Venta_Ocasional.html( VrOcasional );
+   $Total_Venta_Tron.html( VrTron );
 }
+
 
 
 function Borrar_Producto_de_Carrito(Parametros)
@@ -81,7 +81,7 @@ function Borrar_Producto_de_Carrito(Parametros)
 					type:     'post',
      success:  function (resultado)
     	 {
-    	 		Imprimir_Totales_Carrito_Header(resultado);
+    	 		Imprimir_Totales_Carrito_Header(resultado.SubTotal_Pedido_Ocasional,resultado.SubTotal_Pedido_Amigos );
     	 		Actualizar_Vista_Carrito();
     	 }
 					});
@@ -132,7 +132,18 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 
 // BOTON ELEGIR FORMA DE PAGO PARA EL PEDIDO
 	$('#contenido-productos').on('click','.btn-forma-pago-pedido',function(){
-	  window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
+			$.ajax({
+					dataType: 'text',
+					url:      '/tron/pedidos/grabar/',
+					type:     'post',
+     success:  function (resultado)
+    	 {
+ 							window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
+ 							Imprimir_Totales_Carrito_Header( 0, 0);
+    	 }
+					});
+
+
 });
 
 

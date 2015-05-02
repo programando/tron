@@ -22,6 +22,7 @@ class ProductosEscalasController extends Controller
       $Escalas_Compra          = $this->Escalas->Escalas_Consultar($idescala);
       $this->Precio_Final_Tron = $Precio_Amigo_Tron;
       $this->Posicion_Escala   = 0;  // PUEDE SER 0, 1, 2, 3 .. IMPORTANTE PARA LOS PRESUPUESTOS
+      $this->IdEscala_Compra   = 0;
     	if ($CantidadComprada >= $Escalas_Compra[0]["inicio_a"] && $CantidadComprada <= $Escalas_Compra[0]["final_a"] )
          {
            $this->Precio_Final_Tron =  $Precio_Escala_A;

@@ -23,15 +23,13 @@
                   <span>
                      <p class="text-right carrito-Total_Parcial_pv_ocasional">
                           <?php
-                      if(Session::Get('Total_Parcial_pv_ocasional')>0)
+                      if(Session::Get('SubTotal_Pedido_Ocasional')>0)
                       {
-                        echo Numeric_Functions::Formato_Numero( Session::Get('Total_Parcial_pv_ocasional'));
+                        echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Ocasional'));
                       }else
                       {
                         ?> $0
                         <?php } ?>
-
-
                      </p><!--Precio-Precio Público -->
                   </span>
               </div>
@@ -44,9 +42,9 @@
                    <span>
                        <p class="text-right carrito-Total_Parcial_pv_tron">
                             <?php
-                        if(Session::Get('Total_Parcial_pv_tron')>0)
+                        if(Session::Get('SubTotal_Pedido_Amigos')>0)
                         {
-                          echo Numeric_Functions::Formato_Numero( Session::Get('Total_Parcial_pv_tron'));
+                          echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Amigos'));
                         }else
                         {
                           ?> $0

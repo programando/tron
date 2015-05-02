@@ -18,7 +18,7 @@
     en productos TRON para el Hogar ó <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_ta')) ?> en productos Industriales fabricados por Balquimia.
     <br><br>
 
-    Si agregas en éste pedido tu compra reglamentaria, obtendrás <strong>los precios especiales TRON</strong>.
+    Si agregas en este pedido tu compra reglamentaria, obtendrás <strong>los precios especiales TRON</strong>.
 
                 </p>
             	<p>

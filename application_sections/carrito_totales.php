@@ -30,7 +30,7 @@
     <?php endif;?>
 
     <!-- TRANSPORTE-->
-    <?php if (Session::Get('autenticado')==false): ; ?>
+    <?php if (Session::Get('autenticado') == false): ; ?>
       <div class="col-resumen-pedido"><strong>Transporte (Calculado para Cali):</strong></div>
     <?php else : ?>
        <div class="col-resumen-pedido"><strong>Transporte ( <?= Session::Get('nommcipio_despacho') ;?> ):</strong></div>
@@ -43,7 +43,7 @@
   <td  class="text-right">
 
       <!-- SUBTOTAL -->
-      <div><strong><?= Numeric_Functions::Formato_Numero( $this->Total_Parcial_pv_ocasional)  ; ?></strong></div>
+      <div><strong><?= Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Ocasional)  ; ?></strong></div>
 
       <!-- PUNTOS -->
       <?php if (isset($this->saldo_puntos_cantidad ) and $this->saldo_puntos_cantidad >0): ; ?>
@@ -68,13 +68,13 @@
         <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Ocasional )  ;?> </strong></div>
 
   </td>
-<?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) :?>
+<?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado') == false) :?>
   <td ><!-- Este campo debe de estar vacio Columna de separación en los totales--> </td>
 
 
  <td coslpan="3" class="text-right">
    <!-- SUBTOTAL -->
-   <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Total_Parcial_pv_tron ) ; ?> </strong></div>
+   <div><strong><?=  Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Amigos ) ; ?> </strong></div>
 
    <!-- PUNTOS -->
    <?php if (isset($this->saldo_puntos_cantidad ) and $this->saldo_puntos_cantidad >0): ; ?>
