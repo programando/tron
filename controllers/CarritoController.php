@@ -412,6 +412,8 @@ class CarritoController extends Controller
         Session::Set('Vr_Transporte',             $this->Vr_Transporte);
         Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
         Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
+        Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
+        Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real );
 
         $this->Peso_Total_Pedido_Kilos   = (int)$this->Peso_Total_Pedido_Kilos ;
 
@@ -449,13 +451,13 @@ class CarritoController extends Controller
            $id_categoria_producto  = $this->Datos_Carro [$i]['id_categoria_producto'];
            $cantidad               = $this->Datos_Carro [$i]['cantidad'];
            $porciento_iva          = 1 + $this->Datos_Carro [$i]['iva']/100;
+           $porciento_ppto_fletes  = $this->Datos_Carro[$i]['ppto_fletes'];
 
            if ( $this->Datos_Carro [$i]['cantidad'] > 0 )
            {
             // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
-
             if ( (( $compras_este_mes_tron        + $compras_tron       )  >= $compra_minima_productos_tron ||
-                 ( $compras_este_mes_industiales + $compras_industrial )  >= $compra_minima_productos_industriales)
+                 ( $compras_este_mes_industiales  + $compras_industrial )  >= $compra_minima_productos_industriales)
                   and $Logueado  == TRUE )
               {
                 Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
@@ -475,18 +477,18 @@ class CarritoController extends Controller
             }
 
           $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] = $precio_unitario_producto;
-          $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $this->Datos_Carro [$i]['cantidad'];
-          $this->SubTotal_Pedido_Real =   $this->SubTotal_Pedido_Real + $precio_unitario_producto * $this->Datos_Carro [$i]['cantidad'];
+          $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $cantidad;
+          $this->SubTotal_Pedido_Real                             = $this->SubTotal_Pedido_Real + $precio_unitario_producto *$cantidad;
 
           if ( $id_categoria_producto >= 1 and $id_categoria_producto <= 4)
           {
-             $sub_total_pedido_Tron  = $sub_total_pedido_Tron  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
-             $this->Datos_Carro[$i]['sub_total_pedido_Tron']   = $sub_total_pedido_Tron;
+             $sub_total_pedido_Tron                          = $sub_total_pedido_Tron  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
+             $this->Datos_Carro[$i]['sub_total_pedido_Tron'] = $sub_total_pedido_Tron;
           } else
           {
-            $sub_total_pedido_Otros  = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
-            $this->Datos_Carro[$i]['sub_total_pedido_Otros']    = $sub_total_pedido_Otros ;
-            $this->Presupuesto_Fletes = $this->Presupuesto_Fletes + ( $Productos['sub_total_pedido_Otros']/$porciento_iva  * $Productos['ppto_fletes']  );
+            $sub_total_pedido_Otros                          = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
+            $this->Datos_Carro[$i]['sub_total_pedido_Otros'] = $sub_total_pedido_Otros ;
+            $this->Presupuesto_Fletes                        = $this->Presupuesto_Fletes + ( $sub_total_pedido_Otros / $porciento_iva  *  $porciento_ppto_fletes  );
           }
         }
 
@@ -627,6 +629,7 @@ class CarritoController extends Controller
       }
       $this->Vr_Fletes                  = $Mejor_Flete['valor_flete'];
       Session::Set('flete_cobrado_otros', $Mejor_Flete['valor_flete']);
+      Session::Set('id_transportadora',$Mejor_Flete['idtercero']);
     }
 
     public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
