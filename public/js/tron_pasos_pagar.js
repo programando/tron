@@ -35,19 +35,6 @@ function Mostrar_Direcciones_Usuario_Seleccionado(Usuario_Seleccionado, Cantidad
 }
 
 
-function Establecer_Forma_Pago_Pedido(Parametros, Metodo)
-{
-  $.ajax({
-      data:  Parametros,
-      dataType: 'text',
-      url:      '/tron/pedido/' + Metodo,
-      type:     'post',
-      success:  function (resultado)
-      {
-          document.formPaypal.submit();
-      }
-   });
-}
 
 function Direccion_Usuario_Grabar(Parametros)
 {
@@ -241,20 +228,29 @@ $('#btn-ing-por-amigo').on('click',function(){ //......... Ingresar hacer pedido
 });
 
 $('.img-pago1').on('click',function(){
+    $id_forma_pago = $(this).attr("id");
+    $Parametros    = {'id_forma_pago':$id_forma_pago};
 
-    alert("dldld");
+      $.ajax({
+      data:  $Parametros,
+      dataType: 'text',
+      url:      '/tron/carrito/Establecer_Forma_Pago_Pedido_PayuLatam/',
+      type:     'post',
+      success:  function (resultado)
+      {
+         $('#formaspago').html(resultado);
+         document.formPaypal.submit();
+      }
+   });
 
-    /*$id_forma_pago = $(this).attr("id");
-    $Parametros    = {'id_forma_pago',$id_forma_pago};
 
-    Establecer_Forma_Pago_Pedido($Parametros,'Establecer_Forma_Pago_Pedido_PayuLatam/');
-    */
+
 
 });
 
 $('.img-pago2').on('click',function(){
-      $id_forma_pago = $(this).attr("id");
-      $Parametros = {'id_forma_pago',$id_forma_pago};
+      //$id_forma_pago = $(this).attr("id");
+     // $Parametros = {'id_forma_pago',$id_forma_pago};
       //Establecer_Forma_Pago_Pedido($Parametros);
 });
 

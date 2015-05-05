@@ -16,39 +16,36 @@ class PedidosController extends Controller
 
     public function Grabar()
     {
-
-
-
-		$id_forma_pago               = 1;
-		$idtercero                   = Session::Get('idtercero_pedido');
-		$iddireccion_despacho        = Session::Get('iddireccion_despacho');
-		$vr_compra_tron              = Session::Get('compra_productos_tron');
-		$vr_compra_ta                = Session::Get('compra_productos_industriales');
-		$vr_compra_acc               = Session::Get('compra_accesorios');
-		$vr_compra_otros             = Session::Get('compra_otros_productos');
-		$vr_comis_pago_pedidos       = Session::Get('Comisiones_Utilizadas') ;
-		$vr_puntos_redimidos         = Session::Get('Puntos_Utilizados') ;
-		$vr_inscripcion_red          = 0 ;
-		$vr_fletes_tron              = 0 ;
-		$vr_fletes_tron_otros        = 0 ;
-		$vr_flete_seguro             = 0 ;
-		$vr_flete_tron_otros_seguro  = 0 ;
-		$vr_fletes_reserva           = 0 ;
-		$vr_diferencia_recaudo       = 0 ;
-		$vr_fletes_totales           = Session::Get('Vr_Transporte');
-		$vr_total_pedido             = Session::Get('Vr_Total_Pedido_Real');
-		$puntos_redimidos            = Session::Get('Puntos_Utilizados') ;
-		$tipo_despacho               = 0 ;
-		$id_transportadora           = 0 ;
-		$solo_pago_inscripcion_red   = 0 ;
-		$id_pase_cortesia            = 0 ;
-		$idtercero_envia_pase        = 0 ;
-		$pase_es_premium             = 0 ;
-		$idtercero_recibe_comisiones = 0 ;
-		$peso_gramos_pedido          = Session::Get('Peso_Total_Pedido_Kilos') * 1000 ;
-		$email_confirma_factura      = 0 ;
-		$pagado_online               = 0 ;
-		$pago_recibido               = 0 ;
+					$id_forma_pago               = 0;
+					$idtercero                   = Session::Get('idtercero_pedido');
+					$iddireccion_despacho        = Session::Get('iddireccion_despacho');
+					$vr_compra_tron              = Session::Get('compra_productos_tron');
+					$vr_compra_ta                = Session::Get('compra_productos_industriales');
+					$vr_compra_acc               = Session::Get('compra_accesorios');
+					$vr_compra_otros             = Session::Get('compra_otros_productos');
+					$vr_comis_pago_pedidos       = Session::Get('Comisiones_Utilizadas') ;
+					$vr_puntos_redimidos         = Session::Get('Puntos_Utilizados') ;
+					$vr_inscripcion_red          = 0 ;
+					$vr_fletes_tron              = 0 ;
+					$vr_fletes_tron_otros        = 0 ;
+					$vr_flete_seguro             = 0 ;
+					$vr_flete_tron_otros_seguro  = 0 ;
+					$vr_fletes_reserva           = 0 ;
+					$vr_diferencia_recaudo       = 0 ;
+					$vr_fletes_totales           = Session::Get('Vr_Transporte');
+					$vr_total_pedido             = Session::Get('Vr_Total_Pedido_Real');
+					$puntos_redimidos            = Session::Get('Puntos_Utilizados') ;
+					$tipo_despacho               = 0 ;
+					$id_transportadora           = 0 ;
+					$solo_pago_inscripcion_red   = 0 ;
+					$id_pase_cortesia            = 0 ;
+					$idtercero_envia_pase        = 0 ;
+					$pase_es_premium             = 0 ;
+					$idtercero_recibe_comisiones = 0 ;
+					$peso_gramos_pedido          = Session::Get('Peso_Total_Pedido_Kilos') * 1000 ;
+					$email_confirma_factura      = 0 ;
+					$pagado_online               = 0 ;
+					$pago_recibido               = 0 ;
     	$Datos                      = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron',																		'vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos',  																        'vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros',														        'vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo',													    'vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho',																	    'id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',												        'pase_es_premium','idtercero_recibe_comisiones','peso_gramos_pedido',																		    'email_confirma_factura','pagado_online','pago_recibido');
 
     	$Pedido 											= $this->Pedido->Grabar($Datos );
@@ -89,15 +86,6 @@ class PedidosController extends Controller
     echo "OK";
     }
 
-    public function Establecer_Forma_Pago_Pedido_PayuLatam()
-    {/**
-     * MAYO 01 DE 2015
-     *			ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
-     */
-    	$IdFormaPago         = General_Functions::Validar_Entrada('idproducto','NUM');
-    	$IdPedido 										 = Session::Get('idpedido');
-    	include (APPLICATION_SECTIONS .'pagos_payulatam.php')
-    	echo "OK";
-    }
+
 
 }

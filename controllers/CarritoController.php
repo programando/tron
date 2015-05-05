@@ -65,6 +65,17 @@ class CarritoController extends Controller
     public function index() {}
 
 
+    public function Establecer_Forma_Pago_Pedido_PayuLatam()
+    {/**
+     * MAYO 01 DE 2015
+     *      ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
+     */
+      $IdFormaPago         = General_Functions::Validar_Entrada('idproducto','NUM');
+      $IdPedido            = Session::Get('idpedido');
+      Session::Set('idformapago',$IdFormaPago);
+      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
+    }
+
     public function Finalizar_Pedido_Forma_Pago()
     {
       $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
@@ -337,8 +348,6 @@ class CarritoController extends Controller
       $this->compras_otros_productos    = 0 ;
       $this->compras_accesorios         = 0 ;
 
-      $presupuesto_flete_otros          = 0;
-      $this->Presupuesto_Fletes         = 0;
       $this->Vr_Base_Iva                = 0;
 
       if ($this->Carrito_Habilitado == false)
@@ -365,7 +374,7 @@ class CarritoController extends Controller
             $this->Tron_Cmv_Total          = $this->Tron_Cmv_Total            + $Productos['cmv'];
             $this->Tron_Precio_Lista_Total = $this->Tron_Precio_Lista_Total   + $Productos['sub_total_pv_tron'] ;
             $this->Valor_Declarado         = $Productos['sub_total_pv_tron']  * $Productos['margen_bruta_inicial'];
-            $this->Presupuesto_Fletes      = $this->Presupuesto_Fletes + ( $Productos['costo_sin_iva'] *  $cantidad * $Productos['ppto_fletes']  );
+
           }
 
           // COMPRAS POR CADA TIPO DE PRODUCTO
@@ -418,6 +427,7 @@ class CarritoController extends Controller
       $sub_total_pedido_Tron      = 0;
       $sub_total_pedido_Otros     = 0;
       $this->SubTotal_Pedido_Real = 0 ;
+      $this->Presupuesto_Fletes   = 0;
 
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0);
@@ -437,6 +447,8 @@ class CarritoController extends Controller
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
        {
            $id_categoria_producto  = $this->Datos_Carro [$i]['id_categoria_producto'];
+           $cantidad               = $this->Datos_Carro [$i]['cantidad'];
+           $porciento_iva          = 1 + $this->Datos_Carro [$i]['iva']/100;
 
            if ( $this->Datos_Carro [$i]['cantidad'] > 0 )
            {
@@ -474,6 +486,7 @@ class CarritoController extends Controller
           {
             $sub_total_pedido_Otros  = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
             $this->Datos_Carro[$i]['sub_total_pedido_Otros']    = $sub_total_pedido_Otros ;
+            $this->Presupuesto_Fletes = $this->Presupuesto_Fletes + ( $Productos['sub_total_pedido_Otros']/$porciento_iva  * $Productos['ppto_fletes']  );
           }
         }
 
@@ -916,8 +929,6 @@ class CarritoController extends Controller
 
         if (!isset( $Parametros))
         {
-
-
           $Parametros = $this->Parametros->Consultar();
         }
 
@@ -954,9 +965,9 @@ class CarritoController extends Controller
                 $CarroTemporal['nompresentacion']        = $ProductoComprado[0]['nompresentacion'];
                 $CarroTemporal['peso_gramos']            = $ProductoComprado[0]['peso_gramos'];
                 $CarroTemporal['ppto_fletes']            = $ProductoComprado[0]['ppto_fletes'] / 100;
-                $CarroTemporal['ppto_fletes_escala_a']   = $ProductoComprado[0]['ppto_fletes_escala_a'];
-                $CarroTemporal['ppto_fletes_escala_b']   = $ProductoComprado[0]['ppto_fletes_escala_b'];
-                $CarroTemporal['ppto_fletes_escala_c']   = $ProductoComprado[0]['ppto_fletes_escala_c'];
+                $CarroTemporal['ppto_fletes_escala_a']   = $ProductoComprado[0]['ppto_fletes'] / 100;
+                $CarroTemporal['ppto_fletes_escala_b']   = $ProductoComprado[0]['ppto_fletes'] / 100;
+                $CarroTemporal['ppto_fletes_escala_c']   = $ProductoComprado[0]['ppto_fletes'] / 100;
                 $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
                 $CarroTemporal['pv_tron']                = $ProductoComprado[0]['pv_tron'];
                 $CarroTemporal['pv_tron_escala_a']       = $ProductoComprado[0]['pv_tron_escala_a'];

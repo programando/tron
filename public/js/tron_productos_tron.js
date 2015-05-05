@@ -1,8 +1,8 @@
 
 function Imprimir_Totales_Carrito_Header(resultado)
 	{
-		  $Total_Venta_Ocasional.html(resultado.Total_Parcial_pv_ocasional);
-	   $Total_Venta_Tron.html(resultado.Total_Parcial_pv_tron);
+		  $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
+	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
 	}
 
 

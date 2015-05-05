@@ -14,7 +14,6 @@
       {
       	 $IdDpto  = General_Functions::Validar_Entrada('iddpto','NUM');
       		$this->Municpios = $this->Municpios->Consultar($IdDpto );
-          //Debug::Mostrar($this->Municpios);
       		echo json_encode($this->Municpios,256);
       }
 
