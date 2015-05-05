@@ -481,7 +481,7 @@ class CarritoController extends Controller
           if ( $id_categoria_producto >= 1 and $id_categoria_producto <= 4)
           {
              $sub_total_pedido_Tron  = $sub_total_pedido_Tron  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
-             $this->Datos_Carro[$i]['sub_total_pedido_Tron']   = $sub_total_pedido ;
+             $this->Datos_Carro[$i]['sub_total_pedido_Tron']   = $sub_total_pedido_Tron;
           } else
           {
             $sub_total_pedido_Otros  = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
