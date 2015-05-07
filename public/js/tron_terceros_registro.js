@@ -17,6 +17,51 @@
 
 
 
+$('#identificacion_nat').on('blur',function(){
+  var $identificacion = $('#identificacion_nat').val();
+
+    $.ajax({
+          data:  {'identificacion':$identificacion },
+          dataType: 'json',
+          url:      '/tron/terceros/Buscar_Por_Identificacion/',
+          type:     'post',
+     success:  function (respuesta)
+       {
+        $(".contenedor_pagina").load('/tron/terceros/registro');
+       }
+       });
+
+
+});
+
+// CARGAR LAS CIUDADES POR DEPARTAMENTO
+$('#iddpto').on('change',function(){
+  var $IdDpto     = $(this).val();
+  var $Municipios = $('#idmcipio');
+  if ($IdDpto==0)
+  {
+    $Municipios.empty();
+    $Municipios.append("<option>Seleccione un departamento</option>");
+   }else
+   {
+    $.ajax({
+          data:  {'iddpto':$IdDpto},
+          dataType: 'json',
+          url:      '/tron/municipios/Consultar/',
+          type:     'post',
+     success:  function (municipios)
+       {
+        $Municipios.empty();
+          for(var i = 0; i < municipios.length; i++)
+          {
+              $Municipios.append('<option value="' + municipios[i].idmcipio + '">' + municipios[i].nommcipio + '</option>');
+         }
+       }
+          });
+   }
+})
+
+
 
 $numero_nit.on('focus',function(){
   if ( $numero_nit.val() == 'Registre el nombre') {

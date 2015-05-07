@@ -58,14 +58,20 @@ class CarritoController extends Controller
         $this->Terceros       = $this->Load_Controller('Terceros');
         $this->Fletes         = $this->Load_Controller('Fletes');
         $this->Productos_Tron = $this->Load_Controller('ProductosTron');
+        $this->Pedidos        = $this->Load_Controller('Pedidos');
         $this->Departamentos  = $this->Load_Model('Departamentos');
         $this->Productos      = $this->Load_Model('Productos');
     }
 
     public function index() {}
 
+    public function Forma_Pago_Pedido_Payu_Latam_Confirmacion()
+    {
+      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_confirmacion');
 
-    public function Establecer_Forma_Pago_Pedido_PayuLatam()
+    }
+
+    public function Forma_Pago_Pedido_Payu_Latam()
     {/**
      * MAYO 01 DE 2015
      *      ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
@@ -75,6 +81,30 @@ class CarritoController extends Controller
       Session::Set('idformapago',$IdFormaPago);
       $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
     }
+
+    public function Forma_Pago_Efecty()
+    {/**
+     * MAYO 01 DE 2015
+     *      ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
+     */
+      $IdFormaPago         = 2;
+      $IdPedido            = Session::Get('idpedido');
+      Session::Set('idformapago',$IdFormaPago);
+      $this->View->Mostrar_Vista('finalizar_pedido_pago_efecty');
+    }
+
+
+    public function Payu_Latam_Forma_Pago_1()
+    {/**
+     * MAYO 01 DE 2015
+     *      ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
+     */
+      $IdFormaPago         = General_Functions::Validar_Entrada('idproducto','NUM');
+      $IdPedido            = Session::Get('idpedido');
+      Session::Set('idformapago',$IdFormaPago);
+      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
+    }
+
 
     public function Finalizar_Pedido_Forma_Pago()
     {
@@ -488,7 +518,7 @@ class CarritoController extends Controller
           {
             $sub_total_pedido_Otros                          = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
             $this->Datos_Carro[$i]['sub_total_pedido_Otros'] = $sub_total_pedido_Otros ;
-            $this->Presupuesto_Fletes                        = $this->Presupuesto_Fletes + ( $sub_total_pedido_Otros / $porciento_iva  *  $porciento_ppto_fletes  );
+            $this->Presupuesto_Fletes  = $this->Presupuesto_Fletes + ( ($precio_unitario_producto / $porciento_iva)  *  $porciento_ppto_fletes  );
           }
         }
 
@@ -928,7 +958,7 @@ class CarritoController extends Controller
                                         'dscto_precio_mercado_3_pisos'=>0, 'dscto_precio_mercado_4_loza'=>0,
                                         'id_categoria_producto'=>0, 'margen_bruta_inicial'=>0 , 'valor_declarado'=>0,
                                         'precio_unitario_produc_pedido'=>0, 'precio_total_produc_pedido'=>0, 'sub_total_pedido_Tron'=>0,
-                                        'sub_total_pedido_Otros'=>0);
+                                        'sub_total_pedido_Otros'=>0, 'codigo_grupo'=>'');
 
         if (!isset( $Parametros))
         {
@@ -957,6 +987,7 @@ class CarritoController extends Controller
                 $CarroTemporal['idescala']               = $ProductoComprado[0]['idescala'];;
                 $CarroTemporal['idescala_dt']            = 0;
                 $CarroTemporal['idgrupo']                = $ProductoComprado[0]['idgrupo'];
+                $CarroTemporal['codigo_grupo']                = $ProductoComprado[0]['codigo_grupo'];
                 $CarroTemporal['idtipo_producto']        = $ProductoComprado[0]['idtipo_producto'];
                 $CarroTemporal['id_categoria_producto']  = $ProductoComprado[0]['id_categoria_producto'];
                 $CarroTemporal['idpresentacion']         = $ProductoComprado[0]['idpresentacion'];
@@ -1005,6 +1036,7 @@ class CarritoController extends Controller
             }
          }
          $_SESSION['carrito'] = $CarroFinalCompleto;
+
 
 
     } // Fin Complementar_Datos_Productos_Carrito

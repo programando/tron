@@ -1,0 +1,30 @@
+
+<?php
+
+     $numero_pedido         = Session::Get('numero_pedido');
+     $fecha_vence           = Session::Get('fecha_vence');
+     $vr_total_pedido       = Session::Get('vr_total_pedido');
+     $baseIva               = Session::Get('Vr_Base_Iva');
+     $pnombre               = utf8_encode(Session::Get('nombre_cliente'));
+     $email                 = utf8_encode(Session::Get('email'));
+     $identificacion        = Session::Get('identificacion');
+     //$signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido."~".$vr_total_pedido."~COP")
+     $signature             = md5 ("6u39nqhq8ftd0hlvnjfs66eh8c~500238~TestPayU~".$vr_total_pedido."~COP");
+     //<form name="formPaypal" action="https://gateway.payulatam.com/ppp-web-gateway" method="post" id="">
+     //<input type="hidden" name="merchantId"          id="merchantId"             value="511623" />
+    // <input type="hidden" name="accountId"           id="accountId"              value = "512832">
+    // <input type="hidden" name="signature"           id="signature"              value = "<?= $signature ;
+    //<input type="hidden" name="referenceCode"       id="referenceCode"          value = "<?= $numero_pedido ;
+?>
+<center>
+    <iframe scrolling="no" id="iframe_efecty"
+          src="https://botonpago.efecty.com.co:20029/botonpagoefecty/efectybotonpagoget.aspx?EFvalorTotal=<?php
+          echo  number_format($vr_total_pedido)?>
+          &EFPin=<?php echo $numero_pedido;?>
+          &EFFechaVigencia=<?php echo $fecha_vence;?>
+          &EFCodProyecto=110347"
+          height="450" width="670">
+  </iframe>
+  <br /><br />
+  </center>
+

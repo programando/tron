@@ -6,8 +6,9 @@ class TercerosController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->Terceros      = $this->Load_Model('Terceros');
-        $this->Departamentos = $this->Load_Model('Departamentos');
+        $this->Terceros            = $this->Load_Model('Terceros');
+        $this->Departamentos       = $this->Load_Model('Departamentos');
+        $this->TiposDocumentos     = $this->Load_Model('Tiposdocumentos');
     }
 
     public function Index() { }
@@ -210,6 +211,7 @@ class TercerosController extends Controller
 
             // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
             Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);
+            Session::Set('pagado_online',                   0);
             Session::Set('nombre_usuario_pedido',           $Registro[0]["nombre_usuario_pedido"]);
             Session::Set('iddireccion_despacho',            0);
             Session::Set('cantidad_direcciones',            0);
@@ -271,14 +273,19 @@ class TercerosController extends Controller
 
     public function registro()
     {
-    //tron_redtron_registro
+        $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
+        $this->View->Departamentos   = $this->Departamentos->Consultar();
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
         $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios','registrodos'));
-        $this->View->Departamentos = $this->Departamentos->Consultar();
         $this->View->Mostrar_Vista('registro');
     }
 
-        public function registro_paso_2()
+
+
+
+
+
+    public function registro_paso_2()
     {
         $this->View->SetCss(array('tron_menu_footer','tron_registro','tron_registro','tron-regirtro-pasos','tron-registron-p2'));
         $this->View->SetJs(array('tron_terceros_registro'));
@@ -307,6 +314,17 @@ class TercerosController extends Controller
         **  INSERTA EN LA TABLA UN REGISTRO TEMPORAL QUE SE USARÁ PARA LA VERIFICACIÓN EN EL CAMBIO DE CLAVE
         */
         $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero,$password_temporal);
+    }
+
+    public function Buscar_Por_Identificacion(){
+     /** MAYO 05 DE 2015
+     *   CONSULTA DATOS BÁSICO DE UN TERCERO POR IDENTIFICACION
+     */
+     $identificacion = General_Functions::Validar_Entrada('identificacion','TEXT');
+     $Tercero  = $this->Terceros->Buscar_Por_Identificacion($identificacion);
+     Session::Set('direccion',$Tercero[0]['direccion'] );
+     echo json_encode($Tercero ,256);
+
     }
 
 }

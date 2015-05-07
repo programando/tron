@@ -59,6 +59,7 @@ class PedidosController extends Controller
      Session::Set('nombre_cliente',  $Pedido[0]['nombre_cliente'] );
      Session::Set('email',           $Pedido[0]['email'] );
      Session::Set('identificacion',  $Pedido[0]['identificacion'] );
+     Session::Set('fecha_vence',     $Pedido[0]['fecha_vence'] );
 
      $Valores           = '';
      $Datos             = '';
@@ -87,5 +88,15 @@ class PedidosController extends Controller
     }
 
 
+public function Actualizar_Forma_de_Pago()
+{
+	/** MAYO 06 DE 2016
+	 * 	ACTUALIZA LA FORMA DE PAGO DEL PEDIDO UNA VEZ SE HA CONFIRMADO LA FORMA
+	 */
+	  $IdPedido            = Session::Get('idpedido');
+	  $IdFormaPago 							 = Session::Get('idformapago');
+	  $Pagado_Online 					 = Session::Get('pagado_online');
+	  $this->Pedido->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
+}
 
 }

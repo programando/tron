@@ -1,0 +1,24 @@
+
+
+    <h1 style="width:70%; margin:auto;">
+   <?php if ( Session::Get('idformapago') == 1)  {
+
+            if(isset($_GET["lapTransactionState"])){
+                Session::Set('pagado_online',0);
+
+                if($_GET["lapTransactionState"]  == "DECLINED") echo "Lo sentimos la transacción ha sido declinada o abandonada.";
+				if($_GET["lapTransactionState"]  == "APPROVED") echo "Su transacción se ha realizado con éxito, muchas gracias por su compra.";
+				if($_GET["lapTransactionState"]  == "ERROR") 	echo "Se ha presentado un error con el medio de pago externo.";
+				if($_GET["lapTransactionState"]  == "PENDING")  echo "La transacción se encuentra pendiente.";
+				if($_GET["lapTransactionState"]  == "EXPIRED")  echo "La transacción ha expirado.";
+				if($_GET["lapTransactionState"]  == "EXPIRED")  echo "La transacción expiró, por superar el tiempo límite de respuesta.";
+
+                if($_GET["lapTransactionState"]  == "APPROVED")
+                {
+                 Session::Set('pagado_online',1);
+                }
+
+            }
+        }
+    ?>
+    <h1>

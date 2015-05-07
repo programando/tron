@@ -227,6 +227,7 @@ $('#btn-ing-por-amigo').on('click',function(){ //......... Ingresar hacer pedido
 	    }
 });
 
+// etas es la imagen de payu latam... luego de esto cargo la pagina
 $('.img-pago1').on('click',function(){
     $id_forma_pago = $(this).attr("id");
     $Parametros    = {'id_forma_pago':$id_forma_pago};
@@ -234,7 +235,7 @@ $('.img-pago1').on('click',function(){
       $.ajax({
       data:  $Parametros,
       dataType: 'text',
-      url:      '/tron/carrito/Establecer_Forma_Pago_Pedido_PayuLatam/',
+      url:      '/tron/carrito/Forma_Pago_Pedido_Payu_Latam/',
       type:     'post',
       success:  function (resultado)
       {
@@ -248,10 +249,6 @@ $('.img-pago1').on('click',function(){
 
 });
 
-$('.img-pago2').on('click',function(){
-      //$id_forma_pago = $(this).attr("id");
-     // $Parametros = {'id_forma_pago',$id_forma_pago};
-      //Establecer_Forma_Pago_Pedido($Parametros);
-});
+
 
 

@@ -1,7 +1,72 @@
 
 <?php
 		    	$datos = 	Session::Get('Fletes_Cobrados_Transportadoras');
+		    	$carro = $_SESSION['carrito'];
+		    	//Debug::Mostrar($carro);
+
 ?>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+<table class="table table-bordered table-hover">
+                   <thead><!-- Cabezera tabla -->
+                       <tr>
+                            PRODUCTOS Y VALORES
+                            <th class="titulo-tabla">IdProducto</th>
+                            <th class="titulo-tabla">Produc</th>
+                            <th class="titulo-tabla">presen.</th>
+                            <th class="titulo-tabla">cantidad</th>
+                            <th class="titulo-tabla">$.Ocas</th>
+                            <th class="titulo-tabla">$.Tron</th>
+                            <th class="titulo-tabla">$.Real</th>
+                            <th class="titulo-tabla">$.Sin Iva</th>
+                            <th class="titulo-tabla">Cmv</th>
+                            <th class="titulo-tabla">Costo</th>
+                            <th class="titulo-tabla">Iva</th>
+                            <th class="titulo-tabla">Grupo</th>
+                            <th class="titulo-tabla">Peso Gr.</th>
+                            <th class="titulo-tabla">Cto.Tot.</th>
+                            <th class="titulo-tabla">%.Ppto</th>
+                            <th class="titulo-tabla">Vr.Ppto</th>
+
+                       </tr>
+                   </thead>
+
+                   <tbody><!-- Cuerpo -->
+                   	<?php foreach ($carro as $productos) :?>
+                       <tr>
+                       				<td class="cuerpo-tabla"><?= $productos['idproducto'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['nom_producto'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['nompresentacion'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['cantidad'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['pv_ocasional']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['pv_tron']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100)) ;?> </td>
+
+                           <td class="cuerpo-tabla"><?= number_format( $productos['cmv']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['costo_sin_iva']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['iva']).'%' ;?> </td>
+                           <td class="cuerpo-tabla"><?=  $productos['codigo_grupo'] ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['cantidad']  * $productos['cmv']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100) .'%' ;?> </td>
+                           <td class="cuerpo-tabla"><?=
+                           									number_format( ($productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100)*$productos['cantidad']*$productos['ppto_fletes'])) ;?> </td>
+
+
+
+                       </tr>
+																				<?php endforeach ;?>
+
+                   </tbody>
+              </table>
+
+           </div>
+        </div>
+    </div>
+    </div>
+    </div>
 
 
     <div class="row">
@@ -10,7 +75,7 @@
               <table class="table table-bordered table-hover">
                    <thead><!-- Cabezera tabla -->
                        <tr>
-                            FLETES Y VALORES
+                            FLETES Y VALORES ..... CIUDAD DE DESTINO : <strong><?= Session::Get('nommcipio_despacho') ;?></strong>
                             <th class="titulo-tabla">Nombre Empresa</th>
                             <th class="titulo-tabla">Tipo Tarifa</th>
                             <th class="titulo-tabla">Valor</th>
@@ -27,7 +92,7 @@
 
                        </tr>
 																				<?php endforeach ;?>
-																				<<tr></tr>
+																				<tr><td></td></tr>
 																				<tr>
 																				<td class="cuerpo-tabla">SUB-TOTAL PEDIDO  </td>
 																				<td class="cuerpo-tabla"><?=  number_format(Session::Get('sub_total_pedido_Otros')); ?> </td>
@@ -59,8 +124,7 @@
                    </tbody>
               </table>
 
-           </div>
-        </div>
-    </div>
+
+
 
 
