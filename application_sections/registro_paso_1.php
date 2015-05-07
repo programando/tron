@@ -10,7 +10,7 @@
 
       <div class="col-lg-5 col-md-5 col-sm-5"><!--TIpo-Document -->
         <div class="form-group">
-          <label for="idtpidentificacion" class="col-lg-5  control-label"><p class="text-label ">Tipo de Documento :</p></label>
+          <label for="idtpidentificacion" class="col-lg-5  control-label"><p class="text-label">Tipo de Documento :</p></label>
           <div class="col-lg-6">
             <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
           </div>

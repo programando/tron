@@ -49,7 +49,6 @@ class PedidosController extends Controller
 
     	$Pedido 											= $this->Pedido->Grabar($Datos );
     	$this->Datos_Carro = Session::Get('carrito');
-     $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt) VALUES ";
      $IdPedido_Generado = $Pedido[0]['idpedido'];
 
      Session::Set('idpedido', 							$IdPedido_Generado);
@@ -62,7 +61,7 @@ class PedidosController extends Controller
 
      $Valores           = '';
      $Datos             = '';
-
+     $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt) VALUES ";
     	foreach ($this->Datos_Carro as $Productos)
     	{
 							$idpedido  	 = $IdPedido_Generado;
@@ -88,14 +87,15 @@ class PedidosController extends Controller
 
 
 public function Actualizar_Forma_de_Pago()
-{
-	/** MAYO 06 DE 2016
-	 * 	ACTUALIZA LA FORMA DE PAGO DEL PEDIDO UNA VEZ SE HA CONFIRMADO LA FORMA
-	 */
-	  $IdPedido            = Session::Get('idpedido');
-	  $IdFormaPago 							 = Session::Get('idformapago');
-	  $Pagado_Online 					 = Session::Get('pagado_online');
-	  $this->Pedido->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
-}
+			{
+				/** MAYO 06 DE 2016
+				 * 	ACTUALIZA LA FORMA DE PAGO DEL PEDIDO UNA VEZ SE HA CONFIRMADO LA FORMA
+				 */
+				  $IdPedido            = Session::Get('idpedido');
+				  $IdFormaPago 							 = Session::Get('idformapago');
+				  $Pagado_Online 					 = Session::Get('pagado_online');
+				  $this->Pedido->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
+			}
 
 }
+?>

@@ -17,9 +17,27 @@
 
 
 
+
+//TIPO IDENTIFICACION
+
+$('#idtpidentificacion').on('change',function(){
+  $tipo_documento = $(this).val();
+  if ( $tipo_documento == 13 || $tipo_documento == 42 || $tipo_documento == 0)
+    {
+      $('.campos-nit').fadeOut();
+      $('.campos-cedu-ciudadana').fadeIn();
+    }
+    if ( $tipo_documento == 31)
+    {
+      $('.campos-nit').fadeIn();
+      $('.campos-cedu-ciudadana').fadeOut();
+    }
+
+})
+
+/// IDENTIFICACION
 $('#identificacion_nat').on('blur',function(){
   var $identificacion = $('#identificacion_nat').val();
-
     $.ajax({
           data:  {'identificacion':$identificacion },
           dataType: 'json',
@@ -27,7 +45,7 @@ $('#identificacion_nat').on('blur',function(){
           type:     'post',
      success:  function (respuesta)
        {
-        $(".contenedor_pagina").load('/tron/terceros/registro');
+
        }
        });
 
