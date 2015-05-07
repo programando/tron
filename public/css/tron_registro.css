@@ -1,7 +1,7 @@
  .contenedor_pagina
 {
      width: 95%;
-     margin: 10px auto;
+     margin: 0px auto;
 }
 
 .cont_pagina_registro
@@ -57,52 +57,12 @@
    text-transform: uppercase;
 }
 
-.campos-cedu-ciudadana /*Campos Ocultos*/
+/*Campos Ocultos*/
+.campos-cedu-ciudadana ,
+.campos-nit
 {
-   display: block;
+   display:  none;
 }
-
-#campos-nit   /*Campos Ocultos*/
-{
-    display:   ;
-}
-
-
-/* diseño = mensaje de validacion */
-
-.mjs-valid-d_cumento     ,
-.mjs-valid-nit           ,
-.mjs-valid-D-V           ,
-.mjs-valid-Confi-NIT     ,
-.mjs-valid-confi-D-V     ,
-.mjs-valid-nit-razon-scl ,
-.mjs-valid-Num-dcto      ,
-.mjs-valid-nombre        ,
-.mjs-valid-pais          ,
-.mjs-valid-confi-num-dcto,
-.mjs-valid-apellidos     ,
-.mjs-valid-departamento  ,
-.mjs-valid-genero        ,
-.mjs-valid-municipio     ,
-.mjs-valid-residencia    ,
-.mjs-valid-barrio        ,
-.mjs-valid-correo        ,
-.mjs-valid-cel           ,
-.mjs-valid-confi-correo
-{
-     -moz-border-radius   : 4px;
-     -ms-border-radius    : 4px;
-     -o-border-radius     : 4px;
-     -webkit-border-radius: 4px;
-     background           : #ffeded;
-     border-radius        : 4px;
-     color                : black;
-     display              : none;
-     height               : auto;
-     text-align           : center;
-}
-
-
 
 /*Boton Continuar , Anterior*/
 
@@ -170,14 +130,9 @@
       margin: -10px auto;
 }
 
-.plan_1{ display: ;}
-.plan_2{ display: ;}
-.plan_3{ display: ;}
+/* Ocultar plan seleccionado */
+.plan_1{ display: block;}
+.plan_2{ display: none;}
+.plan_3{ display: none;}
 
-/* Menseja De Validacion*/
 
-.error-img /* IMG = ( X )*/
-{
-    width: 12px;
-
-}

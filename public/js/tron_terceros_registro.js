@@ -73,29 +73,15 @@ $numero_nit.on('focus',function(){
 
 
 
-
+// *** Pasar al siguente paso ***
 
 //  Passo 1 => Continuar => paso 2
   $('#btn_continura').on('click',function(){
 
-
-   if ($numero_nit.val()=='' ) {
-        $numero_nit.css('background','#FF3333') ;
-        $numero_nit.css('color','white') ;
-        $numero_nit.val('Registre el nombre');
-        $campos_validados= false;
-
-        $('#rgts_paso_1').fadeIn();
-        $('#rgts_paso_2').fadeOut();
-   }else{
-
-        $('#rgts_paso_1').fadeOut();
-        $('#rgts_paso_2').fadeIn();
-    }
+     $('#rgts_paso_1').slideUp();
+     $('#rgts_paso_2').slideDown();
 
   });
-
-
 
 // Passo 2 => Continuar => paso 3
 

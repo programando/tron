@@ -19,133 +19,129 @@
 
 
       <!--Campos NIT -->
-      <div class="row well"><!--Fila -->
-        <div class="col-lg-12 col-md-12 col-sm-12" id="campos-nit"><!-- Campos NIT-->
-          <div class=" col-lg-6"><!--Campos-NIT = Numero-NIT , DV -->
+      <div class="row" ><!--Fila -->
+        <div class="col-lg-12 col-md-12 col-sm-12" ><!-- Campos NIT-->
 
-            <div class=" col-lg-8 "><!-- Numero nit-->
-              <div class="form-group">
-                <label for="identificacion" class="col-lg-6 control-label label-nuemero-nit"><p class="text-label ">Número NIT:</p></label>
-                <div class="col-lg-6">
-                 <input type="text" class="form-control input_campo_datos" id="identificacion">
+        <div class="campos-nit"><!-- Div oculto => Campos NIT -->
+                <div class=" col-lg-6"><!--Campos-NIT = Numero-NIT , DV -->
+
+                  <div class=" col-lg-8 "><!-- Numero nit-->
+                    <div class="form-group">
+                      <label for="identificacion" class="col-lg-6 control-label label-nuemero-nit"><p class="text-label ">Número NIT:</p></label>
+                      <div class="col-lg-6">
+                       <input type="text" class="form-control input_campo_datos" id="identificacion">
+                     </div>
+                   </div>
+                 </div><!-- Numero nit-->
+
+
+                 <div class=" col-lg-4"><!-- D.V-->
+                   <div class="form-group">
+                     <label for="digitoverificacion" class="col-lg-1 control-label"><p class="text-label ">D.V:</p></label>
+                     <div class="col-lg-9">
+                      <input type="text" class="form-control input_campo_datos" id="digitoverificacion">
+                    </div>
+                  </div>
+                </div><!-- D.V-->
+
+              </div><!--Campos-NIT = Numero-NIT , DV -->
+
+
+              <div class=" col-lg-6"><!--Confirmar-NIT = Numero-NIT , D.V -->
+                <div class=" col-lg-8"><!-- Confirmar-Numero nit-->
+                  <div class="form-group">
+                    <label for="identificacion_confirm" class="col-lg-5 control-label"><p class="text-label ">Confirmar:</p></label>
+                    <div class="col-lg-7">
+                     <input type="text" class="form-control input_campo_datos" id="identificacion_confirm" placeholder="Número NIT">
+                   </div>
+
+                 </div>
+               </div><!-- Confirmar-Numero nit-->
+
+
+               <div class=" col-lg-4"><!--Confirmar- D.V-->
+                 <div class="form-group">
+                   <label for="digitoverificacion_confirm" class="col-lg-1 control-label"><p class="text-label ">D.V</p></label>
+                   <div class="col-lg-9">
+                    <input type="text" class="form-control input_campo_datos" id="digitoverificacion_confirm" placeholder="D.V">
+                  </div>
+                </div>
+              </div><!-- Confirmar-D.V-->
+            </div><!--Confirmar-NIT = Numero-NIT , D.V -->
+
+            <div class="col-lg-12 col-md-12 col-sm-12" ><!--Razón Social -->
+             <div class="form-group">
+               <label for="razonsocial" class="col-lg-2 control-label"><p class="text-label ">Razón Social:</p></label>
+               <div class="col-lg-10 ">
+                 <input type="text" class="form-control input_campo_datos" id="razonsocial">
                </div>
              </div>
-           </div><!-- Numero nit-->
-
-
-           <div class=" col-lg-4"><!-- D.V-->
-             <div class="form-group">
-               <label for="digitoverificacion" class="col-lg-1 control-label"><p class="text-label ">D.V:</p></label>
-               <div class="col-lg-9">
-                <input type="text" class="form-control input_campo_datos" id="digitoverificacion">
-              </div>
-            </div>
-          </div><!-- D.V-->
-
-        </div><!--Campos-NIT = Numero-NIT , DV -->
-
-
-        <div class=" col-lg-6"><!--Confirmar-NIT = Numero-NIT , D.V -->
-          <div class=" col-lg-8"><!-- Confirmar-Numero nit-->
-            <div class="form-group">
-              <label for="identificacion_confirm" class="col-lg-5 control-label"><p class="text-label ">Confirmar:</p></label>
-              <div class="col-lg-7">
-               <input type="text" class="form-control input_campo_datos" id="identificacion_confirm" placeholder="Número NIT">
-             </div>
-
-           </div>
-         </div><!-- Confirmar-Numero nit-->
-
-
-         <div class=" col-lg-4"><!--Confirmar- D.V-->
-           <div class="form-group">
-             <label for="digitoverificacion_confirm" class="col-lg-1 control-label"><p class="text-label ">D.V</p></label>
-             <div class="col-lg-9">
-              <input type="text" class="form-control input_campo_datos" id="digitoverificacion_confirm" placeholder="D.V">
-            </div>
-          </div>
-        </div><!-- Confirmar-D.V-->
-      </div><!--Confirmar-NIT = Numero-NIT , D.V -->
+           </div><!--Razón Social -->
+       </div><!-- Div oculto => Campos NIT -->
 
     </div><!--Campos NIT -->
   </div><!--Fila -->
-
-  <div class="col-lg-12 col-md-12 col-sm-12" id="campos-nit"><!--Razón Social -->
-   <div class="form-group">
-     <label for="razonsocial" class="col-lg-2 control-label"><p class="text-label ">Razón Social:</p></label>
-     <div class="col-lg-10 ">
-       <input type="text" class="form-control input_campo_datos" id="razonsocial">
-     </div>
-   </div>
-
- </div><!--Razón Social -->
-
-
  <!--Campos NIT -->
 
- <div class="col-lg-4 col-md-4 col-sm-4"><!--Columan Contiene => numero-documento , nombres , pais -->
 
-   <div  >
-     <div class="form-group campos-cedu-ciudadana"><!--Numero-documento -->
-       <label for="identificacion_nat"  class=" col-lg-6 "><p class="text-label ">Número  Documento:</p></label>
-       <div class="col-lg-6 ">
-         <input type="text" class="form-control input_campo_datos" id="identificacion_nat">
+     <div class="col-lg-4 col-md-4 col-sm-4"><!--Columan Contiene => numero-documento , nombres , pais -->
+       <div>
+         <div class="form-group campos-cedu-ciudadana"><!--Numero-documento -->
+           <label for="identificacion_nat"  class=" col-lg-6 "><p class="text-label ">Número  Documento:</p></label>
+           <div class="col-lg-6 ">
+             <input type="text" class="form-control input_campo_datos" id="identificacion_nat">
+           </div>
+         </div><!--Numero-documento -->
        </div>
-     </div><!--Numero-documento -->
-   </div>
 
 
-   <div class="form-group cedu-ciudad campos-cedu-ciudadana"><!--Nombres -->
-    <label for="pnombre" class="col-lg-6  control-label"><p class="text-label ">Nombres:</p></label>
-    <div class="col-lg-6 ">
-     <input type="text" class="form-control input_campo_datos" id="pnombre">
-   </div>
- </div><!--Nombres -->
+       <div class="form-group cedu-ciudad campos-cedu-ciudadana"><!--Nombres -->
+        <label for="pnombre" class="col-lg-6  control-label"><p class="text-label ">Nombres:</p></label>
+        <div class="col-lg-6 ">
+         <input type="text" class="form-control input_campo_datos" id="pnombre">
+       </div>
+     </div><!--Nombres -->
 
 
- <div class="form-group"><!--País residencia -->
-   <label for="idpais" class="col-lg-6  control-label"><p class="text-label ">País residencia:</p></label>
-   <div class="col-lg-6 ">
-     <select  class="form-control input_campo_datos" id="idpais">
-       <option value="1">Colombia</option>
-     </select>
-   </div>
- </div><!--País residencia -->
-</div><!--Columan Contiene => numero-documento , nombres , pais -->
+     <div class="form-group"><!--País residencia -->
+       <label for="idpais" class="col-lg-6  control-label"><p class="text-label ">País residencia:</p></label>
+       <div class="col-lg-6 ">
+         <select  class="form-control input_campo_datos" id="idpais">
+           <option value="1">Colombia</option>
+         </select>
+       </div>
+     </div><!--País residencia -->
+    </div><!--Columan Contiene => numero-documento , nombres , pais -->
 
 
 
 
-<div class="col-lg-4 col-md-4 col-sm-4" id="columna-2"><!--Columan Contine => Confirmar , apellidos , departamento -->
-
-  <div>
-   <div class="form-group campos-cedu-ciudadana"><!--Confirmar -->
-     <label for="identificacion_nat_confirm" class="col-lg-4 control-label" ><p class="text-label ">Confirmar:</p></label>
-     <div class="col-lg-8 cont-input">
-      <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm">
-    </div>
-  </div><!--Confirmar -->
-  </div>
-
-
-<div class="form-group campos-cedu-ciudadana"><!--Apellidos -->
- <label for="papellido" class="col-lg-4  control-label"><p class="text-label ">Apellidos:</p></label>
- <div class="col-lg-8 cont-input">
-  <input type="text" class="form-control input_campo_datos" id="papellido">
-</div>
+    <div class="col-lg-4 col-md-4 col-sm-4" id="columna-2"><!--Columan Contine => Confirmar , apellidos , departamento -->
+      <div>
+         <div class="form-group campos-cedu-ciudadana"><!--Confirmar -->
+           <label for="identificacion_nat_confirm" class="col-lg-4 control-label" ><p class="text-label ">Confirmar:</p></label>
+           <div class="col-lg-8 cont-input">
+            <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm">
+          </div>
+        </div><!--Confirmar -->
+      </div>
 
 
+      <div class="form-group campos-cedu-ciudadana"><!--Apellidos -->
+         <label for="papellido" class="col-lg-4  control-label"><p class="text-label ">Apellidos:</p></label>
+         <div class="col-lg-8 cont-input">
+          <input type="text" class="form-control input_campo_datos" id="papellido">
+        </div>
+      </div><!--Apellidos -->
 
-</div><!--Apellidos -->
 
-
-<div class="form-group"><!--Departamento -->
-  <label for="iddpto" class="col-lg-4  control-label"><p class="text-label ">Departamento:</p></label>
-  <div class="col-lg-8 cont-input">
-    <?php include (APPLICATION_SECTIONS . 'departamentos.php');?>
-  </div>
-</div><!--Departamento -->
-</div><!--Columan Contine => Confirmar , apellidos , departamento -->
+      <div class="form-group"><!--Departamento -->
+        <label for="iddpto" class="col-lg-4  control-label"><p class="text-label ">Departamento:</p></label>
+        <div class="col-lg-8 cont-input">
+          <?php include (APPLICATION_SECTIONS . 'departamentos.php');?>
+        </div>
+      </div><!--Departamento -->
+    </div><!--Columan Contine => Confirmar , apellidos , departamento -->
 
 
 

@@ -9,7 +9,7 @@
          <article class="plan_1" id="">
               <h3 class="titulo_del_plan" id=""><strong>Plan 1</strong> <br> <small> PLAN COMPRADOR OCASIONAL </small></h3><br>
               <div class="cont-plan">
-                  <p class="text-center">Presione continuar para finalizar ésta parte del registroL:</p>
+                  <p class="text-center">Presione continuar para finalizar ésta parte del registro:</p>
               </div>
          </article>
 
