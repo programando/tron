@@ -11,7 +11,7 @@
       <div class="col-lg-5 col-md-5 col-sm-5"><!--TIpo-Document -->
         <div class="form-group">
           <label for="idtpidentificacion" class="col-lg-5  control-label"><p class="text-label">Tipo de Documento :</p></label>
-          <div class="col-lg-6">
+          <div class="col-lg-7"  id="cont-selec-document">
             <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
           </div>
         </div>
@@ -28,7 +28,7 @@
                   <div class=" col-lg-8 "><!-- Numero nit-->
                     <div class="form-group">
                       <label for="identificacion" class="col-lg-6 control-label label-nuemero-nit"><p class="text-label ">Número NIT:</p></label>
-                      <div class="col-lg-6">
+                      <div class="col-lg-6"  id="contnumero-nit">
                        <input type="text" class="form-control input_campo_datos" id="identificacion">
                      </div>
                    </div>
@@ -86,8 +86,8 @@
 
      <div class="col-lg-4 col-md-4 col-sm-4"><!--Columan Contiene => numero-documento , nombres , pais -->
        <div>
-         <div class="form-group campos-cedu-ciudadana"><!--Numero-documento -->
-           <label for="identificacion_nat"  class=" col-lg-6 "><p class="text-label ">Número  Documento:</p></label>
+         <div class="form-group  campos-cedu-ciudadana"><!--Numero-documento -->
+           <label for="identificacion_nat"  class="col-lg-6 control-label"><p class="text-label">Numero Documento: </p></label>
            <div class="col-lg-6 ">
              <input type="text" class="form-control input_campo_datos" id="identificacion_nat">
            </div>
@@ -97,10 +97,10 @@
 
        <div class="form-group cedu-ciudad campos-cedu-ciudadana"><!--Nombres -->
         <label for="pnombre" class="col-lg-6  control-label"><p class="text-label ">Nombres:</p></label>
-        <div class="col-lg-6 ">
-         <input type="text" class="form-control input_campo_datos" id="pnombre">
-       </div>
-     </div><!--Nombres -->
+          <div class="col-lg-6 ">
+             <input type="text" class="form-control input_campo_datos" id="pnombre">
+          </div>
+       </div><!--Nombres -->
 
 
      <div class="form-group"><!--País residencia -->

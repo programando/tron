@@ -4,6 +4,17 @@
      margin: 0px auto;
 }
 
+#cont-selec-document
+{
+    padding-left: 7px;
+}
+
+#contnumero-nit
+{
+    padding-right: 0;
+    margin-left: -6px;
+}
+
 .cont_pagina_registro
 {
     display: block;
