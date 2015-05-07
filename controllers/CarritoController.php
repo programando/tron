@@ -53,14 +53,16 @@ class CarritoController extends Controller
     {
         parent::__construct();
 
-        $this->Escalas        = $this->Load_Controller('ProductosEscalas');
-        $this->Parametros     = $this->Load_Controller('Parametros');
-        $this->Terceros       = $this->Load_Controller('Terceros');
-        $this->Fletes         = $this->Load_Controller('Fletes');
-        $this->Productos_Tron = $this->Load_Controller('ProductosTron');
-        $this->Pedidos        = $this->Load_Controller('Pedidos');
-        $this->Departamentos  = $this->Load_Model('Departamentos');
-        $this->Productos      = $this->Load_Model('Productos');
+       $this->Escalas        = $this->Load_Controller('ProductosEscalas');
+       $this->Parametros     = $this->Load_Controller('Parametros');
+       $this->Terceros       = $this->Load_Controller('Terceros');
+       $this->Fletes         = $this->Load_Controller('Fletes');
+       $this->Productos_Tron = $this->Load_Controller('ProductosTron');
+       $this->Pedidos        = $this->Load_Controller('Pedidos');
+       $this->Departamentos  = $this->Load_Model('Departamentos');
+       $this->Productos      = $this->Load_Model('Productos');
+
+
     }
 
     public function index() {}
@@ -303,11 +305,13 @@ class CarritoController extends Controller
     }
 
 
+
     public function Mostrar_Carrito()
     {
       /** ENERO 22 DE 2015
       *   MUSTRA EL CARRITO,LUEGO DE AGREGARLE PRODUCTOS
       */
+
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
       $this->Iniciar_Procesos_Carro();
 
@@ -326,7 +330,7 @@ class CarritoController extends Controller
         }
       }
 
-     if ($this->Cantidad_Filas_Carrito>0)
+     if ($this->Cantidad_Filas_Carrito > 0)
       {
         $this->Hallar_Valor_Escalas_Productos();
         $this->Totalizar_Carrito();

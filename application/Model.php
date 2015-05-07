@@ -6,10 +6,12 @@
 	class Model
 	{
 		protected $Db;
+
 		public function __construct()
 		{
 			$this->Db = new Database();
 		}
+
 	}
 
 ?>

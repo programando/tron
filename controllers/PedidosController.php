@@ -5,11 +5,10 @@
 class PedidosController extends Controller
 {
 
-		 private $Datos_Carro;
+		  private $Datos_Carro;
     public function __construct()
     {
       parent::__construct();
-      $this->Carrito       = $this->Load_Controller('Carrito');
       $this->Pedido        = $this->Load_Model('Pedidos');
     }
     public function index() {}
