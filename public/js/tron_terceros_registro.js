@@ -37,7 +37,7 @@ $('#idtpidentificacion').on('change',function(){
 
 /// IDENTIFICACION
 $('#identificacion_nat').on('blur',function(){
-  var $identificacion = $('#identificacion_nat').val();
+    var $identificacion = $('#identificacion_nat').val();
     $.ajax({
           data:  {'identificacion':$identificacion },
           dataType: 'json',

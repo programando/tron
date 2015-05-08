@@ -1,11 +1,17 @@
 
 <?php
 		    	$datos = 	Session::Get('Fletes_Cobrados_Transportadoras');
+          if (isset($_SESSION['carrito'])){
 		    	$carro = $_SESSION['carrito'];
-		    	//Debug::Mostrar($carro);
+        }
+        else
+        {
+          echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";		    	//Debug::Mostrar($carro);
+        }
 
 ?>
 
+<?php if (isset($carro)) :;?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
 <table class="table table-bordered table-hover">
@@ -124,7 +130,7 @@
                    </tbody>
               </table>
 
-
+<?php endif ;?>
 
 
 
