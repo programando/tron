@@ -26,12 +26,9 @@
                             <th class="titulo-tabla">$.Tron</th>
                             <th class="titulo-tabla">$.Real</th>
                             <th class="titulo-tabla">$.Sin Iva</th>
-                            <th class="titulo-tabla">Cmv</th>
-                            <th class="titulo-tabla">Costo</th>
                             <th class="titulo-tabla">Iva</th>
                             <th class="titulo-tabla">Grupo</th>
                             <th class="titulo-tabla">Peso Gr.</th>
-                            <th class="titulo-tabla">Cto.Tot.</th>
                             <th class="titulo-tabla">%.Ppto</th>
                             <th class="titulo-tabla">Vr.Ppto</th>
 
@@ -50,12 +47,9 @@
                            <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']) ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100)) ;?> </td>
 
-                           <td class="cuerpo-tabla"><?= number_format( $productos['cmv']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['costo_sin_iva']) ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['iva']).'%' ;?> </td>
                            <td class="cuerpo-tabla"><?=  $productos['codigo_grupo'] ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['cantidad']  * $productos['cmv']) ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100) .'%' ;?> </td>
                            <td class="cuerpo-tabla"><?=
                            									number_format( ($productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100)*$productos['cantidad']*$productos['ppto_fletes'])) ;?> </td>
