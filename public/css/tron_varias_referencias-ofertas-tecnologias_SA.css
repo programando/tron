@@ -33,7 +33,7 @@
 
 .img-tecnologias
 {
-     background: url(../images/empresa/tecnologias.png)no-repeat;
+     /*background: url(../images/empresa/tecnologias.png)no-repeat;*/
      height: 50px;
      width: 100px;
      z-index   : 5;
