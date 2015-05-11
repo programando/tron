@@ -83,6 +83,30 @@
     margin-top: 52px;
 }
 
+/* PAso 2 */
+
+/* Diseño Tooltips */
+.tooltip
+{
+    position:absolute;
+    z-index:999;
+    left:-9999px;
+    background-color:#dedede;
+    padding:3px;
+    border:1px solid #fff;
+    width:320px;
+}
+
+.tooltip p
+{
+    margin:0;
+    padding:0;
+    color:#fff;
+    background-color:#222;
+    padding:12px;
+    font-size:12px;
+ }
+
 /* Paso 3 */
 
 .titulo_del_plan
