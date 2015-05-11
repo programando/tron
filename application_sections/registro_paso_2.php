@@ -98,9 +98,9 @@
                 </tr>
                 <tr>
                    <td class="text-right"> <strong>REGISTRARME EN EL PLAN:</strong> </td>
-                   <td class="text-center"> <button type="button" class="btn btn-danger">COMPRADOR <br> OCASIONAL</button> </td>
-                   <td class="text-center"> <button type="button" class="btn btn-danger">CLIENTE <br> TRON</button> </td>
-                   <td class="text-center"> <button type="button" class="btn btn-danger">EMPRESARIO <br> TRON</button> </td>
+                   <td class="text-center"> <button type="button" class="btn-registrar-en-plan">COMPRADOR <br> OCASIONAL</button> </td>
+                   <td class="text-center"> <button type="button" class="btn-registrar-en-plan">CLIENTE <br> TRON</button> </td>
+                   <td class="text-center"> <button type="button" class="btn-registrar-en-plan">EMPRESARIO <br> TRON</button> </td>
                 </tr>
              </tbody><!--Cuerpo de la tabla -->
 
@@ -112,8 +112,8 @@
       <div class="row">
           <div class="col-lg-12">
                <div class="cont-btn-bottom"><!-- Cont -->
-                    <button type="button" class="btn btn-danger" id="btn_paso_2_anterior">Anterior</button>
-                    <button type="button" class="btn btn-defautl  btn-continuar" id="btn_paso_2_continuar">Continuar</button>
+                    <button type="button" class="btn_volver" id="btn_paso_2_anterior">Anterior</button>
+                    <button type="button" class="btn-continuar" id="btn_paso_2_continuar">Continuar</button>
                </div><!-- Cont -->
           </div>
       </div>

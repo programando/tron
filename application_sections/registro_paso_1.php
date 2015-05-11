@@ -232,8 +232,7 @@
 <div class="row">
   <div class="col-lg-12">
    <div class="cont-btn-bottom"><!-- Cont -->
-
-    <button type="button" id="btn_continura" class="btn btn-defautl  btn-continuar"> Continuar al paso 2</button>
+    <button type="button" id="btn_continura" class="btn-continuar"> Continuar al paso 2</button>
   </div><!-- Cont -->
 </div>
 </div>

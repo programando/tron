@@ -50,8 +50,8 @@
 
              <div class="col-lg-12">
                   <div class="cont-btn-bottom"><!-- Cont -->
-                        <button type="button" class="btn btn-danger" id="btn_paso_3_anterior">Anterior</button>
-                        <button type="button" class="btn btn-defautl  btn-continuar" >Continuar</button>
+                        <button type="button" class="btn_volver" id="btn_paso_3_anterior">Anterior</button>
+                        <button type="button" class="btn-continuar" >Continuar</button>
                   </div><!-- Cont -->
              </div>
         <!-- ====( Btn = Anterior - Siguiente )==== -->
