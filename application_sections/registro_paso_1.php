@@ -87,7 +87,7 @@
      <div class="col-lg-4 col-md-4 col-sm-4"><!--Columan Contiene => numero-documento , nombres , pais -->
        <div>
          <div class="form-group  campos-cedu-ciudadana"><!--Numero-documento -->
-           <label for="identificacion_nat"  class="col-lg-6 control-label"><p class="text-label">Numero Documento: </p></label>
+           <label for="identificacion_nat"  class="col-lg-6 control-label"><p class="text-label">Número Documento: </p></label>
            <div class="col-lg-6 ">
              <input type="text" class="form-control input_campo_datos" id="identificacion_nat">
            </div>

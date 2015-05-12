@@ -276,7 +276,7 @@ class TercerosController extends Controller
         $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos   = $this->Departamentos->Consultar();
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
-        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios','registrodos'));
+        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios','registrodos','jquery.confirm'));
         $this->View->Mostrar_Vista('registro');
     }
 

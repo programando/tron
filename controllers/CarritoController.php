@@ -626,10 +626,10 @@ class CarritoController extends Controller
       $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
       $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
-      $this->Calcular_Numero_Unidades_Despacho  ($peso_kilos_pedido);
+      //$this->Calcular_Numero_Unidades_Despacho  ($peso_kilos_pedido);
       $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
-      $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado,$this->Cant_Unidades_Despacho);
-      $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado,$this->Cant_Unidades_Despacho);
+      $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
+      $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
       $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
     }
 
@@ -761,61 +761,6 @@ class CarritoController extends Controller
     }
 
 
-    public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
-    {/** MARZO 12 de 2015
-      *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
-      */
-      /*  38  4 kg.   39  4 kg.   42  4 lts.    122 4 lts(1)    123 4 lts(1)    124 4 lts(1)    145 4 lts.      148 4 lts.
-          151 4 kg.   155 4 kg.   160 4 lts.    162 4 lts(1)    163 4 lts.      164 4 lts.(1)   195 4 lts (1)
-      */
-      $Cant_Unid_No_04_20_Litros = 0;       // Cantidad de productos que no son 4 y 20 litros
-      $Cant_Unid_Si_04_Litros    = 0;      // Cantidad de presentaciones que son 4 litros
-      $Cant_Unid_Si_20_Litros    = 0;      // Cantidad de presentaciones que son 20 litros
-      $Cant_Unid_No_Industriales = 0;     // Cantidad de productos que no son industriales
-
-      $presentaciones_4_litros   = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
-      $presentaciones_20_litros  = array(57, 59, 61, 153, 171, 184, 185 );
-
-      $this->Iniciar_Procesos_Carro();
-
-      if ($this->Carrito_Habilitado==false)
-      {
-        return ;
-      }
-
-       foreach ($this->Datos_Carro as $Productos)
-        {
-          if ($Productos['id_categoria_producto']==6) // Productos industriales
-          {
-            $ID_Presentacion = $Productos['idpresentacion'];
-
-            // Presentaciones diferentes a 4 litros
-            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros))
-              {
-                  $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
-              }
-            if (in_array($ID_Presentacion, $presentaciones_4_litros))  // presentaciones iguales a 4 litros
-              {
-                  $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
-              }
-            if (in_array($ID_Presentacion,  $presentaciones_20_litros))  // presentaciones iguales a 4 litros
-              {
-                  $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
-              }
-          }
-          if ($Productos['id_categoria_producto']==7) // Productos que no son industriales
-          {
-              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $peso_kilos_pedido;
-          }
-
-        }// end foreach
-        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto($Cant_Unid_Si_04_Litros);
-        $Cant_Unid_No_Industriales    = $Cant_Unid_No_Industriales*1000/4000;  // Viene en kilos, lo paso a gramos ( * 1000 )
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto($Cant_Unid_No_Industriales);
-
-        $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
-
-    }
 
 
 

@@ -5,17 +5,16 @@
 						public  $valor_flete                  = 0;
 						public 	$valor_dscto_flete_kit_inicio = 0;
 						public 	$valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
-
 						private $iddpto                       = 0;
 						private $idmcipio                     = 0;
 						private $re_expedicion                = 0;
 						private $cantidad_unidades_despacho   = 0;		// CANTIDAD DE BOLSAS ( UNIDADES DE DESPACHO ) QUE SE ENTREGAN A LA TRANSPORTADORA
 						private $seguro_redetrans_courrier    = 0;
-						private $tipo_tarifa                  ='';
+						private $tipo_tarifa                  = '';
 						private $flete_calculado              = FALSE ;
-						private $Transportadoras 		           ='';
-
-
+						private $Transportadoras 		           = '';
+						private $Cant_Unidades_Despacho 						= 0;
+						private $Datos_Carro  																= array();
 
       public function __construct()
       {
@@ -93,7 +92,7 @@
           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
       }
 
-      public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado, $cant_unidades_despacho)
+      public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado)
       {/**  MAZO 16 DE 2015
       	*							CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA INDUSTRIAL SERVIENTREGA
       	*/
@@ -109,9 +108,9 @@
 								$this->idmcipio        = Session::Get('idmcipio');
 								$this->iddpto          = Session::Get('iddpto');
 								$this->Transportadoras = $this->Parametros->Transportadoras();
-								$peso_minimo           = $cant_unidades_despacho * $this->Transportadoras['0']['sv_carga_peso_minimo'];
+								$this->Calcular_Numero_Unidades_Despacho($peso_kilos_pedido);
 
-
+								$peso_minimo           = $this->Cant_Unidades_Despacho * $this->Transportadoras['0']['sv_carga_peso_minimo'];
 
 	      	if ($peso_minimo > $peso_kilos_pedido)
 	      	{
@@ -156,12 +155,12 @@
 	      $tasa_manejo = $tasa_manejo / 100;
 
 	      //6. APLICAR TASA DE MANEJO Y COMPARAR CON EL VALOR DEL FLETE
-	      if ($this->valor_flete < ($tasa_manejo  * $cant_unidades_despacho))
+	      if ($this->valor_flete < ($tasa_manejo  * $this->Cant_Unidades_Despacho))
 	      {
-	      		$this->valor_flete = $tasa_manejo  * $cant_unidades_despacho;
+	      		$this->valor_flete = $tasa_manejo  * $this->Cant_Unidades_Despacho ;
 	      }
 	      // 7. HALLAR SEGURO FIJO Y SEGURO VARIABLE
-							$seguro_fijo     = $cant_unidades_despacho * $valor_minimo_manejo;
+							$seguro_fijo     = $this->Cant_Unidades_Despacho * $valor_minimo_manejo;
 							$seguro_variable = $valor_declarado * $this->Transportadoras[0]['sv_carga_tasa_manejo_nacional']/100;
 	      // 8. VALIDA SEGURO VARIABLE CON RESPECTO AL VALOR MÍNIMO MANEJO
 
@@ -186,7 +185,7 @@
 
 
 
-      public function Redetrans_Carga($peso_kilos_pedido,$valor_declarado, $cant_unidades_despacho)
+      public function Redetrans_Carga($peso_kilos_pedido,$valor_declarado)
       {/** MARZO 12 DE 2015
       	*				CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA REDE TRANS
       	*/
@@ -201,6 +200,10 @@
 								$vr_kilo_idmcipio_redetrans = Session::Get('vr_kilo_idmcipio_redetrans');
 								$vr_re_expedicion_redetrans = Session::Get('vr_re_expedicion_redetrans');
 
+								$this->Calcular_Numero_Unidades_Despacho($peso_kilos_pedido);
+
+
+
 								$porcentaje_seg_reexp       = $this->Transportadoras[0]['rt_carga_porciento_reexpedicion']/100;
 								$porciento_dscto_ccial      = $this->Transportadoras[0]['rt_carga_descuento_comercial']/100;
 
@@ -212,7 +215,7 @@
        		  	$this->valor_flete = $this->Transportadoras[0]['rt_carga_vr_minimo_unidad'];
        		  }
 
-       		$seguro_fijo = $cant_unidades_despacho * $this->Transportadoras[0]['rt_carga_vr_seguro_fijo_unidad'];
+       		$seguro_fijo = $this->Cant_Unidades_Despacho * $this->Transportadoras[0]['rt_carga_vr_seguro_fijo_unidad'];
 
        		if ($this->re_expedicion==1 and $valor_declarado > $this->Transportadoras[0]['rt_carga_vr_minimo_asegurable'])
        		{
@@ -372,6 +375,60 @@
 													}// fin if
 			      		}// fin foreach
 			      }// fin function
+
+public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
+    {/** MARZO 12 de 2015
+      *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
+      */
+      /*  38  4 kg.   39  4 kg.   42  4 lts.    122 4 lts(1)    123 4 lts(1)    124 4 lts(1)    145 4 lts.      148 4 lts.
+          151 4 kg.   155 4 kg.   160 4 lts.    162 4 lts(1)    163 4 lts.      164 4 lts.(1)   195 4 lts (1)
+      */
+						$Cant_Unid_No_04_20_Litros    = 0;       // Cantidad de productos que no son 4 y 20 litros
+						$Cant_Unid_Si_04_Litros       = 0;      // Cantidad de presentaciones que son 4 litros
+						$Cant_Unid_Si_20_Litros       = 0;      // Cantidad de presentaciones que son 20 litros
+						$Cant_Unid_No_Industriales    = 0;     // Cantidad de productos que no son industriales
+						$this->Cant_Unidades_Despacho = 1;
+
+      $presentaciones_4_litros   = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
+      $presentaciones_20_litros  = array(57, 59, 61, 153, 171, 184, 185 );
+
+      $this->Datos_Carro = Session::Get('carrito');
+
+
+
+       foreach ($this->Datos_Carro as $Productos)
+        {
+          if ($Productos['id_categoria_producto']==6) // Productos industriales
+          {
+            $ID_Presentacion = $Productos['idpresentacion'];
+
+            // Presentaciones diferentes a 4 litros
+            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros))
+              {
+                  $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
+              }
+            if (in_array($ID_Presentacion, $presentaciones_4_litros))  // presentaciones iguales a 4 litros
+              {
+                  $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
+              }
+            if (in_array($ID_Presentacion,  $presentaciones_20_litros))  // presentaciones iguales a 4 litros
+              {
+                  $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
+              }
+          }
+          if ($Productos['id_categoria_producto']==7) // Productos que no son industriales
+          {
+              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $peso_kilos_pedido;
+          }
+
+        }// end foreach
+        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto($Cant_Unid_Si_04_Litros);
+        $Cant_Unid_No_Industriales    = $Cant_Unid_No_Industriales*1000/4000;  // Viene en kilos, lo paso a gramos ( * 1000 )
+        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto($Cant_Unid_No_Industriales);
+        $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
+
+    }
+
 
 
 }?>

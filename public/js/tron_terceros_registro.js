@@ -38,9 +38,19 @@
     var $confi_e_mail    = $('#email_confirm');
 
 
+var Mensaje_Sistema = function(Texto){
+   $.confirm({
+    title:"Mensaje del Sistema",
+    text: Texto ,
+    cancel: function(button) {
+    },
+    cancelButton: "Cerrar"
+  });
+}
 
 
 //TIPO IDENTIFICACION
+
 
 $('#idtpidentificacion').on('change',function(){
   $tipo_documento = $(this).val();
@@ -54,8 +64,9 @@ $('#idtpidentificacion').on('change',function(){
       $('.campos-nit').fadeIn();
       $('.campos-cedu-ciudadana').fadeOut();
     }
+});
 
-})
+
 
 /// IDENTIFICACION
 $('#identificacion_nat').on('blur',function(){
@@ -70,9 +81,35 @@ $('#identificacion_nat').on('blur',function(){
 
        }
        });
-
-
 });
+
+$('#identificacion_nat').on('focusout',function(){
+  $(this).get(0).type='password';
+});
+
+$('#identificacion_nat').on('focus',function(){
+  $(this).get(0).type='text';
+});
+
+
+$('#identificacion_nat_confirm').on('focus',function(){
+  $(this).get(0).type='text';
+});
+
+/// VALIDAR QUE LAS IDENTIFICACION SEAN IGUALES
+$('#identificacion_nat_confirm').on('focusout',function(){
+  $(this).get(0).type ='password';
+  $identificacion     = $('#identificacion_nat').val();
+  $confirmacion       = $('#identificacion_nat_confirm').val();
+  if ($identificacion != $confirmacion  )
+  {
+    Mensaje_Sistema('Los números de documento deben ser iguales !.')
+    $('#identificacion_nat').val('');
+    $('#identificacion_nat_confirm').val('');
+  }
+});
+
+
 
 // CARGAR LAS CIUDADES POR DEPARTAMENTO
 $('#iddpto').on('change',function(){
