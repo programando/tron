@@ -49,7 +49,8 @@
                 <tr>
                    <td> <strong>
                           <a class="nuvv" title="
-                              Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar o los productos de la línea industrial fabricados por Tecnologías Aplicadas S.A. ">
+                              Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar o los productos de la línea industrial
+                              fabricados por BALQUIMIA S.A.S. ">
                               <span class="aS colurAd">PRECIOS ESPECIALES PARA AMIGOS TRON</span>
                           </a></td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>

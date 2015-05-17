@@ -1,6 +1,6 @@
 <?php
-     $pv_comprador_ocasional      = $this->Productos_Tron_Ropa[0]['pv_ocasional'];
-     $pv_tron                     = $this->Productos_Tron_Ropa[0]['pv_tron'];
+     $pv_comprador_ocasional      = $this->Productos_Tron_Banios[0]['pv_ocasional'];
+     $pv_tron                     = $this->Productos_Tron_Banios[0]['pv_tron'];
      $text_pv_comprador_ocasional = Numeric_Functions::Formato_Numero($pv_comprador_ocasional);
      $text_pv_tron                = Numeric_Functions::Formato_Numero($pv_tron );
 ?>
@@ -11,11 +11,11 @@
           <!--Contenido-Presentacion-Producto -->
 
           <div class="porductos-tron-img_producto">
-           <img src="<?= BASE_IMG_PRODUCTOS_TRON ;?>ropa_producto.jpg"
+           <img src="<?= BASE_IMG_PRODUCTOS_TRON ;?>banios_producto.jpg"
            class="img-responsive  Imagen_Del_Producto"><br><!--Imagen Del Producto -->
          </div>
 
-         <p class="text-center nombre_del_producto"> Concentrado Detergente Para Lavar ROPA </p><br><!--Nombre-Producto-->
+         <p class="text-center nombre_del_producto"> Concentrado Desinfectante de BAÑOS </p><br><!--Nombre-Producto-->
        </div>
 
        <!-- Fin-Me presenta una imagen del producto -->

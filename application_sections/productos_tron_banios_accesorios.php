@@ -1,4 +1,4 @@
-<?php if(isset($this->Accesorios_Tron_Ropa)) :?>
+<?php if(isset($this->Accesorios_Tron_Banios)) :?>
 
         <div><!--Titulo-->
          <p class="titulo_de_accesorios"> <strong>ACCESORIOS</strong> </p>
@@ -8,7 +8,7 @@
 
        <!--Primer Accesorio-->
 
-        <?php foreach($this->Accesorios_Tron_Ropa as $Productos )
+        <?php foreach($this->Accesorios_Tron_Banios as $Productos )
         {
               include (APPLICATION_CODS . 'campos_productos.php');
           ?>
@@ -47,8 +47,6 @@
                           >
                       </div><!--Fin Input-->
                    </div>
-
-
                  <div class=" col-xs-4" id="cont-mas">
                   <div class="form-group"><!-- Inicio Boton Mas-->
                     <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMas"
@@ -56,7 +54,6 @@
                     </button><!-- Fin Boton Mas-->
                   </div>
                 </div>
-
 
               </form>
             </div>
