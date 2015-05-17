@@ -34,8 +34,7 @@
 }
 
 /* Diseño => lista => pasos */
-
-#li_paso_1
+.activo-lista
 {
      background: #003E90;
      color: white;
@@ -54,7 +53,8 @@
       text-align: center;
       list-style: none;
       font-weight: bold;
-      color: gray;
+      color: white;
+      background: #85ABDD;
 
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
