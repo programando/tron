@@ -67,3 +67,15 @@ $('#contenido-productos').on('click','.btns-carritoTronMenos',function(){
   $Parametros = {'IdProducto':$IdProducto , 'Cantidad':1};
  	Borrar_Producto_de_Carrito($Parametros );
 });
+
+// Ventana Modal => Etiqueta del producto
+
+				// Abrir => Ventana Modal
+				$('#cont-img-producto-ropa').on('click',function(){
+					     $('#ventana_modal').fadeIn();
+				});
+
+				// Cerrar => Ventana Modal
+				$('.ventana_modal').on('click',function(){
+					     $('#ventana_modal').fadeOut();
+				});

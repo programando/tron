@@ -1,4 +1,42 @@
 
+/* Ventana Modal*/
+.ventana_modal
+{
+	      width: 100%;
+	      height: 100%;
+	      color: #fff;
+	      position: fixed;
+	      background-image: url(../images/productos/tron/fondo_ventana_modal.png);
+	      top: 0;
+	      left: 0;
+	      z-index: 1000;
+       display: none;
+       cursor: pointer;
+}
+
+.cuerpo_ventana_modal
+{
+	      color: black;
+	      display: block;
+	      width: 45%;
+	      height: 100%;
+	      overflow: auto;
+	      margin: 0px auto;
+	      background:white;
+       min-width: 300px;
+
+	      -webkit-box-shadow: 0px 5px 5px #000;
+	      -moz-box-shadow: 0px 5px 5px #000;
+	      box-shadow: 0px 5px 5px #000;
+}
+
+.img-etiqueta-producto/* IMG Etiqueta */
+{
+        width: 95%;
+        margin: 0px auto;
+        display: block;
+}
+
 /*Presentacion Del Producto*/
 
 .contenedor_del_producto_presentado
@@ -41,7 +79,7 @@
 .Precio_varia_segun_la_cantidad
 {
 	       font-size: 13px;
-	       color:red;
+	       color: #C00;
 }
 
 .titulo_fragancia ,
@@ -70,10 +108,10 @@
 	    color: #003E90;
 	    font-size:14px;
 	    display:block;
-	    border:1px solid black;
 	    width:100px;
 	    min-width:100px;
 	    max-width:100px;
+	    margin-bottom: -1px;
 }
 
 .precios_accesorio

@@ -10,7 +10,7 @@
     <!--////////////////////////////////////////////////-Section = Productos//////////////////////////////////////////////////-->
     <!--Contenedor = Presentacion Del Producto //
     Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
-    <div class=" well col-lg-9 col-md-9 col-sm-9">
+    <div class="col-lg-9 col-md-9 col-sm-9">
       <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
        <?php include (APPLICATION_SECTIONS .'productos_tron_ropa.php'); ?>
         <!--Division2-Fragancia , Accesorios-->
@@ -27,12 +27,20 @@
       </div>
       <!--Precio_varia_segun_la_cantidad -->
       </div>
+
+        <div><!-- Ventana Modal -->
+            <?php include (APPLICATION_SECTIONS .'productos_tron_ventana_modal.php'); ?>
+        </div>
+
     </div><!--Fin-Contenedor = Presentacion Del Producto // Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
 
 <!--Resumen Pedido TRON-->
 <div class="col-lg-3 col-md-3 col-sm-3" id="resumen-pedido-tron">
      <?php include (APPLICATION_SECTIONS .'productos_tron_resumen.php'); ?>
 </div>
+
+
+
 </div>
 
 

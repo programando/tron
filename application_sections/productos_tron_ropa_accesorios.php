@@ -30,10 +30,12 @@
             <img src="<?= BASE_IMG_PRODUCTOS_150x150 . $nombre_imagen ;?>" class="img-responsive">
           </div><!--Fin-IMG-Accesorio-->
 
-          <div class="well col-lg-6 col-md-6 col-sm-6"><!--Datos acerca del Accesorio -->
-            <p class="text-center datos_acerca_del_accesorio"> <small> <?= $nom_producto  ;?> </small> </p>
-            <p class="precios_accesorio"> <?= $text_pv_comprador_ocasional ;?> </p>
-            <p class="precios_accesorio-rojo"> <strong>  <?=  $text_pv_tron  ;?> </strong></p>
+          <div class="col-lg-6 col-md-6 col-sm-6"><!--Datos acerca del Accesorio -->
+            <p class="text-left datos_acerca_del_accesorio"> <small> <?= $nom_producto  ;?> </small> </p>
+            <p class="precios_accesorio">
+                <span> <?= $text_pv_comprador_ocasional ;?> </span> <br>
+                <span class="precios_accesorio-rojo"> <strong>  <?=  $text_pv_tron  ;?> </strong></span>
+            </p>
 
             <div class="row"><!--Botones Del Accesorio -->
               <div class="costos-cantidad">

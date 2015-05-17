@@ -4,13 +4,13 @@
      $text_pv_comprador_ocasional = Numeric_Functions::Formato_Numero($pv_comprador_ocasional);
      $text_pv_tron                = Numeric_Functions::Formato_Numero($pv_tron );
 ?>
-<div class=" well col-lg-3 col-md-3  col-sm-3 columna-presentacion-producto">
+<div class="col-lg-3 col-md-3  col-sm-3 columna-presentacion-producto">
         <!-- Me Presenta una Imagen del Producto -->
         <div class="presentacion_del_producto"><!--No se Olvide De Insertar IMG-Ampliada Del Producto -- >
 
           <!--Contenido-Presentacion-Producto -->
 
-          <div class="porductos-tron-img_producto">
+          <div class="porductos-tron-img_producto" id="cont-img-producto-ropa">
            <img src="<?= BASE_IMG_PRODUCTOS_TRON ;?>ropa_producto.jpg"
            class="img-responsive  Imagen_Del_Producto"><br><!--Imagen Del Producto -->
          </div>
