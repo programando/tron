@@ -3,6 +3,7 @@
     Js          => Carpeta Js  => tron_terceros_registro.js
   -->
 
+ <div style ="display:none;" id="elemento_a_mostrar">Los número de identificación deben ser iguales </div>
 
   <div><!--Contenedor- de  el formulario -->
    <div class="row formulario">
@@ -243,7 +244,6 @@
 </div>
 
 </div><!--Contenedor- de  el formulario -->
-
 
 
 

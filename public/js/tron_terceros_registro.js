@@ -1,4 +1,22 @@
 
+//  Formulario de Registro PASO 1.
+
+    var $numero_nit      = $('#identificacion');
+    var $digito_dv       = $('#digitoverificacion');
+    var $confirmar_nit   = $('#identificacion_confirm');
+    var $confi_digito_dv = $('#digitoverificacion_confirm');
+    var $razon_social    = $('#razonsocial');
+    var $documento       = $('#identificacion_nat');
+    var $nombre          = $('#pnombre');
+    var $confi_documento = $('#identificacion_nat_confirm');
+    var $apellido        = $('#papellido');
+    var $dirrecion       = $('#direccion');
+    var $barrio          = $('#barrio');
+    var $e_mail          = $('#email');
+    var $celular         = $('#celular1');
+    var $confi_e_mail    = $('#email_confirm');
+    var $Formulario_Paso_1_Validado = true;
+
 // Tooltips => Paso 2
   function simple_tooltip(target_items, name){
     $(target_items).each(function(i){
@@ -17,36 +35,6 @@
   $(document).ready(function(){
      simple_tooltip("a.nuvv","tooltip");
   });
-
-
-
-//  Formulario de Registro PASO 1.
-
-    var $numero_nit      = $('#identificacion');
-    var $digito_dv       = $('#digitoverificacion');
-    var $confirmar_nit   = $('#identificacion_confirm');
-    var $confi_digito_dv = $('#digitoverificacion_confirm');
-    var $razon_social    = $('#razonsocial');
-    var $documento       = $('#identificacion_nat');
-    var $nombre          = $('#pnombre');
-    var $confi_documento = $('#identificacion_nat_confirm');
-    var $apellido        = $('#papellido');
-    var $dirrecion       = $('#direccion');
-    var $barrio          = $('#barrio');
-    var $e_mail          = $('#email');
-    var $celular         = $('#celular1');
-    var $confi_e_mail    = $('#email_confirm');
-
-
-var Mensaje_Sistema = function(Texto){
-   $.confirm({
-    title:"Mensaje del Sistema",
-    text: Texto ,
-    cancel: function(button) {
-    },
-    cancelButton: "Cerrar"
-  });
-}
 
 
 //TIPO IDENTIFICACION
@@ -103,7 +91,10 @@ $('#identificacion_nat_confirm').on('focusout',function(){
   $confirmacion       = $('#identificacion_nat_confirm').val();
   if ($identificacion != $confirmacion  )
   {
-    Mensaje_Sistema('Los números de documento deben ser iguales !.')
+    //Mensaje_Sistema('Los números de documento deben ser iguales !.')
+    new Messi('Los números de identificación deben ser iguales.',
+        {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim warning', buttons: [{id: 0, label: 'Cerrar', val: 'X'}]});
+    $Formulario_Paso_1_Validado = false;
     $('#identificacion_nat').val('');
     $('#identificacion_nat_confirm').val('');
   }
@@ -137,17 +128,6 @@ $('#iddpto').on('change',function(){
           });
    }
 })
-
-
-
-$numero_nit.on('focus',function(){
-  if ( $numero_nit.val() == 'Registre el nombre') {
-     $numero_nit.css('background','white') ;
-     $numero_nit.css('color','black') ;
-     $numero_nit.val('');
-  }
-});
-
 
 
 // *** Pasar al siguente paso ***
