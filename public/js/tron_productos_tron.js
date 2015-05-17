@@ -70,12 +70,47 @@ $('.btns-carritoTronMenos').on('click',function(){
 
 // Ventana Modal => Etiqueta del producto
 
-				// Abrir => Ventana Modal
-				$('#cont-img-producto-ropa').on('click',function(){
-					     $('#ventana_modal').fadeIn();
+				// Abrir => Ventana Modal Producto1
+				$('#cont-img-producto-ropa1').on('click',function(){
+					     $('#ventana_modal_ropa').fadeIn();
 				});
 
-				// Cerrar => Ventana Modal
+				// Cerrar => Ventana Modal Producto1
 				$('.ventana_modal').on('click',function(){
-					     $('#ventana_modal').fadeOut();
+					     $('#ventana_modal_ropa').fadeOut();
 				});
+
+
+
+				// Abrir => Ventana Modal Producto2
+				$('#cont-img-producto-banos').on('click',function(){
+					     $('#ventana_modal_banos').fadeIn();
+				});
+
+				// Cerrar => Ventana Modal Producto2
+				$('.ventana_modal').on('click',function(){
+					     $('#ventana_modal_banos').fadeOut();
+				});
+
+
+				// Abrir => Ventana Modal Producto3
+				$('#cont-img-producto-pisos').on('click',function(){
+					     $('#ventana_modal_pisos').fadeIn();
+				});
+
+				// Cerrar => Ventana Modal Producto3
+				$('.ventana_modal').on('click',function(){
+					     $('#ventana_modal_pisos').fadeOut();
+				});
+
+				// Abrir => Ventana Modal Producto4
+				$('#cont-img-producto-loza').on('click',function(){
+					     $('#ventana_modal_loza').fadeIn();
+				});
+
+				// Cerrar => Ventana Modal Producto4
+				$('.ventana_modal').on('click',function(){
+					     $('#ventana_modal_loza').fadeOut();
+				});
+
+

@@ -10,7 +10,7 @@
 
           <!--Contenido-Presentacion-Producto -->
 
-          <div class="porductos-tron-img_producto">
+          <div class="porductos-tron-img_producto" id="cont-img-producto-banos">
            <img src="<?= BASE_IMG_PRODUCTOS_TRON ;?>banios_producto.jpg"
            class="img-responsive  Imagen_Del_Producto"><br><!--Imagen Del Producto -->
          </div>
