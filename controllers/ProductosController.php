@@ -120,6 +120,22 @@ class ProductosController extends Controller
          $this->Productos_Tron_Consultar($Id_Categoria_Ropa);
          $this->View->Accesorios_Tron_Ropa = $this->_Accesorios_Tron;
          $this->View->Productos_Tron_Ropa  = $this->_Productos_Tron;
+
+         $Id_Categoria_Banios                = 2;
+         $this->Productos_Tron_Consultar($Id_Categoria_Banios);
+         $this->View->Accesorios_Tron_Banios = $this->_Accesorios_Tron;
+         $this->View->Productos_Tron_Banios  = $this->_Productos_Tron;
+
+         $Id_Categoria_Pisos                = 3;
+         $this->Productos_Tron_Consultar($Id_Categoria_Pisos );
+         $this->View->Accesorios_Tron_Pisos = $this->_Accesorios_Tron;
+         $this->View->Productos_Tron_Pisos  = $this->_Productos_Tron;
+
+         $Id_Categoria_Loza                = 4;
+         $this->Productos_Tron_Consultar( $Id_Categoria_Loza  );
+         $this->View->Accesorios_Tron_Loza = $this->_Accesorios_Tron;
+         $this->View->Productos_Tron_Loza  = $this->_Productos_Tron;
+
          $this->View->Mostrar_Vista('productos_tron');
     }
 

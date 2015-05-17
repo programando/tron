@@ -38,7 +38,8 @@ function Borrar_Producto_de_Carrito(Parametros)
 
 
 // EVENTOS SOBRE PRODUCTOS TRON - CONTROL QUE TIENE LA CANTIDAD DE PRODUCTOS COMPRADOS
-$('#contenido-productos').on('keyup','.CantProdCompraTronFragancias',function(){
+//$('#contenido-productos').on('keyup','.CantProdCompraTronFragancias',function(){
+$('.CantProdCompraTronFragancias').on('keyup',function(){
 			$IdProducto  =  $(this).attr("idproducto");
 			$es_tron     =  $(this).attr("es-tron");
 			$es_tron_acc =  $(this).attr("es-tron-acc");
@@ -52,8 +53,7 @@ $('#contenido-productos').on('keyup','.CantProdCompraTronFragancias',function(){
 
 
 
-// AL PRESIONAR EN EL BOTON + SE EJECTUA LO CONTENIDO EN EL INPUT TEX
-$('#contenido-productos').on('click','.btns-carritoTronMas',function(){
+$('.btns-carritoTronMas').on('click',function(){
 		var $Input  = '#cantidad';
 		$IdProducto = $(this).attr("id");
 		$Input      = $Input+$IdProducto;
@@ -61,7 +61,7 @@ $('#contenido-productos').on('click','.btns-carritoTronMas',function(){
 });
 
 // AL PRESIONAR EN EL BOTON - SE EJECTUA LO CONTENIDO EN EL INPUT TEX
-$('#contenido-productos').on('click','.btns-carritoTronMenos',function(){
+$('.btns-carritoTronMenos').on('click',function(){
 		var $Input  = '#cantidad';
 		$IdProducto = $(this).attr("id");
   $Parametros = {'IdProducto':$IdProducto , 'Cantidad':1};

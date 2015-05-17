@@ -1,4 +1,4 @@
-<?php if(isset($this->Accesorios_Tron_Ropa)) :?>
+<?php if(isset($this->Accesorios_Tron_Loza)) :?>
 
         <div><!--Titulo-->
          <p class="titulo_de_accesorios"> <strong>ACCESORIOS</strong> </p>
@@ -8,9 +8,9 @@
 
        <!--Primer Accesorio-->
 
-        <?php foreach($this->Accesorios_Tron_Ropa as $Productos )
+        <?php foreach($this->Accesorios_Tron_Loza as $Productos )
         {
-              include (APPLICATION_CODS . 'campos_productos.php');
+          include (APPLICATION_CODS . 'campos_productos.php');
           ?>
 
           <div class="col-lg-6 col-md-6 col-sm-6">
@@ -19,17 +19,9 @@
           </div><!--Fin-IMG-Accesorio-->
 
           <div class="col-lg-6 col-md-6 col-sm-6"><!--Datos acerca del Accesorio -->
-<<<<<<< HEAD
-            <p class="text-left datos_acerca_del_accesorio"> <small> <?= $nom_producto  ;?> </small> </p>
-            <p class="precios_accesorio">
-                <span> <?= $text_pv_comprador_ocasional ;?> </span> <br>
-                <span class="precios_accesorio-rojo"> <strong>  <?=  $text_pv_tron  ;?> </strong></span>
-            </p>
-=======
             <p class="text-center datos_acerca_del_accesorio"> <small> <?= $nom_producto  ;?> </small> </p>
             <p class="precios_accesorio"> <?= $text_pv_comprador_ocasional ;?> </p>
             <p class="precios_accesorio-rojo"> <strong>  <?=  $text_pv_tron  ;?> </strong></p>
->>>>>>> origin/master
 
             <div class="row"><!--Botones Del Accesorio -->
               <div class="costos-cantidad">
@@ -55,8 +47,6 @@
                           >
                       </div><!--Fin Input-->
                    </div>
-
-
                  <div class=" col-xs-4" id="cont-mas">
                   <div class="form-group"><!-- Inicio Boton Mas-->
                     <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMas"
@@ -64,7 +54,6 @@
                     </button><!-- Fin Boton Mas-->
                   </div>
                 </div>
-
 
               </form>
             </div>
