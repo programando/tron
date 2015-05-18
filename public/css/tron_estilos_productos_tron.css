@@ -73,7 +73,7 @@
 .precio_del_cliente_tron
 {
     font-size:20px;
-    color:red;
+    color: #DF0205;
 }
 
 .Precio_varia_segun_la_cantidad
@@ -121,7 +121,7 @@
 
 .precios_accesorio-rojo
 {
-	  color:red;
+	  color: #BF040C;
 	  font-size:14px;
 }
 
@@ -258,7 +258,7 @@
 
 .resumen_precio_clien-tron
 {
-				color    : red;
+				color    : #BF040C;
 				font-size: 30px;
 }
 
