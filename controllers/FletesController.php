@@ -308,17 +308,11 @@
 									$this->valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
 									$this->Fletes 					         	 		    = $this->Fletes->Consultar_Fletes_Productos_Tron();// TABLA FLETES REDETRANS
 
+
 									/*
 										* EN EL KIT DE INICIO SE COBRARA EL EXCENDE QUE RESULTE DE RESTAR EL VALOR DEL FLETE - EL VALOR PARA "CALI"
 										* TOMO EL PRIMER VALOR QUE CORRESPONDERÍA AL PESO Y POSTERIORMENTE, AL FINAL DEL MÉTODO LO OPERO.
 									 */
-									if ($re_expedicion==0)
-										{
-											 $this->valor_dscto_flete_kit_inicio= $this->Fletes[0]['courrier_regional']  ;
-										}else
-										{
-											$this->valor_dscto_flete_kit_inicio = $this->Fletes[0]['courrier_nacional']  ;
-										}
 
 			      		foreach ($this->Fletes as $Flete)
 			      		 {
@@ -331,50 +325,38 @@
 														$re_expedicion_regional = $Flete['re_expedicion_regional'];
 														$re_expedicion_nacional = $Flete['re_expedicion_nacional'];
 
-													if($peso_total_pedido>=$inicio && $peso_total_pedido<=$final )
-													{
-														switch ($re_expedicion)
-														{
-																case '0':
-																			if ($iddpto==32)
-																			{
-																				$this->valor_flete           = $courrier_regional ;
-																				$this->tipo_tarifa = 'COURRIER REGIONAL';
-																				if ($courrier_regional ==0)
-																					{
-																						$this->valor_flete   = $carga_regional ;
-																						$this->tipo_tarifa   = 'CARGA REGIONAL';
-																					}
-																			}else
-																			{
-																				$this->valor_flete  	= $courrier_nacional;//vr_flete_courrier_nacional
-																				$this->tipo_tarifa   = 'COURRIER NACIONAL';
-																				if ( $this->valor_flete == 0 )
-																				{
-																					$this->valor_flete  = $courrier_regional;//vr_flete_carga_nacional
-																					$this->tipo_tarifa  = 'COURRIER REGIONAL';
-																				}
+														// Valle no re-expedicion
+														if ( $iddpto == 32 && $re_expedicion == FALSE)	{
+																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
+																				$this->valor_flete  = $courrier_regional ;
+																				$this->tipo_tarifa  = 'COURRIER REGIONAL';
 																			}
-																		 break;
-
-										 					case '1':
-																			if ($iddpto==32)
-																			{
-																				$this->valor_flete = $re_expedicion_regional;
-																				$this->tipo_tarifa = 'RE-EXPEDICION REGIONAL';
-																			}else
-																			{
-																				$this->valor_flete = $re_expedicion_nacional ;
-																				$this->tipo_tarifa = 'RE-EXPEDICION NACIONAL';
+															}
+														// Valle SI re-expedicion
+														if ( $iddpto == 32 && $re_expedicion == TRUE)	{
+																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
+																				$this->valor_flete  = $re_expedicion_regional ;
+																				$this->tipo_tarifa  = 'REEXPEDICION REGIONAL';
 																			}
-																		break;
-														} // fin switc
-
-														$this->valor_flete_kit_inicio  = $this->valor_flete   - $this->valor_dscto_flete_kit_inicio;
-
-													}// fin if
+															}
+														// Nacional no reexpedidico
+														if ( $iddpto != 32 && $re_expedicion == FALSE)	{
+																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
+																				$this->valor_flete  = $courrier_nacional ;
+																				$this->tipo_tarifa  = 'COURRIER NACIONAL';
+																			}
+															}
+														// Nacional SI reexpedidico
+														if ( $iddpto != 32 && $re_expedicion == TRUE)	{
+																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
+																				$this->valor_flete  = $re_expedicion_nacional ;
+																				$this->tipo_tarifa  = 'COURRIER NACIONAL';
+																			}
+															}
 			      		}// fin foreach
+			      		return $this->valor_flete ;
 			      }// fin function
+
 
 public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
     {/** MARZO 12 de 2015

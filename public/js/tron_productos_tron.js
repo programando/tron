@@ -3,6 +3,14 @@ function Imprimir_Totales_Carrito_Header(resultado)
 	{
 		  $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
+	   $('#tron_descuento').html(resultado.descuento_especial);
+	   $('#tron_descuento_porciento').html(resultado.descuento_especial_porcentaje);
+	   $('#Total_Venta_Ocasional').html(resultado.SubTotal_Pedido_Ocasional);
+	   $('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
+	   $('#vr_unitario_banios').html(resultado.vr_unitario_banios);
+	   $('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
+	   $('#vr_unitario_loza').html(resultado.vr_unitario_loza);
+
 	}
 
 

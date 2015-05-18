@@ -1,6 +1,6 @@
-<?php if(isset($this->Productos_Tron_Pisos )) :?>
+<?php if(isset($this->Productos_Tron_Banios )) :?>
      <div class="row">
-       <?php foreach( $this->Productos_Tron_Pisos as $Productos )
+       <?php foreach( $this->Productos_Tron_Banios as $Productos )
        {
            include (APPLICATION_CODS . 'campos_productos.php');
            ?>

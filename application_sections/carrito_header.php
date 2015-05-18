@@ -22,7 +22,7 @@
                 <img class="img-cliente-precios" src="<?=BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional ">
                   <span>
                      <p class="text-right carrito-Total_Parcial_pv_ocasional">
-                          <?php
+                      <?php
                       if(Session::Get('SubTotal_Pedido_Ocasional')>0)
                       {
                         echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Ocasional'));

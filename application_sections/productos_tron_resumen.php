@@ -36,7 +36,17 @@
 <div class=" row">
 
  <div class="resumen_datos_precios">
-  <p class="resumen_precio_ocacional"> <strong> $ 300 </strong><!--contenedor = Precio-Ocacional 16 -->
+  <p class="resumen_precio_ocacional"> <strong id='Total_Venta_Ocasional'>
+        <?php
+          if(Session::Get('SubTotal_Pedido_Ocasional')>0)
+            {
+              echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Ocasional'));
+          }else
+      {
+        ?> $0
+        <?php } ?>
+
+  </strong><!--contenedor = Precio-Ocacional 16 -->
    <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>18.png" title="Comprador Ocasional"></span>
  </p>
 
@@ -45,8 +55,23 @@
   <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>
 </p>
 
-<p> Descuento : <strong>0%</strong> </p><!--contenedor = Descuento  -->
-<p> Ahorro    : <strong>0%</strong>    </p><!--contenedor = Ahorro -->
+<p> Descuento : <strong id ="tron_descuento">
+    <?php
+         $descuento_especial = "$ ".number_format(Session::Get('descuento_especial'),0,"",".");
+         if ( isset( $descuento_especial  )){
+              echo $descuento_especial  ;
+            }
+    ?>
+</strong> </p><!--contenedor = Descuento  -->
+<p> Ahorro    : <strong id ='tron_descuento_porciento'>
+      <?php
+         $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
+         $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 0, '.', '') .'%';
+         if ( isset( $descuento_especial_porcentaje  )){
+              echo $descuento_especial_porcentaje  ;
+            }
+    ?>
+</strong>    </p><!--contenedor = Ahorro -->
 
 </div>
 </div>
@@ -56,8 +81,11 @@
 <!--Botones = Ir carrito , Comprar-Productos-->
 <div class=" row">
  <div class="resumen-pedido-botones">
+  <a href="<?= BASE_URL ;?>carrito/mostrar_carrito/1/">
   <button id="boton-ir-carrito" type="button" class="btn btn-default btn-block">Ir al Carrito</button>
-  <button id="boton-otros-productos" type="button" class="btn btn-default btn-block">Comprar Otros Productos</button>
+  </a>
+  <a href="<?= BASE_URL ;?>productos/categorias_marcas/">
+  <button id="boton-otros-productos" type="button" class="btn btn-default btn-block">Comprar Otros Productos</button></a>
 </div>
 </div>
 <!--Botones = Ir carrito , Comprar-Productos-->

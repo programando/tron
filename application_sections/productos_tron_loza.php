@@ -1,8 +1,13 @@
 <?php
      $pv_comprador_ocasional      = $this->Productos_Tron_Loza[0]['pv_ocasional'];
-     $pv_tron                     = $this->Productos_Tron_Loza[0]['pv_tron'];
+     $pv_tron                     = $this->Productos_Tron_Loza[0]['pv_ocasional'];
      $text_pv_comprador_ocasional = Numeric_Functions::Formato_Numero($pv_comprador_ocasional);
-     $text_pv_tron                = Numeric_Functions::Formato_Numero($pv_tron );
+      $valor = Session::Get('vr_unitario_loza')  ;
+     if ( isset( $valor) && $valor > 0  ){
+          $text_pv_tron                = Numeric_Functions::Formato_Numero($valor );
+      } else{
+          $text_pv_tron                = Numeric_Functions::Formato_Numero($pv_tron );
+      }
 ?>
 <div class="col-lg-3 col-md-3  col-sm-3 columna-presentacion-producto">
         <!-- Me Presenta una Imagen del Producto -->
@@ -28,7 +33,7 @@
          <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>18.png" title="Comprador Ocasional"></span>
        </p>
 
-       <p class="text-center  precio_del_cliente_tron"> <strong> <?= $text_pv_tron ;?>   </strong><!--contenedor = Precio-Cliente TRON-->
+       <p class="text-center  precio_del_cliente_tron"> <strong id='vr_unitario_loza'> <?= $text_pv_tron ;?>   </strong><!--contenedor = Precio-Cliente TRON-->
 
         <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
         <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>

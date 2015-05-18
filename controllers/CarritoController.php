@@ -56,13 +56,11 @@ class CarritoController extends Controller
        $this->Escalas        = $this->Load_Controller('ProductosEscalas');
        $this->Parametros     = $this->Load_Controller('Parametros');
        $this->Terceros       = $this->Load_Controller('Terceros');
-       $this->Fletes         = $this->Load_Controller('Fletes');
        $this->Productos_Tron = $this->Load_Controller('ProductosTron');
        $this->Pedidos        = $this->Load_Controller('Pedidos');
+       $this->Fletes         = $this->Load_Controller('Fletes');
        $this->Departamentos  = $this->Load_Model('Departamentos');
        $this->Productos      = $this->Load_Model('Productos');
-
-
     }
 
     public function index() {}
@@ -70,7 +68,6 @@ class CarritoController extends Controller
     public function Forma_Pago_Pedido_Payu_Latam_Confirmacion()
     {
       $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_confirmacion');
-
     }
 
     public function Forma_Pago_Pedido_Payu_Latam()
@@ -377,12 +374,25 @@ class CarritoController extends Controller
       $this->Tron_Cmv_Total             = 0 ;
       $this->Tron_Precio_Lista_Total    = 0 ;
 
-      $this->compras_tron               = 0 ;
-      $this->compras_industrial         = 0 ;
-      $this->compras_otros_productos    = 0 ;
-      $this->compras_accesorios         = 0 ;
+      $this->compras_tron               = 0 ;     $this->compras_industrial         = 0 ;      $this->compras_otros_productos    = 0 ;     $this->compras_accesorios         = 0 ;
 
       $this->Vr_Base_Iva                = 0;
+      $tengo_productos_tron             = FALSE ;
+
+      $Cantidad_Ropa       =  0 ; $Cantidad_Banios     =  0 ;         $Cantidad_Pisos      =  0 ;     $Cantidad_Loza       =  0 ;
+      $Peso_Ropa           =  0 ; $Peso_Banios         =  0 ;         $Peso_Pisos          =  0 ;     $Peso_Loza           =  0 ;
+      $Cmv_Ropa            =  0 ; $Cmv_Banios          =  0 ;         $Cmv_Pisos           =  0 ;     $Cmv_Loza            =  0 ;
+      $Precio_Lista_Ropa   =  0 ; $Precio_Lista_Banios =  0 ;         $Precio_Lista_Pisos  =  0 ;     $Precio_Lista_Loza   =  0 ;
+
+      Session::Set('precio_especial', 0);
+      Session::Set('transporte_tron',0);
+      Session::Set('descuento_especial',0);
+      Session::Set('descuento_especial_porcentaje', 0);
+      Session::Set('vr_unitario_ropa',0);
+      Session::Set('vr_unitario_banios',0);
+      Session::Set('vr_unitario_pisos',0);
+      Session::Set('vr_unitario_loza',0);
+
 
       if ($this->Carrito_Habilitado == false)
       {
@@ -393,10 +403,14 @@ class CarritoController extends Controller
         {
           $cantidad                            = $Productos['cantidad'];
           $id_categoria_producto               = $Productos['id_categoria_producto'];
+          $peso_gramos                         = $Productos['peso_gramos'] * 1000 ;
+          $cmv                                 = $Productos['cmv'];
+          $pv_ocasional                        = $Productos['pv_ocasional'];
           $peso_total_producto                 = ($Productos['peso_gramos'] * $cantidad)  / 1000   ;
           $Productos['sub_total_pv_ocasional'] = $Productos['cantidad']     * $Productos['pv_ocasional'];
           $Productos['sub_total_pv_tron']      = $Productos['cantidad']     * $Productos['pv_tron'] ;
           $this->Vr_Base_Iva                   = $this->Vr_Base_Iva  + $Productos['costo_sin_iva'];
+
 
           $this->SubTotal_Pedido_Ocasional    = $this->SubTotal_Pedido_Ocasional   + $Productos['sub_total_pv_ocasional'] ;
           $this->SubTotal_Pedido_Amigos       = $this->SubTotal_Pedido_Amigos      + $Productos['sub_total_pv_tron'] ;
@@ -414,12 +428,45 @@ class CarritoController extends Controller
           // COMPRAS POR CADA TIPO DE PRODUCTO
           if ( $id_categoria_producto >= 1 and  $id_categoria_producto <= 4)
           {
+             $tengo_productos_tron = TRUE;
              $this->compras_tron  = $this->compras_tron + $Productos['sub_total_pv_tron'] ;
+              // CALCULO CANTIDADES Y PESOS DE LOS PRODUCTOS TRON ( 1= ROPA   2 = BAÑOS   3 = PISOS       4 = LOZA)
+             if ( $id_categoria_producto == 1) {
+                $Cantidad_Ropa     = $Cantidad_Ropa     + $cantidad ;
+                $Peso_Ropa         = $Peso_Ropa         + ( $peso_gramos *  $cantidad  );
+                $Cmv_Ropa          = $Cmv_Ropa          + ( $cmv         *  $cantidad );
+                $Precio_Lista_Ropa = $Precio_Lista_Ropa + ( $pv_ocasional *  $cantidad );
+             }
+             if ( $id_categoria_producto == 2) {
+                $Cantidad_Banios = $Cantidad_Banios + $cantidad ;
+                $Peso_Banios     = $Peso_Banios     + ( $peso_gramos *  $cantidad  );
+                $Cmv_Banios      = $Cmv_Banios      + ( $cmv         * $cantidad );
+                $Precio_Lista_Banios = $Precio_Lista_Banios + ( $pv_ocasional *  $cantidad );
+             }
+             if ( $id_categoria_producto == 3) {
+                $Cantidad_Pisos = $Cantidad_Pisos + $cantidad ;
+                $Peso_Pisos     = $Peso_Pisos     + ( $peso_gramos *  $cantidad  );
+                $Cmv_Pisos      = $Cmv_Pisos      + ( $cmv         * $cantidad );
+                $Precio_Lista_Pisos = $Precio_Lista_Pisos + ( $pv_ocasional *  $cantidad );
+             }
+             if ( $id_categoria_producto == 4) {
+                $Cantidad_Loza = $Cantidad_Loza + $cantidad ;
+                $Peso_Loza     = $Peso_Loza     + ( $peso_gramos *  $cantidad  );
+                $Cmv_Loza      = $Cmv_Loza      + ( $cmv         * $cantidad );
+                $Precio_Lista_Loza = $Precio_Lista_Loza + ( $pv_ocasional *  $cantidad );
+             }
           }
           if ( $id_categoria_producto == 6) // Industiales
           {
               $this->compras_industrial = $this->compras_industrial  + $Productos['sub_total_pv_tron'] ;
           }
+        }
+        if ( $tengo_productos_tron == TRUE) {
+            $datos=compact('Cantidad_Ropa','Peso_Ropa','Cmv_Ropa','Precio_Lista_Ropa',
+                         'Cantidad_Banios','Peso_Banios','Cmv_Banios','Precio_Lista_Banios',
+                         'Cantidad_Pisos','Peso_Pisos','Cmv_Pisos','Precio_Lista_Pisos',
+                         'Cantidad_Loza','Peso_Loza','Cmv_Loza','Precio_Lista_Loza');
+          $this->Productos_Tron->Hallar_Precio_Especial( $this->Parametros->Transportadoras(), $datos);
         }
 
         $this->Determinar_Precio_Real_Producto( $this->compras_tron , $this->compras_industrial );
@@ -487,12 +534,24 @@ class CarritoController extends Controller
            $porciento_iva          = 1 + $this->Datos_Carro [$i]['iva']/100;
            $porciento_ppto_fletes  = $this->Datos_Carro[$i]['ppto_fletes'];
 
+           if ( $id_categoria_producto == 1){
+                $this->Datos_Carro[$i]['pv_tron'] = Session::Get('vr_unitario_ropa');
+            }
+           if ( $id_categoria_producto == 2){
+                $this->Datos_Carro[$i]['pv_tron'] = Session::Get('vr_unitario_banios');
+            }
+           if ( $id_categoria_producto == 3){
+                $this->Datos_Carro[$i]['pv_tron'] = Session::Get('vr_unitario_pisos');
+            }
+           if ( $id_categoria_producto == 4){
+                $this->Datos_Carro[$i]['pv_tron'] = Session::Get('vr_unitario_loza');
+            }
+
            if ( $this->Datos_Carro [$i]['cantidad'] > 0 )
            {
             // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
             if ( (( $compras_este_mes_tron        + $compras_tron       )  >= $compra_minima_productos_tron ||
-                 ( $compras_este_mes_industiales  + $compras_industrial )  >= $compra_minima_productos_industriales)
-                  and $Logueado  == TRUE )
+                 ( $compras_este_mes_industiales  + $compras_industrial )  >= $compra_minima_productos_industriales) )
               {
                 Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
                 $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
@@ -528,8 +587,7 @@ class CarritoController extends Controller
 
         Session::Set('sub_total_pedido_Tron' ,  $sub_total_pedido_Tron);
         Session::Set('sub_total_pedido_Otros' , $sub_total_pedido_Otros);
-
-
+        $this->SubTotal_Pedido_Amigos = $sub_total_pedido_Tron;
         $this->Cerrar_Procesos_Carro();
       }
     }
@@ -631,6 +689,7 @@ class CarritoController extends Controller
       $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
       $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
       $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
+
     }
 
 
@@ -817,6 +876,8 @@ class CarritoController extends Controller
         $ProdTronAcc      = General_Functions::Validar_Entrada('es_tron_acc','BOL');
         $NombreArray      = 'TRON'.$IdProducto ;
         Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
+        //
+
 
         if (!isset($_SESSION['carrito']))
         {
@@ -869,9 +930,22 @@ class CarritoController extends Controller
     public function Retornar_Totales_Carro_Json()
     {
 
-      $SubTotal_Pedido_Amigos      =  "$".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
-      $SubTotal_Pedido_Ocasional =  "$".number_format($this->SubTotal_Pedido_Ocasional ,0,"",".");
-      $Datos                      = compact('SubTotal_Pedido_Amigos','SubTotal_Pedido_Ocasional');
+      $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
+      $SubTotal_Pedido_Ocasional     =  "$ ".number_format($this->SubTotal_Pedido_Ocasional ,0,"",".");
+      // DATOS DE PRODUCTOS TRON
+      $descuento_especial            = "$ ".number_format(Session::Get('descuento_especial'),0,"",".");
+      $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
+      $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 0, '.', '') .'%';
+
+      $vr_unitario_ropa              = "$ ".number_format(Session::Get('vr_unitario_ropa'),0,"",".");
+      $vr_unitario_banios            = "$ ".number_format(Session::Get('vr_unitario_banios'),0,"",".");
+      $vr_unitario_pisos             = "$ ".number_format(Session::Get('vr_unitario_pisos'),0,"",".");
+      $vr_unitario_loza              = "$ ".number_format(Session::Get('vr_unitario_loza'),0,"",".");
+
+
+
+      $Datos    = compact('SubTotal_Pedido_Amigos','SubTotal_Pedido_Ocasional','descuento_especial','descuento_especial_porcentaje',
+                          'vr_unitario_ropa','vr_unitario_banios','vr_unitario_pisos','vr_unitario_loza');
       echo json_encode($Datos,256);
     }
 
