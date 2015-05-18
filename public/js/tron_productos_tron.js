@@ -3,14 +3,14 @@ function Imprimir_Totales_Carrito_Header(resultado)
 	{
 		  $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
-	   $('#tron_descuento').html(resultado.descuento_especial);
-	   $('#tron_descuento_porciento').html(resultado.descuento_especial_porcentaje);
+	   $('#tron_descuento').html(resultado.descuento_especial_porcentaje);
+	   $('#tron_descuento_porciento').html(resultado.descuento_especial);
 	   $('#Total_Venta_Ocasional').html(resultado.SubTotal_Pedido_Ocasional);
 	   $('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
 	   $('#vr_unitario_banios').html(resultado.vr_unitario_banios);
 	   $('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
 	   $('#vr_unitario_loza').html(resultado.vr_unitario_loza);
-
+	   $('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
 	}
 
 
@@ -38,7 +38,6 @@ function Borrar_Producto_de_Carrito(Parametros)
 					type:     'post',
      success:  function (resultado)
     	 {
-
     	 		Imprimir_Totales_Carrito_Header(resultado);
     	 }
 					});
@@ -54,9 +53,9 @@ $('.CantProdCompraTronFragancias').on('keyup',function(){
 			$Cantidad    =  $(this).val();
 			$Parametros  = {'IdProducto':$IdProducto , 'CantidadComprada':1,'es_tron':$es_tron, 'es_tron_acc':$es_tron_acc};
 
+			// AGREGAR PRODUCTO TRON AL CARRITO
 			Agregar_Producto_Tron_a_Carrito ($Parametros);
 
-			// AGREGAR PRODUCTO TRON AL CARRITO
 });
 
 

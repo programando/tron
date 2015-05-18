@@ -24,6 +24,12 @@ class ProductosController extends Controller
 
     public function Index() {}
 
+        public function mostrar_resumen_producto()
+    {
+        $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
+    }
+
+
     public function Recomendar_Producto_a_Amigo()
     { /** ENERO 31 DE 2015
       **  PROCEDIMEINTO POR MEDIO DEL CUAL SE RECOMIENDA PRODUCTOS A AMIGOS

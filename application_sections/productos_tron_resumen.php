@@ -14,19 +14,15 @@
   <!--Cant , Precio , Borrar Inicio Cabezera Del Resumen-Pedido -->
 
   <!--Informacion-Producto Acerca DE CANT , PRECIO , BORRAR -->
+  <div class="resumen_tron">
   <div class=" row">
     <div class="datos_producto_seleccionado">
      <table class="tabla-cont-datos-porducto-seleccionado"><!--Datos Del Producto -->
-      <tbody>
-       <tr class="fila_por_producto">
-        <td> <div class="nombre_producto"> <small>Tapa dosificadora TRON Detergente para lavar ropa </small> </div> <!--Nombre Del Producto -->
-          <div class="cantidad-producto"> <small> <p> X1    </p>  </small>  </div><!--cantidad-producto -->
-          <div class="precio-porducto">   <small> <p> $ 300 </p>  </small>  </div><!--precio-porducto -->
-          <div class="borrar-producto">   <small><span class="glyphicon glyphicon-trash  resumen-pedido-img" title="Restirar Del Pedido"></span></small></div><!--borrar-producto -->
-        </td>
-      </tr>
+      <tbody id ='resumen_pedido_productos'>
+              <?php include (APPLICATION_SECTIONS . 'productos_tron_resumen_productos.php'); ?>
     </tbody>
   </table><!--Datos Del Producto -->
+</div>
 </div>
 </div>
 <!--Informacion-Producto Acerca DE CANT , PRECIO , BORRAR -->
@@ -36,48 +32,46 @@
 <div class=" row">
 
  <div class="resumen_datos_precios">
-  <p class="resumen_precio_ocacional"> <strong id='Total_Venta_Ocasional'>
-        <?php
-          if(Session::Get('SubTotal_Pedido_Ocasional')>0)
-            {
-              echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Ocasional'));
-          }else
-      {
-        ?> $0
-        <?php } ?>
 
+  <p class="resumen_precio_ocacional">
+  <strong id='Total_Venta_Ocasional'>
+        <?php include (APPLICATION_CODS . 'carrito_header_vr_ocasional.php'); ?>
   </strong><!--contenedor = Precio-Ocacional 16 -->
    <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>18.png" title="Comprador Ocasional"></span>
  </p>
 
- <p class="resumen_precio_clien-tron"> <strong> $ 0   </strong><!--contenedor = Precio-Cliente TRON 30 -->
+ <p class="resumen_precio_clien-tron">
+   <strong>
+        <?php include (APPLICATION_CODS . 'carrito_header_vr_tron.php'); ?>
+   </strong><!--contenedor = Precio-Cliente TRON 30 -->
   <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
   <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>
 </p>
 
-<p> Descuento : <strong id ="tron_descuento">
-    <?php
-         $descuento_especial = "$ ".number_format(Session::Get('descuento_especial'),0,"",".");
-         if ( isset( $descuento_especial  )){
-              echo $descuento_especial  ;
-            }
-    ?>
-</strong> </p><!--contenedor = Descuento  -->
-<p> Ahorro    : <strong id ='tron_descuento_porciento'>
+<p> Descuento :
+    <strong id ="tron_descuento">
+          <?php
+             $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
+             $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 1, '.', '') .'%';
+             if ( isset( $descuento_especial_porcentaje  )){
+                  echo $descuento_especial_porcentaje  ;
+                }  ?>
+    </strong>
+</p><!--contenedor = Descuento  -->
+
+<p> Ahorro    :
+    <strong id ='tron_descuento_porciento'>
       <?php
-         $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
-         $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 0, '.', '') .'%';
-         if ( isset( $descuento_especial_porcentaje  )){
-              echo $descuento_especial_porcentaje  ;
-            }
-    ?>
-</strong>    </p><!--contenedor = Ahorro -->
+           $descuento_especial = "$ ".number_format(Session::Get('descuento_especial'),1,"",".");
+           if ( isset( $descuento_especial  )){
+                echo $descuento_especial  ;
+              } ?>
+  </strong>
+</p><!--contenedor = Ahorro -->
 
 </div>
 </div>
 <!--Datos Precios -->
-
-
 <!--Botones = Ir carrito , Comprar-Productos-->
 <div class=" row">
  <div class="resumen-pedido-botones">

@@ -97,5 +97,7 @@ public function Actualizar_Forma_de_Pago()
 				  $this->Pedido->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
 			}
 
+
+
 }
 ?>

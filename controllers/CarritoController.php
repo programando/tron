@@ -232,7 +232,6 @@ class CarritoController extends Controller
 
     private function Cerrar_Procesos_Carro()
     {
-
       $_SESSION['carrito']     = $this->Datos_Carro ;
     }
 
@@ -268,7 +267,7 @@ class CarritoController extends Controller
         }
         $i++;
       }
-
+      Session::Destroy('CarritoTron');
       $this->Cerrar_Procesos_Carro();
       $this->Hallar_Valor_Escalas_Productos();
       $this->Totalizar_Carrito();
@@ -505,6 +504,7 @@ class CarritoController extends Controller
     { /** MARZO 20 DE 2015
       *     DETERMINA EL PRECIO A DAR POR LA COMPRA ACTUAL TENIENDO EN CUENTA LOS MÍNIMOS DE COMPRA PARA PRODUCTOS TRON
       */
+      $CarritoTron                = array();
       $precio_unitario_producto   = 0;
       $precio_total_producto      = 0;
       $sub_total_pedido_Tron      = 0;
@@ -526,7 +526,8 @@ class CarritoController extends Controller
       $compras_este_mes_industiales         = Session::Get('compras_productos_fabricados_ta');
 
       $this->Iniciar_Procesos_Carro();
-      $i   = 0;
+      $i      = 0;
+      $i_tron = 0 ;
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
        {
            $id_categoria_producto  = $this->Datos_Carro [$i]['id_categoria_producto'];
@@ -546,6 +547,8 @@ class CarritoController extends Controller
            if ( $id_categoria_producto == 4){
                 $this->Datos_Carro[$i]['pv_tron'] = Session::Get('vr_unitario_loza');
             }
+
+
 
            if ( $this->Datos_Carro [$i]['cantidad'] > 0 )
            {
@@ -577,6 +580,10 @@ class CarritoController extends Controller
           {
              $sub_total_pedido_Tron                          = $sub_total_pedido_Tron  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
              $this->Datos_Carro[$i]['sub_total_pedido_Tron'] = $sub_total_pedido_Tron;
+             $CarritoTron[$i_tron]['cantidad']               = $this->Datos_Carro [$i]['cantidad'] ;
+             $CarritoTron[$i_tron]['pv_tron']                = $this->Datos_Carro [$i]['pv_tron'] ;
+             $CarritoTron[$i_tron]['nom_producto']           = $this->Datos_Carro [$i]['nom_producto'] ;
+             $i_tron ++;
           } else
           {
             $sub_total_pedido_Otros                          = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
@@ -587,8 +594,12 @@ class CarritoController extends Controller
 
         Session::Set('sub_total_pedido_Tron' ,  $sub_total_pedido_Tron);
         Session::Set('sub_total_pedido_Otros' , $sub_total_pedido_Otros);
+        Session::Set('CarritoTron',$CarritoTron);
+
+
         $this->SubTotal_Pedido_Amigos = $sub_total_pedido_Tron;
         $this->Cerrar_Procesos_Carro();
+
       }
     }
 
@@ -916,6 +927,7 @@ class CarritoController extends Controller
         $this->Totalizar_Carrito();
         $this->Retornar_Totales_Carro_Json();
 
+
     }
 
   public function  Calcular_Precios_Por_Categoria_Productos_Tron()
@@ -935,7 +947,7 @@ class CarritoController extends Controller
       // DATOS DE PRODUCTOS TRON
       $descuento_especial            = "$ ".number_format(Session::Get('descuento_especial'),0,"",".");
       $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
-      $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 0, '.', '') .'%';
+      $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 1, '.', '') .'%';
 
       $vr_unitario_ropa              = "$ ".number_format(Session::Get('vr_unitario_ropa'),0,"",".");
       $vr_unitario_banios            = "$ ".number_format(Session::Get('vr_unitario_banios'),0,"",".");

@@ -22,14 +22,7 @@
                 <img class="img-cliente-precios" src="<?=BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional ">
                   <span>
                      <p class="text-right carrito-Total_Parcial_pv_ocasional">
-                      <?php
-                      if(Session::Get('SubTotal_Pedido_Ocasional')>0)
-                      {
-                        echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Ocasional'));
-                      }else
-                      {
-                        ?> $0
-                        <?php } ?>
+                           <?php include (APPLICATION_CODS . 'carrito_header_vr_ocasional.php'); ?>
                      </p><!--Precio-Precio Público -->
                   </span>
               </div>
@@ -41,14 +34,8 @@
                    </span>
                    <span>
                        <p class="text-right carrito-Total_Parcial_pv_tron">
-                            <?php
-                        if(Session::Get('SubTotal_Pedido_Amigos')>0)
-                        {
-                          echo Numeric_Functions::Formato_Numero( Session::Get('SubTotal_Pedido_Amigos'));
-                        }else
-                        {
-                          ?> $0
-                          <?php } ?>
+
+                            <?php include (APPLICATION_CODS . 'carrito_header_vr_tron.php'); ?>
                        </p> <!--Precio-Cliente TRON -->
                    </span>
               </div>
