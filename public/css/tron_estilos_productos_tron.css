@@ -134,10 +134,10 @@
 .carrito-resumen-pedido
 {
 					border   : 1px solid #999999;
-					max-width: 250px;
+					max-width: 280px;
 					min-width: 250px;
 					padding  : 10px;
-					width    : 250px;
+					width    : 280px;
      position : fixed;
      z-index:6;
      margin-top:0px;/*Se Debe incluir un Margen Superior Para Evitar Que el Carrioto quede Detras de el Menu Fijo*/
