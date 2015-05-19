@@ -85,6 +85,7 @@
 											//*	11.	HALLAR EL VALOR DE TRANSPORTE
 											$transporte_tron = $Flete_Real - $subsidio_flete_valle + $descuento_negativo ;
 
+
 											//12.	VALOR TOTAL A PAGAR POR EL PEDIDO
 											$valor_pedido_tron = $precio_especial + 	$transporte_tron  ;
 
@@ -142,6 +143,7 @@
 															$vr_unitario_banios = 0 ;
 															$vr_unitario_pisos  = 0 ;
 															$vr_unitario_loza   = 0 ;
+
 															if ( $Cantidad_Ropa  > 0 ) {
 																	 $vr_unitario_ropa = $precio_especial_unitario_ropa  / $Cantidad_Ropa ;
 																}
@@ -153,6 +155,10 @@
 																}
 															if ( $Cantidad_Loza  > 0 ) {
 																	 $vr_unitario_loza = $precio_especial_unitario_loza  / $Cantidad_Loza ;
+																}
+																if ( $vr_unitario_ropa == 0)
+																{
+																	$vr_unitario_ropa = $Precio_Lista_Ropa;
 																}
 
 
@@ -167,6 +173,8 @@
 																Session::Set('vr_unitario_banios',$vr_unitario_banios);
 																Session::Set('vr_unitario_pisos',$vr_unitario_pisos);
 																Session::Set('vr_unitario_loza',$vr_unitario_loza);
+
+
 
 
 

@@ -6,10 +6,20 @@ function Imprimir_Totales_Carrito_Header(resultado)
 	   $('#tron_descuento').html(resultado.descuento_especial_porcentaje);
 	   $('#tron_descuento_porciento').html(resultado.descuento_especial);
 	   $('#Total_Venta_Ocasional').html(resultado.SubTotal_Pedido_Ocasional);
-	   $('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
-	   $('#vr_unitario_banios').html(resultado.vr_unitario_banios);
-	   $('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
-	   $('#vr_unitario_loza').html(resultado.vr_unitario_loza);
+	   $('#Total_Venta_Tron').html(resultado.SubTotal_Pedido_Amigos);
+
+	   if ( resultado.vr_unitario_ropa != '$ 0'){
+	   			$('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
+	  	}
+	  	if ( resultado.vr_unitario_banios != '$ 0'){
+	   			$('#vr_unitario_banios').html(resultado.vr_unitario_banios);
+	  	}
+	  	if ( resultado.vr_unitario_pisos != '$ 0'){
+	   			$('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
+	  	}
+	  	if ( resultado.vr_unitario_loza != '$ 0'){
+	   			$('#vr_unitario_loza').html(resultado.vr_unitario_loza);
+	  	}
 	   $('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
 	}
 
@@ -74,6 +84,17 @@ $('.btns-carritoTronMenos').on('click',function(){
   $Parametros = {'IdProducto':$IdProducto , 'Cantidad':1};
  	Borrar_Producto_de_Carrito($Parametros );
 });
+
+
+
+
+$('#datos-producto').on('click','.borrar-producto',function(){
+		$idproducto = $(this).attr('idproducto');
+		$cantidad   = $(this).attr('cantidad');
+		$Parametros = {'IdProducto':$idproducto , 'Cantidad':$cantidad };
+ 	Borrar_Producto_de_Carrito($Parametros );
+});
+
 
 // Ventana Modal => Etiqueta del producto
 

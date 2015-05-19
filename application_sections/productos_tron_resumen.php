@@ -41,7 +41,7 @@
  </p>
 
  <p class="resumen_precio_clien-tron">
-   <strong>
+   <strong id ='Total_Venta_Tron'>
         <?php include (APPLICATION_CODS . 'carrito_header_vr_tron.php'); ?>
    </strong><!--contenedor = Precio-Cliente TRON 30 -->
   <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
@@ -72,19 +72,7 @@
 </div>
 </div>
 <!--Datos Precios -->
-<<<<<<< HEAD
-<!--Botones = Ir carrito , Comprar-Productos-->
-<div class=" row">
- <div class="resumen-pedido-botones">
-  <a href="<?= BASE_URL ;?>carrito/mostrar_carrito/1/">
-  <button id="boton-ir-carrito" type="button" class="btn btn-default btn-block">Ir al Carrito</button>
-  </a>
-  <a href="<?= BASE_URL ;?>productos/categorias_marcas/">
-  <button id="boton-otros-productos" type="button" class="btn btn-default btn-block">Comprar Otros Productos</button></a>
-</div>
-</div>
-<!--Botones = Ir carrito , Comprar-Productos-->
-=======
+
 
 
     <!--Botones = Ir carrito , Comprar-Productos-->
@@ -100,6 +88,6 @@
         </div>
     </div>
     <!--Botones = Ir carrito , Comprar-Productos-->
->>>>>>> origin/master
+
 
 </div><!--Fin-Contenedor Del Carrito-Resumen-Pedido -->

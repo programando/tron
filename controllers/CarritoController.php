@@ -377,6 +377,7 @@ class CarritoController extends Controller
 
       $this->Vr_Base_Iva                = 0;
       $tengo_productos_tron             = FALSE ;
+      $aplica_vr_recaudo                = FALSE;
 
       $Cantidad_Ropa       =  0 ; $Cantidad_Banios     =  0 ;         $Cantidad_Pisos      =  0 ;     $Cantidad_Loza       =  0 ;
       $Peso_Ropa           =  0 ; $Peso_Banios         =  0 ;         $Peso_Pisos          =  0 ;     $Peso_Loza           =  0 ;
@@ -417,14 +418,18 @@ class CarritoController extends Controller
 
           if ($Productos['idtipo_producto'] != 'PRD' ) // PRODUCTOS QUE NO SON TRON ( OTROS, ACC, INDUSTRIALES, PROMOCIONALES)
           {
-            $this->Tron_Peso_Total_Gramos  = $this->Tron_Peso_Total_Gramos    + $peso_total_producto  ;
-            $this->Tron_Cmv_Total          = $this->Tron_Cmv_Total            + $Productos['cmv'];
-            $this->Tron_Precio_Lista_Total = $this->Tron_Precio_Lista_Total   + $Productos['sub_total_pv_tron'] ;
-            $this->Valor_Declarado         = $Productos['sub_total_pv_tron']  * $Productos['margen_bruta_inicial'];
-
-          }
-
-          // COMPRAS POR CADA TIPO DE PRODUCTO
+              $this->Tron_Peso_Total_Gramos  = $this->Tron_Peso_Total_Gramos    + $peso_total_producto  ;
+              $this->Tron_Cmv_Total          = $this->Tron_Cmv_Total            + $Productos['cmv'];
+              $this->Tron_Precio_Lista_Total = $this->Tron_Precio_Lista_Total   + $Productos['sub_total_pv_tron'] ;
+              $aplica_vr_recaudo = TRUE;
+              if ( $id_categoria_producto == 7 ){
+                  $this->Valor_Declarado  =     $this->Valor_Declarado  + $Productos['cmv'] * $cantidad ;
+                }
+              if ( $id_categoria_producto == 6 ){
+                  $this->Valor_Declarado  =    $this->Valor_Declarado +  $Productos['sub_total_pv_tron'] / 2 ;
+              }
+           }
+            // COMPRAS POR CADA TIPO DE PRODUCTO
           if ( $id_categoria_producto >= 1 and  $id_categoria_producto <= 4)
           {
              $tengo_productos_tron = TRUE;
@@ -454,12 +459,13 @@ class CarritoController extends Controller
                 $Cmv_Loza      = $Cmv_Loza      + ( $cmv         * $cantidad );
                 $Precio_Lista_Loza = $Precio_Lista_Loza + ( $pv_ocasional *  $cantidad );
              }
-          }
-          if ( $id_categoria_producto == 6) // Industiales
-          {
-              $this->compras_industrial = $this->compras_industrial  + $Productos['sub_total_pv_tron'] ;
-          }
+
+            if ( $id_categoria_producto == 6) {  // Industriales
+                $this->compras_industrial = $this->compras_industrial  + $Productos['sub_total_pv_tron'] ;
+            }
         }
+      }
+
         if ( $tengo_productos_tron == TRUE) {
             $datos=compact('Cantidad_Ropa','Peso_Ropa','Cmv_Ropa','Precio_Lista_Ropa',
                          'Cantidad_Banios','Peso_Banios','Cmv_Banios','Precio_Lista_Banios',
@@ -473,12 +479,12 @@ class CarritoController extends Controller
         $this->Calcular_Flete($this->Valor_Declarado );
         $this->Encontrar_Mejor_Flete();
         $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
-        $this->Calcular_Valor_Recaudo();
+        $this->Calcular_Valor_Recaudo($aplica_vr_recaudo);
 
 
         //TOTALES DEL CARRITO
         //-----------------------
-
+//Debug::Mostrar($this->Vr_Fletes);
         $this->Vr_Total_Pedido_Ocasional =  $this->SubTotal_Pedido_Ocasional + ($this->Vr_Fletes - $this->Presupuesto_Fletes + $this->Vr_Recaudo);
         $this->Vr_Total_Pedido_Amigos    =  $this->SubTotal_Pedido_Amigos    + ($this->Vr_Fletes - $this->Presupuesto_Fletes + $this->Vr_Recaudo);
         $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + ($this->Vr_Fletes - $this->Presupuesto_Fletes + $this->Vr_Recaudo);
@@ -576,13 +582,14 @@ class CarritoController extends Controller
           $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $cantidad;
           $this->SubTotal_Pedido_Real                             = $this->SubTotal_Pedido_Real + $precio_unitario_producto *$cantidad;
 
-          if ( $id_categoria_producto >= 1 and $id_categoria_producto <= 4)
+          if ( $id_categoria_producto >= 1 and $id_categoria_producto <= 5)
           {
              $sub_total_pedido_Tron                          = $sub_total_pedido_Tron  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
              $this->Datos_Carro[$i]['sub_total_pedido_Tron'] = $sub_total_pedido_Tron;
              $CarritoTron[$i_tron]['cantidad']               = $this->Datos_Carro [$i]['cantidad'] ;
              $CarritoTron[$i_tron]['pv_tron']                = $this->Datos_Carro [$i]['pv_tron'] ;
              $CarritoTron[$i_tron]['nom_producto']           = $this->Datos_Carro [$i]['nom_producto'] ;
+             $CarritoTron[$i_tron]['idproducto']             = $this->Datos_Carro [$i]['idproducto'] ;
              $i_tron ++;
           } else
           {
@@ -695,24 +702,26 @@ class CarritoController extends Controller
       $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
       $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
-      //$this->Calcular_Numero_Unidades_Despacho  ($peso_kilos_pedido);
-      $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
-      $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
-      $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
-      $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
+      if ( $valor_declarado >0 ){
+        $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
+        $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
+        $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
+        $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
+      }
 
     }
 
 
 
     public function Encontrar_Mejor_Flete()
-    {/**  MARZO 12 DE 2015
+      {/**  MARZO 12 DE 2015
       *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
       */
       $i                               = 0;
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
       $Asignar_Flete                   = TRUE;
-      //Debug::Mostrar($Fletes_Cobrados_Transportadoras);
+      $this->Vr_Fletes                 = 0;
+
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
       {
         if ($Fletes['valor_flete'] >0 )
@@ -722,7 +731,6 @@ class CarritoController extends Controller
               $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
               $Asignar_Flete = FALSE;
             }
-
             if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete'] )
             {
                 $Mejor_Flete['idtercero']   = $Fletes['idtercero']   ;
@@ -731,9 +739,15 @@ class CarritoController extends Controller
             }
         }
       }
-      $this->Vr_Fletes                  = $Mejor_Flete['valor_flete'];
-      Session::Set('flete_cobrado_otros', $Mejor_Flete['valor_flete']);
-      Session::Set('id_transportadora',$Mejor_Flete['idtercero']);
+      if ( isset($Mejor_Flete)){
+          $this->Vr_Fletes                  = $Mejor_Flete['valor_flete'] + Session::Get('transporte_tron');
+          Session::Set('flete_cobrado_otros', $this->Vr_Fletes);
+          Session::Set('id_transportadora',   $Mejor_Flete['idtercero']);
+        }else{
+          $this->Vr_Fletes                  = Session::Get('transporte_tron');
+          Session::Set('flete_cobrado_otros', $this->Vr_Fletes);
+          Session::Set('id_transportadora',   '1572'); // 1572 REDETRANS
+        }
     }
 
     public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
@@ -805,17 +819,21 @@ class CarritoController extends Controller
     }
 
 
-  public function Calcular_Valor_Recaudo()
+  public function Calcular_Valor_Recaudo($aplica_vr_recaudo)
     {
       /** ABRIL 25 DE 2015
        *   CALCULA EL VALOR DE RECAUDO DE ACUERDO AL PEDIDO
        */
+        $this->Vr_Recaudo        = 0;
+        if ( $aplica_vr_recaudo == FALSE)  {
+            return ;
+          }
         $Parametros                      = $this->Parametros->Transportadoras();
         $this->PayuLatam_Recaudo         = $Parametros[0]['py_porciento_recaudo'] / 100;
         $this->PayuLatam_Valor_Minimo    = $Parametros[0]['py_vr_min_recaudo'];
         $this->PayuLatam_Valor_Adicional = $Parametros[0]['py_vr_adicional'];
 
-        $this->Vr_Recaudo        = 0;
+
         $sub_total_pedido_otros  = $this->SubTotal_Pedido_Real;
         $primer_recaudo   = ($sub_total_pedido_otros / ( 1 - $this->PayuLatam_Recaudo )) * $this->PayuLatam_Recaudo ;
 

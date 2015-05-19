@@ -27,6 +27,7 @@
                 </div>
                 <!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
               <p class="text-center">
+
                 <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> ">
                   <img src="<?=BASE_IMG_PRODUCTOS_150x150. $nombre_imagen;?>" class="img-responsive" id="img-prod">
                   <div  class="div-destacados-index-nomproducto" id ="<?= $idnomproducto  ;?>">

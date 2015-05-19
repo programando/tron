@@ -66,7 +66,7 @@ $('#identificacion_nat').on('blur',function(){
           type:     'post',
      success:  function (respuesta)
        {
-
+          alert(respuesta);
        }
        });
 });
