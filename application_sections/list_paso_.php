@@ -1,14 +1,23 @@
 <!--  Lista pasos a seguir para registrarse en tron  -->
+<div>
+    <div class="barra_right"></div>
+    <br><br>
+     <div class="cont-listas-pasos"><!-- Contenedor -->
+           <div class="li_pasos_registro" id="li_paso_1">Paso 1. <br> Información básica</div>
+           <div class="li_pasos_registro" id="li_paso_2">Paso 2. <br> Slección de plan  </div>
+     </div>
+</div>
 
-          <div class="cont-list-pasos">
-            <div><!-- contenedor -->
-              <nav>
-                 <ul class="cont-listas">
-                   <li class="li_pasos_registro" id="li_paso_1"><span>Paso 1.</span>   Información básica  </li>
-                   <li class="li_pasos_registro" id="li_paso_2"><span>Paso 2.</span>   Slección de plan    </li>
-                   <li class="li_pasos_registro" id="li_paso_3"><span>paso.3 </span>   Plan seleccionado   </li>
-                 </ul>
-              </nav>
-            </div><!-- contenedor -->
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+
 

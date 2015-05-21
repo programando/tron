@@ -136,43 +136,24 @@ $('.li_pasos_registro:first').css('background','#003E90');
 //  Passo 1 => Continuar => paso 2
   $('#btn_continura').on('click',function(){
 
-     $('#rgts_paso_1').slideUp();
-     $('#rgts_paso_2').slideDown();
-     $('.cont-listas li').css('background','#85ABDD');
+     $('#rgts_paso_1').slideUp('200');
+     $('#rgts_paso_2').slideDown('200');
+     $('.li_pasos_registro').css('background','#85ABDD');
      $('#li_paso_2').css('background','#003E90');
+     $('.barra_right').css('height','437px');
 
   });
 
-// Passo 2 => Continuar => paso 3
-
-  $('#btn_paso_2_continuar').on('click',function(){
-
-      $('#rgts_paso_2').slideUp();
-      $('#rgts_paso_3').slideDown();
-      $('.cont-listas li').css('background','#85ABDD');
-      $('#li_paso_3').css('background','#003E90');
-
-  });
 
 // Passo 2 => anterior => paso 1
 
   $('#btn_paso_2_anterior').on('click',function(){
 
-      $('#rgts_paso_2').slideUp();
-      $('#rgts_paso_1').slideDown();
-      $('.cont-listas li').css('background','#85ABDD');
+      $('#rgts_paso_2').slideUp('200');
+      $('#rgts_paso_1').slideDown('200');
+      $('.li_pasos_registro').css('background','#85ABDD');
       $('#li_paso_1').css('background','#003E90');
-
-  });
-
-// Passo 3 => anterior => paso 2
-
-  $('#btn_paso_3_anterior').on('click',function(){
-
-      $('#rgts_paso_3').slideUp();
-      $('#rgts_paso_2').slideDown();
-      $('.cont-listas li').css('background','#85ABDD');
-      $('#li_paso_2').css('background','#003E90');
+      $('.barra_right').css('height','618px');
 
   });
 
@@ -180,7 +161,7 @@ $('.li_pasos_registro:first').css('background','#003E90');
 
 
 
-
+ 437
 
 
 
