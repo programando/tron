@@ -124,8 +124,8 @@
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
                 </tr>
                 <tr>
-                   <td class="text-right">Valor del kit de inicio: <br><br>
-                    Valor Derechos de inscripcion (Primera de 3 cuotas):
+                   <td class="text-right">Valor del kit de inicio <strong>( Calculado para Cali )</strong> : <br><br>
+                    Valor Derechos de inscripción <strong>( Primera de 3 cuotas )</strong>:
                    </td>
                    <td class="text-center">
                     . <br><br>
