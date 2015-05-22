@@ -78,9 +78,44 @@ class PedidosController extends Controller
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
 				$Pedido_Dt = $this->Pedido->Grabar_Detalle($Texto_SQL );
 
-    Session::Set('SubTotal_Pedido_Ocasional',0);
-    Session::Set('SubTotal_Pedido_Amigos',0);
+				Session::Destroy('descuento_especial');
+				Session::Destroy('descuento_especial_porcentaje');
+				Session::Destroy('precio_especial');
+				Session::Destroy('transporte_tron');
+				Session::Destroy('vr_unitario_banios');
+				Session::Destroy('vr_unitario_loza');
+				Session::Destroy('vr_unitario_pisos');
+				Session::Destroy('vr_unitario_ropa');
     Session::Destroy('carrito');
+    Session::Destroy('CarritoTron');
+    Session::Destroy('Comisiones_Utilizadas');
+    Session::Destroy('compra_accesorios');
+    Session::Destroy('compra_otros_productos');
+    Session::Destroy('compra_productos_industriales');
+    Session::Destroy('compra_productos_tron');
+    Session::Destroy('compras_productos_fabricados_ta');
+    Session::Destroy('compras_realizadas_tron');
+    Session::Destroy('cumple_condicion_cpras_tron_industial');
+    Session::Destroy('flete_cobrado_otros');
+    Session::Destroy('Fletes_Cobrados_Transportadoras');
+    Session::Destroy('id_transportadora');
+    Session::Destroy('iddireccion_despacho');
+    Session::Destroy('iddpto');
+    Session::Destroy('minimo_compras_productos_ta');
+    Session::Destroy('minimo_compras_productos_tron');
+    Session::Destroy('nommcipio_despacho');
+    Session::Destroy('peso_accesorios');
+    Session::Destroy('peso_otros_productos');
+    Session::Destroy('peso_productos_industriales');
+    Session::Destroy('peso_productos_tron');
+    Session::Destroy('Puntos_Utilizados');
+    Session::Destroy('re_expedicion');
+    Session::Destroy('saldo_comisiones');
+    Session::Destroy('saldo_puntos_cantidad');
+    Session::Destroy('SubTotal_Pedido_Amigos');
+    Session::Destroy('SubTotal_Pedido_Ocasional');
+    Session::Destroy('vr_cupon_descuento');
+    Session::Destroy('Vr_Usado_Cupon_Descuento');
 
     echo "OK";
     }

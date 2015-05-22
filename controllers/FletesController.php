@@ -307,6 +307,7 @@
 									$this->valor_dscto_flete_kit_inicio = 0;
 									$this->valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
 									$this->Fletes 					         	 		    = $this->Fletes->Consultar_Fletes_Productos_Tron();// TABLA FLETES REDETRANS
+									Session::Set('subsisio_flete_valle',0);
 
 
 									/*
@@ -330,6 +331,7 @@
 																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
 																				$this->valor_flete  = $courrier_regional ;
 																				$this->tipo_tarifa  = 'COURRIER REGIONAL';
+																				Session::Set('subsisio_flete_valle',$courrier_regional);
 																			}
 															}
 														// Valle SI re-expedicion
@@ -337,6 +339,7 @@
 																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
 																				$this->valor_flete  = $re_expedicion_regional ;
 																				$this->tipo_tarifa  = 'REEXPEDICION REGIONAL';
+																				Session::Set('subsisio_flete_valle',$courrier_regional);
 																			}
 															}
 														// Nacional no reexpedidico
@@ -344,6 +347,7 @@
 																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
 																				$this->valor_flete  = $courrier_nacional ;
 																				$this->tipo_tarifa  = 'COURRIER NACIONAL';
+																				Session::Set('subsisio_flete_valle',$courrier_regional);
 																			}
 															}
 														// Nacional SI reexpedidico
@@ -351,6 +355,7 @@
 																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
 																				$this->valor_flete  = $re_expedicion_nacional ;
 																				$this->tipo_tarifa  = 'COURRIER NACIONAL';
+																				Session::Set('subsisio_flete_valle',$courrier_regional);
 																			}
 															}
 			      		}// fin foreach

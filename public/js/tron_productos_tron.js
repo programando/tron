@@ -49,6 +49,7 @@ function Borrar_Producto_de_Carrito(Parametros)
      success:  function (resultado)
     	 {
     	 		Imprimir_Totales_Carrito_Header(resultado);
+    	 		$('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
     	 }
 					});
 }
@@ -86,14 +87,14 @@ $('.btns-carritoTronMenos').on('click',function(){
 });
 
 
-
-
-$('#datos-producto').on('click','.borrar-producto',function(){
+$('.contenedor-producto').on('click','.borrar-producto',function(){
 		$idproducto = $(this).attr('idproducto');
 		$cantidad   = $(this).attr('cantidad');
 		$Parametros = {'IdProducto':$idproducto , 'Cantidad':$cantidad };
  	Borrar_Producto_de_Carrito($Parametros );
+ 	alert($idproducto );
 });
+
 
 
 // Ventana Modal => Etiqueta del producto

@@ -50,9 +50,9 @@
 
 											$Flete_Real = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
 
-											//$subsidio_flete_valle = $Flete_Real;
-											if ( $Precio_Lista_Total >= $valor_minimo_pedido_productos  ){
-															$subsidio_flete_valle  = $parametros[0]['kit_flete_real_valle'];
+											$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
+											if ( $Precio_Lista_Total < $valor_minimo_pedido_productos  ){
+															$subsidio_flete_valle  = 0;
 											}
 
 											$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional ;
@@ -161,9 +161,6 @@
 																	$vr_unitario_ropa = $Precio_Lista_Ropa;
 																}
 
-
-
-
 																Session::Set('precio_especial',$precio_especial);
 																Session::Set('transporte_tron',$transporte_tron);
 																Session::Set('descuento_especial',$descuento_especial);
@@ -173,11 +170,6 @@
 																Session::Set('vr_unitario_banios',$vr_unitario_banios);
 																Session::Set('vr_unitario_pisos',$vr_unitario_pisos);
 																Session::Set('vr_unitario_loza',$vr_unitario_loza);
-
-
-
-
-
 
 		    }
 

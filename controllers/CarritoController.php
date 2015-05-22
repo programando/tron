@@ -948,13 +948,6 @@ class CarritoController extends Controller
 
     }
 
-  public function  Calcular_Precios_Por_Categoria_Productos_Tron()
-  {
-    /**  ABRIL 24 DE 2015...
-     *   CALCULAR PRECIOS POR CATEGORIA EN LOS PRODUCTOS TRON
-     */
-  }
-
 
 
     public function Retornar_Totales_Carro_Json()
