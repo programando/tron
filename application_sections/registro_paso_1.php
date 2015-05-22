@@ -146,9 +146,9 @@
                 </tr>
                 <tr>
                    <td class="text-right"> <strong>REGISTRARME EN EL PLAN:</strong> </td>
-                   <td class="text-center"> <button type="button" class="btn-registrar-en-plan">COMPRADOR <br> OCASIONAL</button> </td>
-                   <td class="text-center"> <button type="button" class="btn-registrar-en-plan">CLIENTE <br> TRON</button> </td>
-                   <td class="text-center"> <button type="button" class="btn-registrar-en-plan">EMPRESARIO <br> TRON</button> </td>
+                   <td class="text-center"> <button type="button" id="btn_plan1" class="btn-registrar-en-plan">COMPRADOR <br> OCASIONAL</button> </td>
+                   <td class="text-center"> <button type="button" id="btn_plan2" class="btn-registrar-en-plan">CLIENTE <br> TRON</button> </td>
+                   <td class="text-center"> <button type="button" id="btn_plan3" class="btn-registrar-en-plan">EMPRESARIO <br> TRON</button> </td>
                 </tr>
              </tbody><!--Cuerpo de la tabla -->
 
@@ -156,17 +156,6 @@
 
       </div><!--Contenedor de la tanla de seleccion de planes -->
 
-
-
-    <!-- ====( Btn = Anterior - Siguiente )==== -->
-    <div class="row">
-      <div class="col-lg-12">
-       <div class="cont-btn-bottom"><!-- Cont -->
-        <button type="button" id="btn_continura" class="btn-continuar"> Continuar al paso 2</button>
-      </div><!-- Cont -->
-    </div>
-    </div>
-    <!-- ====( Btn = Anterior - Siguiente )==== -->
 
    </div><!--Fila -->
 
