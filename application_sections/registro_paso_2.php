@@ -5,18 +5,34 @@
 
  <div style ="display:none;" id="elemento_a_mostrar">Los número de identificación deben ser iguales </div>
 
+ <!-- Tooltip *** Mensaje del codigo *** -->
+ <div class="ventana_modal_codigo">
+    <?php include (APPLICATION_SECTIONS . 'registro_tooltip_codigo.php');?>
+ </div>
+
   <div><!--Contenedor- de  el formulario -->
    <div class="row formulario">
     <form class="form-horizontal" role="form">
 
-      <div class="col-lg-5 col-md-5 col-sm-5"><!--TIpo-Document -->
-        <div class="form-group">
-          <label for="idtpidentificacion" class="col-lg-5  control-label"><p class="text-label">Tipo de Documento :</p></label>
-          <div class="col-lg-7"  id="cont-selec-document">
-            <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
-          </div>
-        </div>
-      </div><!--TIpo-Document -->
+      <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="col-lg-4 col-md-4 col-sm-4"><!--Codigo -->
+              <div class="form-group">
+                <label for="input_codigo"  class="col-lg-6  control-label  label_codigo"><p class="text-label">Codigo:</p></label>
+                <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
+                   <input type="text" class="form-control" id="input_codigo">
+                </div>
+              </div>
+          </div><!--Codigo -->
+
+          <div class="  col-lg-5 col-md-5 col-sm-5"><!--TIpo-Document -->
+              <div class="form-group">
+                <label for="idtpidentificacion" style=" padding-left: 5px;" class="col-lg-5  control-label"><p class="text-label">Tipo de Documento:</p></label>
+                <div class="col-lg-5" style="margin-left: -40px; width: 210px;"  id="cont-selec-document">
+                  <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
+                </div>
+              </div>
+          </div><!--TIpo-Document -->
+      </div>
 
 
       <!--Campos NIT -->
@@ -151,7 +167,7 @@
 
          <div class="col-lg-8 col-md-8 col-sm-8"><!-- Mes -->
          <div class="form-group campos-cedu-ciudadana">
-            <label for="mes"  style="padding-left: 0px;" class="col-lg-2  control-label label-mes"><p class="text-label ">Mes:</p></label>
+            <label for="mes"  class="col-lg-2  control-label label-mes"><p class="text-label ">Mes:</p></label>
             <div class="col-lg-10 cont-input">
                 <select  class="form-control " id="mes">
                   <option value=" ">ENERO</option>
@@ -174,7 +190,7 @@
 
              <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="form-group campos-cedu-ciudadana">
-              <label for="dia"  style="padding-left: 0px;" class="col-lg-2  control-label label-dia"><p class="text-label ">Dia:</p></label>
+              <label for="dia"  class="col-lg-2  control-label label-dia"><p class="text-label ">Dia:</p></label>
               <div class="col-lg-10 cont-input">
                 <select  class="form-control  select-dia" id="dia">
                     <option value="">1</option>

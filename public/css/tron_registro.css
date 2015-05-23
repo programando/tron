@@ -44,7 +44,7 @@
 {
       float: right;
       display: block;
-      height: 618px;
+      height: 580px;
       border-left: 2px solid #003E90;
       margin-top: 0px;
       -webkit-transition: all 200ms ease;
@@ -64,13 +64,95 @@
       background: #85ABDD;
       width: 99%;
       margin-top: 10px;
+      cursor: pointer;
 
       -webkit-border-radius: 8px 0px 0px 8px;
       -moz-border-radius: 8px 0px 0px 8px;
       border-radius: 8px 0px 0px 8px;
 }
 
-/* diseño paso 1 */
+/* PAso 1 */
+
+/* Diseño Tooltips */
+.tooltip
+{
+    position          :absolute;
+    z-index           :999;
+    left              :-9999px;
+    border            :1px solid #fff;
+    width             :320px;
+
+    /* Sombra */
+    -webkit-box-shadow: 0px 1px 3px #000000;
+    -moz-box-shadow   : 0px 1px 3px #000000;
+    box-shadow        : 0px 1px 3px #000000;
+}
+
+.tooltip p
+{
+    margin          :0;
+    padding         :0;
+    color           :#fff;
+    background-color:#003E90;
+    padding         :12px;
+    font-size       :12px;
+ }
+
+
+/* diseño paso 2 */
+
+  .cuerpo_ventana_modal_codigo /* Tooltip = Input-Codigo */
+  {
+    position  :  absolute;
+    background: #003E90;
+    opacity   :0.9;
+    width     : 280px;
+    z-index   : 1000;
+    top       : 40px;
+    left      : 100px;
+    padding   : 5px 10px;
+    box-sizing: border-box ;
+    color     : #fff;
+    display   : none;
+    font-size :12px;
+    border    :1px solid #fff;
+
+
+   /* Sombra */
+   -webkit-box-shadow: 0px 1px 3px #000000;
+   -moz-box-shadow   : 0px 1px 3px #000000;
+   box-shadow        : 0px 1px 3px #000000;
+  }
+
+.label_codigo ,
+.label-mes ,
+.label-dia/*  para desaparecer el padding de los label ...
+                     ya que desordena la alineacion de estos */
+{
+    padding-left: 0px;
+}
+
+/* Modificacion = mes , dia */
+.label-mes
+{
+      margin-left: -10px;
+}
+
+/* Label - input = Dia */
+.label-dia
+{
+     display: block;
+     width: 30px;
+     margin-left: -15px;
+}
+
+.select-dia
+{
+      width: 80px;
+
+}
+/* Modificacion = mes , dia */
+
 #tipo-document
 {
     width: 150px;
@@ -92,34 +174,6 @@
     margin-top: 52px;
 }
 
-/* PAso 2 */
-
-/* Diseño Tooltips */
-.tooltip
-{
-    position          :absolute;
-    z-index           :999;
-    left              :-9999px;
-    background-color  : #898989;
-    padding           :3px;
-    border            :1px solid #fff;
-    width             :320px;
-
-    /* Sombra */
-    -webkit-box-shadow: 0px 1px 3px #000000;
-    -moz-box-shadow   : 0px 1px 3px #000000;
-    box-shadow        : 0px 1px 3px #000000;
-}
-
-.tooltip p
-{
-    margin          :0;
-    padding         :0;
-    color           :#fff;
-    background-color:#003E90;
-    padding         :12px;
-    font-size       :12px;
- }
 
 /* Paso 3 */
 
@@ -265,22 +319,5 @@
     top:1px;
 }
 
-.label-mes
-{
-      margin-left: -10px;
-}
 
-/* Label - input = Dia */
-.label-dia
-{
-     display: block;
-     width: 30px;
-     margin-left: -15px;
-}
-
-.select-dia
-{
-      width: 70px;
-
-}
 

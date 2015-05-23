@@ -1,6 +1,5 @@
 
 //  Formulario de Registro PASO 1.
-
     var $numero_nit      = $('#identificacion');
     var $digito_dv       = $('#digitoverificacion');
     var $confirmar_nit   = $('#identificacion_confirm');
@@ -17,7 +16,7 @@
     var $confi_e_mail    = $('#email_confirm');
     var $Formulario_Paso_1_Validado = true;
 
-// Tooltips => Paso 2
+// Tooltips => Paso 1
   function simple_tooltip(target_items, name){
     $(target_items).each(function(i){
       $("body").append("<div class='"+name+"' id='"+name+i+"'><p>"+$(this).attr('title')+"</p></div>");
@@ -32,9 +31,23 @@
       });
     });
   }
+
   $(document).ready(function(){
      simple_tooltip("a.nuvv","tooltip");
   });
+
+// Fucntion = Tooltip del input-codigo
+$(function(){
+     $('#input_codigo').mouseover(function(){
+          $('#ventana_modal_mensaje_codigo').fadeIn();
+     });
+
+     $('#input_codigo').mouseout(function(){
+          $('#ventana_modal_mensaje_codigo').fadeOut();
+     });
+});
+
+
 
 
 //TIPO IDENTIFICACION
@@ -129,13 +142,36 @@ $('#iddpto').on('change',function(){
    }
 })
 
+// TABS = Registro ( paso 1 , paso 2).
 
-// *** Pasar al siguente paso ***
+$('.rgts_pasos').hide();
+$('.rgts_pasos:first').show();
+
+$('#li_paso_2').on('click',function(){
+     $('#rgts_paso_1').slideUp('200');
+     $('#rgts_paso_2').slideDown('200');
+     $('.li_pasos_registro').css('background','#85ABDD');
+     $(this).css('background','#003E90');
+     $('.barra_right').css('height','437px');
+});
+
+$('#li_paso_1').on('click',function(){
+     $('#rgts_paso_2').slideUp('200');
+     $('#rgts_paso_1').slideDown('200');
+     $('.li_pasos_registro').css('background','#85ABDD');
+     $(this).css('background','#003E90');
+     $('.barra_right').css('height','580px');
+});
+
+
+// *** Pasar al siguente paso por = button***
 $('.li_pasos_registro:first').css('background','#003E90');
 
-//  Passo 1 => Continuar => paso 2
-  $('#btn_continura').on('click',function(){
+//  #btn_plan1 = Compreador Ocacional
+//  #btn_plan2 = Cliente Tron
+//  #btn_plan3 = Empresario Tron
 
+  $('#btn_plan1').on('click',function(){
      $('#rgts_paso_1').slideUp('200');
      $('#rgts_paso_2').slideDown('200');
      $('.li_pasos_registro').css('background','#85ABDD');
@@ -144,24 +180,37 @@ $('.li_pasos_registro:first').css('background','#003E90');
 
   });
 
+  $('#btn_plan2').on('click',function(){
+     $('#rgts_paso_1').slideUp('200');
+     $('#rgts_paso_2').slideDown('200');
+     $('.li_pasos_registro').css('background','#85ABDD');
+     $('#li_paso_2').css('background','#003E90');
+     $('.barra_right').css('height','437px');
 
+  });
+
+    $('#btn_plan3').on('click',function(){
+     $('#rgts_paso_1').slideUp('200');
+     $('#rgts_paso_2').slideDown('200');
+     $('.li_pasos_registro').css('background','#85ABDD');
+     $('#li_paso_2').css('background','#003E90');
+     $('.barra_right').css('height','437px');
+
+  });
 // Passo 2 => anterior => paso 1
 
   $('#btn_paso_2_anterior').on('click',function(){
-
       $('#rgts_paso_2').slideUp('200');
       $('#rgts_paso_1').slideDown('200');
       $('.li_pasos_registro').css('background','#85ABDD');
       $('#li_paso_1').css('background','#003E90');
-      $('.barra_right').css('height','618px');
+      $('.barra_right').css('height','580px');
 
   });
 
 
 
 
-
- 437
 
 
 
