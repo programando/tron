@@ -9,6 +9,7 @@ class TercerosController extends Controller
         $this->Terceros            = $this->Load_Model('Terceros');
         $this->Departamentos       = $this->Load_Model('Departamentos');
         $this->TiposDocumentos     = $this->Load_Model('Tiposdocumentos');
+        $this->Parametros          = $this->Load_Model('Parametros');
     }
 
     public function Index() { }
@@ -273,6 +274,14 @@ class TercerosController extends Controller
 
     public function registro()
     {
+        $Parametros = $this->Parametros->Transportadoras();
+        Session::Set('kit_vr_venta_valle',$Parametros[0]['kit_vr_venta_valle']);
+        Session::Set('kit_vr_venta_valle_reexpedidion',$Parametros[0]['kit_vr_venta_valle_reexpedidion']);
+        Session::Set('kit_vr_venta_nacional',$Parametros[0]['kit_vr_venta_nacional']);
+        Session::Set('kit_vr_venta_nacional_reexpedicion',$Parametros[0]['kit_vr_venta_nacional_reexpedicion']);
+        Session::Set('cuota_1_inscripcion',$Parametros[0]['cuota_1_inscripcion']);
+        Session::Set('kit_id', 10744);
+
         $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos   = $this->Departamentos->Consultar();
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2','messi.min'));

@@ -59,7 +59,7 @@
                 </tr>
 
                 <tr>
-                  <td>INVITACION A CAPACITACIONES Y EVENTOS SOBRE EL MODELO DE NEGOCIO</td>
+                  <td>INVITACIÓN A CAPACITACIONES Y EVENTOS SOBRE EL MODELO DE NEGOCIO</td>
                   <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                   <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
                   <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
@@ -131,17 +131,17 @@
                     . <br><br>
                     .
                    </td>
-                   <td class="text-center">$ 17.800 <br><br>
+                   <td class="text-center"> $ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> <br><br>
                      .
                    </td>
-                   <td class="text-center">$ 17.800 <br><br>
-                      $ 20.000
+                   <td class="text-center"> $ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> <br><br>
+                      $ <?= number_format(Session::Get('cuota_1_inscripcion'),0) ;?>
                    </td>
                 </tr>
                 <tr>
-                   <td class="text-right"> <strong>TOTAL A PAGAR:</strong> </td>
+                   <td class="text-right"> <strong>TOTAL A PAGAR ( Calculado para Cali ) :</strong> </td>
                    <td class="text-center">.</td>
-                   <td class="text-center">$ 17.800</td>
+                   <td class="text-center">$ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> </td>
                    <td class="text-center">$ 37.800</td>
                 </tr>
                 <tr>
