@@ -281,6 +281,7 @@ class TercerosController extends Controller
         Session::Set('kit_vr_venta_nacional_reexpedicion',$Parametros[0]['kit_vr_venta_nacional_reexpedicion']);
         Session::Set('cuota_1_inscripcion',$Parametros[0]['cuota_1_inscripcion']);
         Session::Set('kit_id', 10744);
+        $this->View->Total_Kit_Inscripcion = $Parametros[0]['kit_vr_venta_valle'] + $Parametros[0]['cuota_1_inscripcion'] ;
 
         $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos   = $this->Departamentos->Consultar();

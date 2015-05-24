@@ -50,9 +50,9 @@
                            <td class="cuerpo-tabla"><?= number_format( $productos['iva']).'%' ;?> </td>
                            <td class="cuerpo-tabla"><?=  $productos['codigo_grupo'] ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100) .'%' ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100,2) .'%' ;?> </td>
                            <td class="cuerpo-tabla"><?=
-                           									number_format( ($productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100)*$productos['cantidad']*$productos['ppto_fletes'])) ;?> </td>
+                           									number_format( ($productos['cmv'] * $productos['ppto_fletes'])) ;?> </td>
 
 
 
@@ -105,6 +105,10 @@
 																							<td class="cuerpo-tabla">TRANSPORTADORA  </td>
 																							<td class="cuerpo-tabla"><?=  number_format(Session::Get('id_transportadora')); ?> </td>
 																				 </tr>
+                                        <tr>
+                                              <td class="cuerpo-tabla">TIPO DESPACHO  </td>
+                                              <td class="cuerpo-tabla"><?=  number_format(Session::Get('tipo_despacho_pedido'),0) . ' ' .  Session::Get('tipo_tarifa'); ?> </td>
+                                         </tr>
 																				<tr>
 																							<td class="cuerpo-tabla">PRESUPUESTO FLETES  </td>
 																							<td class="cuerpo-tabla"><?=  number_format(Session::Get('presupuesto_flete_otros')); ?> </td>
@@ -121,6 +125,17 @@
 																							<td class="cuerpo-tabla">VALOR TOTAL PEDIDO </td>
 																							<td class="cuerpo-tabla"><?=  number_format(Session::Get('Vr_Total_Pedido_Real')); ?> </td>
 																				 </tr>
+                                        <tr>
+                                              <td class="cuerpo-tabla">BASE IVA </td>
+                                              <td class="cuerpo-tabla"><?=  number_format(Session::Get('Vr_Base_Iva')); ?> </td>
+                                         </tr>
+                                        <tr>
+                                              <td class="cuerpo-tabla">VALOR TOTAL DEL PEDIDO </td>
+                                              <td class="cuerpo-tabla"><?=  number_format(Session::Get('Vr_Total_Pedido_Real')); ?> </td>
+                                         </tr>
+
+
+
                    </tbody>
               </table>
 

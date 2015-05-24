@@ -1,3 +1,6 @@
+<?php
+  $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
+?>
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->
   <tr>
    <th class="text-center  titulos-tabla"></th><!--IMG-eliminar producto -->
@@ -5,6 +8,14 @@
    <th class="text-center  titulos-tabla"><strong>Producto</strong> </th><!--Nombre del producto -->
    <th class="text-center  titulos-tabla"><strong>Presentación</strong></th>
    <th class="text-center  titulos-tabla"><strong>Cantidad</strong> </th><!--Cantidad -->
+  <?php if  ( ($cumple_condicion_cpras_tron_industial == TRUE && Session::Get('autenticado')== TRUE)) :?>
+     <th class="text-center  titulos-tabla"></th>
+  <?php endif ;?>
+
+  <?php if  (Session::Get('autenticado')== TRUE)  :?>
+     <th class="text-center  titulos-tabla"></th>
+  <?php endif ;?>
+
    <th class="text-right   titulos-tabla"><strong>Precio Unit.</strong> </th><!--Precio UNIT. -->
    <th class="text-right   titulos-tabla"><strong>Total</strong> </th><!--Total -->
 

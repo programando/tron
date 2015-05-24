@@ -19,7 +19,9 @@ class IndexController extends Controller
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
 
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI
+
         $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
+        $this->Terceros->Compra_Productos_Tron_Mes_Actual();
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();

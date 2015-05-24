@@ -1,6 +1,5 @@
 <div id="contenido-productos">
   <div class="carrito-compras">
-
      <div class=" row"><!--Inicio-Fila = Contenido De La Tabla -->
           <?php if (Session::Get('imagen_resumen_pedido')== TRUE) : ; ?>
           <div class="col-lg-12 col-md-12 col-sm-12">
@@ -11,9 +10,11 @@
               </div>
           </div>
         <?php else : ;?>
-              <p class="text-center">
-                 Carrito de Compras
-               </p>
+              <h4 class="text-center titulo">
+                <strong>
+                     Carrito de Compras
+                </strong>
+               </h4>
         <?php endif;?>
          <div class="col-lg-12 col-md-12 col-sm-12"><!--Tabla Cliente TRON -->
           <table class="table">

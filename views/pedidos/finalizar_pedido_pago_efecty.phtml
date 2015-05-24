@@ -1,0 +1,20 @@
+
+<?php
+
+     $numero_pedido         = Session::Get('numero_pedido');
+     $fecha_vence           = Session::Get('fecha_vence');
+     $vr_total_pedido       = Session::Get('vr_total_pedido');
+
+?>
+<center>
+    <iframe scrolling="no" id="iframe_efecty"
+          src="https://botonpago.efecty.com.co:20029/botonpagoefecty/efectybotonpagoget.aspx?EFvalorTotal=<?php
+          echo  number_format($vr_total_pedido)?>
+          &EFPin=<?php echo $numero_pedido;?>
+          &EFFechaVigencia=<?php echo $fecha_vence;?>
+          &EFCodProyecto=110347"
+          height="450" width="670">
+  </iframe>
+  <br /><br />
+  </center>
+

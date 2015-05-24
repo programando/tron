@@ -19,6 +19,7 @@
 		    	/** MAYO 17 DE 2015
 		    	 * 				HALLAR EL PRECIO ESPECIAL DE PRODUCTOS TRON, DECUENTO Y EL PRECIO UNITARIO POR CADA UNA DE LAS CATEGORIAS
 		    	 */
+
 									$idmcipio                            = Session::Get('idmcipio');
 									$iddpto                              = Session::Get('iddpto');
 									$re_expedicion                       = Session::Get('re_expedicion');
@@ -51,9 +52,8 @@
 											$Flete_Real = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
 
 											$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
-											if ( $Precio_Lista_Total < $valor_minimo_pedido_productos  ){
-															$subsidio_flete_valle  = 0;
-											}
+
+
 
 											$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional ;
 											$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $Flete_Real  );
@@ -73,9 +73,12 @@
 											if (	$precio_especial >  $Precio_Lista_Total ){
 														$precio_especial = $Precio_Lista_Total;
 											}
+											//$precio_especial  = round($precio_especial ,0);
 
 											$descuento_especial = $Precio_Lista_Total  - $precio_especial ;
-											$desceunto_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
+											//$descuento_especial = round($descuento_especial,0);
+											$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
+											$descuento_especial_porciento = round($descuento_especial_porciento,2);
 
 											// *	10. HALLAR DESCUENTO NEGATIVO PARA ENCONTRAR EL TRANSPORTE
 											$descuento_negativo = 0 ;
@@ -164,7 +167,7 @@
 																Session::Set('precio_especial',$precio_especial);
 																Session::Set('transporte_tron',$transporte_tron);
 																Session::Set('descuento_especial',$descuento_especial);
-																Session::Set('descuento_especial_porcentaje', $descuento_especial_porcentaje);
+																Session::Set('descuento_especial_porcentaje', $descuento_especial_porciento);
 
 																Session::Set('vr_unitario_ropa',$vr_unitario_ropa);
 																Session::Set('vr_unitario_banios',$vr_unitario_banios);

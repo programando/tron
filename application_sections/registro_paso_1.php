@@ -142,8 +142,10 @@
                    <td class="text-right"> <strong>TOTAL A PAGAR ( Calculado para Cali ) :</strong> </td>
                    <td class="text-center">.</td>
                    <td class="text-center">$ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> </td>
-                   <td class="text-center">$ 37.800</td>
+                   <td class="text-center">$ <?= number_format($this->Total_Kit_Inscripcion,0) ;?> </td>
                 </tr>
+
+
                 <tr>
                    <td class="text-right"> <strong>REGISTRARME EN EL PLAN:</strong> </td>
                    <td class="text-center"> <button type="button" id="btn_plan1" class="btn-registrar-en-plan">COMPRADOR <br> OCASIONAL</button> </td>

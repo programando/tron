@@ -113,12 +113,12 @@
   $Cumple_Compra_Minima_Prod_Tron_Industriales = Session::Get('cumple_condicion_cpras_tron_industial');
 ?>
 
-<?php if ($Autenticado == FALSE ) : ;?>
+<?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) :?>
     <!--TOTAL -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $pv_ocasional ;?> </p></td><!--Precio UNIT. -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Item_Ocasional ;?> </p></td><!--Total -->
 
-    <?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) :?>
+
       <td class="col-tabla-preci2" title="Precio unitario para clientes/empresarios TRON" >
           <p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_tron ;?> </p>
       </td><!--Precio UNIT. $Vr_Total_Item_Tron-->
@@ -126,9 +126,11 @@
       <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
         <p class="info-tabla"> <?=    $Vr_Total_Item_Tron  ;?>   </p>
       </td>
-    <?php endif ;?>
+
 
 <?php else : ;?>
+      <td></td>
+      <td></td>
       <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Unit_Real_Producto ;?> </p></td><!--Precio UNIT. -->
       <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Real_Producto ;?> </p></td><!--Total -->
  <?php endif ;?>

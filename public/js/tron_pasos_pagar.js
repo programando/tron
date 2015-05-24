@@ -235,7 +235,7 @@ $('.img-pago1').on('click',function(){
       $.ajax({
       data:  $Parametros,
       dataType: 'text',
-      url:      '/tron/carrito/Forma_Pago_Pedido_Payu_Latam/',
+      url:      '/tron/pedidos/Forma_Pago_Pedido_Payu_Latam/',
       type:     'post',
       success:  function (resultado)
       {

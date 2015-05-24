@@ -28,21 +28,42 @@
 <!--Informacion-Producto Acerca DE CANT , PRECIO , BORRAR -->
 
 
-<!--Datos Precios -->
+<!--Datos Precios
+                  Session::Destroy('pv_tron_resumen');
+           Session::Destroy('pv_ocas_resumen');
+-->
 <div class=" row">
 
  <div class="resumen_datos_precios">
 
   <p class="resumen_precio_ocacional">
-  <strong id='Total_Venta_Ocasional'>
-        <?php include (APPLICATION_CODS . 'carrito_header_vr_ocasional.php'); ?>
+  <strong id='Total_Venta_Ocasional_Resumen'>
+        <?php
+      // MAYO 18 DE 2015
+     //       VALOR QUE SE MUESTRA EN LA PARTE SUPERIOR DE LA PAGINA.  VALOR DE VENTA PARA COPRADORES OCASIONALES
+      if(Session::Get('pv_ocas_resumen')>0) {
+            echo Numeric_Functions::Formato_Numero( Session::Get('pv_ocas_resumen'));
+        }else
+        {
+            echo '$0';
+      }
+    ?>
   </strong><!--contenedor = Precio-Ocacional 16 -->
    <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>18.png" title="Comprador Ocasional"></span>
  </p>
 
  <p class="resumen_precio_clien-tron">
-   <strong id ='Total_Venta_Tron'>
-        <?php include (APPLICATION_CODS . 'carrito_header_vr_tron.php'); ?>
+   <strong id ='Total_Venta_Tron_Resumen'>
+                <?php
+      // MAYO 18 DE 2015
+     //       VALOR QUE SE MUESTRA EN LA PARTE SUPERIOR DE LA PAGINA.  VALOR DE VENTA PARA COPRADORES OCASIONALES
+      if(Session::Get('pv_tron_resumen')>0) {
+            echo Numeric_Functions::Formato_Numero( Session::Get('pv_tron_resumen'));
+        }else
+        {
+            echo '$0';
+      }
+    ?>
    </strong><!--contenedor = Precio-Cliente TRON 30 -->
   <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
   <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>
@@ -52,7 +73,7 @@
     <strong id ="tron_descuento">
           <?php
              $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
-             $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 1, '.', '') .'%';
+             $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 2, '.', '') .'%';
              if ( isset( $descuento_especial_porcentaje  )){
                   echo $descuento_especial_porcentaje  ;
                 }  ?>
@@ -62,7 +83,7 @@
 <p> Ahorro    :
     <strong id ='tron_descuento_porciento'>
       <?php
-           $descuento_especial = "$ ".number_format(Session::Get('descuento_especial'),1,"",".");
+           $descuento_especial = "$ ".number_format(Session::Get('descuento_especial'),0,"",".");
            if ( isset( $descuento_especial  )){
                 echo $descuento_especial  ;
               } ?>
