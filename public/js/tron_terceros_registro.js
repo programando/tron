@@ -15,6 +15,22 @@
     var $celular         = $('#celular1');
     var $confi_e_mail    = $('#email_confirm');
     var $Formulario_Paso_1_Validado = true;
+    var $Tipo_Plan_Seleccionado = 0;
+
+
+    var Establecer_Tipo_Plan = function(Parametros){
+    $.ajax({
+          data:  Parametros,
+          dataType: 'json',
+          url:      '/tron/terceros/Registro_Establecer_Tipo_Plan_Seleccionado/',
+          type:     'post',
+     success:  function (respuesta)
+       {
+          $Tipo_Plan_Seleccionado = respuesta.idtipo_plan_compras
+       }
+       });
+
+    }
 
 // Tooltips => Paso 1
   function simple_tooltip(target_items, name){
@@ -32,16 +48,15 @@
     });
   }
 
-  $(document).ready(function(){
-     simple_tooltip("a.nuvv","tooltip");
-  });
+
+simple_tooltip("a.nuvv","tooltip");
+
 
 // Fucntion = Tooltip del input-codigo
 $(function(){
      $('#input_codigo').mouseover(function(){
           $('#ventana_modal_mensaje_codigo').fadeIn();
      });
-
      $('#input_codigo').mouseout(function(){
           $('#ventana_modal_mensaje_codigo').fadeOut();
      });
@@ -49,10 +64,7 @@ $(function(){
 
 
 
-
 //TIPO IDENTIFICACION
-
-
 $('#idtpidentificacion').on('change',function(){
   $tipo_documento = $(this).val();
   if ( $tipo_documento == 13 || $tipo_documento == 42 || $tipo_documento == 0)
@@ -115,32 +127,7 @@ $('#identificacion_nat_confirm').on('focusout',function(){
 
 
 
-// CARGAR LAS CIUDADES POR DEPARTAMENTO
-$('#iddpto').on('change',function(){
-  var $IdDpto     = $(this).val();
-  var $Municipios = $('#idmcipio');
-  if ($IdDpto==0)
-  {
-    $Municipios.empty();
-    $Municipios.append("<option>Seleccione un departamento</option>");
-   }else
-   {
-    $.ajax({
-          data:  {'iddpto':$IdDpto},
-          dataType: 'json',
-          url:      '/tron/municipios/Consultar/',
-          type:     'post',
-     success:  function (municipios)
-       {
-        $Municipios.empty();
-          for(var i = 0; i < municipios.length; i++)
-          {
-              $Municipios.append('<option value="' + municipios[i].idmcipio + '">' + municipios[i].nommcipio + '</option>');
-         }
-       }
-          });
-   }
-})
+
 
 // TABS = Registro ( paso 1 , paso 2).
 
@@ -167,34 +154,48 @@ $('#li_paso_1').on('click',function(){
 // *** Pasar al siguente paso por = button***
 $('.li_pasos_registro:first').css('background','#003E90');
 
-//  #btn_plan1 = Compreador Ocacional
+//  #btn_plan1 = Compreador Ocasional
 //  #btn_plan2 = Cliente Tron
 //  #btn_plan3 = Empresario Tron
+//
 
   $('#btn_plan1').on('click',function(){
+     $IdBoton = $(this).attr('idplan');
      $('#rgts_paso_1').slideUp('200');
      $('#rgts_paso_2').slideDown('200');
      $('.li_pasos_registro').css('background','#85ABDD');
      $('#li_paso_2').css('background','#003E90');
      $('.barra_right').css('height','437px');
+     $Parametros = {'idtipo_plan_compras':$IdBoton};
+     Establecer_Tipo_Plan($Parametros)
+     $('#mes_dia').hide();
 
   });
 
   $('#btn_plan2').on('click',function(){
+     $IdBoton = $(this).attr('idplan');
      $('#rgts_paso_1').slideUp('200');
      $('#rgts_paso_2').slideDown('200');
      $('.li_pasos_registro').css('background','#85ABDD');
      $('#li_paso_2').css('background','#003E90');
      $('.barra_right').css('height','437px');
+     $Parametros = {'idtipo_plan_compras':$IdBoton};
+     Establecer_Tipo_Plan($Parametros)
+     $('#mes_dia').hide();
 
   });
 
     $('#btn_plan3').on('click',function(){
+     $IdBoton = $(this).attr('idplan');
      $('#rgts_paso_1').slideUp('200');
      $('#rgts_paso_2').slideDown('200');
      $('.li_pasos_registro').css('background','#85ABDD');
      $('#li_paso_2').css('background','#003E90');
      $('.barra_right').css('height','437px');
+     $Parametros = {'idtipo_plan_compras':$IdBoton};
+     Establecer_Tipo_Plan($Parametros)
+     $('#mes_dia').show();
+
 
   });
 // Passo 2 => anterior => paso 1
@@ -209,6 +210,33 @@ $('.li_pasos_registro:first').css('background','#003E90');
   });
 
 
+
+// CARGAR LAS CIUDADES POR DEPARTAMENTO
+$('#iddpto').on('change',function(){
+  var $IdDpto     = $(this).val();
+  var $Municipios = $('#idmcipio');
+  if ($IdDpto==0)
+  {
+    $Municipios.empty();
+    $Municipios.append("<option>Seleccione un departamento</option>");
+   }else
+   {
+    $.ajax({
+          data:  {'iddpto':$IdDpto},
+          dataType: 'json',
+          url:      '/tron/municipios/Consultar/',
+          type:     'post',
+     success:  function (municipios)
+       {
+        $Municipios.empty();
+          for(var i = 0; i < municipios.length; i++)
+          {
+              $Municipios.append('<option value="' + municipios[i].idmcipio + '">' + municipios[i].nommcipio + '</option>');
+         }
+       }
+          });
+   }
+});
 
 
 

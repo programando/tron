@@ -93,10 +93,17 @@
                        </tr>
 																				<?php endforeach ;?>
 																				<tr><td></td></tr>
+                                        <tr>
+                                        <td class="cuerpo-tabla">idtipo_plan_compras </td>
+                                        <td class="cuerpo-tabla"><?=   Session::Get('idtipo_plan_compras'); ?> </td>
+                                        </tr>
+
+
 																				<tr>
 																				<td class="cuerpo-tabla">SUB-TOTAL PEDIDO  </td>
 																				<td class="cuerpo-tabla"><?=  number_format(Session::Get('sub_total_pedido_Otros')); ?> </td>
 																				</tr>
+
 																				<tr>
 																				<td class="cuerpo-tabla">FLETE COBRADO  </td>
 																				<td class="cuerpo-tabla"><?=  number_format(Session::Get('flete_cobrado_otros')); ?> </td>

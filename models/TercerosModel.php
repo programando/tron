@@ -8,6 +8,15 @@
 					parent::__construct();
 				}
 
+				public function Buscar_Por_Codigo($codigousuario){
+					/** MAYO 05 DE 2015
+					 * 				CONSULTA DATOS BÁSICO DE UN TERCERO POR IDENTIFICACION
+					 */
+							$Registro                 =  $this->Db->Ejecutar_Sp("terceros_buscar_por_codigo_usuario('$codigousuario')");
+							return $Registro;
+				}
+
+
 
 				public function Buscar_Por_Identificacion($identificacion){
 					/** MAYO 05 DE 2015
@@ -16,6 +25,7 @@
 							$Registro                 =  $this->Db->Ejecutar_Sp("terceros_buscar_por_identificacion('$identificacion')");
 							return $Registro;
 				}
+
 
 				public function Compra_Productos_Tron_Mes_Actual()
 				{

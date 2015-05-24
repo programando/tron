@@ -14,6 +14,43 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+    public function Registro_Buscar_Por_Codigo(){
+      /** MAYO 24 DE 2015
+       *      REALIZA LA BÚSQUEDA DE DATOS POR CÓDIGO DE USUARIO
+       */
+      $codigousuario  = General_Functions::Validar_Entrada('codigousuario','TEXT');
+      $Registro       = $this->Terceros->Buscar_Por_Codigo($codigousuario);
+      $Respuesta      = '';
+      Session::Set('idtercero_presenta',0);
+      Session::Set('nombre_usuario_presente','');
+      Session::Set('codigousuario_presenta','');
+      if (!$Registro){
+            $Respuesta ='CODIGO_NO_EXISTE';
+            $Datos = compact('Respuesta');
+      }else{
+        $idtercero      = $Registro[0]['idtercero'];
+        $nombre_usuario = $Registro[0]['nombre_usuario'];
+        $codigousuario  = $Registro[0]['codigousuario'];
+        //
+        Session::Set('idtercero_presenta',$Registro[0]['idtercero']);
+        Session::Set('nombre_usuario_presente',$Registro[0]['nombre_usuario']);
+        Session::Set('codigousuario_presenta',$Registro[0]['codigousuario']);
+        $Respuesta ='CODIGO_SI_EXISTE';
+        $Datos = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
+      }
+      echo json_encode($Datos,256);
+
+    }
+
+    public function Registro_Establecer_Tipo_Plan_Seleccionado(){
+      /** MAYO 24 de 2015
+       *      ESTABLECE EL TIPO PLAN DE COMPRAS EN EL REGISTRO DE DATOS INICIALES
+       */
+        $idtipo_plan_compras = General_Functions::Validar_Entrada('idtipo_plan_compras','NUM');
+        Session::Set('idtipo_plan_compras',$idtipo_plan_compras);
+        $Datos    = compact('idtipo_plan_compras');
+        echo json_encode($Datos,256);
+    }
 
     public function Compra_Productos_Tron_Mes_Actual()
     {/**  MARZO 17 DE 2015

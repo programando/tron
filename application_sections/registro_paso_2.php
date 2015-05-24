@@ -17,7 +17,8 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="col-lg-4 col-md-4 col-sm-4"><!--Codigo -->
               <div class="form-group">
-                <label for="input_codigo"  class="col-lg-6  control-label  label_codigo"><p class="text-label">Codigo:</p></label>
+                <label for="input_codigo"  class="col-lg-6  control-label  label_codigo"><p class="text-label">
+                Codigo del usuario<br>que te presenta:</p></label>
                 <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
                    <input type="text" class="form-control" id="input_codigo">
                 </div>
@@ -163,71 +164,43 @@
 
   <!--colunma  contiene => genero , municipios -->
       <div class="col-lg-4 col-md-4 col-sm-4" id="columna-3">
-       <div class="col-lg-12 col-md-12 col-sm-12">
 
+      <div id="mes_dia">
+       <div class="col-lg-12 col-md-12 col-sm-12">
          <div class="col-lg-8 col-md-8 col-sm-8"><!-- Mes -->
          <div class="form-group campos-cedu-ciudadana">
             <label for="mes"  class="col-lg-2  control-label label-mes"><p class="text-label ">Mes:</p></label>
             <div class="col-lg-10 cont-input">
                 <select  class="form-control " id="mes">
-                  <option value=" ">ENERO</option>
-                  <option value=" ">FEBRERO</option>
-                  <option value=" ">MARZO</option>
-                  <option value=" ">ABRIL</option>
-                  <option value=" ">MAYO</option>
-                  <option value=" ">JUNIO</option>
-                  <option value=" ">JULIO</option>
-                  <option value=" ">AGOSTO</option>
-                  <option value=" ">SEPTIEMBRE</option>
-                  <option value=" ">OCTUBRE</option>
-                  <option value=" ">NOVIEMBRE</option>
-                  <option value=" ">DICIEMBRE</option>
+                  <option value="1">ENERO</option>
+                  <option value="2">FEBRERO</option>
+                  <option value="3">MARZO</option>
+                  <option value="4">ABRIL</option>
+                  <option value="5">MAYO</option>
+                  <option value="6">JUNIO</option>
+                  <option value="7">JULIO</option>
+                  <option value="8">AGOSTO</option>
+                  <option value="9">SEPTIEMBRE</option>
+                  <option value="10">OCTUBRE</option>
+                  <option value="11">NOVIEMBRE</option>
+                  <option value="12">DICIEMBRE</option>
                 </select>
             </div>
             </div>
           </div>
-
-
              <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="form-group campos-cedu-ciudadana">
               <label for="dia"  class="col-lg-2  control-label label-dia"><p class="text-label ">Dia:</p></label>
               <div class="col-lg-10 cont-input">
                 <select  class="form-control  select-dia" id="dia">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                    <option value="">6</option>
-                    <option value="">7</option>
-                    <option value="">8</option>
-                    <option value="">9</option>
-                    <option value="">10</option>
-                    <option value="">11</option>
-                    <option value="">12</option>
-                    <option value="">13</option>
-                    <option value="">14</option>
-                    <option value="">15</option>
-                    <option value="">16</option>
-                    <option value="">17</option>
-                    <option value="">18</option>
-                    <option value="">19</option>
-                    <option value="">20</option>
-                    <option value="">21</option>
-                    <option value="">22</option>
-                    <option value="">23</option>
-                    <option value="">24</option>
-                    <option value="">25</option>
-                    <option value="">26</option>
-                    <option value="">27</option>
-                    <option value="">28</option>
-                    <option value="">29</option>
-                    <option value="">30</option>
-                    <option value="">31</option>
+                    <?php for($i=1;$i<=31;$i++) : ;?>
+                          <option value="<?= $i ;?>"><?= $i ;?></option>
+                    <?php endfor ;?>
                 </select>
               </div>
               </div>
              </div>
+       </div>
        </div>
 
        <div class="form-group seleccion-genero campos-cedu-ciudadana"><!--Género -->

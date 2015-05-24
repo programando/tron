@@ -148,9 +148,9 @@
 
                 <tr>
                    <td class="text-right"> <strong>REGISTRARME EN EL PLAN:</strong> </td>
-                   <td class="text-center"> <button type="button" id="btn_plan1" class="btn-registrar-en-plan">COMPRADOR <br> OCASIONAL</button> </td>
-                   <td class="text-center"> <button type="button" id="btn_plan2" class="btn-registrar-en-plan">CLIENTE <br> TRON</button> </td>
-                   <td class="text-center"> <button type="button" id="btn_plan3" class="btn-registrar-en-plan">EMPRESARIO <br> TRON</button> </td>
+                   <td class="text-center"> <button type="button" id="btn_plan1"  idplan ="1" class="btn-registrar-en-plan">COMPRADOR <br> OCASIONAL</button> </td>
+                   <td class="text-center"> <button type="button" id="btn_plan2"  idplan ="2"  class="btn-registrar-en-plan">CLIENTE <br> TRON</button> </td>
+                   <td class="text-center"> <button type="button" id="btn_plan3"  idplan ="3"  class="btn-registrar-en-plan">EMPRESARIO <br> TRON</button> </td>
                 </tr>
              </tbody><!--Cuerpo de la tabla -->
 
