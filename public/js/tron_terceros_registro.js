@@ -1,36 +1,61 @@
 
 //  Formulario de Registro PASO 1.
-    var $numero_nit      = $('#identificacion');
-    var $digito_dv       = $('#digitoverificacion');
-    var $confirmar_nit   = $('#identificacion_confirm');
-    var $confi_digito_dv = $('#digitoverificacion_confirm');
-    var $razon_social    = $('#razonsocial');
-    var $documento       = $('#identificacion_nat');
-    var $nombre          = $('#pnombre');
-    var $confi_documento = $('#identificacion_nat_confirm');
-    var $apellido        = $('#papellido');
-    var $dirrecion       = $('#direccion');
-    var $barrio          = $('#barrio');
-    var $e_mail          = $('#email');
-    var $celular         = $('#celular1');
-    var $confi_e_mail    = $('#email_confirm');
-    var $Formulario_Paso_1_Validado = true;
-    var $Tipo_Plan_Seleccionado = 0;
-
 
     var Establecer_Tipo_Plan = function(Parametros){
-    $.ajax({
-          data:  Parametros,
-          dataType: 'json',
-          url:      '/tron/terceros/Registro_Establecer_Tipo_Plan_Seleccionado/',
-          type:     'post',
-     success:  function (respuesta)
-       {
-          $Tipo_Plan_Seleccionado = respuesta.idtipo_plan_compras
-       }
-       });
+        $.ajax({
+              data:  Parametros,
+              dataType: 'json',
+              url:      '/tron/terceros/Registro_Establecer_Tipo_Plan_Seleccionado/',
+              type:     'post',
+         success:  function (respuesta)
+           {
+              $Tipo_Plan_Seleccionado = respuesta.idtipo_plan_compras
+           }
+           });
+    }
+
+    var Re_Establecer_Tipo_Plan = function(){
+        $.ajax({
+            data: {} ,
+            dataType: 'json',
+            url:      '/tron/terceros/Registro_Re_Establecer_Tercero_Presenta/',
+            type:     'post',
+            success:  function (respuesta) { }
+         });
 
     }
+
+  var Buscar_Codigo_Usuario = function(codigousuario){
+           $.ajax({
+              data:  {'codigousuario':codigousuario},
+              dataType: 'json',
+              url:      '/tron/terceros/Registro_Buscar_Por_Codigo/',
+              type:     'post',
+         success:  function (respuesta)
+           {
+              $Respuesta = respuesta.Respuesta;
+              if ($Respuesta == 'CODIGO_NO_EXISTE'){
+                new Messi('Código de usuario no registrado en nuestra base de datos.<br>Por favor corrija los datos e inténtelo nuevamente.',
+                         {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+                    Re_Establecer_Tipo_Plan();
+              }else{
+                    new Messi('Confirma que desea vincularse a la red del siguiente usuario :<br> <br><strong>' + respuesta.nombre_usuario + '</strong><br>        Código de Usuario : <strong>' + respuesta.codigousuario + '</strong><br>',
+                    {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+                    buttons: [
+                              {id: 0, label: 'La información de Usuario es Correcta', val: 'Y',class: 'btn-success'},
+                              {id: 1, label: 'Opps !!!, Espere !!! deseo corregir', val: 'N', class: 'btn-danger'}
+                              ],
+                    callback: function(val) {
+                      if (val=='N')
+                      {
+                        $('#input_codigo').val('');
+                        Re_Establecer_Tipo_Plan();
+                      }
+                    }});
+              }
+           }
+           });
+  }
 
 // Tooltips => Paso 1
   function simple_tooltip(target_items, name){
@@ -85,13 +110,19 @@ $('#idtpidentificacion').on('change',function(){
 $('#identificacion_nat').on('blur',function(){
     var $identificacion = $('#identificacion_nat').val();
     $.ajax({
-          data:  {'identificacion':$identificacion },
+          data:  {'identificacion':$identificacion},
           dataType: 'json',
           url:      '/tron/terceros/Buscar_Por_Identificacion/',
           type:     'post',
      success:  function (respuesta)
        {
-          alert(respuesta);
+          if (respuesta.Respuesta == 'SI_EXISTE'){
+                  new Messi('La identificación digitada ya se encuentra registrada en nuestra base de datos.',
+                    {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                      buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+                  $('#identificacion_nat').val('');
+            $Formulario_Validado = false;
+          }
        }
        });
 });
@@ -104,42 +135,127 @@ $('#identificacion_nat').on('focus',function(){
   $(this).get(0).type='text';
 });
 
-
 $('#identificacion_nat_confirm').on('focus',function(){
   $(this).get(0).type='text';
 });
+
 
 /// VALIDAR QUE LAS IDENTIFICACION SEAN IGUALES
 $('#identificacion_nat_confirm').on('focusout',function(){
   $(this).get(0).type ='password';
   $identificacion     = $('#identificacion_nat').val();
   $confirmacion       = $('#identificacion_nat_confirm').val();
-  if ($identificacion != $confirmacion  )
+  if ($identificacion != $confirmacion && ($identificacion.length>0 && $confirmacion.length>0 ) )
   {
-    //Mensaje_Sistema('Los números de documento deben ser iguales !.')
     new Messi('Los números de identificación deben ser iguales.',
-        {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim warning', buttons: [{id: 0, label: 'Cerrar', val: 'X'}]});
-    $Formulario_Paso_1_Validado = false;
+        {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+    $Formulario_Validado = false;
     $('#identificacion_nat').val('');
     $('#identificacion_nat_confirm').val('');
   }
 });
 
 
-
-
+$('#input_codigo').on('blur',function(){
+    $input_codigo = $('#input_codigo');
+    $codigousuario = $.trim($input_codigo.val().toUpperCase()) ;
+    $input_codigo.val($codigousuario);
+    if ($codigousuario.length == 0){
+        new Messi('Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br>',
+            {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+            buttons: [
+                      {id: 0, label: 'Es correcto, nadie me presenta', val: 'Y',class: 'btn-success'},
+                      {id: 1, label: 'Opps !!!, Espere !!! deseo corregir', val: 'N', class: 'btn-danger'}
+                      ],
+            callback: function(val) {
+              if (val=='N')
+              {
+                Re_Establecer_Tipo_Plan();
+              }
+            }});
+    }else{
+      Buscar_Codigo_Usuario($codigousuario);
+    }
+});
 
 // TABS = Registro ( paso 1 , paso 2).
-
 $('.rgts_pasos').hide();
 $('.rgts_pasos:first').show();
+$('.li_pasos_registro:first').css('background','#003E90');
 
+
+/// VALIDACIONES EMAIL
+$('#email').on('focusout',function(){
+  $(this).get(0).type='password';
+});
+
+$('#email').on('focus',function(){
+  $(this).get(0).type='text';
+});
+
+$('#email_confirm').on('focus',function(){
+  $(this).get(0).type='text';
+});
+$('#email_confirm').on('focusout',function(){
+   $(this).get(0).type ='password';
+   $email              = $('#email').val();
+   $email_confirm      = $('#email_confirm').val();
+   if ($email.length >0 &&  $email_confirm.length >0 )
+   {
+      if ($email != $email_confirm  )
+      {
+          new Messi('Los correos electrónicos deben ser iguales.',
+              {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+          $Formulario_Validado = false;
+          $('#email').val('');
+          $('#email_confirm').val('');
+      }
+   }
+});
+
+//BOTON FINALIZAR
+$('#btn_finalizar').on('click',function(){
+    var $input_codigo       = $('#input_codigo');
+    var $idtpidentificacion = $('#idtpidentificacion');
+    var $identificacion     = $('#identificacion');
+    var $digitoverificacion = $('#digitoverificacion');
+    var $razonsocial        = $('#razonsocial');
+    var $identificacion_nat = $('#identificacion_nat');
+    var $pnombre            = $('#pnombre');
+    var $papellido          = $('#papellido');
+    var $mes                = $('#mes');
+    var $dia                = $('#dia');
+    var $genero             = $('#genero');
+    var $idmcipio           = $('#idmcipio');
+    var $dirrecion          = $('#direccion');
+    var $barrio             = $('#barrio');
+    var $e_mail             = $('#email');
+    var $celular1           = $('#celular1');
+    // TRABAJO CON DATOS DE PERSONAS NATURALES
+    if ( $idtpidentificacion.val()== 13 || $idtpidentificacion.val() == 42 )
+    {
+
+    }
+
+
+});
+
+
+
+
+
+//
+/*
 $('#li_paso_2').on('click',function(){
+
      $('#rgts_paso_1').slideUp('200');
      $('#rgts_paso_2').slideDown('200');
      $('.li_pasos_registro').css('background','#85ABDD');
      $(this).css('background','#003E90');
      $('.barra_right').css('height','437px');
+     $('#input_codigo').focus();
 });
 
 $('#li_paso_1').on('click',function(){
@@ -148,11 +264,11 @@ $('#li_paso_1').on('click',function(){
      $('.li_pasos_registro').css('background','#85ABDD');
      $(this).css('background','#003E90');
      $('.barra_right').css('height','580px');
+     alert("paso1");
 });
 
-
+*/
 // *** Pasar al siguente paso por = button***
-$('.li_pasos_registro:first').css('background','#003E90');
 
 //  #btn_plan1 = Compreador Ocasional
 //  #btn_plan2 = Cliente Tron
@@ -169,6 +285,7 @@ $('.li_pasos_registro:first').css('background','#003E90');
      $Parametros = {'idtipo_plan_compras':$IdBoton};
      Establecer_Tipo_Plan($Parametros)
      $('#mes_dia').hide();
+     $('#input_codigo').focus();
 
   });
 
@@ -182,6 +299,7 @@ $('.li_pasos_registro:first').css('background','#003E90');
      $Parametros = {'idtipo_plan_compras':$IdBoton};
      Establecer_Tipo_Plan($Parametros)
      $('#mes_dia').hide();
+     $('#input_codigo').focus();
 
   });
 
@@ -195,6 +313,7 @@ $('.li_pasos_registro:first').css('background','#003E90');
      $Parametros = {'idtipo_plan_compras':$IdBoton};
      Establecer_Tipo_Plan($Parametros)
      $('#mes_dia').show();
+     $('#input_codigo').focus();
 
 
   });

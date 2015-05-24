@@ -3,8 +3,6 @@
     Js          => Carpeta Js  => tron_terceros_registro.js
   -->
 
- <div style ="display:none;" id="elemento_a_mostrar">Los número de identificación deben ser iguales </div>
-
  <!-- Tooltip *** Mensaje del codigo *** -->
  <div class="ventana_modal_codigo">
     <?php include (APPLICATION_SECTIONS . 'registro_tooltip_codigo.php');?>
@@ -18,9 +16,9 @@
           <div class="col-lg-4 col-md-4 col-sm-4"><!--Codigo -->
               <div class="form-group">
                 <label for="input_codigo"  class="col-lg-6  control-label  label_codigo"><p class="text-label">
-                Codigo del usuario<br>que te presenta:</p></label>
+                Código del usuario<br>que te presenta en la Red:</p></label>
                 <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
-                   <input type="text" class="form-control" id="input_codigo">
+                   <input type="text" class="form-control" id="input_codigo" tabindex="1" />
                 </div>
               </div>
           </div><!--Codigo -->
@@ -107,7 +105,7 @@
          <div class="form-group  campos-cedu-ciudadana"><!--Numero-documento -->
            <label for="identificacion_nat"  class="col-lg-6 control-label"><p class="text-label">Número Documento: </p></label>
            <div class="col-lg-6 ">
-             <input type="text" class="form-control input_campo_datos" id="identificacion_nat">
+             <input type="text" class="form-control input_campo_datos" id="identificacion_nat" tabindex="2">
            </div>
          </div><!--Numero-documento -->
        </div>
@@ -116,7 +114,7 @@
        <div class="form-group cedu-ciudad campos-cedu-ciudadana"><!--Nombres -->
         <label for="pnombre" class="col-lg-6  control-label"><p class="text-label ">Nombres:</p></label>
           <div class="col-lg-6 ">
-             <input type="text" class="form-control input_campo_datos" id="pnombre">
+             <input type="text" class="form-control input_campo_datos" id="pnombre" tabindex="6">
           </div>
        </div><!--Nombres -->
 
@@ -124,7 +122,7 @@
      <div class="form-group"><!--País residencia -->
        <label for="idpais" class="col-lg-6  control-label"><p class="text-label ">País residencia:</p></label>
        <div class="col-lg-6 ">
-         <select  class="form-control input_campo_datos" id="idpais">
+         <select  class="form-control input_campo_datos" id="idpais" tabindex="9">
            <option value="1">Colombia</option>
          </select>
        </div>
@@ -139,7 +137,7 @@
          <div class="form-group campos-cedu-ciudadana"><!--Confirmar -->
            <label for="identificacion_nat_confirm" class="col-lg-4 control-label" ><p class="text-label ">Confirmar:</p></label>
            <div class="col-lg-8 cont-input">
-            <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm">
+            <input type="text" class="form-control input_campo_datos" placeholder="Número Documento" id="identificacion_nat_confirm" tabindex="3">
           </div>
         </div><!--Confirmar -->
       </div>
@@ -148,14 +146,14 @@
       <div class="form-group campos-cedu-ciudadana"><!--Apellidos -->
          <label for="papellido" class="col-lg-4  control-label"><p class="text-label ">Apellidos:</p></label>
          <div class="col-lg-8 cont-input">
-          <input type="text" class="form-control input_campo_datos" id="papellido">
+          <input type="text" class="form-control input_campo_datos" id="papellido" tabindex="7">
         </div>
       </div><!--Apellidos -->
 
 
       <div class="form-group"><!--Departamento -->
         <label for="iddpto" class="col-lg-4  control-label"><p class="text-label ">Departamento:</p></label>
-        <div class="col-lg-8 cont-input">
+        <div class="col-lg-8 cont-input" tabindex="9">
           <?php include (APPLICATION_SECTIONS . 'departamentos.php');?>
         </div>
       </div><!--Departamento -->
@@ -171,7 +169,7 @@
          <div class="form-group campos-cedu-ciudadana">
             <label for="mes"  class="col-lg-2  control-label label-mes"><p class="text-label ">Mes:</p></label>
             <div class="col-lg-10 cont-input">
-                <select  class="form-control " id="mes">
+                <select  class="form-control " id="mes" tabindex="4">
                   <option value="1">ENERO</option>
                   <option value="2">FEBRERO</option>
                   <option value="3">MARZO</option>
@@ -191,7 +189,7 @@
              <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="form-group campos-cedu-ciudadana">
               <label for="dia"  class="col-lg-2  control-label label-dia"><p class="text-label ">Dia:</p></label>
-              <div class="col-lg-10 cont-input">
+              <div class="col-lg-10 cont-input" tabindex ="5">
                 <select  class="form-control  select-dia" id="dia">
                     <?php for($i=1;$i<=31;$i++) : ;?>
                           <option value="<?= $i ;?>"><?= $i ;?></option>
@@ -206,7 +204,7 @@
        <div class="form-group seleccion-genero campos-cedu-ciudadana"><!--Género -->
          <label for="genero" class="col-lg-4  control-label"><p class="text-label ">Género:</p></label>
          <div class="col-lg-8 cont-input">
-          <select  class="form-control input_campo_datos" id="genero">
+          <select  class="form-control input_campo_datos" id="genero" tabindex="8">
             <option value="1">Masculino</option>
             <option value="0">Femenino</option>
           </select>
@@ -215,10 +213,10 @@
 
 
       <div class="form-group"><!--Municipio -->
-       <label for="idmcipio" class="col-lg-4  control-label"><p class="text-label ">Municipio</p></label>
+       <label for="idmcipio" class="col-lg-4  control-label"><p class="text-label ">Municipio :</p></label>
        <div class="col-lg-8 cont-input">
         <select class="form-control input_campo_datos" id="idmcipio">
-          <option value="0">Seleccione una ciudad o municipio</option>
+          <option value="0" tabindex="11">Seleccione una ciudad o municipio</option>
         </select>
        </div>
       </div><!--Municipio -->
@@ -232,7 +230,7 @@
    <div class="form-group">
      <label for="direccion" class="col-lg-2 control-label"><p class="text-label ">Dirección residencia:</p></label>
      <div class="col-lg-10">
-      <input type="text" class="form-control input_campo_datos" id="direccion" value = "<?= Session::Get('direccion') ;?>">
+      <input type="text" class="form-control input_campo_datos" id="direccion" value = "" tabindex="12">
     </div>
   </div>
 </div><!--Dirección residencia -->
@@ -242,14 +240,14 @@
    <div class="form-group"><!-- Barrio-->
      <label for="barrio" class=" col-lg-4 control-label"><p class="text-label ">Barrio:</p></label>
      <div class=" col-lg-6">
-      <input type="text" class="form-control input_campo_datos input-col-6-7" id="barrio">
+      <input type="text" class="form-control input_campo_datos input-col-6-7" id="barrio" tabindex="13">
     </div>
    </div><!-- Barrio-->
 
   <div class="form-group"><!--Correo Electrónico -->
      <label for="email" class="col-lg-4 control-label"><p class="text-label ">Correo Electrónico:</p></label>
     <div class="col-lg-6">
-      <input type="email" class="form-control input_campo_datos input-col-6-7" id="email">
+      <input type="email" class="form-control input_campo_datos input-col-6-7" id="email" tabindex="15">
    </div>
 
 
@@ -265,7 +263,7 @@
  <div class="form-group"><!--Número Celular -->
    <label for="celular1" class="col-lg-6 control-label"><p class="text-label ">Número Celular:</p></label>
    <div class="col-lg-6 ">
-    <input type="text" class="form-control input_campo_datos" id="celular1">
+    <input type="text" class="form-control input_campo_datos" id="celular1" tabindex="14">
   </div>
 
 
@@ -276,7 +274,7 @@
 <div class="form-group"><!--Confirmar -->
  <label for="email_confirm" class="col-lg-6 control-label"><p class="text-label ">Confirmar:</p></label>
  <div class="col-lg-6 ">
-  <input type="text" class="form-control input_campo_datos input-col-6-7" id="email_confirm" placeholder="Correo Electrónico">
+  <input type="text" class="form-control input_campo_datos input-col-6-7" id="email_confirm"  tabindex="15" placeholder="Correo Electrónico">
 </div>
 
 
@@ -290,7 +288,9 @@
       <div class="col-lg-12">
            <div class="cont-btn-bottom"><!-- Cont -->
                 <button type="button" class="btn_volver" id="btn_paso_2_anterior">Anterior</button>
+                 <button type="button" class="btn_volver-" id="btn_finalizar">Finalizar Registro</button>
            </div><!-- Cont -->
+
       </div>
   </div>
  <!-- ====( Btn = Anterior - Siguiente )==== -->

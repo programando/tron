@@ -21,9 +21,9 @@ class TercerosController extends Controller
       $codigousuario  = General_Functions::Validar_Entrada('codigousuario','TEXT');
       $Registro       = $this->Terceros->Buscar_Por_Codigo($codigousuario);
       $Respuesta      = '';
-      Session::Set('idtercero_presenta',0);
-      Session::Set('nombre_usuario_presente','');
-      Session::Set('codigousuario_presenta','');
+
+      $this->Registro_Re_Establecer_Tercero_Presenta();
+
       if (!$Registro){
             $Respuesta ='CODIGO_NO_EXISTE';
             $Datos = compact('Respuesta');
@@ -39,9 +39,13 @@ class TercerosController extends Controller
         $Datos = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
       }
       echo json_encode($Datos,256);
-
     }
 
+      public function Registro_Re_Establecer_Tercero_Presenta(){
+          Session::Set('idtercero_presenta',0);
+          Session::Set('nombre_usuario_presente','');
+          Session::Set('codigousuario_presenta','');
+      }
     public function Registro_Establecer_Tipo_Plan_Seleccionado(){
       /** MAYO 24 de 2015
        *      ESTABLECE EL TIPO PLAN DE COMPRAS EN EL REGISTRO DE DATOS INICIALES
@@ -369,77 +373,14 @@ class TercerosController extends Controller
      */
      $identificacion = General_Functions::Validar_Entrada('identificacion','TEXT');
      $Tercero        = $this->Terceros->Buscar_Por_Identificacion($identificacion);
-     Session::Set('direccion',$Tercero[0]['direccion'] );
+     if (!$Tercero){
+          $Respuesta ='NO_EXISTE';
+     }else{
+        $Respuesta ='SI_EXISTE';
+     }
 
-/*
-      Session::Set('idtercero',       $Tercero[0]['idtercero']);
-      Session::Set('idtpidentificacion',        $Tercero[0]['idtpidentificacion']);
-      Session::Set('identificacion',        $Tercero[0]['identificacion']);
-      Session::Set('digitoverificacion',        $Tercero[0]['digitoverificacion']);
-      Session::Set('pnombre',       $Tercero[0]['pnombre']);
-      Session::Set('papellido',       $Tercero[0]['papellido']);
-      Session::Set('razonsocial',       $Tercero[0]['razonsocial']);
-      Session::Set('genero',        $Tercero[0]['genero']);
-      Session::Set('dianacimiento',       $Tercero[0]['dianacimiento']);
-      Session::Set('mesnacimiento',       $Tercero[0]['mesnacimiento']);
-      Session::Set('passwordusuario',       $Tercero[0]['passwordusuario']);
-      Session::Set('direccion',       $Tercero[0]['direccion']);
-      Session::Set('barrio',        $Tercero[0]['barrio']);
-      Session::Set('contacto',        $Tercero[0]['contacto']);
-      Session::Set('telefono',        $Tercero[0]['telefono']);
-      Session::Set('celular1',        $Tercero[0]['celular1']);
-      Session::Set('email',       $Tercero[0]['email']);
-      Session::Set('idmcipio',        $Tercero[0]['idmcipio']);
-      Session::Set('codigousuario',       $Tercero[0]['codigousuario']);
-      Session::Set('codautorizacionmenoredad',        $Tercero[0]['codautorizacionmenoredad']);
-      Session::Set('codigoterceropresenta_inicial',       $Tercero[0]['codigoterceropresenta_inicial']);
-      Session::Set('codigoterceropresenta',       $Tercero[0]['codigoterceropresenta']);
-      Session::Set('idterceropresenta',       $Tercero[0]['idterceropresenta']);
-      Session::Set('fechahoraregistro',       $Tercero[0]['fechahoraregistro']);
-      Session::Set('registro_organizado',       $Tercero[0]['registro_organizado']);
-      Session::Set('param_tiene_compras',       $Tercero[0]['param_tiene_compras']);
-      Session::Set('registro_inactivo',       $Tercero[0]['registro_inactivo']);
-      Session::Set('param_confirmar_nuevos_amigos_x_email',       $Tercero[0]['param_confirmar_nuevos_amigos_x_email']);
-      Session::Set('param_acepto_pago_valor_transferencia',       $Tercero[0]['param_acepto_pago_valor_transferencia']);
-      Session::Set('valor_minimo_transferencia',        $Tercero[0]['valor_minimo_transferencia']);
-      Session::Set('param_idtpidentificacion_titular_cuenta',       $Tercero[0]['param_idtpidentificacion_titular_cuenta']);
-      Session::Set('param_identificacion_titular_cuenta',       $Tercero[0]['param_identificacion_titular_cuenta']);
-      Session::Set('param_nombre_titular_cuenta',       $Tercero[0]['param_nombre_titular_cuenta']);
-      Session::Set('param_idbanco_transferencias',        $Tercero[0]['param_idbanco_transferencias']);
-      Session::Set('param_nro_cuenta_transferencias',       $Tercero[0]['param_nro_cuenta_transferencias']);
-      Session::Set('param_tipo_cuenta_transferencias',        $Tercero[0]['param_tipo_cuenta_transferencias']);
-      Session::Set('param_idmcipio_transferencias',       $Tercero[0]['param_idmcipio_transferencias']);
-      Session::Set('param_acepto_retencion_comis_para_pago_pedidos',        $Tercero[0]['param_acepto_retencion_comis_para_pago_pedidos']);
-      Session::Set('param_valor_comisiones_para_pago_pedidos',        $Tercero[0]['param_valor_comisiones_para_pago_pedidos']);
-      Session::Set('cant_max_amigos_nivel_1',       $Tercero[0]['cant_max_amigos_nivel_1']);
-      Session::Set('cant_max_amigos_nivel_2',       $Tercero[0]['cant_max_amigos_nivel_2']);
-      Session::Set('cant_max_amigos_otros_niveles',       $Tercero[0]['cant_max_amigos_otros_niveles']);
-      Session::Set('sesion_amigo_activo',       $Tercero[0]['sesion_amigo_activo']);
-      Session::Set('mis_datos_son_privados',        $Tercero[0]['mis_datos_son_privados']);
-      Session::Set('pago_comisiones_efecty',        $Tercero[0]['pago_comisiones_efecty']);
-      Session::Set('pago_comisiones_cuenta_empresa',        $Tercero[0]['pago_comisiones_cuenta_empresa']);
-      Session::Set('pago_comisiones_transferencia',       $Tercero[0]['pago_comisiones_transferencia']);
-      Session::Set('pago_comisiones_caja',        $Tercero[0]['pago_comisiones_caja']);
-      Session::Set('idtppersona',       $Tercero[0]['idtppersona']);
-      Session::Set('regimen',       $Tercero[0]['regimen']);
-      Session::Set('declaro_renta',       $Tercero[0]['declaro_renta']);
-      Session::Set('nadie_presenta',        $Tercero[0]['nadie_presenta']);
-      Session::Set('id_pago_primer_pedido',       $Tercero[0]['id_pago_primer_pedido']);
-      Session::Set('fecha_hora_acepta_convenio',        $Tercero[0]['fecha_hora_acepta_convenio']);
-      Session::Set('fecha_pago_inscripcion',        $Tercero[0]['fecha_pago_inscripcion']);
-      Session::Set('no_correos_ley_1581_2012',        $Tercero[0]['no_correos_ley_1581_2012']);
-      Session::Set('idtipo_plan_compras',       $Tercero[0]['idtipo_plan_compras']);
-      Session::Set('idtipo_plan_compras_confirmado',        $Tercero[0]['idtipo_plan_compras_confirmado']);
-      Session::Set('otrosi_firmado',        $Tercero[0]['otrosi_firmado']);
-      Session::Set('fecha_otrosi_firmado',        $Tercero[0]['fecha_otrosi_firmado']);
-      Session::Set('kit_comprado',        $Tercero[0]['kit_comprado']);
-      Session::Set('inscripcion_pagada',        $Tercero[0]['inscripcion_pagada']);
-      Session::Set('recibo_promociones_email',        $Tercero[0]['recibo_promociones_email']);
-      Session::Set('recibo_promociones_celular',        $Tercero[0]['recibo_promociones_celular']);
-      Session::Set('empresario_provisional',        $Tercero[0]['empresario_provisional']);
-
-*/
-     echo json_encode($Tercero ,256);
+     $Datos = compact('Respuesta');
+     echo json_encode($Datos ,256);
 
     }
 

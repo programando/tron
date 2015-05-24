@@ -1,17 +1,14 @@
-
-
-    <h1 style="width:70%; margin:auto;">
    <?php if ( Session::Get('idformapago') == 1)  {
 
             if(isset($_GET["lapTransactionState"])){
                 Session::Set('pagado_online',0);
 
-                if($_GET["lapTransactionState"]  == "DECLINED") echo "Lo sentimos la transacción ha sido declinada o abandonada.";
-				if($_GET["lapTransactionState"]  == "APPROVED") echo "Su transacción se ha realizado con éxito, muchas gracias por su compra.";
-				if($_GET["lapTransactionState"]  == "ERROR") 	echo "Se ha presentado un error con el medio de pago externo.";
-				if($_GET["lapTransactionState"]  == "PENDING")  echo "La transacción se encuentra pendiente.";
-				if($_GET["lapTransactionState"]  == "EXPIRED")  echo "La transacción ha expirado.";
-				if($_GET["lapTransactionState"]  == "EXPIRED")  echo "La transacción expiró, por superar el tiempo límite de respuesta.";
+                if($_GET["lapTransactionState"]  == "DECLINED") $texto = "Lo sentimos la transacción ha sido declinada o abandonada.";
+				if($_GET["lapTransactionState"]  == "APPROVED") $texto = "Su transacción se ha realizado con éxito, muchas gracias por su compra.";
+				if($_GET["lapTransactionState"]  == "ERROR") 	$texto = "Se ha presentado un error con el medio de pago externo.";
+				if($_GET["lapTransactionState"]  == "PENDING")  $texto = "La transacción se encuentra pendiente.";
+				if($_GET["lapTransactionState"]  == "EXPIRED")  $texto = "La transacción ha expirado.";
+				if($_GET["lapTransactionState"]  == "EXPIRED")  $texto = "La transacción expiró, por superar el tiempo límite de respuesta.";
 
                 if($_GET["lapTransactionState"]  == "APPROVED")
                 {
@@ -21,4 +18,17 @@
             }
         }
     ?>
-    <h1>
+<br />
+<br />
+ <?php if (isset($texto))  :; ?>
+    <h1>    <?= $texto ;?> </h1>
+<?php endif ;?>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

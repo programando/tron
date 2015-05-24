@@ -108,7 +108,7 @@ class PedidosController extends Controller
 
     public function Forma_Pago_Pedido_Payu_Latam_Confirmacion()
     {
-      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_confirmacion');
+      $this->View->Mostrar_Vista('finalizar_pedido_pago_payu_confirmacion');
     }
 
     public function Forma_Pago_Pedido_Payu_Latam()

@@ -6,7 +6,17 @@
      $pnombre               = utf8_encode(Session::Get('nombre_cliente'));
      $email                 = utf8_encode(Session::Get('email'));
      $identificacion        = Session::Get('identificacion');
-     $signature             = md5 ("6u39nqhq8ftd0hlvnjfs66eh8c~".'500238~'.$numero_pedido ."~".$vr_total_pedido."~COP");
+     $signature             = md5 ("6u39nqhq8ftd0hlvnjfs66eh8c~500238~".$numero_pedido ."~".$vr_total_pedido."~COP");
+
+
+/*
+$file = fopen("c:/archivo.txt", "w");
+fwrite($file, $signature. '   SIGNATURE'. PHP_EOL);
+fwrite($file, $numero_pedido . '   NUMERO' . PHP_EOL);
+fwrite($file, $vr_total_pedido   . '  VR total del pedido' . PHP_EOL);
+fclose($file);
+*/
+
 
      $vr_devolucion         = $vr_total_pedido - $baseIva;
      $iva                   = $vr_total_pedido  - $baseIva;
@@ -39,7 +49,7 @@
 
 
    <input type="hidden" name="merchantId"           id="merchantId"         value="500238" />
-   <input type="hidden" name="referenceCode"        id="referenceCode"       value = "TestPayU<?=$numero_pedido;?>" />
+   <input type="hidden" name="referenceCode"        id="referenceCode"       value = "<?=$numero_pedido;?>" />
    <input type="hidden" name="signature"            id="signature"          value="<?= $signature?>">
    <input type="hidden" name="test"                 id="test"               value="1">
    <input type="hidden" name="buyerEmail"           id="buyerEmail"         value="jhonjamesmg@hotmail.com">
