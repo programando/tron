@@ -8,11 +8,11 @@
    <th class="text-center  titulos-tabla"><strong>Producto</strong> </th><!--Nombre del producto -->
    <th class="text-center  titulos-tabla"><strong>Presentación</strong></th>
    <th class="text-center  titulos-tabla"><strong>Cantidad</strong> </th><!--Cantidad -->
-  <?php if  ( ($cumple_condicion_cpras_tron_industial == TRUE && Session::Get('autenticado')== TRUE)) :?>
-     <th class="text-center  titulos-tabla"></th>
-  <?php endif ;?>
+
+
 
   <?php if  (Session::Get('autenticado')== TRUE)  :?>
+     <th class="text-center  titulos-tabla"></th>
      <th class="text-center  titulos-tabla"></th>
   <?php endif ;?>
 

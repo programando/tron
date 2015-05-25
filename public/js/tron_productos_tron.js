@@ -54,7 +54,6 @@ function Borrar_Producto_de_Carrito(Parametros)
      success:  function (resultado)
     	 {
     	 		Imprimir_Totales_Carrito_Header(resultado);
-    	 		$('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
     	 }
 					});
 }

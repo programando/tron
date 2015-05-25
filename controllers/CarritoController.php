@@ -206,6 +206,9 @@ class CarritoController extends Controller
       */
       $this->Iniciar_Procesos_Carro();
 
+      Session::Set('pv_tron_resumen',0);
+      Session::Set('pv_ocas_resumen',0);
+
       $IdProducto        = General_Functions::Validar_Entrada('IdProducto','NUM');
       $Cantidad          = General_Functions::Validar_Entrada('Cantidad','NUM');
       $i                 = 0;
@@ -488,6 +491,8 @@ class CarritoController extends Controller
       Session::Set('compra_otros_productos',0);
       Session::Set('compra_accesorios',0);
       Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
+      Session::Set('pv_tron_resumen',0);
+      Session::Set('pv_ocas_resumen',0);
 
       $Logueado                             = Session::Get('autenticado');
       $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
@@ -579,18 +584,15 @@ class CarritoController extends Controller
           }
         }
 
-        Session::Set('sub_total_pedido_Tron' ,  $sub_total_pedido_Tron);
-        Session::Set('sub_total_pedido_Otros' , $sub_total_pedido_Otros);
+        Session::Set('sub_total_pedido_Tron' ,  $sub_total_pedido_Tron + $pv_tron_resumen);
+        Session::Set('sub_total_pedido_Otros' , $sub_total_pedido_Otros +  $pv_ocas_resumen);
         Session::Set('CarritoTron',$CarritoTron);
         //
         Session::Set('pv_tron_resumen',$pv_tron_resumen);
         Session::Set('pv_ocas_resumen',$pv_ocas_resumen);
 
-
-
-
-
-        $this->SubTotal_Pedido_Amigos = $sub_total_pedido_Tron;
+        $this->SubTotal_Pedido_Amigos    = Session::Get('sub_total_pedido_Tron');
+        $this->SubTotal_Pedido_Ocasional = Session::Get('sub_total_pedido_Otros');
         $this->Cerrar_Procesos_Carro();
 
       }
