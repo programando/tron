@@ -47,6 +47,14 @@ $email.on('focus',function(){
   }
 });
 
+$telefono.on('focus',function(){
+  if ( $telefono.val() == 'Registre su telefono...') {
+     $telefono.css('background','white') ;
+     $telefono.css('color','black') ;
+     $telefono.val('');
+  }
+});
+
 $comentarios.on('focus',function(){
   if ( $comentarios.val() == 'Registre el comentario que desea enviarnos...') {
      $comentarios.css('background','white') ;
@@ -77,12 +85,20 @@ $btn_enviar.on('click',function(){
         $campos_validados= false;
    }
 
+   if ( $telefono.val()=='' ) {
+        $telefono.css('background','#FF3333') ;
+        $telefono.css('color','white') ;
+        $telefono.val('Registre su telefono...');
+        $campos_validados= false;
+   }
+
    if ( $comentarios.val()=='' ) {
         $comentarios.css('background','#FF3333') ;
         $comentarios.css('color','white') ;
         $comentarios.val('Registre el comentario que desea enviarnos...');
         $campos_validados= false;
    }
+
    if ( $campos_validados == true)
    {
 				$nombre_usuario = $nombre_usuario.val();

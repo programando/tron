@@ -243,38 +243,6 @@ $('#btn_finalizar').on('click',function(){
 });
 
 
-
-
-
-//
-/*
-$('#li_paso_2').on('click',function(){
-
-     $('#rgts_paso_1').slideUp('200');
-     $('#rgts_paso_2').slideDown('200');
-     $('.li_pasos_registro').css('background','#85ABDD');
-     $(this).css('background','#003E90');
-     $('.barra_right').css('height','437px');
-     $('#input_codigo').focus();
-});
-
-$('#li_paso_1').on('click',function(){
-     $('#rgts_paso_2').slideUp('200');
-     $('#rgts_paso_1').slideDown('200');
-     $('.li_pasos_registro').css('background','#85ABDD');
-     $(this).css('background','#003E90');
-     $('.barra_right').css('height','580px');
-     alert("paso1");
-});
-
-*/
-// *** Pasar al siguente paso por = button***
-
-//  #btn_plan1 = Compreador Ocasional
-//  #btn_plan2 = Cliente Tron
-//  #btn_plan3 = Empresario Tron
-//
-
   $('#btn_plan1').on('click',function(){
      $IdBoton = $(this).attr('idplan');
      $('#rgts_paso_1').slideUp('200');
@@ -286,6 +254,7 @@ $('#li_paso_1').on('click',function(){
      Establecer_Tipo_Plan($Parametros)
      $('#mes_dia').hide();
      $('#input_codigo').focus();
+     $(window).scrollTop(0);
 
   });
 
@@ -325,7 +294,6 @@ $('#li_paso_1').on('click',function(){
       $('.li_pasos_registro').css('background','#85ABDD');
       $('#li_paso_1').css('background','#003E90');
       $('.barra_right').css('height','580px');
-
   });
 
 

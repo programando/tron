@@ -4,7 +4,7 @@
    </div><!--Fin-Titulo-->
 
    <!--Cant , Precio , Borrar Inicio Cabezera Del Resumen-Pedido -->
-   <div class=" row">
+   <div class="row">
     <div class="fila-cant_precio_borrar">
       <div class="resumen-cant">   <p>Cant   </p> </div>
       <div class="resumen-precio"> <p>Precio </p> </div>
@@ -15,7 +15,7 @@
 
   <!--Informacion-Producto Acerca DE CANT , PRECIO , BORRAR -->
   <div class="resumen_tron">
-  <div class=" row">
+  <div class="row">
     <div class="datos_producto_seleccionado">
      <table class="tabla-cont-datos-porducto-seleccionado"><!--Datos Del Producto -->
       <tbody id ='resumen_pedido_productos'>
@@ -112,3 +112,4 @@
 
 
 </div><!--Fin-Contenedor Del Carrito-Resumen-Pedido -->
+
