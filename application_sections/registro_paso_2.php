@@ -16,7 +16,7 @@
           <div class="col-lg-4 col-md-4 col-sm-4"><!--Codigo -->
               <div class="form-group">
                 <label for="input_codigo"  class="col-lg-6  control-label  label_codigo"><p class="text-label">
-                Código del usuario<br>que te presenta en la Red:</p></label>
+                Código del usuario que te presenta en la Red:</p></label>
                 <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
                    <input type="text" class="form-control" id="input_codigo" tabindex="1" />
                 </div>
@@ -288,7 +288,7 @@
       <div class="col-lg-12">
            <div class="cont-btn-bottom"><!-- Cont -->
                 <button type="button" class="btn_volver" id="btn_paso_2_anterior">Anterior</button>
-                 <button type="button" class="btn_volver-" id="btn_finalizar">Finalizar Registro</button>
+                 <button type="button" class="btn_finalizar_registro" id="btn_finalizar">Finalizar Registro</button>
            </div><!-- Cont -->
 
       </div>
