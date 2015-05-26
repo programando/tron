@@ -1,7 +1,8 @@
 
 <tr>
   <td colspan="6" class="text-right">
-        <div class="cont-cupon"><!--Cupon de descuento -->
+  <!--
+        <div class="cont-cupon">
           <div class="form-horizontal">
             <label for="cupon" class="label-cupon text-label">Cupón de descuento:</label>
             <div>
@@ -9,8 +10,8 @@
             </div>
             <button type="button" class="btn-cupon">Aplicar</button>
           </div>
-        </div><!--Cupon de descuento -->
-
+        </div>
+    -->
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
         <!-- PUNTOS -->
         <?php if (isset($saldo_puntos_cantidad ) and $saldo_puntos_cantidad >0): ; ?>
