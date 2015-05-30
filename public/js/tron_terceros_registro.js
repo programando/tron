@@ -1,5 +1,89 @@
 
+
+/// VALIDACIONES
+   var $Texto ='';
+    var $input_codigo        = $('#input_codigo');
+    var $idtpidentificacion  = $('#idtpidentificacion');
+
+    var $identificacion      = $('#identificacion');
+    var $digitoverificacion  = $('#digitoverificacion');
+    var $razonsocial         = $('#razonsocial');
+
+    var $identificacion_nat  = $('#identificacion_nat');
+    var $identificacion_nat_confirm = $('#identificacion_nat_confirm');
+    var $pnombre             = $('#pnombre');
+    var $papellido           = $('#papellido');
+    var $mes                 = $('#mes');
+    var $dia                 = $('#dia');
+    var $genero              = $('#genero');
+
+    var $idmcipio            = $('#idmcipio');
+    var $dirrecion           = $('#direccion');
+    var $barrio              = $('#barrio');
+    var $e_mail              = $('#email');
+    var $email_confirm       = $('#email_confirm');
+    var $celular1            = $('#celular1');
+
+
+
+var Validar_Datos_Plan_Ocasional_Natural = function(){
+   $Texto =''
+
+  if (  $idtpidentificacion.val()  == "0" ){
+    $Texto = $Texto + 'Debe seleccionar el tipo de documento. <br>';
+  }
+  if ($.trim( $identificacion_nat.val()) == "" || $.trim($identificacion_nat_confirm.val()) == ""  ){
+    $Texto = $Texto + 'Debe registrar el número de documento y su confirmación. <br>';
+  }
+  if ($.trim( $pnombre.val()) == "" || $.trim( $papellido.val()) == "" ){
+    $Texto = $Texto + 'Debe registrar nombre y el apellido para identificar el registro. <br>';
+  }
+  if ($.trim( $genero.val()) == "" ){
+    $Texto = $Texto + 'Seleccione el género para identificar el registro. <br>';
+  }
+  if ($idmcipio.val()== '0' ){
+    $Texto = $Texto + 'Seleccione el departamento y ciudad en donde recide. <br>';
+  }
+  if ($.trim( $dirrecion.val()) == "" ){
+    $Texto = $Texto + 'Debe registrar la dirección de residencia. <br>';
+  }
+  if ($.trim( $barrio.val()) == "" ){
+    $Texto = $Texto + 'Debe registrar el barrio en donde recide. <br>';
+  }
+  if ($.trim( $celular1.val()) == "" ){
+    $Texto = $Texto + 'Registre un número de celular. <br>';
+  }
+  if ($.trim( $e_mail.val()) == "" ){
+    $Texto = $Texto + 'Debe registrar un correo electrónico y su confirmación. <br>';
+  }
+ /* if ($.trim($email_confirm.val()) == ""){
+    $Texto = $Texto + 'Debe registrar un correo electrónico y su confirmación. <br>';
+  }
+*/
+
+  if ( $Texto.length > 0 ){
+      return false;
+  }else{
+    return true;
+  }
+}
+
 //  Formulario de Registro PASO 1.
+
+    var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
+        $.ajax({
+              data:  Parametros,
+              dataType: 'json',
+              url:      '/tron/terceros/Registro_Plan_Ocasional_Natural/',
+              type:     'post',
+         success:  function (respuesta)
+           {
+                  alert(respuesta.Texto_Respuesta);
+           }
+           });
+    }
+
+
 
     var Establecer_Tipo_Plan = function(Parametros){
         $.ajax({
@@ -121,7 +205,7 @@ $('#identificacion_nat').on('blur',function(){
                     {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
                       buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
                   $('#identificacion_nat').val('');
-            $Formulario_Validado = false;
+
           }
        }
        });
@@ -150,13 +234,13 @@ $('#identificacion_nat_confirm').on('focusout',function(){
     new Messi('Los números de identificación deben ser iguales.',
         {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
                 buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
-    $Formulario_Validado = false;
+
     $('#identificacion_nat').val('');
     $('#identificacion_nat_confirm').val('');
   }
 });
 
-
+/*  PENDIENTE
 $('#input_codigo').on('blur',function(){
     $input_codigo = $('#input_codigo');
     $codigousuario = $.trim($input_codigo.val().toUpperCase()) ;
@@ -178,7 +262,7 @@ $('#input_codigo').on('blur',function(){
       Buscar_Codigo_Usuario($codigousuario);
     }
 });
-
+*/
 // TABS = Registro ( paso 1 , paso 2).
 $('.rgts_pasos').hide();
 $('.rgts_pasos:first').show();
@@ -208,7 +292,6 @@ $('#email_confirm').on('focusout',function(){
           new Messi('Los correos electrónicos deben ser iguales.',
               {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
                 buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
-          $Formulario_Validado = false;
           $('#email').val('');
           $('#email_confirm').val('');
       }
@@ -217,26 +300,45 @@ $('#email_confirm').on('focusout',function(){
 
 //BOTON FINALIZAR
 $('#btn_finalizar').on('click',function(){
-    var $input_codigo       = $('#input_codigo');
-    var $idtpidentificacion = $('#idtpidentificacion');
-    var $identificacion     = $('#identificacion');
-    var $digitoverificacion = $('#digitoverificacion');
-    var $razonsocial        = $('#razonsocial');
-    var $identificacion_nat = $('#identificacion_nat');
-    var $pnombre            = $('#pnombre');
-    var $papellido          = $('#papellido');
-    var $mes                = $('#mes');
-    var $dia                = $('#dia');
-    var $genero             = $('#genero');
-    var $idmcipio           = $('#idmcipio');
-    var $dirrecion          = $('#direccion');
-    var $barrio             = $('#barrio');
-    var $e_mail             = $('#email');
-    var $celular1           = $('#celular1');
+
+    var input_codigo        = $('#input_codigo').val();
+    var idtpidentificacion  = $('#idtpidentificacion').val();
+
+    var identificacion      = $('#identificacion').val();
+    var digitoverificacion  = $('#digitoverificacion').val();
+    var razonsocial         = $('#razonsocial').val();
+
+    var identificacion_nat  = $('#identificacion_nat').val();
+    var identificacion_nat_confirm = $('#identificacion_nat_confirm').val();
+    var pnombre             = $('#pnombre').val();
+    var papellido           = $('#papellido').val();
+
+    var genero              = $('#genero').val();
+
+    var idmcipio            = $('#idmcipio').val();
+    var dirrecion           = $('#direccion').val();
+    var barrio              = $('#barrio').val();
+    var e_mail              = $('#email').val();
+    var email_confirm       = $('#email_confirm').val();
+    var celular1            = $('#celular1').val();
+
+    var $Formulario_Validado = false;
+
     // TRABAJO CON DATOS DE PERSONAS NATURALES
     if ( $idtpidentificacion.val()== 13 || $idtpidentificacion.val() == 42 )
     {
+        $Formulario_Validado = Validar_Datos_Plan_Ocasional_Natural();
+        if ($Formulario_Validado  == false){
+             new Messi($Texto,
+              {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+        }else{
 
+          $Parametros={'idtpidentificacion':idtpidentificacion, 'identificacion':identificacion,
+                        'pnombre':pnombre, 'papellido':papellido,'genero':genero,'idmcipio':idmcipio,
+                        'dirrecion':dirrecion, 'barrio':barrio,'celular1':celular1,'e_mail':e_mail};
+          Grabar_Registro_Plan_Ocasional_Natural($Parametros);
+        }
     }
 
 
@@ -316,6 +418,7 @@ $('#iddpto').on('change',function(){
      success:  function (municipios)
        {
         $Municipios.empty();
+          $Municipios.append('<option value="0">' + 'SELECCIONE MUNICIPIO' + '</option>');
           for(var i = 0; i < municipios.length; i++)
           {
               $Municipios.append('<option value="' + municipios[i].idmcipio + '">' + municipios[i].nommcipio + '</option>');

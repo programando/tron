@@ -14,6 +14,130 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+
+    public function Registro_Plan_Ocasional_Natural() {
+      /** MAYO 30 2015
+       *      REALIZA REGISTRO DE DATOS DEL REGISTRO OCASIONAL PERSONA NATURAL
+       */
+      $Texto_Respuesta               = '';
+      $codigoterceropresenta         = Session::Get('codigousuario_presenta');
+      $codigoterceropresenta_inicial = $codigoterceropresenta;
+      $idterceropresenta             = 0 ;//Session::Get('idtercero_presenta');
+
+      $idtpidentificacion            = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
+      $identificacion                = General_Functions::Validar_Entrada('identificacion','NUM');
+      $pnombre                       = General_Functions::Validar_Entrada('pnombre','TEXT');
+      $papellido                     = General_Functions::Validar_Entrada('papellido','TEXT');
+      $genero                        = General_Functions::Validar_Entrada('genero','TEXT');
+      $idmcipio                      = General_Functions::Validar_Entrada('idmcipio','NUM');
+      $direccion                     = General_Functions::Validar_Entrada('dirrecion','TEXT');
+      $barrio                        = General_Functions::Validar_Entrada('barrio','TEXT');
+      $celular1                      = General_Functions::Validar_Entrada('celular1','NUM');
+      $e_mail                        = General_Functions::Validar_Entrada('e_mail','TEXT');
+      $es_e_mail                     = General_Functions::Validar_Entrada('e_mail','EMAIL');
+
+
+     if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
+          $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
+     }
+     if ( $idmcipio ==0 ){
+          $Texto_Respuesta =  $Texto_Respuesta . 'Debe seleccionar el municipio o ciudad en donde recide.<br>';
+     }
+     if ( strlen( $direccion)== 0  ){
+          $Texto_Respuesta =  $Texto_Respuesta . 'La dirección no puede quedar vacía.<br>';
+     }
+     if ( strlen( $barrio)== 0  ){
+          $Texto_Respuesta =  $Texto_Respuesta . 'Registre el barrio en donde reside.<br>';
+     }
+     if ( strlen( $celular1)== 0  ){
+          $Texto_Respuesta =  $Texto_Respuesta . 'Debe registrar un número de celular.<br>';
+     }
+     if ( $es_e_mail == FALSE ){
+         $Texto_Respuesta =  $Texto_Respuesta . 'La dirección de correo electrónico no tiene un formato válido.<br>';
+     }
+     if ( strlen( $Texto_Respuesta) == 0){
+          $Texto_Respuesta ='OK';
+     }
+
+    $codigousuario                                  = '';
+    $codautorizacionmenoredad                       = '';
+    $digitoverificacion                             = '';
+    $razonsocial                                    = '';
+    $dianacimiento                                  = '0';
+    $mesnacimiento                                  = '0';
+    $email                                          = $e_mail;
+    $passwordusuario                                = '';
+    $contacto                                       = '';
+    $telefono                                       = '';
+    $registroconfirmado                             = 1;
+    $fechahoraregistro                              = '';
+    $registro_organizado                            = 0;
+    $param_tiene_compras                            = 0;
+    $registro_inactivo                              = 0;
+    $param_confirmar_nuevos_amigos_x_email          = 1 ;
+    $param_acepto_pago_valor_transferencia          = 1;
+    $valor_minimo_transferencia                     = 0;            //**-------------------- REVISAR DESDE AQUI LO CAMPOS Y SUS VALORES POR DEFECTO
+    $param_idtpidentificacion_titular_cuenta        = 0;
+    $param_identificacion_titular_cuenta            = '';
+    $param_nombre_titular_cuenta                    = '';
+    $param_idbanco_transferencias                   = '0';
+    $param_nro_cuenta_transferencias                = '';
+    $param_tipo_cuenta_transferencias               = '';
+    $param_idmcipio_transferencias                  = 0;
+    $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
+    $param_valor_comisiones_para_pago_pedidos       = 0 ;
+    $cant_max_amigos_nivel_1                        = 0 ;
+    $cant_max_amigos_nivel_2                        = 0;
+    $cant_max_amigos_otros_niveles                  = 0;
+    $sesion_amigo_activo                            = 0;
+    $mis_datos_son_privados                         = 1 ;
+    $pago_comisiones_efecty                         = 0;
+    $pago_comisiones_cuenta_empresa                 = 0;
+    $pago_comisiones_transferencia                  = 0;
+    $pago_comisiones_caja                           = 0;
+    $idtppersona                                    = 1;
+    $regimen                                        = 0;
+    $declaro_renta                                  = 0;
+    $nadie_presenta                                 = 0;
+    $id_pago_primer_pedido                          = 0;
+    $fecha_hora_acepta_convenio                     = '';
+    $fecha_pago_inscripcion                         = '';
+    $no_correos_ley_1581_2012                       = 0;
+    $idtipo_plan_compras                            = 1 ;
+    $idtipo_plan_compras_confirmado                 = 0;
+    $otrosi_firmado                                 = 1 ;
+    $fecha_otrosi_firmado                           = '';
+    $kit_comprado                                   = 0;
+    $inscripcion_pagada                             = 0;
+    $recibo_promociones_email                       = 1 ;
+    $recibo_promociones_celular                     = 1 ;
+    $empresario_provisional                         = 0;
+    $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' ,
+                            'razonsocial' ,'genero' ,'dianacimiento' ,'mesnacimiento' ,'passwordusuario' ,
+                            'direccion' ,'barrio' ,'contacto' ,'telefono' ,'celular1' ,
+                            'email' ,'idmcipio' ,'codigousuario' ,'codautorizacionmenoredad' ,'codigoterceropresenta_inicial' ,
+                            'codigoterceropresenta' ,'idterceropresenta' ,'registroconfirmado' ,
+                            'fechahoraregistro' ,'registro_organizado' ,'param_tiene_compras' ,'registro_inactivo' ,'param_confirmar_nuevos_amigos_x_email' ,
+                            'param_acepto_pago_valor_transferencia' ,'valor_minimo_transferencia' ,'param_idtpidentificacion_titular_cuenta' ,'param_identificacion_titular_cuenta' ,'param_nombre_titular_cuenta' ,
+                            'param_idbanco_transferencias' ,'param_nro_cuenta_transferencias' ,'param_tipo_cuenta_transferencias' ,'param_idmcipio_transferencias' ,'param_acepto_retencion_comis_para_pago_pedidos' ,
+                            'param_valor_comisiones_para_pago_pedidos' ,'cant_max_amigos_nivel_1' ,'cant_max_amigos_nivel_2' ,'cant_max_amigos_otros_niveles' ,'sesion_amigo_activo' ,
+                            'mis_datos_son_privados' ,'pago_comisiones_efecty' ,'pago_comisiones_cuenta_empresa' ,'pago_comisiones_transferencia' ,'pago_comisiones_caja' ,
+                            'idtppersona' ,'regimen' ,'declaro_renta' ,'nadie_presenta' ,'id_pago_primer_pedido' ,'fecha_hora_acepta_convenio' ,'fecha_pago_inscripcion' ,'no_correos_ley_1581_2012' ,
+                            'idtipo_plan_compras' ,'idtipo_plan_compras_confirmado' ,'otrosi_firmado' ,'fecha_otrosi_firmado' ,'kit_comprado' ,
+                            'inscripcion_pagada' ,'recibo_promociones_email' ,'recibo_promociones_celular' ,'empresario_provisional' );
+
+     $Registro = $this->Terceros->Grabar($Datos_Terceros);
+
+     // GRABAR DATOS
+     // GRABAR DIRECCION
+     // ENVIAR CORREO
+     // REDIRECCIOAR USUARIO
+
+     $Datos = compact('Texto_Respuesta' );
+     echo json_encode($Datos,256);
+
+    }
+
     public function Registro_Buscar_Por_Codigo(){
       /** MAYO 24 DE 2015
        *      REALIZA LA BÚSQUEDA DE DATOS POR CÓDIGO DE USUARIO
@@ -33,7 +157,7 @@ class TercerosController extends Controller
         $codigousuario  = $Registro[0]['codigousuario'];
         //
         Session::Set('idtercero_presenta',$Registro[0]['idtercero']);
-        Session::Set('nombre_usuario_presente',$Registro[0]['nombre_usuario']);
+        Session::Set('nombre_usuario_presenta',$Registro[0]['nombre_usuario']);
         Session::Set('codigousuario_presenta',$Registro[0]['codigousuario']);
         $Respuesta ='CODIGO_SI_EXISTE';
         $Datos = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
@@ -43,7 +167,7 @@ class TercerosController extends Controller
 
       public function Registro_Re_Establecer_Tercero_Presenta(){
           Session::Set('idtercero_presenta',0);
-          Session::Set('nombre_usuario_presente','');
+          Session::Set('nombre_usuario_presenta','');
           Session::Set('codigousuario_presenta','');
       }
     public function Registro_Establecer_Tipo_Plan_Seleccionado(){
@@ -265,7 +389,7 @@ class TercerosController extends Controller
             Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
             Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
             Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-            Session::Set('vr_re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
+            Session::Set('re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
 
             Session::Set('codigos_usuario',                 $Usuarios);
             // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
@@ -303,7 +427,7 @@ class TercerosController extends Controller
         Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
         Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
         Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-        Session::Set('vr_re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
+        Session::Set('re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
         Session::Set('nommcipio_despacho',               ucfirst ($Registro[0]["nommcipio_despacho"]));
       }
 

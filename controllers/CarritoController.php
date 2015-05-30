@@ -11,6 +11,7 @@ class CarritoController extends Controller
      private $SubTotal_Pedido_Amigos    = 0;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
      private $SubTotal_Pedido_Ocasional = 0;
      private $SubTotal_Pedido_Real      = 0;
+     private $SubTotal_Aplica_Recaudo   = 0;
      private $Vr_Fletes                 = 0;
      private $Presupuesto_Fletes        = 0;
      private $Vr_Recaudo                = 0;
@@ -67,11 +68,10 @@ class CarritoController extends Controller
 
 
 
-    public function Finalizar_Pedido_Forma_Pago()
-    {
-      $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
-      $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
-      $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
+    public function Finalizar_Pedido_Forma_Pago()  {
+        $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
+        $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
+        $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
     }
 
 
@@ -477,14 +477,15 @@ class CarritoController extends Controller
     { /** MARZO 20 DE 2015
       *     DETERMINA EL PRECIO A DAR POR LA COMPRA ACTUAL TENIENDO EN CUENTA LOS MÍNIMOS DE COMPRA PARA PRODUCTOS TRON
       */
-      $CarritoTron                = array();
-      $precio_unitario_producto   = 0;
-      $precio_total_producto      = 0;
-      $sub_total_pedido_Tron      = 0;
-      $sub_total_pedido_Otros     = 0;
-      $this->SubTotal_Pedido_Real = 0 ;
-      $this->Presupuesto_Fletes   = 0;
-      $this->Vr_Base_Iva          = 0;
+      $CarritoTron                   = array();
+      $precio_unitario_producto      = 0;
+      $precio_total_producto         = 0;
+      $sub_total_pedido_Tron         = 0;
+      $sub_total_pedido_Otros        = 0;
+      $this->SubTotal_Pedido_Real    = 0 ;
+      $this->SubTotal_Aplica_Recaudo = 0;
+      $this->Presupuesto_Fletes      = 0;
+      $this->Vr_Base_Iva             = 0;
 
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0);
@@ -557,6 +558,11 @@ class CarritoController extends Controller
           $this->Datos_Carro[$i]['precio_total_produc_pedido']    = $precio_unitario_producto * $cantidad;
           $base_iva                                               = $this->Datos_Carro[$i]['precio_total_produc_pedido'] / $porciento_iva;
           $this->SubTotal_Pedido_Real                             = $this->SubTotal_Pedido_Real + $precio_unitario_producto *$cantidad;
+
+          if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
+            $this->SubTotal_Aplica_Recaudo                          = $this->SubTotal_Aplica_Recaudo + $precio_unitario_producto *$cantidad;
+          }
+
           $sub_total_pedido_Tron                                  = $sub_total_pedido_Tron  + $pv_tron * $cantidad  ;
           $this->Datos_Carro[$i]['sub_total_pedido_Tron']         = $sub_total_pedido_Tron;
 
@@ -699,12 +705,27 @@ class CarritoController extends Controller
 
     }
 
+    public function Encontrar_Mejor_Flete_Depurar(){
+     /**  MAYO 30 DE 2015
+       *        BORRA DEL ARRAY DE FLETES, LOS QUE SEAN IGUALES A CERO
+       */
+     $i                                = 0;
+      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+      foreach ($Fletes_Cobrados_Transportadoras as $Fletes) {
+         if ($Fletes['valor_flete'] == 0 ) {
+              array_splice ($Fletes_Cobrados_Transportadoras , $i, 1);
+           }
+           $i++;
+        }
+       Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+    }
 
 
     public function Encontrar_Mejor_Flete()
       {/**  MARZO 12 DE 2015
       *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
       */
+      $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
       $i                               = 0;
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
       $Asignar_Flete                   = TRUE;
@@ -712,12 +733,15 @@ class CarritoController extends Controller
 
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
       {
-        if ($Fletes['valor_flete'] >0 )
+
+        if ($Fletes['valor_flete'] > 0 )
         {
+
             if ($Asignar_Flete == TRUE)
             {
               $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
               $Asignar_Flete = FALSE;
+
             }
             if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete'] )
             {
@@ -819,6 +843,11 @@ class CarritoController extends Controller
        */
         $subsidio_flete = Session::Get('presupuesto_flete_otros');
         $flete_real     = Session::Get('flete_cobrado_otros');
+        $sub_total_pedido_otros  = $this->SubTotal_Aplica_Recaudo;
+        if ( $sub_total_pedido_otros  == 0){
+            $this->Vr_Recaudo = 0;
+            return ;
+        }
 
         $this->Vr_Recaudo        = 0;
         if ( $aplica_vr_recaudo == FALSE)  {
@@ -830,7 +859,7 @@ class CarritoController extends Controller
         $this->PayuLatam_Valor_Adicional = $Parametros[0]['py_vr_adicional'];
 
 
-        $sub_total_pedido_otros  = $this->SubTotal_Pedido_Real;
+
 
         $Recaudo_A = $sub_total_pedido_otros  + $flete_real - $subsidio_flete ;
         $Recaudo_A  = $Recaudo_A  * $this->PayuLatam_Recaudo;

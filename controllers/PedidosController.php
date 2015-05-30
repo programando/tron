@@ -111,19 +111,14 @@ class PedidosController extends Controller
       $this->View->Mostrar_Vista('finalizar_pedido_pago_payu_confirmacion');
     }
 
-    public function Forma_Pago_Pedido_Payu_Latam()
-    {/**
+    public function Forma_Pago_Pedido_Payu_Latam() {/**
      * MAYO 01 DE 2015
      *      ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
      */
       $IdFormaPago         = 1;  // PAYU LATAM
       $IdPedido            = Session::Get('idpedido_temporal');
       Session::Set('idformapago',$IdFormaPago);
-      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam_prueba');
+      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
     }
-
-
-
-
 }
 ?>

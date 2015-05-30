@@ -50,7 +50,7 @@
 										break;
 
 									case 'TEXT':
-										$Clave_Recibida = trim(htmlspecialchars($Clave_Recibida, ENT_QUOTES));
+										$Clave_Recibida = trim(htmlspecialchars(strtoupper( $Clave_Recibida), ENT_QUOTES));
 
 										break;
 
@@ -69,7 +69,6 @@
 										 $Clave_Recibida =  date('Y-m-d',$Clave_Recibida);
 										 break;
 									case 'FECHA-HORA':
-											//$Clave_Recibida = str_replace('/', '-', $Clave_Recibida);
 											$valores          =  explode("/", $Clave_Recibida);
 											$anio             = substr($valores[2], 0,4);
 											$horas            = substr($valores[2], 5,2).':';

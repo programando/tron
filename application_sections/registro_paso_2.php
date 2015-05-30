@@ -160,7 +160,7 @@
     </div><!--Columan Contine => Confirmar , apellidos , departamento -->
 
 
-  <!--colunma  contiene => genero , municipios -->
+
       <div class="col-lg-4 col-md-4 col-sm-4" id="columna-3">
 
       <div id="mes_dia">
@@ -205,6 +205,7 @@
          <label for="genero" class="col-lg-4  control-label"><p class="text-label ">Género:</p></label>
          <div class="col-lg-8 cont-input">
           <select  class="form-control input_campo_datos" id="genero" tabindex="8">
+            <option value="">Seleccione...</option>
             <option value="1">Masculino</option>
             <option value="0">Femenino</option>
           </select>
