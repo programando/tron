@@ -40,7 +40,7 @@
          $RutaTemplate = ROOT .  'views' . DS . 'template.phtml';
          $RutaFooter   = ROOT .  'views' . DS . 'footer.phtml';
 
-         Debug::Mostrar($RutaView );
+         //Debug::Mostrar($RutaView );
 
              if(is_readable($RutaView))
             {
@@ -53,8 +53,8 @@
 
             }
             else {
-                //throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
-              Debug::Mostrar($RutaView );
+                throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
+              //Debug::Mostrar($RutaView );
             }
 
           }
