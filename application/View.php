@@ -40,7 +40,7 @@
          $RutaTemplate = ROOT .  'views' . DS . 'template.phtml';
          $RutaFooter   = ROOT .  'views' . DS . 'footer.phtml';
 
-         //Debug::Mostrar($RutaView );
+         Debug::Mostrar($RutaView );
 
              if(is_readable($RutaView))
             {
