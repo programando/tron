@@ -558,7 +558,7 @@ class CarritoController extends Controller
 
           if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
             $this->SubTotal_Aplica_Recaudo                          = $this->SubTotal_Aplica_Recaudo + $precio_unitario_producto *$cantidad;
-            $this->Valor_Declarado  =     $this->Valor_Declarado  + $Productos['cmv'] * $cantidad ;
+            $this->Valor_Declarado  =     $this->Valor_Declarado  + ($this->Datos_Carro[$i]['cmv'] * $cantidad );
           }
           if ( $id_categoria_producto == 6 ){
               $this->Valor_Declarado  =    $this->Valor_Declarado + $this->Datos_Carro[$i]['precio_total_produc_pedido'] / 2 ;
