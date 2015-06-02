@@ -21,7 +21,7 @@
           </div>
         </div>
 
-
+<!-- Menu -->
         <nav id="menu" class="navbar navbar-default eee" role="navigation">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"

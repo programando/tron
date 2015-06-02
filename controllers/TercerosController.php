@@ -15,6 +15,13 @@ class TercerosController extends Controller
     public function Index() { }
 
 
+   //  pagina activacion mi cuenta
+   public function activacion_mi_cuenta()
+    {
+        $this->View->SetCss(array("tron_activacion_mi_cuenta"));
+        $this->View->Mostrar_Vista("activacion_mi_cuenta");
+    }
+
     public function Registro_Plan_Ocasional_Natural() {
       /** MAYO 30 2015
        *      REALIZA REGISTRO DE DATOS DEL REGISTRO OCASIONAL PERSONA NATURAL

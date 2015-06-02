@@ -3,12 +3,18 @@
               <div class="row" id="personal"><!-- INFORMACION SOBRE CUENTAS-->
 
                 <p class="text-right">
+
+                  <!-- Bienvenido : usuario -->
+                  <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
+                      <strong>Bienvenido :</strong> Jhon James Montaño
+                  </a>
                   <a href="#myModal" class="ing" data-toggle="modal" data-target="#myModal">
                     <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
                   </a>
                   <a href="<?=BASE_URL ;?>terceros/registro" class="rgs">
                      <span class="glyphicon glyphicon-list-alt"></span> Registrarme
                   </a>
+
                 </p>
 
               </div><!-- FINAL DE INFORMACION SOBRE CUENTAS--  >

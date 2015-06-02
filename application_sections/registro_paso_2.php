@@ -27,7 +27,7 @@
               <div class="form-group">
                 <label for="idtpidentificacion" style=" padding-left: 5px;" class="col-lg-5  control-label"><p class="text-label">Tipo de Documento:</p></label>
                 <div class="col-lg-5" style="margin-left: -40px; width: 210px;"  id="cont-selec-document">
-                  <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
+                  <?php include (APPLICATION_SECTIONS . 'tipos_document Código del usuario que te presenta en la Redos.php');?>
                 </div>
               </div>
           </div><!--TIpo-Document -->
@@ -248,7 +248,7 @@
   <div class="form-group"><!--Correo Electrónico -->
      <label for="email" class="col-lg-4 control-label"><p class="text-label ">Correo Electrónico:</p></label>
     <div class="col-lg-6">
-      <input type="email" class="form-control input_campo_datos input-col-6-7" id="email" tabindex="15">
+      <input type="email" class="form-control  input-col-6-7" id="email" tabindex="15">
    </div>
 
 
@@ -275,7 +275,7 @@
 <div class="form-group"><!--Confirmar -->
  <label for="email_confirm" class="col-lg-6 control-label"><p class="text-label ">Confirmar:</p></label>
  <div class="col-lg-6 ">
-  <input type="text" class="form-control input_campo_datos input-col-6-7" id="email_confirm"  tabindex="15" placeholder="Correo Electrónico">
+  <input type="text" class="form-control  input-col-6-7" id="email_confirm"  tabindex="15" placeholder="Correo Electrónico">
 </div>
 
 

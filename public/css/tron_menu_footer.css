@@ -175,6 +175,24 @@ ul, li, a
 			color        : #003e90;
 			margin-bottom: 0px;
 			text-align   :center;
+   display:  ;
+}
+
+.bienvenido_usuario
+{
+	   display:  ;
+		 	margin-bottom: 0px;
+		 	margin-top: -10px;
+		 	text-decoration: none;
+		 	cursor: text;
+	   color: #003e90;
+}
+
+.bienvenido_usuario:hover
+{
+	   cursor: text;
+	   text-decoration: none;
+	   color: #003e90;
 }
 
 #personal ul li
@@ -193,7 +211,6 @@ ul, li, a
 {
      display: block;
      width: 90%;
-     color: ;
      text-align: left;
      margin: 0px auto;
      margin-top: 2px;
@@ -465,11 +482,11 @@ ul .selected{color:red;}
 
 .header2
 {
-				-moz-box-shadow   : 0px 2px 20px 5px  #282828;
-				-o-box-shadow     : 0px 2px 20px 5px  #282828;
-				-webkit-box-shadow: 0px 2px 20px 5px  #282828;
+    -moz-box-shadow   : 0px 2px 5px 0px  #282828;
+				-o-box-shadow     : 0px 2px 5px 0px  #282828;
+				-webkit-box-shadow: 0px 2px 5px 0px  #282828;
+				box-shadow        : 0px 2px 5px 0px  #282828;
 				background        : #ffffff;
-				box-shadow        : 0px 2px 20px 5px  #282828;
 				display           : block;
 				height            : 125px;
 				margin            : 0;
@@ -522,6 +539,8 @@ ul .selected{color:red;}
 {
 	   background:  #ba070d;
 }
+
+
 
 .text-label-industrila /* tipo-busquedad = margas , nombre-prod , palabra-clave */
 {
