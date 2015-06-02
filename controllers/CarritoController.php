@@ -371,6 +371,7 @@ class CarritoController extends Controller
           $cmv                                 = $Productos['cmv'];
           $pv_ocasional                        = $Productos['pv_ocasional'];
           $peso_total_producto                 = ($Productos['peso_gramos'] * $cantidad)  / 1000   ;
+
           $Productos['sub_total_pv_ocasional'] = $Productos['cantidad']     * $Productos['pv_ocasional'];
           $Productos['sub_total_pv_tron']      = $Productos['cantidad']     * $Productos['pv_tron'] ;
 
@@ -386,6 +387,7 @@ class CarritoController extends Controller
               $this->Tron_Precio_Lista_Total = $this->Tron_Precio_Lista_Total   + $Productos['sub_total_pv_tron'] ;
               $aplica_vr_recaudo = TRUE;
            }
+           ;
             // COMPRAS POR CADA TIPO DE PRODUCTO
           if ( $id_categoria_producto >= 1 and  $id_categoria_producto <= 4)
           {
@@ -464,7 +466,10 @@ class CarritoController extends Controller
         Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
         Session::Set('Vr_Base_Iva', $this->Vr_Base_Iva);
 
+
         $this->Peso_Total_Pedido_Kilos   = (int)$this->Peso_Total_Pedido_Kilos ;
+
+
 
         $this->Cerrar_Procesos_Carro();
     }
@@ -561,7 +566,7 @@ class CarritoController extends Controller
             $this->Valor_Declarado  =     $this->Valor_Declarado  + ($this->Datos_Carro[$i]['cmv'] * $cantidad );
           }
           if ( $id_categoria_producto == 6 ){
-              $this->Valor_Declarado  =    $this->Valor_Declarado + $this->Datos_Carro[$i]['precio_total_produc_pedido'] / 2 ;
+              $this->Valor_Declarado  =    $this->Valor_Declarado + $this->Datos_Carro[$i]['precio_total_produc_pedido']/$porciento_iva  / 2 ;
            }
 
 
@@ -696,7 +701,9 @@ class CarritoController extends Controller
       Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
 
       $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
+
       $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
+
 
       if ( $valor_declarado >0 ){
         if ( $this->Calcular_Flete_Courrier == TRUE ){
@@ -984,6 +991,7 @@ class CarritoController extends Controller
     public function Retornar_Totales_Carro_Json()
     {
 
+
       $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
       $SubTotal_Pedido_Ocasional     =  "$ ".number_format($this->SubTotal_Pedido_Ocasional ,0,"",".");
       // DATOS DE PRODUCTOS TRON
@@ -996,10 +1004,8 @@ class CarritoController extends Controller
       $vr_unitario_pisos             =  "$ ".number_format(Session::Get('vr_unitario_pisos'),0,"",".");
       $vr_unitario_loza              =  "$ ".number_format(Session::Get('vr_unitario_loza'),0,"",".");
 
-      $pv_tron_resumen              =  "$ ".number_format(Session::Get('pv_tron_resumen'),0,"",".");
-      $pv_ocas_resumen              =  "$ ".number_format(Session::Get('pv_ocas_resumen'),0,"",".");
-
-
+      $pv_tron_resumen               =  "$ ".number_format(Session::Get('pv_tron_resumen'),0,"",".");
+      $pv_ocas_resumen               =  "$ ".number_format(Session::Get('pv_ocas_resumen'),0,"",".");
 
       $Datos    = compact('SubTotal_Pedido_Amigos','SubTotal_Pedido_Ocasional','descuento_especial','descuento_especial_porcentaje',
                           'vr_unitario_ropa','vr_unitario_banios','vr_unitario_pisos','vr_unitario_loza',

@@ -44,7 +44,8 @@
 			      	// 1. HALLAR KILOS ADICIONALES
 			      	if ($peso_kilos_pedido > 3) 		      	{
 			      		$kilos_adicionales = $peso_kilos_pedido - 3;
-			      		if ($kilos_adicionales < 1) { $kilos_adicionales = 1 ;}
+
+			      		if ($kilos_adicionales < 0) { $kilos_adicionales = 0 ;}
 			      	}
 
 			      	//
@@ -71,10 +72,8 @@
 														$this->tipo_tarifa            = 'SERVIENTREGA - PREMIER REEXPEDICIÓN';
 			      	}
 
-
-										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos * ($peso_kilos_pedido - $kilos_adicionales )  ;
+										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
-
 
 										// HALLO EL SEGURO
 										if ($valor_declarado < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
@@ -109,12 +108,15 @@
 								$this->Calcular_Numero_Unidades_Despacho($peso_kilos_pedido);
 								$this->tipo_despacho										= 4;  // SERVIENTREGA CARGA
 
+
 								$peso_minimo           = $this->Cant_Unidades_Despacho * $this->Transportadoras['0']['sv_carga_peso_minimo'];
 
 	      	if ($peso_minimo > $peso_kilos_pedido) {
 	      		$peso_kilos_pedido = $peso_minimo;
 	      	}
+
 	      	$this->valor_flete = $peso_kilos_pedido  * Session::Get('vr_kilo_idmcipio_servientrega');
+
 
 	      	if ($this->re_expedicion == 0)  	{
 	      			$descuento_comercial        = $this->valor_flete  * $this->Transportadoras[0]['sv_descuento_comercial']/100;
@@ -232,7 +234,12 @@
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $peso_kilos_pedido * $vr_kilo_idmcipio_redetrans ;
 
-//
+    		if ($this->re_expedicion == 0) {
+    					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
+    		 }
+
+    		 $this->valor_flete  = $this->valor_flete  - $descuento_comercial;
+
 								//DETERMINO EL FLETE MÍNIMO
       	if ($this->valor_flete < $flete_minimo) {
       		  	$this->valor_flete = $flete_minimo;
@@ -263,16 +270,6 @@
     		}
 
 						$this->valor_flete     = $this->valor_flete  + $seguro_flete;
-
-
-    		if ($this->re_expedicion == 0) {
-    					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
-    		 }
-
-
-
-    		$this->valor_flete  = $this->valor_flete  - $descuento_comercial;
-
 
 						$this->flete_calculado = TRUE ;
 						$this->tipo_tarifa     = 'REDETRANS - CARGA';
@@ -307,8 +304,6 @@
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos/4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
-
-
 
 											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )
 											{

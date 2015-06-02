@@ -3,6 +3,7 @@ function Imprimir_Totales_Carrito_Header(resultado)
 	{
 		  $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
+
 	   $('#tron_descuento').html(resultado.descuento_especial_porcentaje);
 	   $('#tron_descuento_porciento').html(resultado.descuento_especial);
 
@@ -11,6 +12,7 @@ function Imprimir_Totales_Carrito_Header(resultado)
 
 	   $('#Total_Venta_Ocasional_Resumen').html(resultado.pv_ocas_resumen);
 	   $('#Total_Venta_Tron_Resumen').html(resultado.pv_tron_resumen);
+
 
 
 	   if ( resultado.vr_unitario_ropa != '$ 0'){
