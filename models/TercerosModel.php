@@ -11,13 +11,17 @@
 
 				public function Grabar($params=array()){
 					extract($params);
-
-						$SQL = "$idtpidentificacion , '$identificacion' ,'$digitoverificacion' ,'$pnombre' ,'$papellido' ,'$razonsocial',$genero ,$dianacimiento ,$mesnacimiento ,'$passwordusuario' ,'$direccion' ,'$barrio' ,'$contacto' ,'$telefono' ,'$celular1' ,'$email' ,$idmcipio ,'$codigousuario' ,'$codautorizacionmenoredad' ,'$codigoterceropresenta_inicial' ,'$codigoterceropresenta' ,$idterceropresenta ,$registroconfirmado , $registro_organizado ,$param_tiene_compras , $registro_inactivo ,$param_confirmar_nuevos_amigos_x_email ,$param_acepto_pago_valor_transferencia ,$valor_minimo_transferencia ,$param_idtpidentificacion_titular_cuenta ,'$param_identificacion_titular_cuenta' ,'$param_nombre_titular_cuenta' , $param_idbanco_transferencias ,'$param_nro_cuenta_transferencias' , $param_tipo_cuenta_transferencias' ,$param_idmcipio_transferencias ,$param_acepto_retencion_comis_para_pago_pedidos , $param_valor_comisiones_para_pago_pedidos ,$cant_max_amigos_nivel_1 ,$cant_max_amigos_nivel_2 ,$cant_max_amigos_otros_niveles ,$sesion_amigo_activo , $mis_datos_son_privados ,$pago_comisiones_efecty ,$pago_comisiones_cuenta_empresa ,$pago_comisiones_transferencia ,$pago_comisiones_caja ,$idtppersona , $regimen ,$declaro_renta ,$nadie_presenta ,$id_pago_primer_pedido ,$fecha_hora_acepta_convenio ,$fecha_pago_inscripcion ,$no_correos_ley_1581_2012 , $idtipo_plan_compras ,$idtipo_plan_compras_confirmado ,$otrosi_firmado , $fecha_otrosi_firmado ,$kit_comprado , $inscripcion_pagada ,$recibo_promociones_email , $recibo_promociones_celular ,$empresario_provisional ";
-						Debug::Mostrar($SQL);
-						$Registro    =  $this->Db->Ejecutar_Sp("terceros_crear_modificar($SQL)");
+					$SQL = "$idtpidentificacion,'$identificacion','$digitoverificacion','$pnombre','$papellido','$razonsocial',";
+				 $SQL = $SQL."$genero,$dianacimiento,$mesnacimiento,'$passwordusuario', '$direccion','$barrio','$contacto','$telefono',";
+				 $SQL = $SQL."'$celular1','$email',$idmcipio,'$codigousuario','$codautorizacionmenoredad','$codigoterceropresenta_inicial',";
+				 $SQL = $SQL."'$codigoterceropresenta',$idterceropresenta,$registroconfirmado,$registro_organizado,$param_tiene_compras,";
+				 $SQL = $SQL."$registro_inactivo,$param_confirmar_nuevos_amigos_x_email,$param_acepto_pago_valor_transferencia,";
+				 $SQL = $SQL."$valor_minimo_transferencia,$param_idtpidentificacion_titular_cuenta,'$param_identificacion_titular_cuenta',";
+				 $SQL = $SQL."'$param_nombre_titular_cuenta',$param_idbanco_transferencias,'$param_nro_cuenta_transferencias',";
+				 $SQL = $SQL."'$param_tipo_cuenta_transferencias',$param_idmcipio_transferencias,$param_acepto_retencion_comis_para_pago_pedidos,";
+				 $SQL = $SQL."$param_valor_comisiones_para_pago_pedidos,$nadie_presenta,$idtipo_plan_compras,$idtppersona ";
+						$Registro    =  $this->Db->Ejecutar_Sp("terceros_crear_modificar(".$SQL.")");
 						return $Registro ;
-
-
 
 
 

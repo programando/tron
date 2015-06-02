@@ -19,6 +19,7 @@ class CarritoController extends Controller
      private $Vr_Total_Pedido_Amigos    = 0;
      private $Vr_Total_Pedido_Real      = 0;
      private $Vr_Base_Iva               = 0;
+     private $Calcular_Flete_Courrier   = FALSE;
 
      private $Peso_Total_Pedido_Kilos   = 0;
      private $Carrito_Habilitado        = false;
@@ -332,8 +333,7 @@ class CarritoController extends Controller
       $this->SubTotal_Pedido_Amigos    = 0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
       $this->SubTotal_Pedido_Ocasional = 0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
       $this->Peso_Total_Pedido_Kilos   = 0 ;
-      $this->Valor_Declarado           = 0 ;
-
+      $this->Calcular_Flete_Courrier   = TRUE;
       $this->Tron_Peso_Total_Gramos    = 0 ;
       $this->Tron_Cmv_Total            = 0 ;
       $this->Tron_Precio_Lista_Total   = 0 ;
@@ -385,12 +385,6 @@ class CarritoController extends Controller
               $this->Tron_Cmv_Total          = $this->Tron_Cmv_Total            + $Productos['cmv'];
               $this->Tron_Precio_Lista_Total = $this->Tron_Precio_Lista_Total   + $Productos['sub_total_pv_tron'] ;
               $aplica_vr_recaudo = TRUE;
-              if ( $id_categoria_producto == 7 ){
-                  $this->Valor_Declarado  =     $this->Valor_Declarado  + $Productos['cmv'] * $cantidad ;
-                }
-              if ( $id_categoria_producto == 6 ){
-                  $this->Valor_Declarado  =    $this->Valor_Declarado +  $Productos['sub_total_pv_tron'] / 2 ;
-              }
            }
             // COMPRAS POR CADA TIPO DE PRODUCTO
           if ( $id_categoria_producto >= 1 and  $id_categoria_producto <= 4)
@@ -422,11 +416,13 @@ class CarritoController extends Controller
                 $Cmv_Loza      = $Cmv_Loza      + ( $cmv         * $cantidad );
                 $Precio_Lista_Loza = $Precio_Lista_Loza + ( $pv_ocasional *  $cantidad );
              }
-
-            if ( $id_categoria_producto == 6) {  // Industriales
-                $this->compras_industrial = $this->compras_industrial  + $Productos['sub_total_pv_tron'] ;
-            }
         }
+        if ( $id_categoria_producto == 6) {  // Industriales
+            $this->compras_industrial = $this->compras_industrial  + $Productos['sub_total_pv_tron'] ;
+            $this->Calcular_Flete_Courrier = FALSE ;
+
+        }
+
       }
 
         if ( $tengo_productos_tron == TRUE) {
@@ -486,6 +482,7 @@ class CarritoController extends Controller
       $this->SubTotal_Aplica_Recaudo = 0;
       $this->Presupuesto_Fletes      = 0;
       $this->Vr_Base_Iva             = 0;
+      $this->Valor_Declarado         = 0;
 
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0);
@@ -561,7 +558,12 @@ class CarritoController extends Controller
 
           if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
             $this->SubTotal_Aplica_Recaudo                          = $this->SubTotal_Aplica_Recaudo + $precio_unitario_producto *$cantidad;
+            $this->Valor_Declarado  =     $this->Valor_Declarado  + $Productos['cmv'] * $cantidad ;
           }
+          if ( $id_categoria_producto == 6 ){
+              $this->Valor_Declarado  =    $this->Valor_Declarado + $this->Datos_Carro[$i]['precio_total_produc_pedido'] / 2 ;
+           }
+
 
           $sub_total_pedido_Tron                                  = $sub_total_pedido_Tron  + $pv_tron * $cantidad  ;
           $this->Datos_Carro[$i]['sub_total_pedido_Tron']         = $sub_total_pedido_Tron;
@@ -697,7 +699,9 @@ class CarritoController extends Controller
       $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
       if ( $valor_declarado >0 ){
-        $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
+        if ( $this->Calcular_Flete_Courrier == TRUE ){
+              $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
+            }
         $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
         $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
         $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
@@ -730,18 +734,14 @@ class CarritoController extends Controller
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
       $Asignar_Flete                   = TRUE;
       $this->Vr_Fletes                 = 0;
-
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
       {
-
         if ($Fletes['valor_flete'] > 0 )
         {
-
             if ($Asignar_Flete == TRUE)
             {
               $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
               $Asignar_Flete = FALSE;
-
             }
             if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete'] )
             {

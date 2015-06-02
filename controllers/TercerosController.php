@@ -23,6 +23,9 @@ class TercerosController extends Controller
       $codigoterceropresenta         = Session::Get('codigousuario_presenta');
       $codigoterceropresenta_inicial = $codigoterceropresenta;
       $idterceropresenta             = 0 ;//Session::Get('idtercero_presenta');
+      if ( $idterceropresenta ==0 ){
+          $nadie_presenta = 0;
+        }
 
       $idtpidentificacion            = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
       $identificacion                = General_Functions::Validar_Entrada('identificacion','NUM');
@@ -32,9 +35,10 @@ class TercerosController extends Controller
       $idmcipio                      = General_Functions::Validar_Entrada('idmcipio','NUM');
       $direccion                     = General_Functions::Validar_Entrada('dirrecion','TEXT');
       $barrio                        = General_Functions::Validar_Entrada('barrio','TEXT');
-      $celular1                      = General_Functions::Validar_Entrada('celular1','NUM');
+      $celular1                      = General_Functions::Validar_Entrada('celular1','TEXT');
       $e_mail                        = General_Functions::Validar_Entrada('e_mail','TEXT');
       $es_e_mail                     = General_Functions::Validar_Entrada('e_mail','EMAIL');
+
 
 
      if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
@@ -58,78 +62,62 @@ class TercerosController extends Controller
      if ( strlen( $Texto_Respuesta) == 0){
           $Texto_Respuesta ='OK';
      }
+      $codigousuario                                  = '';
+      $codautorizacionmenoredad                       = '';
+      $digitoverificacion                             = '';
+      $razonsocial                                    = '';
+      $dianacimiento                                  = '0';
+      $mesnacimiento                                  = '0';
+      $email                                          = strtolower($e_mail);
+      $passwordusuario                                = '';
+      $contacto                                       = '';
+      $telefono                                       = '';
+      $registroconfirmado                             = 0;
+      $registro_organizado                            = 0;
+      $param_tiene_compras                            = 0;
+      $registro_inactivo                              = 0;
+      $param_confirmar_nuevos_amigos_x_email          = 1 ;
+      $param_acepto_pago_valor_transferencia          = 1;
+      $valor_minimo_transferencia                     = 0;
+      $param_idtpidentificacion_titular_cuenta        = 0;
+      $param_identificacion_titular_cuenta            = '';
+      $param_nombre_titular_cuenta                    = '';
+      $param_idbanco_transferencias                   = '0';
+      $param_nro_cuenta_transferencias                = '';
+      $param_tipo_cuenta_transferencias               = '';
+      $param_idmcipio_transferencias                  = 0;
+      $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
+      $param_valor_comisiones_para_pago_pedidos       = 0 ;
+      $idtppersona                                    = 1;
+      $idtipo_plan_compras                            = 1 ;
 
-    $codigousuario                                  = '';
-    $codautorizacionmenoredad                       = '';
-    $digitoverificacion                             = '';
-    $razonsocial                                    = '';
-    $dianacimiento                                  = '0';
-    $mesnacimiento                                  = '0';
-    $email                                          = $e_mail;
-    $passwordusuario                                = '';
-    $contacto                                       = '';
-    $telefono                                       = '';
-    $registroconfirmado                             = 1;
-    $fechahoraregistro                              = '';
-    $registro_organizado                            = 0;
-    $param_tiene_compras                            = 0;
-    $registro_inactivo                              = 0;
-    $param_confirmar_nuevos_amigos_x_email          = 1 ;
-    $param_acepto_pago_valor_transferencia          = 1;
-    $valor_minimo_transferencia                     = 0;            //**-------------------- REVISAR DESDE AQUI LO CAMPOS Y SUS VALORES POR DEFECTO
-    $param_idtpidentificacion_titular_cuenta        = 0;
-    $param_identificacion_titular_cuenta            = '';
-    $param_nombre_titular_cuenta                    = '';
-    $param_idbanco_transferencias                   = '0';
-    $param_nro_cuenta_transferencias                = '';
-    $param_tipo_cuenta_transferencias               = '';
-    $param_idmcipio_transferencias                  = 0;
-    $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
-    $param_valor_comisiones_para_pago_pedidos       = 0 ;
-    $cant_max_amigos_nivel_1                        = 0 ;
-    $cant_max_amigos_nivel_2                        = 0;
-    $cant_max_amigos_otros_niveles                  = 0;
-    $sesion_amigo_activo                            = 0;
-    $mis_datos_son_privados                         = 1 ;
-    $pago_comisiones_efecty                         = 0;
-    $pago_comisiones_cuenta_empresa                 = 0;
-    $pago_comisiones_transferencia                  = 0;
-    $pago_comisiones_caja                           = 0;
-    $idtppersona                                    = 1;
-    $regimen                                        = 0;
-    $declaro_renta                                  = 0;
-    $nadie_presenta                                 = 0;
-    $id_pago_primer_pedido                          = 0;
-    $fecha_hora_acepta_convenio                     = '';
-    $fecha_pago_inscripcion                         = '';
-    $no_correos_ley_1581_2012                       = 0;
-    $idtipo_plan_compras                            = 1 ;
-    $idtipo_plan_compras_confirmado                 = 0;
-    $otrosi_firmado                                 = 1 ;
-    $fecha_otrosi_firmado                           = '';
-    $kit_comprado                                   = 0;
-    $inscripcion_pagada                             = 0;
-    $recibo_promociones_email                       = 1 ;
-    $recibo_promociones_celular                     = 1 ;
-    $empresario_provisional                         = 0;
-    $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' ,
-                            'razonsocial' ,'genero' ,'dianacimiento' ,'mesnacimiento' ,'passwordusuario' ,
-                            'direccion' ,'barrio' ,'contacto' ,'telefono' ,'celular1' ,
+      $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' , 'razonsocial' ,'genero' ,
+                              'dianacimiento' ,'mesnacimiento' ,'passwordusuario' , 'direccion' ,'barrio' ,'contacto' ,'telefono' ,'celular1' ,
                             'email' ,'idmcipio' ,'codigousuario' ,'codautorizacionmenoredad' ,'codigoterceropresenta_inicial' ,
-                            'codigoterceropresenta' ,'idterceropresenta' ,'registroconfirmado' ,
-                            'fechahoraregistro' ,'registro_organizado' ,'param_tiene_compras' ,'registro_inactivo' ,'param_confirmar_nuevos_amigos_x_email' ,
-                            'param_acepto_pago_valor_transferencia' ,'valor_minimo_transferencia' ,'param_idtpidentificacion_titular_cuenta' ,'param_identificacion_titular_cuenta' ,'param_nombre_titular_cuenta' ,
-                            'param_idbanco_transferencias' ,'param_nro_cuenta_transferencias' ,'param_tipo_cuenta_transferencias' ,'param_idmcipio_transferencias' ,'param_acepto_retencion_comis_para_pago_pedidos' ,
-                            'param_valor_comisiones_para_pago_pedidos' ,'cant_max_amigos_nivel_1' ,'cant_max_amigos_nivel_2' ,'cant_max_amigos_otros_niveles' ,'sesion_amigo_activo' ,
-                            'mis_datos_son_privados' ,'pago_comisiones_efecty' ,'pago_comisiones_cuenta_empresa' ,'pago_comisiones_transferencia' ,'pago_comisiones_caja' ,
-                            'idtppersona' ,'regimen' ,'declaro_renta' ,'nadie_presenta' ,'id_pago_primer_pedido' ,'fecha_hora_acepta_convenio' ,'fecha_pago_inscripcion' ,'no_correos_ley_1581_2012' ,
-                            'idtipo_plan_compras' ,'idtipo_plan_compras_confirmado' ,'otrosi_firmado' ,'fecha_otrosi_firmado' ,'kit_comprado' ,
-                            'inscripcion_pagada' ,'recibo_promociones_email' ,'recibo_promociones_celular' ,'empresario_provisional' );
+                            'codigoterceropresenta' ,'idterceropresenta' ,'registroconfirmado' ,'fechahoraregistro' ,'registro_organizado' ,
+                            'param_tiene_compras' ,'registro_inactivo' , 'param_confirmar_nuevos_amigos_x_email' ,
+                            'param_acepto_pago_valor_transferencia' ,'valor_minimo_transferencia' ,'param_idtpidentificacion_titular_cuenta' ,
+                            'param_identificacion_titular_cuenta' ,'param_nombre_titular_cuenta' ,'param_idbanco_transferencias' ,
+                            'param_nro_cuenta_transferencias' ,'param_tipo_cuenta_transferencias' ,'param_idmcipio_transferencias' ,
+                            'param_acepto_retencion_comis_para_pago_pedidos' , 'param_valor_comisiones_para_pago_pedidos' ,
+                            'idtppersona','nadie_presenta', 'idtipo_plan_compras');
 
-     $Registro = $this->Terceros->Grabar($Datos_Terceros);
+    // GRABAR DATOS DEL TERCERO
+     $Registro             =  $this->Terceros->Grabar($Datos_Terceros);
+     $idtercero             = $Registro[0]['idtercero'];
+     $telefono             =  $celular1;
+     $destinatario         =  $pnombre . ' ' . $papellido;
+     $iddireccion_despacho = 0;
+     // GRABAR DIRECCION DE DESPACHO
+     //------------------------------
+     $Datos_Direccion_Despacho = compact('iddireccion_despacho','idtercero','idmcipio','direccion','barrio','telefono','barrio','destinatario');
+     $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($Datos_Direccion_Despacho);
+     // ESTABLECER VARIABLES DEL DESPACHO EN CASO DE QUE SE HAGA UN PEDIDO LUEGO DEL REGISTRO
+     //--------------------------------------------------------------------------------------
+     $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
 
-     // GRABAR DATOS
-     // GRABAR DIRECCION
+
+
      // ENVIAR CORREO
      // REDIRECCIOAR USUARIO
 
@@ -471,6 +459,25 @@ class TercerosController extends Controller
     {
         $Terceros = $this->Terceros->Consulta_Datos_Por_Email($email);
         return $Terceros;
+    }
+
+    public function Consulta_Datos_Por_Email_Registro()
+    {
+        $Respuesta ='';
+        $email     = General_Functions::Validar_Entrada('email','TEXT');
+        $Es_email  = General_Functions::Validar_Entrada('email','EMAIL');
+        if ($Es_email == FALSE){
+            $Respuesta = "EMAIL-NO-OK";
+        }else {
+            $Terceros = $this->Terceros->Consulta_Datos_Por_Email($email);
+            if ($Terceros){
+              $Respuesta = "EMAIL-EXISTE";
+            }else{
+              $Respuesta = "EMAIL-NO-EXISTE";
+            }
+      }
+        $Respuesta= compact('Respuesta');
+        echo json_encode($Respuesta,256);
     }
 
     public function cambiar_password($numero_confirmacion)

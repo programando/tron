@@ -72,8 +72,9 @@
 			      	}
 
 
-										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos   ;
+										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos * ($peso_kilos_pedido - $kilos_adicionales )  ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
+
 
 										// HALLO EL SEGURO
 										if ($valor_declarado < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
@@ -148,39 +149,20 @@
 											$tasa_manejo      = 0;
 											$vr_minimo_manejo = 0;
 	      }
-							$tasa_manejo  = $tasa_manejo / 100;
-							$costo_manejo = $valor_declarado *  $tasa_manejo;
-
+	      // HALLO EL FLETE MÍNIMO
+	      if ( $this->valor_flete < $flete_minimo ){
+	      	$this->valor_flete  = $flete_minimo;
+	      }
 	      //6. APLICAR TASA DE MANEJO Y COMPARAR CON EL VALOR DEL FLETE
 	      $costo_manejo  = 0;
+							$tasa_manejo  = $tasa_manejo / 100;
+							$costo_manejo = $valor_declarado *  $tasa_manejo;
 	      if ($costo_manejo < 	$vr_minimo_manejo ){
 	      				$costo_manejo = $vr_minimo_manejo ;
 	      }
-
-	 				 $seguro_flete  = 0;
-
-	      // 7. HALLAR SEGURO FIJO Y SEGURO VARIABLE
-							/*$seguro_fijo     = $this->Cant_Unidades_Despacho * $valor_minimo_manejo;
-							$seguro_variable = $valor_declarado * $this->Transportadoras[0]['sv_carga_tasa_manejo_nacional']/100;
-	      // 8. VALIDA SEGURO VARIABLE CON RESPECTO AL VALOR MÍNIMO MANEJO
-	      if ($seguro_variable < 	$valor_minimo_manejo )
-	      {
-	      	$seguro_variable  = $valor_minimo_manejo ;
-	      }
-
-	      //9. ELEGIR EL MAYOR DE LOS SEGUROS
-	      if ($seguro_fijo > $seguro_variable)
-	      {
-	      	$seguro_flete = $seguro_fijo;
-	      }else
-	      {
-	      	$seguro_flete = $seguro_variable;
-	      }*/
-
-							$this->valor_flete     = $this->valor_flete + $seguro_flete + $costo_manejo ;
+							$this->valor_flete     = $this->valor_flete + $costo_manejo ;
 							$this->flete_calculado = TRUE ;
        $this->Adicionar_Cobro_Flete_Transportadora(2,'2030','SERVIENTREGA');
-
       }
 
 
@@ -193,7 +175,6 @@
 						$seguro_reexpedicion        = 0;
 						$seguro_flete               = 0;
 						$descuento_comercial        = 0;
-						$porciento_dscto_ccial      = 0;
 						$this->valor_flete          = 0;
 						$this->Transportadoras      = $this->Parametros->Transportadoras();
 						$this->re_expedicion        = Session::Get('re_expedicion');
@@ -251,16 +232,12 @@
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $peso_kilos_pedido * $vr_kilo_idmcipio_redetrans ;
 
-
+//
 								//DETERMINO EL FLETE MÍNIMO
       	if ($this->valor_flete < $flete_minimo) {
       		  	$this->valor_flete = $flete_minimo;
       		  }
-      	// DETERMINO EL FLETE VARIABLE
-      	$flete_variable = 	 $valor_declarado *  $flete_variable_porc ;
-      	if ( $flete_variable < $flete_variable_valor){
-      				$flete_variable = $flete_variable_valor;
-      	}
+
       	// SEGURO REEXPEDICION
       	if ( $this->re_expedicion== 0){
       				if ( $valor_declarado > $this->Transportadoras[0]['rt_carga_vr_minimo_asegurable'] ){
@@ -285,9 +262,8 @@
     			$seguro_flete  = $seguro_reexpedicion;
     		}
 
-
-
 						$this->valor_flete     = $this->valor_flete  + $seguro_flete;
+
 
     		if ($this->re_expedicion == 0) {
     					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
@@ -296,6 +272,7 @@
 
 
     		$this->valor_flete  = $this->valor_flete  - $descuento_comercial;
+
 
 						$this->flete_calculado = TRUE ;
 						$this->tipo_tarifa     = 'REDETRANS - CARGA';
@@ -330,6 +307,7 @@
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos/4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
+
 
 
 											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )
