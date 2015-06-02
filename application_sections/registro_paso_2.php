@@ -27,7 +27,7 @@
               <div class="form-group">
                 <label for="idtpidentificacion" style=" padding-left: 5px;" class="col-lg-5  control-label"><p class="text-label">Tipo de Documento:</p></label>
                 <div class="col-lg-5" style="margin-left: -40px; width: 210px;"  id="cont-selec-document">
-                  <?php include (APPLICATION_SECTIONS . 'tipos_document Código del usuario que te presenta en la Redos.php');?>
+                  <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
                 </div>
               </div>
           </div><!--TIpo-Document -->
