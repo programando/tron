@@ -7,7 +7,7 @@
                   <!-- Bienvenido : usuario -->
                   <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
                       <strong>Bienvenido :</strong> Jhon James Montaño
-                  </a>
+                  </a><br>
                   <a href="#myModal" class="ing" data-toggle="modal" data-target="#myModal">
                     <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
                   </a>

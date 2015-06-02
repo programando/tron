@@ -13,9 +13,9 @@
     <form class="form-horizontal" role="form">
 
       <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="col-lg-4 col-md-4 col-sm-4"><!--Codigo -->
+          <div class="col-lg-6 col-md-6 col-sm-6"><!--Codigo -->
               <div class="form-group">
-                <label for="input_codigo"  class="col-lg-6  control-label  label_codigo"><p class="text-label">
+                <label for="input_codigo"  class="col-lg-8  control-label  label_codigo"><p class="text-label">
                 Código del usuario que te presenta en la Red:</p></label>
                 <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
                    <input type="text" class="form-control" id="input_codigo" tabindex="1" />
