@@ -419,6 +419,20 @@ ul .selected{color:red;}
 
 
 
+.cont-img-info-menu
+{
+     background-image: url(../images/empresa/info_menu.png);
+     background-repeat: no-repeat;
+     width: 78px;
+     height: 25px;
+     margin-bottom: -2px;
+     margin-top: -3px;
+     margin-left: -4px;
+     text-align:  center;
+     display: block;
+     color: white;
+
+}
 
 #menu
 {
