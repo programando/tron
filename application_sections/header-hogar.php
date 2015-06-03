@@ -51,8 +51,19 @@
             <li><a class="list-menu campo_6"                       href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
 
           </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+         <li style="width: 95px;">
+             <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-menu  li_info">
+                <div class="cont-img-info-menu"><strong>Info</strong></div>
+             </a>
+         </li>
+      </ul>
+
           </div>
         </nav>
+
+
 
 <!--
       /.. AREAS DE CONSULTA CORRESPONDEN A LOS TIPOS DE PRODUCTOS ( HOGAR / INDUSTRIAL)
