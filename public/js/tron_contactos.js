@@ -6,24 +6,38 @@ var $email          = $('#email');
 var $telefono       = $('#telefono');
 var $comentarios    = $('#comentarios');
 
+
 var Enviar_Correo_Contactos = function(Parametros){
-       $img_cargando.css('display','block');
-        $.ajax({
+  var $img_cargando   = $('#img_cargando');
+  var $Texto = '';
+ $.ajax({
               data:  Parametros,
-              dataType: 'text',
+              dataType: 'json',
               url:      '/tron/Emails/envio_correo_contactos/',
               type:     'post',
           success:  function (resultado)
            {
-                $respuesta = resultado;
+             $Texto = resultado.Respuesta;
+                new Messi($Texto,
+                  {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+                    buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]});
+                  $nombre_usuario.val('');
+                  $email.val('');
+                  $telefono.val('');
+                  $comentarios.val('');
+           },
+           beforeSend: function(){
+              $img_cargando.css('display','block');
+           },
+           complete: function(){
+              $img_cargando.css('display','none');
 
-
-
-                $img_cargando.css('display','none');
-
+           },
+           error: function(xhr){
+                  new Messi('Se ha presentado el siguiente error : <br>' + xhr.responseText,
+                         {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
            }
         });
-
 }
 
 $btn_cancelar.on('click',function(){
@@ -67,6 +81,13 @@ $comentarios.on('focus',function(){
 
 
 $btn_enviar.on('click',function(){
+  var $btn_cancelar   = $('#btn_cancelar');
+  var $btn_enviar     = $('#btn_enviar');
+  var $nombre_usuario = $('#nombre_usuario');
+  var $email          = $('#email');
+  var $telefono       = $('#telefono');
+  var $comentarios    = $('#comentarios');
+
 
 	  $campos_validados = true ;
 
@@ -104,9 +125,9 @@ $btn_enviar.on('click',function(){
 				$nombre_usuario = $nombre_usuario.val();
 				$email          = $email.val();
 				$comentarios    = $comentarios.val();
-   	Parametros = {'nombre_usuario':$nombre_usuario ,'email':$email,'comentarios':$comentarios };
-
-
+        $telefono       = $telefono.val()
+   	    Parametros = {'nombre_usuario':$nombre_usuario ,'email':$email,'comentarios':$comentarios,'telefono':$telefono  };
+        Enviar_Correo_Contactos(Parametros );
    }
 
 });

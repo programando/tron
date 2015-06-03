@@ -78,7 +78,7 @@ var Recuperar_Password = function(Parametros)
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
-							url:      '/tron/Emails/Recuperar_Password',
+							url:      '/tron/terceros/Recuperar_Password/',
 							type:     'post',
        success:  function (resultado)
       	 {

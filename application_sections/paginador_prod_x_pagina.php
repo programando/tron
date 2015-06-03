@@ -9,7 +9,7 @@
 
             <div class="pref-png">
               <div class="text_seleccion_pagina">
-                <p class="text-left Productos-Por-Pagina">Productos Por Página</p><!--Inicio-Select = pagina-->
+                <!--<p class="text-left Productos-Por-Pagina">Productos Por Página</p>Inicio-Select = pagina
               </div>
 
               <div class="selecion-productos-pagina">
@@ -17,9 +17,9 @@
                   <option value="12"> 12 </option>
                   <option value="24"> 24 </option>
                   <option value="36"> 36 </option>
-                </select><!--Fin-Select = pagina-->
+                </select>
               </div>
-
+-->
             </div>
           </div> <!--Fin-Emcabezado-Producto_seleccionado-->
         </div>

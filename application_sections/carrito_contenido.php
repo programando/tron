@@ -121,7 +121,7 @@
 
       <td class="col-tabla-preci2" title="Precio unitario para clientes/empresarios TRON" >
           <p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_tron ;?> </p>
-      </td>>
+      </td>
 
       <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
         <p class="info-tabla"> <?=    $Vr_Total_Item_Tron  ;?>   </p>

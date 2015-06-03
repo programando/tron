@@ -9,7 +9,6 @@
           parent::__construct();
           $this->Email    = $this->Load_External_Library('class.phpmailer');
           $this->Email    = new PHPMailer();
-          $this->Terceros = $this->Load_Controller('Terceros');
       }
 
       public function Index() { }
@@ -19,8 +18,51 @@
        *    ABRIL 16 DE 2015
        */
       public function envio_correo_contactos(){
+          $Respuesta = '';
+          $nombre_usuario = General_Functions::Validar_Entrada('nombre_usuario', 'TEXT');
+          $email          = General_Functions::Validar_Entrada('email', 'TEXT');
+          $telefono       = General_Functions::Validar_Entrada('telefono', 'TEXT');
+          $Es_email       = General_Functions::Validar_Entrada('email', 'EMAIL');
+          $comentarios    = General_Functions::Validar_Entrada('comentarios', 'TEXT');
+          if ( strlen($nombre_usuario) == 0 ){
+              $Respuesta  = $Respuesta . 'Debe registrar el nombre de la persona que envía el correo.<br>';
+          }
+          if ( $Es_email == FALSE ){
+              $Respuesta  = $Respuesta . 'la dirección de correo no tiene un formato válido.<br>';
+          }
+          if ( strlen($comentarios) == 0 ){
+              $Respuesta  = $Respuesta . 'No ha escrito ningún comentario para ser enviado.<br>';
+          }
+          if ( strlen($Respuesta) > 0 ) {
+            $Respuesta = compact('Respuesta' );
+          } else{
+              $Texto_Correo     = "Nombre de usuario : " .$nombre_usuario . '<br>';
+              $Texto_Correo     = $Texto_Correo . "Dirección correo electrónico : " . strtolower( $email). '<br>';
+              $Texto_Correo     = $Texto_Correo . "Número de teléfono : " . $telefono. '<br>';
+              $Texto_Correo     = $Texto_Correo . "Comentario enviado : <br> " . $comentarios. '<br>';
+              $this->Configurar_Cuenta('Correo de usuario red TRON' ). '<br>';
+              $this->Email->AddAddress(CORREO_01). '<br>';
+              $this->Email->Body = $Texto_Correo;
+              $Respuesta = $this->Enviar_Correo();
+              if ($Respuesta == 'correo_OK'){
+                $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
+              }
+              $Respuesta = compact('Respuesta' );
+          }
+            echo json_encode($Respuesta,256);
+        }
 
-      }
+
+     public function Enviar_Correo(){
+
+        if ( $this->Email->Send()){
+          $this->Email->clearAddresses();
+            return "correo_OK";
+        }else {
+         return "correo_No_OK";
+        }
+
+     }
 
 
       public function Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto   )
@@ -63,55 +105,53 @@
 
       }
 
-      public function Recuperar_Password()
+      public function Recuperar_Password($Tercero,$email)
       {
          /** ENERO 31 DE 2015
          **  PROCEDIMIENTO PARA RECUPERAR CONTRASEÑA DE USUARIOS
          */
-        $email   = General_Functions::Validar_Entrada('Email','TEXT');
-        $Tercero = $this->Terceros->Consulta_Datos_Por_Email($email);
 
-        if (!$Tercero)
-        {
-          $CorreoEnviado ='NoUsuario';
-        }else
-          {
-            $email   = General_Functions::Validar_Entrada('Email','EMAIL');
-            if ($email ==false)
-            {
-              $CorreoEnviado ='Correo_No_OK';
-            }else
-              {
-                $idtercero = $Tercero[0]['idtercero'];
-                $this->Configurar_Cuenta('Recuperación de Contraseña.');
-                $this->Email->AddAddress($email );
-                $codigo              = General_Functions::Generar_Codigo_Unico();
-                $numero              = mt_rand(123456789,999999999);
-                $codigo_confirmacion = md5($codigo.$numero.TOKEN_PASSWORDS);
-                $enlace              = '<a href=' . BASE_URL .'terceros/cambiar_password/'. $codigo_confirmacion .'> Cambio de Contraseña </a>';
-                $Texto_Correo        =  'Has solicitado que el sistema recuerde tu contraseña en la Red de Usuarios TRON. ';
-                $Texto_Correo        = $Texto_Correo  .'Se ha generado una clave temporal que se usará para que puedas cambiar tu contraseña.<br>';
-                $Texto_Correo        = $Texto_Correo  .'Presione Click en el siguiente enlace : ' . $enlace . "  para continuar con el proceso.";
-                $this->Email->Body   = CORREO_HEADER ;
-                $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
-                $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
-                if ( $this->Email->Send())
-                  {
-                    $this->Email->clearAddresses();
-                    $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,$codigo_confirmacion);
-                    $CorreoEnviado ='Ok';
-                  }
-                  else
-                  {
-                    $CorreoEnviado='NoOk';
-                    //echo "Mailer Error: " . $this->Email->ErrorInfo;
-                  }
-              }
-          }
-         $Datos = compact('CorreoEnviado');
-         echo  json_encode($Datos,256);
+          $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
+          $enlace              = '<a href=' . BASE_URL .'terceros/cambiar_password/'. $codigo_confirmacion .'> Cambio de Contraseña </a>';
+          $Texto_Correo        =  'Has solicitado que el sistema recuerde tu contraseña en la Red de Usuarios TRON. ';
+          $Texto_Correo        = $Texto_Correo  .'Se ha generado una clave temporal que se usará para que puedas cambiar tu contraseña.<br>';
+          $Texto_Correo        = $Texto_Correo  .'Presione Click en el siguiente enlace : ' . $enlace . "  para continuar con el proceso.";
+
+          $this->Configurar_Cuenta('Recuperación de Contraseña.');
+          $this->Email->AddAddress($email );
+          $this->Email->Body   = CORREO_HEADER ;
+          $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
+          $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
+
+          if ( $this->Email->Send()) {
+              $this->Email->clearAddresses();
+              Session::Set('codigo_confirmacion',$codigo_confirmacion);
+              $CorreoEnviado ='Ok';
+            }
+            else {
+              $CorreoEnviado='NoOk';
+            }
+            return $CorreoEnviado ;
       }
 
+      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario){
+
+         $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
+         $enlace              = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/> Activar mi cuenta y finalizar registro </a>';
+         $Texto_Correo        = 'Bienvenido ' .  $nombre_usuario .'<br><br>';
+         $Texto_Correo        = $Texto_Correo .'Para activar tu cuenta de usuario y finalizar el registro, presiona el siguiente enlace :' . $enlace ;
+         $Texto_Correo        = $Texto_Correo . "desde donde podrás cambiar tu contraseña y a partir de allí, ingresar a la tienda virtual.";
+
+         $this->Configurar_Cuenta('Activación Cuenta/Finalización Registro');
+         $this->Email->AddAddress($email );
+         $this->Email->Body   = CORREO_HEADER ;
+         $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
+         $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
+         $Respuesta = $this->Enviar_Correo();
+         Session::Set('codigo_confirmacion',$codigo_confirmacion);
+         return $Respuesta;
+
+      }
 
       private function Configurar_Cuenta($asunto)
       {

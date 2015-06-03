@@ -726,6 +726,7 @@ class CarritoController extends Controller
        */
      $i                                = 0;
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes) {
          if ($Fletes['valor_flete'] == 0 ) {
               array_splice ($Fletes_Cobrados_Transportadoras , $i, 1);
@@ -733,6 +734,7 @@ class CarritoController extends Controller
            $i++;
         }
        Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+
     }
 
 
@@ -747,10 +749,7 @@ class CarritoController extends Controller
       $this->Vr_Fletes                 = 0;
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
       {
-        if ($Fletes['valor_flete'] > 0 )
-        {
-            if ($Asignar_Flete == TRUE)
-            {
+        if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE )        {
               $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
               $Asignar_Flete = FALSE;
             }
@@ -760,9 +759,10 @@ class CarritoController extends Controller
                 $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
                 $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
                 $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
+
             }
         }
-      }
+
       if ( isset($Mejor_Flete)){
           $this->Vr_Fletes                  = $Mejor_Flete['valor_flete'] + Session::Get('transporte_tron');
           Session::Set('flete_cobrado_otros', $this->Vr_Fletes);

@@ -249,8 +249,8 @@ $('#input_codigo').on('blur',function(){
         new Messi('Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br>',
             {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
             buttons: [
-                      {id: 0, label: 'Es correcto, nadie me presenta', val: 'Y',class: 'btn-success'},
-                      {id: 1, label: 'Opps !!!, Espere !!! deseo corregir', val: 'N', class: 'btn-danger'}
+                      {id: 0, label: 'Es correcto, nadie me presenta ', val: 'Y',class: 'btn-success'},
+                      {id: 1, label: 'Opps !!!, Espere !!! deseo corregir !!!', val: 'N', class: 'btn-danger'}
                       ],
             callback: function(val) {
               if (val=='N')

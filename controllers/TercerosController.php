@@ -10,16 +10,43 @@ class TercerosController extends Controller
         $this->Departamentos       = $this->Load_Model('Departamentos');
         $this->TiposDocumentos     = $this->Load_Model('Tiposdocumentos');
         $this->Parametros          = $this->Load_Model('Parametros');
+        $this->Correos             = $this->Load_Controller('Emails');
     }
 
     public function Index() { }
 
+    public function Recuperar_Password(){
+         $email     = General_Functions::Validar_Entrada('Email','TEXT');
+         $Es_email  = General_Functions::Validar_Entrada('Email','EMAIL');
+         $Tercero   = $this->Terceros->Consulta_Datos_Por_Email($email);
+         $idtercero = $Tercero[0]['idtercero'];
+         if ($email ==false) {
+              $CorreoEnviado ='Correo_No_OK';
+            } else {
+                if (!$Tercero) {
+                         $CorreoEnviado ='NoUsuario';
+                    }else{
+                     $CorreoEnviado = $this->Correos->Recuperar_Password($Tercero,$email);
+                     if (  $CorreoEnviado =='Ok'){
+                        $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
+                        Session::Destroy('codigo_confirmacion');
+                        }
+                      }
+                    }
+       $Datos = compact('CorreoEnviado');
+       echo  json_encode($Datos,256);
+    }
 
    //  pagina activacion mi cuenta
-   public function activacion_mi_cuenta()
+   public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero)
     {
-        $this->View->SetCss(array("tron_activacion_mi_cuenta"));
-        $this->View->Mostrar_Vista("activacion_mi_cuenta");
+        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min'));
+        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
+        $this->View->email               = $email;
+        $this->View->codigo_confirmacion = $codigo_confirmacion;
+        $this->View->idtercero           = $idtercero;
+
+        $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
     public function Registro_Plan_Ocasional_Natural() {
@@ -45,6 +72,7 @@ class TercerosController extends Controller
       $celular1                      = General_Functions::Validar_Entrada('celular1','TEXT');
       $e_mail                        = General_Functions::Validar_Entrada('e_mail','TEXT');
       $es_e_mail                     = General_Functions::Validar_Entrada('e_mail','EMAIL');
+
 
 
 
@@ -122,7 +150,8 @@ class TercerosController extends Controller
      // ESTABLECER VARIABLES DEL DESPACHO EN CASO DE QUE SE HAGA UN PEDIDO LUEGO DEL REGISTRO
      //--------------------------------------------------------------------------------------
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
-
+     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre );
+     $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
 
 
      // ENVIAR CORREO
@@ -397,8 +426,6 @@ class TercerosController extends Controller
          {
           $Siguiente_Pago='';
          }
-
-
          $Datos            = compact('Resultado_Logueo','Siguiente_Pago');
          echo json_encode($Datos,256);
       }
