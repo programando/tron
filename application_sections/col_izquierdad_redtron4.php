@@ -34,7 +34,7 @@
        	  	   <div class="blockques-opciones-rojo"><a href="<?= BASE_URL ;?>redtron/garantia_calidad"><img src="<?= BASE_IMG_TIENDA ;?>garantia.png" /><p>Garantía de Calidad</p></a>
        	  	   </div>
 
-       	  	   <div class="blockques-opciones-rojo"><a href="http://www.balquimia.com"><img src="<?= BASE_IMG_TIENDA ;?>tecnoaplicadas.png" /> <p>BALQUIMIA S.A.S.</p></a></div>
+       	  	   <div class="blockques-opciones-rojo"><a href="http://www.balquimia.com"><img src="<?= BASE_IMG_TIENDA ;?>tecnoaplicadas.png" style="width: 200px; " id="img-balquima" /> <p>BALQUIMIA S.A.S.</p></a></div>
        	  </div>
 
        	  <div>

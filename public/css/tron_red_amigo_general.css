@@ -1,6 +1,14 @@
 
 /*...Diseño general de las paginas que se encuentrar al lado del slider..... red-amigos-tron , pases-cortesia ect........*/
 
+#img-balquima
+{
+    display: block;
+    width: 600px;
+    height: 50px;
+    margin: 10px auto;
+}
+
 .contenedor
 {
   width    : 95%;
