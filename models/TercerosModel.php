@@ -22,12 +22,12 @@
 				 $SQL = $SQL."$param_valor_comisiones_para_pago_pedidos,$nadie_presenta,$idtipo_plan_compras,$idtppersona ";
 						$Registro    =  $this->Db->Ejecutar_Sp("terceros_crear_modificar(".$SQL.")");
 						return $Registro ;
-
-
-
 				}
 
+				public function Finalizar_Registro_Usuario_Ocasional($idtercero,$password){
 
+							$Registro                 =  $this->Db->Ejecutar_Sp("terceros_finalizar_registro_ocasional($idtercero,'$password')");
+				}
 
 
 				public function Buscar_Por_Codigo($codigousuario){

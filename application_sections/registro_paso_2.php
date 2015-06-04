@@ -288,6 +288,7 @@
   <div class="row">
       <div class="col-lg-12">
            <div class="cont-btn-bottom"><!-- Cont -->
+                 <?php include (APPLICATION_SECTIONS . 'indicador_procesos.php');?>
                 <button type="button" class="btn_volver" id="btn_paso_2_anterior">Anterior</button>
                  <button type="button" class="btn_finalizar_registro" id="btn_finalizar">Finalizar Registro</button>
            </div><!-- Cont -->

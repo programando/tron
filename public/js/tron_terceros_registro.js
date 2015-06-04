@@ -70,19 +70,41 @@ var Validar_Datos_Plan_Ocasional_Natural = function(){
 
 //  Formulario de Registro PASO 1.
 
-    var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
-        $.ajax({
+var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
+  var $Texto = '';
+  var $img_cargando        = $('#img_cargando');
+  $.ajax({
               data:  Parametros,
               dataType: 'json',
               url:      '/tron/terceros/Registro_Plan_Ocasional_Natural/',
               type:     'post',
-         success:  function (respuesta)
+          success:  function (resultado)
            {
-                  alert(respuesta.Texto_Respuesta);
-           }
-           });
-    }
+             $Texto = resultado.Texto_Respuesta;
 
+                new Messi($Texto,
+                  {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+                    buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}],
+                    callback: function(val) {
+                      window.location.href = "/tron/index/";
+                       }
+                  });
+           },
+           beforeSend: function(){
+              $img_cargando.css('display','block');
+           },
+           complete: function(){
+              $img_cargando.css('display','none');
+
+           },
+           error: function(xhr){
+              alert(xhr.responseText);
+                  new Messi('Se ha presentado el siguiente error : <br>' + xhr.responseText,
+                         {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+           }
+        });
+
+    }
 
 
     var Establecer_Tipo_Plan = function(Parametros){

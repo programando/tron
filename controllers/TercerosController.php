@@ -37,7 +37,41 @@ class TercerosController extends Controller
        echo  json_encode($Datos,256);
     }
 
-   //  pagina activacion mi cuenta
+  public function activar_cuenta_usuario_finalizar_registro(){
+      $Respuesta           = '';
+      $idtecero            = General_Functions::Validar_Entrada('idtecero','NUM');
+      $codigo_verificacion = General_Functions::Validar_Entrada('codigo_verificacion','TEXT');
+      $password            = General_Functions::Validar_Entrada('password','TEXT');
+      $password_confirm    = General_Functions::Validar_Entrada('password_confirm','TEXT');
+      $email               = General_Functions::Validar_Entrada('email','TEXT');
+
+      $Registro = $this->Terceros->Clave_Temporal_Buscar($idtecero,$codigo_verificacion);
+      if ( !$Registro ){
+          $Respuesta = 'El código de confirmación no corresponde al usuario registrado. <br>';
+      }
+      if ( $password  != $password_confirm){
+            $Respuesta = $Respuesta . 'Las contraseñas deben ser iguales para finalizar el registro.<br>';
+      }
+      if ( (strlen( $password) == 0) ||  (strlen( $password_confirm) == 0)) {
+            $Respuesta = $Respuesta . 'Las contraseñas no pueden estar vacías.<br>';
+      }
+      if ( $Respuesta == ''){
+        $password  = md5( $password );
+        $this->Terceros->Finalizar_Registro_Usuario_Ocasional($idtecero , $password );
+        $Registro  = $this->Terceros->Consulta_Datos_Por_Password_Email($email ,$password);
+        $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro );
+
+        $Respuesta = 'El registro ha finalizado con éxito.';
+      }
+
+      $Respuesta = compact('Respuesta');
+      echo json_encode($Respuesta ,256);
+    }
+
+
+
+
+
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero)
     {
         $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min'));
@@ -95,7 +129,7 @@ class TercerosController extends Controller
          $Texto_Respuesta =  $Texto_Respuesta . 'La dirección de correo electrónico no tiene un formato válido.<br>';
      }
      if ( strlen( $Texto_Respuesta) == 0){
-          $Texto_Respuesta ='OK';
+          $Texto_Respuesta ='<strong>Ya casi hemos terminado !!!</strong><br>Hemos enviado un enlace a tu cuenta de correo desde el cual podrás finalizar tu registro.<br><br>';
      }
       $codigousuario                                  = '';
       $codautorizacionmenoredad                       = '';
@@ -152,11 +186,6 @@ class TercerosController extends Controller
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
      $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre );
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
-
-
-     // ENVIAR CORREO
-     // REDIRECCIOAR USUARIO
-
      $Datos = compact('Texto_Respuesta' );
      echo json_encode($Datos,256);
 
@@ -377,12 +406,45 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista("comisiones_bonificaciones_pagadas");
     }
 
+
+    public function Validar_Ingreso_Usuario_Asignar_Datos($Registro ){
+      $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
+      Session::Set('autenticado',               true);
+      Session::Set('idtercero',                       $Registro[0]['idtercero']);
+      Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
+      Session::Set('saldo_comisiones',                $Registro[0]["saldo_comisiones"]);
+      Session::Set('saldo_puntos_cantidad',           $Registro[0]["saldo_puntos_cantidad"]);
+      Session::Set('vr_cupon_descuento'   ,     0);
+      Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
+      Session::Set('idtipo_plan_compras_confirmado',  $Registro[0]["idtipo_plan_compras_confirmado"]);
+
+      // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
+      Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);
+      Session::Set('pagado_online',                   0);
+      Session::Set('nombre_usuario_pedido',           $Registro[0]["nombre_usuario_pedido"]);
+      Session::Set('iddireccion_despacho',            0);
+      Session::Set('cantidad_direcciones',            0);
+      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
+
+      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
+      Session::Set('iddpto',                          $Registro[0]["iddpto"]);
+      Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
+      Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
+      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
+      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
+      Session::Set('re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
+
+      Session::Set('codigos_usuario',                 $Usuarios);
+      // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
+      $this->Compra_Productos_Tron_Mes_Actual();
+
+    }
+
     public function Validar_Ingreso_Usuario()
     {
        $Email                = General_Functions::Validar_Entrada('email','TEXT');
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
-       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email($Email );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
 
        if (!$Registro )
@@ -390,35 +452,7 @@ class TercerosController extends Controller
          $Resultado_Logueo = "NO-Logueo_OK";
        }else
            {
-            Session::Set('autenticado',               true);
-            Session::Set('idtercero',                       $Registro[0]['idtercero']);
-            Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
-            Session::Set('saldo_comisiones',                $Registro[0]["saldo_comisiones"]);
-            Session::Set('saldo_puntos_cantidad',           $Registro[0]["saldo_puntos_cantidad"]);
-            Session::Set('vr_cupon_descuento'   ,     0);
-            Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
-            Session::Set('idtipo_plan_compras_confirmado',  $Registro[0]["idtipo_plan_compras_confirmado"]);
-
-            // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
-            Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);
-            Session::Set('pagado_online',                   0);
-            Session::Set('nombre_usuario_pedido',           $Registro[0]["nombre_usuario_pedido"]);
-            Session::Set('iddireccion_despacho',            0);
-            Session::Set('cantidad_direcciones',            0);
-            Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
-
-            Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
-            Session::Set('iddpto',                          $Registro[0]["iddpto"]);
-            Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
-            Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
-            Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
-            Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-            Session::Set('re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
-
-            Session::Set('codigos_usuario',                 $Usuarios);
-            // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
-            $this->Compra_Productos_Tron_Mes_Actual();
-
+            $this->Terceros->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
             $Resultado_Logueo = "Logueo_OK";
          }
          $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
