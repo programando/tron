@@ -76,16 +76,14 @@
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
 
 										// HALLO EL SEGURO
-										if ($valor_declarado < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
+										$seguro_flete = $valor_declarado * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
+
+										if ($seguro_flete < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
-										}else	{
-												$seguro_flete         = $valor_declarado * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
-											}
-
+										}
 											$this->valor_flete     =  $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  + $seguro_flete ;
-
 											$this->flete_calculado = TRUE ;
-          $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
+           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
       }
 
       public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado)
@@ -245,35 +243,35 @@
       		  	$this->valor_flete = $flete_minimo;
       		  }
 
-      	// SEGURO REEXPEDICION
-      	if ( $this->re_expedicion== 0){
-      				if ( $valor_declarado > $this->Transportadoras[0]['rt_carga_vr_minimo_asegurable'] ){
-      							$seguro_reexpedicion = $valor_declarado * $porcentaje_seguro;
-      				}else{
-      							$seguro_reexpedicion = $this->Transportadoras[0]['rt_carga_vr_minimo_asegurable'] * $porcentaje_seguro;
-      				}
-      	}else{
-      			if ( $valor_declarado > $this->Transportadoras[0]['rt_carga_vr_minimo_asegurable'] ){
-      							$seguro_reexpedicion = $valor_declarado * $porcentaje_seg_reexp;
-      			}else{
-      							$seguro_reexpedicion = $this->Transportadoras[0]['rt_carga_vr_minimo_asegurable'] * $porcentaje_seg_reexp;
-      			}
-      	}
+							/**SEGURO
+							*--------------------------------------------------------
+							* SEGURO 1.... % SOBRE EL VALOR DECLARADO ... MINU Unids
+							*--------------------------------------------------------*/
+							$seguro        = 0;
+							$seguro_minimo = 0;
 
- 					$seguro_fijo = $this->Cant_Unidades_Despacho * $this->Transportadoras[0]['rt_carga_vr_seguro_fijo_unidad'];
-    		$seguro_flete = 	$seguro_reexpedicion;
+						if ( $this->re_expedicion== 0){
+									$seguro  = $valor_declarado * $this->Transportadoras[0]['rt_carga_porciento_seguro']/100;
+									if ($seguro < $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo']){
+											 $seguro  = $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo'];
+									}
+									$seguro_minimo = $this->Cant_Unidades_Despacho * $this->Transportadoras[0]['rdtrans_carga_vr_seguro_fijo_unidad'];
+								}else{ /// ES REEXPEDICION
+									$seguro  = $valor_declarado * $this->Transportadoras[0]['rt_carga_porciento_reexpedicion']/100;
+									if ( $seguro < $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo_reexp']){
+											$seguro = $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo_reexp'];
+									}
+									$seguro_minimo = $this->Cant_Unidades_Despacho * $this->Transportadoras[0]['rdtrans_carga_vr_seguro_fijo_unidad_reexp'];
+								}
 
-    		if ($seguro_fijo > $seguro_reexpedicion){
-    				$seguro_flete  = $seguro_fijo;
-    		}else{
-    			$seguro_flete  = $seguro_reexpedicion;
-    		}
-
-						$this->valor_flete     = $this->valor_flete  + $seguro_flete;
-
-						$this->flete_calculado = TRUE ;
-						$this->tipo_tarifa     = 'REDETRANS - CARGA';
-    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
+								$seguro_flete = $seguro ;
+								if ($seguro_minimo > 	$seguro ){
+									$seguro_flete = $seguro_minimo ;
+								}
+								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
+								$this->flete_calculado = TRUE ;
+								$this->tipo_tarifa     = 'REDETRANS - CARGA';
+		    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
 
       }
 
