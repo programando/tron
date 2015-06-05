@@ -372,6 +372,15 @@
   font-size: 20px;
 }
 
+.video_presentacion_producto
+{
+     display: block;
+     width: 85%;
+     margin: 0px auto;
+     height: 450px;
+}
+
+
 .img-producto-detergente
 {
    float: right;
