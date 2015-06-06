@@ -201,20 +201,19 @@
 	margin: 2px 0px;
 }
 
-.indice ul li
-{
-   padding: 5px;
-   width  : 95%;
-}
+
 
 .indice ul li a
 {
    color          : #7f7f7f;
    font-size      : 14px;
    text-decoration: none;
+   padding: 5px;
+   width  : 95%;
+   display: block;
 }
 
-.indice ul li:hover
+.indice ul li a:hover
 {
 	background   : #dddbdb;
 	border-radius: 4px;
