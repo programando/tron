@@ -44,10 +44,12 @@ class TercerosController extends Controller
       $password            = General_Functions::Validar_Entrada('password','TEXT');
       $password_confirm    = General_Functions::Validar_Entrada('password_confirm','TEXT');
       $email               = General_Functions::Validar_Entrada('email','TEXT');
+      $idtipo_plan_compras = 0;
+      $nombre_usuario      = '';
 
-      $Registro = $this->Terceros->Clave_Temporal_Buscar($idtecero,$codigo_verificacion);
-      if ( !$Registro ){
-          $Respuesta = 'El código de confirmación no corresponde al usuario registrado. <br>';
+     $Registro = $this->Terceros->Clave_Temporal_Buscar($idtecero,$codigo_verificacion);
+       if ( !$Registro ){
+          $Respuesta = 'El código de verificación no corresponde al usuario registrado. <br>';
       }
       if ( $password  != $password_confirm){
             $Respuesta = $Respuesta . 'Las contraseñas deben ser iguales para finalizar el registro.<br>';
@@ -56,15 +58,25 @@ class TercerosController extends Controller
             $Respuesta = $Respuesta . 'Las contraseñas no pueden estar vacías.<br>';
       }
       if ( $Respuesta == ''){
-        $password  = md5( $password );
+        $password = md5( $password ); // COMPLEMENTA REGISTRO DE USUARIO. ASIGNA CLAVE VE USUARIO
         $this->Terceros->Finalizar_Registro_Usuario_Ocasional($idtecero , $password );
-        $Registro  = $this->Terceros->Consulta_Datos_Por_Password_Email($email ,$password);
-        $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro );
-
-        $Respuesta = 'El registro ha finalizado con éxito.';
+        // CONSULTA DATOS POR PASSSWRORD Y EMAIL PARA ESTABLECER LOGUEO AUTOMÁTICO Y DEFINE VARIABLES DE ENTORNO
+        $Registro = $this->Terceros->Consulta_Datos_Por_Password_Email($email ,$password);
+        $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro );  // ASIGNA LAS VARIABLES DE ENTORNO
+        $idtipo_plan_compras = $Registro[0]['idtipo_plan_compras'];
+        $nombre_usuario      = $Registro[0]['nombre_usuario_pedido'];
+        $genero              = $Registro[0]['genero'];
+        $pre                 = '';  // USADO PARA DETERMINAR SI ES HOMBRE O MUJER EN LOS MENSAJES
+        if ( $genero == 1){
+          $pre = 'o';
+        }
+        if ($genero == 0 ){
+          $pre = 'a';
+        }
+        $this->Correos->Activacion_Registro_Usuario_Exitoso($email, $Registro[0]["pnombre"],$pre );
+        $Respuesta = 'El registro ha finalizado con éxito !!! <br> Ahora prodrás disfrutar de los beneficios de pertenecer a la Tienda Virtual TRON.';
       }
-
-      $Respuesta = compact('Respuesta');
+      $Respuesta = compact('Respuesta','idtipo_plan_compras','nombre_usuario');
       echo json_encode($Respuesta ,256);
     }
 
@@ -87,27 +99,42 @@ class TercerosController extends Controller
       /** MAYO 30 2015
        *      REALIZA REGISTRO DE DATOS DEL REGISTRO OCASIONAL PERSONA NATURAL
        */
-      $Texto_Respuesta               = '';
-      $codigoterceropresenta         = Session::Get('codigousuario_presenta');
-      $codigoterceropresenta_inicial = $codigoterceropresenta;
-      $idterceropresenta             = 0 ;//Session::Get('idtercero_presenta');
-      if ( $idterceropresenta ==0 ){
+       $Texto_Respuesta               = '';
+       $codigoterceropresenta         = Session::Get('codigousuario_presenta');
+       $codigoterceropresenta_inicial = $codigoterceropresenta;
+       $idterceropresenta             = Session::Get('idtercero_presenta');
+       $idtipo_plan_compras           = Session::Get('idtipo_plan_compras');
+       if ( !isset($idterceropresenta)){
+          $idterceropresenta =0;
+       }
+      if ( $idterceropresenta = 0 ){  /// SI NADIE LO  PRESENTA, DEJÓ EN BLANCO DEBO ASIGNARLO
+          $nadie_presenta = 1;
+        }else{
           $nadie_presenta = 0;
         }
+        // SI NADIE PRESENTE Y EL DEL PLAN 2, ASIGNO CODIGO AUTOMATICO
+        if ( $idtipo_plan_compras == 2 && $nadie_presenta == 1 ){
+          $Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
+          $idterceropresenta             = $Datos_Codigo[0]['idtercero'];
+          $codigoterceropresenta         = $Datos_Codigo[0]['codigousuario'];
+          $codigoterceropresenta_inicial = $codigoterceropresenta ;
+          Session::Set('codigousuario_presenta',$codigoterceropresenta);
+          Session::Set('idtercero_presenta', $idterceropresenta);
+        }
 
-      $idtpidentificacion            = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
-      $identificacion                = General_Functions::Validar_Entrada('identificacion','NUM');
-      $pnombre                       = General_Functions::Validar_Entrada('pnombre','TEXT');
-      $papellido                     = General_Functions::Validar_Entrada('papellido','TEXT');
-      $genero                        = General_Functions::Validar_Entrada('genero','TEXT');
-      $idmcipio                      = General_Functions::Validar_Entrada('idmcipio','NUM');
-      $direccion                     = General_Functions::Validar_Entrada('dirrecion','TEXT');
-      $barrio                        = General_Functions::Validar_Entrada('barrio','TEXT');
-      $celular1                      = General_Functions::Validar_Entrada('celular1','TEXT');
-      $e_mail                        = General_Functions::Validar_Entrada('e_mail','TEXT');
-      $es_e_mail                     = General_Functions::Validar_Entrada('e_mail','EMAIL');
-
-
+      $idtpidentificacion = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
+      $identificacion     = General_Functions::Validar_Entrada('identificacion','TEXT');
+      $pnombre            = General_Functions::Validar_Entrada('pnombre','TEXT');
+      $papellido          = General_Functions::Validar_Entrada('papellido','TEXT');
+      $genero             = General_Functions::Validar_Entrada('genero','TEXT');
+      $idmcipio           = General_Functions::Validar_Entrada('idmcipio','NUM');
+      $direccion          = General_Functions::Validar_Entrada('dirrecion','TEXT');
+      $barrio             = General_Functions::Validar_Entrada('barrio','TEXT');
+      $celular1           = General_Functions::Validar_Entrada('celular1','TEXT');
+      $e_mail             = General_Functions::Validar_Entrada('e_mail','TEXT');
+      $es_e_mail          = General_Functions::Validar_Entrada('e_mail','EMAIL');
+      $email_confirm      = General_Functions::Validar_Entrada('email_confirm','TEXT');
+      $es_email_confirm   = General_Functions::Validar_Entrada('email_confirm','EMAIL');
 
 
      if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
@@ -125,11 +152,11 @@ class TercerosController extends Controller
      if ( strlen( $celular1)== 0  ){
           $Texto_Respuesta =  $Texto_Respuesta . 'Debe registrar un número de celular.<br>';
      }
-     if ( $es_e_mail == FALSE ){
-         $Texto_Respuesta =  $Texto_Respuesta . 'La dirección de correo electrónico no tiene un formato válido.<br>';
+     if ( $es_e_mail == FALSE || $es_email_confirm = FALSE ){
+         $Texto_Respuesta =  $Texto_Respuesta . 'La dirección de correo electrónico y su confirmación no pueden estar vacías y contener un formato válido.<br>';
      }
      if ( strlen( $Texto_Respuesta) == 0){
-          $Texto_Respuesta ='<strong>Ya casi hemos terminado !!!</strong><br>Hemos enviado un enlace a tu cuenta de correo desde el cual podrás finalizar tu registro.<br><br>';
+          $Texto_Respuesta ='<strong>Ya casi hemos terminado !!!</strong><br><br>Hemos enviado un enlace a tu cuenta de correo desde el cual podrás finalizar tu registro.<br><br>';
      }
       $codigousuario                                  = '';
       $codautorizacionmenoredad                       = '';
@@ -158,7 +185,7 @@ class TercerosController extends Controller
       $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
       $param_valor_comisiones_para_pago_pedidos       = 0 ;
       $idtppersona                                    = 1;
-      $idtipo_plan_compras                            = 1 ;
+
 
       $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' , 'razonsocial' ,'genero' ,
                               'dianacimiento' ,'mesnacimiento' ,'passwordusuario' , 'direccion' ,'barrio' ,'contacto' ,'telefono' ,'celular1' ,
@@ -183,9 +210,19 @@ class TercerosController extends Controller
      $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($Datos_Direccion_Despacho);
      // ESTABLECER VARIABLES DEL DESPACHO EN CASO DE QUE SE HAGA UN PEDIDO LUEGO DEL REGISTRO
      //--------------------------------------------------------------------------------------
+     $pre = '';
+     if ( $genero == 1){
+      $pre = 'o';
+     }
+     if ( $genero == 0 ){
+      $pre = 'a';
+     }
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
-     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre );
+     // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
+     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre );
+     // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
+
      $Datos = compact('Texto_Respuesta' );
      echo json_encode($Datos,256);
 
@@ -222,6 +259,9 @@ class TercerosController extends Controller
           Session::Set('idtercero_presenta',0);
           Session::Set('nombre_usuario_presenta','');
           Session::Set('codigousuario_presenta','');
+          Session::Set('idtipo_plan_compras',0);
+
+
       }
     public function Registro_Establecer_Tipo_Plan_Seleccionado(){
       /** MAYO 24 de 2015
@@ -417,6 +457,7 @@ class TercerosController extends Controller
       Session::Set('vr_cupon_descuento'   ,     0);
       Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
       Session::Set('idtipo_plan_compras_confirmado',  $Registro[0]["idtipo_plan_compras_confirmado"]);
+      Session::Set('kit_comprado',                    $Registro[0]["kit_comprado"]);
 
       // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
       Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);

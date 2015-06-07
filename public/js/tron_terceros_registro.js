@@ -56,10 +56,10 @@ var Validar_Datos_Plan_Ocasional_Natural = function(){
   if ($.trim( $e_mail.val()) == "" ){
     $Texto = $Texto + 'Debe registrar un correo electrónico y su confirmación. <br>';
   }
- /* if ($.trim($email_confirm.val()) == ""){
+  if ($.trim($('#email_confirm').val()) == ""){
     $Texto = $Texto + 'Debe registrar un correo electrónico y su confirmación. <br>';
   }
-*/
+
 
   if ( $Texto.length > 0 ){
       return false;
@@ -98,7 +98,7 @@ var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
 
            },
            error: function(xhr){
-              alert(xhr.responseText);
+                  alert(xhr.responseText);
                   new Messi('Se ha presentado el siguiente error : <br>' + xhr.responseText,
                          {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
            }
@@ -121,12 +121,14 @@ var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
     }
 
     var Re_Establecer_Tipo_Plan = function(){
+        $('#input_codigo').val('');
         $.ajax({
             data: {} ,
             dataType: 'json',
             url:      '/tron/terceros/Registro_Re_Establecer_Tercero_Presenta/',
             type:     'post',
-            success:  function (respuesta) { }
+            success:  function (respuesta) {
+          }
          });
 
     }
@@ -141,11 +143,11 @@ var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
            {
               $Respuesta = respuesta.Respuesta;
               if ($Respuesta == 'CODIGO_NO_EXISTE'){
-                new Messi('Código de usuario no registrado en nuestra base de datos.<br>Por favor corrija los datos e inténtelo nuevamente.',
+                new Messi('Código de usuario: <strong><h4>' +  codigousuario + '</h4></strong>   no registrado en nuestra base de datos.<br>Por favor corrija los datos e inténtelo nuevamente.',
                          {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
                     Re_Establecer_Tipo_Plan();
               }else{
-                    new Messi('Confirma que desea vincularse a la red del siguiente usuario :<br> <br><strong>' + respuesta.nombre_usuario + '</strong><br>        Código de Usuario : <strong>' + respuesta.codigousuario + '</strong><br>',
+                    new Messi('Confirma que desea vincularse a la red de :<br> <br><strong>' + respuesta.nombre_usuario + '</strong><br>        Código de Usuario : <strong>' + respuesta.codigousuario + ' ? </strong><br><br><br>',
                     {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
                     buttons: [
                               {id: 0, label: 'La información de Usuario es Correcta', val: 'Y',class: 'btn-success'},
@@ -154,7 +156,6 @@ var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
                     callback: function(val) {
                       if (val=='N')
                       {
-                        $('#input_codigo').val('');
                         Re_Establecer_Tipo_Plan();
                       }
                     }});
@@ -162,6 +163,8 @@ var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
            }
            });
   }
+
+
 
 // Tooltips => Paso 1
   function simple_tooltip(target_items, name){
@@ -215,6 +218,7 @@ $('#idtpidentificacion').on('change',function(){
 /// IDENTIFICACION
 $('#identificacion_nat').on('blur',function(){
     var $identificacion = $('#identificacion_nat').val();
+     if ($identificacion.length==0){ return ;}
     $.ajax({
           data:  {'identificacion':$identificacion},
           dataType: 'json',
@@ -267,6 +271,7 @@ $('#input_codigo').on('blur',function(){
     $input_codigo = $('#input_codigo');
     $codigousuario = $.trim($input_codigo.val().toUpperCase()) ;
     $input_codigo.val($codigousuario);
+    Re_Establecer_Tipo_Plan();
     if ($codigousuario.length == 0){
         new Messi('Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br>',
             {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
@@ -294,7 +299,9 @@ $('.li_pasos_registro:first').css('background','#003E90');
 /// VALIDACIONES EMAIL
 $('#email').on('blur',function(){
   var $Texto='';
+  if ($('#email').length == 0) { return ;}
   $email = $(this).val();
+
   $.ajax({
         data:  {'email':$email},
         dataType: 'json',
@@ -374,6 +381,7 @@ $('#btn_finalizar').on('click',function(){
 
     var $Formulario_Validado = false;
 
+
     // TRABAJO CON DATOS DE PERSONAS NATURALES
     if ( $idtpidentificacion.val()== 13 || $idtpidentificacion.val() == 42 )
     {
@@ -381,12 +389,13 @@ $('#btn_finalizar').on('click',function(){
         if ($Formulario_Validado  == false){
              new Messi($Texto,
               {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
-                buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+                buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]
+              });
         }else{
 
-          $Parametros={'idtpidentificacion':idtpidentificacion, 'identificacion':identificacion,
+          $Parametros={'idtpidentificacion':idtpidentificacion, 'identificacion':identificacion_nat,
                         'pnombre':pnombre, 'papellido':papellido,'genero':genero,'idmcipio':idmcipio,
-                        'dirrecion':dirrecion, 'barrio':barrio,'celular1':celular1,'e_mail':e_mail};
+                        'dirrecion':dirrecion, 'barrio':barrio,'celular1':celular1,'e_mail':e_mail,'email_confirm':email_confirm};
           Grabar_Registro_Plan_Ocasional_Natural($Parametros);
         }
     }

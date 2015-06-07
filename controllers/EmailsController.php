@@ -134,11 +134,11 @@
             return $CorreoEnviado ;
       }
 
-      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario){
+      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $pre){
 
          $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
          $enlace              = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/> Activar mi cuenta y finalizar registro </a>';
-         $Texto_Correo        = 'Bienvenido ' .  $nombre_usuario .'<br><br>';
+         $Texto_Correo        = 'Bienvenid' . $pre . ' '. $nombre_usuario .'<br><br>';
          $Texto_Correo        = $Texto_Correo .'Para activar tu cuenta de usuario y finalizar el registro, presiona el siguiente enlace :' . $enlace ;
          $Texto_Correo        = $Texto_Correo . "desde donde podrás cambiar tu contraseña y a partir de allí, ingresar a la tienda virtual.";
 
@@ -150,9 +150,26 @@
          $Respuesta = $this->Enviar_Correo();
          Session::Set('codigo_confirmacion',$codigo_confirmacion);
          return $Respuesta;
-
       }
 
+    public function Activacion_Registro_Usuario_Exitoso( $email, $nombre_usuario, $pre ){
+          $enlace              = '<a href=' . BASE_URL .'redtron/preguntas_frecuentes/>' .   'Preguntas Frecuentes</a>';
+          $Texto_Correo = "<div style='text-align:justify;'>
+                      Bienvenid".$pre." ". $nombre_usuario .".<br /><br />
+                      Tu registro en la Tienda Virtual <a href='".BASE_URL ."'>TRON Entre amigos alcanzamos</a> ha finalizado satisfactoriamente.<br /><br />
+                      Te invitamos a conocer m&aacute;s sobre nuestro modelo de negocio,
+                      consultando " . $enlace . " o
+                      solicitando atención personalizada a la línea gratuita 01 8000 18TRON (8766) o
+                      al PBX (2) 488 1616. Horarios de atención;n: 7:30 am a 12:00 m y 1:30 pm a 6:00 pm de lunes a viernes.
+                      </div>";
+         $this->Configurar_Cuenta('Registro Exitoso | Tienda Virtual TRON');
+         $this->Email->AddAddress($email );
+         $this->Email->Body   = CORREO_HEADER ;
+         $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
+         $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
+         $Respuesta = $this->Enviar_Correo();
+
+    }
       private function Configurar_Cuenta($asunto)
       {
       		/** ENERO 30 DE 2015
