@@ -30,6 +30,11 @@
 				}
 
 
+				public function Cambio_Plan($tipo_proceso_en_plan,$idtercero,$idtipo_plan_compras){
+						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_cambio_plan_compras('$tipo_proceso_en_plan',$idtercero,$idtipo_plan_compras )");
+							return $Registro;
+
+				}
 
 				public function Generar_Codigo_Registro_Nadie_Presenta(){
 						/** JUNIO 05 2015

@@ -7,6 +7,7 @@
         else
         {
           echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";		    	//Debug::Mostrar($carro);
+          exit;
         }
 
 ?>
@@ -94,9 +95,21 @@
 																				<?php endforeach ;?>
 																				<tr><td></td></tr>
                                         <tr>
+                                        <td class="cuerpo-tabla">idtercero_pedido </td>
+                                        <td class="cuerpo-tabla"><?=   Session::Get('idtercero_pedido'); ?> </td>
+                                        </tr>
+
+                                        <tr>
                                         <td class="cuerpo-tabla">idtipo_plan_compras </td>
                                         <td class="cuerpo-tabla"><?=   Session::Get('idtipo_plan_compras'); ?> </td>
                                         </tr>
+
+                                        <tr>
+                                        <td class="cuerpo-tabla">usuario_viene_del_registro </td>
+                                        <td class="cuerpo-tabla"><?=   Session::Get('usuario_viene_del_registro'); ?> </td>
+                                        </tr>
+
+
 
                                         <tr>
                                         <td class="cuerpo-tabla">idtercero_presenta </td>

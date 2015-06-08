@@ -39,13 +39,12 @@
              </div>
            </div>
          </div>
-
          <!-- contraseña -->
          <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="form-group">
-           <label for="password_activar_cuenta" class="col-lg-3 control-label"><p class="text-label"> Contraseña: </p></label>
+           <label for="password_activar_cuenta" class="col-lg-3 control-label"><p class="text-label" > Contraseña: </p></label>
            <div class="col-lg-9">
-            <input type="password" class="form-control" id="password_activar_cuenta" >
+            <input type="password" class="form-control" id="password_activar_cuenta"placeholder="Contraseña" >
           </div>
         </div>
       </div>
@@ -54,7 +53,7 @@
         <div class="form-group">
          <label for="confir-password_activar_cuenta" class="col-lg-3 control-label"><p class="text-label"> Confirmar: </p></label>
          <div class="col-lg-9">
-          <input type="password" class="form-control" id="confir-password_activar_cuenta" placeholder="Contraseña">
+          <input type="password" class="form-control" id="confir-password_activar_cuenta" placeholder="Repita Contraseña">
         </div>
       </div>
     </div>
@@ -79,8 +78,10 @@
   <div>
   <br>
 
-  <?php include (APPLICATION_SECTIONS . 'indicador_procesos.php');?>
+
+
     <div class="text-center">
+    <?php include (APPLICATION_SECTIONS . 'indicador_procesos.php');?>
       <button type='button' id="btn-activar_cta_ocasional" class="btn btn-success" idtercero = '<?= $this->idtercero ;?>'>Activar mi cuenta y finalizar registro</button>
     </div>
   </div>

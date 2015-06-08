@@ -278,8 +278,8 @@ class CarritoController extends Controller
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
-      $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
-      $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
+      $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar','messi.min'));
+      $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio','messi.min'));
 
       if ($this->Cantidad_Filas_Carrito == 0)
       {

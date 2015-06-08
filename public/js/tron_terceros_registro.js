@@ -164,6 +164,30 @@ var Grabar_Registro_Plan_Ocasional_Natural = function(Parametros){
            });
   }
 
+$('#input_codigo').on('blur',function(){
+    $codigousuario = $.trim($('#input_codigo').val().toUpperCase()) ;
+    $input_codigo   = $('#input_codigo');
+    $input_codigo.val($codigousuario);
+    Re_Establecer_Tipo_Plan();
+    $('#input_codigo').val($codigousuario);
+    if ($codigousuario.length == 0){
+        new Messi('Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br>',
+            {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+            buttons: [
+                      {id: 0, label: 'Es correcto, nadie me presenta ', val: 'Y',class: 'btn-success'},
+                      {id: 1, label: 'Opps !!!, Espere !!! deseo corregir !!!', val: 'N', class: 'btn-danger'}
+                      ],
+            callback: function(val) {
+              if (val=='N')
+              {
+                Re_Establecer_Tipo_Plan();
+              }
+            }});
+    }else{
+      Buscar_Codigo_Usuario($codigousuario);
+    }
+});
+
 
 
 // Tooltips => Paso 1
@@ -267,28 +291,6 @@ $('#identificacion_nat_confirm').on('focusout',function(){
 });
 
 
-$('#input_codigo').on('blur',function(){
-    $input_codigo = $('#input_codigo');
-    $codigousuario = $.trim($input_codigo.val().toUpperCase()) ;
-    $input_codigo.val($codigousuario);
-    Re_Establecer_Tipo_Plan();
-    if ($codigousuario.length == 0){
-        new Messi('Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br>',
-            {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
-            buttons: [
-                      {id: 0, label: 'Es correcto, nadie me presenta ', val: 'Y',class: 'btn-success'},
-                      {id: 1, label: 'Opps !!!, Espere !!! deseo corregir !!!', val: 'N', class: 'btn-danger'}
-                      ],
-            callback: function(val) {
-              if (val=='N')
-              {
-                Re_Establecer_Tipo_Plan();
-              }
-            }});
-    }else{
-      Buscar_Codigo_Usuario($codigousuario);
-    }
-});
 
 // TABS = Registro ( paso 1 , paso 2).
 $('.rgts_pasos').hide();

@@ -70,10 +70,64 @@ function Imprimir_Totales_Carrito_Header(VrOcasional, VrTron)
    $Total_Venta_Tron.html( VrTron );
 }
 
+function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar($idtipo_plan_compras){
 
+		$.ajax({
+						data:  {'idtipo_plan_compras':$idtipo_plan_compras,'tipo_proceso_en_plan':'DEGRADAR_PLAN'},
+						dataType: 'text',
+						url:      '/tron/terceros/Cambio_Plan/',
+						type:     'post',
+	     success:  function (resultado) {
+	     		}
+					});
+}
+
+
+function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario( )
+{
+		return $.ajax({
+					dataType: 'json',
+					url:      '/tron/terceros/Verificar_Registro_Inicial_Usuario/',
+					type:     'post'
+					});
+}
+
+
+var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras){
+	var $Texto = '';
+	if ( idtipo_plan_compras == 2){
+					$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas el Kit de Incio no podrás finalizar tu registro y quedarás registrado como: <h4> Comprador Ocasional. </h4>. <br> Deseas continuar ?";
+					idtipo_plan_compras  = 1;
+	}
+	if ( idtipo_plan_compras == 3){
+					$Texto = "Texto por definir";
+	}
+				new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+                buttons: [
+                          {id: 0, label: 'Si, eliminaré el Kit de Inicio', val: 'Y',class: 'btn-danger' },
+                          {id: 1, label: 'No, Quiero mantenerme el en Plan Elegido', val: 'N', class: 'btn-success'}
+                          ],
+                callback: function(val) {
+                			if ( val=='Y'){
+                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(idtipo_plan_compras);
+                			}
+				          }});
+
+}
 
 function Borrar_Producto_de_Carrito(Parametros)
 {
+	 // junio 08 2015
+	// ANTES DE BORRAR VERIFICO SI VIENE DEL REGISTRO Y SI EL PRODUCTO QUE DESEA BORRAR ES EL KIT DE INICIO
+	// SE LE ADVIERT QUE SI LO BORRA SE DEGRADARÁ DE PLAN.
+
+ var $Datos= Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario();
+ $Datos.success(function (res){
+ 				alert(res.idtipo_plan_compras);
+ });
+
+
+/*
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
@@ -85,7 +139,9 @@ function Borrar_Producto_de_Carrito(Parametros)
     	 		Actualizar_Vista_Carrito();
     	 }
 					});
+*/
 }
+
 
 function Recomendar_Producto_a_Mi_Amigo(Parametros)
 {

@@ -5,11 +5,12 @@ var Agregar_Producto_a_Carrito= function (NomProducto,Parametros)
           dataType: 'json',
           url:      '/tron/carrito/Agregar_Producto/',
           type:     'post',
-     success:  function (resultado)
-       {
-             $Total_Venta_Ocasional.html( VrOcasional );
-             $Total_Venta_Tron.html( VrTron );
-       }
+           success:  function (resultado)
+             {
+               $('.carrito-Total_Parcial_pv_ocasional').html( resultado.VrOcasional );
+               $('.carrito-Total_Parcial_pv_tron').html( resultado.VrTron );
+
+             }
           });
 }
 
@@ -29,7 +30,7 @@ var Paso_Final_Registro_Plan_2 = function( nombre_usuario){
      Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
 
 
-     new Messi("<stron><h4>" + nombre_usuario + "<h4><stron><br>Bienvenido(a) a la red TRON.<br><br>Para finalizar tu registro como cliente debes pagar ahora o seguir comprando...",
+     new Messi("<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como cliente debes pagar ahora o seguir comprando...",
       {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
         buttons: [{id: 0, label: 'Seguir Comprando', val: 'S', class: 'btn-success'},
                   {id: 1, label: 'Pagar Ahora', val: 'P', class: 'btn-danger'}],

@@ -63,15 +63,22 @@ class TercerosController extends Controller
         // CONSULTA DATOS POR PASSSWRORD Y EMAIL PARA ESTABLECER LOGUEO AUTOMÁTICO Y DEFINE VARIABLES DE ENTORNO
         $Registro = $this->Terceros->Consulta_Datos_Por_Password_Email($email ,$password);
         $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro );  // ASIGNA LAS VARIABLES DE ENTORNO
+        Session::Set('idtipo_plan_compras', $Registro[0]['idtipo_plan_compras']);
         $idtipo_plan_compras = $Registro[0]['idtipo_plan_compras'];
         $nombre_usuario      = $Registro[0]['nombre_usuario_pedido'];
         $genero              = $Registro[0]['genero'];
         $pre                 = '';  // USADO PARA DETERMINAR SI ES HOMBRE O MUJER EN LOS MENSAJES
+
         if ( $genero == 1){
           $pre = 'o';
         }
         if ($genero == 0 ){
           $pre = 'a';
+        }
+        // VERFICAR SI EL TIPO DE PLAN ES 2. SIRVE PARA QUE EN CASO DE BORRAR EL KIT DE INICIO DE ESTE PEDIDO, LUEGO DEL REGISTRO
+        // SE LE DEGRADE DE PLAN. PASARÍA DE 2 A 1
+        if ( $idtipo_plan_compras == 2 ){
+            Session::Set('usuario_viene_del_registro',TRUE); // VIENE DEL REGISTRO
         }
         $this->Correos->Activacion_Registro_Usuario_Exitoso($email, $Registro[0]["pnombre"],$pre );
         $Respuesta = 'El registro ha finalizado con éxito !!! <br> Ahora prodrás disfrutar de los beneficios de pertenecer a la Tienda Virtual TRON.';
@@ -81,8 +88,29 @@ class TercerosController extends Controller
     }
 
 
+    public function  Verificar_Registro_Inicial_Usuario(){
+      /**  JUNIO 08 2015
+       *      VERFICAR SI EL TIPO DE PLAN ES 2. SIRVE PARA QUE EN CASO DE BORRAR EL KIT DE INICIO DE ESTE PEDIDO, LUEGO DEL REGISTRO
+       *      SE LE DEGRADE DE PLAN. PASARÍA DE 2 A 1
+       */
+      $usuario_viene_del_registro = Session::Get('usuario_viene_del_registro');
+      $idtipo_plan_compras        = Session::Get('idtipo_plan_compras');
 
+      if ( !isset($usuario_viene_del_registro )){
+          $usuario_viene_del_registro = false ;
+      }
+      $Respuesta = compact('usuario_viene_del_registro','idtipo_plan_compras');
+      echo json_encode($Respuesta,256);
+    }
 
+    public function Cambio_Plan(){
+
+      $tipo_proceso_en_plan =  General_Functions::Validar_Entrada('tipo_proceso_en_plan', 'TEXT');
+      $idtecero             = Session::Get('idtercero_pedido');
+      $idtipo_plan_compras  = General_Functions::Validar_Entrada('idtipo_plan_compras', 'NUM');
+      $this->Terceros->Cambio_Plan($tipo_proceso_en_plan, $idtecero, $idtipo_plan_compras);
+      echo "OK";
+    }
 
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero)
     {
@@ -104,14 +132,12 @@ class TercerosController extends Controller
        $codigoterceropresenta_inicial = $codigoterceropresenta;
        $idterceropresenta             = Session::Get('idtercero_presenta');
        $idtipo_plan_compras           = Session::Get('idtipo_plan_compras');
-       if ( !isset($idterceropresenta)){
-          $idterceropresenta =0;
-       }
-      if ( $idterceropresenta = 0 ){  /// SI NADIE LO  PRESENTA, DEJÓ EN BLANCO DEBO ASIGNARLO
+      if ( $idterceropresenta == 0 ){  /// SI NADIE LO  PRESENTA, DEJÓ EN BLANCO DEBO ASIGNARLO
           $nadie_presenta = 1;
         }else{
           $nadie_presenta = 0;
         }
+
         // SI NADIE PRESENTE Y EL DEL PLAN 2, ASIGNO CODIGO AUTOMATICO
         if ( $idtipo_plan_compras == 2 && $nadie_presenta == 1 ){
           $Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
@@ -222,6 +248,9 @@ class TercerosController extends Controller
      $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre );
      // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
+     // DEJAR LAS VARIABLES EN BLANCO
+     $this->Registro_Re_Establecer_Tercero_Presenta();
+     Session::Destroy('idtipo_plan_compras');
 
      $Datos = compact('Texto_Respuesta' );
      echo json_encode($Datos,256);
@@ -232,11 +261,10 @@ class TercerosController extends Controller
       /** MAYO 24 DE 2015
        *      REALIZA LA BÚSQUEDA DE DATOS POR CÓDIGO DE USUARIO
        */
+      $this->Registro_Re_Establecer_Tercero_Presenta();
       $codigousuario  = General_Functions::Validar_Entrada('codigousuario','TEXT');
       $Registro       = $this->Terceros->Buscar_Por_Codigo($codigousuario);
       $Respuesta      = '';
-
-      $this->Registro_Re_Establecer_Tercero_Presenta();
 
       if (!$Registro){
             $Respuesta ='CODIGO_NO_EXISTE';
@@ -246,9 +274,9 @@ class TercerosController extends Controller
         $nombre_usuario = $Registro[0]['nombre_usuario'];
         $codigousuario  = $Registro[0]['codigousuario'];
         //
-        Session::Set('idtercero_presenta',$Registro[0]['idtercero']);
-        Session::Set('nombre_usuario_presenta',$Registro[0]['nombre_usuario']);
-        Session::Set('codigousuario_presenta',$Registro[0]['codigousuario']);
+        Session::Set('idtercero_presenta'         ,$idtercero);
+        Session::Set('nombre_usuario_presenta'    ,$nombre_usuario);
+        Session::Set('codigousuario_presenta'     ,$codigousuario);
         $Respuesta ='CODIGO_SI_EXISTE';
         $Datos = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
       }
@@ -259,9 +287,6 @@ class TercerosController extends Controller
           Session::Set('idtercero_presenta',0);
           Session::Set('nombre_usuario_presenta','');
           Session::Set('codigousuario_presenta','');
-          Session::Set('idtipo_plan_compras',0);
-
-
       }
     public function Registro_Establecer_Tipo_Plan_Seleccionado(){
       /** MAYO 24 de 2015
@@ -536,6 +561,8 @@ class TercerosController extends Controller
 
     public function registro()
     {
+        $this->Registro_Re_Establecer_Tercero_Presenta();
+       Session::Destroy('idtipo_plan_compras');
         $Parametros = $this->Parametros->Transportadoras();
         Session::Set('kit_vr_venta_valle',$Parametros[0]['kit_vr_venta_valle']);
         Session::Set('kit_vr_venta_valle_reexpedidion',$Parametros[0]['kit_vr_venta_valle_reexpedidion']);
