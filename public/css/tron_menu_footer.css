@@ -613,10 +613,14 @@ footer
 		  width        : 160px;
 }
 
-footer ul li a
+footer ul li a ,
+footer ul li a:active ,
+footer ul li a:link
 {
     color: #969696;
 }
+
+
 
 footer ul li a:hover
 {

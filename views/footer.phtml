@@ -78,10 +78,15 @@
                 </li>
 
             		<li><a href="<?= BASE_URL ;?>terceros/registro" class="footer-rgs"><span class="glyphicon glyphicon-list-alt"> </span> Registrarme  </a></li>
-            		<li><a href="#">Recuperar Contraseña</a></li>
+            		<li><a href="#recuperar_contrasena"  data-toggle="modal" data-target="#recuperar_contrasena">Recuperar Contraseña</a></li>
+                <!-- Incluir ventana modal => recuperar contraseña -->
+                <?php include (APPLICATION_SECTIONS .'ventana_modal_recuperar_contrasena.php');?>
             	</ul>
          </p>
       </div>
 
    </div>
   </footer>
+
+
+
