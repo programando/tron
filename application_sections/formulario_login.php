@@ -21,7 +21,8 @@
 
       <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 contenido-login">
         <div  class="panel-body cuerpo_formulario" ><!--INICIO CUERPO DEL FORMULARIO => INPUTS , BOTONES , CHECKBOX -->
-          <form id="loginform" class="form-horizontal" role="form"><!--INICIO FORMULARIO -->
+
+          <form id=" " class="form-horizontal" role="form"><!--INICIO FORMULARIO -->
             <label for="login-username">Email</label>
             <div class="input-group">
               <span class="input-group-addon">
@@ -34,7 +35,7 @@
               <span class="input-group-addon">
                 <i class="llave-cont"></i><!-- IMG QUE SE ENCUENTRA EN LA DERECHA DE INPUT-->
               </span> <!--INPUT = CONTRASEÑA -->
-              <input id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña">
+              <input id="myPassword" type="password" class="form-control" name="password" placeholder="Contraseña">
             </div>
             <div class="olvide_contraseña"><!-- INICIO RECORDAR CONTRASEÑA -->
               <small>
@@ -71,6 +72,7 @@
 
 
 <?php endif ;?>
+
 
 
 

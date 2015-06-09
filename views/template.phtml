@@ -21,6 +21,7 @@
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>tron_login.css"  />
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>tron_registro.css"  />
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>font_styles.css"  />
+      <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>validacion_contraseñas.css"/><!-- Validacion contraseñas -->
       <?php  if(isset($this->Css) && !empty($this->Css))
       {
        foreach ($this->Css as $Archivo_Css) { ?>
@@ -66,6 +67,7 @@
 <script src ="<?= BASE_JS ; ?>bootstrap.js"                      type="text/javascript" ></script>
 <script src ="<?= BASE_JS ; ?>tron_login.js"                     type="text/javascript" ></script>
 <script src ="<?= BASE_JS ; ?>tron_menu_fijo.js"                 type="text/javascript" ></script>
+<script src ="<?= BASE_JS ; ?>strength.js" type="text/javascript" ></script>
 
 
 <script type="text/javascript">
@@ -96,6 +98,9 @@
                   }
             });
           });
+
+
+
      </script>
 
   </body>
