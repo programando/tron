@@ -1,0 +1,66 @@
+
+.Info-contrasena{
+   display: block;
+   width: 100%;
+   margin-top: -25px;
+   padding: 0px;
+}
+
+.cont-barra ,
+.text-info-contrasena
+{
+   float: left;
+   font-size: 10px;
+   padding: 0px;
+   margin-top:  2px;
+}
+
+/* BArra de progreso */
+.cont-barra
+{   width: 52%;
+	  margin-right: 2px;
+}
+
+.barra
+{
+  background: transparent;
+  height: 15px;
+  border: 2px solid #B5B5B5;
+  width: 100%;
+  display: block;
+  z-index: 2;
+
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+
+/* Barra => Progresador */
+.porgresador
+{
+    background: red;
+    z-index: 1;
+    width: 0%;
+    height: 11px;
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-transiiton: all 500ms ease;
+    -moz-transiiton: all 500ms ease;
+    transiiton: all 500ms ease;
+
+    -webkit-border-radius: 2px ;
+   -moz-border-radius: 2px ;
+   border-radius: 2px ;
+}
+
+/* Texto informacion de la contrasena */
+.text_dificulta_contrasena
+{
+	   font-weight: bold;
+}
+
+.text-info-contrasena
+{
+	   width: 47%;
+}

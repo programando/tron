@@ -118,9 +118,16 @@ class TercerosController extends Controller
       echo "OK";
     }
 
+   public function activar_cuenta_usuario_prueba()
+    {
+        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','tron_barra_progreso'));
+        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
+        $this->View->Mostrar_Vista("activar_cuenta_usuario");
+    }
+
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero)
     {
-        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min'));
+        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','tron_barra_progreso'));
         $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
         $this->View->email               = $email;
         $this->View->codigo_confirmacion = $codigo_confirmacion;
@@ -626,8 +633,8 @@ class TercerosController extends Controller
     {
 
         $this->View->Numero_Confirmacion = $numero_confirmacion;
-        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal'));
-        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password'));
+        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','tron_barra_progreso'));
+        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','tron_barra_progreso_contrasena'));
 
         $this->View->Mostrar_Vista('cambiar_password');
     }
