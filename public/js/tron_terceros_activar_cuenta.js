@@ -57,7 +57,7 @@ $('#btn-activar_cta_ocasional').on('click',function(){
   var $email               = $('#email_activar_cuenta').val();
   var $Texto               = '';
   var $idtipo_plan_compras = 0;
-  var $nombre_usuario      = ''
+  var $nombre_usuario      = '';
   var $acepto_terminos     = $('#acepto_terminos_y_condiciones').is(':checked');
 
   if ( $acepto_terminos == false ){
@@ -67,6 +67,7 @@ $('#btn-activar_cta_ocasional').on('click',function(){
                });
      return ;
   }
+
 	var $Parametros = {'idtecero':$idtecero,'codigo_verificacion':$codigo_verificacion,
 	                   'password':$password,'password_confirm':$password_confirm,'email':$email };
 
@@ -80,8 +81,15 @@ $('#btn-activar_cta_ocasional').on('click',function(){
              $Texto               = resultado.Respuesta;
              $idtipo_plan_compras =  resultado.idtipo_plan_compras;
              $nombre_usuario      = resultado.nombre_usuario;
+
              if ( $idtipo_plan_compras == 1){  Paso_Final_Registro_Plan_1 ($Texto )         ; }
              if ( $idtipo_plan_compras == 2){  Paso_Final_Registro_Plan_2 ($nombre_usuario) ; }
+             if ( $idtipo_plan_compras == 0){
+              new Messi($Texto,
+                     {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}],
+                     callback: function(val) {}
+                     });
+             }
            },
            beforeSend: function(){
               $img_cargando.css('display','block');

@@ -5,10 +5,13 @@
 
 $('#ventana_mensaje').modal('show');
 
-var $Total_Venta_Ocasional = $('.carrito-Total_Parcial_pv_ocasional');
-var $Total_Venta_Tron      = $('.carrito-Total_Parcial_pv_tron');
-var $Mensaje_Add_Producto  = $('.mensaje-agregar_producto');
-var $Imagen_Cargando       = $("#dv-img-cargando-recomendar-producto");
+var $Total_Venta_Ocasional      = $('.carrito-Total_Parcial_pv_ocasional');
+var $Total_Venta_Tron           = $('.carrito-Total_Parcial_pv_tron');
+var $Mensaje_Add_Producto       = $('.mensaje-agregar_producto');
+var $Imagen_Cargando            = $("#dv-img-cargando-recomendar-producto");
+//-------------------------------------------------------------------------
+var $idtipo_plan_compras        = 0;
+var $usuario_viene_del_registro = false;
 
 // Recomendacion de productos
 var $mensaje_error								 = $('.mensaje-error');
@@ -82,53 +85,27 @@ function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Pl
 					});
 }
 
-
+// VERIFICA SI EL USUARIO VIENE DEL REGISTRO INICIAL
 function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario( )
 {
-		return $.ajax({
+			$.ajax({
 					dataType: 'json',
 					url:      '/tron/terceros/Verificar_Registro_Inicial_Usuario/',
-					type:     'post'
+					type:     'post',
+					async: false,
+	     success:  function (resultado) {
+									$idtipo_plan_compras        = resultado.idtipo_plan_compras;
+									$usuario_viene_del_registro = resultado.usuario_viene_del_registro;
+	     		}
 					});
-}
-
-
-var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras){
-	var $Texto = '';
-	if ( idtipo_plan_compras == 2){
-					$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas el Kit de Incio no podrás finalizar tu registro y quedarás registrado como: <h4> Comprador Ocasional. </h4>. <br> Deseas continuar ?";
-					idtipo_plan_compras  = 1;
-	}
-	if ( idtipo_plan_compras == 3){
-					$Texto = "Texto por definir";
-	}
-				new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
-                buttons: [
-                          {id: 0, label: 'Si, eliminaré el Kit de Inicio', val: 'Y',class: 'btn-danger' },
-                          {id: 1, label: 'No, Quiero mantenerme el en Plan Elegido', val: 'N', class: 'btn-success'}
-                          ],
-                callback: function(val) {
-                			if ( val=='Y'){
-                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(idtipo_plan_compras);
-                			}
-				          }});
 
 }
 
-function Borrar_Producto_de_Carrito(Parametros)
-{
-	 // junio 08 2015
-	// ANTES DE BORRAR VERIFICO SI VIENE DEL REGISTRO Y SI EL PRODUCTO QUE DESEA BORRAR ES EL KIT DE INICIO
-	// SE LE ADVIERT QUE SI LO BORRA SE DEGRADARÁ DE PLAN.
 
- var $Datos= Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario();
- $Datos.success(function (res){
- 				alert(res.idtipo_plan_compras);
- });
+function Borrar_Producto(Parametros){
+				// BORRA EL PRODUCTO DEL CARRITO
 
-
-/*
-		$.ajax({
+ 	$.ajax({
 					data:  Parametros,
 					dataType: 'json',
 					url:      '/tron/carrito/Borrar_Producto_Carrito/',
@@ -139,7 +116,51 @@ function Borrar_Producto_de_Carrito(Parametros)
     	 		Actualizar_Vista_Carrito();
     	 }
 					});
-*/
+}
+
+
+// CONFIRMA SI BORRA EL KIT DE INICIO Y POR LO TANTO CAMBIA DE PLAN
+var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras, Parametros){
+		var $Texto = '';
+		var $idproducto = Parametros.IdProducto;
+		 if ( $idproducto != 10744 && $idproducto != 2071 ){
+		 		Borrar_Producto(Parametros);
+		 	return ;
+		 }
+
+			if ( idtipo_plan_compras == 2){
+							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas el Kit de Incio no podrás finalizar tu registro y quedarás registrado como: <h4> Comprador Ocasional. </h4>. <br> Deseas continuar ?";
+							idtipo_plan_compras  = 1;
+			}
+			if ( idtipo_plan_compras == 3){
+							$Texto = "Texto por definir";
+			}
+						new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+		                buttons: [
+		                          {id: 0, label: 'Si, eliminaré el Kit de Inicio', val: 'Y',class: 'btn-danger' },
+		                          {id: 1, label: 'No, quiero mantenerme el en Plan Elegido', val: 'N', class: 'btn-success'}
+		                          ],
+		                callback: function(val) {
+		                			if ( val =='Y'){
+		                				Borrar_Producto(Parametros);
+		                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(idtipo_plan_compras);
+		                			}
+						          }});
+
+}
+
+function Borrar_Producto_de_Carrito(Parametros)
+{
+				 // junio 08 2015
+				// ANTES DE BORRAR VERIFICO SI VIENE DEL REGISTRO Y SI EL PRODUCTO QUE DESEA BORRAR ES EL KIT DE INICIO
+				// SE LE ADVIERT QUE SI LO BORRA SE DEGRADARÁ DE PLAN.
+				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario();
+				if ($usuario_viene_del_registro == false ){
+								Borrar_Producto(Parametros);
+				}else{
+						Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan($idtipo_plan_compras,Parametros)
+				}
+
 }
 
 

@@ -35,7 +35,7 @@
               <span class="input-group-addon">
                 <i class="llave-cont"></i><!-- IMG QUE SE ENCUENTRA EN LA DERECHA DE INPUT-->
               </span> <!--INPUT = CONTRASEÑA -->
-              <input id="myPassword" type="password" class="form-control" name="password" placeholder="Contraseña">
+              <input id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña">
             </div>
             <div class="olvide_contraseña"><!-- INICIO RECORDAR CONTRASEÑA -->
               <small>
