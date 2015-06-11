@@ -62,12 +62,21 @@
     <!-- Teriminos y condiciones -->
     <div class="cont_terminos_condiciones">
       <div class="col-lg-12 col-sm-12 col-md-12">
-       <div class="text-center">
+       <div class="text-left">
         <input type="checkbox" id="acepto_terminos_y_condiciones" >
-        <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y acepto los
-          <!-- Link => ventana modal = Terminos y condiciones -->
-          <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a>
-        </label>
+        <?php if ($this->idtipo_plan_compras <>3) : ?>
+            <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y acepto los
+              <!-- Link => ventana modal = Terminos y condiciones -->
+              <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a>
+            </label>
+          <?php else :?>
+            <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y estoy de acuerdo con el
+              <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Convenio Comercial</a> <br>y con los
+              <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a> de este sitio.
+            </label>
+
+        <?php endif ;?>
+
         <!-- Incluye la estructura de la ventana modal -->
         <?php include (APPLICATION_SECTIONS . 'ventana_modal_termino_condiciones.php');?>
       </div>

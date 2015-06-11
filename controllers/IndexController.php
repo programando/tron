@@ -29,7 +29,7 @@ class IndexController extends Controller
 
         $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //'tron_login'
 
         $this->View->Mostrar_Vista('index');
     }
@@ -50,7 +50,7 @@ class IndexController extends Controller
                                   'tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron-vista-industrial','tron_estilos_slider',
                                   'tron_estilos-titulos_destacados_novedades_ofertas'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //,'tron_login'
         $this->View->Mostrar_Vista('industrial');
     }
 

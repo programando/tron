@@ -26,7 +26,7 @@
 
 
 
-var Validar_Datos_Plan_Ocasional_Natural = function(){
+var Validar_Datos_Plan_Ocasional_Natural = function(Tipo_Plan_Seleccionado){
    $Texto =''
 
   if (  $idtpidentificacion.val()  == "0" ){
@@ -59,6 +59,17 @@ var Validar_Datos_Plan_Ocasional_Natural = function(){
   if ($.trim($('#email_confirm').val()) == ""){
     $Texto = $Texto + 'Debe registrar un correo electrónico y su confirmación. <br>';
   }
+  //  SI EL PLAN ES EMPRESARIO, VALIDAR MES Y AÑO DE NACIEMITNO
+  //------------------------------------------------------------
+ if ( Tipo_Plan_Seleccionado == 3){
+    if ( $dia.val()=='0'){
+       $Texto = $Texto + 'El día de nacimiento es necesario para generar su código de usuario <br>';
+    }
+    if ( $mes.val()=='0'){
+       $Texto = $Texto + 'El mes de nacimiento es necesario para generar su código de usuario. <br>';
+    }
+
+ }
 
 
   if ( $Texto.length > 0 ){
@@ -381,13 +392,15 @@ $('#btn_finalizar').on('click',function(){
     var email_confirm       = $('#email_confirm').val();
     var celular1            = $('#celular1').val();
 
+    var mes                 = $('#mes').val();
+    var dia                 = $('#dia').val();
+
     var $Formulario_Validado = false;
 
 
     // TRABAJO CON DATOS DE PERSONAS NATURALES
-    if ( $idtpidentificacion.val()== 13 || $idtpidentificacion.val() == 42 )
-    {
-        $Formulario_Validado = Validar_Datos_Plan_Ocasional_Natural();
+    if ( $idtpidentificacion.val()== 13 || $idtpidentificacion.val() == 42 ) {
+        $Formulario_Validado = Validar_Datos_Plan_Ocasional_Natural($Tipo_Plan_Seleccionado);
         if ($Formulario_Validado  == false){
              new Messi($Texto,
               {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
@@ -397,7 +410,8 @@ $('#btn_finalizar').on('click',function(){
 
           $Parametros={'idtpidentificacion':idtpidentificacion, 'identificacion':identificacion_nat,
                         'pnombre':pnombre, 'papellido':papellido,'genero':genero,'idmcipio':idmcipio,
-                        'dirrecion':dirrecion, 'barrio':barrio,'celular1':celular1,'e_mail':e_mail,'email_confirm':email_confirm};
+                        'dirrecion':dirrecion, 'barrio':barrio,'celular1':celular1,'e_mail':e_mail,'email_confirm':email_confirm,
+                        'mes':mes, 'dia':dia};
           Grabar_Registro_Plan_Ocasional_Natural($Parametros);
         }
     }

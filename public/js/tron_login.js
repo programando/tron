@@ -1,5 +1,6 @@
 
 
+
 var Mostrar_Mensaje = function(mensaje)
 {
 
@@ -72,7 +73,9 @@ var Iniciar_Sesion = function(Parametros)
 				});
 }
 
-var Recuperar_Password = function(Parametros)
+
+
+function Recuperar_Password(Parametros)
 {
 			$("#dv-img-cargando").show();
 			$.ajax({
@@ -96,6 +99,7 @@ var Recuperar_Password = function(Parametros)
 	     	 			  }
       	 }
 				});
+
 }
 
 
@@ -122,9 +126,7 @@ $('.btn-login').on('click', function(){
  $("#msgbox").removeClass().addClass('messagebox').text('Iniciando sesión, por favor espere....').fadeIn(1000);
 	if (email.length==0 || password.length==0)
 		 {
-
 		 			Mostrar_Mensaje('Debe registrar los datos de Email y Contraseña.');
-
 		 	  return false;
 		 }
 	 var Parametros = {"Password":password, "email":email };
@@ -133,7 +135,7 @@ $('.btn-login').on('click', function(){
 });
 
 // BOTON PARA RECUPERAR CONTRASEÑA $("#btn-recupera-pass").on('click',function(){
-$(".formulario_ingresar").on('click','#btn-recupera-pass',function(){
+$("#btn-recupera-pass").on('click',function(){
 		var $email 			  = $('#login-username').val();
 		var $Parametros = { "Email": $email };
 		Recuperar_Password($Parametros);
@@ -141,6 +143,24 @@ $(".formulario_ingresar").on('click','#btn-recupera-pass',function(){
 });
 
 
+/*
+// BOTON PARA RECUPERAR CONTRASEÑA $("#btn-recupera-pass").on('click',function(){
+$(".formulario_ingresar").on('click','#btn-recupera-pass',function(){
+		var $email 			  = $('#login-username').val();
+		var $Parametros = { "Email": $email };
+		Recuperar_Password($Parametros);
+		return false;
+});
+
+*/
+
+//$(".formulario_ingresar").on('click','#btn-recupera-pass-',function(){
+	$('#btn-recupera-pass-').on('click',function(){
+		var $email 			  = $('#login-username-').val();
+		var $Parametros = { "Email": $email };
+		Recuperar_Password($Parametros);
+		return false;
+});
 
 
 

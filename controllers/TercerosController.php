@@ -26,7 +26,7 @@ class TercerosController extends Controller
          $Es_email  = General_Functions::Validar_Entrada('Email','EMAIL');
          $Tercero   = $this->Terceros->Consulta_Datos_Por_Email($email);
          $idtercero = $Tercero[0]['idtercero'];
-         if ($email ==false) {
+         if ($Es_email  == false) {
               $CorreoEnviado ='Correo_No_OK';
             } else {
                 if (!$Tercero) {
@@ -118,14 +118,17 @@ class TercerosController extends Controller
       echo "OK";
     }
 
-   public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero)
-    {
-        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min'));
-        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
+   public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras)   {
+
+        Session::Set('usuario_viene_del_registro',TRUE);
+        Session::Set('idtipo_plan_compras', $idtipo_plan_compras);
         $this->View->email               = $email;
         $this->View->codigo_confirmacion = $codigo_confirmacion;
         $this->View->idtercero           = $idtercero;
+        $this->View->idtipo_plan_compras = $idtipo_plan_compras;
 
+        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min'));
+        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
@@ -138,6 +141,7 @@ class TercerosController extends Controller
        $codigoterceropresenta_inicial = $codigoterceropresenta;
        $idterceropresenta             = Session::Get('idtercero_presenta');
        $idtipo_plan_compras           = Session::Get('idtipo_plan_compras');
+       $codigo_usuario_generado       = '';
       if ( $idterceropresenta == 0 ){  /// SI NADIE LO  PRESENTA, DEJÓ EN BLANCO DEBO ASIGNARLO
           $nadie_presenta = 1;
         }else{
@@ -145,7 +149,7 @@ class TercerosController extends Controller
         }
 
         // SI NADIE PRESENTE Y EL DEL PLAN 2, ASIGNO CODIGO AUTOMATICO
-        if ( $idtipo_plan_compras == 2 && $nadie_presenta == 1 ){
+        if ( ($idtipo_plan_compras == 2 && $nadie_presenta == 1) || ($idtipo_plan_compras == 3 && $nadie_presenta == 1) ){
           $Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
           $idterceropresenta             = $Datos_Codigo[0]['idtercero'];
           $codigoterceropresenta         = $Datos_Codigo[0]['codigousuario'];
@@ -153,6 +157,7 @@ class TercerosController extends Controller
           Session::Set('codigousuario_presenta',$codigoterceropresenta);
           Session::Set('idtercero_presenta', $idterceropresenta);
         }
+
 
       $idtpidentificacion = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
       $identificacion     = General_Functions::Validar_Entrada('identificacion','TEXT');
@@ -167,35 +172,50 @@ class TercerosController extends Controller
       $es_e_mail          = General_Functions::Validar_Entrada('e_mail','EMAIL');
       $email_confirm      = General_Functions::Validar_Entrada('email_confirm','TEXT');
       $es_email_confirm   = General_Functions::Validar_Entrada('email_confirm','EMAIL');
+      //
+       $mes           = General_Functions::Validar_Entrada('mes','NUM');
+       $dia           = General_Functions::Validar_Entrada('dia','NUM');
+       if ($mes  < 9) { $mes  = '0'.$mes ; }
+       if ($dia  < 9) { $dia  = '0'.$dia ; }
 
 
-     if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
-          $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
-     }
-     if ( $idmcipio ==0 ){
-          $Texto_Respuesta =  $Texto_Respuesta . 'Debe seleccionar el municipio o ciudad en donde recide.<br>';
-     }
-     if ( strlen( $direccion)== 0  ){
-          $Texto_Respuesta =  $Texto_Respuesta . 'La dirección no puede quedar vacía.<br>';
-     }
-     if ( strlen( $barrio)== 0  ){
-          $Texto_Respuesta =  $Texto_Respuesta . 'Registre el barrio en donde reside.<br>';
-     }
-     if ( strlen( $celular1)== 0  ){
-          $Texto_Respuesta =  $Texto_Respuesta . 'Debe registrar un número de celular.<br>';
-     }
-     if ( $es_e_mail == FALSE || $es_email_confirm = FALSE ){
-         $Texto_Respuesta =  $Texto_Respuesta . 'La dirección de correo electrónico y su confirmación no pueden estar vacías y contener un formato válido.<br>';
-     }
-     if ( strlen( $Texto_Respuesta) == 0){
-          $Texto_Respuesta ='<strong>Ya casi hemos terminado !!!</strong><br><br>Hemos enviado un enlace a tu cuenta de correo desde el cual podrás finalizar tu registro.<br><br>';
-     }
-      $codigousuario                                  = '';
+       if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
+            $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
+       }
+       if ( $idmcipio ==0 ){
+            $Texto_Respuesta =  $Texto_Respuesta . 'Debe seleccionar el municipio o ciudad en donde recide.<br>';
+       }
+       if ( strlen( $direccion)== 0  ){
+            $Texto_Respuesta =  $Texto_Respuesta . 'La dirección no puede quedar vacía.<br>';
+       }
+       if ( strlen( $barrio)== 0  ){
+            $Texto_Respuesta =  $Texto_Respuesta . 'Registre el barrio en donde reside.<br>';
+       }
+       if ( strlen( $celular1)== 0  ){
+            $Texto_Respuesta =  $Texto_Respuesta . 'Debe registrar un número de celular.<br>';
+       }
+       if ( $es_e_mail == FALSE || $es_email_confirm = FALSE ){
+           $Texto_Respuesta =  $Texto_Respuesta . 'La dirección de correo electrónico y su confirmación no pueden estar vacías y contener un formato válido.<br>';
+       }
+       if ( strlen( $Texto_Respuesta) == 0){
+            $Texto_Respuesta ='<strong>Ya casi hemos terminado !!!</strong><br><br>Hemos enviado un enlace a tu cuenta de correo desde el cual podrás finalizar tu registro.<br><br>';
+       }
+       // PLAN 3 , PERSONAS NATURALES.
+       if ( $idtipo_plan_compras == 3 && ( $idtpidentificacion == 13 || $idtpidentificacion == 42) ){
+            if ( $mes == 0 || $dia == 0 ){
+                 $Texto_Respuesta ='<strong>Es necesario que registre el día y mes de nacimiento ya que estos datos se utilizan para generar su código de usuario.<br><br>';
+            }else{
+                  $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
+                  $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
+            }
+       }
+
+      $codigousuario                                  = $codigo_usuario_generado;
       $codautorizacionmenoredad                       = '';
       $digitoverificacion                             = '';
       $razonsocial                                    = '';
-      $dianacimiento                                  = '0';
-      $mesnacimiento                                  = '0';
+      $dianacimiento                                  = $dia;
+      $mesnacimiento                                  = $mes;
       $email                                          = strtolower($e_mail);
       $passwordusuario                                = '';
       $contacto                                       = '';
@@ -251,7 +271,7 @@ class TercerosController extends Controller
      }
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
      // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
-     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre );
+     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre, $idtipo_plan_compras  );
      // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
      // DEJAR LAS VARIABLES EN BLANCO
@@ -524,7 +544,7 @@ class TercerosController extends Controller
          $Resultado_Logueo = "NO-Logueo_OK";
        }else
            {
-            $this->Terceros->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
+            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
             $Resultado_Logueo = "Logueo_OK";
          }
          $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
@@ -568,20 +588,20 @@ class TercerosController extends Controller
     public function registro()
     {
         $this->Registro_Re_Establecer_Tercero_Presenta();
-       Session::Destroy('idtipo_plan_compras');
+        Session::Destroy('idtipo_plan_compras');
         $Parametros = $this->Parametros->Transportadoras();
-        Session::Set('kit_vr_venta_valle',$Parametros[0]['kit_vr_venta_valle']);
-        Session::Set('kit_vr_venta_valle_reexpedidion',$Parametros[0]['kit_vr_venta_valle_reexpedidion']);
-        Session::Set('kit_vr_venta_nacional',$Parametros[0]['kit_vr_venta_nacional']);
+        Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);
+        Session::Set('kit_vr_venta_valle_reexpedidion',   $Parametros[0]['kit_vr_venta_valle_reexpedidion']);
+        Session::Set('kit_vr_venta_nacional',             $Parametros[0]['kit_vr_venta_nacional']);
         Session::Set('kit_vr_venta_nacional_reexpedicion',$Parametros[0]['kit_vr_venta_nacional_reexpedicion']);
-        Session::Set('cuota_1_inscripcion',$Parametros[0]['cuota_1_inscripcion']);
+        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
         Session::Set('kit_id', 10744);
         $this->View->Total_Kit_Inscripcion = $Parametros[0]['kit_vr_venta_valle'] + $Parametros[0]['cuota_1_inscripcion'] ;
 
         $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos   = $this->Departamentos->Consultar();
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2','messi.min'));
-        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios','registrodos','messi.min'));
+        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios','messi.min'));
         $this->View->Mostrar_Vista('registro');
     }
 
@@ -627,7 +647,7 @@ class TercerosController extends Controller
 
         $this->View->Numero_Confirmacion = $numero_confirmacion;
         $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal'));
-        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password'));
+        $this->View->SetJs(array('bootstrap-show-password','tron_cambio_password')); //'tron_login'
 
         $this->View->Mostrar_Vista('cambiar_password');
     }
