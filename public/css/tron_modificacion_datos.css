@@ -30,7 +30,6 @@
 /* Formulario = Paso 1 */
 .contenedor_from_1
 {
-
 	     padding: 10px 15px;
 }
 
@@ -45,19 +44,25 @@
 .contenedor_from_2
 {
 	      display: block;
-	      width: 60%;
+	      width: 90%;
 	      margin: 0px auto;
 }
 
 .subtitulos_form2
 {
        color: #991534;
-       text-align: center;
 }
 
 
 .form_sobre_banco
 {
 	       display: block;
-	       padding: 10px 15px;
+        width: 60%;
+        margin: 10px auto;
+}
+
+/* Formulario = Paso 3 */
+.contenedor_from_3
+{
+	     padding: 10px 15px;
 }

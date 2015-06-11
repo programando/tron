@@ -1,16 +1,6 @@
 <div class="contenedor_from_1">
 	   <div class="row">
 
-		      	<!-- Titulo -->
-	         <div class="row">
-		          <div class="col-lg-12 col-md-12 col-sm-12">
-			            <h4 class="titulo_formulario text-center">
-			               <strong>Cambiar mi informacion personal</strong><br>
-			               <small>Administre su informacion personal</small>
-			            </h4>
-			          </div>
-	         </div><br>
-
 	       <!-- Columna  Left -->
         <div>
 	         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -20,7 +10,7 @@
 													         <div class="form-group">
 													           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificacion: </p></label>
 													           <div class="col-lg-7">
-													             <input type="" class="form-control" id="identificacion_nat">
+													             <input type="text" class="form-control" id="identificacion_nat">
 													           </div>
 													         </div>
 
@@ -28,7 +18,7 @@
 													         <div class="form-group">
 													           <label for="pnombre" class="col-lg-5 control-label"> <p class="text-left text-label"> Nombres: </p></label>
 													           <div class="col-lg-7">
-													             <input type="" class="form-control" id="pnombre">
+													             <input type="text" class="form-control" id="pnombre">
 													           </div>
                       </div>
 
@@ -56,7 +46,7 @@
 													         <div class="form-group">
 													           <label for="barrio" class="col-lg-5 control-label"> <p class="text-left text-label"> Barrio: </p></label>
 													           <div class="col-lg-7">
-													             <input type="" class="form-control" id="barrio">
+													             <input type="text" class="form-control" id="barrio">
 													           </div>
 													         </div>
 
