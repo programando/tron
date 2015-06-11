@@ -53,8 +53,9 @@ $('.btn-buscar').on('click',function(){
       }
 
 });
-$('#texto-busqueda').on('keypress',function(e){
-     if(e.which == 13) {
+$('#texto-busqueda').on('keypress',function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+     if(keycode == '13') {
      var $texto_busqueda = $('.input-buscar').val();
       var $tipo_busqueda  = ''
       var Parametros     = {"texto_busqueda": $texto_busqueda,"tipo_busqueda":$tipo_busqueda };
