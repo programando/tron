@@ -5,7 +5,7 @@
  * Original author: @aaronlumsden
  * Further changes, comments: @aaronlumsden
  * Licensed under the MIT license
- *   2525
+ *
  */
 ;(function ( $, window, document, undefined ) {
 
