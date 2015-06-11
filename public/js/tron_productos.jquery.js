@@ -130,11 +130,11 @@ var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambi
 
 			if ( (idtipo_plan_compras == 2) || ( idtipo_plan_compras == 3 && $idproducto == 10744) ) {
 							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas el Kit de Incio no podrás finalizar tu registro y quedarás registrado como: <h4> Comprador Ocasional. </h4>. <br> Deseas continuar ?";
-							idtipo_plan_compras  = 1;
+							nuevo_idtipo_plan_compas  = 1;
 			}
 			if ( idtipo_plan_compras == 3 && $idproducto == 2071 ){
 							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas los derechos de inscricpión quedarás registrado como: <h4> Cliente de productos TRON. </h4>. <br> Deseas continuar ?";
-							idtipo_plan_compras  = 2;
+							nuevo_idtipo_plan_compas  = 2;
 			}
 						new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
 		                buttons: [
@@ -144,7 +144,7 @@ var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambi
 		                callback: function(val) {
 		                			if ( val =='Y'){
 		                				Borrar_Producto(Parametros);
-		                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(idtipo_plan_compras);
+		                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(nuevo_idtipo_plan_compas);
 		                			}
 						          }});
 

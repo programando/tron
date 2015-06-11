@@ -118,24 +118,26 @@ class TercerosController extends Controller
       echo "OK";
     }
 
-<<<<<<< HEAD
+
    public function activar_cuenta_usuario_prueba()
     {
+        $this->View->email               = '';
+        $this->View->codigo_confirmacion = 1;
+        $this->View->idtercero           = 1;
+        $this->View->idtipo_plan_compras = 3;
+
         $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','tron_barra_progreso'));
         $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
-   public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero)
-    {
-        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','tron_barra_progreso'));
-        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
-=======
+
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras)   {
 
         Session::Set('usuario_viene_del_registro',TRUE);
         Session::Set('idtipo_plan_compras', $idtipo_plan_compras);
->>>>>>> origin/master
+
+
         $this->View->email               = $email;
         $this->View->codigo_confirmacion = $codigo_confirmacion;
         $this->View->idtercero           = $idtercero;
@@ -660,13 +662,10 @@ class TercerosController extends Controller
     {
 
         $this->View->Numero_Confirmacion = $numero_confirmacion;
-<<<<<<< HEAD
+
         $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','tron_barra_progreso'));
         $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','tron_barra_progreso_contrasena'));
-=======
-        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal'));
-        $this->View->SetJs(array('bootstrap-show-password','tron_cambio_password')); //'tron_login'
->>>>>>> origin/master
+
 
         $this->View->Mostrar_Vista('cambiar_password');
     }
