@@ -56,6 +56,8 @@ $('#password').on('keyup',function(){
 		$Resutlado  = Verificar_Password($(this).val());
 		$($definicion).text($Resutlado.mensaje);
 
+    //$($pogreso).css('background','#D6001C');
+    //$($pogreso).animate({ 'width':'25%' });
 
 });
 

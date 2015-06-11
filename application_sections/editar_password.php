@@ -19,7 +19,7 @@
      <label for="password" class="col-lg-5 control-label"> <p class="text-left text-label">Nueva Contaseña:</p></label>
      <div class="col-lg-7">
       <input data-toggle="password" data-placement="before" class="form-control new-password"
-      type="password" id="password" placeholder="Registre nueva contraseña"/>
+      type="password" id="password" placeholder="jdvervñ3ñr"/>
 
       <!-- Barra de progreso -->
       <div class="Info-contrasena">

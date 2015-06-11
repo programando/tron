@@ -15,6 +15,12 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+        public function modificacion_datos()
+    {
+        $this->View->SetCss(array("tron_modificacion_datos","barra_progreso_difulta_contrasena"));
+        $this->View->Mostrar_Vista("modificacion_datos");
+    }
+
         public function mejor_experiencia_usuario()
     {
         $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
@@ -126,7 +132,7 @@ class TercerosController extends Controller
         $this->View->idtercero           = 1;
         $this->View->idtipo_plan_compras = 3;
 
-        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','tron_barra_progreso'));
+        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','barra_progreso_difulta_contrasena'));
         $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
@@ -658,13 +664,21 @@ class TercerosController extends Controller
         echo json_encode($Respuesta,256);
     }
 
+    public function cambiar_password_prueba()
+    {
+
+        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','barra_progreso_difulta_contrasena'));
+        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','barra_progreso_contrasena'));
+        $this->View->Mostrar_Vista('cambiar_password');
+    }
+
     public function cambiar_password($numero_confirmacion)
     {
 
         $this->View->Numero_Confirmacion = $numero_confirmacion;
 
-        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','tron_barra_progreso'));
-        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','tron_barra_progreso_contrasena'));
+        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','barra_progreso_difulta_contrasena'));
+        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','barra_progreso_contrasena'));
 
 
         $this->View->Mostrar_Vista('cambiar_password');

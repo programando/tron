@@ -3,14 +3,10 @@
      JS  =>  tron_terceros_activar_cuenta.js
    -->
    <div class="contenedor">
-    <!-- Contenedor principal -->
-    <div class="row">
       <!-- Formulario -->
       <div class="contenedor-formulario">
         <div class="row">
-
          <div class="col-lg-12 col-md-12 col-sm-12">
-
           <!-- Titulo -->
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div>
@@ -23,65 +19,51 @@
             <form class="form-horizontal" role="form">
 
              <!-- Email -->
-             <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="form-group">
-               <label for="email_activar_cuenta" class="col-lg-5 control-label"><p class="text-label">Email:</p></label>
-               <div class="col-lg-7">
-                <input type="text" class="form-control" id="email_activar_cuenta"  value="<?=$this->email ;?>" disabled>
+                 <label for="email_activar_cuenta" class="col-lg-5 control-label"><p class="text-label">Email:</p></label>
+                 <div class="col-lg-7">
+                   <input type="text" class="form-control" id="email_activar_cuenta"  value="<?=$this->email ;?>" disabled>
+                 </div>
               </div>
+
+           <!--Codigo  -->
+            <div class="form-group">
+               <label for="codigo" class="col-lg-5 control-label"> <p class="text-left text-label">Código de verificación :</p></label>
+               <div class="col-lg-7">
+                 <input type="password" class="form-control" id="codigo-verificacion" value="<?=$this->codigo_confirmacion ;?>" disabled>
+               </div>
+            </div>
+
+
+             <div>
+                <!-- Incluir = Nueva Contraseña ,  Confirmar Contraseña -->
+                <?php include (APPLICATION_SECTIONS . 'editar_password.php');?>
+             </div>
+
+
+          <!-- Teriminos y condiciones -->
+          <div class="cont_terminos_condiciones">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+             <div class="text-left">
+              <input type="checkbox" id="acepto_terminos_y_condiciones" >
+              <?php if ($this->idtipo_plan_compras <>3) : ?>
+                  <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y acepto los
+                    <!-- Link => ventana modal = Terminos y condiciones -->
+                    <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a>
+                  </label>
+                <?php else :?>
+                  <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y estoy de acuerdo con el
+                    <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Convenio Comercial</a> <br>y con los
+                    <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a> de este sitio.
+                  </label>
+
+              <?php endif ;?>
+
+              <!-- Incluye la estructura de la ventana modal -->
+              <?php include (APPLICATION_SECTIONS . 'ventana_modal_termino_condiciones.php');?>
             </div>
           </div>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-           <div class="form-group"><!--Codigo  -->
-             <label for="codigo" class="col-lg-5 control-label"> <p class="text-left text-label">Código de verificación :</p></label>
-             <div class="col-lg-7">
-               <input type="password" class="form-control" id="codigo-verificacion" value="<?=$this->codigo_confirmacion ;?>" disabled>
-             </div>
-           </div>
-         </div>
-         <!-- contraseña -->
-         <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="form-group">
-           <label for="password_activar_cuenta" class="col-lg-5 control-label"><p class="text-label" > Contraseña: </p></label>
-           <div class="col-lg-7">
-            <input type="password" class="form-control" id="password_activar_cuenta"placeholder="Contraseña" >
-          </div>
         </div>
-      </div>
-      <!-- Confirmar contraseña -->
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="form-group">
-         <label for="confir-password_activar_cuenta" class="col-lg-5 control-label"><p class="text-label"> Confirmar: </p></label>
-         <div class="col-lg-7">
-          <input type="password" class="form-control" id="confir-password_activar_cuenta" placeholder="Repita Contraseña">
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Teriminos y condiciones -->
-    <div class="cont_terminos_condiciones">
-      <div class="col-lg-12 col-sm-12 col-md-12">
-       <div class="text-left">
-        <input type="checkbox" id="acepto_terminos_y_condiciones" >
-        <?php if ($this->idtipo_plan_compras <>3) : ?>
-            <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y acepto los
-              <!-- Link => ventana modal = Terminos y condiciones -->
-              <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a>
-            </label>
-          <?php else :?>
-            <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y estoy de acuerdo con el
-              <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Convenio Comercial</a> <br>y con los
-              <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a> de este sitio.
-            </label>
-
-        <?php endif ;?>
-
-        <!-- Incluye la estructura de la ventana modal -->
-        <?php include (APPLICATION_SECTIONS . 'ventana_modal_termino_condiciones.php');?>
-      </div>
-    </div>
-  </div>
 
   <!-- Btn => Activar cuenta -->
   <div>
@@ -103,8 +85,6 @@
 
 </div>
 </div>
-</div>
-<!-- Contenedor principal -->
 </div>
 <br>
 <br>

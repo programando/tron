@@ -1,0 +1,63 @@
+/* Contenedor principal */
+.contenedor_principal
+{
+	    display: block;
+	    width: 60%;
+	    margin: 0px auto;
+     padding: 10px;
+
+
+     -webkit-border-radius: 4px;
+     -moz-border-radius   : 4px;
+     -ms-border-radius    : 4px;
+     -o-border-radius     : 4px;
+     border-radius        : 4px;
+
+
+	    -webkit-box-shadow: 0px 2px 5px #000000;
+	    -moz-box-shadow: 0px 2px 5px #000000;
+	    box-shadow: 0px 2px 5px #000000;
+}
+
+/* Titulos */
+.titulo_formulario ,
+.titulo_principal
+{
+	     display: block;
+	     color: #003E90;
+}
+
+/* Formulario = Paso 1 */
+.contenedor_from_1
+{
+
+	     padding: 10px 15px;
+}
+
+/* Preguntas = Chekbox */
+#pregunta1 ,
+#pregunta2
+{
+	      font-weight: normal;
+}
+
+/* Formulario = Paso 2 */
+.contenedor_from_2
+{
+	      display: block;
+	      width: 60%;
+	      margin: 0px auto;
+}
+
+.subtitulos_form2
+{
+       color: #991534;
+       text-align: center;
+}
+
+
+.form_sobre_banco
+{
+	       display: block;
+	       padding: 10px 15px;
+}
