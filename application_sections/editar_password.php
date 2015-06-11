@@ -25,7 +25,7 @@
       <div class="Info-contrasena">
         <div class="cont-barra">
 							 	   <div class="barra" id="barra">
-						 	   	   <div class="porgresador" id="progresador" style"background:red">dd
+						 	   	   <div class="porgresador" id="progresador">
 						 	   	    </div>
 						 	   </div>
         </div>

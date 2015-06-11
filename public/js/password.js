@@ -73,16 +73,19 @@ $('#password').on('keyup',function(){
     }
     $('.Info-contrasena').show();
     $('#definicion_contrasena').html($Resutlado.mensaje);
-    $($pogreso).css('background',"'"+$Resutlado.micolor+"'");
+
 
     if ($porcentaje  == 25 ){
         $($pogreso).animate({ 'width': '25%'});
+        $($pogreso).css({'background':'red'});
       }
     if ($porcentaje  == 50 ){
         $($pogreso).animate({ 'width': '50%'});
+        $($pogreso).css({'background':'yellow'});
       }
     if ($porcentaje  == 100 ){
         $($pogreso).animate({ 'width': '100%'});
+        $($pogreso).css({'background':'green'});
       }
 
 
