@@ -26,26 +26,7 @@
 
  <!-- ///  Selección de busquedad /// -->
 
-          <div class="col-lg-12 col-md-12 col-sm-12 col-selec-busquedad">
-           <div class="cont-selec-busquedad">
-                  <p class="text-label text-label-industrila">Buscar :</p>
-                <div class="option-busquedad"><!-- -->
-                   <input type="radio" name="tipobusqueda" id="marcas" class="marcas" value="Marca">
-                   <label for="marcas" class="text-label text-label-industrila">Marcas</label>
-                </div><!-- -->
 
-                <div class="option-busquedad"><!-- -->
-                   <input type="radio" name="tipobusqueda" id="nombre-product" class="nombre-product" value="Producto">
-                   <label for="nombre-product" class="text-label text-label-industrila">Nombre Producto</label>
-                </div><!-- -->
-
-                <div class="option-busquedad"><!-- -->
-                   <input type="radio" name="tipobusqueda" checked="checked" id="palabra-clave" class="palabra-clave" value="Palabra">
-                   <label for="palabra-clave" class="text-label text-label-industrila"  >Palabra Clave</label>
-                </div><!-- -->
-
-           </div>
-         </div>
 
 <!-- ///  Selección de busquedad /// -->
 

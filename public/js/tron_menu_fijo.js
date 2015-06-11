@@ -31,7 +31,7 @@
 
 $('.btn-buscar').on('click',function(){
       var $texto_busqueda = $('.input-buscar').val();
-      var $tipo_busqueda  = $('input:radio[name=tipobusqueda]:checked').val();
+      var $tipo_busqueda  = '' // $('input:radio[name=tipobusqueda]:checked').val();
       var $pagina        =  $('body');
       var Parametros     = {"texto_busqueda": $texto_busqueda,"tipo_busqueda":$tipo_busqueda };
       if ($texto_busqueda.length>0)
