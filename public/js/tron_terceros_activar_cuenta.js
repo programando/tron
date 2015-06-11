@@ -46,6 +46,32 @@ var Paso_Final_Registro_Plan_2 = function( nombre_usuario){
       });
 }
 
+var Paso_Final_Registro_Plan_3 = function( nombre_usuario){
+    // AGREGO KIT DE INICIO AL PEDIDO
+     $Parametros  = {"IdProducto" :10744, "CantidadComprada": 1, "es_tron": false , "es_tron_acc": false };
+     Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
+
+     $Parametros  = {"IdProducto" :2071, "CantidadComprada": 1, "es_tron": false , "es_tron_acc": false };
+     Agregar_Producto_a_Carrito('Derechos de Inscripción',$Parametros);
+
+
+     new Messi("<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como empresario debes pagar ahora o seguir comprando...",
+      {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+        buttons: [{id: 0, label: 'Seguir Comprando', val: 'S', class: 'btn-success'},
+                  {id: 1, label: 'Pagar Ahora', val: 'P', class: 'btn-danger'}],
+        callback: function(val){
+              if ( val== 'S'){
+                window.location.href = "/tron/index/";
+              }
+              if ( val== 'P'){
+                window.location.href = '/tron/carrito/Mostrar_Carrito/1';
+              }
+
+             }
+      });
+}
+
+
 
 $('#btn-activar_cta_ocasional').on('click',function(){
 
@@ -84,6 +110,8 @@ $('#btn-activar_cta_ocasional').on('click',function(){
 
              if ( $idtipo_plan_compras == 1){  Paso_Final_Registro_Plan_1 ($Texto )         ; }
              if ( $idtipo_plan_compras == 2){  Paso_Final_Registro_Plan_2 ($nombre_usuario) ; }
+             if ( $idtipo_plan_compras == 3){  Paso_Final_Registro_Plan_3 ($nombre_usuario) ; }
+
              if ( $idtipo_plan_compras == 0){
               new Messi($Texto,
                      {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}],

@@ -42,7 +42,14 @@
 						 */
 							$Registro         =  $this->Db->Ejecutar_Sp("terceros_genera_codigo_asigna_codigo_nadie_presenta()");
 							return $Registro;
+				}
 
+				public function Generar_Codigo_Usuario($pnombre, $papellido,$dia,$mes){
+						/** JUNIO 05 2015
+ 						 * 		CUANDO NADIE PRESENTA SE CORRE PROCESO AUTOMATICO PARA ASIGNAR A UN INTEGRANTE DE LA RED
+						 */
+							$Registro         =  $this->Db->Ejecutar_Sp("terceros_genera_codigo_usuario('$pnombre', '$papellido','$dia','$mes')");
+							return $Registro;
 				}
 
 				public function Buscar_Por_Codigo($codigousuario){

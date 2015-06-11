@@ -170,6 +170,7 @@
             <label for="mes"  class="col-lg-2  control-label label-mes"><p class="text-label ">Mes:</p></label>
             <div class="col-lg-10 cont-input">
                 <select  class="form-control " id="mes" tabindex="4">
+                  <option value="0">SELECCIONE...</option>
                   <option value="1">ENERO</option>
                   <option value="2">FEBRERO</option>
                   <option value="3">MARZO</option>
@@ -191,6 +192,7 @@
               <label for="dia"  class="col-lg-2  control-label label-dia"><p class="text-label ">Dia:</p></label>
               <div class="col-lg-10 cont-input" tabindex ="5">
                 <select  class="form-control  select-dia" id="dia">
+                    <option value="0">SELECCIONE...</option>
                     <?php for($i=1;$i<=31;$i++) : ;?>
                           <option value="<?= $i ;?>"><?= $i ;?></option>
                     <?php endfor ;?>
