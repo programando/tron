@@ -28,27 +28,40 @@
    });
 
    // BARRA DE BUSQUEDA
+var Realizar_Busqueda = function (Parametros){
+    var $pagina        =  $('body');
+    $.ajax({
+      data:  Parametros,
+      dataType: 'html',
+      url:      '/tron/productos/Busqueda_General/',
+      type:     'post',
+       success:  function (resultado)
+         {
+           $pagina.html('');
+           $pagina.html(resultado);
+         }
+        });
+
+}
 
 $('.btn-buscar').on('click',function(){
       var $texto_busqueda = $('.input-buscar').val();
-      var $tipo_busqueda  = $('input:radio[name=tipobusqueda]:checked').val();
-      var $pagina        =  $('body');
+      var $tipo_busqueda  = '' // $('input:radio[name=tipobusqueda]:checked').val();
       var Parametros     = {"texto_busqueda": $texto_busqueda,"tipo_busqueda":$tipo_busqueda };
-      if ($texto_busqueda.length>0)
-      {
-        $.ajax({
-            data:  Parametros,
-            dataType: 'html',
-            url:      '/tron/productos/Busqueda_General/',
-            type:     'post',
-             success:  function (resultado)
-               {
-                 $pagina.html('');
-                 $pagina.html(resultado);
-               }
-              });
+      if ($texto_busqueda.length>0)  {
+          Realizar_Busqueda(Parametros);
       }
 
+});
+$('#texto-busqueda').on('keypress',function(e){
+     if(e.which == 13) {
+     var $texto_busqueda = $('.input-buscar').val();
+      var $tipo_busqueda  = ''
+      var Parametros     = {"texto_busqueda": $texto_busqueda,"tipo_busqueda":$tipo_busqueda };
+      if ($texto_busqueda.length>0)  {
+          Realizar_Busqueda(Parametros);
+      }
+    }
 });
 
 
