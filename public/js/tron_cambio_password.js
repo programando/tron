@@ -44,7 +44,7 @@ $('#cerrar-ventana-final').on('click',function(){
 
 $(".boton-guarar-password").on('click',function(){
  var $password_temporal  = $('#codigo-verificacion').val();
- var $new_password       = $('#new-password').val();
+ var $new_password       = $('#password').val();
  var $confirmar_password = $('#confirmar-password').val();
   var $Parametros;
 	 if ($new_password != $confirmar_password)
