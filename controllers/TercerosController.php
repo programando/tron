@@ -668,7 +668,7 @@ class TercerosController extends Controller
     {
 
         $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','password'));
-        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','password'));
+        $this->View->SetJs(array('tron_login','tron_cambio_password','password'));
         $this->View->Mostrar_Vista('cambiar_password');
     }
 
@@ -678,7 +678,7 @@ class TercerosController extends Controller
         $this->View->Numero_Confirmacion = $numero_confirmacion;
 
         $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','password'));
-        $this->View->SetJs(array('tron_login','bootstrap-show-password','tron_cambio_password','password'));
+        $this->View->SetJs(array('tron_login','tron_cambio_password','password'));
 
 
         $this->View->Mostrar_Vista('cambiar_password');

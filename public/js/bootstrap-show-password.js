@@ -44,7 +44,7 @@
     };
 
     Password.DEFAULTS = {
-        placement: 'after', // 'before' or 'after'
+        placement: 'before', // 'before' or 'after'
         white: false, // v2
         message: 'Presione Click aquí para mostrar/ocultar su contraseña...'
     };
