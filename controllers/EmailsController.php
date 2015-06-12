@@ -105,7 +105,7 @@
 
       }
 
-      public function Recuperar_Password($Tercero,$email)
+      public function Recuperar_Password($email)
       {
          /** ENERO 31 DE 2015
          **  PROCEDIMIENTO PARA RECUPERAR CONTRASEÑA DE USUARIOS

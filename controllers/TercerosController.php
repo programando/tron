@@ -31,14 +31,14 @@ class TercerosController extends Controller
          $email     = General_Functions::Validar_Entrada('Email','TEXT');
          $Es_email  = General_Functions::Validar_Entrada('Email','EMAIL');
          $Tercero   = $this->Terceros->Consulta_Datos_Por_Email($email);
-         $idtercero = $Tercero[0]['idtercero'];
          if ($Es_email  == false) {
               $CorreoEnviado ='Correo_No_OK';
             } else {
                 if (!$Tercero) {
                          $CorreoEnviado ='NoUsuario';
                     }else{
-                     $CorreoEnviado = $this->Correos->Recuperar_Password($Tercero,$email);
+                     $CorreoEnviado = $this->Correos->Recuperar_Password($email);
+                     $idtercero     = $Tercero[0]['idtercero'];
                      if (  $CorreoEnviado =='Ok'){
                         $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
                         Session::Destroy('codigo_confirmacion');
@@ -125,17 +125,6 @@ class TercerosController extends Controller
     }
 
 
-   public function activar_cuenta_usuario_prueba()
-    {
-        $this->View->email               = '';
-        $this->View->codigo_confirmacion = 1;
-        $this->View->idtercero           = 1;
-        $this->View->idtipo_plan_compras = 3;
-
-        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min','password'));
-        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
-        $this->View->Mostrar_Vista("activar_cuenta_usuario");
-    }
 
 
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras)   {
@@ -149,8 +138,8 @@ class TercerosController extends Controller
         $this->View->idtercero           = $idtercero;
         $this->View->idtipo_plan_compras = $idtipo_plan_compras;
 
-        $this->View->SetCss(array('tron_activacion_mi_cuenta', 'messi.min'));
-        $this->View->SetJs(array('tron_terceros_activar_cuenta','messi.min'));
+        $this->View->SetCss(array('tron_activacion_mi_cuenta','password', 'messi.min'));
+        $this->View->SetJs(array('tron_terceros_activar_cuenta','password','messi.min'));
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
@@ -664,13 +653,6 @@ class TercerosController extends Controller
         echo json_encode($Respuesta,256);
     }
 
-    public function cambiar_password_prueba()
-    {
-
-        $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','password'));
-        $this->View->SetJs(array('tron_login','tron_cambio_password','password'));
-        $this->View->Mostrar_Vista('cambiar_password');
-    }
 
     public function cambiar_password($numero_confirmacion)
     {

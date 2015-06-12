@@ -77,8 +77,8 @@ $('#btn-activar_cta_ocasional').on('click',function(){
 
   var $codigo_verificacion = $('#codigo-verificacion').val();
   var $idtecero            = $(this).attr('idtercero');
-  var $password            = $.trim( $('#password_activar_cuenta').val());
-  var $password_confirm    = $.trim($('#confir-password_activar_cuenta').val());
+  var $password            = $.trim( $('#password').val());
+  var $password_confirm    = $.trim($('#confirmar-password').val());
   var $img_cargando        = $('#img_cargando');
   var $email               = $('#email_activar_cuenta').val();
   var $Texto               = '';

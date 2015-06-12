@@ -97,6 +97,9 @@ function Recuperar_Password(Parametros)
 	     	 		if (resultado.CorreoEnviado=='NoUsuario')		{
 	     	 			   Mensaje_Resultado_Cambio_Password_Correo_No_Existe();
 	     	 			  }
+	     	 		},
+	     	complet: function(){
+	     	 					$("#dv-img-cargando").hide();
       	 }
 				});
 
@@ -143,19 +146,11 @@ $("#btn-recupera-pass").on('click',function(){
 });
 
 
-/*
-// BOTON PARA RECUPERAR CONTRASEÑA $("#btn-recupera-pass").on('click',function(){
-$(".formulario_ingresar").on('click','#btn-recupera-pass',function(){
-		var $email 			  = $('#login-username').val();
-		var $Parametros = { "Email": $email };
-		Recuperar_Password($Parametros);
-		return false;
-});
 
-*/
 
 //$(".formulario_ingresar").on('click','#btn-recupera-pass-',function(){
 	$('#btn-recupera-pass-').on('click',function(){
+
 		var $email 			  = $('#login-username-').val();
 		var $Parametros = { "Email": $email };
 		Recuperar_Password($Parametros);

@@ -4,10 +4,10 @@
        <div>
          Una Contraseña segura debe contener :
          <ul class="list-unstyled pasos_contrasena_segura">
-            <li><span class="glyphicon glyphicon-ok"></span> 6 ó mas caracteres. </li>
-            <li><span class="glyphicon glyphicon-ok"></span> Una letra minúscula. </li>
-            <li><span class="glyphicon glyphicon-ok"></span> Una letra mayúscula. </li>
-            <li><span class="glyphicon glyphicon-ok"></span> Un número. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>6 ó más caracteres. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>Una letra minúscula. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>Una letra mayúscula. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>Un número. </li>
          </ul>
        </div>
      </div>
@@ -22,11 +22,10 @@
       type="password" id="password" placeholder="Contraseña"/>
 
       <!-- Barra de progreso -->
-      <div class="Info-contrasena">
+      <div class="Info-contrasena"  style="display:none;">
         <div class="cont-barra">
-							 	   <div class="barra" id="barra">
-						 	   	   <div class="porgresador" id="progresador">
-						 	   	    </div>
+							 	 <div class="barra" id="barra">
+						 	   	   <div class="porgresador" id="progresador">  </div>
 						 	   </div>
         </div>
        <!-- Texto = dificultad de la contraseña -->
@@ -41,9 +40,6 @@
     </div>
   </div>
 
-
-
-<section>
 	<!--Confirmar contraseña -->
   <div class="form-group">
     <label for="confirmar-password" class="col-lg-5 control-label"><p class="text-left text-label">Confirmar Contraseña:</p></label>

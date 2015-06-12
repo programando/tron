@@ -73,10 +73,10 @@
             .val(this.$element.val()).hide();
 
         this.$icon = $([
-            '<span tabindex="100" title="' + this.options.message + '" class="add-on input-group-addon">',
+            '<div tabindex="100" title="' + this.options.message + '" class="add-on input-group-addon">',
             '<i class="icon-eye-open' + (this.options.white ? ' icon-white' : '') +
                 ' glyphicon glyphicon-eye-open"></i>',
-            '</span>'
+            '</div>'
         ].join(''))[placementFuc](this.$text).css('cursor', 'pointer');
 
         // events

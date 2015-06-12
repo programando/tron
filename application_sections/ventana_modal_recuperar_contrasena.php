@@ -37,6 +37,7 @@
       <div class="text-center" id="dv-img-cargando"  >
         <img id="imagen-cargando" src= "<?= BASE_IMG_EMPRESA ;?>cargando.gif" alt="" />
         <br>
+
       </div><br/>
 
     </div><!--Cuerpo ventana modal -->

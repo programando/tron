@@ -63,6 +63,15 @@ $(".boton-guarar-password").on('click',function(){
 
 });
 
+$('#password').on('mouseover',function(){
+  $('#ventana_modal_mensaje_codigo').fadeIn();
+});
+
+$('#password').on('mouseout',function(){
+  $('#ventana_modal_mensaje_codigo').fadeIn();
+});
+
+
 
 $('.new-password').on('focus',function(){
 		$('#mensaje-validacion').html('');
@@ -73,12 +82,4 @@ $('.confirmar-password').on('focus',function(){
 		$('#mensaje-validacion').html('');
 });
 
-// Fucntion = Tooltip del input-codigo
-$(function(){
-     $('#password').mouseover(function(){
-          $('#ventana_modal_mensaje_codigo').fadeIn();
-     });
-     $('#password').mouseout(function(){
-          $('#ventana_modal_mensaje_codigo').fadeOut();
-     });
-});
+
