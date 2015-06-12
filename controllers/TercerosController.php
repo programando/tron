@@ -127,7 +127,7 @@ class TercerosController extends Controller
 
 
 
-   public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras)   {
+   public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras, $idtpidentificacion )   {
 
         Session::Set('usuario_viene_del_registro',TRUE);
         Session::Set('idtipo_plan_compras', $idtipo_plan_compras);
@@ -143,7 +143,7 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
-    public function Registro_Plan_Ocasional_Natural() {
+    public function Registro_Datos_Usuario() {
       /** MAYO 30 2015
        *      REALIZA REGISTRO DE DATOS DEL REGISTRO OCASIONAL PERSONA NATURAL
        */
@@ -183,16 +183,36 @@ class TercerosController extends Controller
       $es_e_mail          = General_Functions::Validar_Entrada('e_mail','EMAIL');
       $email_confirm      = General_Functions::Validar_Entrada('email_confirm','TEXT');
       $es_email_confirm   = General_Functions::Validar_Entrada('email_confirm','EMAIL');
+      //DATOS DIFERENCIALES EMPRESA
+      $nit                = General_Functions::Validar_Entrada('nit','TEXT');
+      $digitoverificacion = General_Functions::Validar_Entrada('digitoverificacion','TEXT');
+      $razonsocial        = General_Functions::Validar_Entrada('razonsocial','TEXT');
+      if ( strlen($identificacion) == 0){
+        $identificacion = $nit ;
+      }
       //
        $mes           = General_Functions::Validar_Entrada('mes','NUM');
        $dia           = General_Functions::Validar_Entrada('dia','NUM');
        if ($mes  < 9) { $mes  = '0'.$mes ; }
        if ($dia  < 9) { $dia  = '0'.$dia ; }
 
-
-       if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
-            $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
+       if ( strlen($identificacion) == 0){
+          $Texto_Respuesta =  $Texto_Respuesta . 'Debe registrar el número de identificación o N.I.T. para grabar el registro.<br>';
        }
+
+       if ($idtpidentificacion != 31){
+           if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
+                $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
+           }
+         }else{
+          if ( strlen( $razonsocial )== 0){
+              $Texto_Respuesta =  $Texto_Respuesta . 'El nombre de la empresa no puede quedar en blanco.<br>';
+            }
+          if ( strlen($digitoverificacion) == 0 ){
+               $Texto_Respuesta =  $Texto_Respuesta . 'Registre el dígito de verificación.<br>';
+            }
+         }
+
        if ( $idmcipio ==0 ){
             $Texto_Respuesta =  $Texto_Respuesta . 'Debe seleccionar el municipio o ciudad en donde recide.<br>';
        }
@@ -215,16 +235,19 @@ class TercerosController extends Controller
        if ( $idtipo_plan_compras == 3 && ( $idtpidentificacion == 13 || $idtpidentificacion == 42) ){
             if ( $mes == 0 || $dia == 0 ){
                  $Texto_Respuesta ='<strong>Es necesario que registre el día y mes de nacimiento ya que estos datos se utilizan para generar su código de usuario.<br><br>';
-            }else{
-                  $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
-                  $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
             }
-       }
+        }
+        // GENERACIÓN CÓDIGO DE USUARIO. SI NO ES EMPRESA ->Generar_Codigo_Usuario .... SINO Generar_Codigo_Emmpresa
+        if ($idtpidentificacion != 31){
+              $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
+            }else{
+              $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Emmpresa($pnombre ,$papellido, $dia, $mes);
 
+            }
+
+      $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
       $codigousuario                                  = $codigo_usuario_generado;
       $codautorizacionmenoredad                       = '';
-      $digitoverificacion                             = '';
-      $razonsocial                                    = '';
       $dianacimiento                                  = $dia;
       $mesnacimiento                                  = $mes;
       $email                                          = strtolower($e_mail);
@@ -247,7 +270,8 @@ class TercerosController extends Controller
       $param_idmcipio_transferencias                  = 0;
       $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
       $param_valor_comisiones_para_pago_pedidos       = 0 ;
-      $idtppersona                                    = 1;
+      $idtppersona                                    = 2;
+      if ($idtpidentificacion != 31){ $idtppersona    = 1;}
 
 
       $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' , 'razonsocial' ,'genero' ,
@@ -282,7 +306,7 @@ class TercerosController extends Controller
      }
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
      // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
-     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre, $idtipo_plan_compras  );
+     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre, $idtipo_plan_compras , $idtpidentificacion );
      // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
      // DEJAR LAS VARIABLES EN BLANCO

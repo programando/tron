@@ -134,10 +134,10 @@
             return $CorreoEnviado ;
       }
 
-      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $pre, $idtipo_plan_compras ){
+      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $pre, $idtipo_plan_compras,$idtpidentificacion  ){
 
          $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
-         $enlace              = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/' .$idtipo_plan_compras .'/ > Activar mi cuenta y finalizar registro </a>';
+         $enlace              = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/' .$idtipo_plan_compras . '/'. $idtpidentificacion . '/ > Activar mi cuenta y finalizar registro </a>';
          $Texto_Correo        = 'Bienvenid' . $pre . ' '. $nombre_usuario .'<br><br>';
          $Texto_Correo        = $Texto_Correo .'Para activar tu cuenta de usuario y finalizar el registro, presiona el siguiente enlace :' . $enlace ;
          $Texto_Correo        = $Texto_Correo . "desde donde podrás cambiar tu contraseña y a partir de allí, ingresar a la tienda virtual.";
