@@ -56,6 +56,7 @@ class TercerosController extends Controller
       $password            = General_Functions::Validar_Entrada('password','TEXT');
       $password_confirm    = General_Functions::Validar_Entrada('password_confirm','TEXT');
       $email               = General_Functions::Validar_Entrada('email','TEXT');
+
       $idtipo_plan_compras = 0;
       $nombre_usuario      = '';
 
@@ -76,10 +77,13 @@ class TercerosController extends Controller
         $Registro = $this->Terceros->Consulta_Datos_Por_Password_Email($email ,$password);
         $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro );  // ASIGNA LAS VARIABLES DE ENTORNO
         Session::Set('idtipo_plan_compras', $Registro[0]['idtipo_plan_compras']);
-        $idtipo_plan_compras = $Registro[0]['idtipo_plan_compras'];
-        $nombre_usuario      = $Registro[0]['nombre_usuario_pedido'];
-        $genero              = $Registro[0]['genero'];
-        $pre                 = '';  // USADO PARA DETERMINAR SI ES HOMBRE O MUJER EN LOS MENSAJES
+        $idtipo_plan_compras                   = $Registro[0]['idtipo_plan_compras'];
+        $nombre_usuario                        = $Registro[0]['nombre_usuario_pedido'];
+        $genero                                = $Registro[0]['genero'];
+        $idtpidentificacion                    = $Registro[0]['idtpidentificacion'];
+        $pedido_minimo_productos_fabricados_ta = $Registro[0]['pedido_minimo_productos_fabricados_ta'];
+        $pedido_minimo_productos_fabricados_ta = "$ ".number_format($pedido_minimo_productos_fabricados_ta ,0,"",".");
+        $pre                                   = '';  // USADO PARA DETERMINAR SI ES HOMBRE O MUJER EN LOS MENSAJES
 
         if ( $genero == 1){
           $pre = 'o';
@@ -89,13 +93,14 @@ class TercerosController extends Controller
         }
         // VERFICAR SI EL TIPO DE PLAN ES 2. SIRVE PARA QUE EN CASO DE BORRAR EL KIT DE INICIO DE ESTE PEDIDO, LUEGO DEL REGISTRO
         // SE LE DEGRADE DE PLAN. PASARÍA DE 2 A 1
-        if ( $idtipo_plan_compras == 2 ){
-            Session::Set('usuario_viene_del_registro',TRUE); // VIENE DEL REGISTRO
-        }
-        $this->Correos->Activacion_Registro_Usuario_Exitoso($email, $Registro[0]["pnombre"],$pre );
+        if ( $idtipo_plan_compras == 2 || $idtipo_plan_compras == 3) {  Session::Set('usuario_viene_del_registro',TRUE);    }
+        if ( $idtpidentificacion != 31 ){ Session::Set('usuario_viene_del_registro_es_empresa',FALSE); }
+        else {                            Session::Set('usuario_viene_del_registro_es_empresa',TRUE);  }
+
+        $this->Correos->Activacion_Registro_Usuario_Exitoso($email, $Registro[0]["nombre_usuario_pedido"],$pre,$idtpidentificacion );
         $Respuesta = 'El registro ha finalizado con éxito !!! <br> Ahora prodrás disfrutar de los beneficios de pertenecer a la Tienda Virtual TRON.';
       }
-      $Respuesta = compact('Respuesta','idtipo_plan_compras','nombre_usuario');
+      $Respuesta = compact('Respuesta','idtipo_plan_compras','nombre_usuario','idtpidentificacion','pedido_minimo_productos_fabricados_ta');
       echo json_encode($Respuesta ,256);
     }
 
@@ -105,13 +110,14 @@ class TercerosController extends Controller
        *      VERFICAR SI EL TIPO DE PLAN ES 2. SIRVE PARA QUE EN CASO DE BORRAR EL KIT DE INICIO DE ESTE PEDIDO, LUEGO DEL REGISTRO
        *      SE LE DEGRADE DE PLAN. PASARÍA DE 2 A 1
        */
-      $usuario_viene_del_registro = Session::Get('usuario_viene_del_registro');
-      $idtipo_plan_compras        = Session::Get('idtipo_plan_compras');
+      $usuario_viene_del_registro            = Session::Get('usuario_viene_del_registro');
+      $idtipo_plan_compras                   = Session::Get('idtipo_plan_compras');
+      $usuario_viene_del_registro_es_empresa = Session::Get('usuario_viene_del_registro_es_empresa');
 
       if ( !isset($usuario_viene_del_registro )){
           $usuario_viene_del_registro = false ;
       }
-      $Respuesta = compact('usuario_viene_del_registro','idtipo_plan_compras');
+      $Respuesta = compact('usuario_viene_del_registro','idtipo_plan_compras','usuario_viene_del_registro_es_empresa');
       echo json_encode($Respuesta,256);
     }
 
@@ -138,8 +144,8 @@ class TercerosController extends Controller
         $this->View->idtercero           = $idtercero;
         $this->View->idtipo_plan_compras = $idtipo_plan_compras;
 
-        $this->View->SetCss(array('tron_activacion_mi_cuenta','password', 'messi.min'));
-        $this->View->SetJs(array('tron_terceros_activar_cuenta','password','messi.min'));
+        $this->View->SetCss(array('tron_activacion_mi_cuenta','password'));
+        $this->View->SetJs(array('tron_terceros_activar_cuenta','password'));
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
@@ -170,23 +176,23 @@ class TercerosController extends Controller
         }
 
 
-      $idtpidentificacion = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
-      $identificacion     = General_Functions::Validar_Entrada('identificacion','TEXT');
-      $pnombre            = General_Functions::Validar_Entrada('pnombre','TEXT');
-      $papellido          = General_Functions::Validar_Entrada('papellido','TEXT');
-      $genero             = General_Functions::Validar_Entrada('genero','TEXT');
-      $idmcipio           = General_Functions::Validar_Entrada('idmcipio','NUM');
-      $direccion          = General_Functions::Validar_Entrada('dirrecion','TEXT');
-      $barrio             = General_Functions::Validar_Entrada('barrio','TEXT');
-      $celular1           = General_Functions::Validar_Entrada('celular1','TEXT');
-      $e_mail             = General_Functions::Validar_Entrada('e_mail','TEXT');
-      $es_e_mail          = General_Functions::Validar_Entrada('e_mail','EMAIL');
-      $email_confirm      = General_Functions::Validar_Entrada('email_confirm','TEXT');
-      $es_email_confirm   = General_Functions::Validar_Entrada('email_confirm','EMAIL');
-      //DATOS DIFERENCIALES EMPRESA
-      $nit                = General_Functions::Validar_Entrada('nit','TEXT');
-      $digitoverificacion = General_Functions::Validar_Entrada('digitoverificacion','TEXT');
-      $razonsocial        = General_Functions::Validar_Entrada('razonsocial','TEXT');
+        $idtpidentificacion = General_Functions::Validar_Entrada('idtpidentificacion','NUM');
+        $identificacion     = General_Functions::Validar_Entrada('identificacion','TEXT');
+        $pnombre            = General_Functions::Validar_Entrada('pnombre','TEXT');
+        $papellido          = General_Functions::Validar_Entrada('papellido','TEXT');
+        $genero             = General_Functions::Validar_Entrada('genero','TEXT');
+        $idmcipio           = General_Functions::Validar_Entrada('idmcipio','NUM');
+        $direccion          = General_Functions::Validar_Entrada('dirrecion','TEXT');
+        $barrio             = General_Functions::Validar_Entrada('barrio','TEXT');
+        $celular1           = General_Functions::Validar_Entrada('celular1','TEXT');
+        $e_mail             = General_Functions::Validar_Entrada('e_mail','TEXT');
+        $es_e_mail          = General_Functions::Validar_Entrada('e_mail','EMAIL');
+        $email_confirm      = General_Functions::Validar_Entrada('email_confirm','TEXT');
+        $es_email_confirm   = General_Functions::Validar_Entrada('email_confirm','EMAIL');
+        //DATOS DIFERENCIALES EMPRESA
+        $nit                = General_Functions::Validar_Entrada('nit','TEXT');
+        $digitoverificacion = General_Functions::Validar_Entrada('digitoverificacion','TEXT');
+        $razonsocial        = General_Functions::Validar_Entrada('razonsocial','TEXT');
       if ( strlen($identificacion) == 0){
         $identificacion = $nit ;
       }
@@ -238,40 +244,41 @@ class TercerosController extends Controller
             }
         }
         // GENERACIÓN CÓDIGO DE USUARIO. SI NO ES EMPRESA ->Generar_Codigo_Usuario .... SINO Generar_Codigo_Emmpresa
-        if ($idtpidentificacion != 31){
-              $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
-            }else{
-              $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Emmpresa($pnombre ,$papellido, $dia, $mes);
-
+        if ($idtpidentificacion != 31){  $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes); }
+        else{
+              $Datos_Nuevo_Codigo = $this->Terceros->Generar_Codigo_Emmpresa( $razonsocial);
+              $genero             = 0;
             }
 
-      $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
-      $codigousuario                                  = $codigo_usuario_generado;
-      $codautorizacionmenoredad                       = '';
-      $dianacimiento                                  = $dia;
-      $mesnacimiento                                  = $mes;
-      $email                                          = strtolower($e_mail);
-      $passwordusuario                                = '';
-      $contacto                                       = '';
-      $telefono                                       = '';
-      $registroconfirmado                             = 0;
-      $registro_organizado                            = 0;
-      $param_tiene_compras                            = 0;
-      $registro_inactivo                              = 0;
-      $param_confirmar_nuevos_amigos_x_email          = 1 ;
-      $param_acepto_pago_valor_transferencia          = 1;
-      $valor_minimo_transferencia                     = 0;
-      $param_idtpidentificacion_titular_cuenta        = 0;
-      $param_identificacion_titular_cuenta            = '';
-      $param_nombre_titular_cuenta                    = '';
-      $param_idbanco_transferencias                   = '0';
-      $param_nro_cuenta_transferencias                = '';
-      $param_tipo_cuenta_transferencias               = '';
-      $param_idmcipio_transferencias                  = 0;
-      $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
-      $param_valor_comisiones_para_pago_pedidos       = 0 ;
-      $idtppersona                                    = 2;
-      if ($idtpidentificacion != 31){ $idtppersona    = 1;}
+        $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
+        $codigousuario                                  = $codigo_usuario_generado;
+        $codautorizacionmenoredad                       = '';
+        $dianacimiento                                  = $dia;
+        $mesnacimiento                                  = $mes;
+        $email                                          = strtolower($e_mail);
+        $passwordusuario                                = '';
+        $contacto                                       = '';
+        $telefono                                       = '';
+        $registroconfirmado                             = 0;
+        $registro_organizado                            = 0;
+        $param_tiene_compras                            = 0;
+        $registro_inactivo                              = 0;
+        $param_confirmar_nuevos_amigos_x_email          = 1 ;
+        $param_acepto_pago_valor_transferencia          = 1;
+        $valor_minimo_transferencia                     = 0;
+        $param_idtpidentificacion_titular_cuenta        = 0;
+        $param_identificacion_titular_cuenta            = '';
+        $param_nombre_titular_cuenta                    = '';
+        $param_idbanco_transferencias                   = '0';
+        $param_nro_cuenta_transferencias                = '';
+        $param_tipo_cuenta_transferencias               = '';
+        $param_idmcipio_transferencias                  = 0;
+        $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
+        $param_valor_comisiones_para_pago_pedidos       = 0 ;
+        $idtppersona                                    = 2;
+        if ($idtpidentificacion != 31){ $idtppersona    = 1;}
+
+
 
 
       $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' , 'razonsocial' ,'genero' ,
@@ -297,26 +304,26 @@ class TercerosController extends Controller
      $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($Datos_Direccion_Despacho);
      // ESTABLECER VARIABLES DEL DESPACHO EN CASO DE QUE SE HAGA UN PEDIDO LUEGO DEL REGISTRO
      //--------------------------------------------------------------------------------------
-     $pre = '';
-     if ( $genero == 1){
-      $pre = 'o';
-     }
-     if ( $genero == 0 ){
-      $pre = 'a';
-     }
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
-     // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
-     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre, $pre, $idtipo_plan_compras , $idtpidentificacion );
-     // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
-     $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
+
+     $this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
+
      // DEJAR LAS VARIABLES EN BLANCO
      $this->Registro_Re_Establecer_Tercero_Presenta();
      Session::Destroy('idtipo_plan_compras');
 
      $Datos = compact('Texto_Respuesta' );
      echo json_encode($Datos,256);
-
     }
+
+  public function Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial)
+  {
+     // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
+     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre,$genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial );
+     // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
+     $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
+
+  }
 
     public function Registro_Buscar_Por_Codigo(){
       /** MAYO 24 DE 2015
@@ -365,6 +372,8 @@ class TercerosController extends Controller
       *       CONCEDER PRECIOS ESPECIALES
       */
       $Registro                             = $this->Terceros->Compra_Productos_Tron_Mes_Actual();
+
+
       $compra_minima_productos_tron         = $Registro[0]['minimo_compras_productos_tron'];
       $compra_minima_productos_industriales = $Registro[0]['minimo_compras_productos_ta'];
       $compras_este_mes_tron                = $Registro[0]['compras_productos_tron'];
@@ -381,6 +390,7 @@ class TercerosController extends Controller
       {
         Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
       }
+
 
     }
 
@@ -559,12 +569,54 @@ class TercerosController extends Controller
       Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
       Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
       Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-      Session::Set('re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
+      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
 
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
 
+    }
+
+    public function Verificar_Activacion_Usuario(){
+      /** JUNIO 13 DE 2015
+       *      AL LOGUEARSE VERIFICA QUE EL USUARIO HAYA FINALIZADO Y CONFIRMADO EL REGISTRO
+       */
+       $Email               = General_Functions::Validar_Entrada('email','TEXT-EMAIL');
+       $Es_Email            = General_Functions::Validar_Entrada('email','EMAIL');
+       $Respuesta           = '';
+       $passwordusuario     = '';
+       $registroconfirmado  = FALSE ;
+       $idtercero           = 0;
+       $nombre_usuario      = '';
+       $genero              = '';
+       $idtipo_plan_compras = 0;
+       $idtpidentificacion  = 0;
+       $razonsocial         = '';
+
+       if ( $Es_Email == FALSE ){
+            $Respuesta = 'Correo_No_OK';
+       }else{
+        $Usuario_Activo = $this->Terceros->Verificar_Activacion_Usuario($Email);
+        if ( !$Usuario_Activo ){
+             $Respuesta = 'Correo_No_Existe';
+        }else{
+            $passwordusuario     = $Usuario_Activo[0]['passwordusuario'];
+            $registroconfirmado  = $Usuario_Activo[0]['registroconfirmado'];
+            $idtercero           = $Usuario_Activo[0]['idtercero'];
+            $nombre_usuario      = $Usuario_Activo[0]['pnombre'];
+            $genero              = $Usuario_Activo[0]['genero'];
+            $idtipo_plan_compras = $Usuario_Activo[0]['idtipo_plan_compras'];
+            $idtpidentificacion  = $Usuario_Activo[0]['idtpidentificacion'];
+            $razonsocial         = $Usuario_Activo[0]['razonsocial'];
+            if ( strlen($passwordusuario) == 0 ||  $registroconfirmado  == FALSE ){
+                $Respuesta = 'Usuario_No_Activo';
+            }else{
+                $Respuesta = 'Usuario_Activo';
+            }
+        }
+       }
+       $Datos = compact('Respuesta','passwordusuario','registroconfirmado','idtercero','nombre_usuario','genero','idtipo_plan_compras','idtpidentificacion','razonsocial','Email');
+       echo json_encode($Datos,256);
     }
 
     public function Validar_Ingreso_Usuario()
@@ -573,6 +625,7 @@ class TercerosController extends Controller
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
+
 
        if (!$Registro )
        {
@@ -624,19 +677,11 @@ class TercerosController extends Controller
     {
         $this->Registro_Re_Establecer_Tercero_Presenta();
         Session::Destroy('idtipo_plan_compras');
-        $Parametros = $this->Parametros->Transportadoras();
-        Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);
-        Session::Set('kit_vr_venta_valle_reexpedidion',   $Parametros[0]['kit_vr_venta_valle_reexpedidion']);
-        Session::Set('kit_vr_venta_nacional',             $Parametros[0]['kit_vr_venta_nacional']);
-        Session::Set('kit_vr_venta_nacional_reexpedicion',$Parametros[0]['kit_vr_venta_nacional_reexpedicion']);
-        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
-        Session::Set('kit_id', 10744);
-        $this->View->Total_Kit_Inscripcion = $Parametros[0]['kit_vr_venta_valle'] + $Parametros[0]['cuota_1_inscripcion'] ;
-
+        $this->View->Total_Kit_Inscripcion = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
         $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos   = $this->Departamentos->Consultar();
-        $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2','messi.min'));
-        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios','messi.min'));
+        $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
+        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios'));
         $this->View->Mostrar_Vista('registro');
     }
 

@@ -134,13 +134,24 @@
             return $CorreoEnviado ;
       }
 
-      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $pre, $idtipo_plan_compras,$idtpidentificacion  ){
-
+      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $genero, $idtipo_plan_compras,$idtpidentificacion , $razonsocial ){
+           $pre = '';
+           if ( $genero == 1){
+            $pre = 'o';
+           }
+           if ( $genero == 0 ){
+            $pre = 'a';
+           }
          $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
-         $enlace              = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/' .$idtipo_plan_compras . '/'. $idtpidentificacion . '/ > Activar mi cuenta y finalizar registro </a>';
-         $Texto_Correo        = 'Bienvenid' . $pre . ' '. $nombre_usuario .'<br><br>';
+         $enlace   = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/' .$idtipo_plan_compras . '/'. $idtpidentificacion . '/ > Activar mi cuenta y finalizar registro </a>';
+         if ( $idtpidentificacion != 31 ) {
+              $Texto_Correo        = 'Bienvenid' . $pre . ' '. $nombre_usuario .'<br><br>';
+            }else {
+                $Texto_Correo        = 'Bienvenidos '. $razonsocial  .'<br><br>';
+            }
          $Texto_Correo        = $Texto_Correo .'Para activar tu cuenta de usuario y finalizar el registro, presiona el siguiente enlace :' . $enlace ;
          $Texto_Correo        = $Texto_Correo . "desde donde podrás cambiar tu contraseña y a partir de allí, ingresar a la tienda virtual.";
+
 
          $this->Configurar_Cuenta('Activación Cuenta/Finalización Registro');
          $this->Email->AddAddress($email );
@@ -152,10 +163,14 @@
          return $Respuesta;
       }
 
-    public function Activacion_Registro_Usuario_Exitoso( $email, $nombre_usuario, $pre ){
+    public function Activacion_Registro_Usuario_Exitoso( $email, $nombre_usuario, $pre,$idtpidentificacion ){
           $enlace              = '<a href=' . BASE_URL .'redtron/preguntas_frecuentes/>' .   'Preguntas Frecuentes</a>';
-          $Texto_Correo = "<div style='text-align:justify;'>
-                      Bienvenid".$pre." ". $nombre_usuario .".<br /><br />
+          if ( $idtpidentificacion != 31 ){
+            $Texto = "Bienvenid".$pre." ". $nombre_usuario .".<br /><br />";
+          }else{
+           $Texto = "Bienvenidos ". $nombre_usuario .".<br /><br />";
+          }
+          $Texto_Correo = "<div style='text-align:justify;'>" . $Texto ."
                       Tu registro en la Tienda Virtual <a href='".BASE_URL ."'>TRON Entre amigos alcanzamos</a> ha finalizado satisfactoriamente.<br /><br />
                       Te invitamos a conocer m&aacute;s sobre nuestro modelo de negocio,
                       consultando " . $enlace . " o

@@ -102,8 +102,59 @@ function Recuperar_Password(Parametros)
 	     	 					$("#dv-img-cargando").hide();
       	 }
 				});
-
 }
+
+function Verificar_Activacion_Usuario_Envio_Correo(Parametros){
+	//$idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial
+					$idtercero           = Parametros.idtercero;
+				 $nombre_usuario      = Parametros.nombre_usuario;
+				 $genero              = Parametros.genero;
+				 $idtipo_plan_compras = Parametros.idtipo_plan_compras;
+				 $idtpidentificacion  = Parametros.idtpidentificacion;
+				 $razonsocial         = Parametros.razonsocial;
+				 $email 													 = Parametros.email;
+				$.ajax({
+							data:  '',
+							dataType: 'json',
+							url:      '/tron/terceros/Registro_Datos_Usuario_Envio_Correo_Activacion/'+$idtercero +'/'+$email+'/'+$nombre_usuario+'/'+$genero +'/'+$idtipo_plan_compras+'/'+$idtpidentificacion+'/'+$razonsocial+'/',
+							type:     'post',
+       success:  function (resultado)	 {
+
+      	 }
+				});
+}
+
+
+function Verificar_Activacion_Usuario(Parametros)
+{
+			$.ajax({
+							data:  Parametros,
+							dataType: 'json',
+							url:      '/tron/terceros/Verificar_Activacion_Usuario/',
+							type:     'post',
+       success:  function (resultado)	 {
+       	if (resultado.Respuesta == 'Usuario_No_Activo'){
+       				$Parametros = {'idtercero':resultado.idtercero,'nombre_usuario':resultado.nombre_usuario,'genero':resultado.genero,'email':resultado.Email,
+       																		 'idtipo_plan_compras':resultado.idtipo_plan_compras,'idtpidentificacion':resultado.idtpidentificacion,'razonsocial':resultado.razonsocial};
+
+       				Verificar_Activacion_Usuario_Envio_Correo($Parametros)	;
+
+	     				new Messi("<h3> ¡¡¡ Oppss !!!</h3>Hemos detectado que tu registro no ha sido finalizado. Ahora nuestro sistema ha enviado un mensaje a la cuenta de correo electrónico registrada en nuestro sitio para que desde 	ella 	finalices tu registro.<br><br>Favor revisa tu correo y continúa con el proceso de registro.<br><br>",
+				      {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+				        buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}],
+				        callback: function(val){
+				          window.location.href = "/tron/index/";
+				        }
+				      });
+     				}
+      	 }
+				});
+}
+
+//$Datos = compact('Respuesta','passwordusuario','registroconfirmado','idtercero','nombre_usuario','genero','idtipo_plan_compras','idtpidentificacion','razonsocial');
+
+
+
 
 
 $('.email-usuario').on('focus',function(){
@@ -119,6 +170,12 @@ $('#login-password').on('focus',function(){
 $('#login-username').on('focus',function(){
 	 $("#msgbox").removeClass().addClass('messagebox').text('');
 	 return false;
+});
+
+$('.email-usuario').on('focusout',function(){
+		var $email = $('.email-usuario').val();
+		var $Parametros = {'email':$email};
+		Verificar_Activacion_Usuario($Parametros);
 });
 
 //BOTON PARA INICIAR SESION. ENERO 30 DE 2015

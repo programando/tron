@@ -29,11 +29,15 @@
 							$Registro                 =  $this->Db->Ejecutar_Sp("terceros_finalizar_registro_ocasional($idtercero,'$password')");
 				}
 
+				public function Verificar_Activacion_Usuario($email){
+						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_verificar_activacion_cuenta('$email')");
+							return $Registro;
+				}
+
 
 				public function Cambio_Plan($tipo_proceso_en_plan,$idtercero,$idtipo_plan_compras){
 						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_cambio_plan_compras('$tipo_proceso_en_plan',$idtercero,$idtipo_plan_compras )");
 							return $Registro;
-
 				}
 
 				public function Generar_Codigo_Registro_Nadie_Presenta(){

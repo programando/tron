@@ -10,8 +10,11 @@ var $Total_Venta_Tron           = $('.carrito-Total_Parcial_pv_tron');
 var $Mensaje_Add_Producto       = $('.mensaje-agregar_producto');
 var $Imagen_Cargando            = $("#dv-img-cargando-recomendar-producto");
 //-------------------------------------------------------------------------
-var $idtipo_plan_compras        = 0;
-var $usuario_viene_del_registro = false;
+var $idtipo_plan_compras                   = 0;
+var $usuario_viene_del_registro            = false;
+var $usuario_viene_del_registro_es_empresa = false;
+var $compra_productos_industriales									= 0;
+var $minimo_compras_productos_ta       = 0;
 
 // Recomendacion de productos
 var $mensaje_error								 = $('.mensaje-error');
@@ -51,6 +54,23 @@ function Hallar_Precio_Final_Tron(IdProducto,Parametros)
 	      	 }
 					});
 }
+
+function Consultar_Total_Compra_Productos_Industriales()
+{
+				$.ajax({
+								data:  '',
+								dataType: 'json',
+								url:      '/tron/carrito/Consultar_Total_Compra_Productos_Industriales',
+								type:     'post',
+								async:    false,
+	       success:  function (resultado)
+	      	 {
+											$compra_productos_industriales   = resultado.compra_productos_industriales	;
+											$minimo_compras_productos_ta = resultado.minimo_compras_productos_ta  ;
+	      	 }
+					});
+}
+
 
 function Agregar_Producto_a_Carrito(NomProducto,Parametros)
 {
@@ -94,8 +114,9 @@ function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario( )
 					type:     'post',
 					async: false,
 	     success:  function (resultado) {
-									$idtipo_plan_compras        = resultado.idtipo_plan_compras;
-									$usuario_viene_del_registro = resultado.usuario_viene_del_registro;
+									$idtipo_plan_compras                   = resultado.idtipo_plan_compras;
+									$usuario_viene_del_registro            = resultado.usuario_viene_del_registro;
+									$usuario_viene_del_registro_es_empresa = resultado.usuario_viene_del_registro_es_empresa;
 	     		}
 					});
 
@@ -120,8 +141,8 @@ function Borrar_Producto(Parametros){
 
 
 // CONFIRMA SI BORRA EL KIT DE INICIO Y POR LO TANTO CAMBIA DE PLAN
-var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras, Parametros){
-		var $Texto = '';
+  var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras, Parametros){
+		var $Texto      = '';
 		var $idproducto = Parametros.IdProducto;
 		 if ( $idproducto != 10744 && $idproducto != 2071 ){
 		 		Borrar_Producto(Parametros);
@@ -147,8 +168,60 @@ var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambi
 		                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(nuevo_idtipo_plan_compas);
 		                			}
 						          }});
-
 }
+
+// CONFIRMACIÓN DEL CAMBIO DE PLAN PARA EL REGISTRO DE EMPRESAS.....
+  var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan_Empresa = function(idtipo_plan_compras, Parametros){
+		var $Texto          = '';
+		var $idproducto     = Parametros.IdProducto;
+		var $Borrar_Prducto = false ;
+		 if ( $idproducto != 10744 && $idproducto != 2071 ){
+		 		Borrar_Producto(Parametros);
+		 	return ;
+		 }
+		Consultar_Total_Compra_Productos_Industriales(); /// Consulta que valos ha comprado de productos indstriales
+
+		if ( idtipo_plan_compras == 2 ||  idtipo_plan_compras == 3){
+				 if  ( $idproducto == 10744) {
+				 		if ( $compra_productos_industriales < $minimo_compras_productos_ta){
+				 			$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Has elegido eliminar el Kit de Inicio y no has agregado la compra mínima reglamentaria de productos industriales. <br>Si decides continuar quedarás registrado como Comprador Ocasional y te perderás de todos los beneficios de pertenecer a la Red de Usuarios TRON. </h4>. <br> Deseas continuar ?<br><br>";
+				 			 nuevo_idtipo_plan_compas  = 1;
+									new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+				                buttons: [ {id: 0, label: 'Si, eliminaré el Producto', val: 'Y',class: 'btn-danger' },
+				                           {id: 1, label: 'No, quiero mantenerme el en Plan Elegido', val: 'N', class: 'btn-success'} ],
+				                callback: function(val) {
+				                			if ( val =='Y'){
+				                				Borrar_Producto(Parametros);
+				                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(nuevo_idtipo_plan_compas);
+				                				// Borrar los derechos de inscripción
+				                				var OtroProducto = {"IdProducto" :2071, "Cantidad": 1 };
+				                				Borrar_Producto(OtroProducto);
+				                			}
+							      }});
+				 			}else{  	Borrar_Producto(Parametros); }}}
+
+		if ( idtipo_plan_compras == 3){
+				 if  ( $idproducto == 2071) {
+				 		if ( $compra_productos_industriales < $minimo_compras_productos_ta){
+				 			$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Has elegido eliminar los derechos de inscripción y no has agregado la compra mínima reglamentaria de productos industriales. <br>Si decides continuar quedarás registrado como Cliente de productos TRON y te perderás de todos los beneficios de pertenecer a la Red de Usuarios TRON. </h4>. <br> Deseas continuar ?<br><br>";
+				 			 nuevo_idtipo_plan_compas  = 2;
+									new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
+									                buttons: [ {id: 0, label: 'Si, eliminaré el Producto', val: 'Y',class: 'btn-danger' },
+									                           {id: 1, label: 'No, quiero mantenerme el en Plan Elegido', val: 'N', class: 'btn-success'} ],
+									                callback: function(val) {
+									                			if ( val =='Y'){
+									                				Borrar_Producto(Parametros);
+									                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(nuevo_idtipo_plan_compas);
+									                			}
+							      }});
+				 			}else{  	Borrar_Producto(Parametros); }}}
+
+		}
+
+
+
+
+
 
 function Borrar_Producto_de_Carrito(Parametros)
 {
@@ -159,7 +232,12 @@ function Borrar_Producto_de_Carrito(Parametros)
 				if ($usuario_viene_del_registro == false ){
 								Borrar_Producto(Parametros);
 				}else{
-						Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan($idtipo_plan_compras,Parametros)
+								if ( $usuario_viene_del_registro_es_empresa == false ){
+												Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan($idtipo_plan_compras ,Parametros);
+											}else{
+												Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan_Empresa($idtipo_plan_compras ,Parametros);
+											}
+
 				}
 
 }

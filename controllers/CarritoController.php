@@ -278,8 +278,8 @@ class CarritoController extends Controller
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
-      $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar','messi.min'));
-      $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio','messi.min'));
+      $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
+      $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
 
       if ($this->Cantidad_Filas_Carrito == 0)
       {
@@ -691,6 +691,16 @@ class CarritoController extends Controller
 
       $this->Cerrar_Procesos_Carro();
     }
+
+
+public function Consultar_Total_Compra_Productos_Industriales(){
+  $compra_productos_industriales   = Session::Get('compra_productos_industriales');
+  $minimo_compras_productos_ta = Session::Get('minimo_compras_productos_ta');
+  $Datos = compact('compra_productos_industriales','minimo_compras_productos_ta');
+  echo json_encode($Datos,256);
+}
+
+
 
 
     public function Calcular_Flete( $valor_declarado)

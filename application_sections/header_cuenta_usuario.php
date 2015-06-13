@@ -22,7 +22,7 @@
 
 
       <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
-          <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario')))) ;?>
+          <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
       </a><br>
         <ul class="list-unstyled cont-mi-cuenta">
            <li class="dropdown mi_cuenta"><!--MI CUENTA-->

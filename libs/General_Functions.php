@@ -60,6 +60,9 @@ public static function Generar_Codigo_Confirmacion($longitud=6){
 									case 'TEXT':
 										$Clave_Recibida = trim(htmlspecialchars(strtoupper( $Clave_Recibida), ENT_QUOTES));
 
+									case 'TEXT-EMAIL':
+										$Clave_Recibida = trim(htmlspecialchars( strtolower( $Clave_Recibida), ENT_QUOTES));
+
 										break;
 
 									case 'NUM':

@@ -6,7 +6,7 @@
     var $idtpidentificacion         = $('#idtpidentificacion');
 
     var $identificacion             = $('#identificacion');
-    var $identificacion_confirm     = ('#identificacion_confirm');
+    var $identificacion_confirm     = $('#identificacion_confirm');
     var $digitoverificacion         = $('#digitoverificacion');
     var $digitoverificacion_confirm = $('#digitoverificacion_confirm');
     var $razonsocial                = $('#razonsocial');
@@ -56,7 +56,7 @@ var Validar_Datos_Persona_Natural = function(Tipo_Plan_Seleccionado){
           }
        }
     }else{    /// validaciones para empresas
-        if ($.trim( $identificacion.val()) == "" || $.trim($identificacion_confirm.val()) == ""  ){
+        if ($.trim($('#identificacion').val()) == "" || $.trim($('#digitoverificacion_confirm').val()) == ""  ){
           $Texto = $Texto + 'Debe registrar el número de N.I.T. y su confirmación. <br>';
         }
         if ($.trim( $digitoverificacion.val()) == "" || $.trim($digitoverificacion_confirm.val()) == ""  ){
