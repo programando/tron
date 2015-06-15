@@ -14,6 +14,7 @@ function Depurar_Texto(resultado)
   $.trim(resultado);
   resultado = resultado.replace("\n", "");
   resultado = resultado.replace(/\s+/g, '');
+  return resultado;
 }
 
 
@@ -73,6 +74,7 @@ function Direccion_Usuario_Grabar(Parametros)
           }
           if (resultado=='OK')
           {
+
             $('#venta_editar').modal('hide');
             $('.fila-direcciones').load('/tron/carrito/Finalizar_Pedido_Direccion_Mostrar_Direcciones');
             return false;
@@ -113,7 +115,7 @@ $('#destinatario,#direccion,#municipio,#telefono,#barrio').on('focus',function()
 
 $('#btn-direccion-grabar').on('click',function(){
    var $iddireccion_despacho = $iddireccion_despacho_seleccionada;
-   var $idmcipio             = $('#municipio').val();
+   var $idmcipio             = $('#idmcipio').val();
    var $direccion            = $('#direccion').val();
    var $telefono             = $('#telefono').val();
    var $barrio               = $('#barrio').val();
@@ -243,10 +245,6 @@ $('.img-pago1').on('click',function(){
          document.formPaypal.submit();
       }
    });
-
-
-
-
 });
 
 

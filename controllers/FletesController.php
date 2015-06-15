@@ -26,6 +26,106 @@
 
       public function Index() { }
 
+
+	    public function Calcular_Flete( $valor_declarado,$Calcular_Flete_Courrier)
+	    {/** MARZO 09 DE 2015
+	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
+	      */
+	      $this->Cant_Unidades_Despacho = 0;
+	      $peso_kilos_pedido            = 0;
+	      $kit_inicio_peso_total        =   Session::Get('kit_inicio_peso_total');
+	      $kit_cantidad                 =   Session::Get('kit_cantidad');
+
+	      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
+	                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
+	      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+
+	      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
+	      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
+
+	      if ( $valor_declarado >0 ){
+	        if ( $Calcular_Flete_Courrier == TRUE ){
+	              $this->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
+	            }
+	        $this->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
+	        $this->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
+	        $this->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
+	      }
+	      if ( $kit_cantidad > 0 ){
+	          $this->Vr_Transporte_Kit_Inicio($kit_inicio_peso_total,$kit_cantidad  );
+	      }
+	       $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
+	       $this->Encontrar_Mejor_Flete();
+	    }
+
+
+    public function Encontrar_Mejor_Flete_Depurar(){
+     /**  MAYO 30 DE 2015
+       *        BORRA DEL ARRAY DE FLETES, LOS QUE SEAN IGUALES A CERO
+       */
+     $i                                = 0;
+      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+
+      foreach ($Fletes_Cobrados_Transportadoras as $Fletes) {
+         if ($Fletes['valor_flete'] == 0 ) {
+              array_splice ($Fletes_Cobrados_Transportadoras , $i, 1);
+           }
+           $i++;
+        }
+       Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+
+    }
+
+
+    public function Encontrar_Mejor_Flete()
+      {/**  MARZO 12 DE 2015
+      *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
+      */
+
+      $i                               = 0;
+      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+      $Asignar_Flete                   = TRUE;
+      $this->valor_flete                 = 0;
+
+      foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
+      {
+        if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE )        {
+              $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
+              $Asignar_Flete = FALSE;
+            }
+            if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete'] )  {
+                $Mejor_Flete['idtercero']     = $Fletes['idtercero']   ;
+                $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
+                $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
+                $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
+            }
+        }
+
+      if ( isset($Mejor_Flete)){
+          $this->valor_flete                  = $Mejor_Flete['valor_flete'] + Session::Get('transporte_tron') + Session::Get('kit_vr_transporte');
+          Session::Set('flete_cobrado_otros', $this->valor_flete);
+          Session::Set('id_transportadora',   $Mejor_Flete['idtercero']);
+          Session::Set('tipo_despacho_pedido', $Mejor_Flete['tipo_despacho'] );
+          Session::Set('tipo_tarifa', $Mejor_Flete['tipo_tarifa']);
+        }else{
+          $this->valor_flete                  = Session::Get('transporte_tron') + Session::Get('kit_vr_transporte');
+          Session::Set('flete_cobrado_otros', $this->valor_flete);
+          Session::Set('id_transportadora',   '1572'); // 1572 REDETRANS
+          Session::Set('tipo_despacho_pedido', 1 );     /// REDETRANS COURRIER
+          Session::Set('tipo_tarifa', 'REDETRANS COURRIER');
+        }
+    }
+
+      public function Vr_Transporte_Kit_Inicio($kit_inicio_peso_total,$kit_cantidad ){
+      			 Session::Set('kit_vr_transporte',0);
+										$kit_vr_venta_valle           = Session::Get('kit_vr_venta_valle');
+										$subsidio_transporte_tron     = Session::Get('subsidio_transporte_tron') * $kit_cantidad ;
+										// HALLAR EL VALOR DEL FLETE REAL
+										$this->Valor_Fletes_Productos_Tron($kit_inicio_peso_total , Session::Get('iddpto') , Session::Get('re_expedicion') );
+										$this->valor_flete = ( $this->valor_flete * $kit_cantidad ) -  $subsidio_transporte_tron ;
+										Session::Set('kit_vr_transporte', $this->valor_flete );
+      }
+
       public function Sevientrega_Premier($peso_kilos_pedido,$valor_declarado)
       {/** MARZO 16 DE 2015
       	*				CALCULA VALOR DE FLETE SE COBRARÁ POR SERVIENTREGA PREMIER
@@ -340,7 +440,7 @@
 									$this->valor_flete                  = 0;
 									$this->valor_dscto_flete_kit_inicio = 0;
 									$this->valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
-									$this->Fletes 					         	 		    = $this->Fletes->Consultar_Fletes_Productos_Tron();// TABLA FLETES REDETRANS
+									$Tabla_Fletes 					         	 		    = $this->Fletes->Consultar_Fletes_Productos_Tron();// TABLA FLETES REDETRANS
 									Session::Set('subsisio_flete_valle',0);
 
 
@@ -349,7 +449,7 @@
 										* TOMO EL PRIMER VALOR QUE CORRESPONDERÍA AL PESO Y POSTERIORMENTE, AL FINAL DEL MÉTODO LO OPERO.
 									 */
 
-			      		foreach ($this->Fletes as $Flete)
+			      		foreach ($Tabla_Fletes as $Flete)
 			      		 {
 														$inicio                 = $Flete['inicio'];
 														$final                  = $Flete['final'];

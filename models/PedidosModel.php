@@ -8,6 +8,27 @@
 					parent::__construct();
 				}
 
+				public function Eliminar($idpedido){
+					$Registro   =  $this->Db->Ejecutar_Sp("pedidos_eliminar_x_idpedido($idpedido)");
+				}
+
+
+				public function Consulta_Detalle_x_IdPedido($idpedido){
+					/** JUNIO
+					 *				COSULTA DEL DETALLE DEL PRODUCTO DE UN PEDIDO POR SU ID
+					 */
+					$Registro   =  $this->Db->Ejecutar_Sp("pedidos_consulta_detalle_x_idpedido($idpedido)");
+					return $Registro;
+				}
+
+
+			public function Historial_x_Idtercero($idtecero){
+				/**JUNIO 14 DE 2015
+				 * 		RETORNA EL HISTORIAL DE LOS PEDIDOS DE UN USUARIO
+				 */
+ 				$Registro = $this->Db->Ejecutar_Sp("pedidos_historial_x_idtercero($idtecero);");
+ 				return $Registro;
+			}
  		public function Grabar($Pedido=array())
  		{/** MARZO 24 DE 2015
  			*					GRABAR PEDIDO EN LA BASE DE DATOS
@@ -35,21 +56,12 @@
  		/** MAYO 06 DE 2016
 	 	* 	ACTUALIZA LA FORMA DE PAGO DEL PEDIDO UNA VEZ SE HA CONFIRMADO LA FORMA
 	 	*/
-	 	Debug::Mostrar($idpedido);
-	 	Debug::Mostrar($idformapago);
-	 	Debug::Mostrar($pagado_online);
 
  			$Registro = $this->Db->Ejecutar_Sp("pedidos_actualizar_forma_de_pago($idpedido,$idformapago,$pagado_online);");
  		}
 
- 		public function Establercer_Comsiones_Por_Pedido($idpedido){
-			/** MAYO 23 DE 2015
-			 * 		OBJETIVO			:		CONSULTA Y ALMACENA LAS COMISIONES QUE SE PAGARÁN A LOS USUARIOS DE LA RED EN CADA UNA DE SUS COMPRAS
-				*																	TENIENDO EN CUENTA LOS PARÁMETROS QUE EXISTAN EN ESE MOMENTO.
-				* OBSEVACIONES	:		SE CREA TABLA TEMPORAL Y POSTERIORMENTE SE ALMANCENA EN LA TABLA DEFINITIVA.
-			 */
- 				$Registro = $this->Db->Ejecutar_Sp("pedidos_establecer_comisiones_x_pedido_producto($idpedido);");
- 		}
+
+
 
 
 

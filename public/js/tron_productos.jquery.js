@@ -288,12 +288,14 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 
 // BOTON ELEGIR FORMA DE PAGO PARA EL PEDIDO
 	$('#contenido-productos').on('click','.btn-forma-pago-pedido',function(){
+
 			$.ajax({
 					dataType: 'text',
-					url:      '/tron/pedidos/grabar/',
+					url:      '/tron/pedidos/Grabar/',
 					type:     'post',
      success:  function (resultado)
     	 {
+
  							window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
  							Imprimir_Totales_Carrito_Header( 0, 0);
     	 }

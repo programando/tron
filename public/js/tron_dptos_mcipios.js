@@ -1,9 +1,8 @@
 
 // CARGAR LAS CIUDADES POR DEPARTAMENTO
-$('#departamento').on('change',function(){
+$('#iddpto').on('change',function(){
 	var $IdDpto     = $(this).val();
-	var $Municipios = $('#municipio');
-
+	var $Municipios = $('#idmcipio');
  if ($IdDpto==0)
  {
     $Municipios.empty();
@@ -18,7 +17,7 @@ $('#departamento').on('change',function(){
      success:  function (municipios)
     	 {
         $Municipios.empty();
-        //console.log(JSON.stringify(municipios));
+        $Municipios.append('<option value="0"> SELECCIONE UNA CIUDAD O MUNICIPIO...</option>');
         	for(var i = 0; i < municipios.length; i++)
         	{
               $Municipios.append('<option value="' + municipios[i].idmcipio + '">' + municipios[i].nommcipio + '</option>');

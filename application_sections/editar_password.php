@@ -4,10 +4,10 @@
        <div>
          Una Contraseña segura debe contener :
          <ul class="list-unstyled pasos_contrasena_segura">
-            <li><span class="glyphicon glyphicon-ok"></span>6 ó más caracteres. </li>
-            <li><span class="glyphicon glyphicon-ok"></span>Una letra minúscula. </li>
-            <li><span class="glyphicon glyphicon-ok"></span>Una letra mayúscula. </li>
-            <li><span class="glyphicon glyphicon-ok"></span>Un número. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; 6 ó más caracteres. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Una letra minúscula. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Una letra mayúscula. </li>
+            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Un número. </li>
          </ul>
        </div>
      </div>

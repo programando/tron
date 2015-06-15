@@ -1,0 +1,27 @@
+
+                      <table class=" table table-bordered ">
+                            <thead> <!-- Cabezera -->
+                                   <tr>
+                                        <th class="text-center">  Fecha Pedido</th>
+                                        <th class="text-center">Número <br> Pedido</th>
+                                        <th class="text-center">Valor <br> Pedido</th>
+                                        <th class="text-center">Valor a <br> Pagar</th>
+                                        <th class="text-center">Número <br> Factura</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center">Medio de <br> Pago</th>
+                                        <th class="text-center" style'width:20px;'></th>
+                                        <th class="text-center">Eliminar</th>
+                                   </tr>
+                            </thead><!-- Cabezera -->
+
+
+                            <tbody><!-- Cuerpo -->
+
+                            <?php foreach ($this->Pedidos as $Pedido) :?>
+                              <?php    include (APPLICATION_CODS.'pedidos_historial.php') ; ?>
+                                <?php    include (APPLICATION_SECTIONS.'pedidos_historial.php') ; ?>
+                                <?php endforeach ;?>
+                            </tbody><!-- Cuerpo -->
+
+                      </table>
+

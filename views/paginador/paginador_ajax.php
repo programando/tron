@@ -1,5 +1,7 @@
 
+
 <?php if(isset($this->_paginacion)): ?>
+
     <div class="row">
         <div class="col-lg-12  col-md-12  col-sm-12 col-xs-3">
             <div class="paginadores">
@@ -29,15 +31,17 @@
 
                         <?php if($this->_paginacion['actual'] == $this->_paginacion['rango'][$i]): ?>
 
+
                             <li class="active"><span><?= $this->_paginacion['rango'][$i]; ?></span></li>
 
                         <?php else: ?>
 
-                            <li>
-                                <a class="pagina" pagina="<?= $this->_paginacion['rango'][$i]; ?>" href="javascript:void(0);">
+                            <li><a class="pagina" pagina="<?= $this->_paginacion['rango'][$i]; ?>" href="javascript:void(0);">
                                     <?= $this->_paginacion['rango'][$i]; ?>
                                 </a>
                             </li>
+
+
 
                         <?php endif; ?>
 

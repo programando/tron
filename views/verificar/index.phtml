@@ -11,6 +11,10 @@
         }
 
 ?>
+<?php
+  Debug::Mostrar(Session::Get('codigos_usuario'));
+
+?>
 
 <?php if (isset($carro)) :;?>
     <div class="row">
@@ -94,6 +98,11 @@
                        </tr>
 																				<?php endforeach ;?>
 																				<tr><td></td></tr>
+
+                                        <tr>
+                                        <td class="cuerpo-tabla">saldo_comisiones</td>
+                                        <td class="cuerpo-tabla"><?=   Session::Get('saldo_comisiones'); ?> </td>
+                                        </tr>
 
                                         <tr>
                                         <td class="cuerpo-tabla">minimo compra TA</td>

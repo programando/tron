@@ -29,26 +29,32 @@
 							      }
 							    Session::Destroy('carrito');
 							    Session::Destroy('CarritoTron');
-							    Session::Destroy('Comisiones_Utilizadas');
-							    Session::Destroy('compra_accesorios');
-							    Session::Destroy('compra_otros_productos');
-							    Session::Destroy('compra_productos_industriales');
-							    Session::Destroy('compra_productos_tron');
+
+
+							    Session::Set('Comisiones_Utilizadas',0);
+							    Session::Set('compra_accesorios',0);
+							    Session::Set('compra_otros_productos',0);
+							    Session::Set('compra_productos_industriales',0);
+							    Session::Set('compra_productos_tron',0);
+							    Session::Set('id_transportadora',0);
+							    Session::Set('iddireccion_despacho',0);
+							    Session::Set('tipo_despacho_pedido',0);
+							    Session::Destroy('tipo_tarifa');
+							    Session::Set('Puntos_Utilizados',0);
+							    Session::Set('vr_inscripcion_red',0) ;
+           Session::Set('vr_diferencia_recaudo',0) ;
+           Session::Set('Vr_Transporte',0) ;
+           Session::Set('Vr_Total_Pedido_Real',0) ;
+
 							    Session::Destroy('compras_productos_fabricados_ta');
 							    Session::Destroy('compras_realizadas_tron');
 							    Session::Destroy('cumple_condicion_cpras_tron_industial');
 							    Session::Destroy('flete_cobrado_otros');
 							    Session::Destroy('Fletes_Cobrados_Transportadoras');
-							    Session::Destroy('id_transportadora');
-							    Session::Destroy('iddireccion_despacho');
-							    Session::Destroy('tipo_despacho_pedido');
-							    Session::Destroy('tipo_tarifa');
-
 							    Session::Destroy('peso_accesorios');
 							    Session::Destroy('peso_otros_productos');
 							    Session::Destroy('peso_productos_industriales');
 							    Session::Destroy('peso_productos_tron');
-							    Session::Destroy('Puntos_Utilizados');
 							    Session::Destroy('saldo_comisiones');
 							    Session::Destroy('saldo_puntos_cantidad');
 							    Session::Destroy('SubTotal_Pedido_Amigos');

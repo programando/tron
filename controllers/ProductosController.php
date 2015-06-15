@@ -62,13 +62,17 @@ class ProductosController extends Controller
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
       $Tipo_Busqueda    = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
+      $pagina           =  General_Functions::Validar_Entrada('Pagina','NUM');
 
       if (strlen($Texto_Busqueda)>0){
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
-        $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
-        $this->View->Mostrar_Vista('resultado_busqueda');
+      $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
+      $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
+
+      $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
+      $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+      $this->View->Mostrar_Vista('resultado_busqueda');
       }
 
     }
@@ -337,11 +341,10 @@ class ProductosController extends Controller
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
       */
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-      $pagina           =  General_Functions::Validar_Entrada('pagina','NUM');
+      $pagina           =  General_Functions::Validar_Entrada('Pagina','NUM');
       $IdOrden_nv_1     = Session::Get('IdCategoria_n1');
       $IdOrden_nv_2     = Session::Get('IdCategoria_n2');
       $IdMarca          = Session::Get('IdMarca');
-
 
 
         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));

@@ -70,10 +70,15 @@ class CarritoController extends Controller
 
 
     public function Finalizar_Pedido_Forma_Pago()  {
-        $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
-        $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
-        $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
-    }
+        $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
+        if ( $Vr_Total_Pedido_Real > 0 ){
+                $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
+                $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
+                $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
+            }else{
+              echo "Mostrar mensaje de pago pedido cero";
+            }
+        }
 
 
 
@@ -159,6 +164,7 @@ class CarritoController extends Controller
 
       $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
       $this->View->SetCss(array('tron_carrito','tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios','tron_estilos_linea_tiempo'));
+
       $this->View->Departamentos = $this->Departamentos->Consultar();
       if (Session::Get('autenticado')==false) {
         Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
@@ -298,10 +304,14 @@ class CarritoController extends Controller
         $this->Hallar_Valor_Escalas_Productos();
         $this->Totalizar_Carrito();
         $this->View->Datos_Carro                = $_SESSION['carrito'];
-        $this->View->Saldo_Puntos_Cantidad      = $this->Saldo_Puntos_Cantidad;
-        $this->View->Saldo_Comisiones           = $this->Saldo_Comisiones;
+
+        $this->View->Puntos_Utilizados          = Session::Get('Puntos_Utilizados');
+        $this->View->Comisiones_Utilizadas      = Session::Get('Comisiones_Utilizadas');
+        //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
+
         $this->View->SubTotal_Pedido_Ocasional  = $this->SubTotal_Pedido_Ocasional;
         $this->View->SubTotal_Pedido_Amigos     = $this->SubTotal_Pedido_Amigos;
+        $this->View->Vr_Total_Pedido_Real       =  $this->Vr_Total_Pedido_Real;
         $this->View->Vr_Cupon_Descuento         = $this->Vr_Cupon_Descuento;
         $this->View->Vr_Transporte_Otros        = $this->Vr_Transporte;
         $this->View->Vr_Total_Pedido_Ocasional  = $this->Vr_Total_Pedido_Ocasional;
@@ -319,7 +329,10 @@ class CarritoController extends Controller
             $this->View->Mostrar_Vista_Parcial('mostrar_carrito_actualizado');
           }
       }
+
     }
+
+
 
 
     public function Totalizar_Carrito()
@@ -337,6 +350,8 @@ class CarritoController extends Controller
       $this->Tron_Peso_Total_Gramos    = 0 ;
       $this->Tron_Cmv_Total            = 0 ;
       $this->Tron_Precio_Lista_Total   = 0 ;
+      $kit_inicio_peso_total           = 0;
+      $kit_cantidad                    = 0;
 
       $this->compras_tron               = 0 ;     $this->compras_industrial         = 0 ;      $this->compras_otros_productos    = 0 ;     $this->compras_accesorios         = 0 ;
 
@@ -357,7 +372,6 @@ class CarritoController extends Controller
       Session::Set('vr_unitario_pisos',0);
       Session::Set('vr_unitario_loza',0);
 
-
       if ($this->Carrito_Habilitado == false)
       {
         return ;
@@ -371,6 +385,7 @@ class CarritoController extends Controller
           $cmv                                 = $Productos['cmv'];
           $pv_ocasional                        = $Productos['pv_ocasional'];
           $peso_total_producto                 = ($Productos['peso_gramos'] * $cantidad)  / 1000   ;
+          $idproducto                          = $Productos['idproducto'];
 
           $Productos['sub_total_pv_ocasional'] = $Productos['cantidad']     * $Productos['pv_ocasional'];
           $Productos['sub_total_pv_tron']      = $Productos['cantidad']     * $Productos['pv_tron'] ;
@@ -422,10 +437,13 @@ class CarritoController extends Controller
         if ( $id_categoria_producto == 6) {  // Industriales
             $this->compras_industrial = $this->compras_industrial  + $Productos['sub_total_pv_tron'] ;
             $this->Calcular_Flete_Courrier = FALSE ;
-
+        }
+        if ($idproducto == 10744){
+            $kit_inicio_peso_total = $kit_inicio_peso_total + $Productos['peso_gramos'];
+            $kit_cantidad          =  $kit_cantidad + $cantidad;
         }
 
-      }
+      } // Final foreach
 
         if ( $tengo_productos_tron == TRUE) {
             $datos=compact('Cantidad_Ropa','Peso_Ropa','Cmv_Ropa','Precio_Lista_Ropa',
@@ -435,16 +453,17 @@ class CarritoController extends Controller
           $this->Productos_Tron->Hallar_Precio_Especial( $this->Parametros->Transportadoras(), $datos);
         }
 
+        Session::Set('kit_inicio_peso_total',     $kit_inicio_peso_total);
+        Session::Set('kit_cantidad',              $kit_cantidad);
+
         $this->Determinar_Precio_Real_Producto( $this->compras_tron , $this->compras_industrial );
         $this->Totalizar_Pedido_x_Categoria_Producto();              // Totaliza categorias de productos, para grabar en el pedido
-        $this->Calcular_Flete($this->Valor_Declarado );
-        $this->Encontrar_Mejor_Flete();
-        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
+        $this->Fletes->Calcular_Flete($this->Valor_Declarado, $this->Calcular_Flete_Courrier );
         $this->Calcular_Valor_Recaudo($aplica_vr_recaudo);
-
 
         //TOTALES DEL CARRITO
         //-----------------------
+        $this->Vr_Fletes = Session::Get('flete_cobrado_otros');
         $Suma_Conceptos = $this->Vr_Fletes - $this->Presupuesto_Fletes + $this->Vr_Recaudo;
         if ( $Suma_Conceptos < 0 ){
             $Suma_Conceptos = 0;
@@ -457,6 +476,9 @@ class CarritoController extends Controller
           $this->Vr_Transporte   = 0;
         }
         $this->Vr_Base_Iva               = $this->Vr_Base_Iva + $this->Vr_Transporte ;
+
+        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
+
         Session::Set('Peso_Total_Pedido_Kilos',   $this->Peso_Total_Pedido_Kilos);
         Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
         Session::Set('SubTotal_Pedido_Amigos',    $this->SubTotal_Pedido_Amigos );
@@ -464,13 +486,9 @@ class CarritoController extends Controller
         Session::Set('Vr_Transporte',             $this->Vr_Transporte);
         Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
         Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
-        Session::Set('Vr_Base_Iva', $this->Vr_Base_Iva);
-
+        Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
 
         $this->Peso_Total_Pedido_Kilos   = (int)$this->Peso_Total_Pedido_Kilos ;
-
-
-
         $this->Cerrar_Procesos_Carro();
     }
 
@@ -483,6 +501,8 @@ class CarritoController extends Controller
       $precio_total_producto           = 0;
       $sub_total_pedido_Tron           = 0;
       $sub_total_pedido_Otros          = 0;
+      $kit_inicio_peso_total           = 0;
+      $presupuesto_recaudo             = 0;
       $this->SubTotal_Pedido_Real      = 0 ;
       $this->SubTotal_Aplica_Recaudo   = 0;
       $this->Presupuesto_Fletes        = 0;
@@ -491,6 +511,7 @@ class CarritoController extends Controller
       $this->SubTotal_Pedido_Amigos    = 0;
       $this->SubTotal_Pedido_Ocasional = 0;
 
+
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0);
       Session::Set('compra_otros_productos',0);
@@ -498,6 +519,9 @@ class CarritoController extends Controller
       Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
       Session::Set('pv_tron_resumen',0);
       Session::Set('pv_ocas_resumen',0);
+      Session::Set('presupuesto_recaudo',0);
+      Session::Get('vr_inscripcion_red', 0);
+
 
       $Logueado                             = Session::Get('autenticado');
       $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
@@ -521,6 +545,7 @@ class CarritoController extends Controller
            $costo_sin_iva          = $this->Datos_Carro[$i]['cmv'];
            $pv_tron                = $this->Datos_Carro[$i]['pv_tron'];
            $pv_ocasional           = $this->Datos_Carro[$i]['pv_ocasional'];
+           $idproducto             = $this->Datos_Carro[$i]['idproducto'];
 
            if ( $id_categoria_producto == 1){
                 $this->Datos_Carro[$i]['pv_tron'] = Session::Get('vr_unitario_ropa');
@@ -565,15 +590,22 @@ class CarritoController extends Controller
           $base_iva                                               = $this->Datos_Carro[$i]['precio_total_produc_pedido'] / $porciento_iva;
           $this->SubTotal_Pedido_Real                             = $this->SubTotal_Pedido_Real + $precio_unitario_producto *$cantidad;
 
-          // CALCULAR EL VALOR DECLARADO PARA EFECTOS DE FLETES
-          if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
+          // CALCULAR EL VALOR DECLARADO PARA EFECTOS DE FLETES ( EXCEPTO KIT DE INICIO Y DERECHOS DE INSCRIPCION 10744 -  2071)
+          if ( ($id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8) && ( $idproducto != 10744 && $idproducto  != 2071)){
             $this->SubTotal_Aplica_Recaudo =  $this->SubTotal_Aplica_Recaudo + $precio_unitario_producto *$cantidad;
             $this->Valor_Declarado         =  $this->Valor_Declarado  + ($this->Datos_Carro[$i]['cmv'] * $cantidad );
+          }
+          if ( $idproducto == 2071 ){
+              $vr_inscripcion_red_     = $precio_unitario_producto  * $cantidad;
+              Session::Set('vr_inscripcion_red',$vr_inscripcion_red_) ;
           }
           if ( $id_categoria_producto == 6 ){
               $this->Valor_Declarado  =    $this->Valor_Declarado + $this->Datos_Carro[$i]['precio_total_produc_pedido']/$porciento_iva  / 2 ;
            }
 
+          if ( $id_categoria_producto == 7 ){
+              $presupuesto_recaudo = $presupuesto_recaudo + ( ( $precio_unitario_producto *  $cantidad ) *  Session::Get('py_porciento_recaudo'));
+          }
 
           $sub_total_pedido_Tron                          = $sub_total_pedido_Tron            + $pv_tron * $cantidad  ;
           $this->Datos_Carro[$i]['sub_total_pedido_Tron'] = $sub_total_pedido_Tron;
@@ -601,16 +633,18 @@ class CarritoController extends Controller
             $this->Presupuesto_Fletes  = $this->Presupuesto_Fletes + ( $costo_sin_iva  *  $porciento_ppto_fletes  );
           }
 
-        }
-       // Debug::Mostrar($this->SubTotal_Pedido_Amigos);
-       // Debug::Mostrar($this->SubTotal_Pedido_Ocasional);
+
+        }// fin foreach
+
 
         Session::Set('sub_total_pedido_Tron' ,  $this->SubTotal_Pedido_Amigos );
         Session::Set('sub_total_pedido_Otros' , $this->SubTotal_Pedido_Ocasional);
         Session::Set('CarritoTron',$CarritoTron);
         Session::Set('pv_tron_resumen',$pv_tron_resumen);
         Session::Set('pv_ocas_resumen',$pv_ocas_resumen);
+        Session::Set('presupuesto_recaudo',$presupuesto_recaudo);
         $this->Cerrar_Procesos_Carro();
+
 
       }
     }
@@ -693,167 +727,58 @@ class CarritoController extends Controller
     }
 
 
-public function Consultar_Total_Compra_Productos_Industriales(){
-  $compra_productos_industriales   = Session::Get('compra_productos_industriales');
-  $minimo_compras_productos_ta = Session::Get('minimo_compras_productos_ta');
-  $Datos = compact('compra_productos_industriales','minimo_compras_productos_ta');
-  echo json_encode($Datos,256);
-}
-
-
-
-
-    public function Calcular_Flete( $valor_declarado)
-    {/** MARZO 09 DE 2015
-      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
-      */
-      $this->Cant_Unidades_Despacho = 0;
-      $peso_kilos_pedido            = 0;
-
-      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
-                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
-      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
-
-      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
-
-      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
-
-
-      if ( $valor_declarado >0 ){
-        if ( $this->Calcular_Flete_Courrier == TRUE ){
-              $this->Fletes->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
-            }
-        $this->Fletes->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
-        $this->Fletes->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
-        $this->Fletes->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
-      }
-
-    }
-
-    public function Encontrar_Mejor_Flete_Depurar(){
-     /**  MAYO 30 DE 2015
-       *        BORRA DEL ARRAY DE FLETES, LOS QUE SEAN IGUALES A CERO
-       */
-     $i                                = 0;
-      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
-
-      foreach ($Fletes_Cobrados_Transportadoras as $Fletes) {
-         if ($Fletes['valor_flete'] == 0 ) {
-              array_splice ($Fletes_Cobrados_Transportadoras , $i, 1);
-           }
-           $i++;
-        }
-       Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
-
+    public function Consultar_Total_Compra_Productos_Industriales(){
+      $compra_productos_industriales   = Session::Get('compra_productos_industriales');
+      $minimo_compras_productos_ta = Session::Get('minimo_compras_productos_ta');
+      $Datos = compact('compra_productos_industriales','minimo_compras_productos_ta');
+      echo json_encode($Datos,256);
     }
 
 
-    public function Encontrar_Mejor_Flete()
-      {/**  MARZO 12 DE 2015
-      *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
-      */
-      $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
-      $i                               = 0;
-      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
-      $Asignar_Flete                   = TRUE;
-      $this->Vr_Fletes                 = 0;
-      foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
-      {
-        if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE )        {
-              $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
-              $Asignar_Flete = FALSE;
-            }
-            if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete'] )
-            {
-                $Mejor_Flete['idtercero']     = $Fletes['idtercero']   ;
-                $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
-                $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
-                $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
 
-            }
-        }
 
-      if ( isset($Mejor_Flete)){
-          $this->Vr_Fletes                  = $Mejor_Flete['valor_flete'] + Session::Get('transporte_tron');
-          Session::Set('flete_cobrado_otros', $this->Vr_Fletes);
-          Session::Set('id_transportadora',   $Mejor_Flete['idtercero']);
-          Session::Set('tipo_despacho_pedido', $Mejor_Flete['tipo_despacho'] );
-          Session::Set('tipo_tarifa', $Mejor_Flete['tipo_tarifa']);
-        }else{
-          $this->Vr_Fletes                  = Session::Get('transporte_tron');
-          Session::Set('flete_cobrado_otros', $this->Vr_Fletes);
-          Session::Set('id_transportadora',   '1572'); // 1572 REDETRANS
-          Session::Set('tipo_despacho_pedido', 1 );     /// REDETRANS COURRIER
-          Session::Set('tipo_tarifa', 'REDETRANS COURRIER');
-        }
-    }
 
     public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
     {/** FEBRERO 02 DE 2015
       *     REALIZA APLICACION DE DESCUENTOS POR CONCEPTO DE PUNTOS, COMISIONES Y CUPONES DE DESCUENTO
       */
+      $Vr_Usado_Cupon_Descuento      = 0;
+      $Puntos_Utilizados              = 0;
+      $Comisiones_Utilizadas         = 0;
+      $autenticado = false;
+      $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
+      //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
 
-      $Vr_Usado_Cupon_Descuento_Ocasional = 0;
-      $Puntos_Utilizados_Ocasional        = 0;
-      $Comisiones_Utilizadas_Ocasional    = 0;
 
-      $Vr_Usado_Cupon_Descuento_Tron      = 0;
-      $Puntos_Utilizados_Tron             = 0;
-      $Comisiones_Utilizadas_Tron         = 0;
 
       $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');
       $this->Saldo_Comisiones           = Session::Get('saldo_comisiones');
       $this->Vr_Cupon_Descuento         = Session::Get('vr_cupon_descuento');
 
-        $SubTotal_Pedido_Ocasional          = $this->SubTotal_Pedido_Real;  // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
+      if ( $this->Vr_Total_Pedido_Real > 0 ){
+          if ( $this->Saldo_Puntos_Cantidad >= $this->Vr_Total_Pedido_Real ){
+            $Puntos_Utilizados          =  $this->Vr_Total_Pedido_Real;
+             $this->Vr_Total_Pedido_Real = 0;
+          }else{
+            $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Puntos_Cantidad;
+            $Puntos_Utilizados          =  $this->Saldo_Puntos_Cantidad ;
+          }
+      }
 
-        // ( 1 ) TOTALES DEL PEDIDO --- APLICACIÓN DE BONO DE DESCUENTO (1) -- COMPRADOR OCASIONAL
-        if ($this->Vr_Cupon_Descuento > 0 && $SubTotal_Pedido_Ocasional  > 0 )
-        {
-          if ($this->Vr_Cupon_Descuento >= $SubTotal_Pedido_Ocasional )
-          {
-            $SubTotal_Pedido_Ocasional          = 0;
-            $Vr_Usado_Cupon_Descuento_Ocasional = $SubTotal_Pedido_Ocasional;
-          }else
-          {
-            $SubTotal_Pedido_Ocasional          = $SubTotal_Pedido_Ocasional - $this->Vr_Cupon_Descuento ;
-            $Vr_Usado_Cupon_Descuento_Ocasional = $this->Vr_Cupon_Descuento;
+      if ( $this->Vr_Total_Pedido_Real > 0 ){
+          if ( $this->Saldo_Comisiones >= $this->Vr_Total_Pedido_Real ){
+            $Comisiones_Utilizadas          =  $this->Vr_Total_Pedido_Real;
+             $this->Vr_Total_Pedido_Real = 0;
+          }else{
+            $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
+            $Comisiones_Utilizadas         =  $this->Saldo_Comisiones;
           }
         }
-
-        // ( 2 ) TOTALES DEL PEDIDO --- APLICACIÓN  PUNTOS ( 2 )-- COMPRADOR OCASIONAL
-        if ($this->Saldo_Puntos_Cantidad > 0 && $SubTotal_Pedido_Ocasional  > 0 )
-        {
-          if ($this->Saldo_Puntos_Cantidad >= $SubTotal_Pedido_Ocasional )
-          {
-            $SubTotal_Pedido_Ocasional          = 0;
-            $Puntos_Utilizados_Ocasional        = $SubTotal_Pedido_Ocasional;
-          }else
-          {
-            $SubTotal_Pedido_Ocasional       = $SubTotal_Pedido_Ocasional - $this->Saldo_Puntos_Cantidad ;
-            $Puntos_Utilizados_Ocasional     = $this->Saldo_Puntos_Cantidad;
-          }
-        }
-
-        // ( 3) TOTALES DEL PEDIDO --- APLICACIÓN COMISIONES ( 3 )-- COMPRADOR OCASIONAL
-        if ($this->Saldo_Comisiones > 0 && $SubTotal_Pedido_Ocasional  > 0 )
-        {
-          if ($this->Saldo_Comisiones >= $SubTotal_Pedido_Ocasional )
-          {
-            $SubTotal_Pedido_Ocasional       = 0;
-            $Comisiones_Utilizadas_Ocasional = $SubTotal_Pedido_Ocasional;
-          }else
-          {
-            $SubTotal_Pedido_Ocasional       = $SubTotal_Pedido_Ocasional - $this->Saldo_Comisiones;
-            $Comisiones_Utilizadas_Ocasional = $this->Saldo_Comisiones;
-          }
-        }
-
-
-        Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento_Ocasional );
-        Session::Set('Puntos_Utilizados',           $Puntos_Utilizados_Ocasional );
-        Session::Set('Comisiones_Utilizadas',       $Comisiones_Utilizadas_Ocasional );
-
+        $this->View->Saldo_Puntos_Cantidad      = $Puntos_Utilizados ;
+        $this->View->Saldo_Comisiones           = $Comisiones_Utilizadas  ;
+        Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
+        Session::Set('Puntos_Utilizados',           $Puntos_Utilizados );
+        Session::Set('Comisiones_Utilizadas',       $Comisiones_Utilizadas );
     }
 
 
@@ -874,13 +799,10 @@ public function Consultar_Total_Compra_Productos_Industriales(){
         if ( $aplica_vr_recaudo == FALSE)  {
             return ;
           }
-        $Parametros                      = $this->Parametros->Transportadoras();
-        $this->PayuLatam_Recaudo         = $Parametros[0]['py_porciento_recaudo'] / 100;
-        $this->PayuLatam_Valor_Minimo    = $Parametros[0]['py_vr_min_recaudo'];
-        $this->PayuLatam_Valor_Adicional = $Parametros[0]['py_vr_adicional'];
 
-
-
+        $this->PayuLatam_Recaudo         =  Session::Get('py_porciento_recaudo');
+        $this->PayuLatam_Valor_Minimo    =  Session::Get('py_vr_min_recaudo');
+        $this->PayuLatam_Valor_Adicional =  Session::Get('py_vr_adicional');
 
         $Recaudo_A = $sub_total_pedido_otros  + $flete_real - $subsidio_flete ;
         $Recaudo_A  = $Recaudo_A  * $this->PayuLatam_Recaudo;
@@ -892,9 +814,9 @@ public function Consultar_Total_Compra_Productos_Industriales(){
           $Recaudo_Total  = $this->PayuLatam_Valor_Minimo + $this->PayuLatam_Valor_Adicional ;
         }
 
-        $this->Vr_Recaudo  = $Recaudo_Total;
-
-
+        $this->Vr_Recaudo  = $Recaudo_Total - Session::Get('presupuesto_recaudo');
+        if ( $this->Vr_Recaudo  < 0 ){   $this->Vr_Recaudo  = 0; }
+        Session::Set('vr_diferencia_recaudo', $this->Vr_Recaudo);
     }
 
 

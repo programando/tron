@@ -23,12 +23,16 @@ class IndexController extends Controller
 
         $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
         $this->Terceros->Compra_Productos_Tron_Mes_Actual();
-
         $Parametros = $this->Parametros->Transportadoras();
 
-        Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);
-        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
-        Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);
+        Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);            // Precio de venta del kit de inicio
+        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);           // valor de la 1 cuota de inscripcion
+        Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
+        Session::Set('kit_vr_transporte'                  ,0);
+        // VALORES PAYU LATAM
+        Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
+        Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
+        Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
 
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();

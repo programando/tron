@@ -9,6 +9,22 @@
 				}
 
 
+
+
+				public function Consulta_Datos_x_Idtercero ($idtercero){
+						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_idtercero($idtercero)");
+							return $Registro;
+
+				}
+
+
+				public function Consultar_Saldos_Comisiones_Puntos_x_Idtercero(){
+						  $idtercero = Session::Get('idtercero_pedido');
+        if ( !isset($idtercero)) { $idtercero = 0 ;}
+							 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_saldos_comisiones_puntos($idtercero)");
+							return $Registro;
+				}
+
 				public function Grabar($params=array()){
 					extract($params);
 					$SQL = "$idtpidentificacion,'$identificacion','$digitoverificacion','$pnombre','$papellido','$razonsocial',";

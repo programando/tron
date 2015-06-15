@@ -24,6 +24,7 @@ class Paginador
     public function paginar($query, $pagina = false, $limite = false, $paginacion = false)
     {
 
+
      if (!Numeric_Functions::Filtrar_Entero($pagina ))
              {
             $pagina = false;
@@ -73,6 +74,7 @@ class Paginador
 
         $this->_paginacion = $paginacion;
 		$this->_rangoPaginacion($paginacion);
+
 
         return $this->_datos;
     }

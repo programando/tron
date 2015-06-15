@@ -10,7 +10,8 @@
 													         <div class="form-group">
 													           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificacion: </p></label>
 													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="identificacion_nat">
+													             <input type="text" class="form-control" id="identificacion_nat" disabled="disabled"
+													             value="<?= $this->identificacion_nat ;?>">
 													           </div>
 													         </div>
 
@@ -18,7 +19,7 @@
 													         <div class="form-group">
 													           <label for="pnombre" class="col-lg-5 control-label"> <p class="text-left text-label"> Nombres: </p></label>
 													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="pnombre">
+													             <input type="text" class="form-control" id="pnombre" value="<?= $this->pnombre ;?>">
 													           </div>
                       </div>
 
@@ -37,7 +38,9 @@
 													           <label for="idmcipio" class="col-lg-5 control-label"> <p class="text-left text-label"> Municipio: </p></label>
 													           <div class="col-lg-7">
 																			        <select class="form-control input_campo_datos" id="idmcipio">
-																			          <option value="0" tabindex="11">Seleccione una ciudad o municipio</option>
+
+																			          <option value="<?= $this->idmcipio ;?>"
+																			          tabindex="11"> <?= $this->nommcipio ;?></option>
 																			        </select>
 													           </div>
 													         </div>
@@ -46,7 +49,8 @@
 													         <div class="form-group">
 													           <label for="barrio" class="col-lg-5 control-label"> <p class="text-left text-label"> Barrio: </p></label>
 													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="barrio">
+													             <input type="text" class="form-control" id="barrio"
+													             value="<?= $this->barrio ;?>">
 													           </div>
 													         </div>
 
@@ -70,7 +74,8 @@
 													         <div class="form-group">
 													           <label for="email" class="col-lg-5 control-label"> <p class="text-left text-label"> Correo electronico: </p></label>
 													           <div class="col-lg-7">
-																											<input type="email" class="form-control" id="email">
+																											<input type="email" class="form-control" id="email"
+																											value="<?= $this->email ;?>">
 													           </div>
 													         </div>
 
@@ -82,7 +87,8 @@
 																								         <div class="form-group">
 																								           <label for="papellido" class="col-lg-5 control-label"> <p class="text-left text-label"> Apellido: </p></label>
 																								           <div class="col-lg-7">
-																																							<input type="text" class="form-control" id="papellido">
+																																							<input type="text" class="form-control" id="papellido"
+																																							value="<?= $this->papellido ;?>">
 																								           </div>
 																								         </div>
                       	   	   </div>
@@ -106,7 +112,14 @@
 													         <div class="form-group">
 													           <label for="iddpto" class="col-lg-5 control-label"> <p class="text-left text-label"> Departamento: </p></label>
 													           <div class="col-lg-7">
-																													<?php include (APPLICATION_SECTIONS . 'departamentos.php');?>
+																						<select class="form-control input_campo_datos" id="iddpto">
+																							<option value="<?= $this->iddpto ;?>"><?= $this->nomdpto ;?></option>
+																							<?php
+																							foreach ($this->Departamentos as $Departamento) {
+																								echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
+																							}
+																							?>
+																						</select>
 													           </div>
 													         </div>
 
@@ -114,7 +127,8 @@
 													         <div class="form-group">
 													           <label for="direccion" class="col-lg-5 control-label"> <p class="text-left text-label"> Direccion: </p></label>
 													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="direccion">
+													             <input type="text" class="form-control" id="direccion"
+													             value="<?= $this->direccion ;?>">
 													           </div>
 													         </div>
 
@@ -122,7 +136,8 @@
 													         <div class="form-group">
 													           <label for="celular1" class="col-lg-5 control-label"> <p class="text-left text-label"> Celular: </p></label>
 													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="celular1">
+													             <input type="text" class="form-control" id="celular1"
+													             value="<?= $this->celular1 ;?>">
 													           </div>
 													         </div>
 

@@ -8,7 +8,9 @@
 																				<!-- option 1  -->
 																				<div class="checkbox">
 																				  <label>
-																				    <input type="checkbox" id="opcion1" value="option1">
+																				    <input type="checkbox" id="param_confirmar_nuevos_amigos_x_email"
+																				    checked="<?= $this->param_confirmar_nuevos_amigos_x_email ;?>"
+																				    value="">
 																				     <span class="text-justify">Recibir confirmacion en mi correoeletronico cuando un amigo ingresa a mi red.</span>
 																				  </label>
 																				</div><br>
@@ -16,15 +18,19 @@
 																				<!-- Option 2 -->
 																				<div class="checkbox">
 																				  <label>
-																				    <input type="checkbox" id="opcion2" value="option2">
-																				    Establecer mi direccion de correo eletronico y mi numero de celular como datos privados ,  es decir , no estaran disponibles en consultas de otros usuarios de la red.
+																				    <input type="checkbox" id="mis_datos_son_privados"
+																				    value=""
+																				    checked="<?= $this->mis_datos_son_privados ;?>">
+
+																				    Establecer mi dirección de correo eletrónico y mi número de celular como datos privados ,  es decir , no estarán disponibles en consultas de otros usuarios de la red.
 																				  </label>
 																				</div><br>
 
 																				<!-- Option 3 -->
 																				<div class="checkbox">
 																				  <label>
-																				    <input type="checkbox" id="opcion3" value="option3">
+																				    <input type="checkbox" id="declaro_renta" value=""
+																				    checked="<?= $this->declaro_renta ;?>">
 					                   Certifico que soy declarante de impuesto sobre la renta.
 																				  </label>
 																				</div><br>
@@ -40,15 +46,20 @@
 																			<!-- option 4 -->
 																			<div class="checkbox">
 																			  <label>
-																			    <input type="checkbox" id="opcion4" value="option4">
-																			    Acepto que se retenga de mis comisiones de manera indefinida y mientras no modifique este registro , la suma de <strong>$ 30.000</strong>para el pago demis pedidos.
+																			    <input type="checkbox" id="param_acepto_retencion_comis_para_pago_pedidos" value=""
+																			    checked="<?= $this->param_acepto_retencion_comis_para_pago_pedidos ;?>">
+																			    Acepto que se retenga de mis comisiones, de manera indefinida y mientras no modifique este registro, la suma de :<strong>
+																			    	<input type="text" name="" value="<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
+																			    	id ='param_valor_comisiones_para_pago_pedidos'
+																			    	valor-pago-pedidos = "<?= $this->param_valor_comisiones_para_pago_pedidos;?>">
+																			    </strong>para el pago de mis pedidos.
 																			  </label>
 																			</div><br>
 
 				              <!-- Tiutulo = Forma de pago de comisiones-->
 				               <div>
 				               	   <div class="col-lg-12 col-md-12 col-sm-12">
-				                        <p class="subtitulos_form2"><strong>Forma de pagos de comisiones </strong></p>
+				                        <p class="subtitulos_form2"><strong>Forma de pagos de Comisiones </strong></p>
 				               	   </div>
 				               </div><br><br>
 
@@ -66,7 +77,7 @@
 																			    <input type="checkbox" id="opcion6" value="option6">
                        <span class="">
 																			    Transferencia a mi cuenta bancaria.
-																			    Asumo el valor <strong>$4.500</strong>que corresponde alcosto de la transferencia electronca a mi cuenta para el pago de mis comisiones. Autorizo que las comisones se transfieran a mi cuenta simepre que sean mayores a <strong>$10.000</strong>.
+																			    Asumo el valor <strong> $4.500</strong>que corresponde al costo de la transferencia electrónica a mi cuenta para el pago de mis comisiones. Autorizo que las comisones se transfieran a mi cuenta siempre que sean mayores a <strong>$10.000</strong>.
                        </span>
 																			  </label>
 																			</div><br>

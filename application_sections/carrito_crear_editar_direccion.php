@@ -41,7 +41,7 @@
                              <!-- Selecciona ciudad -->
                                <div class="col-lg-12 col-md-12 col-sm-12">
                                  <label for="seleccion-ciudad" class="text-label">Selecciona ciudad :</label>
-                                 <select  id="municipio" class="form-control">
+                                 <select  id="idmcipio" class="form-control">
                                       <option value="0">Vacio </option>
                                  </select><br>
                               </div>

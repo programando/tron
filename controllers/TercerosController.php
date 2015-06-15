@@ -15,9 +15,44 @@ class TercerosController extends Controller
 
     public function Index() { }
 
-        public function modificacion_datos()
+    public function modificacion_datos()
     {
+        $idtercero = Session::Get('idtercero');
+        $Registro = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
+
+        $this->View->Departamentos = $this->Departamentos->Consultar();
+
+        $this->View->idtercero                             = $Registro [0]['idtercero'];
+        $this->View->identificacion_nat                    = $Registro [0]['identificacion'];
+        $this->View->identificacion                        = $Registro [0]['identificacion'];
+        $this->View->digitoverificacion                    = $Registro [0]['digitoverificacion'];
+        $this->View->pnombre                               = $Registro [0]['pnombre'];
+        $this->View->papellido                             = $Registro [0]['papellido'];
+        $this->View->razonsocial                           = $Registro [0]['razonsocial'];
+        $this->View->genero                                = $Registro [0]['genero'];
+        $this->View->direccion                             = $Registro [0]['direccion'];
+        $this->View->barrio                                = $Registro [0]['barrio'];
+        $this->View->contacto                              = $Registro [0]['contacto'];
+        $this->View->celular1                              = $Registro [0]['celular1'];
+        $this->View->email                                 = $Registro [0]['email'];
+        $this->View->idmcipio                              = $Registro [0]['idmcipio'];
+        $this->View->param_confirmar_nuevos_amigos_x_email = $Registro [0]['param_confirmar_nuevos_amigos_x_email'];
+        $this->View->param_acepto_pago_valor_transferencia = $Registro [0]['param_acepto_pago_valor_transferencia'];
+        $this->View->valor_minimo_transferencia            = $Registro [0]['valor_minimo_transferencia'];
+        $this->View->param_idbanco_transferencias          = $Registro [0]['param_idbanco_transferencias'];
+        $this->View->mis_datos_son_privados                = $Registro [0]['mis_datos_son_privados'];
+        $this->View->pago_comisiones_efecty                = $Registro [0]['pago_comisiones_efecty'];
+        $this->View->pago_comisiones_transferencia         = $Registro [0]['pago_comisiones_transferencia'];
+        $this->View->param_acepto_retencion_comis_para_pago_pedidos = $Registro [0]['param_acepto_retencion_comis_para_pago_pedidos'];
+        $this->View->param_valor_comisiones_para_pago_pedidos = $Registro [0]['param_valor_comisiones_para_pago_pedidos'];
+        $this->View->declaro_renta                         = $Registro [0]['declaro_renta'];
+        $this->View->nommcipio                             = $Registro [0]['nommcipio'];
+        $this->View->iddpto                                = $Registro [0]['iddpto'];
+        $this->View->nomdpto = $Registro [0]['nomdpto'];
+
+
         $this->View->SetCss(array("tron_modificacion_datos","password"));
+        $this->View->SetJs(array("password",'tron_dptos_mcipios'));
         $this->View->Mostrar_Vista("modificacion_datos");
     }
 
@@ -244,13 +279,17 @@ class TercerosController extends Controller
             }
         }
         // GENERACIÓN CÓDIGO DE USUARIO. SI NO ES EMPRESA ->Generar_Codigo_Usuario .... SINO Generar_Codigo_Emmpresa
-        if ($idtpidentificacion != 31){  $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes); }
-        else{
-              $Datos_Nuevo_Codigo = $this->Terceros->Generar_Codigo_Emmpresa( $razonsocial);
-              $genero             = 0;
-            }
+        if ( $idtpidentificacion != 31 && $idtipo_plan_compras == 3 )  {
+            $Datos_Nuevo_Codigo = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
+            $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
+          }
+        if ( $idtpidentificacion == 31 && $idtipo_plan_compras == 3  ) {
+            $Datos_Nuevo_Codigo  = $this->Terceros->Generar_Codigo_Emmpresa( $razonsocial);
+            $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
+            $genero  = 0;
+          }
 
-        $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
+
         $codigousuario                                  = $codigo_usuario_generado;
         $codautorizacionmenoredad                       = '';
         $dianacimiento                                  = $dia;
@@ -493,11 +532,7 @@ class TercerosController extends Controller
       echo $Resultado ;
     }
 
-        public function historial_mis_pedidos()
-    {
-        $this->View->SetCss(array("tron_mis_pedidos","tron_barra_usuarios"));
-        $this->View->Mostrar_Vista("mis_pedidos");
-    }
+
 
     public function mi_red()
     {
@@ -548,8 +583,9 @@ class TercerosController extends Controller
       Session::Set('autenticado',               true);
       Session::Set('idtercero',                       $Registro[0]['idtercero']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
-      Session::Set('saldo_comisiones',                $Registro[0]["saldo_comisiones"]);
-      Session::Set('saldo_puntos_cantidad',           $Registro[0]["saldo_puntos_cantidad"]);
+      Session::Set('idtpidentificacion',              $Registro[0]['idtpidentificacion']);
+      Session::Set('email',                           $Registro[0]['email']);
+
       Session::Set('vr_cupon_descuento'   ,     0);
       Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
       Session::Set('idtipo_plan_compras_confirmado',  $Registro[0]["idtipo_plan_compras_confirmado"]);
@@ -560,7 +596,7 @@ class TercerosController extends Controller
       Session::Set('pagado_online',                   0);
       Session::Set('nombre_usuario_pedido',           $Registro[0]["nombre_usuario_pedido"]);
       Session::Set('iddireccion_despacho',            0);
-      Session::Set('cantidad_direcciones',            0);
+      Session::Set('cantidad_direcciones',            $Registro[0]["cantidad_direcciones"]);
       Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
 
       Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
@@ -644,6 +680,15 @@ class TercerosController extends Controller
          echo json_encode($Datos,256);
       }
 
+      public function Consultar_Saldos_Comisiones_Puntos_x_Idtercero(){
+         Session::Set('saldo_comisiones',                0);
+         Session::Set('saldo_puntos_cantidad',           0);
+         $Registro = $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
+         if (!$Registro ) { return ; }
+         Session::Set('saldo_comisiones',                $Registro[0]["saldo_comisiones"]);
+         Session::Set('saldo_puntos_cantidad',           $Registro[0]["saldo_puntos_cantidad"]);
+      }
+
       public function Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho, $idmcipio=153 )
       {/** MARZO 12 DE 2015
         *       CONSULTA INFORMACIÓN DE LA CIUDAD, DEPARTAMENTO Y VARIABLES DE FLETES CON LA DIRECCIÓN DE DESPACHO SELECCIONADA
@@ -663,8 +708,8 @@ class TercerosController extends Controller
         Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
         Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
         Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-        Session::Set('re_expedicion_servientrega',   $Registro[0]["re_expedicion_servientrega"]);
-        Session::Set('nommcipio_despacho',               ucfirst ($Registro[0]["nommcipio_despacho"]));
+        Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
+        Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
       }
 
     public function registrarse()

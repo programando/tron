@@ -24,14 +24,6 @@ $("#menu-izq-otros-productos").on('click','.lista-marcas',function(){
 });
 
 
-$("#contenido-productos").on('click','.pagina',function()
-{
-			var numero_pagina = $(this).attr('pagina');
-			var IdCategoria      = $(this).attr("id-categoria");
-			Paginacion(numero_pagina);
-});
-
-
 var Paginacion = function(pagina)
 	{
 			var Parametros = {"Pagina": pagina};
@@ -48,6 +40,19 @@ var Paginacion = function(pagina)
 			});
 
 	}
+
+
+
+$("#contenido-productos").on('click','.pagina',function()
+{
+			var numero_pagina = $(this).attr('pagina');
+			var IdCategoria      = $(this).attr("id-categoria");
+
+			Paginacion(numero_pagina);
+
+});
+
+
 
 
 

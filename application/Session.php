@@ -37,6 +37,7 @@
 
         public static function Set($clave, $valor)
         {
+            $clave = trim($clave);
             if(!empty($clave))
             $_SESSION[$clave] = $valor;
 
@@ -44,6 +45,7 @@
 
         public static function Get($clave)
         {
+            $clave = trim($clave);
             if(isset($_SESSION[$clave]))
             return $_SESSION[$clave];
         }
