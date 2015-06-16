@@ -1,14 +1,14 @@
  <tr>
   <td class="text-center"> <?= $fecha_pedido ;?> </td><!-- Fecha pedido -->
-  <td class="text-center "><a class='pedido' href="javascript:void(0);"
+  <td class="text-right "><a class='pedido' href="javascript:void(0);"
     idpedido = "<?= $idpedido;?>" > <?= $numero_pedido ;?>  </a></td><!-- Numero-Pedido -->
-    <td class="text-center"> <?= $valor_pedido ;?>  </td><!--Valor pedido -->
-    <td class="text-center"><?=  $vr_a_pagar  ;?> </td><!-- Valor a pagar -->
+    <td class="text-right"> <?= $valor_pedido ;?>  </td><!--Valor pedido -->
+    <td class="text-right"><?=  $vr_a_pagar  ;?> </td><!-- Valor a pagar -->
     <td class="text-center"><?= $prefijo .' ' . $factura ;?> </td><!-- Número factura -->
     <?php if ( $facturado  == TRUE ) :?>
-      <td class="text-center">Facturado</td><!-- Estado -->
+      <td class="text-left">Facturado</td><!-- Estado -->
     <?php else :?>
-      <td class="text-center">Pendiente de Pago</td><!-- Estado -->
+      <td class="text-left">Pendiente de Pago</td><!-- Estado -->
     <?php endif ;?>
     <td class="text-center"><!-- Medio de pago -->
       <?php if ( $id_forma_pago == 2 ) :?>
@@ -28,7 +28,7 @@
 
    <td class="text-center"><!-- Eliminar -->
 
-     <img class="historial-eliminar-pedido"
+     <span class="glyphicon glyphicon-trash historial-eliminar-pedido"
           src                   ="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" title="Eliminar Pedido"
           idpedido              = "<?= $idpedido ;?>"
           comisiones-utilizadas = "<?= $vr_comis_pago_pedidos ;?>"

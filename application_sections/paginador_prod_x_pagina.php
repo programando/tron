@@ -6,7 +6,7 @@
             <?php else :?>
                <p class="titulo-productos"><strong>TODOS LOS PRODUCTOS</strong></p><!--Titulo-->
             <?php endif ;?>
-            <div class=" well pref-png">
+            <div class="pref-png">
               <div class="text_seleccion_pagina">
 
 

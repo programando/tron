@@ -5,3 +5,10 @@
 			width : 70%;
 }
 
+/* Eliminar pedido ,
+   Editar forma de pago */
+.historial-eliminar-pedido ,
+.historial-cambiar-forma-pago
+{
+	   cursor: pointer;
+}
