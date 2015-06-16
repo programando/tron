@@ -38,22 +38,25 @@
 			        	<div class="cont-seleccion-ident">
                      <form class ="form-group" role ="form">
 
-                      <div class ="cont-ingresar"><!-- Ingresar -->
-                         <a href="#myModal" class="ing-mi-cuenta" data-toggle="modal" data-target="#myModal">
+                    <!-- Ingresar -->
+                      <div class ="cont-ingresar">
+                         <a href="#myModal" class="seleccion-indt-label" data-toggle="modal" data-target="#myModal">
                             <span class="glyphicon glyphicon-user"></span>  Ingresar a mi Cuenta
                          </a>
-                      </div><!-- Ingresar -->
+                      </div>
 
-                      <div class ="cont-registrar"><!-- Registrarse -->
-                           <a href=" <?= BASE_URL ;?>terceros/registro/">
-      		        			   <label for  ="registrarme" class="seleccion-indt-label"> Registrarme para finalizar compra</label>
+                    <!-- Registrarse -->
+                      <div class ="cont-registrar">
+                           <a href="<?= BASE_URL ;?>terceros/registro/" class="seleccion-indt-label">
+      		        			       <span class="glyphicon glyphicon-list-alt"></span> Registrarme para finalizar compra
                           </a>
-      		        		</div><!-- Registrarse -->
+      		        		</div>
 
-
-      		        		<div class ="cont-pedido-amigo"><!-- Pedido-Amigo -->
-      		        			   <input type ="radio" name ="radio" class ="pedido_para_amigo" id ="pedido-amigo">
-      		        			   <label for ="pedido-amigo" class="seleccion-indt-label"> Hacer pedido para un Amigo</label>
+                    <!-- Pedido-Amigo -->
+      		        		<div class ="cont-pedido-amigo">
+      		        			 <a href="#" class="seleccion-indt-label" id ="pedido-amigo">
+                           <span class="registrar_amigo"></span> Hacer pedido para un Amigo
+                        </a>
       		        		</div><!-- Pedido-Amigo -->
 
                      </form>
@@ -62,32 +65,31 @@
         <!-- Seleccion = identificacion -->
 
 
-
-
-
         <!-- /// Hacer pedido amigo /// -->
             <div class =" col-lg-12 col-md-12 col-sm-12 pedido-amigo" id="pedido_amigo">
 
                 <div class="cont-formulario"><!-- Contenedor del formulario -->
-                	   <form class ="form-group">
+                	   <form class="form-horizontal" role="form">
 
-                         <div><!--Cedula de tu amigo -->
-                         	   <label for ="cedula-amigo" class ="text-label">Número cedula de tu amigo :</label>
-                         	   <input type ="text" class ="form-control" id ="cedula-amigo">
-					                        <div class="msj-validacion-cedu-amigo">
-					                            <img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img">
-								        			   	          Debes rellenar los campos obligatorios..!!
-								        			          </div>
-                         </div><br><!--Cedula de tu amigo -->
+                         <div class="form-group"><!--Cedula de tu amigo -->
+                         	   <label for ="cedula-amigo" class ="col-lg-5 label-control text-label">Número cedula de tu amigo :</label>
+                             <div class="col-lg-7">
+                               <input type ="text" class ="form-control" id ="cedula-amigo">
+                                   <div class="msj-validacion-cedu-amigo">
+                                      <img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img"> Debes rellenar los campos obligatorios..!!
+                                   </div>
+                             </div>
+                         </div>
 
-                         <div><!-- Codigo usuario de tu amigo -->
-                         	   <label for="usuario-amigo" class ="text-label">Código usuario de tu amigo :</label>
-                         	   <input type="text" class= "form-control" id ="usuario-amigo">
-					                        <div class="msj-validacion-amigo">
-					                            <img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img">
-								        			   	          Debes rellenar los campos obligatorios..!!
-								        			          </div>
-                         </div><br><!-- Codigo usuario de tu amigo -->
+                         <div class="form-group"><!-- Codigo usuario de tu amigo -->
+                         	   <label for="usuario-amigo" class ="col-lg-5 label-control text-label">Código usuario de tu amigo :</label>
+                            <div class="col-lg-7">
+                               <input type="text" class= "form-control" id ="usuario-amigo">
+                                    <div class="msj-validacion-amigo">
+                                        <img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" class="error-img"> Debes rellenar los campos obligatorios..!!
+                                    </div>
+                            </div>
+                         </div>
 
                          <div class ="cont-btn-ing-amigo"><!-- boton -->
                          	   <button type ="button" class ="btn-ing-por-amigo" id ="btn-ing-por-amigo" >Ingresar por amigo</button>
