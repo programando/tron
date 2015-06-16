@@ -183,8 +183,6 @@ $('.usu-1').on('click',function()
   $('.barra-usurarios li').each(function(indice, elemento) {
     $(this).css('background','white');
     $(this).css('color','black');
-  //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).text());
-  //alert($(elemento).text());
   });
   $('#'+$Usuario_Seleccionado).css('background','#003E90');
   $('#'+$Usuario_Seleccionado).css('color','white');

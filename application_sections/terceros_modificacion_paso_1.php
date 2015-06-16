@@ -145,16 +145,20 @@
 
 																					<div class="checkbox">
 																					  <label>
-																					    <input type="checkbox" id="recibo_promociones_email" value="">
-																					    Recibir mensajes de texto de informacion comercial y pormociones
+																					    <input type="checkbox" id="recibo_promociones_celular" value=""
+																													<?php if ( $this->recibo_promociones_celular == TRUE) : ?> checked="checked" <?php endif ;?>
+																					    >
+																					    Recibir mensajes de texto de información comercial y promociones.
 																					  </label>
 																					</div><br>
 
                     <!-- Recibir correos de informacion comercial y pormociones -->
 																					<div class="checkbox">
 																					  <label>
-																					    <input type="checkbox" id="pregunta1" value="option1">
-																					    Recibir correos de informacion comercial y pormociones
+																					    <input type="checkbox" id="recibo_promociones_email" value=""
+																					    <?php if ( $this->recibo_promociones_email == TRUE) : ?> 	checked="checked" 	<?php endif ;?>
+																					    >
+																					    Recibir correos de información comercial y promociones.
 																					  </label>
 																					</div>
 

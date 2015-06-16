@@ -98,7 +98,6 @@ $('.contenedor-producto').on('click','.borrar-producto',function(){
 		$cantidad   = $(this).attr('cantidad');
 		$Parametros = {'IdProducto':$idproducto , 'Cantidad':$cantidad };
  	Borrar_Producto_de_Carrito($Parametros );
- 	alert($idproducto );
 });
 
 

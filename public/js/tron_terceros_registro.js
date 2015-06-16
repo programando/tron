@@ -125,7 +125,6 @@ var Grabar_Datos_Registro = function(Parametros){
 
            },
            error: function(xhr){
-                  alert(xhr.responseText);
                   new Messi('Se ha presentado el siguiente error : <br>' + xhr.responseText,
                          {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
            }

@@ -8,20 +8,18 @@
 																				<!-- option 1  -->
 																				<div class="checkbox">
 																				  <label>
-																				    <input type="checkbox" id="param_confirmar_nuevos_amigos_x_email"
-																				    checked="<?= $this->param_confirmar_nuevos_amigos_x_email ;?>"
-																				    value="">
-																				     <span class="text-justify">Recibir confirmacion en mi correoeletronico cuando un amigo ingresa a mi red.</span>
+																				    <input type="checkbox" id="param_confirmar_nuevos_amigos_x_email" value=""
+																									<?php if ( $this->param_confirmar_nuevos_amigos_x_email == TRUE) : ?> checked="checked" <?php endif ;?>
+																				    >
+																				     <span class="text-justify">Recibir confirmación en mi correo electrónico cuando un amigo ingresa a mi red.</span>
 																				  </label>
 																				</div><br>
 
 																				<!-- Option 2 -->
 																				<div class="checkbox">
 																				  <label>
-																				    <input type="checkbox" id="mis_datos_son_privados"
-																				    value=""
-																				    checked="<?= $this->mis_datos_son_privados ;?>">
-
+																				    <input type="checkbox" id="mis_datos_son_privados"    value=""
+																				    <?php if ( $this->mis_datos_son_privados == TRUE) : ?> checked="checked" <?php endif ;?>>
 																				    Establecer mi dirección de correo eletrónico y mi número de celular como datos privados ,  es decir , no estarán disponibles en consultas de otros usuarios de la red.
 																				  </label>
 																				</div><br>
@@ -30,7 +28,7 @@
 																				<div class="checkbox">
 																				  <label>
 																				    <input type="checkbox" id="declaro_renta" value=""
-																				    checked="<?= $this->declaro_renta ;?>">
+																				    <?php if ( $this->declaro_renta == TRUE) : ?> checked="checked" <?php endif ;?>>
 					                   Certifico que soy declarante de impuesto sobre la renta.
 																				  </label>
 																				</div><br>
@@ -47,7 +45,7 @@
 																			<div class="checkbox">
 																			  <label>
 																			    <input type="checkbox" id="param_acepto_retencion_comis_para_pago_pedidos" value=""
-																			    checked="<?= $this->param_acepto_retencion_comis_para_pago_pedidos ;?>">
+																			    <?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == TRUE) : ?> checked="checked" <?php endif ;?>>
 																			    Acepto que se retenga de mis comisiones, de manera indefinida y mientras no modifique este registro, la suma de :<strong>
 																			    	<input type="text" name="" value="<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
 																			    	id ='param_valor_comisiones_para_pago_pedidos'
@@ -66,7 +64,8 @@
 																			<!-- Efecty -->
 																			<div class="checkbox">
 																			  <label>
-																			    <input type="checkbox" id="efecty" value="option5">
+																			    <input type="checkbox" id="pago_comisiones_efecty" value=""
+																			    <?php if ( $this->pago_comisiones_efecty == TRUE) : ?> checked="checked" <?php endif ;?>>
 																			    Efecty
 																			  </label>
 																			</div><br>
@@ -74,10 +73,13 @@
 																			<!-- option 6 -->
 																			<div class="checkbox">
 																			  <label>
-																			    <input type="checkbox" id="opcion6" value="option6">
+																			    <input type="checkbox" id="pago_comisiones_transferencia" value=""
+																			    <?php if ( $this->pago_comisiones_transferencia == TRUE) : ?> checked="checked" <?php endif ;?>>
                        <span class="">
-																			    Transferencia a mi cuenta bancaria.
-																			    Asumo el valor <strong> $4.500</strong>que corresponde al costo de la transferencia electrónica a mi cuenta para el pago de mis comisiones. Autorizo que las comisones se transfieran a mi cuenta siempre que sean mayores a <strong>$10.000</strong>.
+																			    Transferencia a mi cuenta bancaria.<br>
+																			    Asumo el valor de: <strong> <?= Session::Get('valor_transferencia_bancaria') ;?>
+																			     </strong>que corresponde al costo de la transferencia electrónica a mi cuenta para el pago de mis comisiones.
+																			     Autorizo que las comisones se transfieran a mi cuenta siempre que sean mayores a: <strong> <?= Session::Get('valor_minimo_transferencias') ;?> </strong>.
                        </span>
 																			  </label>
 																			</div><br>
@@ -103,7 +105,9 @@
 																			         <div class="form-group">
 																			           <label for="nombre_banco" class="col-lg-5 control-label"> <p class="text-left text-label"> Nombre del banco: </p></label>
 																			           <div class="col-lg-7">
-																			             <input type="" class="form-control" id="nombre_banco">
+																			             																				             <select class="form-control" id="Tipo_cuenta">
+																				             	    <option value="">SELECCIONE</option>
+																				             </select>
 																			           </div>
 																			         </div>
 

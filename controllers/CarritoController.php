@@ -791,6 +791,7 @@ class CarritoController extends Controller
         $subsidio_flete = Session::Get('presupuesto_flete_otros');
         $flete_real     = Session::Get('flete_cobrado_otros');
         $sub_total_pedido_otros  = $this->SubTotal_Aplica_Recaudo;
+        Session::Set('vr_diferencia_recaudo', 0);
         if ( $sub_total_pedido_otros  == 0){
             $this->Vr_Recaudo = 0;
             return ;

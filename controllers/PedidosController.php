@@ -111,6 +111,8 @@ class PedidosController extends Controller
 					$pagado_online               = 0 ;
 					$pago_recibido               = 0 ;
 
+
+
     	  $Datos  = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron','vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos','vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo','vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
         'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido');
 
@@ -156,7 +158,7 @@ class PedidosController extends Controller
         $this->Comisiones_Puntos_Actualizar($idtercero ,$numero_pedido , $vr_puntos_redimidos,$vr_comis_pago_pedidos);
 
 				/// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
-				$this->Sessiones->Pedidoss_Reiniciar_Variables();
+				$this->Sessiones->Pedidos_Reiniciar_Variables();
 
     echo "OK";
     }

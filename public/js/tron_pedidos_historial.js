@@ -82,7 +82,6 @@ $('.contenido-historial-pedidos').on('click','.pedido', function(){
 		$idpedido  = $(this).attr('idpedido');
 		Parametros = {'idpedido':$idpedido};
 		Mostrar_Detalle_Pedido(Parametros);
-		//alert($Usuario_Seleccionado );
 });
 
 $('.contenido-historial-pedidos').on('click','.regresar', function(){

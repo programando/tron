@@ -33,6 +33,8 @@ class IndexController extends Controller
         Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
         Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
         Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
+        Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
+        Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_transferencias']));
 
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
