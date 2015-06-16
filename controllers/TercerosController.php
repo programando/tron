@@ -84,6 +84,7 @@ class TercerosController extends Controller
        echo  json_encode($Datos,256);
     }
 
+
   public function activar_cuenta_usuario_finalizar_registro(){
       $Respuesta           = '';
       $idtecero            = General_Functions::Validar_Entrada('idtecero','NUM');
@@ -165,8 +166,13 @@ class TercerosController extends Controller
       echo "OK";
     }
 
+   public function activar_cuenta_usuario_prueba()   {
 
-
+        $this->View->SetCss(array('tron_activacion_mi_cuenta','password', 'messi.min'));
+        $this->View->SetJs(array('tron_terceros_activar_cuenta','password','messi.min'));
+        $this->View->idtipo_plan_compras = 3;
+        $this->View->Mostrar_Vista("activar_cuenta_usuario");
+    }
 
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras, $idtpidentificacion )   {
 
@@ -766,7 +772,6 @@ class TercerosController extends Controller
         $Respuesta= compact('Respuesta');
         echo json_encode($Respuesta,256);
     }
-
 
     public function cambiar_password($numero_confirmacion)
     {

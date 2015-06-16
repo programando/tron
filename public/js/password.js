@@ -90,12 +90,13 @@ $('#password').on('keyup',function(){
 });
 
 
+// Tooltips Contraseña = pasos para una contraseña segura.
 $('#password').on('mouseover',function(){
   $('#ventana_modal_mensaje_codigo').fadeIn();
 });
 
 $('#password').on('mouseout',function(){
-  $('#ventana_modal_mensaje_codigo').fadeIn();
+  $('#ventana_modal_mensaje_codigo').fadeOut();
 });
 
 

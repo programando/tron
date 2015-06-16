@@ -7,19 +7,40 @@
 /* Cont-Mensaje */
 .cont-mensaje
 {
-	    width: 40%;
+	    width: 100%;
 	    margin: 0px auto;
-	    padding:  20px;
+	    padding:  10px;
 	    font-size: 14px;
+}
 
-     -webkit-border-radius: 4px;
-     -moz-border-radius   : 4px;
-     -ms-border-radius    : 4px;
-     -o-border-radius     : 4px;
-     border-radius        : 4px;
+/* IMG = superior alerta */
+.img-alert
+{
+	    display: block;
+	    width: 80px;
+}
 
+/* IMG = Navegadores */
+.img-nagevadores
+{
+	     width: 90%;
+	     display: block;
+	     margin: 0px auto;
+}
 
-	    -webkit-box-shadow: 0px 2px 5px #000000;
-	    -moz-box-shadow: 0px 2px 5px #000000;
-	    box-shadow: 0px 2px 5px #000000;
+.contnedor_IMG
+{
+	     display: block;
+	     text-align: center;
+	     padding: 0px;
+	     margin-left: 15px;
+	     text-decoration: none;
+	     color: #333;
+ }
+
+.contnedor_IMG:hover
+{
+	    text-decoration: none;
+     color: #003E90;
+     font-weight: bold;
 }

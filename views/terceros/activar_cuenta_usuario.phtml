@@ -49,14 +49,17 @@
                   </label>
                 <?php else :?>
                   <label for="acepto_terminos_y_condiciones" id="label_acepto_terminos" class="label_termino_condiciones">He leido y estoy de acuerdo con el
-                    <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Convenio Comercial</a> <br>y con los
-                    <a href="#" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a> de este sitio.
+                    <a href="#convenio_comercial_modal" data-toggle="modal"  data-target="#convenio_comercial_modal">Convenio Comercial</a> <br>y con los
+                    <a href="#terminos_condicones_modal" data-toggle="modal"  data-target="#terminos_condicones_modal">Términos y condiciones</a> de este sitio.
                   </label>
 
               <?php endif ;?>
 
-              <!-- Incluye la estructura de la ventana modal -->
+              <!-- Incluye =
+                   *  ventana modal terminos y condiciones
+                   *  ventana modal converio comercial -->
               <?php include (APPLICATION_SECTIONS . 'ventana_modal_termino_condiciones.php');?>
+              <?php include (APPLICATION_SECTIONS . 'convenio_comercial_modal.php');?>
             </div>
           </div>
         </div>

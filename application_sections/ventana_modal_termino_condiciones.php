@@ -10,14 +10,10 @@
               </div>
 
 
-<style>
-
-
-</style>
 
               <!-- Cuerpo -->
               <div class="modal-body cuerpo-modal">
-                    <div class="general" style="padding:0 10px; width:100%;  text-align:justify">
+                    <div class="general" style="padding:0 60px; width:100%;  text-align:justify">
 
                         <div><img src="<?= BASE_IMG_EMPRESA ;?>logo.png"></div>
                         <br /><br />

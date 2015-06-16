@@ -63,15 +63,6 @@ $(".boton-guarar-password").on('click',function(){
 
 });
 
-$('#password').on('mouseover',function(){
-  $('#ventana_modal_mensaje_codigo').fadeIn();
-});
-
-$('#password').on('mouseout',function(){
-  $('#ventana_modal_mensaje_codigo').fadeIn();
-});
-
-
 
 $('.new-password').on('focus',function(){
 		$('#mensaje-validacion').html('');
