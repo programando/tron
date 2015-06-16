@@ -15,6 +15,13 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+    public function modificacion_datos_prueba()
+   {
+        $this->View->SetCss(array("tron_modificacion_datos","password"));
+        $this->View->SetJs(array("password",'tron_dptos_mcipios'));
+        $this->View->Mostrar_Vista("modificacion_datos");
+    }
+
     public function modificacion_datos()
     {
         $idtercero = Session::Get('idtercero');

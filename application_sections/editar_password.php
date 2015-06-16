@@ -1,17 +1,4 @@
-<!-- Tooltisp = pasos para obtener una contraseña segura -->
-<div>
-    <div class="cuerpo_ventana_modal_codigo" id="ventana_modal_mensaje_codigo">
-       <div>
-         Una Contraseña segura debe contener :
-         <ul class="list-unstyled pasos_contrasena_segura">
-            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; 6 ó más caracteres. </li>
-            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Una letra minúscula. </li>
-            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Una letra mayúscula. </li>
-            <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Un número. </li>
-         </ul>
-       </div>
-     </div>
-</div>
+
 
 
 	  <!--Nueva contrasseña -->
@@ -35,6 +22,21 @@
   			  </div>
   			</div>
 
+      </div>
+
+      <!-- Tooltisp = pasos para obtener una contraseña segura -->
+      <div>
+          <div class="cuerpo_ventana_modal_codigo" id="ventana_modal_mensaje_codigo">
+             <div>
+               Una Contraseña segura debe contener :
+               <ul class="list-unstyled pasos_contrasena_segura">
+                  <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; 6 ó más caracteres. </li>
+                  <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Una letra minúscula. </li>
+                  <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Una letra mayúscula. </li>
+                  <li><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp; Un número. </li>
+               </ul>
+             </div>
+           </div>
       </div>
 
     </div>
