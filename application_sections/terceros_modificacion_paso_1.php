@@ -8,7 +8,7 @@
                   <form class="form-horizontal" role="form" role="form">
 													        <!-- identificacion -->
 													         <div class="form-group">
-													           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificacion: </p></label>
+													           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificación: </p></label>
 													           <div class="col-lg-7">
 													             <input type="text" class="form-control" id="identificacion_nat" disabled="disabled"
 													             value="<?= $this->identificacion_nat ;?>">
@@ -72,7 +72,7 @@
 	         	     <form class="form-horizontal" role="form" role="form">
 													        <!-- Correo electronico -->
 													         <div class="form-group">
-													           <label for="email" class="col-lg-5 control-label"> <p class="text-left text-label"> Correo electronico: </p></label>
+													           <label for="email" class="col-lg-5 control-label"> <p class="text-left text-label"> Correo electrónico: </p></label>
 													           <div class="col-lg-7">
 																											<input type="email" class="form-control" id="email"
 																											value="<?= $this->email ;?>">
@@ -96,7 +96,7 @@
                             <!-- Genero -->
                       	   	   <div class="col-lg-5 col-md-5 col-sm-5">
 																							        <div class="form-group">
-																							           <label for="genero" class="col-lg-5 control-label"> <p class="text-left text-label"> Genero: </p></label>
+																							           <label for="genero" class="col-lg-5 control-label"> <p class="text-left text-label"> Género: </p></label>
 																							           <div class="col-lg-7">
 																										          <select  class="form-control" id="genero">
 																										            <option value="1">M</option>
@@ -125,7 +125,7 @@
 
 													        <!-- Direccion -->
 													         <div class="form-group">
-													           <label for="direccion" class="col-lg-5 control-label"> <p class="text-left text-label"> Direccion: </p></label>
+													           <label for="direccion" class="col-lg-5 control-label"> <p class="text-left text-label"> Dirección: </p></label>
 													           <div class="col-lg-7">
 													             <input type="text" class="form-control" id="direccion"
 													             value="<?= $this->direccion ;?>">
@@ -145,7 +145,7 @@
 
 																					<div class="checkbox">
 																					  <label>
-																					    <input type="checkbox" id="pregunta2" value="option2">
+																					    <input type="checkbox" id="recibo_promociones_email" value="">
 																					    Recibir mensajes de texto de informacion comercial y pormociones
 																					  </label>
 																					</div><br>
