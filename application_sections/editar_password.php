@@ -1,6 +1,6 @@
 
 
-
+<div class="contenedor-contrasenia">
 	  <!--Nueva contrasseña -->
    <div class="form-group">
      <label for="password" class="col-lg-5 control-label"> <p class="text-left text-label">Nueva Contaseña:</p></label>
@@ -8,9 +8,11 @@
 
         <div class="input-group" style="margin: 0px;">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-eye-open"></span></button>
+            <button class="btn btn-default" type="button"  id='mostrar-ocultar'>
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </button>
           </span>
-          <input  data-toggle="password" data-placement="before" class="form-control new-password" type="password" id="password" placeholder="Contraseña">
+          <input  data-toggle="password" data-placement="before" class="form-control new-password" type="password" id="password" placeholder="Contraseña" oncopy="return false" onpaste="return false" oncut="return false">
         </div><!-- /input-group -->
 
       <!-- Barra de progreso -->
@@ -53,13 +55,14 @@
     <div class="col-lg-7">
     <div class="input-group" style="margin: 0px;">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-eye-open"></span></button>
+        <button class="btn btn-default" type="button" id='mostrar-ocultar-confirm'><span class="glyphicon glyphicon-eye-open"></span></button>
       </span>
-      <input data-toggle="password" data-placement="before" class="form-control confirmar-password" type="password" id="confirmar-password" placeholder="Confirme la contraseña" >
+      <input data-toggle="password" data-placement="before" class="form-control confirmar-password" type="password" id="confirmar-password" placeholder="Confirme la contraseña" oncopy="return false" onpaste="return false" oncut="return false" >
     </div><!-- /input-group -->
     </div>
   </div>
 
+</div>
 <!--
     tipografias:
 

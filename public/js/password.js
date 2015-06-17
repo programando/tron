@@ -1,13 +1,14 @@
-      var characters     = 0;
-      var capitalletters = 0;
-      var loweletters    = 0;
-      var number         = 0;
-      var special        = 0;
+var characters     = 0;
+var capitalletters = 0;
+var loweletters    = 0;
+var number         = 0;
+var special        = 0;
+var mostrar_clave  = false;
 
-      var upperCase    = new RegExp('[A-Z]');
-      var lowerCase    = new RegExp('[a-z]');
-      var numbers      = new RegExp('[0-9]');
-      var specialchars = new RegExp('([!,%,&,@,#,$,^,*,?,_,~])');
+var upperCase    = new RegExp('[A-Z]');
+var lowerCase    = new RegExp('[a-z]');
+var numbers      = new RegExp('[0-9]');
+var specialchars = new RegExp('([!,%,&,@,#,$,^,*,?,_,~])');
 
 
 						var $contrasena = $('#password');
@@ -99,5 +100,24 @@ $('#password').on('mouseout',function(){
   $('#ventana_modal_mensaje_codigo').fadeOut();
 });
 
+//confirmar-password
 
+$('#mostrar-ocultar').on('click',function(){
+  if ( mostrar_clave == true){
+    $('#password').get(0).type='text';
+    mostrar_clave = false;
+  }else{
+    $('#password').get(0).type='password';
+    mostrar_clave = true;
+  }
+});
 
+$('#mostrar-ocultar-confirm').on('click',function(){
+  if ( mostrar_clave == true){
+    $('#confirmar-password').get(0).type='text';
+    mostrar_clave = false;
+  }else{
+    $('#confirmar-password').get(0).type='password';
+    mostrar_clave = true;
+  }
+});

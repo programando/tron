@@ -26,6 +26,7 @@ class TercerosController extends Controller
 
     public function modificacion_datos()
     {
+
         $idtercero = Session::Get('idtercero');
         $Registro = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
 
@@ -65,7 +66,7 @@ class TercerosController extends Controller
         $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
         $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
         $this->View->param_tipo_cuenta_transferencias               = $Registro [0]['param_tipo_cuenta_transferencias'];
-        $this->View->param_idmcipio_transferencias                          = $Registro [0]['param_idmcipio_transferencias'];
+        $this->View->param_idmcipio_transferencias                  = $Registro [0]['param_idmcipio_transferencias'];
         $this->View->nommcipio_transferencia                        = $Registro [0]['nommcipio_transferencia'];
         $this->View->iddpto_transferencia                           = $Registro [0]['iddpto_transferencia'];
         $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];

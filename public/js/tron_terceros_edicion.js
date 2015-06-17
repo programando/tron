@@ -1,3 +1,9 @@
+
+$('#btn_atualizar_datos').on('click',function(){
+	alert("kdk");
+});
+
+// OCULTAR DATOS DE LA CUENTA BANCARIA
 $('#datos_cuenta_bancaria').hide();
 
 
@@ -35,7 +41,7 @@ $('#param_acepto_retencion_comis_para_pago_pedidos').on('click',function(){
 	}
 
 })
-// OCULTAR DATOS DE LA CUENTA BANCARIA
+
 
 
 
