@@ -94,17 +94,7 @@
                       	   	   </div>
 
                             <!-- Genero -->
-                      	   	   <div class="col-lg-5 col-md-5 col-sm-5">
-																							        <div class="form-group">
-																							           <label for="genero" class="col-lg-5 control-label"> <p class="text-left text-label"> Género: </p></label>
-																							           <div class="col-lg-7">
-																										          <select  class="form-control" id="genero">
-																										            <option value="1">M</option>
-																										            <option value="0">F</option>
-																										          </select>
-																							           </div>
-																							         </div>
-                      	   	   </div>
+
                       	   </div>
                       </div>
 
@@ -114,11 +104,11 @@
 													           <div class="col-lg-7">
 																						<select class="form-control input_campo_datos" id="iddpto">
 																							<option value="<?= $this->iddpto ;?>"><?= $this->nomdpto ;?></option>
-																							<?php
-																							foreach ($this->Departamentos as $Departamento) {
-																								echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
-																							}
-																							?>
+																										<?php
+																														foreach ($this->Departamentos as $Departamento) {
+																																	echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
+																												}
+																									?>
 																						</select>
 													           </div>
 													         </div>

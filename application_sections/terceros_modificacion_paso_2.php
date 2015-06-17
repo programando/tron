@@ -39,27 +39,29 @@
 				               	   <div class="col-lg-12 col-md-12 col-sm-12">
 				                        <p class="subtitulos_form2"><strong>Pedidos</strong></p>
 				               	   </div>
-				               </div><br><br>
+				               </div><br>
 
 																			<!-- option 4 -->
 																			<div class="checkbox">
 																			  <label>
 																			    <input type="checkbox" id="param_acepto_retencion_comis_para_pago_pedidos" value=""
 																			    <?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == TRUE) : ?> checked="checked" <?php endif ;?>>
-																			    Acepto que se retenga de mis comisiones, de manera indefinida y mientras no modifique este registro, la suma de :<strong>
+																			    Acepto que se retenga de mis comisiones, de manera indefinida y mientras no modifique este registro, la suma de $ :<strong>
 																			    	<input type="text" name="" value="<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
 																			    	id ='param_valor_comisiones_para_pago_pedidos'
-																			    	valor-pago-pedidos = "<?= $this->param_valor_comisiones_para_pago_pedidos;?>">
+																			    	valor-pago-pedidos = "<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
+																			    	<?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == FALSE) : ?> disabled="disabled"  <?php endif ;?>>
 																			    </strong>para el pago de mis pedidos.
 																			  </label>
 																			</div><br>
+																			<br>
 
 				              <!-- Tiutulo = Forma de pago de comisiones-->
 				               <div>
 				               	   <div class="col-lg-12 col-md-12 col-sm-12">
 				                        <p class="subtitulos_form2"><strong>Forma de pagos de Comisiones </strong></p>
 				               	   </div>
-				               </div><br><br>
+				               </div><br>
 
 																			<!-- Efecty -->
 																			<div class="checkbox">
@@ -68,7 +70,7 @@
 																			    <?php if ( $this->pago_comisiones_efecty == TRUE) : ?> checked="checked" <?php endif ;?>>
 																			    Efecty
 																			  </label>
-																			</div><br>
+																			</div><br><br>
 
 																			<!-- option 6 -->
 																			<div class="checkbox">
@@ -87,7 +89,7 @@
                </div>
 
               <!-- Certificacion que la cuenta me pertenece -->
-              <div>
+              <div id='datos_cuenta_bancaria'>
                  <div class="col-lg-12 col-md-12 col-sm-12">
             	  	    <div>
            	  	    	   <div class="text-center">
@@ -105,17 +107,22 @@
 																			         <div class="form-group">
 																			           <label for="nombre_banco" class="col-lg-5 control-label"> <p class="text-left text-label"> Nombre del banco: </p></label>
 																			           <div class="col-lg-7">
-																			             																				             <select class="form-control" id="Tipo_cuenta">
-																				             	    <option value="">SELECCIONE</option>
-																				             </select>
+																															<select class="form-control" id="param_idbanco_transferencias">
+																																<option value="<?= $this->param_idbanco_transferencias ;?>"><?= $this->nombre_banco_transferencias ;?></option>
+																																			<?php
+																																							foreach ($this->Bancos as $Banco) {
+																																										echo '<option value="'.$Banco['param_idbanco_transferencias'].'">'.$Banco['nombre_banco_transferencias'].'</option>';
+																																					}
+																																		?>
+																															</select>
 																			           </div>
 																			         </div>
 
 																			        <!-- Numero de la cuenta -->
 																			         <div class="form-group">
-																			           <label for="numero_cuenta" class="col-lg-5 control-label"> <p class="text-left text-label"> Numero de la cuenta: </p></label>
+																			           <label for="numero_cuenta" class="col-lg-5 control-label"> <p class="text-left text-label"> Número de la cuenta: </p></label>
 																			           <div class="col-lg-7">
-																			             <input type="" class="form-control" id="numero_cuenta">
+																			             <input type="" class="form-control" id="param_nro_cuenta_transferencias" value ="<?= $this->param_nro_cuenta_transferencias ;?>">
 																			           </div>
 																			         </div>
 
@@ -123,8 +130,10 @@
 																				         <div class="form-group">
 																				           <label for="Tipo_cuenta" class="col-lg-5 control-label"> <p class="text-left text-label"> Tipo de cuenta: </p></label>
 																				           <div class="col-lg-7">
-																				             <select class="form-control" id="Tipo_cuenta">
-																				             	    <option value="">SELECCIONE</option>
+																				             <select class="form-control" id="param_tipo_cuenta_transferencias">
+																				             	    <option value="0">SELECCIONE</option>
+																				             	    <option value="1">AHORROS</option>
+																				             	    <option value="2">CORRIENTE</option>
 																				             </select>
 																				           </div>
 																				         </div>
@@ -133,9 +142,18 @@
 																						         <div class="form-group">
 																						           <label for="departamento" class="col-lg-5 control-label"> <p class="text-left text-label"> Departamento: </p></label>
 																						           <div class="col-lg-7">
-																						             <select class="form-control" id="departamento">
-																						             	    <option value="">SELECCIONE</option>
-																						             </select>
+																																	<select class="form-control input_campo_datos" id="iddpto_transferencia">
+																																	<?php if ( $this->iddpto_transferencia  > 0 ) :?>
+																																		<option value="<?= $this->iddpto_transferencia ;?>"><?= $this->nomdpto_transferencia ;?></option>
+																																	<?php else :?>
+																																		<option value="0">SELECCIONE DEPARTAMENTO</option>
+																																	<?php endif; ?>
+																																					<?php
+																																									foreach ($this->Departamentos as $Departamento) {
+																																												echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
+																																							}
+																																				?>
+																																	</select>
 																						           </div>
 																						         </div>
 
@@ -143,7 +161,7 @@
 																							         <div class="form-group">
 																							           <label for="ciudad_origen_cuenta" class="col-lg-5 control-label"> <p class="text-left text-label"> Ciudad origen cuenta: </p></label>
 																							           <div class="col-lg-7">
-																							             <select class="form-control" id="ciudad_origen_cuenta">
+																							             <select class="form-control" id="param_idmcipio_transferencias">
 																							             	    <option value="">SELECCIONE</option>
 																							             </select>
 																							           </div>
@@ -152,6 +170,7 @@
                  	   </div>
                  </div>
               </div>
+
             </div>
          </div>
        </div>

@@ -26,7 +26,13 @@
 						return 	$Parametros  ;
 				}
 
-
+				public function Bancos_Para_Transferencias(){
+						/** JUNIO 16 DE 2015
+						*		 CONSULTA LOS BANCOS PARA TRANSFERENCIA ELECTRONICA	*/
+						$Parametros                 = $this->Db->Ejecutar_Sp("bancos_para_transferencias_listado()");
+						$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
+						return 	$Parametros  ;
+				}
 
   }
 ?>

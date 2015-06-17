@@ -15,12 +15,6 @@ class TercerosController extends Controller
 
     public function Index() { }
 
-    public function modificacion_datos_prueba()
-   {
-        $this->View->SetCss(array("tron_modificacion_datos","password"));
-        $this->View->SetJs(array("password",'tron_dptos_mcipios'));
-        $this->View->Mostrar_Vista("modificacion_datos");
-    }
 
     public function modificacion_datos()
     {
@@ -28,6 +22,7 @@ class TercerosController extends Controller
         $Registro = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
 
         $this->View->Departamentos = $this->Departamentos->Consultar();
+        $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
 
         $this->View->idtercero                                      = $Registro [0]['idtercero'];
         $this->View->identificacion_nat                             = $Registro [0]['identificacion'];
@@ -36,7 +31,6 @@ class TercerosController extends Controller
         $this->View->pnombre                                        = $Registro [0]['pnombre'];
         $this->View->papellido                                      = $Registro [0]['papellido'];
         $this->View->razonsocial                                    = $Registro [0]['razonsocial'];
-        $this->View->genero                                         = $Registro [0]['genero'];
         $this->View->direccion                                      = $Registro [0]['direccion'];
         $this->View->barrio                                         = $Registro [0]['barrio'];
         $this->View->contacto                                       = $Registro [0]['contacto'];
@@ -59,9 +53,19 @@ class TercerosController extends Controller
         $this->View->recibo_promociones_email                       = $Registro [0]['recibo_promociones_email'];
         $this->View->recibo_promociones_celular                     = $Registro [0]['recibo_promociones_celular'];
 
+        $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
+        $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
+        $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
+        $this->View->param_tipo_cuenta_transferencias               = $Registro [0]['param_tipo_cuenta_transferencias'];
+        $this->View->param_idmcipio_transferencias                          = $Registro [0]['param_idmcipio_transferencias'];
+        $this->View->nommcipio_transferencia                        = $Registro [0]['nommcipio_transferencia'];
+        $this->View->iddpto_transferencia                           = $Registro [0]['iddpto_transferencia'];
+        $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];
+
+
 
         $this->View->SetCss(array("tron_modificacion_datos","password"));
-        $this->View->SetJs(array("password",'tron_dptos_mcipios'));
+        $this->View->SetJs(array("password",'tron_dptos_mcipios','tron_terceros_edicion'));
         $this->View->Mostrar_Vista("modificacion_datos");
     }
 
