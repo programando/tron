@@ -66,8 +66,8 @@ class TercerosController extends Controller
 
 
 
-        $this->View->SetCss(array("tron_modificacion_datos","password",'tron_barra_usuario'));
-        $this->View->SetJs(array("password",'tron_dptos_mcipios','tron_terceros_edicion'));
+        $this->View->SetCss(array("tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios'));
+        $this->View->SetJs(array("password",'tron_dptos_mcipios','tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios'));
         $this->View->Mostrar_Vista("modificacion_datos");
     }
 
