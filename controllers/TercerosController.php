@@ -15,8 +15,6 @@ class TercerosController extends Controller
 
     public function Index() { }
 
-//  prueba
-
     public function modificacion_datos_prueba()
     {
         $this->View->SetCss(array("tron_modificacion_datos","password"));
