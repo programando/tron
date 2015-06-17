@@ -22,7 +22,7 @@
       <?php include (APPLICATION_SECTIONS . 'barra_usuraios.php');?>
 
 
-
+ <div class="contenedor-datos-informe">
 
          <!-- /// Division-pagina = Mi cuenta dinero ,  Mi cuanta puntos /// -->
              <!-- Mi cuenta_dinero -->
@@ -31,7 +31,7 @@
                      <div class="col-lg-12 col-md-12 col-sm-12"><!-- logo = Cuenta-dinero -->
                      	   <div><!-- Contenededor -->
                      	   	    <p class="Estado-cuenta"  style="color: #009900;">Estado de Mi Cuenta Dinero</p>
-                     	   	    <p class="saldos" style="color: #009900;">Saldo: $0</p>
+                     	   	    <p class="saldos" style="color: #009900;"> <?= $this->Saldo_Comisiones ;?> </p>
                      	   </div><!-- Contenededor -->
                      </div><!-- logo = Cuenta-dinero -->
 
@@ -46,17 +46,21 @@
 
                           <table class="table table-condensed table-hover cuerpo-tabla">
                             <tbody><!-- Cuerpo -->
+                            <?php foreach ($this->Comisiones as $Comisiones)  :?>
+                            <?php
+                                  $nom_tipo_registro = strtolower( $Comisiones['nom_tipo_registro']);
+                                  $vr_entrada        = Numeric_Functions::Formato_Numero( $Comisiones['vr_entrada'] );
+                                  $vr_salida         = Numeric_Functions::Formato_Numero( $Comisiones['vr_salida'] );
+                                  $saldo             = Numeric_Functions::Formato_Numero( $Comisiones['saldo'] );
+                            ?>
                                  <tr>
-                                     <td class="fecha text-center">24/01/2014</td>
-                                     <td class="text-center concepto">pago parcial de pedidos con con comis. y/o bonif.</td>
-                                     <td class="text-center entran">352  </td>
-                                     <td class="text-center salen">352  </td>
-                                     <td class="text-center saldo">3.00</td>
+                                     <td class="fecha text-center"> <?= $Comisiones['fecha_registro'] ;?> </td>
+                                     <td class="text-center concepto"><?= $nom_tipo_registro ;?> </td>
+                                     <td class="text-center entran"><?= $vr_entrada ;?>   </td>
+                                     <td class="text-center salen"><?= $vr_salida  ;?>   </td>
+                                     <td class="text-center saldo"> <?= $saldo ;?>  </td>
                                  </tr>
-
-                                  <!-- cont-tabla -->
-                                      <?php include (APPLICATION_SECTIONS . 'cont-tabla-informacion-cuenta.php');?>
-                                  <!-- cont-tabla -->
+                            <?php endforeach ;?>
 
                             </tbody><!-- Cuerpo -->
                           </table>
@@ -71,7 +75,7 @@
           <div class="col-lg-12 col-md-12 col-sm-12"><!-- logo = Cuenta-puntos -->
           	   <div><!-- Contenededor -->
           	   	    <p class="Estado-cuenta" style="color: #ff6600;" >Estado de Mi Cuenta Puntos</p>
-          	   	    <p class="saldos" style="color: #ff6600;">Saldo: 0</p>
+          	   	    <p class="saldos" style="color: #ff6600;"><?= $this->Saldo_Puntos ;?> </p>
           	   </div><!-- Contenededor -->
           </div><!-- logo = Cuenta-puntos -->
 
@@ -86,37 +90,32 @@
 
               <table class="table table-condensed table-hover cuerpo-tabla">
                 <tbody><!-- Cuerpo -->
+                <?php foreach ($this->Puntos as $Puntos)  :?>
+                <?php
+                      $nom_tipo_registro = strtolower( $Puntos['nom_tipo_registro']);
+                      $cant_entrada      = Numeric_Functions::Formato_Numero( $Puntos['cant_entrada'] );
+                      $cant_salida       = Numeric_Functions::Formato_Numero($Puntos['cant_salida'] );
+                      $saldo             = Numeric_Functions::Formato_Numero( $Puntos['saldo'] );
+                ?>
+
                      <tr>
-                         <td class="fecha text-center">24/01/2014</td>
-                         <td class="text-center concepto">pago parcial de pedidos con con comis. y/o bonif.</td>
-                         <td class="text-center entran">352  </td>
-                         <td class="text-center salen">352  </td>
-                         <td class="text-center saldo">3.00</td>
+                         <td class="fecha text-center"><?= $Puntos['fecha_registro'] ;?> </td>
+                         <td class="text-center concepto"><?= $nom_tipo_registro;?> </td>
+                         <td class="text-center entran"><?= $cant_entrada;?>   </td>
+                         <td class="text-center salen"><?= $cant_salida ;?>   </td>
+                         <td class="text-center saldo"><?= $saldo;?> </td>
                      </tr>
 
-                    <!-- cont-tabla -->
-                        <?php include (APPLICATION_SECTIONS . 'cont-tabla-informacion-cuenta.php');?>
-                    <!-- cont-tabla -->
 
+     <?php endforeach ;?>
                 </tbody><!-- Cuerpo -->
               </table>
          </div><!-- Tabla-Cuenta-puntos -->
       </div>
-    <!-- Mi cuenta_Puntos -->
-
-         <!-- /// Division-pagina = Mi cuenta dinero ,  Mi cuanta puntos /// -->
-
-         <!-- /// Btn-visualizar = descendente /// -->
-             <div class="well col-lg-12 col-md-12 col-ms-12">
-             	   <div><!-- Contenedor -->
-
-
-             	   </div><!-- Contenedor -->
-             </div>
-         <!-- /// Btn-visualizar = descendente /// -->
 
 
 
+</div>
 
 
 

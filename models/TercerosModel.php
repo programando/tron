@@ -125,6 +125,9 @@
 				public function Direcciones_Despacho()
 				{
 					$idtercero                = Session::Get('idtercero_pedido');
+					if ( !isset($idtercero  )){
+							$idtercero  = Session::Get('idtercero');
+					}
 					$Registro                 =  $this->Db->Ejecutar_Sp("terceros_direcciones_despacho_x_idtercero($idtercero)");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 					return $Registro;

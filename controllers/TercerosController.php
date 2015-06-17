@@ -30,6 +30,7 @@ class TercerosController extends Controller
 
         $this->View->Departamentos = $this->Departamentos->Consultar();
         $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
+        $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho();
 
         $this->View->idtercero                                      = $Registro [0]['idtercero'];
         $this->View->identificacion_nat                             = $Registro [0]['identificacion'];
@@ -59,7 +60,6 @@ class TercerosController extends Controller
         $this->View->nomdpto                                        = $Registro [0]['nomdpto'];
         $this->View->recibo_promociones_email                       = $Registro [0]['recibo_promociones_email'];
         $this->View->recibo_promociones_celular                     = $Registro [0]['recibo_promociones_celular'];
-
         $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
         $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
         $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
@@ -570,12 +570,6 @@ class TercerosController extends Controller
     {
         $this->View->SetCss(array("tron_barra_usuarios","tron_cuenta_info_partici_la_red","cuenta_navbar_informe"));
         $this->View->Mostrar_Vista("cuenta_info_participacion_la_red");
-    }
-
-        public function informacion_mi_cuenta()
-    {
-        $this->View->SetCss(array("tron_informe_mi_cuenta","tron_barra_usuarios","cuenta_navbar_informe"));
-        $this->View->Mostrar_Vista("informe_mi_cuenta");
     }
 
     public function cuenta_pases_premium()

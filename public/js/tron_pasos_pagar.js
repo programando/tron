@@ -187,7 +187,6 @@ $('.usu-1').on('click',function()
   $('#'+$Usuario_Seleccionado).css('background','#003E90');
   $('#'+$Usuario_Seleccionado).css('color','white');
   Mostrar_Direcciones_Usuario_Seleccionado($Usuario_Seleccionado, $Cantidad_Direcciones);
-
 })
 
 
