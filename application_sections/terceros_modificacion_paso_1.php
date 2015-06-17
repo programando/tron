@@ -1,12 +1,45 @@
 <div class="contenedor_from_1">
 	   <div class="row">
 
+      <!-- Campo NIT -->
+        <div class="col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; display: " id="campos_nit">
+             <div class="col-lg-6 col-sm-6 col-md-6 " style="padding: 0px;">
+		             <!-- Numero NIT -->
+						         <div class="form-group">
+						           <label for="numero_nit" class="col-lg-5 control-label"> <p class="text-left text-label"> Numero NIT : </p></label>
+						           <div class="col-lg-7">
+						             <input type="text" class="form-control" id="numero_nit">
+						           </div>
+						         </div>
+             </div>
+
+             <div class="col-lg6 col-sm-6 col-md-6 " style="padding: 0px;">
+							        <!-- Numero D.V -->
+							         <div class="form-group">
+							           <label for="numero_dv" class="col-lg-5 control-label"> <p class="text-left text-label"> D.V: </p></label>
+							           <div class="col-lg-7">
+							             <input type="text" class="form-control" id="numero_dv">
+							           </div>
+							         </div>
+             </div>
+
+             <div class="col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; margin: 15px 0px;">
+             	  <div class="form-group">
+							           <label for="numero_dv" class="col-lg-3 control-label" style="width: 180px;"> <p class="text-left text-label"> Razon Social: </p></label>
+							           <div class="col-lg-9" style="padding-left: 0px; width: 610px;">
+							             <input type="text" class="form-control" id="numero_dv">
+							           </div>
+							         </div>
+             </div>
+
+        </div><br>
+
 	       <!-- Columna  Left -->
         <div>
 	         <div class="col-lg-6 col-md-6 col-sm-6">
 	         	   <div>
                   <form class="form-horizontal" role="form" role="form">
-													        <!-- identificacion -->
+ 													        <!-- identificacion -->
 													         <div class="form-group">
 													           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificación: </p></label>
 													           <div class="col-lg-7">
@@ -70,7 +103,7 @@
 	         <div class="col-lg-6 col-md-6 col-sm-6">
 	         	   <div>
 	         	     <form class="form-horizontal" role="form" role="form">
-													        <!-- Correo electronico -->
+ 													        <!-- Correo electronico -->
 													         <div class="form-group">
 													           <label for="email" class="col-lg-5 control-label"> <p class="text-left text-label"> Correo electrónico: </p></label>
 													           <div class="col-lg-7">

@@ -53,6 +53,14 @@
        color: #991534;
 }
 
+/* Input "de la suma $"*/
+.registro_suma_input
+{
+
+       width: 70px;
+       text-align: right;
+
+}
 
 .form_sobre_banco
 {

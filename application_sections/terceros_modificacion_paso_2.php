@@ -47,7 +47,7 @@
 																			    <input type="checkbox" id="param_acepto_retencion_comis_para_pago_pedidos" value=""
 																			    <?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == TRUE) : ?> checked="checked" <?php endif ;?>>
 																			    Acepto que se retenga de mis comisiones, de manera indefinida y mientras no modifique este registro, la suma de $ :<strong>
-																			    	<input type="text" name="" value="<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
+																			    	<input type="text" name="" class="registro_suma_input" value="<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
 																			    	id ='param_valor_comisiones_para_pago_pedidos'
 																			    	valor-pago-pedidos = "<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
 																			    	<?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == FALSE) : ?> disabled="disabled"  <?php endif ;?>>

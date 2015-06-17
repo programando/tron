@@ -1,90 +1,39 @@
 <div class="contenedor_from_3">
 	   <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+           <!-- Barra Usuarios -->
+            <?php include(APPLICATION_SECTIONS .'barra_usuraios.php') ;?>
 
-     <!-- Formulario -->
-     <div>
-     	   <div class="col-lg-12 col-md-12 col-sm-12">
-     	   	   <div>
-     	   	   	  <form class="form-horizontal" role="form" role="form">
-                   <!-- Destinatario -->
-                       <div class="form-group">
-                         <label for="destinario" class="col-lg-2 control-label"> <p class="text-left text-label"> Destinatario: </p></label>
-                         <div class="col-lg-10">
-                           <input type="text" class="form-control" id="destinario">
-                         </div>
-                       </div>
+            <!-- Formulario -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="fila-direcciones"><!-- Direccion -->
+               <span class="sutb-titulo" style="margin-left: 5px;">Seleccione la dirección a donde será enviado el pedido...</span>
 
-                   <!-- Selecciones pais , departamento -->
-                     <div >
-                       <!-- Selecciona país -->
-                     	   <div class="col-lg-6 col-md-6 col-sm-6">
-				                      <div class="form-group">
-				                         <label for="seleccion-pais" class="col-lg-4 control-label" style="padding-left: 0px;"> <p class="text-left text-label">  país: </p></label>
-				                         <div class="col-lg-8" style="padding-left: 3px;">
-				                           <select class="form-control" id="seleccion-pais">
-				                           	   <option value="">SELECCIONE</option>
-				                           </select>
-				                         </div>
-				                       </div>
-                     	   </div>
+              <?php if (Session::Get('cantidad_direcciones') < 3)  :;?>
+                <span>
+                      <a href="#venta_editar"
+                        class="btn-editar-direccion"
+                        iddirecciondespacho   = "0" >
+                      o cree una nueva dirección
+                    </a>
+                </span>
+              <?php endif;?>
+              <br>
+                <?php
+                      $I = 0;
+                        foreach($this->Direcciones as $Direccion) {
+                          include (APPLICATION_CODS . 'campos_direccion_usuario.php'); // Carga las variables direcciones
+                ;?>
+                <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion_datos.php');?>
+                <?php };?>
+              </div><!-- Direccion -->
+            </div>
 
-                       <!-- Selecciona departamento -->
-                     	   <div class="col-lg-6 col-md-6 col-sm-6">
-			                       <div class="form-group">
-			                         <label for="seleccion-departamento" class="col-lg-4 control-label"> <p class="text-left text-label">  departamento: </p></label>
-			                         <div class="col-lg-8" style="padding-right: 0px;">
-			                           <select class="form-control" id="seleccion-departamento">
-			                           	   <option value="">SELECCIONE</option>
-			                           </select>
-			                         </div>
-			                       </div>
-                     	   </div>
-                     </div>
-
-
-                      <!-- Selecciona ciudad -->
-                       <div class="form-group">
-                         <label for="seleccione_ciudad" class="col-lg-2 control-label"> <p class="text-left text-label">ciudad: </p></label>
-                         <div class="col-lg-10">
-                           <select class="form-control" id="seleccione_ciudad">
-                           	    <option value="">SELECCIONE</option>
-                           </select>
-                         </div>
-                       </div>
-
-                      <!-- Dirección -->
-                       <div class="form-group">
-                         <label for="indique_direccion" class="col-lg-2 control-label"> <p class="text-left text-label"> Dirección: </p></label>
-                         <div class="col-lg-10">
-                           <input type="text" class="form-control" id="indique_direccion">
-                         </div>
-                       </div>
-
-                      <!-- Barrio -->
-                       <div class="col-lg-6 col-md-6 col-sm-6">
-	                       <div class="form-group">
-	                         <label for="indique_barrio" class="col-lg-4 control-label" style="padding-left: 0px;"> <p class="text-left text-label"> Barrio: </p></label>
-	                         <div class="col-lg-8" style="padding-left: 3px;">
-	                           <input type="text" class="form-control" id="indique_barrio">
-	                         </div>
-	                       </div>
-                       </div>
-
-                       <!-- Telefono -->
-                       <div class="col-lg-6 col-md-6 col-sm-6">
-	                       <div class="form-group">
-	                         <label for="telefono" class="col-lg-4 control-label"> <p class="text-left text-label"> Telefono: </p></label>
-	                         <div class="col-lg-8" style="padding-right: 0px;">
-	                           <input type="text" class="form-control" id="telefono">
-	                         </div>
-	                       </div>
-                       </div>
-     	   	   	  </form>
-     	   	   </div>
-     	   </div>
+          <!-- Incluir  ventana modal  -->
+           <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion.php');?>
+           <?php include (APPLICATION_SECTIONS . 'ventana_mensaje_error.php');?>
+          </div>
      </div>
-
-	   </div>
 </div>
 
 
