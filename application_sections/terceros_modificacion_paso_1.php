@@ -79,24 +79,15 @@
 													           </div>
 													         </div>
 
-													         <!-- Apellidos & Genero -->
-                      <div class="col-lg-12 col-md-12 col-sm-12">
-                      	   <div class="row">
-                      	     <!-- Apellido -->
-                      	   	   <div class="col-lg-7 col-md-7 col-sm-7">
-																								         <div class="form-group">
-																								           <label for="papellido" class="col-lg-5 control-label"> <p class="text-left text-label"> Apellido: </p></label>
-																								           <div class="col-lg-7">
-																																							<input type="text" class="form-control" id="papellido"
-																																							value="<?= $this->papellido ;?>">
-																								           </div>
-																								         </div>
-                      	   	   </div>
+                     <!-- Apellido -->
+														         <div class="form-group">
+														           <label for="papellido" class="col-lg-5 control-label"> <p class="text-left text-label"> Apellido: </p></label>
+														           <div class="col-lg-7">
+																													<input type="text" class="form-control" id="papellido"
+																													value="<?= $this->papellido ;?>">
+														           </div>
+														         </div>
 
-                            <!-- Genero -->
-
-                      	   </div>
-                      </div>
 
 													        <!-- Departamento -->
 													         <div class="form-group">
