@@ -27,6 +27,7 @@
 				 * 		RETORNA EL HISTORIAL DE LOS PEDIDOS DE UN USUARIO
 				 */
  				$Registro = $this->Db->Ejecutar_Sp("pedidos_historial_x_idtercero($idtecero);");
+ 				$this->Cantidad_Registros  = $this->Db->Cantidad_Registros;
  				return $Registro;
 			}
  		public function Grabar($Pedido=array())

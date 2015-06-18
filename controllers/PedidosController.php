@@ -16,19 +16,19 @@ class PedidosController extends Controller
     public function index() {}
 
 
-    public function historial_mis_pedidos()
-    {
+    public function historial_mis_pedidos()  {
         $idtercero = Session::Get('idtercero');
-        $this->View->Pedidos = $this->Pedidos->Historial_x_Idtercero($idtercero);
+        $this->View->Pedidos            = $this->Pedidos->Historial_x_Idtercero($idtercero);
+        $this->View->Cantidad_Registros = $this->Pedidos->Cantidad_Registros;
         $this->View->SetCss(array("tron_mis_pedidos","tron_barra_usuarios"));
         $this->View->SetJs(array('tron_pedidos_historial'));
-
         $this->View->Mostrar_Vista("mis_pedidos");
     }
 
     public function historial_mis_pedidos_x_tercero(){
         $idtercero = General_Functions::Validar_Entrada('idtercero','NUM');
-        $this->View->Pedidos = $this->Pedidos->Historial_x_Idtercero($idtercero);
+        $this->View->Pedidos            = $this->Pedidos->Historial_x_Idtercero($idtercero);
+        $this->View->Cantidad_Registros = $this->Pedidos->Cantidad_Registros;
         $this->View->Mostrar_Vista_Parcial("mis_pedidos_x_tercero");
     }
 

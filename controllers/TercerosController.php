@@ -19,14 +19,14 @@ class TercerosController extends Controller
 
     public function modificacion_datos()
     {
-
-        $idtercero = Session::Get('idtercero');
-        $Registro = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
+        $idtercero                 = Session::Get('idtercero');
+        $Registro                  = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
 
         $this->View->Departamentos = $this->Departamentos->Consultar();
         $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
         $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho();
 
+        $this->View->idtpidentificacion                             = $Registro [0]['idtpidentificacion'];
         $this->View->idtercero                                      = $Registro [0]['idtercero'];
         $this->View->identificacion_nat                             = $Registro [0]['identificacion'];
         $this->View->identificacion                                 = $Registro [0]['identificacion'];

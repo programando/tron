@@ -1,0 +1,94 @@
+<div class="contenedor-datos-informe">
+
+         <!-- /// Division-pagina = Mi cuenta dinero ,  Mi cuanta puntos /// -->
+             <!-- Mi cuenta_dinero -->
+               <div class="col-lg-6 col-md-6 col-sm-6">
+
+                     <div class="col-lg-12 col-md-12 col-sm-12"><!-- logo = Cuenta-dinero -->
+                     	   <div><!-- Contenededor -->
+                     	   	    <p class="Estado-cuenta"  style="color: #009900;">Estado de Mi Cuenta Dinero</p>
+                     	   	    <p class="saldos" style="color: #009900;"> <?= $this->Saldo_Comisiones ;?> </p>
+                     	   </div><!-- Contenededor -->
+                     </div><!-- logo = Cuenta-dinero -->
+
+                     <div class="col-lg-12 col-md-12 col-ms-12"><!-- Tabla-Cuenta-dinero -->
+                          <div class="cont-cabezera-tabla-dinero"><!-- Tabla-header = fija -->
+                              <p class="Cabezera-tabla text-center" style="width: 15.5%;">Fecha</p>
+                              <p class="Cabezera-tabla text-center" style="width: 52%;">Concepto</p>
+                              <p class="Cabezera-tabla text-center" style="width: 8%;">Entran</p>
+                              <p class="Cabezera-tabla text-center" style="width: 10%;">Salen</p>
+                              <p class="Cabezera-tabla text-center" style="width: 8%;">Saldo</p>
+                          </div><!-- Tabla-header = fija -->
+
+                          <table class="table table-condensed table-hover cuerpo-tabla">
+                            <tbody><!-- Cuerpo -->
+                            <?php foreach ($this->Comisiones as $Comisiones)  :?>
+                            <?php
+                                  $nom_tipo_registro = strtolower( $Comisiones['nom_tipo_registro']);
+                                  $vr_entrada        = Numeric_Functions::Formato_Numero( $Comisiones['vr_entrada'] );
+                                  $vr_salida         = Numeric_Functions::Formato_Numero( $Comisiones['vr_salida'] );
+                                  $saldo             = Numeric_Functions::Formato_Numero( $Comisiones['saldo'] );
+                            ?>
+                                 <tr>
+                                     <td class="fecha text-center"> <?= $Comisiones['fecha_registro'] ;?> </td>
+                                     <td class="text-center concepto"><?= $nom_tipo_registro ;?> </td>
+                                     <td class="text-center entran"><?= $vr_entrada ;?>   </td>
+                                     <td class="text-center salen"><?= $vr_salida  ;?>   </td>
+                                     <td class="text-center saldo"> <?= $saldo ;?>  </td>
+                                 </tr>
+                            <?php endforeach ;?>
+
+                            </tbody><!-- Cuerpo -->
+                          </table>
+                     </div><!-- Tabla-Cuenta-dinero -->
+
+               </div><!-- Mi cuenta_dinero -->
+
+
+   <!-- Mi cuenta_Puntos -->
+    <div class="col-lg-6">
+
+          <div class="col-lg-12 col-md-12 col-sm-12"><!-- logo = Cuenta-puntos -->
+          	   <div><!-- Contenededor -->
+          	   	    <p class="Estado-cuenta" style="color: #ff6600;" >Estado de Mi Cuenta Puntos</p>
+          	   	    <p class="saldos" style="color: #ff6600;"><?= $this->Saldo_Puntos ;?> </p>
+          	   </div><!-- Contenededor -->
+          </div><!-- logo = Cuenta-puntos -->
+
+         <div class="col-lg-12 col-md-12 col-ms-12"><!-- Tabla-Cuenta-puntos -->
+              <div class="cont-cabezera-tabla-puntos"><!-- Tabla-header = fija -->
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 15.5%;">Fecha</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 52%;">Concepto</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 8%;">Entran</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 10%;">Salen</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 8%;">Saldo</p>
+              </div><!-- Tabla-header = fija -->
+
+              <table class="table table-condensed table-hover cuerpo-tabla">
+                <tbody><!-- Cuerpo -->
+                <?php foreach ($this->Puntos as $Puntos)  :?>
+                <?php
+                      $nom_tipo_registro = strtolower( $Puntos['nom_tipo_registro']);
+                      $cant_entrada      = Numeric_Functions::Formato_Numero( $Puntos['cant_entrada'] );
+                      $cant_salida       = Numeric_Functions::Formato_Numero($Puntos['cant_salida'] );
+                      $saldo             = Numeric_Functions::Formato_Numero( $Puntos['saldo'] );
+                ?>
+
+                     <tr>
+                         <td class="fecha text-center"><?= $Puntos['fecha_registro'] ;?> </td>
+                         <td class="text-center concepto"><?= $nom_tipo_registro;?> </td>
+                         <td class="text-center entran"><?= $cant_entrada;?>   </td>
+                         <td class="text-center salen"><?= $cant_salida ;?>   </td>
+                         <td class="text-center saldo"><?= $saldo;?> </td>
+                     </tr>
+
+
+     <?php endforeach ;?>
+                </tbody><!-- Cuerpo -->
+              </table>
+         </div><!-- Tabla-Cuenta-puntos -->
+      </div>
+
+
+
+</div>

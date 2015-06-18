@@ -21,7 +21,11 @@
                               <?php    include (APPLICATION_CODS.'pedidos_historial.php') ; ?>
                                 <?php    include (APPLICATION_SECTIONS.'pedidos_historial.php') ; ?>
                                 <?php endforeach ;?>
+
                             </tbody><!-- Cuerpo -->
 
                       </table>
+                           <?php if ( $this->Cantidad_Registros == 0) :?>
+                                 <h2 class="text-center">No existen pedidos asociados a este código de usuario.</h2>
+                            <?php endif ;?>
 

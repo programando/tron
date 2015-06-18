@@ -25,6 +25,8 @@ var Datos_Validados = function(){
 
 
 $('#btn_atualizar_datos').on('click',function(){
+		$idtercero = $(this).attr('idtercero');
+		$idtpidentificacion = $(this).attr('idtpidentificacion');
 		if ( Datos_Validados == false ){
 
 		}else{
