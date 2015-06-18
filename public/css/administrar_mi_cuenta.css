@@ -1,0 +1,122 @@
+.contenedor_vista {
+	 width: 95%;
+	 margin: 0px auto;
+	 display: block;
+}
+
+.padding_none { padding: 0px;}
+
+/* Barra - izquierdad */
+.barra_tabs
+{
+  display: block;
+  border-right: 2px solid #003E90;
+  padding: 0px;
+  margin-right: 20px;
+
+}
+
+/* Tabs */
+.tabs_click
+{
+	 display: block;
+	 padding: 0px 10px;
+	 background: #85ABDD;
+	 text-align: center;
+	 width: 100%;
+	 margin-bottom: 10px;
+	 cursor: pointer;
+	 color: white;
+
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+
+	 -webkit-border-radius: 8px 0px 0px 8px;
+	 -moz-border-radius: 8px 0px 0px 8px;
+	 border-radius: 8px 0px 0px 8px;
+}
+
+/* Description de los tab */
+.descriptcion_tab
+{
+	 display: block;
+	 font-size: 13px;
+	 line-height: 0.5em;
+}
+
+
+#mi_perfil
+{
+	 background: #003E90;
+}
+
+.cont-tab-titulo
+{
+	   display : block;
+	   width: 28%;
+	   float: left;
+	   color: #003E90;
+	   margin-top: -15px;
+}
+
+/* Perfil => Menu  */
+.menu_perfil
+{
+	   display: block;
+	   width: 72%;
+	   padding: 0px;
+	   height: 53px;
+	   margin-left: 250px;
+
+}
+
+.menu_perfil li
+{
+	   list-style: none;
+	   display: inline-block;
+	   margin-top: 5px;
+	   margin-left: 0px;
+}
+
+.menu_perfil li .perfil_menu_link
+{
+    display: block;
+    background: #85ABDD;
+    color:  white;
+    padding: 10px 0px;
+    text-decoration: none;
+    margin: 0px;
+    width: 137px;
+    text-align: center;
+
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.tabs_click:hover ,
+.menu_perfil li .perfil_menu_link:hover
+{
+	   background: #003E90;
+}
+
+/* Cabezera  */
+.cabezera
+{
+	    display: none;
+}
+
+/* Contiene toda l informacion */
+
+.contenedor_cuenta
+{
+     display: block;
+     margin-top: 0px;
+}
+
+

@@ -15,7 +15,12 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+   public function administrar_mi_cuenta()   {
 
+        $this->View->SetCss(array('administrar_mi_cuenta'));
+        $this->View->SetJs(array('administrar_mi_cuenta'));
+         $this->View->Mostrar_Vista('administrar_mi_cuenta');
+    }
 
     public function modificacion_datos()
     {
@@ -179,14 +184,6 @@ class TercerosController extends Controller
       $idtipo_plan_compras  = General_Functions::Validar_Entrada('idtipo_plan_compras', 'NUM');
       $this->Terceros->Cambio_Plan($tipo_proceso_en_plan, $idtecero, $idtipo_plan_compras);
       echo "OK";
-    }
-
-   public function activar_cuenta_usuario_prueba()   {
-
-        $this->View->SetCss(array('tron_activacion_mi_cuenta','password', 'messi.min'));
-        $this->View->SetJs(array('tron_terceros_activar_cuenta','password','messi.min'));
-        $this->View->idtipo_plan_compras = 3;
-        $this->View->Mostrar_Vista("activar_cuenta_usuario");
     }
 
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras, $idtpidentificacion )   {
