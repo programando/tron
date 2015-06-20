@@ -9,7 +9,8 @@ $('#iddpto').on('change',function(){
     $Municipios.append("<option>Seleccione un departamento</option>");
    }else
    {
-   	$.ajax({
+
+    $.ajax({
 					data:  {'iddpto':$IdDpto},
 					dataType: 'json',
 					url:      '/tron/municipios/Consultar/',

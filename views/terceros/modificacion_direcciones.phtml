@@ -1,0 +1,17 @@
+ <!-- CARGA MEDIANTE LLAMADA AJAX -->
+ <div class="conteneror-direcciones">
+			<?php foreach ($this->Direcciones as $Direccion) :?>
+						<?php
+								$destinatario       = $Direccion['destinatario'];
+								$direccion          = $Direccion['direccion'];
+								$nommcipio_despacho = $Direccion['nommcipio_despacho'];
+								$nomdpto 										 = $Direccion['nomdpto'];
+						?>
+						<a class='direccion-seleccionada' href="">
+					  	<strong><?= $destinatario  ;?></strong>
+    				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
+    				<br><br><br><br>
+						</a>
+			<?php endforeach ;?>
+	</div>
+

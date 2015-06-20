@@ -35,7 +35,6 @@ public static function Generar_Codigo_Confirmacion($longitud=6){
 							$Clave_Recibida = $_POST[$Clave];
 							$Tipo_Variable  = gettype($Clave_Recibida);
 
-
 							if (!empty($Clave_Recibida))
 							{
 								switch ($Tipo_Validacion)
@@ -58,7 +57,8 @@ public static function Generar_Codigo_Confirmacion($longitud=6){
 										break;
 
 									case 'TEXT':
-										$Clave_Recibida = trim(htmlspecialchars(strtoupper( $Clave_Recibida), ENT_QUOTES));
+										$Clave_Recibida =  trim(htmlspecialchars( strtoupper($Clave_Recibida), ENT_QUOTES));
+
 
 									case 'TEXT-EMAIL':
 										$Clave_Recibida = trim(htmlspecialchars( strtolower( $Clave_Recibida), ENT_QUOTES));

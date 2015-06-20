@@ -22,9 +22,11 @@
               <div class="col-lg-12 col-md-12 col-sm-12">
                 <!-- Tabs -->
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#paso1" data-toggle="tab"> 1. Datos Personales </a></li>
-                    <li><a href="#paso2" data-toggle="tab"> 2. Datos de Cuenta </a></li>
-                    <li><a href="#paso3" data-toggle="tab"> 3. Direcciones </a></li>
+                    <li class="active"><a href="#paso1" data-toggle="tab" id="personales"> 1. Datos Personales </a></li>
+                    <?php if (  $this->idtipo_plan_compras == 3 ) :?>
+                        <li><a href="#paso2" data-toggle="tab" id="cuenta"> 2. Datos de Cuenta </a></li>
+                        <li><a href="#paso3" data-toggle="tab" id="direcciones" idtercero = "<?= $this->idtercero ;?>" > 3. Direcciones </a></li>
+                     <?php endif ;?>
                 </ul>
 
                 <!-- Conten => tabs -->
@@ -34,6 +36,7 @@
                        <?php include (APPLICATION_SECTIONS . 'terceros_modificacion_paso_1.php');?>
                    </div>
 
+                  <?php if (  $this->idtipo_plan_compras == 3 ) :?>
                    <!-- 2. Datos de Cuenta -->
                    <div class="tab-pane fade" id="paso2">
                        <?php include (APPLICATION_SECTIONS . 'terceros_modificacion_paso_2.php');?>
@@ -43,6 +46,7 @@
                    <div class="tab-pane fade" id="paso3">
                        <?php include (APPLICATION_SECTIONS . 'terceros_modificacion_paso_3.php');?>
                    </div>
+                  <?php endif ;?>
 
                </div>
 

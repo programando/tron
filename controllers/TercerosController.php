@@ -16,6 +16,118 @@ class TercerosController extends Controller
     public function Index() { }
 
 
+    public function Actualizar_Datos_Cuenta(){
+
+        $idtercero                                      = General_Functions::Validar_Entrada('idtercero','NUM') ;
+        $idtpidentificacion                             = General_Functions::Validar_Entrada('idtpidentificacion','NUM') ;
+
+        $pnombre                                        = strtoupper( General_Functions::Validar_Entrada('pnombre','TEXT') );
+        $papellido                                      = strtoupper(General_Functions::Validar_Entrada('papellido','TEXT')) ;
+        $razonsocial                                    = strtoupper(General_Functions::Validar_Entrada('razonsocial','TEXT')) ;
+        $idmcipio                                       = General_Functions::Validar_Entrada('idmcipio','NUM') ;
+        $direccion                                      = strtoupper(General_Functions::Validar_Entrada('direccion','TEXT')) ;
+        $barrio                                         = strtoupper(General_Functions::Validar_Entrada('barrio','TEXT')) ;
+        $celular1                                       = General_Functions::Validar_Entrada('celular1','TEXT') ;
+        $email                                          = General_Functions::Validar_Entrada('email','TEXT-EMAIL') ;
+        $Es_email                                       = General_Functions::Validar_Entrada('email','EMAIL') ;
+        $pago_comisiones_transferencia                  = General_Functions::Validar_Entrada('pago_comisiones_transferencia','BOL') ;
+        $param_idbanco_transferencias                   = General_Functions::Validar_Entrada('param_idbanco_transferencias','NUM') ;
+        $param_nro_cuenta_transferencias                = General_Functions::Validar_Entrada('param_nro_cuenta_transferencias','TEXT') ;
+        $param_tipo_cuenta_transferencias               = General_Functions::Validar_Entrada('param_tipo_cuenta_transferencias','NUM') ;
+        $param_idmcipio_transferencias                  = General_Functions::Validar_Entrada('param_idmcipio_transferencias','NUM') ;
+
+        $recibo_promociones_celular                     = General_Functions::Validar_Entrada('recibo_promociones_celular','BOL') ;
+        $recibo_promociones_email                       = General_Functions::Validar_Entrada('recibo_promociones_email','BOL') ;
+        $param_confirmar_nuevos_amigos_x_email          = General_Functions::Validar_Entrada('param_confirmar_nuevos_amigos_x_email','BOL') ;
+        $mis_datos_son_privados                         = General_Functions::Validar_Entrada('mis_datos_son_privados','BOL') ;
+        $declaro_renta                                  = General_Functions::Validar_Entrada('declaro_renta','BOL') ;
+        $param_acepto_retencion_comis_para_pago_pedidos = General_Functions::Validar_Entrada('param_acepto_retencion_comis_para_pago_pedidos','BOL') ;
+        $param_valor_comisiones_para_pago_pedidos       = General_Functions::Validar_Entrada('param_acepto_retencion_comis_para_pago_pedidos','NUM') ;
+        $pago_comisiones_efecty                         = General_Functions::Validar_Entrada('pago_comisiones_efecty','BOL') ;
+        $password                                       = General_Functions::Validar_Entrada('password','TEXT') ;
+        $confirmar_password                             = General_Functions::Validar_Entrada('confirmar_password','TEXT') ;
+
+        $Texto = 'OK';
+
+
+        if ( $idtpidentificacion  != 31 && ( strlen( $pnombre) == 0 || strlen($papellido ) == 0 ) ){
+                $Texto = $Texto . 'Debe registrar nombre y el apellido para identificar el registro. <br>';
+           }
+
+        if ( $idtpidentificacion  == 31  && strlen($razonsocial) == 0 ){
+              $Texto = $Texto . 'Debe registrar el nombre de la empresa. <br>';
+            }
+
+
+        if ($idmcipio  == 0){
+            $Texto = $Texto . 'Seleccione el departamento y ciudad en donde recide. <br>';
+        }
+
+        if ( strlen($direccion ) == 0){
+            $Texto = $Texto . 'Debe registrar la dirección de residencia. <br>';
+        }
+
+        if ( strlen($barrio ) == 0){
+            $Texto = $Texto . 'Debe registrar el barrio en donde recide. <br>';
+        }
+       if ( strlen($celular1  ) == 0) {
+            $Texto = $Texto . 'Registre un número de celular. <br>';
+       }
+
+       if ( $Es_email  == FALSE ){
+           $Texto = $Texto . 'El correo electrónico no tiene un formato válido. <br>';
+       }
+
+       if ( $pago_comisiones_transferencia  == TRUE)  {
+            if ( $param_idbanco_transferencias  == 0 ){
+                $Texto = $Texto . 'Debe seleccionar el banco en donde recibirá el pago de comisiones. <br>';
+            }
+            if ( strlen($param_nro_cuenta_transferencias) == 0){
+                $Texto = $Texto . 'Registre el número de cuenta. <br>';
+            }
+            if ( $param_tipo_cuenta_transferencias == 0){
+                $Texto = $Texto . 'Seleccione el tipo de cuenta en donde se le harán transferencias. <br>';
+            }
+            if ( $param_idmcipio_transferencias  == 0 ){
+                $Texto = $Texto . 'Debe seleccionar el departamento y la ciudad en donde está radicada la cuenta para transferencias bancarias. <br>';
+            }
+       }
+
+       if ( $param_acepto_retencion_comis_para_pago_pedidos == TRUE){
+          if ( $param_valor_comisiones_para_pago_pedidos <= 0 ) {
+              $Texto = $Texto . 'Registre el valor que autoriza descontar de sus cuenta dinero para el pago de pedidos. <br>';
+          }
+       }
+
+       if (  trim( $password)  != trim($confirmar_password)  ){
+          $Texto = $Texto . 'La contraseña y su confirmación deben ser iguales. <br>';
+       }
+
+       if ( (strlen(trim($password)) < 6 && $password !='') ){
+          $Texto = $Texto . 'La contraseña debe tener una longitud de 6 caracteres como mínimo. <br>';
+       }
+
+
+
+       if ( $Texto == 'OK'){
+        // ACTUALIZAR REGISTRO
+        if ( strlen($password ) >0 ){
+            $password   = md5($password);
+        }
+        $parametros = compact('idtercero', 'idtpidentificacion','pnombre', 'papellido', 'razonsocial','idmcipio','direccion','barrio','celular1',
+                              'email','pago_comisiones_transferencia', 'param_idbanco_transferencias' ,'param_nro_cuenta_transferencias',
+                              'param_tipo_cuenta_transferencias','param_idmcipio_transferencias', 'recibo_promociones_celular',
+                              'recibo_promociones_email', 'param_confirmar_nuevos_amigos_x_email', 'mis_datos_son_privados',
+                              'declaro_renta', 'param_acepto_retencion_comis_para_pago_pedidos', 'param_valor_comisiones_para_pago_pedidos',
+                              'pago_comisiones_efecty','password');
+        $this->Terceros->Actualizar_Datos_Usuario($parametros);
+
+       }
+       $Datos = compact('Texto');
+       echo json_encode($Datos ,256);
+
+
+    }
 
     public function modificacion_datos()
     {
@@ -24,7 +136,7 @@ class TercerosController extends Controller
 
         $this->View->Departamentos = $this->Departamentos->Consultar();
         $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
-        $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho();
+        $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho( $idtercero);
 
         $this->View->idtpidentificacion                             = $Registro [0]['idtpidentificacion'];
         $this->View->idtercero                                      = $Registro [0]['idtercero'];
@@ -56,6 +168,8 @@ class TercerosController extends Controller
         $this->View->recibo_promociones_email                       = $Registro [0]['recibo_promociones_email'];
         $this->View->recibo_promociones_celular                     = $Registro [0]['recibo_promociones_celular'];
         $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
+
+
         $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
         $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
         $this->View->param_tipo_cuenta_transferencias               = $Registro [0]['param_tipo_cuenta_transferencias'];
@@ -63,11 +177,11 @@ class TercerosController extends Controller
         $this->View->nommcipio_transferencia                        = $Registro [0]['nommcipio_transferencia'];
         $this->View->iddpto_transferencia                           = $Registro [0]['iddpto_transferencia'];
         $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];
-
+        $this->View->idtipo_plan_compras                            = $Registro [0]['idtipo_plan_compras'];
 
 
         $this->View->SetCss(array("tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios'));
-        $this->View->SetJs(array("password",'tron_dptos_mcipios','tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios'));
+        $this->View->SetJs(array("password",'tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios'));
         $this->View->Mostrar_Vista("modificacion_datos");
     }
 
@@ -516,6 +630,20 @@ class TercerosController extends Controller
       return $this->Direcciones;
     }
 
+    public function Direcciones_Despacho_x_IdTercero()
+    {
+       $idtercero         = General_Functions::Validar_Entrada('idtercero','NUM');
+       $json              = General_Functions::Validar_Entrada('json','NUM');
+       $this->Direcciones = $this->Terceros->Direcciones_Despacho($idtercero );
+      if ( $json  == 1 ){
+            echo json_encode( $this->Direcciones ,256);
+          }else{
+              $this->View->Direcciones = $this->Direcciones ;
+              $this->View->Mostrar_Vista_Parcial('modificacion_direcciones');
+          }
+    }
+
+
 
     public function Actualizar_Password()
     {/** FEBRERO 03 DE 2015
@@ -613,6 +741,7 @@ class TercerosController extends Controller
       Session::Set('iddireccion_despacho',            0);
       Session::Set('cantidad_direcciones',            $Registro[0]["cantidad_direcciones"]);
       Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
+      Session::Set('nomdpto_despacho',                ucfirst ($Registro[0]["nomdpto_despacho"]));
 
       Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
       Session::Set('iddpto',                          $Registro[0]["iddpto"]);

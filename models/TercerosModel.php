@@ -9,6 +9,18 @@
 				}
 
 
+				public function Actualizar_Datos_Usuario($params=array()){
+						extract($params);
+
+						$SQL = "$idtercero, $idtpidentificacion,'$pnombre', '$papellido', '$razonsocial','$idmcipio','$direccion','$barrio','$celular1',";
+						$SQL = $SQL."'$email','$pago_comisiones_transferencia', '$param_idbanco_transferencias' ,'$param_nro_cuenta_transferencias',";
+						$SQL = $SQL."'$param_tipo_cuenta_transferencias','$param_idmcipio_transferencias', '$recibo_promociones_celular',";
+						$SQL = $SQL."'$recibo_promociones_email', '$param_confirmar_nuevos_amigos_x_email', '$mis_datos_son_privados',";
+						$SQL = $SQL."'$declaro_renta', '$param_acepto_retencion_comis_para_pago_pedidos', '$param_valor_comisiones_para_pago_pedidos',";
+						$SQL = $SQL."'$pago_comisiones_efecty','$password'";
+						$Registro    =  $this->Db->Ejecutar_Sp("terceros_actualizar_registro(".$SQL.")");
+
+				}
 
 
 				public function Consulta_Datos_x_Idtercero ($idtercero){
@@ -122,16 +134,16 @@
 					 																									'$barrio','$destinatario')");
 				}
 
-				public function Direcciones_Despacho()
+				public function Direcciones_Despacho($idtercero=false)
 				{
-					$idtercero                = Session::Get('idtercero_pedido');
-					if ( !isset($idtercero  )){
-							$idtercero  = Session::Get('idtercero');
-					}
+					if ( $idtercero == false ) {
+							$idtercero                = Session::Get('idtercero_pedido');
+						}
 					$Registro                 =  $this->Db->Ejecutar_Sp("terceros_direcciones_despacho_x_idtercero($idtercero)");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 					return $Registro;
 				}
+
 
 				public function Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($iddireccion_despacho)
 				{

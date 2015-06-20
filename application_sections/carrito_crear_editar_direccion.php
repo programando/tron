@@ -33,6 +33,7 @@
 
                              <!-- Selecciona departamento-->
                                <div class="col-lg-6 col-md-6 col-sm-6">
+
                                  <label for="seleccion-departamento" class="text-label">Selecciona departamento :</label>
                                       <?php include (APPLICATION_SECTIONS . 'departamentos.php');?>
                                  <br>
@@ -41,6 +42,7 @@
                              <!-- Selecciona ciudad -->
                                <div class="col-lg-12 col-md-12 col-sm-12">
                                  <label for="seleccion-ciudad" class="text-label">Selecciona ciudad :</label>
+
                                  <select  id="idmcipio" class="form-control">
                                       <option value="0">Vacio </option>
                                  </select><br>

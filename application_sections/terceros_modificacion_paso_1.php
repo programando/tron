@@ -2,13 +2,16 @@
 	   <div class="row">
 
       <!-- Campo NIT -->
-        <div class="col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; display: " id="campos_nit">
+       <?php if ( $this->idtpidentificacion == 31 ) :?>
+        <div class=" well col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; display: " id="campos_nit">
+
              <div class="col-lg-6 col-sm-6 col-md-6 " style="padding: 0px;">
 		             <!-- Numero NIT -->
+
 						         <div class="form-group">
-						           <label for="numero_nit" class="col-lg-5 control-label"> <p class="text-left text-label"> Numero NIT : </p></label>
+						           <label for="numero_nit" class="col-lg-5 control-label"> <p class="text-left text-label"> Número NIT : </p></label>
 						           <div class="col-lg-7">
-						             <input type="text" class="form-control" id="numero_nit">
+						             <input type="text" class="form-control" id="identificacion" value = "<?= $this->identificacion ;?>" disabled='disabled'>
 						           </div>
 						         </div>
              </div>
@@ -18,21 +21,22 @@
 							         <div class="form-group">
 							           <label for="numero_dv" class="col-lg-5 control-label"> <p class="text-left text-label"> D.V: </p></label>
 							           <div class="col-lg-7">
-							             <input type="text" class="form-control" id="numero_dv">
+							             <input type="text" class="form-control" id="digitoverificacion" value = "<?= $this->digitoverificacion ;?>" disabled='disabled'>
 							           </div>
 							         </div>
              </div>
 
              <div class="col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; margin: 15px 0px;">
              	  <div class="form-group">
-							           <label for="numero_dv" class="col-lg-3 control-label" style="width: 180px;"> <p class="text-left text-label"> Razon Social: </p></label>
+							           <label for="numero_dv" class="col-lg-3 control-label" style="width: 180px;"> <p class="text-left text-label"> Razón Social: </p></label>
 							           <div class="col-lg-9" style="padding-left: 0px; width: 610px;">
-							             <input type="text" class="form-control" id="numero_dv">
+							             <input type="text" class="form-control" id="razonsocial" "<?= $this->razonsocial ;?>" >
 							           </div>
 							         </div>
              </div>
 
         </div><br>
+							<?php endif ;?>
 
 	       <!-- Columna  Left -->
         <div>
@@ -40,22 +44,25 @@
 	         	   <div>
                   <form class="form-horizontal" role="form" role="form">
  													        <!-- identificacion -->
-													         <div class="form-group">
-													           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificación: </p></label>
-													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="identificacion_nat" disabled="disabled"
-													             value="<?= $this->identificacion_nat ;?>">
-													           </div>
-													         </div>
+ 													        <?php if ( $this->idtpidentificacion != 31 ) :?>
+														         <div class="form-group">
+														           <label for="identificacion_nat" class="col-lg-5 control-label"> <p class="text-left text-label"> Identificación: </p></label>
+														           <div class="col-lg-7">
+														             <input type="text" class="form-control" id="identificacion_nat" disabled="disabled"
+														             value="<?= $this->identificacion_nat ;?>">
+														           </div>
+														         </div>
+													        <?php endif;?>
 
 													        <!-- Nombres -->
-													         <div class="form-group">
-													           <label for="pnombre" class="col-lg-5 control-label"> <p class="text-left text-label"> Nombres: </p></label>
-													           <div class="col-lg-7">
-													             <input type="text" class="form-control" id="pnombre" value="<?= $this->pnombre ;?>">
-													           </div>
-                      </div>
-
+													         <?php if ( $this->idtpidentificacion != 31 ) :?>
+															         <div class="form-group">
+															           <label for="pnombre" class="col-lg-5 control-label"> <p class="text-left text-label"> Nombres: </p></label>
+															           <div class="col-lg-7">
+															             <input type="text" class="form-control" id="pnombre" value="<?= $this->pnombre ;?>">
+															           </div>
+		                      </div>
+																						<?php endif;?>
 													        <!-- Pais -->
 													         <div class="form-group">
 													           <label for="idpais" class="col-lg-5 control-label"> <p class="text-left text-label"> Pais: </p></label>
@@ -107,12 +114,13 @@
 													         <div class="form-group">
 													           <label for="email" class="col-lg-5 control-label"> <p class="text-left text-label"> Correo electrónico: </p></label>
 													           <div class="col-lg-7">
-																											<input type="email" class="form-control" id="email"
-																											value="<?= $this->email ;?>">
+																											<input type="email" class="form-control" id="email" 	value="<?= $this->email ;?>">
+																											<input type="hidden" class="form-control" id="email-oculto" 	value="<?= $this->email ;?>">
 													           </div>
 													         </div>
 
                      <!-- Apellido -->
+                     <?php if ( $this->idtpidentificacion != 31 ) :?>
 														         <div class="form-group">
 														           <label for="papellido" class="col-lg-5 control-label"> <p class="text-left text-label"> Apellido: </p></label>
 														           <div class="col-lg-7">
@@ -120,6 +128,7 @@
 																													value="<?= $this->papellido ;?>">
 														           </div>
 														         </div>
+														         <?php endif ;?>
 
 
 													        <!-- Departamento -->

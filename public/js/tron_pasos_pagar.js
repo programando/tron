@@ -47,6 +47,7 @@ function Direccion_Usuario_Grabar(Parametros)
       success:  function (resultado)
       {
           resultado = Depurar_Texto(resultado);
+
           if (resultado=='Destinatario_No_OK')
           {
             $('#mensaje_error').html('Debe registrar el destinatario.');
@@ -74,7 +75,6 @@ function Direccion_Usuario_Grabar(Parametros)
           }
           if (resultado=='OK')
           {
-
             $('#venta_editar').modal('hide');
             $('.fila-direcciones').load('/tron/carrito/Finalizar_Pedido_Direccion_Mostrar_Direcciones');
             return false;
@@ -114,6 +114,7 @@ $('#destinatario,#direccion,#municipio,#telefono,#barrio').on('focus',function()
 
 
 $('#btn-direccion-grabar').on('click',function(){
+
    var $iddireccion_despacho = $iddireccion_despacho_seleccionada;
    var $idmcipio             = $('#idmcipio').val();
    var $direccion            = $('#direccion').val();
@@ -122,6 +123,7 @@ $('#btn-direccion-grabar').on('click',function(){
    var $destinatario         = $('#destinatario').val();
    var $Parametros = {'iddireccion_despacho':$iddireccion_despacho,'destinatario':$destinatario, 'idmcipio':$idmcipio,
                      'direccion':$direccion , 'telefono':$telefono, 'barrio':$barrio,'destinatario':$destinatario   };
+
    Direccion_Usuario_Grabar ($Parametros) ;
 })
 
@@ -136,11 +138,14 @@ $('.fila-direcciones').on('click','.btn-editar-direccion',function(e){
   var $direccion            = $(this).attr('direccion');
   var $barrio               = $(this).attr('barrio');
   var $telefono             = $(this).attr('telefono');
+  var $nommcipio            = $(this).attr('nommcipio');
+  var $nomdpto              = $(this).attr('nomdpto');
   $('.modal-body #destinatario').val($destinatario);
   $('.modal-body #departamento').val($iddpto );
   $('.modal-body #direccion').val($direccion );
   $('.modal-body #barrio').val($barrio);
   $('.modal-body #telefono').val($telefono );
+
   $('#venta_editar').modal('show');
 })
 
@@ -243,6 +248,10 @@ $('.img-pago1').on('click',function(){
       }
    });
 });
+
+
+
+
 
 
 
