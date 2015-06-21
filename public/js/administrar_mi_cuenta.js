@@ -27,3 +27,20 @@ $('#favoritos').on('click',function(){
 	   $('.cabezera').css('display','none');
     $('#cabezera_favoritos').css('display','block');
 });
+
+
+$('#perfil-datos-personales').on('click',function(){
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/modificacion_datos/',
+         type:     'post',
+				    success:  function (respuesta)
+				      {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+
+
+
+});

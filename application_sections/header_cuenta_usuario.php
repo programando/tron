@@ -30,7 +30,7 @@
                      <span class="glyphicon glyphicon-user"></span> Mi Cuenta <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu menu">
-                     <li><a href="<?= BASE_URL ;?>terceros/modificacion_datos"      ><span class="configuracion"></span> Administrar Mi Cuenta</a></li>
+                     <li><a href="<?= BASE_URL ;?>terceros/administrar_cuenta"      ><span class="configuracion"></span> Administrar Mi Cuenta</a></li>
                      <li><a href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span> Registrar Amigo</a></li>
 <!--                 <li><a href="<?= BASE_URL ;?>pedidos/historial_mis_pedidos"    ><span class="mis_pedidos"></span> Mis Pedidos</a></li>
                      <li><a href="<?= BASE_URL ;?>terceros/cuenta_pases_de_cortesia"><span ></span> Pases de Cortesia</a></li>

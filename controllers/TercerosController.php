@@ -15,9 +15,14 @@ class TercerosController extends Controller
 
     public function Index() { }
 
-   public function administrar_mi_cuenta()   {
+   public function administrar_cuenta()   {
 
-<<<<<<< HEAD
+        $this->View->SetCss(array('administrar_mi_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios'));
+        $this->View->SetJs(array('administrar_mi_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios'));
+        $this->View->Mostrar_Vista('administrar_mi_cuenta');
+   }
+
+
     public function Actualizar_Datos_Cuenta(){
 
         $idtercero                                      = General_Functions::Validar_Entrada('idtercero','NUM') ;
@@ -129,11 +134,6 @@ class TercerosController extends Controller
        echo json_encode($Datos ,256);
 
 
-=======
-        $this->View->SetCss(array('administrar_mi_cuenta'));
-        $this->View->SetJs(array('administrar_mi_cuenta'));
-         $this->View->Mostrar_Vista('administrar_mi_cuenta');
->>>>>>> origin/master
     }
 
     public function modificacion_datos()
@@ -186,10 +186,7 @@ class TercerosController extends Controller
         $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];
         $this->View->idtipo_plan_compras                            = $Registro [0]['idtipo_plan_compras'];
 
-
-        $this->View->SetCss(array("tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios'));
-        $this->View->SetJs(array("password",'tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios'));
-        $this->View->Mostrar_Vista("modificacion_datos");
+        $this->View->Mostrar_Vista_Parcial("modificacion_datos");
     }
 
         public function mejor_experiencia_usuario()
@@ -688,11 +685,6 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista("cuenta_informe_mi_red");
     }
 
-        public function participacion_en_la_red()
-    {
-        $this->View->SetCss(array("tron_barra_usuarios","tron_cuenta_info_partici_la_red","cuenta_navbar_informe"));
-        $this->View->Mostrar_Vista("cuenta_info_participacion_la_red");
-    }
 
     public function cuenta_pases_premium()
     {

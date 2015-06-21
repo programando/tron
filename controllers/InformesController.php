@@ -44,5 +44,19 @@
                 }
               $this->View->Mostrar_Vista_Parcial("comisiones_puntos_x_idtercero");
           }
+
+    public function Participacion_En_La_Red($idtercero=80021, $anio=0)
+    {
+        if ($anio == 0 ) {
+            $anio = date('Y');
+        }
+
+        $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
+        $this->View->Terceros = $this->Informes->Participacion_En_La_Red(80021,$anio);
+        $this->View->SetCss(array("tron_barra_usuarios","tron_cuenta_info_partici_la_red","cuenta_navbar_informe"));
+        $this->View->Mostrar_Vista("participacion_la_red");
+    }
+
+
     }
 ?>
