@@ -1,9 +1,4 @@
 // Funtiones tabs
-
-
-
-
-
 // TABS  =  mi perfil , informes , favoritos
 var $Opciones_Seleccionada = '';
 
@@ -196,11 +191,10 @@ $('#informes-estado-cuenta').on('click',function(){
 });
 
 
-$('#informes-participacion-red').on('click',function(){
-    $Opciones_Seleccionada = 'PARTICIPACION_EN_RED';
+$('#compras_tron_link').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Participacion_En_La_Red/',
+         url:      '/tron/informes/compras_tron/',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -225,6 +219,7 @@ $('#informes-red-usuarios').on('click',function(){
 
 
 
+
 $('.contenedor_cuenta').on('click','.usu-1',function(){
 	$Usuario_Seleccionado = $(this).attr('id');
 	 Activar_Usuarios ($Usuario_Seleccionado );
@@ -241,5 +236,4 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   				Mostrar_Participacion_en_Red($Usuario_Seleccionado,$anio );
   	}
 });
-
 

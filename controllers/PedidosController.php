@@ -15,7 +15,6 @@ class PedidosController extends Controller
     }
     public function index() {}
 
-
     public function historial_mis_pedidos()  {
         $idtercero = Session::Get('idtercero');
         $this->View->Pedidos            = $this->Pedidos->Historial_x_Idtercero($idtercero);

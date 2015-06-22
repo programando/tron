@@ -11,6 +11,9 @@
 
       public function Index() { }
 
+         public function compras_tron(){
+             $this->View->Mostrar_Vista_Parcial("compras_tron");
+         }
 
           public function Saldos_Comisiones_Puntos() {
               $idtercero                    = Session::Get('idtercero');

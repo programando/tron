@@ -4,6 +4,13 @@
 ______ Barra ususarios _______
 */
 
+#anio-consulta
+{
+    height: 28px;
+    display: block;
+    margin-top: 5px;
+}
+
 .colum-usurarios
 {
     display:block;
@@ -48,7 +55,7 @@ ______ Barra ususarios _______
     margin-left: 5px;
     cursor: pointer;
     border: 1px solid #aaaaaa;
-    margin-top: 5px;
+    margin-top: 8px;
     margin-bottom: -5px;
 
 }
