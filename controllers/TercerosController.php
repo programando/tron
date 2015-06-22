@@ -17,7 +17,7 @@ class TercerosController extends Controller
 
    public function administrar_cuenta()   {
 
-        $this->View->SetCss(array('administrar_mi_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios'));
+        $this->View->SetCss(array('administrar_mi_cuenta',"tron_modificacion_datos","password",'tron_barra_usuarios'));
         $this->View->SetJs(array('administrar_mi_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios'));
         $this->View->Mostrar_Vista('administrar_mi_cuenta');
    }
@@ -136,12 +136,6 @@ class TercerosController extends Controller
 
     }
 
-    // public function modificacion_datos_prueba()
-    // {
-    //   $this->View->SetCss(array('tron_modificacion_datos'));
-    //   $this->View->Mostrar_Vista("modificacion_datos");
-
-    // }
 
     public function modificacion_datos()
     {
