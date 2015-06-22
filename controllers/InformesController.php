@@ -25,9 +25,7 @@
                   $this->View->Saldo_Puntos     = Numeric_Functions::Formato_Numero( $this->View->Puntos[0]['saldo_puntos_cantidad']);
                 }
 
-              $this->View->SetCss(array("tron_informe_mi_cuenta","tron_barra_usuarios","cuenta_navbar_informe"));
-              $this->View->SetJs(array('tron_informes'));
-              $this->View->Mostrar_Vista("comisiones_puntos");
+              $this->View->Mostrar_Vista_Parcial("comisiones_puntos");
           }
 
           public function Saldos_Comisiones_Puntos_x_IdTercero() {
