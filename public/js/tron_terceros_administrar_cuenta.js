@@ -32,6 +32,21 @@ var  Mostrar_Participacion_en_Red = function($idtercero,$anio)
 	   });
 	}
 
+var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
+
+    $.ajax({
+    					data : {'idtercero':$idtercero},
+         dataType: 'html',
+         url:      '/tron/informes/Saldos_Comisiones_Puntos_x_IdTercero/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor-datos-informe').html('');
+				         $('.contenedor-datos-informe').html(respuesta);
+				      }
+				  });
+
+
+}
 
 $('#mi_perfil').on('click',function(){
 
@@ -199,8 +214,13 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
 	  if ( $Opciones_Seleccionada  == 'PEDIDOS_REALIZADOS'){
   			Mostrar_Pedidos_Usuario(Parametros);
   		}
+    if ( $Opciones_Seleccionada  == 'ESTADO_CUENTA'){
+  			Mostrar_Estado_Cuenta_x_idTercero($Usuario_Seleccionado );
+  		}
+
   	if ( $Opciones_Seleccionada == 'PARTICIPACION_EN_RED'){
-  				Mostrar_Participacion_en_Red($Usuario_Seleccionado,2015);
+  			 $anio = $('#anio-consulta').val();
+  				Mostrar_Participacion_en_Red($Usuario_Seleccionado,$anio );
   	}
 });
 
