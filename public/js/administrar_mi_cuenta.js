@@ -1,6 +1,6 @@
 // Funtiones tabs
 
-// Mi perfil
+// TABS  =  mi perfil , informes , favoritos
 $('#mi_perfil').on('click',function(){
 				$('.contenedor_cuenta').html('');
 	   $('.tabs_click').css('background','#B7B7B7');
@@ -59,11 +59,27 @@ $('#perfil-datos-personales').on('click',function(){
 });
 
 
+<<<<<<< HEAD
 $('#informes-pedidos-realizados').on('click',function(){
 	alert('first');
 
 $(".usu-1:first" ).css('background','#003E90');
 $(".usu-1:first" ).css('color','white');
+=======
+});
+
+// Menu sueprior
+$('li .perfil_menu_link').on('click',function(){
+				$('.perfil_menu_link').css('background','#B7B7B7');
+				$(this).css('background','#003E90');
+});
+
+// Seleccion de direccion a atualizar
+$('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(){
+	   $('.direcciones_a_atualizar').css('background','#B7B7B7');
+	   $(this).css('background','#003E90');
+	   $(this).css('color','white');
+>>>>>>> origin/master
 
     $.ajax({
          dataType: 'html',
