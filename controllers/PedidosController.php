@@ -20,9 +20,7 @@ class PedidosController extends Controller
         $idtercero = Session::Get('idtercero');
         $this->View->Pedidos            = $this->Pedidos->Historial_x_Idtercero($idtercero);
         $this->View->Cantidad_Registros = $this->Pedidos->Cantidad_Registros;
-        $this->View->SetCss(array("tron_mis_pedidos","tron_barra_usuarios"));
-        $this->View->SetJs(array('tron_pedidos_historial'));
-        $this->View->Mostrar_Vista("mis_pedidos");
+        $this->View->Mostrar_Vista_Parcial("mis_pedidos");
     }
 
     public function historial_mis_pedidos_x_tercero(){
@@ -40,6 +38,8 @@ class PedidosController extends Controller
 
            $this->View->Mostrar_Vista_Parcial("mis_pedidos_x_id_pedido");
     }
+
+
 
     public function Eliminar(){
       /** JUNIO 15 DE 2015

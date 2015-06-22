@@ -1,9 +1,10 @@
 
 var $Usuario_Seleccionado;
-$(".usu-1" ).first().css('background','#003E90');
-$(".usu-1" ).first().css('color','white')
+//$(".contenedor_cuenta .usu-1" ).first().css('background','#003E90');
+//$(".contenedor_cuenta .usu-1" ).first().css('color','white')
 
-
+$(".contenedor_cuenta .usu-1:first" ).css('background','#003E90');
+$(".contenedor_cuenta .usu-1:first" ).css('color','white');
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
  $('.barra-usurarios li').each(function(indice, elemento) {
@@ -71,18 +72,20 @@ var  Mostrar_Detalle_Pedido = function(Parametros)
 	}
 
 
-$('.usu-1').on('click',function(){
+$('.contenedor_cuenta').on('click','.usu-1',function(){
 	$Usuario_Seleccionado = $(this).attr('id');
 	 Activar_Usuarios ($Usuario_Seleccionado );
 	 Parametros ={'idtercero':$Usuario_Seleccionado};
   Mostrar_Pedidos_Usuario(Parametros);
 });
 
-$('.contenido-historial-pedidos').on('click','.pedido', function(){
+
+$('.contenedor_cuenta').on('click','.pedido', function(){
 		$idpedido  = $(this).attr('idpedido');
 		Parametros = {'idpedido':$idpedido};
 		Mostrar_Detalle_Pedido(Parametros);
 });
+
 
 $('.contenido-historial-pedidos').on('click','.regresar', function(){
 		$idtercero = $(this).attr('idtercero');
@@ -114,21 +117,6 @@ $('.contenido-historial-pedidos').on('click','.historial-eliminar-pedido', funct
        }});
 
 });
-
-/*
-$('.contenido-historial-pedidos').on('click','.historial-cambiar-forma-pago', function(){
-	  $.ajax({
-	      data:  '',
-	      dataType: 'html',
-	      url:      '/tron/pedidos/Cambiar_Forma_Pago/',
-	      type:     'post',
-	      success:  function (resultado) {
-	      			      	 $('.contenido-historial-pedidos').html('');
-	        $('.contenido-historial-pedidos').html(resultado);
-	      }
-	   });
-});
-*/
 
 
 

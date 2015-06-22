@@ -150,9 +150,8 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
 }
 
 $('.tab-mi-perfil').on('click', function(){
-
+   $('.contenedor_cuenta').html('');
     window.location.href = "/tron/terceros/administrar_cuenta/";
-
 });
 
 
@@ -176,7 +175,7 @@ $('.contenedor_cuenta').on('click', '#btn_atualizar_datos', function(){
 });
 
 
-$('#email').on('blur',function(){
+$('.contenedor_cuenta').on('blur','#email',function(){
 		var $Texto        = '';
 		var $email_oculto = $('#email-oculto').val();
 
@@ -227,8 +226,7 @@ var Mostrar_Direcciones_x_IdTercero = function($Parametros){
 
 }
 
-// OCULTAR DATOS DE LA CUENTA BANCARIA
-$('#datos_cuenta_bancaria').hide();
+
 
 $('.contenedor_cuenta').on('click','#cuenta',function(){
   $('#btn_atualizar_datos').show();
@@ -239,7 +237,7 @@ $('.contenedor_cuenta').on('click','#personales',function(){
 });
 
 //SOLAPA CUENTA BANCARIA
-$('#pago_comisiones_efecty').on('click',function(){
+$('.contenedor_cuenta').on('click','#pago_comisiones_efecty',function(){
 			if ( $('#pago_comisiones_efecty').is(':checked')){
 				 	$('#datos_cuenta_bancaria').hide();
 				 	$('#pago_comisiones_transferencia').prop('checked',false);
@@ -252,7 +250,7 @@ $('#pago_comisiones_efecty').on('click',function(){
 });
 
 
-$('#pago_comisiones_transferencia').on('click',function(){
+$('.contenedor_cuenta').on('click','#pago_comisiones_transferencia',function(){
 	 if ( $('#pago_comisiones_transferencia').is(':checked')){
 	 		$('#datos_cuenta_bancaria').show();
 	 		$('#pago_comisiones_efecty').prop('checked',false);
@@ -262,7 +260,7 @@ $('#pago_comisiones_transferencia').on('click',function(){
 	 }
 });
 
-$('#param_acepto_retencion_comis_para_pago_pedidos').on('click',function(){
+$('.contenedor_cuenta').on('click','#param_acepto_retencion_comis_para_pago_pedidos',function(){
 	if ( $('#param_acepto_retencion_comis_para_pago_pedidos').is(':checked')){
 				$('#param_valor_comisiones_para_pago_pedidos').prop('disabled',false);
 	}else{
@@ -271,8 +269,6 @@ $('#param_acepto_retencion_comis_para_pago_pedidos').on('click',function(){
 	}
 
 })
-//$().on('mouseover','#password',function(){
-//
 
 $('.contenedor_cuenta').on('click','#direcciones',function(){
   $idtercero = $(this).attr('idtercero');

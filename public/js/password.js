@@ -125,7 +125,7 @@ $('.contenedor_cuenta').on('keyup','#password',function(){
     var $porcentaje = 0;
     $Resutlado      = Verificar_Password($(this).val());
     $porcentaje     = $Resutlado.porcentaje;
-    alert($('.barra').val());
+    $barra          = $('.barra');
     if ( $porcentaje == 0 ){
         $('.Info-contrasena').hide();
         return ;
@@ -133,25 +133,24 @@ $('.contenedor_cuenta').on('keyup','#password',function(){
     $('.Info-contrasena').show();
     $('#definicion_contrasena').html($Resutlado.mensaje);
 
-    $('.barra').animate({ 'width': '25%'});
-    $('.barra').css({'background':'red'});
+
 
     if ($porcentaje  == 25 ){
-        $($pogreso).animate({ 'width': '25%'});
-        $($pogreso).css({'background':'red'});
+        $barra.animate({ 'width': '25%'});
+        $barra.css({'background':'red'});
       }
     if ($porcentaje  == 50 ){
-        $($pogreso).animate({ 'width': '50%'});
-        $($pogreso).css({'background':'yellow'});
+        $barra.animate({ 'width': '50%'});
+        $barra.css({'background':'yellow'});
       }
     if ($porcentaje  == 75 ){
-        $($pogreso).animate({ 'width': '75%'});
-        $($pogreso).css({'background':'blue'});
+        $barra.animate({ 'width': '75%'});
+        $barra.css({'background':'blue'});
       }
 
     if ($porcentaje  == 100 ){
-        $($pogreso).animate({ 'width': '100%'});
-        $($pogreso).css({'background':'#9ff430'});
+        $barra.animate({ 'width': '100%'});
+        $barra.css({'background':'#9ff430'});
       }
 });
 

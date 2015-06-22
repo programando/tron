@@ -73,7 +73,7 @@
 																			</div><br><br>
 
 																			<!-- option 6 -->
-																			<div class="checkbox">
+																			<div class="checkbox"  >
 																			  <label>
 																			    <input type="checkbox" id="pago_comisiones_transferencia" value=""
 																			    <?php if ( $this->pago_comisiones_transferencia == TRUE) : ?> checked="checked" <?php endif ;?>>
@@ -85,11 +85,12 @@
                        </span>
 																			  </label>
 																			</div><br>
+
                  </form>
                </div>
 
               <!-- Certificacion que la cuenta me pertenece -->
-              <div id='datos_cuenta_bancaria'>
+              <div  id='datos_cuenta_bancaria' <?php if ( $this->pago_comisiones_transferencia == FALSE) : ?> style ='display:none;' <?php endif ;?>>
                  <div class="col-lg-12 col-md-12 col-sm-12">
             	  	    <div>
            	  	    	   <div class="text-center">
