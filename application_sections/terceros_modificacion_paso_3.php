@@ -4,7 +4,7 @@
            <!-- Barra Usuarios -->
             <?php include(APPLICATION_SECTIONS .'barra_usuraios.php') ;?>
             <h5>Seleccione la dirección que desea modificar</h5><br />
-											 <div class="conteneror-direcciones">
+											 <div class="well col-lg-6 col-md-6 col-sm-6 conteneror-direcciones">
 														<?php foreach ($this->Direcciones as $Direccion) :?>
 																	<?php
 																			$destinatario       = $Direccion['destinatario'];
@@ -12,13 +12,18 @@
 																			$nommcipio_despacho = $Direccion['nommcipio_despacho'];
 																			$nomdpto 										 = $Direccion['nomdpto'];
 																	?>
-																	<a href="">
+																	<a href="" style="background: red;">
 																  	<strong><?= $destinatario  ;?></strong>
 					          				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
 					          				<br><br><br><br>
 																	</a>
 														<?php endforeach ;?>
 												</div>
+
+           <div class="well col-lg-6 col-md-6 col-sm-6">
+
+           </div>
+
           </div>
      </div>
 </div>

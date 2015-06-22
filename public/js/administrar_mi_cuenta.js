@@ -3,7 +3,7 @@
 // Mi perfil
 $('#mi_perfil').on('click',function(){
 
-	   $('.tabs_click').css('background','#85ABDD');
+	   $('.tabs_click').css('background','#B7B7B7');
 	   $(this).css('background','#003E90');
 	  	$('#con-row-menu').css('margin-bottom','0px');
 	   $('.cabezera').css('display','none');
@@ -12,7 +12,7 @@ $('#mi_perfil').on('click',function(){
 
 // Informes
 $('#informes_pedidos').on('click',function(){
-				$('.tabs_click').css('background','#85ABDD');
+				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','50px');
 	   $('.cabezera').css('display','none');
@@ -21,7 +21,7 @@ $('#informes_pedidos').on('click',function(){
 
 // Favoritos
 $('#favoritos').on('click',function(){
-				$('.tabs_click').css('background','#85ABDD');
+				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','0px');
 	   $('.cabezera').css('display','none');

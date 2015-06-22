@@ -21,8 +21,8 @@
 {
 	 display: block;
 	 padding: 0px 10px;
-	 background: #85ABDD;
-	 text-align: center;
+	 background: #B7B7B7;
+	 text-align: left;
 	 width: 100%;
 	 margin-bottom: 10px;
 	 cursor: pointer;
@@ -64,10 +64,10 @@
 .menu_perfil
 {
 	   display: block;
-	   width: 72%;
+	   width: 100%;
 	   padding: 0px;
 	   height: 53px;
-	   margin-left: 250px;
+   text-align: center;
 
 }
 
@@ -82,12 +82,12 @@
 .menu_perfil li .perfil_menu_link
 {
     display: block;
-    background: #85ABDD;
+    background: #B7B7B7;
     color:  white;
-    padding: 10px 0px;
+    padding: 5px 0px;
     text-decoration: none;
     margin: 0px;
-    width: 137px;
+    width: 140px;
     text-align: center;
 
     -webkit-transition: all 500ms ease;
@@ -99,7 +99,7 @@
     border-radius: 8px;
 }
 
-.tabs_click:hover ,
+
 .menu_perfil li .perfil_menu_link:hover
 {
 	   background: #003E90;
