@@ -136,6 +136,13 @@ class TercerosController extends Controller
 
     }
 
+    // public function modificacion_datos_prueba()
+    // {
+    //   $this->View->SetCss(array('tron_modificacion_datos'));
+    //   $this->View->Mostrar_Vista("modificacion_datos");
+
+    // }
+
     public function modificacion_datos()
     {
         $idtercero                 = Session::Get('idtercero');
