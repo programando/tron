@@ -124,3 +124,20 @@ $('#informes-pedidos-realizados').on('click',function(){
 				  });
 });
 
+
+$('#informes-estado-cuenta').on('click',function(){
+
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Saldos_Comisiones_Puntos/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+
+
+

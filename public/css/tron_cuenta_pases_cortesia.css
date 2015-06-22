@@ -1,10 +1,4 @@
 
-.contenedor
-{
-			margin: 0px auto;
-			width : 70%;
-}
-
 
 /*
 ___________ Titulo _____________
@@ -20,10 +14,12 @@ ___________ Titulo _____________
 _________ Compra Pases _________
 */
 
-.img-pases-cortesia
+.pases_img-pases-cortesia ,
+.img-pases-permium
 {
 			display: block;
 			margin : 0px auto;
+   width: 60%;
 }
 
 /*
@@ -35,8 +31,8 @@ ______  Botnoes Comprar ________
 				display    : block;
 				width      : 50%;
 				text-align : center;
-				margin-top : -50px;
-				margin-left: 80px;
+				margin-top : -40px;
+				margin-left: 70px;
 }
 
 .cont-bnt-menos ,
@@ -47,7 +43,7 @@ ______  Botnoes Comprar ________
 				width        : 25px;
 				height       : 25px;
 				margin-left  : 5px;
-				margin-bottom: 15px;
+				margin-bottom: 10px;
 }
 
 .btn-mas ,
@@ -132,7 +128,7 @@ ______ Bnt-Enviar pases ________
 .cont-info-enviar-pases
 {
 					display   : block;
-					margin-top: 50px;
+					margin-top: 30px;
 }
 
 .btn-enviar-pases
@@ -198,11 +194,6 @@ __________ Tabla __________
 _______ Pases Premium _________
 */
 
-.img-pases-permium /* IMG = Premium */
-{
-			display: block;
-			margin : 0px auto;
-}
 
 .cont-info-pases /* Informacion de la derecha */
 {
