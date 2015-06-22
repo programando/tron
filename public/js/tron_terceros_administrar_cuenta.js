@@ -1,5 +1,33 @@
 // Funtiones tabs
 // TABS  =  mi perfil , informes , favoritos
+var $Opciones_Seleccionada = '';
+
+var Activar_Usuarios = function($Usuario_Seleccionado){
+ $('.barra-usurarios li').each(function(indice, elemento) {
+ 		$(this).css('background','white');
+  	$(this).css('color','black');
+  });
+  $('#'+$Usuario_Seleccionado).css('background','#003E90');
+  $('#'+$Usuario_Seleccionado).css('color','white');
+}
+
+
+var  Mostrar_Participacion_en_Red = function($idtercero,$anio)
+	{
+
+	  $.ajax({
+	      data:  '',
+	      dataType: 'html',
+	      url:      '/tron/informes/Participacion_En_La_Red_Ajax/'+$idtercero+'/'+$anio,
+	      type:     'post',
+	      success:  function (resultado)  {
+				      $('.participacion-red').html('');
+				      $('.participacion-red').html(resultado);
+	      }
+	   });
+	}
+
+
 $('#mi_perfil').on('click',function(){
 				$('.contenedor_cuenta').html('');
 	   $('.tabs_click').css('background','#B7B7B7');
@@ -116,7 +144,7 @@ $('#pases_cortesia').on('click',function(){
 });
 
 $('#informes-pedidos-realizados').on('click',function(){
-
+				$Opciones_Seleccionada ='PEDIDOS_REALIZADOS';
     $.ajax({
          dataType: 'html',
          url:      '/tron/pedidos/historial_mis_pedidos/',
@@ -130,7 +158,7 @@ $('#informes-pedidos-realizados').on('click',function(){
 
 
 $('#informes-estado-cuenta').on('click',function(){
-
+    $Opciones_Seleccionada ='ESTADO_CUENTA';
     $.ajax({
          dataType: 'html',
          url:      '/tron/informes/Saldos_Comisiones_Puntos/',
@@ -143,5 +171,30 @@ $('#informes-estado-cuenta').on('click',function(){
 });
 
 
+$('#informes-participacion-red').on('click',function(){
+    $Opciones_Seleccionada = 'PARTICIPACION_EN_RED';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Participacion_En_La_Red/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+
+$('.contenedor_cuenta').on('click','.usu-1',function(){
+	$Usuario_Seleccionado = $(this).attr('id');
+	 Activar_Usuarios ($Usuario_Seleccionado );
+	 Parametros ={'idtercero':$Usuario_Seleccionado};
+	  if ( $Opciones_Seleccionada  == 'PEDIDOS_REALIZADOS'){
+  			Mostrar_Pedidos_Usuario(Parametros);
+  		}
+  	if ( $Opciones_Seleccionada == 'PARTICIPACION_EN_RED'){
+  				Mostrar_Participacion_en_Red($Usuario_Seleccionado,2015);
+  	}
+});
 
 

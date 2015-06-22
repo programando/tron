@@ -2,14 +2,7 @@
 var $Usuario_Seleccionado;
 
 
-var Activar_Usuarios = function($Usuario_Seleccionado){
- $('.barra-usurarios li').each(function(indice, elemento) {
- 		$(this).css('background','white');
-  	$(this).css('color','black');
-  });
-  $('#'+$Usuario_Seleccionado).css('background','#003E90');
-  $('#'+$Usuario_Seleccionado).css('color','white');
-}
+
 
 
 
@@ -68,12 +61,6 @@ var  Mostrar_Detalle_Pedido = function(Parametros)
 	}
 
 
-$('.contenedor_cuenta').on('click','.usu-1',function(){
-	$Usuario_Seleccionado = $(this).attr('id');
-	 Activar_Usuarios ($Usuario_Seleccionado );
-	 Parametros ={'idtercero':$Usuario_Seleccionado};
-  Mostrar_Pedidos_Usuario(Parametros);
-});
 
 
 $('.contenedor_cuenta').on('click','.pedido', function(){
@@ -101,7 +88,7 @@ $('.contenido-historial-pedidos').on('click','.historial-eliminar-pedido', funct
 	  new Messi('<h4>Confirma que desea borrar el pedido número : ' + $numero_pedido + ' ?</h4><br>',
        {title: 'Confirmación del Usuario',titleClass: 'info',modal: true,
        buttons: [
-                 {id: 0, label: 'Si, Deseo elimar el pedido.', val: 'Y',class: 'btn-danger'},
+                 {id: 0, label: 'Si, Deseo eliminar el pedido.', val: 'Y',class: 'btn-danger'},
                  {id: 1, label: 'No, Espere. He presionado mal.', val: 'N', class: 'btn-success'}
                  ],
        callback: function(val) {
