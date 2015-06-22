@@ -15,9 +15,22 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+   public function pases_cortesia()   {
+       $this->View->Mostrar_Vista_Parcial("pases_cortesia");
+   }
+
+
+   public function recomendar_amigo()   {
+       $this->View->Mostrar_Vista_Parcial("recomendar_amigo");
+   }
+
+   public function plan_seleccionado()   {
+       $this->View->Mostrar_Vista_Parcial("plan_seleccionado");
+   }
+
    public function administrar_cuenta()   {
 
-        $this->View->SetCss(array('administrar_mi_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios','tron_mis_pedidos'));
+        $this->View->SetCss(array('administrar_mi_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios','tron_mis_pedidos','tron_confi_perfil','tron_cuenta_pases_cortesia'));
         $this->View->SetJs(array('administrar_mi_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar','tron_dptos_mcipios','tron_pedidos_historial'));
         $this->View->Mostrar_Vista('administrar_mi_cuenta');
    }

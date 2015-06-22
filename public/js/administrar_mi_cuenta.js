@@ -1,5 +1,4 @@
 // Funtiones tabs
-
 // TABS  =  mi perfil , informes , favoritos
 $('#mi_perfil').on('click',function(){
 				$('.contenedor_cuenta').html('');
@@ -52,6 +51,26 @@ $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(){
 
 });
 
+//  pases de cortesia => pases premium
+$('.contenedor_cuenta').on('click','#ver_pases_premiun',function(){
+	   $('#pases_cortesia_vista').fadeOut();
+	   $('#pases_premium_vista').fadeIn();
+});
+
+
+// vistas cargadas con ajax
+$('#plan_seleccionado').on('click',function(){
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/plan_seleccionado/',
+         type:     'post',
+				    success:  function (respuesta)
+				      {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
 
 $('#perfil-datos-personales').on('click',function(){
     $.ajax({
@@ -66,9 +85,32 @@ $('#perfil-datos-personales').on('click',function(){
 				  });
 });
 
+$('#recomendar_amigo').on('click',function(){
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/recomendar_amigo/',
+         type:     'post',
+				    success:  function (respuesta)
+				      {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
 
+$('#pases_cortesia').on('click',function(){
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/pases_cortesia/',
+         type:     'post',
+				    success:  function (respuesta)
+				      {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
 
-// Seleccion de direccion a atualizar
 $('#informes-pedidos-realizados').on('click',function(){
 
     $.ajax({
@@ -81,3 +123,4 @@ $('#informes-pedidos-realizados').on('click',function(){
 				      }
 				  });
 });
+

@@ -1,9 +1,4 @@
 
-.contenedor
-{
-			margin: 0px auto;
-			width : 70%;
-}
 
 /* Ventana Modal  */
 
@@ -77,13 +72,20 @@ text-decoration: underline;
 _________ Cabezera _________
 */
 
+.contenedor_plan_selec
+{
+   width: 90%;
+   margin: 20px auto;
+}
+
 .banner-cabezera
 {
 			display              : block;
-			background           : #efefff;
+/*			background           : #efefff;*/
 			padding              : 10px;
-			border               : 1px solid #c2c2d1;
+/*			border               : 1px solid #c2c2d1;*/
 			margin-bottom        : 20px;
+			width: 100%;
 
 			-webkit-border-radius: 8px;
 			-moz-border-radius   : 8px;
@@ -100,7 +102,7 @@ _________ Cabezera _________
 {
 				display: block;
 				float  : left;
-				width  : 30%;
+				width  :40%;
 				margin-top: -50px;
 }
 
@@ -117,8 +119,8 @@ ____ pases-cortesia ____
 .img-pases-cortesia
 {
 			display: block;
-			width  : 70%;
-			margin : -20px auto;
+			width  : 100%;
+			margin : 0px auto;
 }
 
 .link-pases-cortesia
@@ -255,9 +257,9 @@ _____ Recomienda Negocio ______
 .cont-recomendar-negocio
 {
 			display              : block;
-			background           : #efefff;
+	/*		background           : #efefff;*/
 			padding              : 20px;
-			border               : 1px solid #c2c2d1;
+/*			border               : 1px solid #c2c2d1;*/
 			margin-bottom        : 20px;
 
 			-webkit-border-radius: 8px;

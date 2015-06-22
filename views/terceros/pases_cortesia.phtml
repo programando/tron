@@ -1,0 +1,166 @@
+<!--
+     Estilos CSS => carpeta CSS => tron_cuenta_pases_cortesia.css
+     ******** Cuenta-perfil Pases de Cortesia **********
+-->
+<div class="contenedor" ><!-- Contenedor de la pagina -->
+	   <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+
+        <!-- /// Barra Usuario /// -->
+            <?php include (APPLICATION_SECTIONS . 'barra_usuraios.php');?>
+        <!-- /// Barra Usuario /// -->
+
+         <!-- /// Cuerpo pagina /// -->
+              <div id="pases_cortesia_vista"><!-- Contenido-cuerpo-pagina -->
+                  <div>
+                      <div class="col-lg-12">
+                          <!-- Comprar pases -->
+                          <div class="col-lg-5 col-md-5 col-sm-5">
+
+                             <div class="cont-img-pases"><!-- IMG  = pases de cortesia -->
+                                    <img src="<?= BASE_IMG_EMPRESA ; ?>pases-version2.png" class="pases_img-pases-cortesia" />
+                             </div><!-- IMG = pases de cortesia -->
+
+                     <!-- Seleccion de Cantidad , compra  -->
+                            <div class="cont-comprar-pases"><!-- Contenedor principal -->
+                                 <form>
+                                      <div class="cont-bnt-menos"><!-- btn-menos  -->
+                                          <button type="button" class="btn btn-default btn-mas">-</button>
+                                      </div><!-- btn-menos  -->
+
+                                      <div class="cont-input"><!--  Input-->
+                                          <input type="text" class="form-control input-comprar">
+                                      </div><!-- Input -->
+
+                                      <div class="cont-bnt-mas"><!-- btn-mas -->
+                                          <button type="button" class="btn btn-default btn-menos">+</button>
+                                      </div><!-- btn-mas -->
+
+                                      <div>
+                                          <p>Paquete por 20 pases... $10.000 </p>
+                                      </div>
+
+                                      <div>
+                                          <button type="button" class="btn-comprar">Comprar Ahora !</button>
+                                      </div>
+                                 </form>
+                            </div><!-- Contenedor principal -->
+                       <!-- Seleccion de Cantidad , compra  -->
+
+
+                          </div>
+                          <!-- Comprar pases -->
+
+                           <!-- enviar pases-corteisa -->
+                          <div class="col-lg-7 col-md-7 col-sm-7">
+                              <div class="cont-info-enviar-pases">
+                                   <p><a href="#" id="ver_pases_premiun">
+                                       Ver estado de Pases Premium
+                                       <strong> >> </strong></a>
+                                   </p>
+
+                                  <p>Con este usuario posees 6 Pases de Cortesía.</p>
+                                  <button type="button" class="btn-enviar-pases">Enviar Pases de Cortesía</button><br><br>
+                              </div>
+
+                          <!-- tabla =Historial PAses-Cortesia -->
+                              <div class="col-lg-12">
+
+                                  <div><!-- Titulo = hostorial pases de cortesía -->
+                                       <p class="text-center titulo-historia-pases"><strong>Historial de Pases de Cortesía</strong></p>
+                                  </div><!-- Titulo = hostorial pases de cortesía -->
+
+                                   <div><!-- Contenedor -->
+
+                                        <table class="table table-condensed table-hover">
+                                             <thead><!-- Cabezera -->
+                                                 <tr>
+                                                     <th class="text-center" style="color: #003e90;">Fecha</th>
+                                                     <th class="text-center" style="color: #003e90;">Concepto</th>
+                                                     <th class="text-center" style="color: #003e90;">Entran</th>
+                                                     <th class="text-center" style="color: #003e90;">Salen</th>
+                                                     <th class="text-center" style="color: #003e90;">Saldo</th>
+                                                 </tr>
+                                             </thead><!-- Cabezera -->
+
+                                             <tbody><!-- Cuerpo -->
+                                                <tr>
+                                                    <td>01/07/2014</td>
+                                                    <td>RENOVACIÓN PLAN EMPERESARIO</td>
+                                                    <td class="text-center">6</td>
+                                                    <td class="text-center">0</td>
+                                                    <td class="text-center">6</td>
+                                                </tr>
+                                             </tbody><!-- Cuerpo -->
+                                        </table>
+
+                                   </div><!-- Contenedor -->
+                              </div>
+                          <!-- tabla =Historial PAses-Cortesia -->
+
+
+                          </div>
+                           <!-- enviar pases-corteisa -->
+
+                      </div>
+                  </div>
+              </div><!-- Contenido-cuerpo-pagina -->
+
+
+
+
+<!-- Pases  premium -->
+<div id="pases_premium_vista" ><!-- Contenido-cuerpo-pagina -->
+    <div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <!--  pases Premium -->
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+               <div class="cont-img-pases"><!-- IMG  = pases de Premium-->
+                       <img src="<?= BASE_IMG_EMPRESA ; ?>pase_premium.png" class="img-pases-permium" />
+               </div><!-- IMG = pases de Premium -->
+
+            </div>
+            <!-- Comprar pases -->
+
+             <!-- Info pases-Premium -->
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="cont-info-pases">
+                     <p><a href="#">
+                         <strong> << </strong>
+                         Ver estado de Pases de Cortesia</a>
+                      </p>
+
+                         <p>Posees 0/5 Pases de Cortesía efectivos. </p>
+                     <div class="cont-barra-cantidad-pases-premium"> <!-- Barra = cantidad Pases-efectivos -->
+                         <div class="barra-cantidad-ps-premium">
+                            <!-- Barra cantidad pases -->
+                         </div>
+                     </div> <!-- Barra = cantidad Pases-efectivos -->
+                     <p><em>Acumula 5 para obtener un Pase Premium.</em></p>
+                     <a href="<?= BASE_URL ;?>redtron/pases_de_cortesia">¿Qué es un Pase Premium?</a>
+                </div>
+            </div>
+             <!-- Info pases-Premium -->
+
+             <!-- Barra =  Mis-Pases Premium -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="barra_bottom_premium"><!-- Contenedor -->
+                         <p>Mis Pases Premium</p>
+                         <p>No posees ningún Pase Premium</p>
+                    </div><!-- Contenedor -->
+                </div>
+             <!-- Barra =  Mis-Pases Premium -->
+
+        </div>
+    </div>
+</div><!-- Contenido-cuerpo-pagina -->
+
+
+
+
+        </div>
+     </div><!-- Contenedor de la pagina -->
+</div>
+<br><br><br>
