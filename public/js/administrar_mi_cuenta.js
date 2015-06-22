@@ -35,20 +35,7 @@ $('li .perfil_menu_link').on('click',function(){
 				$(this).css('background','#003E90');
 });
 
-$('#perfil-datos-personales').on('click',function(){
-    $.ajax({
-         dataType: 'html',
-         url:      '/tron/terceros/modificacion_datos/',
-         type:     'post',
-				    success:  function (respuesta)
-				      {
-				         $('.contenedor_cuenta').html('');
-				         $('.contenedor_cuenta').html(respuesta);
-				      }
-				  });
-});
 
-<<<<<<< HEAD
 
 
 // Menu sueprior
@@ -63,11 +50,27 @@ $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(){
 	   $(this).css('background','#003E90');
 	   $(this).css('color','white');
 
+});
 
-=======
+
+$('#perfil-datos-personales').on('click',function(){
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/modificacion_datos/',
+         type:     'post',
+				    success:  function (respuesta)
+				      {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+
+
 // Seleccion de direccion a atualizar
 $('#informes-pedidos-realizados').on('click',function(){
->>>>>>> origin/master
+
     $.ajax({
          dataType: 'html',
          url:      '/tron/pedidos/historial_mis_pedidos/',
