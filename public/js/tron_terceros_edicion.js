@@ -135,7 +135,12 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
             if (resultado.Texto == 'OK'){
 	    	 				resultado.Texto ='<h4> Los datos han sido actualizados con éxito ! </h4>'
              new Messi(resultado.Texto,
-              {title: 'Mensaje del Sistema',modal: true, titleClass: 'info', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}] });
+              {title: 'Mensaje del Sistema',modal: true, titleClass: 'info', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}] ,
+              callback: function(val) {
+                      $('.tab-mi-perfil').click();
+              }
+            });
+
 	    	 		}else{
 	    	 					new Messi(resultado.Texto ,
 	    	 								 {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
@@ -144,8 +149,15 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
 			});
 }
 
+$('.tab-mi-perfil').on('click', function(){
 
-$('#btn_atualizar_datos').on('click',function(){
+    window.location.href = "/tron/terceros/administrar_cuenta/";
+
+});
+
+
+
+$('.contenedor_cuenta').on('click', '#btn_atualizar_datos', function(){
     $idtercero               = $(this).attr('idtercero');
     $idtpidentificacion      = $(this).attr('idtpidentificacion');
     var $Formulario_Validado = false;
@@ -159,6 +171,7 @@ $('#btn_atualizar_datos').on('click',function(){
               });
       }else{
       	Actualizar_Datos_Cuenta_Usuario ($Parametros_Actualizar_Registro );
+
       }
 });
 
