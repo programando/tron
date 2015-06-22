@@ -48,35 +48,38 @@ var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
 
 }
 
-$('#mi_perfil').on('click',function(){
-
-				$('.contenedor_cuenta').html('');
-	   $('.tabs_click').css('background','#B7B7B7');
-	   $(this).css('background','#003E90');
-	  	$('#con-row-menu').css('margin-bottom','0px');
+$('#mi-perfil').on('click',function(){
+				$('.tabs_click').css('background','#B7B7B7');
+				$(this).css('background','#003E90');
+				$('#con-row-menu').css('margin-bottom','0px');
 	   $('.cabezera').css('display','none');
     $('#cabezera_perfil').css('display','block');
+    $('.contenedor_cuenta').html('');
+    $('#plan_seleccionado').click();
 });
+
 
 // Informes
 $('#informes_pedidos').on('click',function(){
-
-		  $('.contenedor_cuenta').html('');
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','50px');
 	   $('.cabezera').css('display','none');
     $('#cabezera_informes').css('display','block');
+   // $('.contenedor_cuenta').html('');
+    $('#informes-pedidos-realizados').click();
 });
 
 // Favoritos
 $('#favoritos').on('click',function(){
-		 $('.contenedor_cuenta').html('');
+
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','0px');
 	   $('.cabezera').css('display','none');
     $('#cabezera_favoritos').css('display','block');
+    $('.contenedor_cuenta').html('');
+
 });
 
 $('li .perfil_menu_link').on('click',function(){
@@ -205,6 +208,21 @@ $('#informes-participacion-red').on('click',function(){
 				      }
 				  });
 });
+
+$('#informes-red-usuarios').on('click',function(){
+    $Opciones_Seleccionada = 'RED_USUARIOS';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Mi_Red_de_Usuarios/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+
 
 
 $('.contenedor_cuenta').on('click','.usu-1',function(){

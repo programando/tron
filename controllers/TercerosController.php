@@ -32,7 +32,8 @@ class TercerosController extends Controller
    public function administrar_cuenta(){
 
         $this->View->SetCss(array('tron_terceros_administrar_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion',
-              'tron_carrito_confi_envio','tron_barra_usuarios','tron_mis_pedidos','tron_informe_mi_cuenta','tron_confi_perfil','tron_cuenta_pases_cortesia','tron_cuenta_info_partici_la_red'));
+                                  'tron_carrito_confi_envio','tron_barra_usuarios','tron_mis_pedidos','tron_informe_mi_cuenta','tron_confi_perfil',
+                                  'tron_cuenta_pases_cortesia','tron_cuenta_info_partici_la_red','cuenta_informe_mi_red'));
 
         $this->View->SetJs(array('tron_terceros_administrar_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar',
                                  'tron_dptos_mcipios','tron_pedidos_historial','tron_informes'));
@@ -699,11 +700,6 @@ class TercerosController extends Controller
 
 
 
-    public function mi_red()
-    {
-        $this->View->SetCss(array("tron_barra_usuarios","cuenta_navbar_informe",'cuenta_informe_mi_red'));
-        $this->View->Mostrar_Vista("cuenta_informe_mi_red");
-    }
 
 
     public function cuenta_pases_premium()

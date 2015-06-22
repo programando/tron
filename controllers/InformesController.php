@@ -43,32 +43,39 @@
               $this->View->Mostrar_Vista_Parcial("comisiones_puntos_x_idtercero");
           }
 
-    public function Participacion_En_La_Red($idtercero =false, $anio=0)
-    {
-        if ($anio == 0 ) {
-            $anio = date('Y');
+        public function Participacion_En_La_Red($idtercero =false, $anio=0)
+        {
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+            $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
+            $this->View->Terceros = $this->Informes->Participacion_En_La_Red($idtercero,$anio);
+            $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
+            $this->View->Mostrar_Vista_Parcial("participacion_la_red");
         }
-        if ( $idtercero == FALSE ){
-          $idtercero = Session::Get('idtercero');
+
+        public function Participacion_En_La_Red_Ajax($idtercero =false, $anio=0)
+        {
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+             $this->View->Terceros = $this->Informes->Participacion_En_La_Red($idtercero,$anio);
+             $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
+            $this->View->Mostrar_Vista_Parcial("participacion_la_red_x_idtercero");
         }
-        $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
-        $this->View->Terceros = $this->Informes->Participacion_En_La_Red($idtercero,$anio);
-        $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
-        $this->View->Mostrar_Vista_Parcial("participacion_la_red");
+
+
+        public function Mi_Red_de_Usuarios()
+        {
+
+            $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios");
+        }
     }
 
-    public function Participacion_En_La_Red_Ajax($idtercero =false, $anio=0)
-    {
-        if ($anio == 0 ) {
-            $anio = date('Y');
-        }
-        if ( $idtercero == FALSE ){
-          $idtercero = Session::Get('idtercero');
-        }
-         $this->View->Terceros = $this->Informes->Participacion_En_La_Red($idtercero,$anio);
-         $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
-        $this->View->Mostrar_Vista_Parcial("participacion_la_red_x_idtercero");
-    }
-
-    }
 ?>
