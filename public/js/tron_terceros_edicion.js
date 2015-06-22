@@ -230,11 +230,11 @@ var Mostrar_Direcciones_x_IdTercero = function($Parametros){
 // OCULTAR DATOS DE LA CUENTA BANCARIA
 $('#datos_cuenta_bancaria').hide();
 
-$('#cuenta').on('click',function(){
+$('.contenedor_cuenta').on('click','#cuenta',function(){
   $('#btn_atualizar_datos').show();
 });
 
-$('#personales').on('click',function(){
+$('.contenedor_cuenta').on('click','#personales',function(){
   $('#btn_atualizar_datos').show();
 });
 
@@ -271,8 +271,10 @@ $('#param_acepto_retencion_comis_para_pago_pedidos').on('click',function(){
 	}
 
 })
+//$().on('mouseover','#password',function(){
+//
 
-$('#direcciones').on('click',function(){
+$('.contenedor_cuenta').on('click','#direcciones',function(){
   $idtercero = $(this).attr('idtercero');
   $('#btn_atualizar_datos').hide();
   $json = 1;

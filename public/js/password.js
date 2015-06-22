@@ -85,9 +85,6 @@ $('#password').on('keyup',function(){
         $($pogreso).animate({ 'width': '100%'});
         $($pogreso).css({'background':'#9ff430'});
       }
-
-
-
 });
 
 
@@ -121,3 +118,72 @@ $('#mostrar-ocultar-confirm').on('click',function(){
     mostrar_clave = true;
   }
 });
+
+/***************** EDICION DE DATOS. PROGRAMACIÓN TENIENDO ENCUENTA EL CONTENEDOR DE LOS DATOS */
+
+$('.contenedor_cuenta').on('keyup','#password',function(){
+    var $porcentaje = 0;
+    $Resutlado      = Verificar_Password($(this).val());
+    $porcentaje     = $Resutlado.porcentaje;
+    alert($('.barra').val());
+    if ( $porcentaje == 0 ){
+        $('.Info-contrasena').hide();
+        return ;
+    }
+    $('.Info-contrasena').show();
+    $('#definicion_contrasena').html($Resutlado.mensaje);
+
+    $('.barra').animate({ 'width': '25%'});
+    $('.barra').css({'background':'red'});
+
+    if ($porcentaje  == 25 ){
+        $($pogreso).animate({ 'width': '25%'});
+        $($pogreso).css({'background':'red'});
+      }
+    if ($porcentaje  == 50 ){
+        $($pogreso).animate({ 'width': '50%'});
+        $($pogreso).css({'background':'yellow'});
+      }
+    if ($porcentaje  == 75 ){
+        $($pogreso).animate({ 'width': '75%'});
+        $($pogreso).css({'background':'blue'});
+      }
+
+    if ($porcentaje  == 100 ){
+        $($pogreso).animate({ 'width': '100%'});
+        $($pogreso).css({'background':'#9ff430'});
+      }
+});
+
+
+// Tooltips Contraseña = pasos para una contraseña segura.
+$('.contenedor_cuenta').on('mouseover','#password',function(){
+  $('#ventana_modal_mensaje_codigo').fadeIn();
+});
+
+$('.contenedor_cuenta').on('mouseout','#password',function(){
+  $('#ventana_modal_mensaje_codigo').fadeOut();
+});
+
+//confirmar-password
+
+$('.contenedor_cuenta').on('click','#mostrar-ocultar',function(){
+  if ( mostrar_clave == true){
+    $('#password').get(0).type='text';
+    mostrar_clave = false;
+  }else{
+    $('#password').get(0).type='password';
+    mostrar_clave = true;
+  }
+});
+
+$('.contenedor_cuenta').on('click','#mostrar-ocultar-confirm',function(){
+  if ( mostrar_clave == true){
+    $('#confirmar-password').get(0).type='text';
+    mostrar_clave = false;
+  }else{
+    $('#confirmar-password').get(0).type='password';
+    mostrar_clave = true;
+  }
+});
+

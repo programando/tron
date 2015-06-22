@@ -136,12 +136,7 @@ class TercerosController extends Controller
 
     }
 
-    // public function modificacion_datos_prueba()
-    // {
-    //   $this->View->SetCss(array('tron_modificacion_datos'));
-    //   $this->View->Mostrar_Vista("modificacion_datos");
 
-    // }
 
     public function modificacion_datos()
     {
@@ -194,6 +189,7 @@ class TercerosController extends Controller
         $this->View->idtipo_plan_compras                            = $Registro [0]['idtipo_plan_compras'];
 
         $this->View->Mostrar_Vista_Parcial("modificacion_datos");
+
     }
 
         public function mejor_experiencia_usuario()
