@@ -1,10 +1,6 @@
 
 var $Usuario_Seleccionado;
-//$(".contenedor_cuenta .usu-1" ).first().css('background','#003E90');
-//$(".contenedor_cuenta .usu-1" ).first().css('color','white')
 
-$(".contenedor_cuenta .usu-1:first" ).css('background','#003E90');
-$(".contenedor_cuenta .usu-1:first" ).css('color','white');
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
  $('.barra-usurarios li').each(function(indice, elemento) {

@@ -54,7 +54,7 @@
 
                      <!-- Direccion -->
 									              <div class="form-group">
-									                <label for="new_direccion"  class="col-lg-3  control-label "><p class="text-label">Direccion: </p></label>
+									                <label for="new_direccion"  class="col-lg-3  control-label "><p class="text-label">Dirección: </p></label>
 									                <div class="col-lg-9" >
 									                   <input type="text" class="form-control" id="new_direccion" />
 									                </div>
@@ -79,7 +79,7 @@
                      <!-- Btn = crear / actualizar direccion -->
                        <div class="col-lg-12 col-md-12 col-sm-12">
                        	   <div class="text-center">
-                       	   	   <button type="button" class="btn_atualizar_direccion" id="btn_direccion">Crear / Atualizar Direccion</button>
+                       	   	   <button type="button" class="btn_atualizar_direccion" id="btn_direccion">Crear / Actualizar Dirección</button>
                        	   </div>
                        </div>
                	   </form>
