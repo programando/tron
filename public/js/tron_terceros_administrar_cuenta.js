@@ -1,4 +1,9 @@
 // Funtiones tabs
+
+
+
+
+
 // TABS  =  mi perfil , informes , favoritos
 var $Opciones_Seleccionada = '';
 
@@ -29,6 +34,7 @@ var  Mostrar_Participacion_en_Red = function($idtercero,$anio)
 
 
 $('#mi_perfil').on('click',function(){
+
 				$('.contenedor_cuenta').html('');
 	   $('.tabs_click').css('background','#B7B7B7');
 	   $(this).css('background','#003E90');
@@ -39,6 +45,7 @@ $('#mi_perfil').on('click',function(){
 
 // Informes
 $('#informes_pedidos').on('click',function(){
+
 		  $('.contenedor_cuenta').html('');
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
