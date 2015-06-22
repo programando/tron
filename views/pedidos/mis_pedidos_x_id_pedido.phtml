@@ -33,35 +33,43 @@
 								?>
 
 								<tr>
-											<td class="text-center">  <?= $nom_producto ;?> </td>
-												<td class="text-center"> <?= $nompresentacion ;?> </td>
-												<td class="text-center"> <?= $cantidad  ;?> </td>
-												<td class="text-center"> <?= $vrunitario  ;?> </td>
-												<td class="text-center"> <?= $vr_total ;?> </td>
+											<td class="text-left">  <?= $nom_producto ;?> </td>
+												<td class="text-left"> <?= $nompresentacion ;?> </td>
+												<td class="text-right"> <?= $cantidad  ;?> </td>
+												<td class="text-right"> <?= $vrunitario  ;?> </td>
+												<td class="text-right"> <?= $vr_total ;?> </td>
 								</tr>
 				<?php endforeach ;?>
 </tbody><!-- Cuerpo -->
 				<tr><td colspan="3" ></td>
-								<td> Subtotal Pedido : </td> <td> <?= $suma_total_pedido ;?> </td>
+								<td class="text-left"> Subtotal Pedido : </td>
+							 <td class="text-right"> <?= $suma_total_pedido ;?> </td>
 				</tr>
-					<tr><td colspan="3" ></td>
-								<td> Transporte : </td> <td> <?= 	$vr_fletes_totales ;?> </td>
+
+				<tr>
+					   <td colspan="3" ></td>
+								<td class="text-left"> Transporte : </td>
+								<td class="text-right"> <?= 	$vr_fletes_totales ;?> </td>
 				</tr>
 				<?php if ( $Pedido['vr_puntos_redimidos']> 0 ) :?>
-					<tr><td colspan="3" ></td>
-									<td> Puntos Utilizados : </td>
-									<td> <?= $vr_puntos_redimidos  ;?> </td>
+					<tr>
+					    <td colspan="3" ></td>
+									<td class="text-left"> Puntos Utilizados : </td>
+									<td class="text-right"> <?= $vr_puntos_redimidos  ;?> </td>
 					</tr>
 				<?php endif ;?>
 
 				<?php if ( $Pedido['vr_comis_pago_pedidos']> 0 ) :?>
-					<tr><td colspan="3" ></td>
-									<td> Comisiones Utilizadas : </td>
-									<td> <?= $vr_comis_pago_pedidos  ;?> </td>
+					<tr>
+					    <td colspan="3" ></td>
+									<td class="text-left"> Comisiones Utilizadas : </td>
+									<td class="text-right"> <?= $vr_comis_pago_pedidos  ;?> </td>
 					</tr>
 				<?php endif ;?>
 
-					<tr><td colspan="3" ></td>
-								<td> Total Pedido : </td> <td> <?= $vr_total_pedido ;?> </td>
+					<tr>
+					   <td colspan="3" ></td>
+								<td class="text-left"> Total Pedido : </td>
+								<td class="text-right"> <?= $vr_total_pedido ;?> </td>
 				</tr>
 </table>
