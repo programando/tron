@@ -57,6 +57,10 @@ $('.contenedor_cuenta').on('click','#ver_pases_premiun',function(){
 	   $('#pases_premium_vista').fadeIn();
 });
 
+$('.contenedor_cuenta').on('click','#ver_pases_cortesia',function(){
+	   $('#pases_premium_vista').fadeOut();
+	   $('#pases_cortesia_vista').fadeIn();
+});
 
 // vistas cargadas con ajax
 $('#plan_seleccionado').on('click',function(){
