@@ -37,6 +37,13 @@
 								return 			$Registro   ;
 						}
 
+						public function Compras_Productos_Tron($idtercero,$anio)
+						{
+								$Registro                = $this->Db->Ejecutar_Sp("terceros_informes_red_total_y_compras_productos_tron($idtercero,$anio)");
+								$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
+								return 			$Registro   ;
+
+						}
 
    }
 ?>

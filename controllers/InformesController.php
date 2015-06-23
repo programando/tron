@@ -11,9 +11,24 @@
 
       public function Index() { }
 
-         public function compras_tron(){
+         public function Compras_Productos_Tron($idtercero=false, $anio=0){
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+             $this->View->Datos_Compras  = $this->Informes->Compras_Productos_Tron($idtercero ,$anio );
+             $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
              $this->View->Mostrar_Vista_Parcial("compras_tron");
          }
+
+           public function Compras_Productos_Tron_x_IdTercero($idtercero=false, $anio=0){
+             $this->View->Datos_Compras  = $this->Informes->Compras_Productos_Tron($idtercero ,$anio );
+             $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_tron_x_idtercero");
+         }
+
 
           public function Saldos_Comisiones_Puntos() {
               $idtercero                    = Session::Get('idtercero');
@@ -76,6 +91,7 @@
 
         public function Mi_Red_de_Usuarios()
         {
+
 
             $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios");
         }

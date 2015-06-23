@@ -39,8 +39,18 @@ var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
 				         $('.contenedor-datos-informe').html(respuesta);
 				      }
 				  });
+}
 
-
+var Mostar_Compra_Tron_x_IdTercero = function($idtercero,$anio){
+	    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Productos_Tron_x_IdTercero/'+$idtercero+'/'+$anio,
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenido-reporte').html('');
+				         $('.contenido-reporte').html(respuesta);
+				      }
+				  });
 }
 
 $('#mi-perfil').on('click',function(){
@@ -190,11 +200,11 @@ $('#informes-estado-cuenta').on('click',function(){
 				  });
 });
 
-
-$('#compras_tron_link').on('click',function(){
+$('#informes-participacion-red').on('click',function(){
+    $Opciones_Seleccionada = 'PARTICIPACION_EN_RED';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/compras_tron/',
+         url:      '/tron/informes/Participacion_En_La_Red/',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -202,6 +212,20 @@ $('#compras_tron_link').on('click',function(){
 				      }
 				  });
 });
+
+$('#compras_tron_link').on('click',function(){
+		$Opciones_Seleccionada = 'COMPRAS_TRON';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Productos_Tron/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
 
 $('#informes-red-usuarios').on('click',function(){
     $Opciones_Seleccionada = 'RED_USUARIOS';
@@ -235,5 +259,12 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   			 $anio = $('#anio-consulta').val();
   				Mostrar_Participacion_en_Red($Usuario_Seleccionado,$anio );
   	}
+  	if ( $Opciones_Seleccionada == 'COMPRAS_TRON'){
+  			 $anio = $('#anio-consulta').val();
+  				Mostar_Compra_Tron_x_IdTercero($Usuario_Seleccionado,$anio );
+  	}
+
+
+
 });
 

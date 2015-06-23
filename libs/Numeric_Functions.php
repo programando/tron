@@ -7,6 +7,13 @@ Class Numeric_Functions
      return $numero;
     }
 
+
+    public static function Formato_Numero_SinSigno($value)
+    {
+     $numero = number_format($value, 0, "" ,".");
+     return $numero;
+    }
+
      Public static function Filtrar_Entero( $int )
      {
         $int = (int) $int;
