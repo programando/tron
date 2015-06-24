@@ -2,11 +2,11 @@
 
        <div class="divicion_barra_usuario" style="width: 30%;">
            <div class="row">
-               <div class="col-lg-3" style="width:160px; ">
+               <div class="col-lg-3" style="width:155px; padding-left: 0px; padding-right: 0px;">
                    <div class="mis_usuarios">Año de Consulta : </div>
                </div>
 
-               <div class="col-lg-9" style="width: 110px;">
+               <div class="col-lg-9" style="width: 110px; padding-left: 0px; padding-right: 0px;">
                   <select class="form-control input_campo_datos" id="anio-consulta" style=" padding-left: 0px;">
                     <?php
                     foreach ($this->Anios as $Anios) {
