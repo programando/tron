@@ -15,6 +15,12 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+        public function transferencioa_comisiones_puntos()
+    {
+        $this->View->SetCss(array("transferencia_comisiones"));
+        $this->View->Mostrar_Vista("transferencia_comisiones");
+    }
+
    public function pases_cortesia(){
        $this->View->Mostrar_Vista_Parcial("pases_cortesia");
    }

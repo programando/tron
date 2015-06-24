@@ -57,8 +57,26 @@ ______ Barra ususarios _______
     border: 1px solid #aaaaaa;
     margin-top: 8px;
     margin-bottom: -5px;
+    margin-left:  0px;
 
 }
+
+  .divicion_barra_usuario
+  {
+      float: left;
+  }
+
+  .ul-usuarios
+  {
+
+     padding-left: 5px;
+  }
+
+  .padding_none
+  {
+       padding-left: 0px;
+       padding-right: 0px;
+  }
 
 /*.active
 {
