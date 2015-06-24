@@ -1,6 +1,10 @@
 // Funtiones tabs
 // TABS  =  mi perfil , informes , favoritos
 var $Opciones_Seleccionada = '';
+$(function() {
+   $('#mi-perfil').click();
+});
+
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
  $('.barra-usurarios li').each(function(indice, elemento) {
@@ -54,6 +58,7 @@ var Mostar_Compra_Tron_x_IdTercero = function($idtercero,$anio){
 }
 
 $('#mi-perfil').on('click',function(){
+
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','0px');
@@ -171,6 +176,12 @@ $('#pases_cortesia').on('click',function(){
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
 				  });
+});
+
+$('#convenio_comercial').on('click',function(){
+	$('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
+	window.location.href  = '/tron/pdf/Convenio_Comercial';
 });
 
 $('#informes-pedidos-realizados').on('click',function(){

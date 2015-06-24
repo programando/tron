@@ -1,23 +1,3 @@
-<!-- Ventana modal de termino y condiciones -->
-<div>
-    <div class="modal fade" id="convenio_comercial_modal" tabindex="-1" role="dialog" aria-labelledby="convenio_comercial_modal" aria-hidden="true">
-        <div class="modal-dialog ventana-modal">
-            <div class="modal-content">
-
-              <!-- Cabezera -->
-              <div>
-                   <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-
-              <!-- Cuerpo -->
-              <div class="modal-body cuerpo-modal">
-              <div style="padding:0 60px; width:100%;  text-align:justify; font-size: 17px;">
-
-              <!-- Titulo -->
-              <div>
-                 <h4 class="text-center"><strong><em>CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON DE BALQUIMIA S.A.S.</em></strong></h4 style="fint">
-              </div>
-
               <!-- Contenido -->
                <div>
                   <p>
@@ -848,16 +828,6 @@
 
                  </p>
                </div>
-
-              </div>
-              </div>
-
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <style>
 
  /* Emlace de tron */
@@ -865,7 +835,7 @@
   {
     color: #0000FF;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: underline;
   }
 
