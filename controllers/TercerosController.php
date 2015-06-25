@@ -28,6 +28,11 @@ class TercerosController extends Controller
       echo json_encode($datos,256);
     }
 
+    public function trabla_tron()
+    {
+        $this->View->SetCss(array('tabla_tron'));
+        $this->View->Mostrar_Vista('tabla_tron');
+    }
 
     public function transferencioa_comisiones_puntos()
     {
