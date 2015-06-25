@@ -4,7 +4,38 @@
 	 display: block;
 }
 
-.padding_none { padding: 0px;}
+/* Btn = mostrar */
+.cont_btn_mostrar
+{
+    display: block;
+    width: 5%;
+    position: relative;
+}
+
+.btn_mostrar
+{
+	   padding:   3px 10px;
+	   padding-top: 5px;
+	   text-align: center;
+	   font-size: 20px;
+	   color: white;
+	   background: #B7B7B7;
+	   border: none;
+	   display: none;
+	   position: absolute;
+	   z-index:2;
+	   top: 0;
+	   left: 0;
+
+	   -webkit-border-radius: 80%;
+	   -moz-border-radius: 80%;
+	   border-radius: 80%;
+}
+
+.btn_mostrar:hover
+{
+	    background: #003E90;
+}
 
 /* Barra - izquierdad */
 .barra_tabs
@@ -58,6 +89,14 @@
 	   float: left;
 	   color: #003E90;
 	   margin-top: -15px;
+}
+
+/* Columan derecha */
+#columan_derecha
+{
+    -webkit-transition: all 700ms ease;
+    -moz-transition: all 700ms ease;
+    transition: all 700ms ease;
 }
 
 /* Perfil => Menu  */
@@ -114,3 +153,6 @@
 }
 
 
+/* modificaciones */
+.padding_none { padding: 0px;}
+.paddding-left {padding-left: 0px;}

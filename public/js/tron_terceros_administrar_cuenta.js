@@ -1,5 +1,9 @@
 // Funtiones tabs
 // TABS  =  mi perfil , informes , favoritos
+
+
+
+
 var $Opciones_Seleccionada = '';
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
@@ -52,6 +56,24 @@ var Mostar_Compra_Tron_x_IdTercero = function($idtercero,$anio){
 				      }
 				  });
 }
+
+//  Menu deslizante  =  barra derecha
+var $columan_izquierdad = $('#columna_izquierdad');
+var $bnt_mostrar        = $('#btn_mostrar');
+
+$('.tabs_click').on('click',function(){
+	    $($columan_izquierdad).animate({'margin-left':'-600px'},700);
+	    $($bnt_mostrar).fadeIn(600);
+     $('#columan_derecha').attr('class','col-lg-12');
+});
+
+$($bnt_mostrar).on('click',function(){
+	    $($columan_izquierdad).animate({'margin-left':'0px'});
+	    $($bnt_mostrar).fadeOut(400);
+	    $('#columan_derecha').attr('class','col-lg-9' );
+});
+
+
 
 $('#mi-perfil').on('click',function(){
 				$('.tabs_click').css('background','#B7B7B7');
