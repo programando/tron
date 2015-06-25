@@ -167,10 +167,31 @@ $('li .perfil_menu_link').on('click',function(){
 });
 
 // Seleccion de direccion a atualizar
-$('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(){
+$('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
+				event.preventDefault();
+
+				var 		$destinatario         = $(this).attr('destinatario');
+				var 		$direccion            = $(this).attr('direccion');
+				var 		$nommcipio_despacho   = $(this).attr('nommcipio-despacho');
+				var 		$nomdpto              = $(this).attr('nomdpto');
+				var 		$iddireccion_despacho = $(this).attr('iddireccion-despacho');
+				var 		$iddpto               = $(this).attr('iddpto');
+				var 		$idmcipio             = $(this).attr('idmcipio');
+				var 		$telefono             = $(this).attr('telefono');
+				$('#new_destinario').val($destinatario);
+
+				$("#new_iddpto option[value='" +$iddpto+"']").remove();
+
+				$('#new_iddpto').append('<option value="' + $iddpto + '">' + $nomdpto+ '</option>');
+
+
+				//$('#new_iddpto').val($iddpto);
+				//$('#new_iddpto').html($nomdpto );
+
 	   $('.direcciones_a_atualizar').css('background','#B7B7B7');
 	   $(this).css('background','#003E90');
 	   $(this).css('color','white');
+
 
 });
 

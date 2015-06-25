@@ -211,21 +211,6 @@ $('.contenedor_cuenta').on('blur','#email',function(){
 });
 
 
-var Mostrar_Direcciones_x_IdTercero = function($Parametros){
-
-  $.ajax({
-      data:  $Parametros,
-      dataType: 'html',
-      url:      '/tron/terceros/Direcciones_Despacho_x_IdTercero/',
-      type:     'post',
-      success:  function (resultado){
-          $('.conteneror-direcciones').html('');
-          $('.conteneror-direcciones').html(resultado);
-      }
-   });
-
-}
-
 
 
 $('.contenedor_cuenta').on('click','#cuenta',function(){

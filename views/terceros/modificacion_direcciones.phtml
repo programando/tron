@@ -2,12 +2,25 @@
  <div class="conteneror-direcciones">
 			<?php foreach ($this->Direcciones as $Direccion) :?>
 						<?php
-								$destinatario       = $Direccion['destinatario'];
-								$direccion          = $Direccion['direccion'];
-								$nommcipio_despacho = $Direccion['nommcipio_despacho'];
-								$nomdpto 										 = $Direccion['nomdpto'];
+									$destinatario         = $Direccion['destinatario'];
+									$direccion            = $Direccion['direccion'];
+									$nommcipio_despacho   = $Direccion['nommcipio_despacho'];
+									$nomdpto              = $Direccion['nomdpto'];
+									$iddireccion_despacho = $Direccion['iddireccion_despacho'];
+									$iddpto               = $Direccion['iddpto'];
+									$idmcipio             = $Direccion['idmcipio'];
+									$telefono             = $Direccion['telefono'];
 						?>
-						<a class='direccion-seleccionada' href="">
+						<a class='direccion-seleccionada' href=""
+										destinatario         = "<?= $destinatario ;?>"
+										direccion            = "<?= $direccion ;?>"
+										nommcipio-despacho   = "<?= $nommcipio_despacho ;?>"
+										nomdpto              = "<?= $nomdpto ;?>"
+										iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
+										iddpto               = "<?= $iddpto ;?>"
+										idmcipio             = "<?= $idmcipio ;?>"
+										telefono             = "<?= $telefono ;?>"
+									>
 					  	<strong><?= $destinatario  ;?></strong>
     				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
     				<br><br><br><br>

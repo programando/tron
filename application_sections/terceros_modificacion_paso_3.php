@@ -10,12 +10,26 @@
 											 	<div class="conteneror-direcciones" style="border: 1px solid red;">
 														<?php foreach ($this->Direcciones as $Direccion) :?>
 																	<?php
-																			$destinatario       = $Direccion['destinatario'];
-																			$direccion          = $Direccion['direccion'];
-																			$nommcipio_despacho = $Direccion['nommcipio_despacho'];
-																			$nomdpto 										 = $Direccion['nomdpto'];
+																				$destinatario         = $Direccion['destinatario'];
+																				$direccion            = $Direccion['direccion'];
+																				$nommcipio_despacho   = $Direccion['nommcipio_despacho'];
+																				$nomdpto              = $Direccion['nomdpto'];
+																				$iddireccion_despacho = $Direccion['iddireccion_despacho'];
+																				$iddpto               = $Direccion['iddpto'];
+																				$idmcipio             = $Direccion['idmcipio'];
+																				$telefono             = $Direccion['telefono'];
 																	?>
-																	<a href="#" class="direcciones_a_atualizar" id="direcciones_a_atualizar">
+																	<a href="" class="direcciones_a_atualizar" id="direcciones_a_atualizar"
+																				destinatario         = "<?= $destinatario ;?>"
+																				direccion            = "<?= $direccion ;?>"
+																				nommcipio-despacho   = "<?= $nommcipio_despacho ;?>"
+																				nomdpto              = "<?= $nomdpto ;?>"
+																				iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
+																				iddpto               = "<?= $iddpto ;?>"
+																				idmcipio             = "<?= $idmcipio ;?>"
+																				telefono             = "<?= $telefono ;?>"
+																	>
+
 																  	<strong><?= $destinatario  ;?></strong>
 					          				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
 					          				<!-- <br><br><br><br> -->
@@ -41,9 +55,14 @@
 									              <div class="form-group">
 									                <label for="new_iddpto"  class="col-lg-3  control-label "><p class="text-label">Departamento:</p></label>
 									                <div class="col-lg-9" >
-									                   <select class="form-control" id="new_iddpto">
-									                   	    <option>SELECCIONE</option>
-									                   </select>
+																										<select class="form-control" id="new_iddpto">
+																											<option value="0">Seleccione un Departamento</option>
+																											<?php
+																											foreach ($this->Departamentos as $Departamento) {
+																												echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
+																											}
+																											?>
+																										</select>
 									                </div>
 									              </div>
 

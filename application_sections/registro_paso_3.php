@@ -27,7 +27,7 @@
             <!-- Formulario = Plan 3 PLAN EMPRESARIO TRON-->
 
           <article class="plan_3" id="">
-          <h3 class="titulo_del_plan" id=""><strong>Plan 3</strong> <br> <small> LAN EMPRESARIO TRON </small></h3><br>
+          <h3 class="titulo_del_plan" id=""><strong>Plan 3</strong> <br> <small> PLAN EMPRESARIO TRON </small></h3><br>
             <div class="cont-plan">
                 <form class="form-horizontal" role="form">
                      <label for="tu-mes">Elige tu mes:</label>
