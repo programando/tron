@@ -4,7 +4,11 @@
 
 
 
-var $Opciones_Seleccionada = '';
+// var $Opciones_Seleccionada = '';
+// $(function() {
+//    $('#mi-perfil').click();
+// });
+
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
  $('.barra-usurarios li').each(function(indice, elemento) {
@@ -57,7 +61,43 @@ var Mostar_Compra_Tron_x_IdTercero = function($idtercero,$anio){
 				  });
 }
 
-//  Menu deslizante  =  barra derecha
+var Mostar_Compra_Otros_x_IdTercero = function($idtercero,$anio){
+	    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Otros_Productos_x_IdTercero/'+$idtercero+'/'+$anio,
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenido-reporte').html('');
+				         $('.contenido-reporte').html(respuesta);
+				      }
+				  });
+}
+
+var Mostar_Compra_Industriales_x_IdTercero = function($idtercero,$anio){
+	    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Productos_Industriales_x_IdTercero/'+$idtercero+'/'+$anio,
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenido-reporte').html('');
+				         $('.contenido-reporte').html(respuesta);
+				      }
+				  });
+}
+
+var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
+	    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Totales_x_IdTercero/'+$idtercero+'/'+$anio,
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenido-reporte').html('');
+				         $('.contenido-reporte').html(respuesta);
+				      }
+				  });
+}
+
+ //  Menu deslizante  =  barra derecha
 var $columan_izquierdad = $('#columna_izquierdad');
 var $bnt_mostrar        = $('#btn_mostrar');
 
@@ -73,9 +113,8 @@ $($bnt_mostrar).on('click',function(){
 	    $('#columan_derecha').attr('class','col-lg-9' );
 });
 
-
-
 $('#mi-perfil').on('click',function(){
+
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','0px');
@@ -157,6 +196,7 @@ $('#plan_seleccionado').on('click',function(){
 });
 
 $('#perfil-datos-personales').on('click',function(){
+		  $Opciones_Seleccionada ='DATOS_PERSONALES';
     $.ajax({
          dataType: 'html',
          url:      '/tron/terceros/modificacion_datos/',
@@ -193,6 +233,12 @@ $('#pases_cortesia').on('click',function(){
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
 				  });
+});
+
+$('#convenio_comercial').on('click',function(){
+	$('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
+	window.location.href  = '/tron/pdf/Convenio_Comercial';
 });
 
 $('#informes-pedidos-realizados').on('click',function(){
@@ -248,6 +294,45 @@ $('#compras_tron_link').on('click',function(){
 				  });
 });
 
+$('#compras_otros_link').on('click',function(){
+		$Opciones_Seleccionada = 'COMPRAS_TRON';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Otros_Productos/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+$('#compras_industriales_link').on('click',function(){
+		$Opciones_Seleccionada = 'COMPRAS_INDUSTRIALES';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Productos_Industriales/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+$('#compras_totales_link').on('click',function(){
+		$Opciones_Seleccionada = 'COMPRAS_TOTALES';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Compras_Totales/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
 
 $('#informes-red-usuarios').on('click',function(){
     $Opciones_Seleccionada = 'RED_USUARIOS';
@@ -262,6 +347,20 @@ $('#informes-red-usuarios').on('click',function(){
 				  });
 });
 
+var Mostrar_Direcciones_x_IdTercero = function($idtercero){
+
+  $.ajax({
+      data:  {'idtercero':$idtercero,'json':0},
+      dataType: 'html',
+      url:      '/tron/terceros/Direcciones_Despacho_x_IdTercero/',
+      type:     'post',
+      success:  function (resultado){
+          $('.conteneror-direcciones').html('');
+          $('.conteneror-direcciones').html(resultado);
+      }
+   });
+
+}
 
 
 
@@ -283,7 +382,24 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   	}
   	if ( $Opciones_Seleccionada == 'COMPRAS_TRON'){
   			 $anio = $('#anio-consulta').val();
+  				Mostar_Compra_Otros_x_IdTercero($Usuario_Seleccionado,$anio );
+  	}
+  	if ( $Opciones_Seleccionada == 'COMPRAS_OTROS'){
+  			 $anio = $('#anio-consulta').val();
   				Mostar_Compra_Tron_x_IdTercero($Usuario_Seleccionado,$anio );
+  	}
+  	if ( $Opciones_Seleccionada == 'COMPRAS_INDUSTRIALES'){
+  			 $anio = $('#anio-consulta').val();
+  				Mostar_Compra_Industriales_x_IdTercero($Usuario_Seleccionado,$anio );
+  	}
+  	if ( $Opciones_Seleccionada == 'COMPRAS_TOTALES'){
+  			 $anio = $('#anio-consulta').val();
+  				Mostar_Compra_Totales_x_IdTercero($Usuario_Seleccionado,$anio );
+  	}
+
+//compras_otros_link
+  	if ( $Opciones_Seleccionada == 'DATOS_PERSONALES'){
+  				Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
   	}
 
 

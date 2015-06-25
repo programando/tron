@@ -2,6 +2,7 @@
 // DIC 29 2014
 // FUNCIONALIDAD PARA QUE AL PRESIONAR EN LOS BOTONES + y -, SE ACTUALICEN LOS PRECIOS
 // DE ACUERDO A LA ESCALA
+var $idtipo_plan_compras_kit =0;
 
 $('#ventana_mensaje').modal('show');
 
@@ -365,6 +366,7 @@ $('#btn-recomendar-producto').on('click',function(){
 
 // EVENTOS SOBRE PRODUCTOS TRON
 $('#contenido-productos').on('keyup','.CantProdCompraTron',function(){
+
 			$IdProducto    = $(this).attr("idproducto");
 			$es_tron       =  $(this).attr("es-tron");
 			$es_tron_acc   =  $(this).attr("es-tron-acc");
@@ -433,7 +435,25 @@ $('#contenido-productos').on('click','.btns-carrito',function()
 		return false;
 });
 
-//$('.boton-agregar-carrito').on('click',function()
+
+var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
+//		JUNIO 25 2015
+//  COMPRUEBA QUE EL USUARIO NO SEA CLIENTE O EMPRESARIO PARA COMPRAR EL KIT DE INICIO
+
+			$.ajax({
+					dataType: 'json',
+					url:      '/tron/terceros/Comprobar_Tipo_Usuario',
+					type:     'post',
+					async:    false,
+     success:  function (resultado)
+    	 {
+
+    	 		$idtipo_plan_compras_kit= resultado.idtipo_plan_compras;
+    	 }
+					});
+
+}
+
 	$('#contenido-productos').on('click','.boton-agregar-carrito',function()
 {
 		var NombreBoton      	= $(this).attr("id");
@@ -444,7 +464,20 @@ $('#contenido-productos').on('click','.btns-carrito',function()
   var NomPresentacion   = $("#nompresentacion"+IdProducto).text();
   var es_tron 										= false;
   var es_tron_acc							= false;
+  var  id_categoria_producto = $(this).attr('id-categoria-producto');
   var Parametros 						 = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,"es_tron": es_tron , "es_tron_acc": es_tron_acc	 };
+  // SI ES KIT DE INICIO O PRODUCTO PROMOCIONAL Y ES EMPRESARIO O CLIENTE TRON NO SE LE PERMITE COMPRAR.
+  if ( IdProducto == 10744 ||  id_categoria_producto == 8){
+  	  Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio();
+  	  if ( $idtipo_plan_compras_kit == 2 || $idtipo_plan_compras_kit==3){
+  	  	       new Messi("<br>Los Combos, el Kit de Inicio y los Productos Promocionales, son productos exclusivos para los compradores ocasionales por lo tanto no se pueden agregar a tu cartito. <br> Pero como tienes el privilegio de ser Cliente o Empresario TRON puedes armar estos paquetes en la sección productos TRON.<br><br>",
+         {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+           buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
+         });
+  	  	return false;
+  	  }
+
+  }
   Agregar_Producto_a_Carrito(NomProducto,Parametros);
   Mostrar_Mensaje_Producto_Agregado(NomProducto);
   return false;

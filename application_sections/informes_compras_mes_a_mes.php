@@ -1,27 +1,20 @@
-
-
-<?php include (APPLICATION_SECTIONS . 'barra_usuraios_anios.php');?>
-
-<div class ='contenido-reporte'>
-	  <div class="col-lg-12">
-
-	  	   <table class="table table-bordered table-hover  tabla_info_compras">
+<table class="table table-bordered table-hover  tabla_info_compras">
 	     	    <thead><!-- cabezera -->
 	     	    	    <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Nombre</th>
-                    <th class="text-center">Ene.</th>
-                    <th class="text-center">Feb.</th>
-                    <th class="text-center">Mar.</th>
-                    <th class="text-center">Abr.</th>
-                    <th class="text-center">May.</th>
-                    <th class="text-center">Jun.</th>
-                    <th class="text-center">Jul.</th>
-                    <th class="text-center">Ago.</th>
-                    <th class="text-center">Sept.</th>
-                    <th class="text-center">Oct.</th>
-                    <th class="text-center">Nov.</th>
-                    <th class="text-center">Dic.</th>
+                    <th class="text-center">ENE</th>
+                    <th class="text-center">FEB</th>
+                    <th class="text-center">MAR</th>
+                    <th class="text-center">ABR</th>
+                    <th class="text-center">MAY</th>
+                    <th class="text-center">JUN</th>
+                    <th class="text-center">JUL</th>
+                    <th class="text-center">AGO</th>
+                    <th class="text-center">SEP</th>
+                    <th class="text-center">OCT</th>
+                    <th class="text-center">NOV</th>
+                    <th class="text-center">DIC</th>
                     <th class="text-center">Total</th>
                     <th class="text-center">Prom.</th>
 	     	    	    </tr>
@@ -31,7 +24,7 @@
                    <?php $I =0 ;?>
                    <?php foreach ($this->Datos_Compras  as $Compras)  :?>
                     <?php
-                         $nombre   =  $Compras['nombre'];
+                         $nombre   =  substr($Compras['nombre'],0,25) ;
                          $ene      = Numeric_Functions::Formato_Numero_SinSigno($Compras['ene']);
                          $feb      = Numeric_Functions::Formato_Numero_SinSigno($Compras['feb']);
                          $mar      = Numeric_Functions::Formato_Numero_SinSigno($Compras['mar']);
@@ -60,36 +53,28 @@
                          if ( $dic == 0) { $dic = '';}
                          if ( $total == 0) { $total = '';}
                          if ( $promedio == 0) { $promedio = '';}
+
                          $I++;
                     ?>
                          <tr>
-                         	   <td><a href="#"> <?= $I ;?> </a></td>
+                         	   <td><a href="#" class="text-right"> <?= $I ;?> </a></td>
                                  <td style="width: 300px;"> <?= $nombre ;?></td>
-                         	   <td><a href="#"> <?= $ene ;?> </a></td>
-                         	   <td><a href="#"><?= $feb ;?> </a></td>
-                         	   <td><a href="#"><?= $mar ;?> </a></td>
-                         	   <td><a href="#"><?= $abr ;?> </a></td>
-                         	   <td><a href="#"><?= $may ;?> </a></td>
-                         	   <td><a href="#"><?= $jun ;?> </a></td>
-                         	   <td><a href="#"><?= $jul ;?> </a></td>
-                         	   <td><a href="#"><?= $ago ;?> </a></td>
-                         	   <td><a href="#"><?= $sep ;?> </a></td>
-                         	   <td><a href="#"><?= $oct ;?> </a></td>
-                         	   <td><a href="#"><?= $nov ;?> </a></td>
-                         	   <td><a href="#"><?= $dic ;?> </a></td>
-                         	   <td><a href="#"><?= $total ;?> </a></td>
-                         	   <td><a href="#"><?= $promedio ;?> </a></td>
+                         	   <td><a href="#" class="text-right"> <?= $ene ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $feb ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $mar ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $abr ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $may ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $jun ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $jul ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $ago ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $sep ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $oct ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $nov ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $dic ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $total ;?> </a></td>
+                         	   <td><a href="#" class="text-right"><?= $promedio ;?> </a></td>
                          </tr>
 
                         <?php endforeach ;?>
 	     	    </tbody>
 	  	   </table>
-	  </div>
-</div>
-
-<style>
-	.tabla_info_compras
-	{
-		  font-size: 12px;
-	}
-</style>
