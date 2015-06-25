@@ -11,6 +11,69 @@
 
       public function Index() { }
 
+
+
+         public function Compras_Totales($idtercero=false, $anio=0){
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+             $this->View->Datos_Compras = $this->Informes->Compras_Totales($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes");
+         }
+
+
+           public function Compras_Totales_x_IdTercero($idtercero=false, $anio=0){
+             $this->View->Datos_Compras = $this->Informes->Compras_Totales($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes_x_idtercero");
+         }
+
+
+
+
+         public function Compras_Productos_Industriales($idtercero=false, $anio=0){
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+             $this->View->Datos_Compras = $this->Informes->Compras_Productos_Industriales($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes");
+         }
+
+
+           public function Compras_Productos_Industriales_x_IdTercero($idtercero=false, $anio=0){
+             $this->View->Datos_Compras = $this->Informes->Compras_Productos_Industriales($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes_x_idtercero");
+         }
+
+
+         public function Compras_Otros_Productos($idtercero=false, $anio=0){
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+             $this->View->Datos_Compras = $this->Informes->Compras_Otros_Productos($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes");
+         }
+
+           public function Compras_Otros_Productos_x_IdTercero($idtercero=false, $anio=0){
+             $this->View->Datos_Compras = $this->Informes->Compras_Otros_Productos($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes_x_idtercero");
+         }
+
+
          public function Compras_Productos_Tron($idtercero=false, $anio=0){
             if ($anio == 0 ) {
                 $anio = date('Y');
@@ -18,16 +81,18 @@
             if ( $idtercero == FALSE ){
               $idtercero = Session::Get('idtercero');
             }
-             $this->View->Datos_Compras  = $this->Informes->Compras_Productos_Tron($idtercero ,$anio );
-             $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
-             $this->View->Mostrar_Vista_Parcial("compras_tron");
+             $this->View->Datos_Compras = $this->Informes->Compras_Productos_Tron($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes");
          }
 
            public function Compras_Productos_Tron_x_IdTercero($idtercero=false, $anio=0){
-             $this->View->Datos_Compras  = $this->Informes->Compras_Productos_Tron($idtercero ,$anio );
-             $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
-             $this->View->Mostrar_Vista_Parcial("compras_tron_x_idtercero");
+             $this->View->Datos_Compras = $this->Informes->Compras_Productos_Tron($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes_x_idtercero");
          }
+
+
 
 
           public function Saldos_Comisiones_Puntos() {

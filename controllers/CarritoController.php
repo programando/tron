@@ -312,7 +312,7 @@ class CarritoController extends Controller
 
         $this->View->SubTotal_Pedido_Ocasional  = $this->SubTotal_Pedido_Ocasional;
         $this->View->SubTotal_Pedido_Amigos     = $this->SubTotal_Pedido_Amigos;
-        $this->View->Vr_Total_Pedido_Real       =  $this->Vr_Total_Pedido_Real;
+        $this->View->Vr_Total_Pedido_Real       = $this->Vr_Total_Pedido_Real;
         $this->View->Vr_Cupon_Descuento         = $this->Vr_Cupon_Descuento;
         $this->View->Vr_Transporte_Otros        = $this->Vr_Transporte;
         $this->View->Vr_Total_Pedido_Ocasional  = $this->Vr_Total_Pedido_Ocasional;

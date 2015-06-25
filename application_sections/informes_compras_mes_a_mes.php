@@ -1,27 +1,20 @@
-
-
-<?php include (APPLICATION_SECTIONS . 'barra_usuraios_anios.php');?>
-
-<div class ='contenido-reporte'>
-	  <div class="col-lg-12">
-
-	  	   <table class="table table-bordered table-hover  tabla_info_compras">
+<table class="table table-bordered table-hover  tabla_info_compras">
 	     	    <thead><!-- cabezera -->
 	     	    	    <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Nombre</th>
-                    <th class="text-center">Ene.</th>
-                    <th class="text-center">Feb.</th>
-                    <th class="text-center">Mar.</th>
-                    <th class="text-center">Abr.</th>
-                    <th class="text-center">May.</th>
-                    <th class="text-center">Jun.</th>
-                    <th class="text-center">Jul.</th>
-                    <th class="text-center">Ago.</th>
-                    <th class="text-center">Sept.</th>
-                    <th class="text-center">Oct.</th>
-                    <th class="text-center">Nov.</th>
-                    <th class="text-center">Dic.</th>
+                    <th class="text-center">ENE</th>
+                    <th class="text-center">FEB</th>
+                    <th class="text-center">MAR</th>
+                    <th class="text-center">ABR</th>
+                    <th class="text-center">MAY</th>
+                    <th class="text-center">JUN</th>
+                    <th class="text-center">JUL</th>
+                    <th class="text-center">AGO</th>
+                    <th class="text-center">SEP</th>
+                    <th class="text-center">OCT</th>
+                    <th class="text-center">NOV</th>
+                    <th class="text-center">DIC</th>
                     <th class="text-center">Total</th>
                     <th class="text-center">Prom.</th>
 	     	    	    </tr>
@@ -31,7 +24,7 @@
                    <?php $I =0 ;?>
                    <?php foreach ($this->Datos_Compras  as $Compras)  :?>
                     <?php
-                         $nombre   =  $Compras['nombre'];
+                         $nombre   =  substr($Compras['nombre'],0,25) ;
                          $ene      = Numeric_Functions::Formato_Numero_SinSigno($Compras['ene']);
                          $feb      = Numeric_Functions::Formato_Numero_SinSigno($Compras['feb']);
                          $mar      = Numeric_Functions::Formato_Numero_SinSigno($Compras['mar']);
@@ -60,6 +53,7 @@
                          if ( $dic == 0) { $dic = '';}
                          if ( $total == 0) { $total = '';}
                          if ( $promedio == 0) { $promedio = '';}
+
                          $I++;
                     ?>
                          <tr>
@@ -84,12 +78,3 @@
                         <?php endforeach ;?>
 	     	    </tbody>
 	  	   </table>
-	  </div>
-</div>
-
-<style>
-	.tabla_info_compras
-	{
-		  font-size: 12px;
-	}
-</style>

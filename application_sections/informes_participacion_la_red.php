@@ -18,7 +18,7 @@
                               <?php
 
                                   $codigousuario                 = $Tercero['codigousuario'];
-                                  $nombre                        = $Tercero['nombre'];
+                                  $nombre                        = substr($Tercero['nombre'],0,25);
                                   $codigoterceropresenta_inicial = $Tercero['codigoterceropresenta_inicial'];
                                   $fecha_registro                = $Tercero['fecha_registro_formato'];
                                   $amigos_nivel_1                = $Tercero['amigos_nivel_1'];

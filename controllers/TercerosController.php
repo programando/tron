@@ -15,7 +15,21 @@ class TercerosController extends Controller
 
     public function Index() { }
 
-        public function transferencioa_comisiones_puntos()
+
+    public function Comprobar_Tipo_Usuario(){
+      //    JUNIO 25 2015
+      //  COMPRUEBA QUE EL USUARIO NO SEA CLIENTE O EMPRESARIO PARA COMPRAR EL KIT DE INICIO
+      if ( Session::Get('autenticado') == TRUE ){
+          $idtipo_plan_compras =  Session::Get('idtipo_plan_compras');
+      }else{
+          $idtipo_plan_compras  = 0;
+      }
+      $datos=compact('idtipo_plan_compras');
+      echo json_encode($datos,256);
+    }
+
+
+    public function transferencioa_comisiones_puntos()
     {
         $this->View->SetCss(array("transferencia_comisiones"));
         $this->View->Mostrar_Vista("transferencia_comisiones");
