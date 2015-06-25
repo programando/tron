@@ -93,18 +93,13 @@ _________ Cabezera _________
 .img-empresario-tron
 {
 				display: block;
-				float  : left;
 				width  :50%;
-				margin: 0px;
+				margin: 0px auto;
 
 		/*		margin-top: -50px;*/
 }
 
-.text-perteneces-A
-{
-				display: block;
-				margin : 60px 0px;
-}
+
 
 /*
 ____ pases-cortesia ____
