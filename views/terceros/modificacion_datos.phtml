@@ -2,7 +2,7 @@
 						Css  => tron_modificacion_datos.css
 						Js   => tron_modificacion_datos.js
  -->
- <div class="contenedor_principal">
+ <div class="contenedor_modificacion_datos">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -12,11 +12,11 @@
           <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12">
                 <!-- Tabs -->
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#paso1" data-toggle="tab" id="personales"> 1. Datos Personales </a></li>
+                <ul class="nav nav-tabs" id="menu_tabs_modificacion">
+                        <li class="active"><a class="tab_link_modif" href="#paso1" data-toggle="tab" id="personales"> 1. Datos Personales </a></li>
                     <?php if (  $this->idtipo_plan_compras == 3 ) :?>
-                        <li><a href="#paso2" data-toggle="tab" id="cuenta"> 2. Datos de Cuenta </a></li>
-                        <li><a href="#paso3" data-toggle="tab" id="direcciones" idtercero = "<?= $this->idtercero ;?>" > 3. Direcciones </a></li>
+                        <li><a class="tab_link_modif" href="#paso2" data-toggle="tab" id="cuenta"> 2. Datos de Cuenta </a></li>
+                        <li><a class="tab_link_modif" href="#paso3" data-toggle="tab" id="direcciones" idtercero = "<?= $this->idtercero ;?>" > 3. Direcciones </a></li>
                      <?php endif ;?>
                 </ul>
 

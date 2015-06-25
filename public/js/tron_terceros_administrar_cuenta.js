@@ -1,13 +1,21 @@
 // Funtiones tabs
 // TABS  =  mi perfil , informes , favoritos
 
+// Efecto activo de los tabs
+$('.contenedor_cuenta').on('click','.tab_link_modif',function(){
+					$('.tab_link_modif').css('background','transparent');
+					$('.tab_link_modif').css('color','inherit');
+					$(this).css('background','#003E90');
+					$(this).css('border-radius','8px 8px 0px 0px');
+					$(this).css('color','white');
 
+});
 
-
-// var $Opciones_Seleccionada = '';
-// $(function() {
-//    $('#mi-perfil').click();
-// });
+var $Opciones_Seleccionada = '';
+$(function() {
+   $('#mi-perfil').click();
+   $('#btn_mostrar').click();
+});
 
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
@@ -98,18 +106,15 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 }
 
  //  Menu deslizante  =  barra derecha
-var $columan_izquierdad = $('#columna_izquierdad');
-var $bnt_mostrar        = $('#btn_mostrar');
-
-$('.tabs_click').on('click',function(){
-	    $($columan_izquierdad).animate({'margin-left':'-600px'},700);
-	    $($bnt_mostrar).fadeIn(600);
+ $('.tabs_click').on('click',function(){
+	    $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
+	    $('#btn_mostrar').fadeIn(600);
      $('#columan_derecha').attr('class','col-lg-12');
 });
 
-$($bnt_mostrar).on('click',function(){
-	    $($columan_izquierdad).animate({'margin-left':'0px'});
-	    $($bnt_mostrar).fadeOut(400);
+$('#btn_mostrar').on('click',function(){
+	    $('#columna_izquierdad').animate({'margin-left':'0px'});
+	    $('#btn_mostrar').fadeOut(400);
 	    $('#columan_derecha').attr('class','col-lg-9' );
 });
 
