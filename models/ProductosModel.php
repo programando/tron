@@ -118,6 +118,7 @@
         	* CONSULTA LAS CATEGORÍAS	DE PRODUCTOS. CORRESPONDEN AL PRIMER NIVEL EN EL MENU LATERAL IZQUIERDO
         	* PARAMETROS  : $id_area_consulta ==> CORRESPONDE A SI SE ESTÁN CONSULTADO PRODUCTOS DE LA LINEA HOGAR(1) O  LA LINEA INDUSTRIAL (1)
         	*/
+
     		$Producto_Categorias        = $this->Db->Ejecutar_Sp("productos_categorias_nivel_1( $id_area_consulta )");
         	return $Producto_Categorias ;
         }
