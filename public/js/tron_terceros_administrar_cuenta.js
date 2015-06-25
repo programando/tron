@@ -6,7 +6,6 @@ $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 					$('.tab_link_modif').css('background','transparent');
 					$('.tab_link_modif').css('color','inherit');
 					$(this).css('background','#003E90');
-					$(this).css('border-radius','8px 8px 0px 0px');
 					$(this).css('color','white');
 
 });
