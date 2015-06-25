@@ -23,7 +23,7 @@
                      	   </div><!-- Contenededor -->
                      </div><!-- logo = Cuenta-dinero -->
 
-                     <div class="col-lg-12 col-md-12 col-ms-12" style="width: 454px; padding: 0px;"><!-- Tabla-Cuenta-dinero -->
+                     <div class="col-lg-12 col-md-12 col-ms-12" style="padding-left: 0px;"><!-- Tabla-Cuenta-dinero -->
                           <div class="cont-cabezera-tabla-dinero"><!-- Tabla-header = fija -->
                               <p class="Cabezera-tabla text-center" style="width: 15.5%;">Fecha</p>
                               <p class="Cabezera-tabla text-center" style="width: 52%;">Concepto</p>
@@ -42,7 +42,7 @@
                                   $saldo             = Numeric_Functions::Formato_Numero( $Comisiones['saldo'] );
                             ?>
                                  <tr>
-                                     <td class="fecha text-center"> <?= $Comisiones['fecha_registro'] ;?> </td>
+                                     <td class="fecha text-right"> <?= $Comisiones['fecha_registro'] ;?> </td>
                                      <td class="text-center concepto"><?= $nom_tipo_registro ;?> </td>
                                      <td class="text-center entran"><?= $vr_entrada ;?>   </td>
                                      <td class="text-center salen"><?= $vr_salida  ;?>   </td>
@@ -67,7 +67,7 @@
           	   </div><!-- Contenededor -->
           </div><!-- logo = Cuenta-puntos -->
 
-         <div class="col-lg-12 col-md-12 col-ms-12" style="width: 454px; padding: 0px;"><!-- Tabla-Cuenta-puntos -->
+         <div class="col-lg-12 col-md-12 col-ms-12" style="  padding: 0px;"><!-- Tabla-Cuenta-puntos -->
               <div class="cont-cabezera-tabla-puntos"><!-- Tabla-header = fija -->
                   <p class="Cabezera-tabla-puntos text-center" style="width: 15.5%;">Fecha</p>
                   <p class="Cabezera-tabla-puntos text-center" style="width: 52%;">Concepto</p>

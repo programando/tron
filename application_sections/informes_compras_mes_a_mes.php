@@ -57,22 +57,22 @@
                          $I++;
                     ?>
                          <tr>
-                         	   <td><a href="#" class="text-right"> <?= $I ;?> </a></td>
+                         	   <td class="text-right"> <?= $I ;?> </td>
                                  <td style="width: 300px;"> <?= $nombre ;?></td>
-                         	   <td><a href="#" class="text-right"> <?= $ene ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $feb ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $mar ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $abr ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $may ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $jun ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $jul ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $ago ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $sep ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $oct ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $nov ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $dic ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $total ;?> </a></td>
-                         	   <td><a href="#" class="text-right"><?= $promedio ;?> </a></td>
+                         	   <td class="text-right"> <?= $ene ;?> </td>
+                         	   <td class="text-right"><?= $feb ;?> </td>
+                         	   <td class="text-right"><?= $mar ;?> </td>
+                         	   <td class="text-right"><?= $abr ;?> </td>
+                         	   <td class="text-right"><?= $may ;?> </td>
+                         	   <td class="text-right"><?= $jun ;?> </td>
+                         	   <td class="text-right"><?= $jul ;?> </td>
+                         	   <td class="text-right"><?= $ago ;?> </td>
+                         	   <td class="text-right"><?= $sep ;?> </td>
+                         	   <td class="text-right"><?= $oct ;?> </td>
+                         	   <td class="text-right"><?= $nov ;?> </td>
+                         	   <td class="text-right"><?= $dic ;?> </td>
+                         	   <td class="text-right"><?= $total ;?> </td>
+                         	   <td class="text-right"><?= $promedio ;?> </td>
                          </tr>
 
                         <?php endforeach ;?>

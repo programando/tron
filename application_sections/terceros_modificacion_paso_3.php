@@ -7,7 +7,7 @@
 
 
 											 <div class="col-lg-6 col-md-6 col-sm-6 ">
-											 	<div class="conteneror-direcciones">
+											 	<div class="conteneror-direcciones" style="border: 1px solid red;">
 														<?php foreach ($this->Direcciones as $Direccion) :?>
 																	<?php
 																			$destinatario       = $Direccion['destinatario'];
