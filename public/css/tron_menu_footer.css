@@ -126,9 +126,9 @@ body
 
 .cont-selec-busquedad
 {
-	   display: block;
-	   text-align: center;
-	   margin-top: 0px;
+				display   : block;
+				text-align: center;
+				margin-top: 0px;
 }
 
 .option-busquedad
@@ -140,17 +140,17 @@ body
 #nombre-product ,
 #palabra-clave
 {
-	   margin-left: 5px;
-	   margin-right: 5px;
-	   margin-top: 4px;
-	   float: left;
+				margin-left : 5px;
+				margin-right: 5px;
+				margin-top  : 4px;
+				float       : left;
 }
 
 .text-label
 {
-	    font-weight: normal;
-	    color: #003e90;
-	    display: inline-block;
+			font-weight: normal;
+			color      : #003e90;
+			display    : inline-block;
 }
 
 /* Innput buscar */
@@ -162,37 +162,36 @@ body
 #personal
 {
 			color        : #003e90;
-			float        : right;
 			font-size    : 13px;
    margin-top   : 5px;
    margin-right : 0px;
    margin-bottom: -10px;
    padding      :  0px;
+
 }
 
 .ing , .rgs
 {
 			color        : #003e90;
 			margin-bottom: 0px;
-			text-align   :center;
-   display:  ;
 }
 
 .bienvenido_usuario
 {
-	   display:  ;
-		 	margin-bottom: 0px;
-		 	margin-top: -10px;
-		 	text-decoration: none;
-		 	cursor: text;
-	   color: #003e90;
+		float          : left;
+		text-decoration: none;
+		cursor         : text;
+		color          : #003e90;
+		margin-right   : 12px;
+		padding-top    : 2px;
+		font-size      : 13px;
 }
 
 .bienvenido_usuario:hover
 {
-	   cursor: text;
-	   text-decoration: none;
-	   color: #003e90;
+		cursor         : text;
+		text-decoration: none;
+		color          : #003e90;
 }
 
 #personal ul li
@@ -202,28 +201,29 @@ body
 
 #personal ul li a
 {
-	  font-size    : 13px;
+   font-size    : 13px;
    padding: 0px;
 	  display: block;
 }
 
+/* Mi cuenta  => Menu */
 #personal ul li .menu li
 {
-     display: block;
-     width: 90%;
-     text-align: left;
-     margin: 0px auto;
-     margin-top: 2px;
+			display: block;
+		 width: 100%
+}
+
+#personal ul li .menu li a
+{
+		 padding-left: 10px;
+;
 }
 
 .menu li a:hover
 {
-				color  : white;
-				display: block;
-				background: #0469ed;
-				-webkit-border-radius: 2px;
-				-moz-border-radius: 2px;
-				border-radius: 2px;
+			color                : white;
+			display              : block;
+			background           : #0469ed;
 }
 
 /* FINAL INFORMACION ACERCA DE CUENTAS : REGISTRAR , INGRESAR , REGISTRAR A AMIGO*/

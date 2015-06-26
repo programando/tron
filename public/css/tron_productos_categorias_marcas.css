@@ -89,15 +89,15 @@
 
 .Aseo_Del_Hogar, .titulo-productos
 {
-					border-bottom: 2px solid #003e90;
+
 					color        : #003e90;
 					display      : block;
 					float        : left;
 					font-size    : 16px;
-					margin-top   : 4px;
-					padding      : 5px;
-     width:100%;
-     font-weight: bold;
+					margin-top   : 5px;
+					padding      : 0px;
+					width        : 100%;
+					font-weight  : bold;
 }
 
 .panel-title a
@@ -119,6 +119,7 @@
 {
 					color    : black;
 					font-size: 12px;
+					cursor: pointer;
 }
 
 .sub-lista-productos
@@ -127,6 +128,7 @@
 					font-size : 12px;
 					height    : 30px;
 					text-align: left;
+					cursor: pointer;
 }
 
 .lista-marcas

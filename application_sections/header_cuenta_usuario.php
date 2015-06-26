@@ -23,13 +23,13 @@
 
       <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
           <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
-      </a><br>
+      </a>
         <ul class="list-unstyled cont-mi-cuenta">
            <li class="dropdown mi_cuenta"><!--MI CUENTA-->
                   <a href="#" class="dropdown-toggle  ing" data-toggle="dropdown">
                      <span class="glyphicon glyphicon-user"></span> Mi Cuenta <span class="caret"></span>
                   </a>
-                  <ul class="dropdown-menu menu">
+                  <ul class="dropdown-menu menu" style="width: 208px;">
                      <li><a href="<?= BASE_URL ;?>terceros/administrar_cuenta"      ><span class="configuracion"></span> Administrar Mi Cuenta</a></li>
                      <li><a href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span> Registrar Amigo</a></li>
 <!--                 <li><a href="<?= BASE_URL ;?>pedidos/historial_mis_pedidos"    ><span class="mis_pedidos"></span> Mis Pedidos</a></li>

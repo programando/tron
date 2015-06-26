@@ -1,4 +1,4 @@
-        <div class="col-lg-9 col-md-9 col-sm-9"><!--Inicio-Division De la Pagina = Producto -->
+        <div class="col-lg-9 col-md-9 col-sm-9" ><!--Inicio-Division De la Pagina = Producto -->
           <div class="col-lg-12"><!--Inicio-Emcabezado-Producto_seleccionado-->
 
             <?php if (isset($this->nom_categoria )) :?>
