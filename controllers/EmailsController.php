@@ -203,16 +203,14 @@
                   $this->Email->Port          = 465;
                   $this->Email->SMTPKeepAlive = true;
                   $this->Email->Mailer        = "smtp";                   // set the SMTP port
-                  $this->Email->Username      = CORREO_01;								// GMAIL username
-                  $this->Email->Password      = '*contac*911';            	 					// GMAIL password
+                  $this->Email->Username      = 'contactos@tecnoaplicadas.com';;								// GMAIL username
+                  $this->Email->Password      = "*contac*911";            	 					// GMAIL password
                   $this->Email->From          = CORREO_01;
                   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
                   $this->Email->Subject       = $asunto;
                   $this->Email->AltBody       = ""; //Text Body
                   $this->Email->WordWrap      = 50; // set word wrap																// send as HTML
 
-                  Debug::Mostrar($this->Email->Username);
-                  Debug::Mostrar($this->Email->Password);
 
 
 
