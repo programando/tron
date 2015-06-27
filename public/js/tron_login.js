@@ -42,16 +42,16 @@ var Mensaje_Resultado_Cambio_Password_Correo_No_Existe = function()
 			$("#msgbox").removeClass().addClass('messagebox').text('La cuenta de correo digitada no se encuentra registrada en la Red de Usuarios TRON.').fadeIn(3000);
 }
 
-
+/*
 var Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales =function(){
 
 	alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
 }
-
+*/
 
 var Iniciar_Sesion = function(Parametros)
 {
-	alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
+
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
@@ -202,8 +202,8 @@ $('.btn-login').on('click', function(){
 	 // NO TENGA EN EL CARRITO E KIT DE INICIO Y LOS PRODUCTOS PROMOCIONALES
 
 	 Iniciar_Sesion(Parametros);
-	 alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
-	 Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales();
+	 /*alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
+	 Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales();*/
 	return false;
 });
 
