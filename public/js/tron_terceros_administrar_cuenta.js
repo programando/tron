@@ -1,6 +1,12 @@
 // Funtiones tabs
 // TABS  =  mi perfil , informes , favoritos
 
+var $Opciones_Seleccionada = '';
+$(function() {
+   $('#mi-perfil').click();
+   $('#btn_mostrar').click();
+});
+
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 					$('.tab_link_modif').css('background','transparent');
@@ -10,11 +16,7 @@ $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 
 });
 
-var $Opciones_Seleccionada = '';
-$(function() {
-   $('#mi-perfil').click();
-   $('#btn_mostrar').click();
-});
+
 
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
@@ -116,10 +118,10 @@ $('#btn_mostrar').on('click',function(){
 	    $('#columna_izquierdad').animate({'margin-left':'0px'});
 	    $('#btn_mostrar').fadeOut(400);
 	    $('#columan_derecha').attr('class','col-lg-9' );
+
 });
 
 $('#mi-perfil').on('click',function(){
-
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
 				$('#con-row-menu').css('margin-bottom','0px');
@@ -137,7 +139,7 @@ $('#informes_pedidos').on('click',function(){
 				$('#con-row-menu').css('margin-bottom','50px');
 	   $('.cabezera').css('display','none');
     $('#cabezera_informes').css('display','block');
-   // $('.contenedor_cuenta').html('');
+    $('.contenedor_cuenta').html('');
     $('#informes-pedidos-realizados').click();
 });
 
@@ -180,15 +182,8 @@ $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
 				var 		$idmcipio             = $(this).attr('idmcipio');
 				var 		$telefono             = $(this).attr('telefono');
 				$('#new_destinario').val($destinatario);
-
 				$("#new_iddpto option[value='" +$iddpto+"']").remove();
-
 				$('#new_iddpto').append('<option value="' + $iddpto + '">' + $nomdpto+ '</option>');
-
-
-				//$('#new_iddpto').val($iddpto);
-				//$('#new_iddpto').html($nomdpto );
-
 	   $('.direcciones_a_atualizar').css('background','#B7B7B7');
 	   $(this).css('background','#003E90');
 	   $(this).css('color','white');

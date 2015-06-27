@@ -17,7 +17,7 @@
 	}
 
 public static function Generar_Codigo_Confirmacion($longitud=6){
-		$codigo              = Self::Generar_Codigo_Unico();
+		$codigo              = General_Functions::Generar_Codigo_Unico();
 		$numero              = mt_rand(123456789,999999999);
 		$codigo_confirmacion = md5($codigo.$numero.TOKEN_PASSWORDS);
 		return $codigo_confirmacion;

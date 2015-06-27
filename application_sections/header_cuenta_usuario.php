@@ -19,8 +19,6 @@
   <!-- INFORMACIÓN PARA USUARIOS AUTENTICADOS -->
  <?php if (Session::Get('autenticado')==true ) :?>
   <div class="row"  id="personal"><!-- INFORMACION SOBRE CUENTAS-->
-
-
       <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
           <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
       </a>
@@ -31,11 +29,7 @@
                   </a>
                   <ul class="dropdown-menu menu" style="width: 208px;">
                      <li><a href="<?= BASE_URL ;?>terceros/administrar_cuenta"      ><span class="configuracion"></span> Administrar Mi Cuenta</a></li>
-                     <li><a href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span> Registrar Amigo</a></li>
-<!--                 <li><a href="<?= BASE_URL ;?>pedidos/historial_mis_pedidos"    ><span class="mis_pedidos"></span> Mis Pedidos</a></li>
-                     <li><a href="<?= BASE_URL ;?>terceros/cuenta_pases_de_cortesia"><span ></span> Pases de Cortesia</a></li>
-                     <li><a href="#"                                                ><span class="favoritos"></span> Favoritos</a></li>
-                     <li><a href="<?= BASE_URL ;?>terceros/informacion_mi_cuenta"><span ></span> Informes y Reportes </a></li> -->
+                     <li><a href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span> Registrar Amigo Bajo mi Código</a></li>
                   </ul>
            </li><!--MI CUENTA-->
            <li>

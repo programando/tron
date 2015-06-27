@@ -43,14 +43,21 @@ var Mensaje_Resultado_Cambio_Password_Correo_No_Existe = function()
 }
 
 
+var Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales =function(){
+
+	alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
+}
+
 
 var Iniciar_Sesion = function(Parametros)
 {
+	alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
 							url:      '/tron/terceros/Validar_Ingreso_Usuario',
 							type:     'post',
+							async:    false,
        success:  function (resultado)
       	 {
       	 	if (resultado.Resultado_Logueo!='Logueo_OK')
@@ -69,6 +76,7 @@ var Iniciar_Sesion = function(Parametros)
       	 							}
 
       	 		}
+
       	 }
 				});
 }
@@ -190,7 +198,12 @@ $('.btn-login').on('click', function(){
 		 	  return false;
 		 }
 	 var Parametros = {"Password":password, "email":email };
+	 // JUNIO 26 DE 2015. EN EL MOMENTO DE LOGUEASE VERIFICAR QUE SI ES EMPRESARIO O CLIENTE
+	 // NO TENGA EN EL CARRITO E KIT DE INICIO Y LOS PRODUCTOS PROMOCIONALES
+
 	 Iniciar_Sesion(Parametros);
+	 alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
+	 Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales();
 	return false;
 });
 
