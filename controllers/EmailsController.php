@@ -211,9 +211,6 @@
                   $this->Email->AltBody       = ""; //Text Body
                   $this->Email->WordWrap      = 50; // set word wrap																// send as HTML
 
-
-
-
       }
 
     }
