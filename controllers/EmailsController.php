@@ -47,6 +47,7 @@
               if ($Respuesta == 'correo_OK'){
                 $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
               }
+              $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>';
               $Respuesta = compact('Respuesta' );
           }
             echo json_encode($Respuesta,256);
@@ -59,7 +60,7 @@
           $this->Email->clearAddresses();
             return "correo_OK";
         }else {
-          echo "Error: " . $mail->ErrorInfo;
+          echo "Error: " . $this->Email->ErrorInfo;
          return "correo_No_OK";
         }
 
