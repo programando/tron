@@ -74,7 +74,6 @@ body
 			max-width   : 360px;
 			min-width   : 360px;
 			padding     : 0px;
-
 }
 
 .input-buscar
@@ -155,36 +154,40 @@ body
 
 /* Innput buscar */
 
-/*INFORMACION ACERCA DE CUENTAS : REGISTRAR , INGRESAR , REGISTRAR A AMIGO*/
+/* REGISTRAR , INGRESAR */
+.ingresar ,
+.registrar ,
+.ingresar:hover ,
+.registrar:hover
+{
+			text-decoration: none;
+			color          : #003e90;
+}
 
-
-
+/* Para usuarios logiados en nuestro sistema =  Bienvenidos : ... , Mi cuenta , Cerrar secion */
 #personal
 {
-			color        : #003e90;
 			font-size    : 13px;
    margin-top   : 5px;
    margin-right : 0px;
    margin-bottom: -10px;
    padding      :  0px;
-
+   text-align: right;
 }
 
-.ing , .rgs
+.cont-mi-cuenta > li
 {
-			color        : #003e90;
+   display: inline-block;
+   margin-left: 3px;
 			margin-bottom: 0px;
 }
 
-.bienvenido_usuario
+.cont-mi-cuenta > li > a /* Bienvenidos : ... , Mi cuenta , Cerrar secion */
 {
-		float          : left;
-		text-decoration: none;
-		cursor         : text;
-		color          : #003e90;
-		margin-right   : 12px;
-		padding-top    : 2px;
-		font-size      : 13px;
+			padding        : 0px;
+			display        : block;
+			text-decoration: none;
+			color          : #003e90;
 }
 
 .bienvenido_usuario:hover
@@ -194,42 +197,33 @@ body
 		color          : #003e90;
 }
 
-#personal ul li
-{
-   display: inline-block;
-}
-
-#personal ul li a
-{
-   font-size    : 13px;
-   padding: 0px;
-	  display: block;
-}
-
 /* Mi cuenta  => Menu */
-#personal ul li .menu li
+#cuenta_info_menu > li
 {
-			display: block;
-		 width: 100%
+	   width: 100%;
 }
 
-#personal ul li .menu li a
+#cuenta_info_menu > li .info_cuent_link /* administrar cuenta , registrar amigo bajo mi codigo */
 {
-		 padding-left: 10px;
-;
+	   width: 100%;
+    font-size: 13px;
+    padding: 0px;
+    text-align: left;
+    padding: 2px 0px 2px 10px;
+    color:#003E90 ;
+
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    transition: all 200ms ease;
 }
 
-.menu li a:hover
+#cuenta_info_menu > li .info_cuent_link:hover /* administrar cuenta , registrar amigo bajo mi codigo */
 {
-			color                : white;
-			display              : block;
-			background           : #0469ed;
+	   background: #003E90;
+	   color: white;
 }
 
-/* FINAL INFORMACION ACERCA DE CUENTAS : REGISTRAR , INGRESAR , REGISTRAR A AMIGO*/
-
-
-/* TABLA ..*/
+/* carrito */
 
 .cont-carrito-compras
 {
@@ -438,18 +432,21 @@ ul .selected{color:red;}
 {
 			background: #003e90;
 			border    : none;
+			display: block;
 }
 
 #menu ul li .list-menu
 {
 	  color: white;
 	  margin-left: 5px;
+	  font-size: 12px;
 }
 
 #flecha ,
 #inicio-menu
 {
 	  color: white;
+	  	  font-size: 12px;
 }
 
 #inicio-menu
@@ -523,8 +520,8 @@ ul .selected{color:red;}
 {
    float: left;
    margin-left: -70px;
-   margin-top: -10px;
-   margin-bottom: -30px;
+   /*margin-top: -10px;*/
+   margin-bottom: -35px;
 
 }
 

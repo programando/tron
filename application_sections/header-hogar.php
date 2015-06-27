@@ -22,7 +22,7 @@
         </div>
 
 <!-- Menu -->
-        <nav id="menu" class="navbar navbar-default eee" role="navigation">
+        <nav id="menu" class="navbar navbar-default " role="navigation" style=" ">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
             data-target=".navbar-ex1-collapse" id="boton" >
