@@ -18,7 +18,7 @@ class PdfController extends Controller
     public function Convenio_Comercial()
     {
 
-       $nombre_archivo = TMP . 'Convenio Comercial.pdf';
+       //$nombre_archivo = TMP . 'Convenio Comercial.pdf';
 
 
       // Debug::Mostrar($nombre_archivo );
