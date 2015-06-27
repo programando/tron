@@ -31,10 +31,13 @@ class PdfController extends Controller
         // set auto page breaks
         $this->Pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         # creamos una página en blanco
-        $this->Pdf->Addpage();
-        $this->Pdf->Write(0,'CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON DE BALQUIMIA S.A.S.','',0,'C',1);
+
         $texto =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
         Debug::Mostrar($BASE_PDFS);
+
+        //$this->Pdf->Addpage();
+        //$this->Pdf->Write(0,'CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON DE BALQUIMIA S.A.S.','',0,'C',1);
+
         # visualizamos el documento
         //$this->Pdf->WriteHTML($texto, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
         //$this->Pdf->Output();
