@@ -204,7 +204,7 @@
                   $this->Email->SMTPKeepAlive = true;
                   $this->Email->Mailer        = "smtp";                   // set the SMTP port
                   $this->Email->Username      = CORREO_01;								// GMAIL username
-                  $this->Email->Password      = CORREO_01_PASS;            	 					// GMAIL password
+                  $this->Email->Password      = '*contac*911';            	 					// GMAIL password
                   $this->Email->From          = CORREO_01;
                   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
                   $this->Email->Subject       = $asunto;
