@@ -211,6 +211,9 @@
                   $this->Email->AltBody       = ""; //Text Body
                   $this->Email->WordWrap      = 50; // set word wrap																// send as HTML
 
+                  Debug::Mostrar($this->Email->Username);
+                  Debug::Mostrar($this->Email->Password);
+
 
 
       }
