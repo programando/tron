@@ -34,10 +34,10 @@ class PdfController extends Controller
         $this->Pdf->Addpage();
         $this->Pdf->Write(0,'CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON DE BALQUIMIA S.A.S.','',0,'C',1);
         $texto =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
-        Debug::Mostrar($texto);
+        Debug::Mostrar($BASE_PDFS);
         # visualizamos el documento
-        $this->Pdf->WriteHTML($texto, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
-         $this->Pdf->Output();
+        //$this->Pdf->WriteHTML($texto, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
+        //$this->Pdf->Output();
 
         /*$this->Pdf->Output($nombre_archivo,'I');
         <a href="algunarchivo" target="_blank">Link</a>
