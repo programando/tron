@@ -200,7 +200,7 @@
                   $this->Email->CharSet       = "utf-8";
                   $this->Email->SMTPSecure    = 'ssl';                            // sets the prefix to the servier
                   $this->Email->Host          = 'smtp.gmail.com';      				 		// sets GMAIL as the SMTP server
-                  $this->Email->Port          = 25;
+                  $this->Email->Port          = 465;
                   $this->Email->SMTPKeepAlive = true;
                   $this->Email->Mailer        = "smtp";                   // set the SMTP port
                   $this->Email->Username      = CORREO_01;								// GMAIL username
