@@ -498,6 +498,7 @@ class TercerosController extends Controller
         $papellido   = strtoupper($papellido);
         $razonsocial = strtoupper($razonsocial);
         $direccion   = strtoupper($direccion);
+        $barrio      = strtoupper($barrio);
 
 
       $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' , 'razonsocial' ,'genero' ,

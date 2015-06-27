@@ -191,7 +191,7 @@
       		*		 ESTABLECE LA CONFIGURACIÓN PARA EL ENVÍO DE CORREOS ELECTRÓNICOS
       		*/
 									$this->Email->IsSMTP();
-                  $this->Email->SMTPDebug = 2;
+                  //$this->Email->SMTPDebug = 2;
 									$this->Email->SMTPAuth    = true;
 									$this->Email->IsHTML      = true;              								// enable SMTP authentication
 									$this->Email->ContentType = "text/html";
