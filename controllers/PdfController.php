@@ -18,6 +18,10 @@ class PdfController extends Controller
     public function Convenio_Comercial()
     {
 
+       $nombre_archivo = TMP . 'Convenio Comercial.pdf';
+
+
+      // Debug::Mostrar($nombre_archivo );
         $this->Pdf->setFooterData(array(0,64,0), array(0,64,128));
         $this->Pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $this->Pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
@@ -32,7 +36,13 @@ class PdfController extends Controller
         $texto =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
         # visualizamos el documento
         $this->Pdf->WriteHTML($texto, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
-        $this->Pdf->Output();
+         $this->Pdf->Output();
+
+        /*$this->Pdf->Output($nombre_archivo,'I');
+        <a href="algunarchivo" target="_blank">Link</a>
+        */
+
+
     }
 
 

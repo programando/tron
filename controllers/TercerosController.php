@@ -494,7 +494,10 @@ class TercerosController extends Controller
         $idtppersona                                    = 2;
         if ($idtpidentificacion != 31){ $idtppersona    = 1;}
 
-
+        $pnombre     = strtoupper($pnombre);
+        $papellido   = strtoupper($papellido);
+        $razonsocial = strtoupper($razonsocial);
+        $direccion   = strtoupper($direccion);
 
 
       $Datos_Terceros = compact('idtpidentificacion' ,'identificacion' ,'digitoverificacion' ,'pnombre' ,'papellido' , 'razonsocial' ,'genero' ,
