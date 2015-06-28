@@ -521,13 +521,13 @@ class TercerosController extends Controller
 
      // GRABAR DIRECCION DE DESPACHO
      //------------------------------
-     /*$Datos_Direccion_Despacho = compact('iddireccion_despacho','idtercero','idmcipio','direccion','barrio','telefono','barrio','destinatario');
+     $Datos_Direccion_Despacho = compact('iddireccion_despacho','idtercero','idmcipio','direccion','barrio','telefono','barrio','destinatario');
      $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($Datos_Direccion_Despacho);
      // ESTABLECER VARIABLES DEL DESPACHO EN CASO DE QUE SE HAGA UN PEDIDO LUEGO DEL REGISTRO
      //--------------------------------------------------------------------------------------
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
 
-     $this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
+     /*$this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
 
      // DEJAR LAS VARIABLES EN BLANCO
      $this->Registro_Re_Establecer_Tercero_Presenta();
