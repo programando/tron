@@ -530,8 +530,8 @@ class TercerosController extends Controller
      $this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
 
      // DEJAR LAS VARIABLES EN BLANCO
-     /*$this->Registro_Re_Establecer_Tercero_Presenta();
-     Session::Destroy('idtipo_plan_compras');*/
+     $this->Registro_Re_Establecer_Tercero_Presenta();
+     Session::Destroy('idtipo_plan_compras');
 
 
      $Datos = compact('Texto_Respuesta' );
