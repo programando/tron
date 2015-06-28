@@ -514,13 +514,14 @@ class TercerosController extends Controller
 
     // GRABAR DATOS DEL TERCERO
      $Registro             =  $this->Terceros->Grabar($Datos_Terceros);
-     $idtercero             = $Registro[0]['idtercero'];
+     $idtercero            = $Registro[0]['idtercero'];
      $telefono             =  $celular1;
      $destinatario         =  $pnombre . ' ' . $papellido;
      $iddireccion_despacho = 0;
+
      // GRABAR DIRECCION DE DESPACHO
      //------------------------------
-     $Datos_Direccion_Despacho = compact('iddireccion_despacho','idtercero','idmcipio','direccion','barrio','telefono','barrio','destinatario');
+     /*$Datos_Direccion_Despacho = compact('iddireccion_despacho','idtercero','idmcipio','direccion','barrio','telefono','barrio','destinatario');
      $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($Datos_Direccion_Despacho);
      // ESTABLECER VARIABLES DEL DESPACHO EN CASO DE QUE SE HAGA UN PEDIDO LUEGO DEL REGISTRO
      //--------------------------------------------------------------------------------------
@@ -531,6 +532,7 @@ class TercerosController extends Controller
      // DEJAR LAS VARIABLES EN BLANCO
      $this->Registro_Re_Establecer_Tercero_Presenta();
      Session::Destroy('idtipo_plan_compras');
+     */
 
      $Datos = compact('Texto_Respuesta' );
      echo json_encode($Datos,256);
