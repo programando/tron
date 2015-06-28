@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="<?=BASE_URL ;?>index" style="border : red solid 2px; height: 5px;" class="navbar-brand inicio-index" id="inicio-menu"><span class="inicio"></span></a>
+          <a href="<?=BASE_URL ;?>index"   class="navbar-brand inicio-index" id="inicio-menu"><span class="inicio"></span></a>
         </div>
 
 
@@ -39,23 +39,23 @@
           <ul class="nav navbar-nav">
 
             <li class="felcha-atras">
-               <a class="navbar-brand" href="javascript:history.go(-1)" style="border : red solid 2px; height: 5px;"  id="flecha" ><span class="glyphicon glyphicon-chevron-left"></span> </a>
+               <a class="navbar-brand" href="javascript:history.go(-1)"    id="flecha" ><span class="glyphicon glyphicon-chevron-left"></span> </a>
             </li>
             <li class="selected">
-               <a class="list-menu  campo_1" id="hogar_produc" style="border : red solid 2px; height: 5px; min-height: 25px;"    href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a>
+               <a class="list-menu  campo_1" id="hogar_produc"       href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a>
             </li>
-            <li><a class="list-menu campo_2" id="hogar_otros"  style="border : red solid 2px; height: 5px;"    href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
-            <li><a class="list-menu campo_3" id="hogar_destacados" style="border : red solid 2px; height: 5px;" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
-            <li><a class="list-menu campo_4" id="hogar_ofertas"  style="border : red solid 2px; height: 5px;"   href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
-            <li><a class="list-menu campo_5" id="hogar_novedades"  style="border : red solid 2px; height: 5px;" href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
-            <li><a class="list-menu campo_6"                 style="border : red solid 2px; height: 5px;"      href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
+            <li><a class="list-menu campo_2" id="hogar_otros"        href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
+            <li><a class="list-menu campo_3" id="hogar_destacados"   href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
+            <li><a class="list-menu campo_4" id="hogar_ofertas"      href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
+            <li><a class="list-menu campo_5" id="hogar_novedades"    href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
+            <li><a class="list-menu campo_6"                         href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
 
           </ul>
 
       <ul class="nav navbar-nav navbar-right">
          <li style="width: 95px;">
-             <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-menu  li_info" style="border : red solid 2px; height: 5px;">
-                <!-- <div class="cont-img-info-menu"><strong>Info</strong></div> -->
+             <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-menu  li_info"  >
+                  <div class="cont-img-info-menu"><strong>Info</strong></div>
              </a>
          </li>
       </ul>

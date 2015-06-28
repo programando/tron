@@ -115,6 +115,8 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 
 // BTn = mostrar menu
 $('#btn_mostrar').on('click',function(){
+	    $('.contenido-reporte').html('');
+	    $('.contenedor_cuenta').html('');
 	    $('#columna_izquierdad').animate({'margin-left':'0px'});
 	    $('#btn_mostrar').fadeOut(400);
 	    $('#columan_derecha').attr('class','col-lg-9' );
