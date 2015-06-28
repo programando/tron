@@ -527,12 +527,12 @@ class TercerosController extends Controller
      //--------------------------------------------------------------------------------------
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
 
-     /*$this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
+     $this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
 
      // DEJAR LAS VARIABLES EN BLANCO
-     $this->Registro_Re_Establecer_Tercero_Presenta();
-     Session::Destroy('idtipo_plan_compras');
-     */
+     /*$this->Registro_Re_Establecer_Tercero_Presenta();
+     Session::Destroy('idtipo_plan_compras');*/
+
 
      $Datos = compact('Texto_Respuesta' );
      echo json_encode($Datos,256);
@@ -541,7 +541,7 @@ class TercerosController extends Controller
   public function Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial)
   {
      // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
-     $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre,$genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial );
+     $Res = $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre,$genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial );
      // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
 
