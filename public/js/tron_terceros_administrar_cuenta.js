@@ -1,11 +1,11 @@
 // Funtiones tabs
 // TABS  =  mi perfil , informes , favoritos
 
-var $Opciones_Seleccionada = '';
-$(function() {
-   $('#mi-perfil').click();
-   $('#btn_mostrar').click();
-});
+// var $Opciones_Seleccionada = '';
+// $(function() {
+//    // $('#mi-perfil').click();
+//    // // $('#btn_mostrar').click();
+// });
 
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
@@ -108,7 +108,15 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 
  //  Menu deslizante  =  barra derecha
  $('.tabs_click').on('click',function(){
-	    $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
+
+	    // $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
+	    // $('#btn_mostrar').fadeIn(600);
+     // $('#columan_derecha').attr('class','col-lg-12');
+});
+
+ //  Menu deslizante  =
+ $('.perfil_menu_link').on('click',function(){
+     $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
 	    $('#btn_mostrar').fadeIn(600);
      $('#columan_derecha').attr('class','col-lg-12');
 });

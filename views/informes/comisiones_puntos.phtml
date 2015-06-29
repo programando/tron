@@ -25,11 +25,11 @@
 
                      <div class="col-lg-12 col-md-12 col-ms-12" style="padding-left: 0px;"><!-- Tabla-Cuenta-dinero -->
                           <div class="cont-cabezera-tabla-dinero"><!-- Tabla-header = fija -->
-                              <p class="Cabezera-tabla text-center" style="width: 15.5%;">Fecha</p>
-                              <p class="Cabezera-tabla text-center" style="width: 52%;">Concepto</p>
-                              <p class="Cabezera-tabla text-center" style="width: 10%;">Entran</p>
-                              <p class="Cabezera-tabla text-center" style="width: 10%;">Salen</p>
-                              <p class="Cabezera-tabla text-center" style="width: 8.5%;">Saldo</p>
+                              <p class="Cabezera-tabla text-center" style="width: 10%;">Fecha</p>
+                              <p class="Cabezera-tabla text-center" style="width: 40%;">Concepto</p>
+                              <p class="Cabezera-tabla text-center" style="width: 16.6%;">Entran</p>
+                              <p class="Cabezera-tabla text-center" style="width: 16.6%">Salen</p>
+                              <p class="Cabezera-tabla text-center" style="width: 16.6%;">Saldo</p>
                           </div><!-- Tabla-header = fija -->
 
                           <table class="table table-condensed table-hover cuerpo-tabla">
@@ -41,12 +41,12 @@
                                   $vr_salida         = Numeric_Functions::Formato_Numero( $Comisiones['vr_salida'] );
                                   $saldo             = Numeric_Functions::Formato_Numero( $Comisiones['saldo'] );
                             ?>
-                                 <tr>
-                                     <td class="fecha text-right"> <?= $Comisiones['fecha_registro'] ;?> </td>
-                                     <td class="text-center concepto"><?= $nom_tipo_registro ;?> </td>
-                                     <td class="text-center entran"><?= $vr_entrada ;?>   </td>
-                                     <td class="text-center salen"><?= $vr_salida  ;?>   </td>
-                                     <td class="text-center saldo"> <?= $saldo ;?>  </td>
+                                 <tr style="padding: 0px;">
+                                     <td class="fecha text-right"    style="width: 10%;"> <?= $Comisiones['fecha_registro'] ;?> </td>
+                                     <td class="text-center concepto"style="width: 40%;"><?= $nom_tipo_registro ;?> </td>
+                                     <td class="text-center entran"  style="width: 16.6%;"><?= $vr_entrada ;?>   </td>
+                                     <td class="text-center salen"   style="width: 16.6%"><?= $vr_salida  ;?>   </td>
+                                     <td class="text-center saldo"   style="width: 16.6%;"> <?= $saldo ;?>  </td>
                                  </tr>
                             <?php endforeach ;?>
 
@@ -69,15 +69,15 @@
 
          <div class="col-lg-12 col-md-12 col-ms-12" style="  padding: 0px;"><!-- Tabla-Cuenta-puntos -->
               <div class="cont-cabezera-tabla-puntos"><!-- Tabla-header = fija -->
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 15.5%;">Fecha</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 52%;">Concepto</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 10%;">Entran</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 10%;">Salen</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 8.5%;">Saldo</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 10%;">Fecha</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 40%;">Concepto</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 16.6%;">Entran</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 16.6%;">Salen</p>
+                  <p class="Cabezera-tabla-puntos text-center" style="width: 16.6%;">Saldo</p>
               </div><!-- Tabla-header = fija -->
 
               <table class="table table-condensed table-hover cuerpo-tabla">
-                <tbody><!-- Cuerpo -->
+                <tbody ><!-- Cuerpo -->
                 <?php foreach ($this->Puntos as $Puntos)  :?>
                 <?php
                       $nom_tipo_registro = strtolower( $Puntos['nom_tipo_registro']);
@@ -86,7 +86,7 @@
                       $saldo             = Numeric_Functions::Formato_Numero( $Puntos['saldo'] );
                 ?>
 
-                     <tr>
+                     <tr style="width: 100%;">
                          <td class="fecha text-center"><?= $Puntos['fecha_registro'] ;?> </td>
                          <td class="text-center concepto"><?= $nom_tipo_registro;?> </td>
                          <td class="text-center entran"><?= $cant_entrada;?>   </td>

@@ -1,15 +1,6 @@
 
 /*..............ESTILOS DE EL HEADER Y FOOTER........*/
 
-
-.navbar {
-  position: relative;
-  min-height: 30px;
-  height: 20px;
-  margin-bottom: 20px;
-}
-
-
 .header-tron
 {
 	   padding: 0px;
@@ -310,10 +301,10 @@ body
 		margin-right : -20px;
 		min-width    : 270px;
 		width        : 270px;
-		margin-top: 5px;
+		margin-top: 8px;
+
+
 }
-
-
 
 .tab-hogar ,
 .tab-industrial
@@ -323,8 +314,8 @@ body
 			text-align           : center;
 			color                : white;
 			text-decoration      : none;
-			height               : 28px;
-			padding-top          : -2px;
+			background: red;
+					height: 33px;
 			-webkit-border-radius: 10px 10px 0px 0px;
 			-moz-border-radius   : 10px 10px 0px 0px;
 			-ms-border-radius    : 10px 10px 0px 0px;
@@ -332,110 +323,76 @@ body
 			border-radius        : 10px 10px 0px 0px;
 }
 
-/* Tab = Hogar*/
-
-
 .tab-hogar
 {
-			background    : #003e90;
-			display       : inline-block;
-			padding-bottom: 40px;
-			padding-top   : 1px;
+	  background: #003E90;
 }
 
+.tab-hogar:hover ,
 .tab-hogar:link
 {
-			color          :white;
-			margin-bottom  : -2px;
-			text-decoration: none;
+	  background:  #0469ED;
+	  text-decoration: none;
+	  color: white;
 }
 
-.tab-hogar:visited
-{
-			color          :white;
-			text-decoration: none;
-}
-
-
-.tab-hogar:hover
-{
-			background     : #0469ed;
-			color          :white;
-			text-decoration: none;
-}
-
+.tab-hogar:visited ,
 .tab-hogar:active
 {
-			color          :white;
-			text-decoration: none;
+		  text-decoration: none;
+	  color: white;
 }
 
-
-/* Tab = Industrila*/
-
-.logo-indusrial
+.logo-indusrial /* IMG = Industrial */
 {
-			height       : 17px;
-			margin-bottom: 5px;
+
+			padding: 0px;
+			height:13px;
+			width:20px;
+			margin-top: -3px;
 }
 
 .tab-industrial
 {
-		background    : #7d170f;
-		padding-bottom: 40px;
-		padding-top   : -2px;
-
+	  background: #7D170F;
 }
 
+.tab-industrial:hover ,
 .tab-industrial:link
 {
-			color          :white;
-			text-decoration: none;
+	  background: #BA070D;
+	  text-decoration: none;
+	  color: white;
 }
 
-.tab-industrial:visited
-{
-			color          :white;
-			text-decoration: none;
-}
-
-.tab-industrial:hover
-{
-			background     : #ba070d;
-			color          :white;
-			text-decoration: none;
-}
-
+.tab-industrial:visited ,
 .tab-industrial:active
 {
-			color          :white;
-			text-decoration: none;
+	  text-decoration: none;
+	  color: white;
 }
 
-/* TABS = Hogar-Industrila*/
-
-
-
 /* MENU-HOGAR = MENU-PRINCIPAL DE PROYECTO TRON*/
-
-
-ul .selected{color:red;}
-
-
+.navbar
+{
+  position: relative;
+/*  min-height: 30px;*/
+  height: 30px;
+  margin-bottom: 20px;
+}
 
 .cont-img-info-menu
 {
-     background-image: url(../images/empresa/info_menu.png);
-     background-repeat: no-repeat;
-     width: 78px;
-     height: 25px;
-     margin-bottom: -2px;
-     margin-top: -3px;
-     margin-left: -4px;
-     text-align:  center;
-     display: block;
-     color: white;
-
+		background-image : url(../images/empresa/info_menu.png);
+		background-repeat: no-repeat;
+		width            : 70px;
+		height           : 25px;
+		margin-bottom    : -2px;
+		margin-top       : -3px;
+		margin-left      : -4px;
+		text-align       :  center;
+		display          : block;
+		color            : white;
 }
 
 #menu
@@ -450,13 +407,20 @@ ul .selected{color:red;}
 	  color: white;
 	  margin-left: 5px;
 	  font-size: 12px;
+   padding: 7.5px 20px;
+}
+
+.navbar-brand
+{
+	   height: 35px;
 }
 
 #flecha ,
 #inicio-menu
 {
-	  color: white;
-	  	  font-size: 12px;
+			color: white;
+			font-size: 12px;
+   padding: 7.5px 10px;
 }
 
 #inicio-menu
@@ -509,7 +473,7 @@ ul .selected{color:red;}
 				box-shadow        : 0px 2px 5px 0px  #282828;
 				background        : #ffffff;
 				display           : block;
-				height            : 125px;
+				height            : 112px;
 				margin            : 0;
 				max-height        :
 				overflow          : hidden;
@@ -530,14 +494,14 @@ ul .selected{color:red;}
 {
    float: left;
    margin-left: -70px;
-   /*margin-top: -10px;*/
+   margin-top: 0px;
    margin-bottom: -35px;
 
 }
 
 .header2 .contenido-input-buscar
 {
-	   margin-top:15px;
+	   margin-top: 35px;
 	   margin-bottom: 0px;
     margin-left: -80px;
 	   display: block;
@@ -561,8 +525,6 @@ ul .selected{color:red;}
 	   background:  #ba070d;
 }
 
-
-
 .text-label-industrila /* tipo-busquedad = margas , nombre-prod , palabra-clave */
 {
     color: #7d170f;
@@ -579,8 +541,10 @@ ul .selected{color:red;}
 #flecha-industrial,
 #inicio-menu-industrial
 {
-	  color: white;
-	  margin-right: 5px;
+			color       : white;
+			margin-right: 5px;
+			font-size   : 12px;
+   padding: 7.5px 10px;
 }
 
 #inicio-menu-industrial:hover
@@ -596,7 +560,9 @@ ul .selected{color:red;}
 #menu-industial ul li .list-indust
 {
 	  color: white;
-	  margin-right: 5px;
+	  margin-left: 5px;
+	  font-size: 12px;
+   padding: 7.5px 20px;
 }
 
 /*MENU-INDUSTRIAL , MENU-FIJO*/

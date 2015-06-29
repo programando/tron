@@ -1,5 +1,5 @@
-<div class=" col-lg-12 col-md-12 col-sm-12">
-
+<div class="col-lg-12 col-md-12 col-sm-12">
+     <div class="contenedor_barra_usuarion">
        <div class="divicion_barra_usuario" style="width: 21%;" >
            <div class="row">
                <div class="col-lg-3 padding_none" style="width:135px;">
@@ -51,6 +51,7 @@
       </div>
       </div><!-- Barraar -->
       </div>
+     </div>
 </div>
 
 

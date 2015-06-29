@@ -31,6 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <!-- Inicio -->
           <a href="<?=BASE_URL ;?>index"   class="navbar-brand inicio-index" id="inicio-menu"><span class="inicio"></span></a>
         </div>
 
