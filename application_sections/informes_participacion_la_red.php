@@ -3,12 +3,12 @@
            	   	     	    <thead><!-- cabezera -->
            	   	     	    	    <tr>
            	   	     	    	    	   <th class="text-center">#</th>
-           	   	     	    	    	   <th class="text-center">Código de Usuario</th>
+           	   	     	    	    	   <th class="text-center">Código Usuario</th>
            	   	     	    	    	   <th class="text-center">Nombre</th>
            	   	     	    	    	   <th class="text-center">Presentado por</th>
            	   	     	    	    	   <th class="text-center">Fecha Reg.</th>
            	   	     	    	    	   <th class="text-center">Cant. Frontales</th>
-           	   	     	    	    	   <th class="text-center">Cant .Codigo por Persona</th>
+           	   	     	    	    	   <th class="text-center">Códigos por Persona</th>
            	   	     	    	    </tr>
            	   	     	    </thead><!-- cabezera -->
 

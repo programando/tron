@@ -3837,10 +3837,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 /* Altura del menu ( modificada) */
 .navbar {
   position: relative;
-  /*min-height: 50px;*/
+  min-height: 35px;
   height: 20px;
   margin-bottom: 20px;
-
 }
 
 .navbar_tron

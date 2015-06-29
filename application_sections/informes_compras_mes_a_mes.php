@@ -15,8 +15,8 @@
                     <th class="text-center">OCT</th>
                     <th class="text-center">NOV</th>
                     <th class="text-center">DIC</th>
-                    <th class="text-center">Total</th>
-                    <th class="text-center">Prom.</th>
+                    <th class="text-center">TOTAL</th>
+                    <th class="text-center">PROM.</th>
 	     	    	    </tr>
 	     	    </thead><!-- cabezera -->
 

@@ -49,6 +49,7 @@ class TercerosController extends Controller
    }
 
    public function plan_seleccionado(){
+       $this->View->idtipo_plan_compras = Session::Get('idtipo_plan_compras');
        $this->View->Mostrar_Vista_Parcial("plan_seleccionado");
    }
 

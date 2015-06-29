@@ -9,10 +9,18 @@
                     <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12"><!-- Plan Empresario Tron -->
                           <div class="cont-img_plan-empresario">
-                              <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" class="img-empresario-tron" style=" "/><!-- IMG = Empresario tron -->
-                              <img src="<?= BASE_IMG_EMPRESA ; ?>amigoI.png" class="img-empresario-tron" style="display: none;"/><!-- IMG = Empresario tron -->
-                              <img src="<?= BASE_IMG_EMPRESA ; ?>visitanteI.png" class="img-empresario-tron" style="display: none;"/><!-- IMG = Empresario tron -->
-                              <p class="text-perteneces-A"> Perteneces al <br> PLAN EMPRESARIO TRON</p><!-- Perteneces -->
+                              <?php if ( $this->idtipo_plan_compras == 3 ) :?>
+                                  <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
+                                  <p class="text-perteneces-A"> Perteneces al <br> PLAN EMPRESARIO TRON</p><!-- Perteneces -->
+                              <?php endif ;?>
+                              <?php if ( $this->idtipo_plan_compras == 2 ) :?>
+                                <img src="<?= BASE_IMG_EMPRESA ; ?>amigoI.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
+                                <p class="text-perteneces-A"> Perteneces al <br> PLAN CLIENTE TRON</p><!-- Perteneces -->
+                              <?php endif ;?>
+                              <?php if ( $this->idtipo_plan_compras == 1 ) :?>
+                              <img src="<?= BASE_IMG_EMPRESA ; ?>visitanteI.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
+                                <p class="text-perteneces-A"> Perteneces al <br> PLAN COMPRADOR OCASIONAL</p><!-- Perteneces -->
+                              <?php endif ;?>
                           </div>
                        </div><!-- Plan Empresario Tron -->
 

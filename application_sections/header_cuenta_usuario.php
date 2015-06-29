@@ -32,9 +32,10 @@
                  <span class="glyphicon glyphicon-user"></span> Mi Cuenta <span class="caret"></span>
               </a>
               <!-- Cuenta  = Menu -->
-              <ul class="dropdown-menu" id="cuenta_info_menu" style="width: 220px; margin-left: -50px;">
+              <ul class="dropdown-menu" id="cuenta_info_menu" style="width: 250px; margin-left: -50px;">
                  <li><a class="info_cuent_link" href="<?= BASE_URL ;?>terceros/administrar_cuenta"      ><span class="configuracion"></span> Administrar Mi Cuenta</a></li>
-                 <li><a class="info_cuent_link" href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span> Registrar Amigo Bajo mi Código</a></li>
+                 <li><a class="info_cuent_link" href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span>
+                 Registrar Amigo bajo mi Código &nbsp;&nbsp;&nbsp;</a></li>
               </ul>
            </li>
           <!-- cerrar secion -->

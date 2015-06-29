@@ -22,7 +22,7 @@
         </div>
 
 <!-- Menu -->
-        <nav id="menu" class="navbar navbar-default navbar_tron" role="navigation" style="height: 10px; display: block;">
+        <nav id="menu" class="navbar navbar-default navbar_tron" role="navigation"  >
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
             data-target=".navbar-ex1-collapse" id="boton" >

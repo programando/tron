@@ -260,8 +260,10 @@ $('#pases_cortesia').on('click',function(){
 
 $('#convenio_comercial').on('click',function(){
 	$('.contenedor_cuenta').html('');
-				         $('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
-	window.location.href  = '/tron/pdf/Convenio_Comercial';
+	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
+	//window.location.href  = '/tron/pdf/Convenio_Comercial';
+	window.open('/tron/pdf/Convenio_Comercial');
+	$('.contenedor_cuenta').html('');
 });
 
 $('#informes-pedidos-realizados').on('click',function(){
