@@ -6,6 +6,7 @@
 $(".usu-1" ).first().css('background','#003E90');
 $(".usu-1" ).first().css('color','white')
 $(".direccion1").css('background','white');
+var $iddireccion_despacho_seleccionada = 0;
 
 function Depurar_Texto(resultado)
 {/*     MARZO 20 DE 2015
@@ -41,45 +42,21 @@ function Direccion_Usuario_Grabar(Parametros)
 {
   $.ajax({
       data:  Parametros,
-      dataType: 'text',
+      dataType: 'json',
       url:      '/tron/terceros/Direcciones_Despacho_Grabar_Actualizar/',
       type:     'post',
-      success:  function (resultado)
+      success:  function (server)
       {
-          resultado = Depurar_Texto(resultado);
-
-          if (resultado=='Destinatario_No_OK')
-          {
-            $('#mensaje_error').html('Debe registrar el destinatario.');
-            return false;
-          }
-          if (resultado=='Municipio_No_OK')
-          {
-            $('#mensaje_error').html('Debe seleccionar departamento y municipio.');
-            return false;
-          }
-          if (resultado=='Direccion_No_OK')
-          {
-            $('#mensaje_error').html('Debe registrar la dirección para realizar el despacho.');
-            return false;
-          }
-          if (resultado=='Barrio_No_OK')
-          {
-            $('#mensaje_error').html('Registre el barrio en donde figura la dirección registrada.');
-            return false;
-          }
-          if (resultado=='Telefono_No_OK')
-          {
-            $('#mensaje_error').html('Es necesario que registre un número de teléfono.');
-            return false;
-          }
-          if (resultado=='OK')
-          {
+          if (server.Respuesta=='OK') {
             $('#venta_editar').modal('hide');
             $('.fila-direcciones').load('/tron/carrito/Finalizar_Pedido_Direccion_Mostrar_Direcciones');
             return false;
+          }else{
+              new Messi(server.Respuesta,
+                    {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                    buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]
+                   });
           }
-
       }
    });
 }
@@ -112,6 +89,10 @@ $('#destinatario,#direccion,#municipio,#telefono,#barrio').on('focus',function()
   $('#mensaje_error').html('');
 })
 
+$('.fila-direcciones').on('click','.crear-direccion',function(e){
+  $iddireccion_despacho_seleccionada = 0;
+  $('#venta_editar').modal('show');
+  });
 
 $('#btn-direccion-grabar').on('click',function(){
 

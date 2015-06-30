@@ -624,53 +624,44 @@ class TercerosController extends Controller
           */
       $iddireccion_despacho = General_Functions::Validar_Entrada('iddireccion_despacho','NUM');
       $idtercero            = Session::Get('idtercero_pedido');
+      if ( !isset($idtercero)){
+          $idtercero =  General_Functions::Validar_Entrada('idtercero','NUM');
+      }
       $idmcipio             = General_Functions::Validar_Entrada('idmcipio','NUM');
       $direccion            = General_Functions::Validar_Entrada('direccion','TEXT');
       $telefono             = General_Functions::Validar_Entrada('telefono','TEXT');
       $barrio               = General_Functions::Validar_Entrada('barrio','TEXT');
       $destinatario         = General_Functions::Validar_Entrada('destinatario','TEXT');
-      $Resultado            = 'OK';
+      $Respuesta            = '';
 
-
-      if (strlen($destinatario  )==0)
-      {
-        $Resultado ='Destinatario_No_OK';
-        echo $Resultado;
-        return ;
+      if ( $idtercero == 0){
+        $Respuesta = $Respuesta . 'Seleccione el usuario al cual pertenece la dirección.<br>';
       }
 
-      if ($idmcipio ==0 )
-      {
-        $Resultado ='Municipio_No_OK';
-        echo $Resultado;
-        return ;
-      }
-      if (strlen($direccion)==0)
-      {
-        $Resultado ='Direccion_No_OK';
-        echo $Resultado;
-        return ;
-      }
-      if (strlen($barrio )==0)
-      {
-        $Resultado ='Barrio_No_OK';
-        echo $Resultado;
-        return ;
-      }
-      if (strlen($telefono)==0)
-      {
-        $Resultado ='Telefono_No_OK';
-        echo $Resultado;
-        return ;
+      if (strlen($destinatario  )==0) {
+        $Respuesta = $Respuesta . 'Debe registrar el destinatario.<br>';
       }
 
+      if ($idmcipio ==0 ){
+        $Respuesta = $Respuesta . 'Debe seleccionar departamento y municipio.<br>';
+      }
+      if (strlen($direccion)==0){
+        $Respuesta = $Respuesta . 'Debe registrar la dirección para realizar los despachos.<br>';
+      }
+      if (strlen($barrio )==0){
+        $Respuesta = $Respuesta . 'Registre el barrio en donde figura la dirección registrada.<br>';
+      }
+      if (strlen($telefono)==0){
+        $Respuesta = $Respuesta . 'Es necesario que registre un número de teléfono.<br>';
+      }
 
-      if ($Resultado =='OK')
-      {
+      if (strlen($Respuesta) ==0 || $Respuesta =='' )  {
         $params = compact('iddireccion_despacho','idtercero','idmcipio','direccion','telefono','barrio','destinatario');
         $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($params);
-        echo $Resultado;
+        $Respuesta = 'OK';
       }
+      $Datos = compact('Respuesta');
+      echo json_encode($Datos,256);
 
     }
 

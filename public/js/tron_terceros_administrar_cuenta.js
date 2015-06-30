@@ -7,6 +7,7 @@
 //    // // $('#btn_mostrar').click();
 // });
 
+var $Usuario_Seleccionado = 0;
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 					$('.tab_link_modif').css('background','transparent');
@@ -15,8 +16,6 @@ $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 					$(this).css('color','white');
 
 });
-
-
 
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
@@ -29,9 +28,7 @@ var Activar_Usuarios = function($Usuario_Seleccionado){
 }
 
 
-var  Mostrar_Participacion_en_Red = function($idtercero,$anio)
-	{
-
+var  Mostrar_Participacion_en_Red = function($idtercero,$anio){
 	  $.ajax({
 	      data:  '',
 	      dataType: 'html',
@@ -45,7 +42,6 @@ var  Mostrar_Participacion_en_Red = function($idtercero,$anio)
 	}
 
 var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
-
     $.ajax({
     					data : {'idtercero':$idtercero},
          dataType: 'html',
@@ -105,14 +101,6 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 				      }
 				  });
 }
-
- //  Menu deslizante  =  barra derecha
- $('.tabs_click').on('click',function(){
-
-	    // $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
-	    // $('#btn_mostrar').fadeIn(600);
-     // $('#columan_derecha').attr('class','col-lg-12');
-});
 
  //  Menu deslizante  =
  $('.perfil_menu_link').on('click',function(){
@@ -179,6 +167,19 @@ $('li .perfil_menu_link').on('click',function(){
 				$(this).css('background','#003E90');
 });
 
+var Mostrar_Direcciones_x_IdTercero = function($idtercero){
+
+  $.ajax({
+      data:  {'idtercero':$idtercero,'json':0},
+      dataType: 'html',
+      url:      '/tron/terceros/Direcciones_Despacho_x_IdTercero/',
+      type:     'post',
+      success:  function (resultado){
+          $('.conteneror-direcciones').html('');
+          $('.conteneror-direcciones').html(resultado);
+      }
+   });
+}
 
 var Direccion_Validar_Datos = function(){
 		 var $Texto ='';
@@ -205,13 +206,50 @@ var Direccion_Validar_Datos = function(){
 			if ($.trim($telefono)==''){
 							$Texto = $Texto + 'Registre un número de teléfono. <br>';
 			}
+			if  ( $.trim($Texto)==''){
+									$Parametros = {'iddireccion_despacho':$iddireccion_despacho,'destinatario':$destinatario, 'idmcipio':$idmcipio,
+                     	 'direccion':$direccion , 'telefono':$telefono, 'barrio':$barrio,'destinatario':$destinatario ,
+                     	 'idtercero':$Usuario_Seleccionado  };
+			}else{
+							$Parametros = {'iddireccion_despacho':-1};
+              new Messi($Texto,
+                    {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                    buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]
+                   });
 
-if  ( $.trim($Texto)==''){
-
-}
-
+			}
+				return $Parametros;
 		}
 
+var  Direccion_Usuario_Grabar = function(Parametros)
+{
+  $.ajax({
+      data:  Parametros,
+      dataType: 'json',
+      url:      '/tron/terceros/Direcciones_Despacho_Grabar_Actualizar/',
+      type:     'post',
+      success:  function (server)
+      {
+          if (server.Respuesta=='OK') {
+          			Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
+            return false;
+          }else{
+              new Messi(server.Respuesta,
+                    {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
+                    buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]
+                   });
+          }
+      }
+   });
+}
+// BOTON ACTUALIZAR LA DIRECCIÓN
+$('.contenedor_cuenta').on('click','.btn_atualizar_direccion',function(){
+			var $Parametros = '';
+			$Parametros  = Direccion_Validar_Datos();
+			if ( $Parametros.iddireccion_despacho != -1 ){
+					Direccion_Usuario_Grabar($Parametros);
+			}
+});
 
 // Seleccion de direccion a atualizar
 $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
@@ -258,13 +296,7 @@ $('.contenedor_cuenta').on('change','#new_idmcipio',function(){
 	$('.btn_atualizar_direccion').attr('idmcipio',$idmcipio );
 });
 
-// BOTON ACTUALIZAR LA DIRECCIÓN
-$('.contenedor_cuenta').on('click','.btn_atualizar_direccion',function(){
 
-
-
-
-});
 
 
 
@@ -448,21 +480,6 @@ $('#informes-red-usuarios').on('click',function(){
 				  });
 });
 
-var Mostrar_Direcciones_x_IdTercero = function($idtercero){
-
-  $.ajax({
-      data:  {'idtercero':$idtercero,'json':0},
-      dataType: 'html',
-      url:      '/tron/terceros/Direcciones_Despacho_x_IdTercero/',
-      type:     'post',
-      success:  function (resultado){
-          $('.conteneror-direcciones').html('');
-          $('.conteneror-direcciones').html(resultado);
-      }
-   });
-
-}
-
 
 
 
@@ -502,8 +519,8 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   	if ( $Opciones_Seleccionada == 'DATOS_PERSONALES'){
   				Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
   	}
-
-
-
 });
+
+
+
 
