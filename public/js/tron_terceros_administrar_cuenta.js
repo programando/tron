@@ -273,7 +273,8 @@ $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
 			 $('.btn_atualizar_direccion').attr('iddireccion-despacho',$iddireccion_despacho);
 			 $('.btn_atualizar_direccion').attr('idmcipio',$idmcipio );
 
-	   $('.direcciones_a_atualizar').css('background','#B7B7B7');
+	   $('.direcciones_a_atualizar').css('background','white');
+	   $('.direcciones_a_atualizar').css('color','inherit');
 	   $(this).css('background','#003E90');
 	   $(this).css('color','white');
 });

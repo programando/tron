@@ -7,7 +7,7 @@
 
 
 											 <div class="col-lg-6 col-md-6 col-sm-6 ">
-											 	<div class="conteneror-direcciones" style="border: 1px solid red;">
+											 	<div class="conteneror-direcciones">
 											 	 <?php $Cant_Direcciones=0;?>
 														<?php foreach ($this->Direcciones as $Direccion) :?>
 																	<?php
@@ -36,16 +36,17 @@
 
 																  	<strong><?= $destinatario  ;?></strong>
 					          				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
-					          				<!-- <br><br><br><br> -->
 																	</a>
 														<?php endforeach ;?>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                 	   <div class="text-center">
+                 	   	   <button type="button" class="btn_nueva_direccion" id="btn_nueva_direccion">Crear Nueva Dirección</button>
+                 	   </div>
+                 </div>
 												</div>
 												<?php if ( $Cant_Direcciones < 3 ) :?>
-                   <div class="col-lg-12 col-md-12 col-sm-12">
-                   	   <div class="text-center">
-                   	   	   <button type="button" class="btn_nueva_direccion" id="btn_nueva_direccion">Crear Nueva Dirección</button>
-                   	   </div>
-                   </div>
+													<br>
+
 												<?php endif ;?>
 											</div>
 
@@ -76,8 +77,8 @@
 																											}
 																											?>
 																										</select>
+																										 <div id='dpto_actual' class="departamento_municipio_actual"></div>
 									                </div>
-									                <div id='dpto_actual' style="font-size: 11px;">  </div>
 									              </div>
 
                      <!-- Municipio -->
@@ -87,8 +88,8 @@
 									                   <select class="form-control" id="new_idmcipio">
 									                   	    <option>Seleccione un Municipio</option>
 									                   </select>
+									                   <div id='mcipio_actual' class="departamento_municipio_actual"></div>
 					 				                </div>
-					 				                 <div id='mcipio_actual' style="font-size: 11px;">  </div>
 									              </div>
 
                      <!-- Direccion -->
