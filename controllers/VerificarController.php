@@ -16,9 +16,6 @@
 
 		    }
 
-		    public function lgo(){
-		    	/// ejemplo
-		    }
 
 
 
