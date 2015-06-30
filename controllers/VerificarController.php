@@ -13,8 +13,12 @@
 		    public function index(){
 
 		    	 $this->View->Mostrar_Vista('index');
+
 		    }
 
+		    public function lgo(){
+		    	/// ejemplo
+		    }
 
 
 
