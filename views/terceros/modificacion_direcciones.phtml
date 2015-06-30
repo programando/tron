@@ -1,5 +1,6 @@
  <!-- CARGA MEDIANTE LLAMADA AJAX -->
  <div class="conteneror-direcciones">
+ <?php $Cant_Direcciones=0;?>
 			<?php foreach ($this->Direcciones as $Direccion) :?>
 						<?php
 									$destinatario         = $Direccion['destinatario'];
@@ -10,8 +11,10 @@
 									$iddpto               = $Direccion['iddpto'];
 									$idmcipio             = $Direccion['idmcipio'];
 									$telefono             = $Direccion['telefono'];
+									$barrio 													 = $Direccion['barrio'];
+									$Cant_Direcciones++ ;
 						?>
-						<a class='direccion-seleccionada' href=""
+						<a href="" class="direcciones_a_atualizar" id="direcciones_a_atualizar"
 										destinatario         = "<?= $destinatario ;?>"
 										direccion            = "<?= $direccion ;?>"
 										nommcipio-despacho   = "<?= $nommcipio_despacho ;?>"
@@ -20,6 +23,7 @@
 										iddpto               = "<?= $iddpto ;?>"
 										idmcipio             = "<?= $idmcipio ;?>"
 										telefono             = "<?= $telefono ;?>"
+										barrio                = "<?= $barrio ;?>"
 									>
 					  	<strong><?= $destinatario  ;?></strong>
     				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
@@ -27,4 +31,11 @@
 						</a>
 			<?php endforeach ;?>
 	</div>
+		<?php if ( $Cant_Direcciones < 3 ) :?>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+        	   <div class="text-center">
+        	   	   <button type="button" class="btn_nueva_direccion" id="btn_nueva_direccion">Crear Nueva Dirección</button>
+        	   </div>
+        </div>
+	<?php endif ;?>
 

@@ -179,27 +179,95 @@ $('li .perfil_menu_link').on('click',function(){
 				$(this).css('background','#003E90');
 });
 
+
+var Direccion_Validar_Datos = function(){
+		 var $Texto ='';
+			var 		$destinatario         = $('#new_destinario').val();
+			var 		$iddpto               = $('#new_iddpto').val();
+			var 		$direccion            = $('#new_direccion').val();
+			var   $barrio 												  = $('#new_barrio').val();
+			var 		$telefono             = $('#new_celular1').val();
+			var 		$idmcipio             = $(this).attr('idmcipio');
+			var 		$iddireccion_despacho = $(this).attr('iddireccion-despacho');
+			var   $Parametros										 = '';
+			if ($.trim($destinatario)==''){
+							$Texto = 'Debe especificar el destanario de la dirección. <br>';
+			}
+			if ($idmcipio == 0){
+				$Texto =$Texto +  'Debe seleccionar el departamento y municipio para los despachos. <br>';
+			}
+			if ($.trim($direccion)==''){
+							$Texto = $Texto + 'Debe especificar la dirección para el despacho. <br>';
+			}
+			if ($.trim($barrio)==''){
+							$Texto = $Texto + 'Indique el barrio a donde se harán los despachos. <br>';
+			}
+			if ($.trim($telefono)==''){
+							$Texto = $Texto + 'Registre un número de teléfono. <br>';
+			}
+
+if  ( $.trim($Texto)==''){
+
+}
+
+		}
+
+
 // Seleccion de direccion a atualizar
 $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
 				event.preventDefault();
-
 				var 		$destinatario         = $(this).attr('destinatario');
+				var 		$iddpto               = $(this).attr('iddpto');
+				var 		$idmcipio             = $(this).attr('idmcipio');
 				var 		$direccion            = $(this).attr('direccion');
+				var   $barrio 												  = $(this).attr('barrio');
+				var 		$telefono             = $(this).attr('telefono');
 				var 		$nommcipio_despacho   = $(this).attr('nommcipio-despacho');
 				var 		$nomdpto              = $(this).attr('nomdpto');
 				var 		$iddireccion_despacho = $(this).attr('iddireccion-despacho');
-				var 		$iddpto               = $(this).attr('iddpto');
-				var 		$idmcipio             = $(this).attr('idmcipio');
-				var 		$telefono             = $(this).attr('telefono');
+
 				$('#new_destinario').val($destinatario);
-				$("#new_iddpto option[value='" +$iddpto+"']").remove();
-				$('#new_iddpto').append('<option value="' + $iddpto + '">' + $nomdpto+ '</option>');
+			 $('#dpto_actual').html('Departamento Actual :' +$nomdpto  );
+			 $('#mcipio_actual').html('Municpio Actual :' +$nommcipio_despacho  );
+			 $('#new_direccion').val($direccion);
+			 $('#new_barrio').val($barrio );
+			 $('#new_celular1').val($telefono);
+			 $('.btn_atualizar_direccion').attr('iddireccion-despacho',$iddireccion_despacho);
+			 $('.btn_atualizar_direccion').attr('idmcipio',$idmcipio );
+
 	   $('.direcciones_a_atualizar').css('background','#B7B7B7');
 	   $(this).css('background','#003E90');
 	   $(this).css('color','white');
+});
+
+// BOTON CREAR NUEVA DIRECCION
+$('.contenedor_cuenta').on('click','.btn_nueva_direccion',function(){
+				$('#new_destinario').val('');
+			 $('#dpto_actual').html('');
+			 $('#mcipio_actual').html('');
+			 $('#new_direccion').val('');
+			 $('#new_barrio').val('' );
+			 $('#new_celular1').val('');
+			 $('#new_destinario').focus();
+			 $('.btn_atualizar_direccion').attr('iddireccion-despacho','0');
+			 $('.btn_atualizar_direccion').attr('idmcipio','0');
+});
+
+$('.contenedor_cuenta').on('change','#new_idmcipio',function(){
+	$idmcipio  = $(this).val();
+	$('.btn_atualizar_direccion').attr('idmcipio',$idmcipio );
+});
+
+// BOTON ACTUALIZAR LA DIRECCIÓN
+$('.contenedor_cuenta').on('click','.btn_atualizar_direccion',function(){
+
+
 
 
 });
+
+
+
 
 //  pases de cortesia => pases premium
 $('.contenedor_cuenta').on('click','#ver_pases_premiun',function(){

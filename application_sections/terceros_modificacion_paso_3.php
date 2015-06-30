@@ -8,6 +8,7 @@
 
 											 <div class="col-lg-6 col-md-6 col-sm-6 ">
 											 	<div class="conteneror-direcciones" style="border: 1px solid red;">
+											 	 <?php $Cant_Direcciones=0;?>
 														<?php foreach ($this->Direcciones as $Direccion) :?>
 																	<?php
 																				$destinatario         = $Direccion['destinatario'];
@@ -18,16 +19,19 @@
 																				$iddpto               = $Direccion['iddpto'];
 																				$idmcipio             = $Direccion['idmcipio'];
 																				$telefono             = $Direccion['telefono'];
+																				$barrio 													 = $Direccion['barrio'];
+																				$Cant_Direcciones++ ;
 																	?>
 																	<a href="" class="direcciones_a_atualizar" id="direcciones_a_atualizar"
 																				destinatario         = "<?= $destinatario ;?>"
 																				direccion            = "<?= $direccion ;?>"
 																				nommcipio-despacho   = "<?= $nommcipio_despacho ;?>"
 																				nomdpto              = "<?= $nomdpto ;?>"
-																				iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
 																				iddpto               = "<?= $iddpto ;?>"
+																		  iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
 																				idmcipio             = "<?= $idmcipio ;?>"
 																				telefono             = "<?= $telefono ;?>"
+																				barrio                = "<?= $barrio ;?>"
 																	>
 
 																  	<strong><?= $destinatario  ;?></strong>
@@ -36,6 +40,13 @@
 																	</a>
 														<?php endforeach ;?>
 												</div>
+												<?php if ( $Cant_Direcciones < 3 ) :?>
+                   <div class="col-lg-12 col-md-12 col-sm-12">
+                   	   <div class="text-center">
+                   	   	   <button type="button" class="btn_nueva_direccion" id="btn_nueva_direccion">Crear Nueva Dirección</button>
+                   	   </div>
+                   </div>
+												<?php endif ;?>
 											</div>
 
 
@@ -47,7 +58,9 @@
 									              <div class="form-group">
 									                <label for="new_destinario"  class="col-lg-3  control-label"><p class="text-label">Destinario:</p></label>
 									                <div class="col-lg-9" >
-									                   <input type="text" class="form-control" id="new_destinario" />
+									                   <input type="text" class="form-control" id="new_destinario"
+
+									                   />
 									                </div>
 									              </div>
 
@@ -64,6 +77,7 @@
 																											?>
 																										</select>
 									                </div>
+									                <div id='dpto_actual' style="font-size: 11px;">  </div>
 									              </div>
 
                      <!-- Municipio -->
@@ -71,9 +85,10 @@
 									                <label for="new_idmcipio"  class=" col-lg-3  control-label "><p class="text-label">Municipio: </p></label>
 									                <div class="col-lg-9" >
 									                   <select class="form-control" id="new_idmcipio">
-									                   	    <option>SELECCIONE</option>
+									                   	    <option>Seleccione un Municipio</option>
 									                   </select>
 					 				                </div>
+					 				                 <div id='mcipio_actual' style="font-size: 11px;">  </div>
 									              </div>
 
                      <!-- Direccion -->
@@ -103,7 +118,10 @@
                      <!-- Btn = crear / actualizar direccion -->
                        <div class="col-lg-12 col-md-12 col-sm-12">
                        	   <div class="text-center">
-                       	   	   <button type="button" class="btn_atualizar_direccion" id="btn_direccion">Crear / Actualizar Dirección</button>
+                       	   	   <button type="button" class="btn_atualizar_direccion" id="btn_direccion"
+                       	   	   		iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
+																																	idmcipio             = "<?= $idmcipio ;?>"
+																					>Crear / Actualizar Dirección</button>
                        	   </div>
                        </div>
                	   </form>

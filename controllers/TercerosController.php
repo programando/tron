@@ -515,9 +515,10 @@ class TercerosController extends Controller
 
     // GRABAR DATOS DEL TERCERO
      $Registro             =  $this->Terceros->Grabar($Datos_Terceros);
-     $idtercero            = $Registro[0]['idtercero'];
+     $idtercero            =  $Registro[0]['idtercero'];
      $telefono             =  $celular1;
      $destinatario         =  $pnombre . ' ' . $papellido;
+     $destinatario         = strtoupper($destinatario);
      $iddireccion_despacho = 0;
 
      // GRABAR DIRECCION DE DESPACHO
