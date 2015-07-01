@@ -532,6 +532,7 @@ $('#btn_finalizar').on('click',function(){
      Establecer_Tipo_Plan($Parametros)
      $('#mes_dia').hide();
      $('#input_codigo').focus();
+     $(window).scrollTop(0);
 
   });
 
@@ -546,7 +547,7 @@ $('#btn_finalizar').on('click',function(){
      Establecer_Tipo_Plan($Parametros)
      $('#mes_dia').show();
      $('#input_codigo').focus();
-
+     $(window).scrollTop(0);
 
   });
 // Passo 2 => anterior => paso 1
