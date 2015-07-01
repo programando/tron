@@ -1,3 +1,4 @@
+<!--
         <div class="panel">
           <div class="panel-heading  cabezera-panel">
             <h4 class="panel-title">
@@ -14,3 +15,4 @@
             </div>
           </div>
         </div>
+        -->
