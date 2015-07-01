@@ -74,10 +74,17 @@
               <div id ="<?=  $idnompresentacion  ;?>">
                    <p><strong>Presentacion : </strong><?= $nompresentacion ;?> </p>
                    <?php if ( $id_agrupacion  > 0 ) :?>
-                   <p>
-                    <strong>Ver otras referencias : </strong> <a href="<?=BASE_URL ;?>productos/varias_referencias/<?=$id_agrupacion ;?> "> <?= $nom_producto_largo ;?>
-                     </a><!--IMG-Varias Referencias-->
-                   </p>
+                  <!-- ver referencias -->
+                     <p>
+                        <a href="#" class="nuvv"
+                        title="Prodcutos semejantes con el mismo precio cuyas
+                                compras suman para alcanzar una misma escala" style="text-decoration: none;">
+                            <span class="aS colurAd">
+                                 <strong style="color: #333;">Ver otras referencias :</strong>
+                                 <a href="<?=BASE_URL ;?>productos/varias_referencias/<?=$id_agrupacion ;?> "> <?= $nom_producto_largo ;?></a>
+                            </span>
+                        </a>
+                     </p>
                  <?php endif ;?>
               </div>
             </div>
@@ -249,10 +256,10 @@
           </div>
 
        </div>
-   </div>
+   </div><!-- FIN DE LA TABLA-->
 <?php endif ;?>
 
-</div> <!-- FIN DE LA TABLA-->
+</div>
 </div>
 <br>
 <br>

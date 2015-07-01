@@ -93,7 +93,9 @@ class ProductosController extends Controller
 
     public function Destacados_Index()
     {
+
         $this->View->Productos_Desatacados = $this->Productos->Destacados_Index();
+
     }
 
 
@@ -228,7 +230,7 @@ class ProductosController extends Controller
       {
         $this->View->SetCss(array('tron_carrito','tron-vista-industrial','tron_productos_vista_ampliada','tron_ventana_modal'));
       }
-      $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery'));
+      $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));
       $this->View->Mostrar_Vista('vista_ampliada');
 
     }

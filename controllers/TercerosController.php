@@ -923,11 +923,6 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista('registro');
     }
 
-
-
-
-
-
     public function registro_paso_2()
     {
         $this->View->SetCss(array('tron_menu_footer','tron_registro','tron_registro','tron-regirtro-pasos','tron-registron-p2'));
