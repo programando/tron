@@ -177,7 +177,7 @@ var Grabar_Datos_Registro = function(Parametros){
                     {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
                     buttons: [
                               {id: 0, label: 'La información de Usuario es Correcta', val: 'Y',class: 'btn-success'},
-                              {id: 1, label: 'Opps !!!, Espere !!! deseo corregir', val: 'N', class: 'btn-danger'}
+                              {id: 1, label: 'Opps, espere... deseo corregir !!!', val: 'N', class: 'btn-danger'}
                               ],
                     callback: function(val) {
                       if (val=='N')
@@ -197,7 +197,7 @@ $('#input_codigo').on('blur',function(){
     Re_Establecer_Tipo_Plan();
     $('#input_codigo').val($codigousuario);
     if ($codigousuario.length == 0){
-        new Messi('Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br>',
+        new Messi('<br>Ha dejado en blanco el código del amigo que lo presenta. <br> Está seguro(a) que nadie lo presenta a la Red de Usuarios TRON ? <br><br>',
             {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
             buttons: [
                       {id: 0, label: 'Es correcto, nadie me presenta ', val: 'Y',class: 'btn-success'},

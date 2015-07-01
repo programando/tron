@@ -49,7 +49,10 @@ class TercerosController extends Controller
    }
 
    public function plan_seleccionado(){
-       $this->View->idtipo_plan_compras = Session::Get('idtipo_plan_compras');
+       $this->View->idtipo_plan_compras            = Session::Get('idtipo_plan_compras');
+       $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');
+       $this->View->kit_comprado                   = Session::Get('kit_comprado');
+       $this->View->inscripcion_pagada             = Session::Get('inscripcion_pagada');
        $this->View->Mostrar_Vista_Parcial("plan_seleccionado");
    }
 
@@ -63,6 +66,13 @@ class TercerosController extends Controller
 
         $this->View->SetJs(array('tron_terceros_administrar_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar',
                                  'tron_dptos_mcipios','tron_pedidos_historial','tron_informes'));
+
+        $this->View->idtipo_plan_compras            = Session::Get('idtipo_plan_compras');
+        $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');
+        $this->View->kit_comprado                   = Session::Get('kit_comprado');
+        $this->View->inscripcion_pagada             = Session::Get('inscripcion_pagada');
+
+
         $this->View->Mostrar_Vista('administrar_mi_cuenta');
    }
 
@@ -623,9 +633,9 @@ class TercerosController extends Controller
           *         INSERTA O ACTUALIZA UNA DIRECCIÓN DE DESPACHO PARA UN TERCERO
           */
       $iddireccion_despacho = General_Functions::Validar_Entrada('iddireccion_despacho','NUM');
-      $idtercero            = Session::Get('idtercero_pedido');
-      if ( !isset($idtercero)){
-          $idtercero =  General_Functions::Validar_Entrada('idtercero','NUM');
+      $idtercero =  General_Functions::Validar_Entrada('idtercero','NUM');
+      if ( !isset($idtercero) || $idtercero == 0){
+       $idtercero            = Session::Get('idtercero_pedido');
       }
       $idmcipio             = General_Functions::Validar_Entrada('idmcipio','NUM');
       $direccion            = General_Functions::Validar_Entrada('direccion','TEXT');
@@ -654,6 +664,11 @@ class TercerosController extends Controller
       if (strlen($telefono)==0){
         $Respuesta = $Respuesta . 'Es necesario que registre un número de teléfono.<br>';
       }
+      $destinatario = strtoupper($destinatario);
+      $direccion    = strtoupper($direccion);
+      $barrio       = strtoupper($barrio);
+
+
 
       if (strlen($Respuesta) ==0 || $Respuesta =='' )  {
         $params = compact('iddireccion_despacho','idtercero','idmcipio','direccion','telefono','barrio','destinatario');
@@ -764,6 +779,9 @@ class TercerosController extends Controller
       Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
       Session::Set('idtipo_plan_compras_confirmado',  $Registro[0]["idtipo_plan_compras_confirmado"]);
       Session::Set('kit_comprado',                    $Registro[0]["kit_comprado"]);
+      Session::Set('inscripcion_pagada',              $Registro[0]["inscripcion_pagada"]);
+      Session::Set('fecha_hora_acepta_convenio',      $Registro[0]["fecha_hora_acepta_convenio"]);
+
 
       // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
       Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);
@@ -843,7 +861,7 @@ class TercerosController extends Controller
          $Resultado_Logueo = "NO-Logueo_OK";
        }else
            {
-            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
+            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
          }
          $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');

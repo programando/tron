@@ -25,16 +25,17 @@
                             <?php foreach ($this->Comisiones as $Comisiones)  :?>
                             <?php
                                   $nom_tipo_registro = strtolower( $Comisiones['nom_tipo_registro']);
-                                  $vr_entrada        = Numeric_Functions::Formato_Numero( $Comisiones['vr_entrada'] );
-                                  $vr_salida         = Numeric_Functions::Formato_Numero( $Comisiones['vr_salida'] );
-                                  $saldo             = Numeric_Functions::Formato_Numero( $Comisiones['saldo'] );
+                                  $nom_tipo_registro = ucfirst( substr($nom_tipo_registro,0,45));
+                                  $vr_entrada        = Numeric_Functions::Formato_Numero_SinSigno( $Comisiones['vr_entrada'] );
+                                  $vr_salida         = Numeric_Functions::Formato_Numero_SinSigno( $Comisiones['vr_salida'] );
+                                  $saldo             = Numeric_Functions::Formato_Numero_SinSigno( $Comisiones['saldo'] );
                             ?>
                                  <tr>
-                                     <td class="fecha text-right"     style="width: 10%;"> <?= $Comisiones['fecha_registro'] ;?> </td>
-                                     <td class="text-center concepto" style="width: 40%;"><?= $nom_tipo_registro ;?> </td>
-                                     <td class="text-right entran"    style="width: 16.6%;"><?= $vr_entrada ;?>   </td>
-                                     <td class="text-right salen"     style="width: 16.6%;"><?= $vr_salida  ;?>   </td>
-                                     <td class="text-right saldo"     style="width: 16.6%;"> <?= $saldo ;?>  </td>
+                                     <td class="fecha text-right"    style="width: 10%;"> <?= $Comisiones['fecha_registro'] ;?> </td>
+                                     <td class="text-left concepto"style="width: 40%;"><?= $nom_tipo_registro ;?> </td>
+                                     <td class="text-right entran"  style="width: 16.6%;"><?= $vr_entrada ;?>   </td>
+                                     <td class="text-right salen"   style="width: 16.6%"><?= $vr_salida  ;?>   </td>
+                                     <td class="text-right saldo"   style="width: 16.6%;"> <?= $saldo ;?>  </td>
                                  </tr>
                             <?php endforeach ;?>
 

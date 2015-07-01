@@ -20,6 +20,7 @@
 																				$idmcipio             = $Direccion['idmcipio'];
 																				$telefono             = $Direccion['telefono'];
 																				$barrio 													 = $Direccion['barrio'];
+																				$idtercero            = $Direccion['idtercero'];
 																				$Cant_Direcciones++ ;
 																	?>
 																	<a href="" class="direcciones_a_atualizar" id="direcciones_a_atualizar"
@@ -31,23 +32,29 @@
 																		  iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
 																				idmcipio             = "<?= $idmcipio ;?>"
 																				telefono             = "<?= $telefono ;?>"
-																				barrio                = "<?= $barrio ;?>"
+																				barrio               = "<?= $barrio ;?>"
+																				idtercero            = "<?= $idtercero ;?>"
+
 																	>
 
 																  	<strong><?= $destinatario  ;?></strong>
 					          				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
 																	</a>
+					          				<br>
 														<?php endforeach ;?>
+															<?php if ( $Cant_Direcciones < 3 ) :?>
                  <div class="col-lg-12 col-md-12 col-sm-12">
                  	   <div class="text-center">
                  	   	   <button type="button" class="btn_nueva_direccion" id="btn_nueva_direccion">Crear Nueva Dirección</button>
                  	   </div>
                  </div>
+             <br>
+         	<?php endif ;?>
 												</div>
-												<?php if ( $Cant_Direcciones < 3 ) :?>
-													<br>
 
-												<?php endif ;?>
+
+
+
 											</div>
 
 
@@ -122,6 +129,7 @@
                        	   	   <button type="button" class="btn_atualizar_direccion" id="btn_direccion"
                        	   	   		iddireccion-despacho = "<?= $iddireccion_despacho ;?>"
 																																	idmcipio             = "<?= $idmcipio ;?>"
+																																	idtercero 										 = "0"
 																					>Crear / Actualizar Dirección</button>
                        	   </div>
                        </div>

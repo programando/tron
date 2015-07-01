@@ -82,10 +82,12 @@
 										                                	   	    	   <ul>
 										                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="plan_seleccionado">Plan Seleccionado</a></li>
 										                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id='perfil-datos-personales'>Datos Personales</a></li>
-										                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="recomendar_amigo">Recomendar </a></li>
-										                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="pases_cortesia">Pases</a></li>
-										                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="convenio_comercial">Convenio Comercial</a></li>
-										                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="tabla_comisiones">Tabla Comisiones</a></li>
+										                                	   	    	   	   <?php if ( $this->idtipo_plan_compras == 3 ) :?>
+												                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="recomendar_amigo">Recomendar </a></li>
+												                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="pases_cortesia">Pases</a></li>
+												                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="convenio_comercial">Convenio Comercial</a></li>
+												                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="tabla_comisiones">Tabla Comisiones</a></li>
+										                                	   	    	   	   <?php endif ;?>
 										                                	   	    	   </ul>
 										                                	   	    </nav>
 								                                         </div>
@@ -101,13 +103,15 @@
 																	                                	   	    	   <ul>
 																	                                	   	    	   				<li><a class="perfil_menu_link" href="#" id='informes-pedidos-realizados'>Pedidos Realizados</a></li>
 																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#"id ='informes-estado-cuenta' >Estado de Cuentas</a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id='informes-participacion-red' title="Participación en la Red">Partic. en la Red</a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id ='informes-red-usuarios'>Mi Red </a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#">Amigos Presentados</a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_tron_link">Compra Tron</a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_otros_link">Compra Otros</a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_industriales_link" title="Compras Indiustriales">Compra Indust.</a></li>
-																	                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_totales_link">Compras Totales </a></li>
+																	                                	   	    	   	   <?php if ( $this->idtipo_plan_compras == 3 ) :?>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id='informes-participacion-red' title="Participación en la Red">Partic. en la Red</a></li>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id ='informes-red-usuarios'>Mi Red </a></li>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#">Amigos Presentados</a></li>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_tron_link">Compra Tron</a></li>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_otros_link">Compra Otros</a></li>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_industriales_link" title="Compras Indiustriales">Compra Indust.</a></li>
+																				                                	   	    	   	   <li><a class="perfil_menu_link" href="#" id="compras_totales_link">Compras Totales </a></li>
+																				                                	   	    	   	  <?php endif ;?>
 																	                                	   	    	   </ul>
 																	                                	   	    </nav>
 															                                         </div>

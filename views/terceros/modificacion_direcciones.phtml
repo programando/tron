@@ -12,6 +12,7 @@
 									$idmcipio             = $Direccion['idmcipio'];
 									$telefono             = $Direccion['telefono'];
 									$barrio 													 = $Direccion['barrio'];
+									$idtercero											 = $Direccion['idtercero'];
 									$Cant_Direcciones++ ;
 						?>
 						<a href="" class="direcciones_a_atualizar" id="direcciones_a_atualizar"
@@ -24,10 +25,12 @@
 										idmcipio             = "<?= $idmcipio ;?>"
 										telefono             = "<?= $telefono ;?>"
 										barrio                = "<?= $barrio ;?>"
+										idtercero            = "<?= $idtercero ;?>"
 									>
 					  	<strong><?= $destinatario  ;?></strong>
     				<br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
 						</a>
+						<br>
 			<?php endforeach ;?>
 	</div>
 		<?php if ( $Cant_Direcciones < 3 ) :?>

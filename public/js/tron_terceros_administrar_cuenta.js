@@ -181,16 +181,19 @@ var Mostrar_Direcciones_x_IdTercero = function($idtercero){
    });
 }
 
-var Direccion_Validar_Datos = function(){
+var Direccion_Validar_Datos = function( $idtercero){
 		 var $Texto ='';
 			var 		$destinatario         = $('#new_destinario').val();
 			var 		$iddpto               = $('#new_iddpto').val();
 			var 		$direccion            = $('#new_direccion').val();
 			var   $barrio 												  = $('#new_barrio').val();
 			var 		$telefono             = $('#new_celular1').val();
-			var 		$idmcipio             = $(this).attr('idmcipio');
-			var 		$iddireccion_despacho = $(this).attr('iddireccion-despacho');
+			var 		$idmcipio             = $('.btn_atualizar_direccion').attr('idmcipio');
+			var 		$iddireccion_despacho = $('.btn_atualizar_direccion').attr('iddireccion-despacho');
 			var   $Parametros										 = '';
+
+
+
 			if ($.trim($destinatario)==''){
 							$Texto = 'Debe especificar el destanario de la dirección. <br>';
 			}
@@ -209,7 +212,7 @@ var Direccion_Validar_Datos = function(){
 			if  ( $.trim($Texto)==''){
 									$Parametros = {'iddireccion_despacho':$iddireccion_despacho,'destinatario':$destinatario, 'idmcipio':$idmcipio,
                      	 'direccion':$direccion , 'telefono':$telefono, 'barrio':$barrio,'destinatario':$destinatario ,
-                     	 'idtercero':$Usuario_Seleccionado  };
+                     	 'idtercero': $idtercero  };
 			}else{
 							$Parametros = {'iddireccion_despacho':-1};
               new Messi($Texto,
@@ -221,33 +224,47 @@ var Direccion_Validar_Datos = function(){
 				return $Parametros;
 		}
 
-var  Direccion_Usuario_Grabar = function(Parametros)
-{
+var  Direccion_Usuario_Grabar = function(Parametros){
+
   $.ajax({
       data:  Parametros,
       dataType: 'json',
       url:      '/tron/terceros/Direcciones_Despacho_Grabar_Actualizar/',
       type:     'post',
-      success:  function (server)
-      {
-          if (server.Respuesta=='OK') {
-          			Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
-            return false;
+      async:     false,
+      success:  function (server)  {
+          if (server.Respuesta == "OK") {
+
+          			return 'OK';
+
           }else{
               new Messi(server.Respuesta,
                     {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
                     buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]
                    });
+              return 'No_OK';
           }
       }
    });
 }
 // BOTON ACTUALIZAR LA DIRECCIÓN
 $('.contenedor_cuenta').on('click','.btn_atualizar_direccion',function(){
+		 var $idtercero = $(this).attr('idtercero');
 			var $Parametros = '';
-			$Parametros  = Direccion_Validar_Datos();
+			$Parametros  = Direccion_Validar_Datos( $idtercero);
 			if ( $Parametros.iddireccion_despacho != -1 ){
-					Direccion_Usuario_Grabar($Parametros);
+					$Rsultado = Direccion_Usuario_Grabar($Parametros);
+					if ( $Rsultado = 'OK'){
+										Mostrar_Direcciones_x_IdTercero($idtercero );
+											$('.btn_atualizar_direccion').attr('iddireccion-despacho',0);
+											$('.btn_atualizar_direccion').attr('idmcipio',0 );
+											$('#new_destinario').val('');
+											$('#new_direccion').val('');
+											$('#new_barrio').val('');
+											$('#new_celular1').val('');
+											$('#dpto_actual').html('');
+											$('#mcipio_actual').html('');
+							}
 			}
 });
 
@@ -263,6 +280,8 @@ $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
 				var 		$nommcipio_despacho   = $(this).attr('nommcipio-despacho');
 				var 		$nomdpto              = $(this).attr('nomdpto');
 				var 		$iddireccion_despacho = $(this).attr('iddireccion-despacho');
+				var   $idtercero   								 = $(this).attr('idtercero');
+
 
 				$('#new_destinario').val($destinatario);
 			 $('#dpto_actual').html('Departamento Actual :' +$nomdpto  );
@@ -272,6 +291,7 @@ $('.contenedor_cuenta').on('click','.direcciones_a_atualizar',function(event){
 			 $('#new_celular1').val($telefono);
 			 $('.btn_atualizar_direccion').attr('iddireccion-despacho',$iddireccion_despacho);
 			 $('.btn_atualizar_direccion').attr('idmcipio',$idmcipio );
+			 $('.btn_atualizar_direccion').attr('idtercero',$idtercero );
 
 	   $('.direcciones_a_atualizar').css('background','white');
 	   $('.direcciones_a_atualizar').css('color','inherit');
@@ -519,6 +539,7 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
 //compras_otros_link
   	if ( $Opciones_Seleccionada == 'DATOS_PERSONALES'){
   				Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
+  				$('.btn_atualizar_direccion').attr('idtercero',$Usuario_Seleccionado);
   	}
 });
 

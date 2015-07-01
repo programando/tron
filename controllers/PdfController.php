@@ -18,8 +18,6 @@ class PdfController extends Controller
     public function Convenio_Comercial()
     {
 
-       //$nombre_archivo = TMP . 'Convenio Comercial.pdf';
-
 
       // Debug::Mostrar($nombre_archivo );
         $this->Pdf->setFooterData(array(0,64,0), array(0,64,128));
@@ -31,9 +29,13 @@ class PdfController extends Controller
         // set auto page breaks
         $this->Pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         # creamos una página en blanco
-
         $texto =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
-       //Debug::Mostrar($BASE_PDFS);
+
+        $fecha_hora_acepta_convenio = Session::Get('fecha_hora_acepta_convenio');
+        if (isset($fecha_hora_acepta_convenio )){
+            $this->Pdf->setHeaderFont(Array('helvetica', 'I', 8));
+            $this->Pdf->SetHeaderData('', 20, 'Fecha y Hora que se aceptó este convenio comercial : ' . $fecha_hora_acepta_convenio, '');
+        }
 
         $this->Pdf->Addpage();
         $this->Pdf->Write(0,'CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON DE BALQUIMIA S.A.S.','',0,'C',1);
@@ -45,8 +47,6 @@ class PdfController extends Controller
         /*$this->Pdf->Output($nombre_archivo,'I');
         <a href="algunarchivo" target="_blank">Link</a>
         */
-
-
     }
 
 

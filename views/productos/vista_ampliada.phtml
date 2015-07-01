@@ -33,8 +33,9 @@
       $Escala_1                 = '';
       $idnomproducto            = 'nomproducto'.$Producto[0]['idproducto'];
       $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
-?>
+      $id_agrupacion            = $Producto[0]['id_agrupacion'];
 
+?>
 
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
 
@@ -72,6 +73,12 @@
                     <?php endif ;?>
               <div id ="<?=  $idnompresentacion  ;?>">
                    <p><strong>Presentacion : </strong><?= $nompresentacion ;?> </p>
+                   <?php if ( $id_agrupacion  > 0 ) :?>
+                   <p>
+                    <strong>Ver otras referencias : </strong> <a href="<?=BASE_URL ;?>productos/varias_referencias/<?=$id_agrupacion ;?> "> <?= $nom_producto_largo ;?>
+                     </a><!--IMG-Varias Referencias-->
+                   </p>
+                 <?php endif ;?>
               </div>
             </div>
          </div><br><!--FIN DE SUBCOLUMNA-->

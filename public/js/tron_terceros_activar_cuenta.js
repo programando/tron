@@ -30,7 +30,7 @@ var Paso_Final_Registro_Plan_2 = function( nombre_usuario,idtpidentificacion,ped
      $Parametros  = {"IdProducto" :10744, "CantidadComprada": 1, "es_tron": false , "es_tron_acc": false };
      Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
      if (idtpidentificacion != 31 ){
-        $Texto = "<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como cliente debes pagar ahora o seguir comprando...";
+        $Texto = "<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como cliente debes pagar ahora o seguir comprando...<br>";
      }else{
        $Texto = "Por haber registrado un NIT como documento de identidad, pensamos que pueden interesarte nuestras líneas de productos especializados en la limpieza, la desinfección y el mantenimiento preventivo y correctivo del sector industrial. <br><br>Si este es tu caso, no es necesario que para registrarte compres el Kit de Inicio pues éste está orientado hacia el hogar. Puedes reemplazarlo por una compra de " + pedido_minimo_productos_fabricados_ta +" en productos industriales fabricados por Balquima S.A.S., los cuales encontrarás en la pestaña INDUSTRIAL, al lado de HOGAR en la página de inicio, arriba, sobre la barra de menús. Si estás de acuerdo con lo anterior, acepta el Plan de tu conveniencia y pasa al carrito de compras. <br><br>Agrega "+pedido_minimo_productos_fabricados_ta +" en productos industriales fabricados por Balquimia S.A.S. y después, elimina el Kit de Inicio. El sistema reconocerá la sustitución y te permitirá el registro. <br> Mayores informes en contactos@balquimia.com <br>";
      }
@@ -59,7 +59,7 @@ var Paso_Final_Registro_Plan_3 = function( nombre_usuario, idtpidentificacion,pe
      Agregar_Producto_a_Carrito('Derechos de Inscripción',$Parametros);
 
 
-     new Messi("<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como empresario debes pagar ahora o seguir comprando...",
+     new Messi("<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como empresario debes pagar ahora o seguir comprando...<br>",
       {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
         buttons: [{id: 0, label: 'Seguir Comprando', val: 'S', class: 'btn-success'},
                   {id: 1, label: 'Pagar Ahora', val: 'P', class: 'btn-danger'}],
