@@ -168,19 +168,22 @@ body
 /* Para usuarios logiados en nuestro sistema =  Bienvenidos : ... , Mi cuenta , Cerrar secion */
 #personal
 {
-			font-size    : 13px;
-   margin-top   : 5px;
-   margin-right : 0px;
-   margin-bottom: -10px;
-   padding      :  0px;
-   text-align: right;
-}
+			font-size    : 12px;
+			margin-top   : 5px;
+			margin-left  : -100px;
+			margin-right : 0px;
+			margin-bottom: -10px;
+			padding      :  0px;
+			text-align   : left;
+			width        : 550px;
+ }
 
 .cont-mi-cuenta > li
 {
-   display: inline-block;
-   margin-left: 3px;
+		 float: left;
+			margin-left  : 7px;
 			margin-bottom: 0px;
+			padding: 0px;
 }
 
 .cont-mi-cuenta > li > a /* Bienvenidos : ... , Mi cuenta , Cerrar secion */
@@ -199,12 +202,12 @@ body
 }
 
 /* Mi cuenta  => Menu */
-#cuenta_info_menu > li
+/*#cuenta_info_menu > li
 {
 	   width: 100%;
 }
 
-#cuenta_info_menu > li .info_cuent_link /* administrar cuenta , registrar amigo bajo mi codigo */
+#cuenta_info_menu > li .info_cuent_link
 {
 	   width: 100%;
     font-size: 13px;
@@ -218,11 +221,11 @@ body
     transition: all 200ms ease;
 }
 
-#cuenta_info_menu > li .info_cuent_link:hover /* administrar cuenta , registrar amigo bajo mi codigo */
+#cuenta_info_menu > li .info_cuent_link:hover
 {
 	   background: #003E90;
 	   color: white;
-}
+}*/
 
 /* carrito */
 
@@ -300,22 +303,20 @@ body
 		margin-bottom: -5px;
 		margin-right : -20px;
 		min-width    : 270px;
-		width        : 270px;
+		width        : 386px;
 		margin-top: 8px;
-
-
 }
 
 .tab-hogar ,
 .tab-industrial
 {
 			display              : inline-block;
-			width                : 130px;
+			width                : 190px;
 			text-align           : center;
 			color                : white;
 			text-decoration      : none;
 			background: red;
-					height: 33px;
+			height: 490x;
 			-webkit-border-radius: 10px 10px 0px 0px;
 			-moz-border-radius   : 10px 10px 0px 0px;
 			-ms-border-radius    : 10px 10px 0px 0px;
@@ -493,17 +494,16 @@ body
 .header2  .cont-carrito-compras
 {
    float: left;
-   margin-left: -70px;
+   margin-left: -170px;
    margin-top: 0px;
    margin-bottom: -35px;
-
 }
 
 .header2 .contenido-input-buscar
 {
 	   margin-top: 35px;
 	   margin-bottom: 0px;
-    margin-left: -80px;
+    margin-left: -180px;
 	   display: block;
 
 }

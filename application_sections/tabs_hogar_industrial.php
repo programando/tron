@@ -9,7 +9,7 @@
            <div class="tabs-menu">
             <!-- Tab = hogar -->
              <a href="<?=BASE_URL ;?>index/index" class="tab-hogar">
-                  <h5><strong><span class="glyphicon glyphicon-home" ></span> HOGAR</strong></h5>
+                  <h5><strong><span class="glyphicon glyphicon-home" ></span> HOGAR Y PERSONAL</strong></h5>
              </a>
             <!-- Tab = industrial -->
              <a href="<?=BASE_URL ;?>index/industrial" class="tab-industrial">
