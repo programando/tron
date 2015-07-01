@@ -52,10 +52,9 @@ ______ Cuerpo pagina _______
 _____ Opciones de Pago _______
 */
 
-.option-pago1 ,
-.option-pago2
+.option-pago1
 {
-	   float: left;
+	   margin: 0px auto;
 	   width: 50%;
 	   text-align:center;
 	   height: 200px;
@@ -74,17 +73,7 @@ _____ Opciones de Pago _______
 	   cursor: pointer;
 }
 
-.option-pago2:hover
-{
-	   -webkit-border-radius: 20px;
-	   -moz-border-radius: 20px;
-	   border-radius: 20px;
-    background: #cecece;
-	   cursor: pointer;
-}
-
-.img-pago1 ,
-.img-pago2
+.img-pago1
 {
 	   height: 150px;
 	   width: 60%;

@@ -26,25 +26,28 @@
                 <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
             </a>
          </li>
-          <!-- Mi cuentA -->
-           <li class="dropdown mi_cuenta">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                 <span class="glyphicon glyphicon-user"></span> Mi Cuenta <span class="caret"></span>
-              </a>
-              <!-- Cuenta  = Menu -->
-              <ul class="dropdown-menu" id="cuenta_info_menu" style="width: 250px; margin-left: -50px;">
-                 <li><a class="info_cuent_link" href="<?= BASE_URL ;?>terceros/administrar_cuenta"      ><span class="configuracion"></span> Administrar Mi Cuenta</a></li>
-                 <li><a class="info_cuent_link" href="<?= BASE_URL ;?>terceros/registro"                ><span class="registrar_amigo"></span>
-                 Registrar Amigo bajo mi Código &nbsp;&nbsp;&nbsp;</a></li>
-              </ul>
-           </li>
-          <!-- cerrar secion -->
-           <li>
-              <a href="<?=BASE_URL ;?>index/Cerrar_Sesion">
-                  <span class="exit"></span> Cerrar Sesión
-              </a>
-          </li>
-        </ul>
+
+       <!-- Mi cuenta -->
+        <li>
+          <a href="<?= BASE_URL ;?>terceros/administrar_cuenta">
+            / <span class="glyphicon glyphicon-user"></span> Mi Cuenta
+          </a>
+        </li>
+
+       <!-- Registrar Amigo -->
+        <li>
+           <a href="<?= BASE_URL ;?>terceros/registro">
+             / <span class="registrar_amigo"></span> Registrar Amigo bajo mi Código
+           </a>
+        </li>
+
+        <!-- cerrar secion -->
+         <li>
+            <a href="<?=BASE_URL ;?>index/Cerrar_Sesion">
+                / <span class="exit"></span> Cerrar Sesión
+            </a>
+        </li>
+      </ul>
   </div><!-- FINAL DE INFORMACION SOBRE CUENTAS--  >
 <?php endif ;?>
 
