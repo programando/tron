@@ -387,12 +387,22 @@ $('#pases_cortesia').on('click',function(){
 				  });
 });
 
+// BTN = Convenio comercial
+$control = 0;
+
 $('#convenio_comercial').on('click',function(){
-	$('.contenedor_cuenta').html('');
-	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
-	//window.location.href  = '/tron/pdf/Convenio_Comercial';
-	window.open('/tron/pdf/Convenio_Comercial');
-	$('.contenedor_cuenta').html('');
+    if($control == 0){
+    	 	$('.menu_convenio').show();
+       $control++;
+    }else{
+    	  $('.menu_convenio').hide();
+       $control--;
+    }
+	// $('.contenedor_cuenta').html('');
+	// $('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
+	// //window.location.href  = '/tron/pdf/Convenio_Comercial';
+	// window.open('/tron/pdf/Convenio_Comercial');
+	// $('.contenedor_cuenta').html('');
 });
 
 $('#informes-pedidos-realizados').on('click',function(){
