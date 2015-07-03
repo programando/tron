@@ -209,5 +209,6 @@ class PedidosController extends Controller
       $this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
       $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
     }
+
 }
 ?>

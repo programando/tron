@@ -60,9 +60,6 @@ var  Mostrar_Detalle_Pedido = function(Parametros)
 	   });
 	}
 
-
-
-
 $('.contenedor_cuenta').on('click','.pedido', function(){
 		$idpedido  = $(this).attr('idpedido');
 		Parametros = {'idpedido':$idpedido};
@@ -78,28 +75,6 @@ $('.contenido-historial-pedidos').on('click','.regresar', function(){
 });
 
 
-$('.contenido-historial-pedidos').on('click','.historial-eliminar-pedido', function(){
-		 var $idtercero             = $(this).attr('idtercero');
-			var $idpedido              = $(this).attr('idpedido');
-			var $comisiones_utilizadas = $(this).attr('comisiones-utilizadas');
-			var $puntos_utilizados     = $(this).attr('puntos-utilizados');
-			var $numero_pedido         = $(this).attr('numero-pedido');
-			var $Parametros = '';
-	  new Messi('<h4>Confirma que desea borrar el pedido número : ' + $numero_pedido + ' ?</h4><br>',
-       {title: 'Confirmación del Usuario',titleClass: 'info',modal: true,
-       buttons: [
-                 {id: 0, label: 'Si, Deseo eliminar el pedido.', val: 'Y',class: 'btn-danger'},
-                 {id: 1, label: 'No, Espere. He presionado mal.', val: 'N', class: 'btn-success'}
-                 ],
-       callback: function(val) {
-         if (val=='Y') {
-         			$Parametros ={'idtercero':$idtercero ,'idpedido':$idpedido, 'comisiones_utilizadas':$comisiones_utilizadas,
-         															  'puntos_utilizados':$puntos_utilizados,'numero_pedido':$numero_pedido };
-         			Eliminar_Pedido($Parametros);
-         }
-       }});
-
-});
 
 
 

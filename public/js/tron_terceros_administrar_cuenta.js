@@ -511,6 +511,38 @@ $('#informes-red-usuarios').on('click',function(){
 				  });
 });
 
+/* MODIFICACION DE LA FORMA DEL PAGO DEL PEDIDO.
+			SE INHABILITA PORQUE A LA FECHA ( JULIO 02 DE 2015)
+			SÓLO TENEMOS UNA FORMA DE PAGO
+$('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago',function(){
+		$idpedido = $(this).attr('idpedido');
+		 window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago/"+$idpedido;
+});
+*/
+
+
+$('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
+		 var $idtercero             = $(this).attr('idtercero');
+			var $idpedido              = $(this).attr('idpedido');
+			var $comisiones_utilizadas = $(this).attr('comisiones-utilizadas');
+			var $puntos_utilizados     = $(this).attr('puntos-utilizados');
+			var $numero_pedido         = $(this).attr('numero-pedido');
+			var $Parametros = '';
+	  new Messi('<h4>Confirma que desea borrar el pedido número : ' + $numero_pedido + ' ?</h4><br>',
+       {title: 'Confirmación del Usuario',titleClass: 'info',modal: true,
+       buttons: [
+                 {id: 0, label: 'Si, Deseo eliminar el pedido.', val: 'Y',class: 'btn-danger'},
+                 {id: 1, label: 'No, Espere. He presionado mal.', val: 'N', class: 'btn-success'}
+                 ],
+       callback: function(val) {
+         if (val=='Y') {
+         			$Parametros ={'idtercero':$idtercero ,'idpedido':$idpedido, 'comisiones_utilizadas':$comisiones_utilizadas,
+         															  'puntos_utilizados':$puntos_utilizados,'numero_pedido':$numero_pedido };
+         			Eliminar_Pedido($Parametros);
+         }
+       }});
+
+});
 
 
 

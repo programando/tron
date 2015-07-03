@@ -69,8 +69,15 @@ class CarritoController extends Controller
 
 
 
-    public function Finalizar_Pedido_Forma_Pago()  {
+    public function Finalizar_Pedido_Forma_Pago($idpedido = 0)  {
+        /** JULIO 02 DE 2015
+         *      MUESTRA VISTA PARA ELEGIR LA FORMA DE PAGO DEL PEDIDO
+         *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
+         */
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
+        if ($idpedido >0 ){
+           $Vr_Total_Pedido_Real = 1;
+        }
         if ( $Vr_Total_Pedido_Real > 0 ){
                 $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
                 $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
