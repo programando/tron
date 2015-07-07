@@ -16,6 +16,9 @@
 
 		    }
 
+		    public function transporte(){
+		    		$this->View->Mostrar_Vista('transporte');
+		    }
 
 
 

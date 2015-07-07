@@ -35,7 +35,12 @@ class IndexController extends Controller
         Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
         Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
         Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_transferencias']));
+        Session::Set('factor_seguro_flete_otros_productos',             $Parametros[0]['factor_seguro_flete_otros_productos']);
+        Session::Set('porciento_seguro_flete_productos_industriales',   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
 
+        if (Session::Get('autenticado') == FALSE ){
+             Session::Set('usuario_viene_del_registro',     FALSE);
+         }
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
@@ -46,6 +51,14 @@ class IndexController extends Controller
         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //'tron_login'
 
         $this->View->Mostrar_Vista('index');
+
+
+        //factor_seguro_flete_otros_productos :
+        //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
+        //porciento_seguro_flete_productos_industriales :
+        //                      Porcentaje que se aplica al costo del productos para efectos del cálculo del seguro en los fletes del producto...
+
+
     }
 
     public function Cerrar_Sesion()

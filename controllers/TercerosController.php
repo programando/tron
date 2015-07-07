@@ -800,6 +800,8 @@ class TercerosController extends Controller
       Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
       Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
 
+
+
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();

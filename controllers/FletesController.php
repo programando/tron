@@ -175,6 +175,7 @@
 										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
 
+
 										// HALLO EL SEGURO
 										$seguro_flete = $valor_declarado * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
 
@@ -409,6 +410,8 @@
 											}else{
 													$this->seguro_redetrans_courrier = $this->Transportadoras[0]['rt_courrier_seguro'] *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
+
+
 
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
 									}

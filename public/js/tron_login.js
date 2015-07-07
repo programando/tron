@@ -42,16 +42,10 @@ var Mensaje_Resultado_Cambio_Password_Correo_No_Existe = function()
 			$("#msgbox").removeClass().addClass('messagebox').text('La cuenta de correo digitada no se encuentra registrada en la Red de Usuarios TRON.').fadeIn(3000);
 }
 
-/*
-var Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales =function(){
 
-	alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
-}
-*/
 
-var Iniciar_Sesion = function(Parametros)
-{
 
+var Iniciar_Sesion = function(Parametros){
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
@@ -60,23 +54,18 @@ var Iniciar_Sesion = function(Parametros)
 							async:    false,
        success:  function (resultado)
       	 {
-      	 	if (resultado.Resultado_Logueo!='Logueo_OK')
-      	 		{
+      	 	if (resultado.Resultado_Logueo!='Logueo_OK')	{
       	 				Mostrar_Mensaje('Los datos registrados no pudieron ser validados. Inténtelo nuevamente....');
       	 			}
       	 		  else{
       	 					Mostrar_Mensaje('Iniciando sesión en Red de Usuarios TRON... espere unos segundos...');
-
-      	 					if (resultado.Siguiente_Pago=='DIRECCION')
-      	 							{
+      	 					if (resultado.Siguiente_Pago=='DIRECCION')		{
       	 								window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
-      	 							}else
-      	 							{
-      	 								window.location.href = "/tron";
+      	 							}else {
+      	 									window.location.href = "/tron";
       	 							}
 
       	 		}
-
       	 }
 				});
 }

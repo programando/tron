@@ -17,7 +17,7 @@
   <?php endif ;?>
 
   <!-- INFORMACIÓN PARA USUARIOS AUTENTICADOS -->
- <?php if (Session::Get('autenticado')==true ) :?>
+ <?php if (Session::Get('autenticado')== TRUE ) :?>
   <div class="row"  id="personal"><!-- INFORMACION SOBRE CUENTAS-->
     <ul class="list-unstyled cont-mi-cuenta">
          <!-- bienvenido -->
