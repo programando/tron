@@ -17,6 +17,15 @@ class IndexController extends Controller
 
     public function Index()
     {
+        $info               = General_Functions::Datos_Navegador();
+        $Tipo_Navegador     = $info['browser'];
+        $Version_Navegador  = (int)$info['version'];
+
+
+
+
+
+
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
 
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
@@ -58,6 +67,11 @@ class IndexController extends Controller
         //porciento_seguro_flete_productos_industriales :
         //                      Porcentaje que se aplica al costo del productos para efectos del cálculo del seguro en los fletes del producto...
 
+       /*if ( $Tipo_Navegador == 'IE' && $Version_Navegador <= 8){
+            $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
+            $this->View->Mostrar_Vista("mejor_experiencia_usuario");
+       }
+       */
 
     }
 

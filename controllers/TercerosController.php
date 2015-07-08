@@ -246,11 +246,6 @@ class TercerosController extends Controller
 
     }
 
-        public function mejor_experiencia_usuario()
-    {
-        $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
-        $this->View->Mostrar_Vista("mejor_experiencia_usuario");
-    }
 
     public function Recuperar_Password(){
          $email     = General_Functions::Validar_Entrada('Email','TEXT');
