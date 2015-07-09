@@ -60,7 +60,7 @@
                            <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100,2) .'%' ;?> </td>
                            <td class="cuerpo-tabla"><?=
-                           									number_format( ($productos['cmv'] * $productos['ppto_fletes'])) ;?> </td>
+                           									number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100) * $productos['cantidad'] * $productos['ppto_fletes']) ;?> </td>
 
 
 
@@ -73,6 +73,7 @@
            </div>
         </div>
     </div>
+
     </div>
     </div>
 

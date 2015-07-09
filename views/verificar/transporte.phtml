@@ -18,7 +18,61 @@
 ?>
 
 -->
+<?php if (isset($carro)) :;?>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+<table class="table table-bordered table-hover">
+                   <thead><!-- Cabezera tabla -->
+                       <tr>
+                            PRODUCTOS Y VALORES
+                            <th class="titulo-tabla">IdProducto</th>
+                            <th class="titulo-tabla">Produc</th>
+                            <th class="titulo-tabla">presen.</th>
+                            <th class="titulo-tabla">cantidad</th>
 
+
+                            <th class="titulo-tabla">$.Real</th>
+
+                            <th class="titulo-tabla">Iva</th>
+                            <th class="titulo-tabla">Grupo</th>
+                            <th class="titulo-tabla">Peso Gr.</th>
+                            <th class="titulo-tabla">%.Ppto</th>
+                            <th class="titulo-tabla">Vr.Ppto</th>
+
+                       </tr>
+                   </thead>
+
+                   <tbody><!-- Cuerpo -->
+                    <?php foreach ($carro as $productos) :?>
+                       <tr>
+                              <td class="cuerpo-tabla"><?= $productos['idproducto'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['nom_producto'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['nompresentacion'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['cantidad'] ;?>  </td>
+
+
+                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']) ;?> </td>
+
+
+                           <td class="cuerpo-tabla"><?= number_format( $productos['iva']).'%' ;?> </td>
+                           <td class="cuerpo-tabla"><?=  $productos['codigo_grupo'] ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100,2) .'%' ;?> </td>
+                           <td class="cuerpo-tabla"><?=
+                                            number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100) * $productos['cantidad'] * $productos['ppto_fletes']) ;?> </td>
+
+
+
+                       </tr>
+                                        <?php endforeach ;?>
+
+                   </tbody>
+              </table>
+
+           </div>
+        </div>
+    </div>
+  <?php endif;?>
 
 
 
@@ -73,10 +127,6 @@
                                               <td class="cuerpo-tabla"><?=  number_format(Session::Get('Vr_Transporte')); ?> </td>
                                          </tr>
 
-                                        <tr>
-                                              <td class="cuerpo-tabla">COMBOS Y/O KITS ELIMINADOS </td>
-                                              <td class="cuerpo-tabla"><?=  number_format(Session::Get('kit_combos_eliminados')); ?> </td>
-                                         </tr>
 
 
                    </tbody>

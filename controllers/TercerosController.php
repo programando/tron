@@ -795,13 +795,37 @@ class TercerosController extends Controller
       Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
       Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
 
-
-
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
 
     }
+
+    public function Validar_Ingreso_Usuario()
+      {
+       $Email                = General_Functions::Validar_Entrada('email','TEXT');
+       $Password             = General_Functions::Validar_Entrada('Password','TEXT');
+       $Password             = md5($Password );
+       $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
+
+       if (!$Registro )
+       {
+         $Resultado_Logueo = "NO-Logueo_OK";
+       }else
+           {
+            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
+            $Resultado_Logueo = "Logueo_OK";
+         }
+         $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
+         if (!isset($Siguiente_Pago))
+         {
+          $Siguiente_Pago='';
+         }
+
+
+         $Datos            = compact('Resultado_Logueo','Siguiente_Pago');
+         echo json_encode($Datos,256);
+      }
 
     public function Verificar_Activacion_Usuario(){
       /** JUNIO 13 DE 2015
@@ -845,30 +869,7 @@ class TercerosController extends Controller
        echo json_encode($Datos,256);
     }
 
-    public function Validar_Ingreso_Usuario()
-    {
-       $Email                = General_Functions::Validar_Entrada('email','TEXT');
-       $Password             = General_Functions::Validar_Entrada('Password','TEXT');
-       $Password             = md5($Password );
-       $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
 
-
-       if (!$Registro )
-       {
-         $Resultado_Logueo = "NO-Logueo_OK";
-       }else
-           {
-            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
-            $Resultado_Logueo = "Logueo_OK";
-         }
-         $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
-         if (!isset($Siguiente_Pago))
-         {
-          $Siguiente_Pago='';
-         }
-         $Datos            = compact('Resultado_Logueo','Siguiente_Pago');
-         echo json_encode($Datos,256);
-      }
 
       public function Consultar_Saldos_Comisiones_Puntos_x_Idtercero(){
          Session::Set('saldo_comisiones',                0);

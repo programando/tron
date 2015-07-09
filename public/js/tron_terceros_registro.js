@@ -176,7 +176,7 @@ var Grabar_Datos_Registro = function(Parametros){
                     new Messi('Confirma que desea vincularse a la red de :<br> <br><strong>' + respuesta.nombre_usuario + '</strong><br>        Código de Usuario : <strong>' + respuesta.codigousuario + ' ? </strong><br><br><br>',
                     {title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
                     buttons: [
-                              {id: 0, label: 'La información de Usuario es Correcta', val: 'Y',class: 'btn-success'},
+                              {id: 0, label: 'Si, es correcto !', val: 'Y',class: 'btn-success'},
                               {id: 1, label: 'Opps, espere... deseo corregir !!!', val: 'N', class: 'btn-danger'}
                               ],
                     callback: function(val) {
