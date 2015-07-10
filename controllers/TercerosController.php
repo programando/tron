@@ -21,10 +21,12 @@ class TercerosController extends Controller
       //  COMPRUEBA QUE EL USUARIO NO SEA CLIENTE O EMPRESARIO PARA COMPRAR EL KIT DE INICIO
       if ( Session::Get('autenticado') == TRUE ){
           $idtipo_plan_compras =  Session::Get('idtipo_plan_compras');
+          $kit_comprado                   = Session::Get('kit_comprado');
       }else{
           $idtipo_plan_compras  = 0;
+          $kit_comprado         = FALSE;
       }
-      $datos=compact('idtipo_plan_compras');
+      $datos=compact('idtipo_plan_compras','kit_comprado');
       echo json_encode($datos,256);
     }
 

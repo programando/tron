@@ -121,7 +121,12 @@
                    <div class="col-xs-4" id="cont-digitos">
                       <div class="form-group">
                         <!--Inicio Input-->
-                         <input id="<?=$id_controles ;?>" class=" digitos btn-carrito-input CantProductosComprados"  type="text"  value="1" >
+                         <input id="<?=$id_controles ;?>" class=" digitos btn-carrito-input CantProductosComprados"  type="text"  value="1"
+                          id-idescala = "<?= $idescala ;?>"
+                          precio-amigo-tron = "<?= $pv_tron_previo; ?>"
+                          pv-tron-escala-a = "<?= $pv_tron_escala_a; ?>"
+                          pv-tron-escala-b = "<?= $pv_tron_escala_b; ?>"
+                          pv-tron-escala-c = "<?= $pv_tron_escala_c; ?>" >
                         <!--Fin Input-->
                       </div>
                    </div>
@@ -136,6 +141,7 @@
                       <!-- Fin Boton Mas-->
                       </div>
                    </div>
+
                      <input id="<?= $id_controles_escalas ;?>"  type="hidden" value="<?= $idescala ; ?>" />
                      <input id="<?= $id_pv_tron_escala_a ;?>"   type="hidden" value="<?= $pv_tron_escala_a; ?>" />
                      <input id="<?= $id_pv_tron_escala_b ;?>"   type="hidden" value="<?= $pv_tron_escala_b; ?>" />

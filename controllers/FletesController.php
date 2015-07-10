@@ -333,6 +333,7 @@
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $peso_kilos_pedido * $vr_kilo_idmcipio_redetrans ;
 
+
     		if ($this->re_expedicion == 0) {
     					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
     		 }

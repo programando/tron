@@ -357,6 +357,9 @@ class CarritoController extends Controller
     if ( Session::Get('autenticado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
       return;
     }
+    if (Session::Get('autenticado')== TRUE && Session::Get('kit_comprado') == FALSE){
+      return;
+    }
 
     $this->Iniciar_Procesos_Carro();
     $Productos_a_Borrar = array();
@@ -578,6 +581,7 @@ class CarritoController extends Controller
       $factor_seguro_flete_otros_productos           = Session::Get('factor_seguro_flete_otros_productos');
       $porciento_seguro_flete_productos_industriales = Session::Get('porciento_seguro_flete_productos_industriales');
       $usuario_viene_del_registro                    = Session::Get('usuario_viene_del_registro');
+      $kit_comprado                                  = Session::Get('kit_comprado') ;
 
 
       $this->Iniciar_Procesos_Carro();
@@ -618,7 +622,7 @@ class CarritoController extends Controller
             // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
             if ( (( $compras_este_mes_tron         + $compras_tron       )  >= $compra_minima_productos_tron          ||
                  (  $compras_este_mes_industiales  + $compras_industrial )  >= $compra_minima_productos_industriales) ||
-                    $usuario_viene_del_registro   == TRUE )
+                    $usuario_viene_del_registro   == TRUE || $kit_comprado  == FALSE)
               {
                 Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
                 $Cumple_Condic_Cpras_Tron_Industial   = TRUE;

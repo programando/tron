@@ -199,6 +199,7 @@ class ProductosController extends Controller
          $Precio_Final_Tron = $this->Escalas->Precio_Final_Tron;
          $Precio_Final_Tron=  "$".number_format($Precio_Final_Tron,0,"",".");
          $Datos            = compact('Precio_Final_Tron');
+
          echo json_encode($Datos,256);
     }
 
