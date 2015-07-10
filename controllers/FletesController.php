@@ -118,12 +118,15 @@
 
       public function Vr_Transporte_Kit_Inicio($kit_inicio_peso_total,$kit_cantidad ){
       			 Session::Set('kit_vr_transporte',0);
+      			 Session::Set('subsidio_total_kit_inicio',0);
 										$kit_vr_venta_valle           = Session::Get('kit_vr_venta_valle');
 										$subsidio_transporte_tron     = Session::Get('subsidio_transporte_tron') * $kit_cantidad ;
 										// HALLAR EL VALOR DEL FLETE REAL
 										$this->Valor_Fletes_Productos_Tron($kit_inicio_peso_total , Session::Get('iddpto') , Session::Get('re_expedicion') );
 										$this->valor_flete = ( $this->valor_flete * $kit_cantidad ) -  $subsidio_transporte_tron ;
 										Session::Set('kit_vr_transporte', $this->valor_flete );
+										Session::Set('subsidio_total_kit_inicio',$subsidio_transporte_tron);
+
       }
 
       public function Sevientrega_Premier($peso_kilos_pedido,$valor_declarado)
