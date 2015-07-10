@@ -7,7 +7,7 @@
         else
         {
           echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";
-          Debug::Mostrar( Session::Get('minimo_compras_productos_ta'));
+          Debug::Mostrar($_SESSION['carrito']);
           exit;
         }
 
