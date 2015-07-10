@@ -14,6 +14,7 @@
 <?php
 
 $transporte_kit =  Session::Get('kit_vr_transporte');
+$subsidio_total_kit_inicio = 0;
 if (!isset($transporte_kit ))
 {
   $transporte_kit = 0;
@@ -114,7 +115,7 @@ if (!isset($transporte_kit ))
                                         <td class="cuerpo-tabla">TRANSPORTE KIT DE INICIO </td>
                                         <td class="cuerpo-tabla"><?=  number_format( $transporte_kit); ?> </td>
                                         </tr>
-                                        <td class="cuerpo-tabla">SUBSISDIO KIT DE INICIO </td>
+                                        <td class="cuerpo-tabla">SUBSIDIO KIT DE INICIO </td>
                                         <td class="cuerpo-tabla"><?=  number_format( $subsidio_total_kit_inicio); ?> </td>
                                         </tr>
 
