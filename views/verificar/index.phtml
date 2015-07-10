@@ -9,18 +9,13 @@
         else
         {
           echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";
-          Debug::Mostrar($_SESSION['carrito']);
+          Debug::Mostrar( Session::Get('minimo_compras_productos_ta'));
           exit;
         }
 
 ?>
 
-<!--
- <?php
-  Debug::Mostrar(Session::Get('fecha_hora_acepta_convenio'));
-?>
 
--->
 
 <?php if (isset($carro)) :;?>
     <div class="row">
