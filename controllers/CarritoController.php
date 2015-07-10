@@ -293,7 +293,7 @@ class CarritoController extends Controller
       *   MUSTRA EL CARRITO,LUEGO DE AGREGARLE PRODUCTOS
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
-      Debug::Mostrar($_SESSION['carrito']);
+
       $this->Borrar_Productos_Carro_Plan_2_3();
       //----------------------------------------------------------------------------------------------------------------------------
 
