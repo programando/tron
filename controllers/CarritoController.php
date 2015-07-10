@@ -580,7 +580,7 @@ class CarritoController extends Controller
       $compras_este_mes_tron                         = Session::Get('compras_productos_tron');
       $compras_este_mes_industiales                  = Session::Get('compras_productos_fabricados_ta');
       $factor_seguro_flete_otros_productos           = Session::Get('factor_seguro_flete_otros_productos');
-      $porciento_seguro_flete_productos_industriales = Session::Get('porciento_seguro_flete_productos_industriales');
+      $porciento_seguro_flete_productos_industriales = Session::Get('porciento_seguro_flete_productos_industriales')/100;
       $usuario_viene_del_registro                    = Session::Get('usuario_viene_del_registro');
       $kit_comprado                                  = Session::Get('kit_comprado') ;
 
@@ -889,8 +889,7 @@ class CarritoController extends Controller
     public function Hallar_Valor_Escalas_Productos()
     {
         $this->Iniciar_Procesos_Carro();
-        //Debug::Mostrar($this->Cantidad_Filas_Carrito);
-        //Debug::Mostrar($this->Datos_Carro);
+
         $i   = 0;
         for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
          {

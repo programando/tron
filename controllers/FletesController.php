@@ -43,6 +43,7 @@
 	      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
 	      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
+
 	      if ( $valor_declarado >0 ){
 	        if ( $Calcular_Flete_Courrier == TRUE ){
 	              $this->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
@@ -333,6 +334,7 @@
 							if ( $peso_kilos_pedido < $peso_minino ){
 											$peso_kilos_pedido = $peso_minino;
 							}
+
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $peso_kilos_pedido * $vr_kilo_idmcipio_redetrans ;
 
@@ -342,6 +344,8 @@
     		 }
 
     		 $this->valor_flete  = $this->valor_flete  - $descuento_comercial;
+
+
 
 								//DETERMINO EL FLETE MÍNIMO
       	if ($this->valor_flete < $flete_minimo) {
@@ -373,6 +377,9 @@
 								if ($seguro_minimo > 	$seguro ){
 									$seguro_flete = $seguro_minimo ;
 								}
+
+
+
 								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
