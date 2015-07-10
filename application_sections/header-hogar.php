@@ -50,6 +50,7 @@
             <li><a class="list-menu campo_4" id="hogar_ofertas"      href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
             <li><a class="list-menu campo_5" id="hogar_novedades"    href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
             <li><a class="list-menu campo_6"                         href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
+            <li><a class="list-menu campo_6"                         href="<?=BASE_URL ;?>verificar/transporte">REVISAR</a></li>
 
           </ul>
 
