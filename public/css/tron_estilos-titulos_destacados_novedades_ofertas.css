@@ -4,15 +4,22 @@
 #ofertas ,
 #novedades
 {
-			color        : #003e90;
-			display      : block;
-			width: 100%;
-			text-decoration: underline;
-			margin-top: -10px;
+	color        : #003e90;
+	display      : block;
+	width: 100%;
+	text-decoration: underline;
+	margin-top: -5px;
 }
 
 .productos-center
 {
    width:95%;
    margin:0px auto;
+}
+
+.cont_ofertas_destacados
+{
+	padding-top: 130px;
+	 width:  95%;
+	  margin: 0px auto
 }

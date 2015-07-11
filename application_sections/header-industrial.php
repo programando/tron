@@ -8,7 +8,7 @@
            </div><!-- FIN DEL LOGO-->
 
            <div class="col-lg-4 col-md-4 contenedor-input">
-                <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
+                <div style="display: none;"><?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?></div>
            </div>
 
 
@@ -16,14 +16,15 @@
             <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
             <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
 
-            <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
-            <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
+            <div style="display: none;"><?php include (APPLICATION_SECTIONS .'carrito_header.php');?></div>
+            <div style="display: none;"><?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?></div>
           </div>
         </div>
 
 
   <!--Menu-Vista-Industrial -->
-
+     <!-- Tabs hogar , industrial -->
+     <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
         <nav id="menu-industial" class="navbar navbar-default" role="navigation">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -47,6 +48,23 @@
             <li><a class="list-indust indus_campo_1"  id="indus_productos"  href="<?=BASE_URL ;?>productos/categorias_marcas/">PRODUCTOS</a></li>
             <li><a class="list-indust indus_campo_2"  id="indus_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
             <li><a class="list-indust indus_campo_3"                        href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
+            <!-- Info -->
+            <li><a href="" class="list-indust" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Icon - Buscar -->
+            <li><a href="" class="list-indust"><span class="glyphicon glyphicon-search"></span> BUSCAR</a></li>
+            <!-- Icon -carrito -->
+            <li><a  class="list-indust" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
+                  <!-- SubMenu -->
+                  <ul  class="navBar_mostrar_carrito">
+                      <li>
+                        <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
+                      </li>
+ 
+                  </ul>
+            </li>
           </ul>
 
         </div>

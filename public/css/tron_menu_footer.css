@@ -6,6 +6,7 @@
 	   padding: 0px;
 	   display: block;
 	   width: 100%;
+
 }
 
 .cont-per
@@ -28,6 +29,7 @@ body
 .img-logo
 {
     margin-bottom: 0px;
+    width:200px;
 }
 
 .mensaje-agregar_producto
@@ -54,18 +56,19 @@ body
 
 .contenido-input-buscar
 {
-			-moz-border-radius   : 	8px;
-			-ms-border-radius    : 	8px;
-			-o-border-radius     : 	8px;
-			-webkit-border-radius: 	8px;
-			border               :  3px solid  #b5b5b5;
-			border-radius        : 	8px;
-			display              :  block;
-			margin-bottom        :  0px;
-			margin-top           :  45px;
-			min-width            :  447px;
-			padding              :  0px;
-			width                :  350px;
+	-moz-border-radius   : 	8px;
+	-ms-border-radius    : 	8px;
+	-o-border-radius     : 	8px;
+	-webkit-border-radius: 	8px;
+	border               :  3px solid  #b5b5b5;
+	border-radius        : 	8px;
+	display              :  block;
+	margin: 0px auto;
+	/*margin-bottom        :  0px;*/
+/*	margin-top           :  45px;*/
+	min-width            :  447px;
+	padding              :  0px;
+	width                :  350px;
 }
 
 
@@ -201,6 +204,26 @@ body
 		color          : #003e90;
 }
 
+/* Ver carrito = > Mostrar carrito */
+.navBar_mostrar_carrito
+{
+	list-style: none;
+	display: none;
+	position:absolute;
+	left: -100px;
+	top: 32px;
+	padding: 5px;
+	font-size: 12px;
+	background-color: #FFF;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 0px 0px 4px 4px;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+	margin: 2px 0px 0px;
+	min-width: 160px;
+	z-index: 1000;
+}   
+
 /* Mi cuenta  => Menu */
 /*#cuenta_info_menu > li
 {
@@ -299,29 +322,33 @@ body
 
 .tabs-menu
 {
-		float        : right;
-		margin-bottom: -5px;
-		margin-right : -20px;
+		right: 18px;
+		top: -39px;
+		/*float: right;*/
+		/*margin-bottom: -5px;*/
+		/*margin-right : -20px;*/
 		min-width    : 270px;
-		width        : 386px;
-		margin-top: 8px;
+		width        : 400px;
+		/*margin-top: 8px;*/
+		position: absolute;
 }
 
 .tab-hogar ,
 .tab-industrial
 {
-			display              : inline-block;
-			width                : 190px;
-			text-align           : center;
-			color                : white;
-			text-decoration      : none;
-			background: red;
-			height: 490x;
-			-webkit-border-radius: 10px 10px 0px 0px;
-			-moz-border-radius   : 10px 10px 0px 0px;
-			-ms-border-radius    : 10px 10px 0px 0px;
-			-o-border-radius     : 10px 10px 0px 0px;
-			border-radius        : 10px 10px 0px 0px;
+	display              : inline-block;
+	width                : 190px;
+	text-align           : center;
+	color                : white;
+	text-decoration      : none;
+	font-size: 14px;
+	background: red;
+	height: 40px;
+	-webkit-border-radius: 10px 10px 0px 0px;
+	-moz-border-radius   : 10px 10px 0px 0px;
+	-ms-border-radius    : 10px 10px 0px 0px;
+	-o-border-radius     : 10px 10px 0px 0px;
+	border-radius        : 10px 10px 0px 0px;
 }
 
 .tab-hogar
@@ -346,11 +373,9 @@ body
 
 .logo-indusrial /* IMG = Industrial */
 {
-
-			padding: 0px;
-			height:13px;
-			width:20px;
-			margin-top: -3px;
+	height:17px;
+	width:20px;
+	margin-top: -6px;
 }
 
 .tab-industrial
@@ -384,16 +409,17 @@ body
 
 .cont-img-info-menu
 {
-		background-image : url(../images/empresa/info_menu.png);
-		background-repeat: no-repeat;
-		width            : 70px;
-		height           : 25px;
-		margin-bottom    : -2px;
-		margin-top       : -3px;
-		margin-left      : -4px;
-		text-align       :  center;
-		display          : block;
-		color            : white;
+/*	background-image : url(../images/empresa/info_menu.png);
+	background-repeat: no-repeat;
+	width            : 70px;
+	height           : 25px;
+	margin-bottom    : -2px;
+	margin-top       : -3px;
+	margin-left      : -4px;
+	text-align       :  center;
+	display          : block;
+	color            : white;
+	border: 1px solid red;*/
 }
 
 #menu
@@ -408,7 +434,7 @@ body
 	  color: white;
 	  margin-left: 5px;
 	  font-size: 12px;
-   padding: 7.5px 20px;
+	  padding: 7.5px 20px;
 }
 
 .navbar-brand
@@ -467,38 +493,38 @@ body
 
 .header2
 {
-    -moz-box-shadow   : 0px 2px 5px 0px  #282828;
-				-o-box-shadow     : 0px 2px 5px 0px  #282828;
-				-webkit-box-shadow: 0px 2px 5px 0px  #282828;
-				box-shadow        : 0px 2px 5px 0px  #282828;
-				background        : #ffffff;
-				display           : block;
-				height            : 112px;
-				margin            : 0;
-				max-height        :
-				overflow          : hidden;
-				position          : fixed;
-				width             : 100%;
-				z-index           : 100;
+/*    -moz-box-shadow   : 0px 2px 5px 0px  #282828;
+	-o-box-shadow     : 0px 2px 5px 0px  #282828;
+	-webkit-box-shadow: 0px 2px 5px 0px  #282828;
+	box-shadow        : 0px 2px 5px 0px  #282828;
+	background        : #ffffff;
+	display           : block;
+	height            : 112px;
+	margin            : 0;
+	max-height        :
+	overflow          : hidden;
+	position          : fixed;
+	width             : 100%;
+	z-index           : 100;*/
 }
 
 .header2 .img-logo
 {
-	   width:200px;
+/*	width:200px;
     margin-top: -5px;
     padding: 0px;
-    height: 80px;
+    height: 80px;*/
 }
 
-.header2  .cont-carrito-compras
+/*.header2  .cont-carrito-compras
 {
    float: left;
    margin-left: -170px;
    margin-top: 0px;
    margin-bottom: -35px;
-}
+}*/
 
-.header2 .contenido-input-buscar
+/*.header2 .contenido-input-buscar
 {
 	   margin-top: 35px;
 	   margin-bottom: 0px;
@@ -512,12 +538,12 @@ body
      display: block;
      margin-left: -80px;
      height: 20px;
-}
+}*/
 
 /*Header2-Menu-Fijo-Hogar*/
 
 
-/*MENU-INDUSTRIAL , MENU-FIJO*/
+/*MENU-INDUSTRIAL*/
 
 .index_industral
 {

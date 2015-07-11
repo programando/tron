@@ -48,7 +48,7 @@
 
          </head>
          <body>
-           <header >
+           <header style="position: fixed; z-index: 1000; width: 100%; background: white; height: 123px;">
 <!--///////////////////////////////-Los documentos llamados se Encuentrar en (application_sections)-/////////////////////////////////////-->
             <!--Llamado del Header tanto el de hogar como el industrial-->
             <?php if (Session::Get('Id_Area_Consulta')==1) :?>
@@ -95,6 +95,21 @@
           $('#myModal').on('shown.bs.modal', function () {
             $('#login-username').focus()
           });
+
+          // Msotrar Carrito
+           var $control = 0; 
+           $('#menu_mostrar_carrito').on('click',function(){
+               if($control == 0){
+                  $('.navBar_mostrar_carrito').show();
+                  $(this).css('background','#0469ED');
+                 $control++;
+              }else{
+                  $('.navBar_mostrar_carrito').hide();
+                  $(this).css('background','#003E90');
+                 $control--;
+              }
+           });
+       
         </script>
 
   </body>

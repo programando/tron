@@ -1,25 +1,3 @@
-
-//Menu fijo
-
-
-    $(window).scroll(function(){
-
-       if($(this).scrollTop() > 0 ){
-
-          $('header').addClass('header2');
-         	$('.header2').css("display", "block");
-
-       } else {
-
-          $('header').removeClass('header2');
-         	$('.header2').css("display", "none");
-       }
-
-    });
-
-
-
-
 // funcion de login => restaurar contraseña
    $('#olvide-password').click(function(){
      $('.formulario-olvide-password').slideDown('slow');

@@ -8,21 +8,22 @@
            </div><!-- FIN DEL LOGO-->
 
            <div class="col-lg-4 col-md-4 contenedor-input">
-                <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
+                <div style="display: none;"><?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?></div>
            </div>
 
-
-          <div class="col-lg-4 col-md-4  col-sm-4 cont-per">
-            <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
-            <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
-
-            <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
-            <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
-          </div>
+            <div class="col-lg-4 col-md-4  col-sm-4 cont-per">
+               <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
+               <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
+               <div style="display: none"><?php include (APPLICATION_SECTIONS .'carrito_header.php');?></div>  
+               <div style="display: none;"><?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?></div>
+            </div>
         </div>
 
 <!-- Menu -->
+     <!-- Tabs hogar , industrial -->
+     <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
         <nav id="menu" class="navbar navbar-default navbar_tron" role="navigation"  >
+          
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
             data-target=".navbar-ex1-collapse" id="boton" >
@@ -50,21 +51,40 @@
             <li><a class="list-menu campo_4" id="hogar_ofertas"      href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
             <li><a class="list-menu campo_5" id="hogar_novedades"    href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
             <li><a class="list-menu campo_6"                         href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
+            <!-- Info -->
+            <li><a href="" class="list-menu" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Icon - Buscar -->
+            <li><a  
+                  href="#modal_barra_busquedad" 
+                  data-toggle="modal" 
+                  data-target="#modal_barra_busquedad"
+                  class="list-menu"><span class="glyphicon glyphicon-search"></span> BUSCAR</a></li>
+                   <?php include (APPLICATION_SECTIONS .'modal_barra_busquedad.php');?>
+            <!-- Icon -carrito -->
+            <li><a  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
+                  <!-- SubMenu -->
+                  <ul  class="navBar_mostrar_carrito">
+                      <li>
+                        <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
+                      </li>
+ 
+                  </ul>
+            </li>
 
           </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-         <li style="width: 95px;">
-             <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-menu  li_info"  >
-                  <div class="cont-img-info-menu"><strong>Info</strong></div>
-             </a>
-         </li>
-      </ul>
+
 
           </div>
         </nav>
 
-
+<style type="text/css">
+  
+ 
+</style>
 
 <!--
       /.. AREAS DE CONSULTA CORRESPONDEN A LOS TIPOS DE PRODUCTOS ( HOGAR / INDUSTRIAL)
