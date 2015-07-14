@@ -161,8 +161,7 @@ class CarritoController extends Controller
         $this->View->Mostrar_Vista_Parcial('finalizar_pedido_direccion_usuario');
     }
 
-    public function Finalizar_Pedido_Identificacion()
-    {
+    public function Finalizar_Pedido_Identificacion()  {
         /** FEBRERO 28 DE 2015
           DETERMINA EL SIGUIENTE PASO EN LA FINALIZACIÓN DEL PEDIDO.
           IDENTIFICACION O CONFIRMACIÓN DE ENVÍO
@@ -172,12 +171,12 @@ class CarritoController extends Controller
       $this->View->SetCss(array('tron_carrito','tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios','tron_estilos_linea_tiempo'));
 
       $this->View->Departamentos = $this->Departamentos->Consultar();
-      if (Session::Get('autenticado')==false) {
-        Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
+      Session::Set('iddireccion_despacho',   0 );
+      Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
+      if (Session::Get('autenticado')== FALSE ) {
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
       }else      {
         $this->View->Direcciones = $this->Terceros->Direcciones_Despacho();
-        Session::Set('iddireccion_despacho',   0 );
         $this->View->Mostrar_Vista('finalizar_pedido_direccion');
       }
 
@@ -185,16 +184,15 @@ class CarritoController extends Controller
 
 
 
-    private function Iniciar_Procesos_Carro()
-    {
+    private function Iniciar_Procesos_Carro()  {
         $this->Cantidad_Filas_Carrito     = 0;
-        $this->Carrito_Habilitado         = false;
-        $this->Carrito_Vacio              = false;
+        $this->Carrito_Habilitado         =  FALSE;
+        $this->Carrito_Vacio              =  FALSE;
         if (isset($_SESSION['carrito']))
         {
           $this->Datos_Carro                = $_SESSION['carrito'];
           $this->Cantidad_Filas_Carrito     = count($this->Datos_Carro  );
-          $this->Carrito_Habilitado         = true;
+          $this->Carrito_Habilitado         = TRUE;
 
           if ($this->Cantidad_Filas_Carrito ==0)
           {

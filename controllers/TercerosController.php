@@ -819,8 +819,7 @@ class TercerosController extends Controller
             $Resultado_Logueo = "Logueo_OK";
          }
          $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
-         if (!isset($Siguiente_Pago))
-         {
+         if (!isset($Siguiente_Pago)){
           $Siguiente_Pago='';
          }
 

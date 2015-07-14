@@ -342,10 +342,7 @@
     		if ($this->re_expedicion == 0) {
     					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
     		 }
-
     		 $this->valor_flete  = $this->valor_flete  - $descuento_comercial;
-
-
 
 								//DETERMINO EL FLETE MÍNIMO
       	if ($this->valor_flete < $flete_minimo) {
@@ -377,8 +374,6 @@
 								if ($seguro_minimo > 	$seguro ){
 									$seguro_flete = $seguro_minimo ;
 								}
-
-
 
 								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
 								$this->flete_calculado = TRUE ;
