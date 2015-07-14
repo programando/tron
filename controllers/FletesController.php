@@ -43,6 +43,7 @@
 	      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
 	      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
+
 	      if ( $valor_declarado >0 ){
 	        if ( $Calcular_Flete_Courrier == TRUE ){
 	              $this->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
@@ -118,12 +119,15 @@
 
       public function Vr_Transporte_Kit_Inicio($kit_inicio_peso_total,$kit_cantidad ){
       			 Session::Set('kit_vr_transporte',0);
+      			 Session::Set('subsidio_total_kit_inicio',0);
 										$kit_vr_venta_valle           = Session::Get('kit_vr_venta_valle');
 										$subsidio_transporte_tron     = Session::Get('subsidio_transporte_tron') * $kit_cantidad ;
 										// HALLAR EL VALOR DEL FLETE REAL
 										$this->Valor_Fletes_Productos_Tron($kit_inicio_peso_total , Session::Get('iddpto') , Session::Get('re_expedicion') );
 										$this->valor_flete = ( $this->valor_flete * $kit_cantidad ) -  $subsidio_transporte_tron ;
 										Session::Set('kit_vr_transporte', $this->valor_flete );
+										Session::Set('subsidio_total_kit_inicio',$subsidio_transporte_tron);
+
       }
 
       public function Sevientrega_Premier($peso_kilos_pedido,$valor_declarado)
@@ -174,6 +178,7 @@
 
 										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
+
 
 										// HALLO EL SEGURO
 										$seguro_flete = $valor_declarado * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
@@ -329,14 +334,18 @@
 							if ( $peso_kilos_pedido < $peso_minino ){
 											$peso_kilos_pedido = $peso_minino;
 							}
+
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $peso_kilos_pedido * $vr_kilo_idmcipio_redetrans ;
+
 
     		if ($this->re_expedicion == 0) {
     					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
     		 }
 
     		 $this->valor_flete  = $this->valor_flete  - $descuento_comercial;
+
+
 
 								//DETERMINO EL FLETE MÍNIMO
       	if ($this->valor_flete < $flete_minimo) {
@@ -368,6 +377,9 @@
 								if ($seguro_minimo > 	$seguro ){
 									$seguro_flete = $seguro_minimo ;
 								}
+
+
+
 								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
@@ -409,6 +421,8 @@
 											}else{
 													$this->seguro_redetrans_courrier = $this->Transportadoras[0]['rt_courrier_seguro'] *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
+
+
 
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
 									}

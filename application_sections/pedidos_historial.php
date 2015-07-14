@@ -21,10 +21,15 @@
        <img style="width: 25%;" src="<?= BASE_IMG_EMPRESA ;?>pago_pse.jpg" title="Pago PSE">
      <?php endif ;?>
    </td>
-   <?php if ( $facturado  == TRUE )  :?>
-    <td class="text-center"><!-- Medio de pago -->
-     <img  class ="historial-cambiar-forma-pago" style="width: 25%;" src="<?= BASE_IMG_TIENDA ;?>editar_pago.png" title="Cambiar forma de Pago">
-   </td><!-- Medio de pago -->
+
+   <?php if ( $facturado  == FALSE )  :?>
+    <!--  MEDIO DE PAGO
+    <td class="text-center">
+     <img  class ="historial-cambiar-forma-pago" style="width: 25%;"
+      src="<?= BASE_IMG_TIENDA ;?>editar_pago.png" title="Cambiar forma de Pago"
+      idpedido = "<?= $idpedido ;?>">
+
+   </td> -->
 
    <td class="text-center"><!-- Eliminar -->
 
@@ -39,6 +44,6 @@
  </td><!-- Eliminar -->
 <?php else :?>
 <td></td>
-<td></td>
+
 <?php endif ;?>
 </tr>

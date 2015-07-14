@@ -69,8 +69,15 @@ class CarritoController extends Controller
 
 
 
-    public function Finalizar_Pedido_Forma_Pago()  {
+    public function Finalizar_Pedido_Forma_Pago($idpedido = 0)  {
+        /** JULIO 02 DE 2015
+         *      MUESTRA VISTA PARA ELEGIR LA FORMA DE PAGO DEL PEDIDO
+         *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
+         */
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
+        if ($idpedido >0 ){
+           $Vr_Total_Pedido_Real = 1;
+        }
         if ( $Vr_Total_Pedido_Real > 0 ){
                 $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
                 $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
@@ -109,8 +116,8 @@ class CarritoController extends Controller
       echo $Texto_Resultado ;
     }
 
-    public function Finalizar_Pedido_Direccion_Final()
-    {/**  MARZO 04 DE 2015
+    public function Finalizar_Pedido_Direccion_Final() {
+    /**  MARZO 04 DE 2015
       *   REALIZA EL CAMBIO DE LOS DATOS DE UBICACIÓN PARA ENTREGA DEL PEDIDO
       */
      $IdDireccion_Despacho =  General_Functions::Validar_Entrada('iddirecciondespacho','NUM');
@@ -123,8 +130,7 @@ class CarritoController extends Controller
     }
 
 
-    public function Finalizar_Pedido_Direccion_Envio()
-    {
+    public function Finalizar_Pedido_Direccion_Envio() {
       /** FEBRERO 28 DE 2015
           DETERMINA EL SIGUIENTE PASO EN LA FINALIZACIÓN DEL PEDIDO.  IDENTIFICACION O CONFIRMACIÓN DE ENVÍO
       */
@@ -136,8 +142,7 @@ class CarritoController extends Controller
 
     }
 
-    public function Finalizar_Pedido_Direccion_Cambio_Usuario()
-    {
+    public function Finalizar_Pedido_Direccion_Cambio_Usuario() {
       $Idtercero            =  General_Functions::Validar_Entrada('idtercero','NUM');
       $Cantidad_Direcciones =  General_Functions::Validar_Entrada('cantidad_direcciones','NUM');
       Session::Set('idtercero_pedido',$Idtercero );
@@ -207,7 +212,7 @@ class CarritoController extends Controller
 
 
 
-    public  function Borrar_Producto_Carrito()
+    public  function Borrar_Producto_Carrito($producto=0, $cantidad=0)
     {
       /** ENERO 15 DE 2015
       *   BORRA UN PRODUCTO INDICADO POR EL USUARIO
@@ -216,9 +221,14 @@ class CarritoController extends Controller
 
       Session::Set('pv_tron_resumen',0);
       Session::Set('pv_ocas_resumen',0);
+      if ( $producto == 0 &&  $cantidad == 0){
+          $IdProducto        = General_Functions::Validar_Entrada('IdProducto','NUM');
+          $Cantidad          = General_Functions::Validar_Entrada('Cantidad','NUM');
+        }else{
+          $IdProducto  = $producto;
+          $Cantidad    = $cantidad;
+        }
 
-      $IdProducto        = General_Functions::Validar_Entrada('IdProducto','NUM');
-      $Cantidad          = General_Functions::Validar_Entrada('Cantidad','NUM');
       $i                 = 0;
       $NombreArray       = 'TRON'.$IdProducto;              // CAPTURA CANTIDAD DE PRODUCTO TRON COMPRADO
 
@@ -244,7 +254,9 @@ class CarritoController extends Controller
       $this->Cerrar_Procesos_Carro();
       $this->Hallar_Valor_Escalas_Productos();
       $this->Totalizar_Carrito();
-      $this->Retornar_Totales_Carro_Json();
+      if ( $producto == 0 ){      /// SI HE ENVIADO UN PRODUCTO COMO PARÁMETRO
+            $this->Retornar_Totales_Carro_Json();
+          }
 
     }
 
@@ -280,6 +292,10 @@ class CarritoController extends Controller
       /** ENERO 22 DE 2015
       *   MUSTRA EL CARRITO,LUEGO DE AGREGARLE PRODUCTOS
       */
+      //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
+
+      $this->Borrar_Productos_Carro_Plan_2_3();
+      //----------------------------------------------------------------------------------------------------------------------------
 
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
       $this->Iniciar_Procesos_Carro();
@@ -333,7 +349,40 @@ class CarritoController extends Controller
 
     }
 
+   public function Borrar_Productos_Carro_Plan_2_3(){
+    /** JULIO 07 DE 2015
+     *    VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
+     */
+    Session::Set('kit_combos_eliminados', FALSE);
 
+    if ( Session::Get('autenticado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
+      return;
+    }
+    if (Session::Get('autenticado')== TRUE && Session::Get('kit_comprado') == FALSE){
+      return;
+    }
+
+    $this->Iniciar_Procesos_Carro();
+    $Productos_a_Borrar = array();
+    $Id = 0;
+    for ($pos=0; $pos < $this->Cantidad_Filas_Carrito; $pos++) {
+        $id_categoria_producto = $this->Datos_Carro [$pos]['id_categoria_producto'];
+        $idproducto            = $this->Datos_Carro [$pos]['idproducto'];
+        $Cantidad              = $this->Datos_Carro [$pos]['cantidad'];
+        if ( $id_categoria_producto == 8 || $idproducto  == 10744){
+              $Productos_a_Borrar[$Id]['idproducto'] = $idproducto ;
+              $Productos_a_Borrar[$Id]['cantidad'] =$Cantidad   ;
+              Session::Set('kit_combos_eliminados', TRUE);
+              $Id++;
+       }
+    }// Fin for
+    $this->Cerrar_Procesos_Carro();
+    if ( Session::Get('kit_combos_eliminados') == TRUE ){
+          for ($pos=0; $pos < $Id; $pos++) {
+                $this->Borrar_Producto_Carrito($Productos_a_Borrar[$pos]['idproducto']  , $Productos_a_Borrar[$pos]['cantidad']);
+            }// fin for
+    }
+   }
 
 
     public function Totalizar_Carrito()
@@ -524,12 +573,17 @@ class CarritoController extends Controller
       Session::Get('vr_inscripcion_red', 0);
 
 
-      $Logueado                             = Session::Get('autenticado');
-      $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
-      $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
-      $compra_minima_productos_industriales = Session::Get('minimo_compras_productos_ta');
-      $compras_este_mes_tron                = Session::Get('compras_productos_tron');
-      $compras_este_mes_industiales         = Session::Get('compras_productos_fabricados_ta');
+      $Logueado                                      = Session::Get('autenticado');
+      $Cumple_Condic_Cpras_Tron_Industial            = Session::Get('cumple_condicion_cpras_tron_industial');
+      $compra_minima_productos_tron                  = Session::Get('minimo_compras_productos_tron');
+      $compra_minima_productos_industriales          = Session::Get('minimo_compras_productos_ta');
+      $compras_este_mes_tron                         = Session::Get('compras_productos_tron');
+      $compras_este_mes_industiales                  = Session::Get('compras_productos_fabricados_ta');
+      $factor_seguro_flete_otros_productos           = Session::Get('factor_seguro_flete_otros_productos');
+      $porciento_seguro_flete_productos_industriales = Session::Get('porciento_seguro_flete_productos_industriales')/100;
+      $usuario_viene_del_registro                    = Session::Get('usuario_viene_del_registro');
+      $kit_comprado                                  = Session::Get('kit_comprado') ;
+
 
       $this->Iniciar_Procesos_Carro();
       $i               = 0;
@@ -567,8 +621,9 @@ class CarritoController extends Controller
 
            if ( $this->Datos_Carro [$i]['cantidad'] > 0 ){
             // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
-            if ( (( $compras_este_mes_tron        + $compras_tron       )  >= $compra_minima_productos_tron ||
-                 ( $compras_este_mes_industiales  + $compras_industrial )  >= $compra_minima_productos_industriales) )
+            if ( (( $compras_este_mes_tron         + $compras_tron       )  >= $compra_minima_productos_tron          ||
+                 (  $compras_este_mes_industiales  + $compras_industrial )  >= $compra_minima_productos_industriales) ||
+                    $usuario_viene_del_registro   == TRUE || $kit_comprado  == FALSE)
               {
                 Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
                 $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
@@ -594,14 +649,16 @@ class CarritoController extends Controller
           // CALCULAR EL VALOR DECLARADO PARA EFECTOS DE FLETES ( EXCEPTO KIT DE INICIO Y DERECHOS DE INSCRIPCION 10744 -  2071)
           if ( ($id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8) && ( $idproducto != 10744 && $idproducto  != 2071)){
             $this->SubTotal_Aplica_Recaudo =  $this->SubTotal_Aplica_Recaudo + $precio_unitario_producto *$cantidad;
-            $this->Valor_Declarado         =  $this->Valor_Declarado  + ($this->Datos_Carro[$i]['cmv'] * $cantidad );
+            $this->Valor_Declarado         =  $this->Valor_Declarado  + (($this->Datos_Carro[$i]['cmv'] * $cantidad  * $factor_seguro_flete_otros_productos));
+
           }
           if ( $idproducto == 2071 ){
               $vr_inscripcion_red_     = $precio_unitario_producto  * $cantidad;
               Session::Set('vr_inscripcion_red',$vr_inscripcion_red_) ;
           }
           if ( $id_categoria_producto == 6 ){
-              $this->Valor_Declarado  =    $this->Valor_Declarado + $this->Datos_Carro[$i]['precio_total_produc_pedido']/$porciento_iva  / 2 ;
+              $valor_aplicar         = $this->Datos_Carro[$i]['precio_total_produc_pedido']/$porciento_iva * $porciento_seguro_flete_productos_industriales;
+              $this->Valor_Declarado = $this->Valor_Declarado + $valor_aplicar  ;
            }
 
           if ( $id_categoria_producto == 7 ){
@@ -632,12 +689,12 @@ class CarritoController extends Controller
             $sub_total_pedido_Otros                          = $sub_total_pedido_Otros  + $this->Datos_Carro[$i]['precio_total_produc_pedido'] ;
             $this->Datos_Carro[$i]['sub_total_pedido_Otros'] = $sub_total_pedido_Otros ;
             //$this->Presupuesto_Fletes  = $this->Presupuesto_Fletes + ( $costo_sin_iva  *  $porciento_ppto_fletes  );
+
+
             $this->Presupuesto_Fletes  = $this->Presupuesto_Fletes + ( $precio_unitario_producto/$porciento_iva *  $cantidad) *  $porciento_ppto_fletes  ;
           }
 
-
         }// fin foreach
-
 
         Session::Set('sub_total_pedido_Tron' ,  $this->SubTotal_Pedido_Amigos );
         Session::Set('sub_total_pedido_Otros' , $this->SubTotal_Pedido_Ocasional);
@@ -649,6 +706,7 @@ class CarritoController extends Controller
 
 
       }
+
     }
 
 
@@ -793,6 +851,7 @@ class CarritoController extends Controller
         $flete_real     = Session::Get('flete_cobrado_otros');
         $sub_total_pedido_otros  = $this->SubTotal_Aplica_Recaudo;
         Session::Set('vr_diferencia_recaudo', 0);
+        Session::Set('recaudo_total',0);
         if ( $sub_total_pedido_otros  == 0){
             $this->Vr_Recaudo = 0;
             return ;
@@ -816,7 +875,7 @@ class CarritoController extends Controller
         if ($Recaudo_Total < ( $this->PayuLatam_Valor_Minimo + $this->PayuLatam_Valor_Adicional) ){
           $Recaudo_Total  = $this->PayuLatam_Valor_Minimo + $this->PayuLatam_Valor_Adicional ;
         }
-
+        Session::Set('recaudo_total',$Recaudo_Total);
         $this->Vr_Recaudo  = $Recaudo_Total - Session::Get('presupuesto_recaudo');
         if ( $this->Vr_Recaudo  < 0 ){   $this->Vr_Recaudo  = 0; }
         Session::Set('vr_diferencia_recaudo', $this->Vr_Recaudo);
@@ -830,8 +889,7 @@ class CarritoController extends Controller
     public function Hallar_Valor_Escalas_Productos()
     {
         $this->Iniciar_Procesos_Carro();
-        //Debug::Mostrar($this->Cantidad_Filas_Carrito);
-        //Debug::Mostrar($this->Datos_Carro);
+
         $i   = 0;
         for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)
          {

@@ -73,7 +73,7 @@
  
                   </ul>
             </li>
-
+            <li><a class="list-menu campo_6"      href="<?=BASE_URL ;?>verificar/transporte">REVISAR</a></li>
           </ul>
 
 

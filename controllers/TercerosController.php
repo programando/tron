@@ -21,10 +21,12 @@ class TercerosController extends Controller
       //  COMPRUEBA QUE EL USUARIO NO SEA CLIENTE O EMPRESARIO PARA COMPRAR EL KIT DE INICIO
       if ( Session::Get('autenticado') == TRUE ){
           $idtipo_plan_compras =  Session::Get('idtipo_plan_compras');
+          $kit_comprado                   = Session::Get('kit_comprado');
       }else{
           $idtipo_plan_compras  = 0;
+          $kit_comprado         = FALSE;
       }
-      $datos=compact('idtipo_plan_compras');
+      $datos=compact('idtipo_plan_compras','kit_comprado');
       echo json_encode($datos,256);
     }
 
@@ -246,11 +248,6 @@ class TercerosController extends Controller
 
     }
 
-        public function mejor_experiencia_usuario()
-    {
-        $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
-        $this->View->Mostrar_Vista("mejor_experiencia_usuario");
-    }
 
     public function Recuperar_Password(){
          $email     = General_Functions::Validar_Entrada('Email','TEXT');
@@ -806,6 +803,32 @@ class TercerosController extends Controller
 
     }
 
+    public function Validar_Ingreso_Usuario()
+      {
+       $Email                = General_Functions::Validar_Entrada('email','TEXT');
+       $Password             = General_Functions::Validar_Entrada('Password','TEXT');
+       $Password             = md5($Password );
+       $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
+
+       if (!$Registro )
+       {
+         $Resultado_Logueo = "NO-Logueo_OK";
+       }else
+           {
+            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
+            $Resultado_Logueo = "Logueo_OK";
+         }
+         $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
+         if (!isset($Siguiente_Pago))
+         {
+          $Siguiente_Pago='';
+         }
+
+
+         $Datos            = compact('Resultado_Logueo','Siguiente_Pago');
+         echo json_encode($Datos,256);
+      }
+
     public function Verificar_Activacion_Usuario(){
       /** JUNIO 13 DE 2015
        *      AL LOGUEARSE VERIFICA QUE EL USUARIO HAYA FINALIZADO Y CONFIRMADO EL REGISTRO
@@ -848,30 +871,7 @@ class TercerosController extends Controller
        echo json_encode($Datos,256);
     }
 
-    public function Validar_Ingreso_Usuario()
-    {
-       $Email                = General_Functions::Validar_Entrada('email','TEXT');
-       $Password             = General_Functions::Validar_Entrada('Password','TEXT');
-       $Password             = md5($Password );
-       $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
 
-
-       if (!$Registro )
-       {
-         $Resultado_Logueo = "NO-Logueo_OK";
-       }else
-           {
-            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
-            $Resultado_Logueo = "Logueo_OK";
-         }
-         $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
-         if (!isset($Siguiente_Pago))
-         {
-          $Siguiente_Pago='';
-         }
-         $Datos            = compact('Resultado_Logueo','Siguiente_Pago');
-         echo json_encode($Datos,256);
-      }
 
       public function Consultar_Saldos_Comisiones_Puntos_x_Idtercero(){
          Session::Set('saldo_comisiones',                0);

@@ -37,13 +37,13 @@
        <?php }} ?>
       <!-- FIN INLCUSIÓN DE ARCHIVOS CSS
       *******************************************************************************************************************-->
-      <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+      <!-- librerías opcionales que activan el soporte de HTML5 para IE8 Old IE gets 1.10 new IE gets 2.0 -->
       <!--[if lt IE 9]>
-          <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  Old IE gets 1.10
+          <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
       <![endif]-->
 
       <!--[if gte IE 9]>
-        <script src="http://code.jquery.com/jquery-2.0.3.js"></script>  new IE gets 2.0
+        <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
       <![endif]-->
 
          </head>
@@ -54,7 +54,7 @@
             <?php if (Session::Get('Id_Area_Consulta')==1) :?>
               <?php include (APPLICATION_SECTIONS .'header-industrial.php');?><!--Llamado Al Menu-Industrial -->
             <?php else :?>
-              <?php include (APPLICATION_SECTIONS .'header-hogar.php');?><!--Llamado Al Menu-Industrial -->
+              <?php include (APPLICATION_SECTIONS .'header-hogar.php');?>
             <?php endif ;?>
             <!--Llamado del Header tanto el de hogar como el industrial-->
             <!--///////////////////////////////-Los documentos llamados se Encuentrar en (application_sections)-/////////////////////////////////////-->

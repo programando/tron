@@ -12,9 +12,8 @@
           </div>
         </div>
     -->
-
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
-        <?php if (Session::Get('autenticado') == false): ; ?>
+        <?php if (Session::Get('autenticado') == FALSE): ; ?>
           <div class="col-resumen-pedido"><strong>Transporte (Calculado para Cali):</strong></div>
         <?php else : ?>
            <div class="col-resumen-pedido"><strong>( + ) Transporte ( <?= Session::Get('nommcipio_despacho') ;?> ):</strong></div>

@@ -1,23 +1,21 @@
 
 <?php
 		    	$datos = 	Session::Get('Fletes_Cobrados_Transportadoras');
+
+
           if (isset($_SESSION['carrito'])){
 		    	$carro = $_SESSION['carrito'];
         }
         else
         {
-          echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";		    	//Debug::Mostrar($carro);
+          echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";
+          //Debug::Mostrar($_SESSION['carrito']);
           exit;
         }
 
 ?>
 
-<!--
- <?php
-  Debug::Mostrar(Session::Get('fecha_hora_acepta_convenio'));
-?>
 
--->
 
 <?php if (isset($carro)) :;?>
     <div class="row">
@@ -60,7 +58,7 @@
                            <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100,2) .'%' ;?> </td>
                            <td class="cuerpo-tabla"><?=
-                           									number_format( ($productos['cmv'] * $productos['ppto_fletes'])) ;?> </td>
+                           									number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100) * $productos['cantidad'] * $productos['ppto_fletes']) ;?> </td>
 
 
 
@@ -73,6 +71,7 @@
            </div>
         </div>
     </div>
+
     </div>
     </div>
 

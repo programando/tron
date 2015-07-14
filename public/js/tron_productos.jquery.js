@@ -3,6 +3,7 @@
 // FUNCIONALIDAD PARA QUE AL PRESIONAR EN LOS BOTONES + y -, SE ACTUALICEN LOS PRECIOS
 // DE ACUERDO A LA ESCALA
 var $idtipo_plan_compras_kit =0;
+var $kit_comprado            = false;
 
 $('#ventana_mensaje').modal('show');
 
@@ -22,28 +23,24 @@ var $mensaje_error								 = $('.mensaje-error');
 
 
 
-function Mostrar_Mensaje_Producto_Agregado(NomProducto)
-{
+function Mostrar_Mensaje_Producto_Agregado(NomProducto){
 	 		$Mensaje_Add_Producto.html('<h4><strong>'+ NomProducto +'</strong></h4>' + '<br>'+ "se agregó a tu carrito de compras !!!");
 	 		$Mensaje_Add_Producto.fadeIn(1500);
 	 		$Mensaje_Add_Producto.fadeOut(3000);
 }
 
-function Recomendar_Producto_a_Mi_Amigo_Mensaje(Parametros)
-{
+function Recomendar_Producto_a_Mi_Amigo_Mensaje(Parametros){
 					$mensaje_error.html('');
 					$mensaje_error.html(Parametros);
 }
 
-function Actualizar_Vista_Carrito()
-{
+function Actualizar_Vista_Carrito(){
 	 $('.carrito-compras').load('/tron/carrito/Mostrar_Carrito/2');
 }
 
 
 
-function Hallar_Precio_Final_Tron(IdProducto,Parametros)
-{
+function Hallar_Precio_Final_Tron(IdProducto,Parametros){
 				$.ajax({
 								data:  Parametros,
 								dataType: 'json',
@@ -51,13 +48,13 @@ function Hallar_Precio_Final_Tron(IdProducto,Parametros)
 								type:     'post',
 	       success:  function (resultado)
 	      	 {
+
 	      	 	$("#precio_final_tron"+IdProducto).html(resultado.Precio_Final_Tron);
 	      	 }
 					});
 }
 
-function Consultar_Total_Compra_Productos_Industriales()
-{
+function Consultar_Total_Compra_Productos_Industriales(){
 				$.ajax({
 								data:  '',
 								dataType: 'json',
@@ -73,8 +70,7 @@ function Consultar_Total_Compra_Productos_Industriales()
 }
 
 
-function Agregar_Producto_a_Carrito(NomProducto,Parametros)
-{
+function Agregar_Producto_a_Carrito(NomProducto,Parametros){
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
@@ -88,14 +84,12 @@ function Agregar_Producto_a_Carrito(NomProducto,Parametros)
 					});
 }
 
-function Imprimir_Totales_Carrito_Header(VrOcasional, VrTron)
-{
+function Imprimir_Totales_Carrito_Header(VrOcasional, VrTron){
    $Total_Venta_Ocasional.html( VrOcasional );
    $Total_Venta_Tron.html( VrTron );
 }
 
 function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar($idtipo_plan_compras){
-
 		$.ajax({
 						data:  {'idtipo_plan_compras':$idtipo_plan_compras,'tipo_proceso_en_plan':'DEGRADAR_PLAN'},
 						dataType: 'text',
@@ -107,8 +101,7 @@ function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Pl
 }
 
 // VERIFICA SI EL USUARIO VIENE DEL REGISTRO INICIAL
-function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario( )
-{
+function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario(){
 			$.ajax({
 					dataType: 'json',
 					url:      '/tron/terceros/Verificar_Registro_Inicial_Usuario/',
@@ -126,7 +119,6 @@ function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario( )
 
 function Borrar_Producto(Parametros){
 				// BORRA EL PRODUCTO DEL CARRITO
-
  	$.ajax({
 					data:  Parametros,
 					dataType: 'json',
@@ -401,6 +393,7 @@ $('#contenido-productos').on('click','.carrito-resumen-menos',function(){
 
 
 $('#contenido-productos').on('keyup','.CantProductosComprados',function(){
+
 			var NombreIdCantidad 	= $(this).attr("id");
 			var IdInputCantidad 		= NombreIdCantidad.split("cantidad");
 			var IdProducto 					  = IdInputCantidad[1];
@@ -420,7 +413,6 @@ $('#contenido-productos').on('keyup','.CantProductosComprados',function(){
 																														"Precio_Escala_B" 		: Precio_Escala_B,
 																														"Precio_Escala_C" 		: Precio_Escala_C
 																											};
-
 
 			if (IdEscala==0)								 {  return false;  	}
 			Hallar_Precio_Final_Tron(IdProducto,Parametros);
@@ -445,10 +437,9 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 					url:      '/tron/terceros/Comprobar_Tipo_Usuario',
 					type:     'post',
 					async:    false,
-     success:  function (resultado)
-    	 {
-
+     success:  function (resultado) {
     	 		$idtipo_plan_compras_kit= resultado.idtipo_plan_compras;
+    	 		$kit_comprado       = resultado.kit_comprado;
     	 }
 					});
 
@@ -469,7 +460,7 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
   // SI ES KIT DE INICIO O PRODUCTO PROMOCIONAL Y ES EMPRESARIO O CLIENTE TRON NO SE LE PERMITE COMPRAR.
   if ( IdProducto == 10744 ||  id_categoria_producto == 8){
   	  Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio();
-  	  if ( $idtipo_plan_compras_kit == 2 || $idtipo_plan_compras_kit==3){
+  	  if ( ($idtipo_plan_compras_kit == 2 || $idtipo_plan_compras_kit==3) && $kit_comprado == true){
   	  	       new Messi("<br>Los Combos, el Kit de Inicio y los Productos Promocionales, son productos exclusivos para los compradores ocasionales por lo tanto no se pueden agregar a tu cartito. <br> Pero como tienes el privilegio de ser Cliente o Empresario TRON puedes armar estos paquetes en la sección productos TRON.<br><br>",
          {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
            buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
