@@ -29,7 +29,7 @@ body
 .img-logo
 {
     margin-bottom: 0px;
-    width:200px;
+    width:230px;
 }
 
 .mensaje-agregar_producto
@@ -65,7 +65,7 @@ body
 	display              :  block;
 	margin: 0px auto;
 	/*margin-bottom        :  0px;*/
-/*	margin-top           :  45px;*/
+	margin-top           :  55px;
 	min-width            :  447px;
 	padding              :  0px;
 	width                :  350px;
@@ -507,8 +507,8 @@ body
 	width             : 100%;
 	z-index           : 100;*/
 }
-
-.header2 .img-logo
+/*
+.header2 .img-logo*/
 {
 /*	width:200px;
     margin-top: -5px;
