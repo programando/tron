@@ -8,7 +8,7 @@
            </div><!-- FIN DEL LOGO-->
 
            <div class="col-lg-4 col-md-4 contenedor-input">
-                <div style="display: none;"><?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?></div>
+                <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
            </div>
 
             <div class="col-lg-4 col-md-4  col-sm-4 cont-per">
@@ -56,6 +56,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
             <!-- Icon - Buscar -->
             <li><a
                   href="#modal_barra_busquedad"
@@ -63,6 +64,8 @@
                   data-target="#modal_barra_busquedad"
                   class="list-menu"><span class="glyphicon glyphicon-search"></span> BUSCAR</a></li>
                    <?php include (APPLICATION_SECTIONS .'modal_barra_busquedad.php');?>
+=======
+>>>>>>> origin/master
             <!-- Icon -carrito -->
             <li><a  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
                   <!-- SubMenu -->

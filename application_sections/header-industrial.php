@@ -8,7 +8,7 @@
            </div><!-- FIN DEL LOGO-->
 
            <div class="col-lg-4 col-md-4 contenedor-input">
-                <div style="display: none;"><?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?></div>
+                <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
            </div>
 
 
@@ -53,8 +53,6 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <!-- Icon - Buscar -->
-            <li><a href="" class="list-indust"><span class="glyphicon glyphicon-search"></span> BUSCAR</a></li>
             <!-- Icon -carrito -->
             <li><a  class="list-indust" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
                   <!-- SubMenu -->
