@@ -481,7 +481,7 @@
 														if ( $iddpto == 32 && $re_expedicion == TRUE)	{
 																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
 																				$this->valor_flete  = $re_expedicion_regional ;
-																				$this->tipo_tarifa  = 'REEXPEDICION REGIONAL';
+																				$this->tipo_tarifa  = 'COURRIER REEXPEDICION REGIONAL';
 																				Session::Set('subsisio_flete_valle',$courrier_regional);
 																			}
 															}
@@ -497,7 +497,7 @@
 														if ( $iddpto != 32 && $re_expedicion == TRUE)	{
 																	if($peso_total_pedido >= $inicio && $peso_total_pedido <= $final ) {
 																				$this->valor_flete  = $re_expedicion_nacional ;
-																				$this->tipo_tarifa  = 'COURRIER NACIONAL';
+																				$this->tipo_tarifa  = 'COURRIER REEXPEDICION NACIONAL';
 																				Session::Set('subsisio_flete_valle',$courrier_regional);
 																			}
 															}
@@ -552,10 +552,13 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
           }
 
         }// end foreach
-        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto($Cant_Unid_Si_04_Litros);
+        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto($Cant_Unid_Si_04_Litros/6);
         $Cant_Unid_No_Industriales    = $Cant_Unid_No_Industriales*1000/4000;  // Viene en kilos, lo paso a gramos ( * 1000 )
         $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto($Cant_Unid_No_Industriales);
         $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
+        if ( $this->Cant_Unidades_Despacho == 0){
+        	$this->Cant_Unidades_Despacho = 0;
+        }
 
     }
 

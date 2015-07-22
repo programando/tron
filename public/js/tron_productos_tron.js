@@ -77,6 +77,15 @@ $('.CantProdCompraTronFragancias').on('keyup',function(){
 
 
 
+$('.resumen_tron').on('click','#btn-borrar-resumen', function(){
+	var $idproducto  = 0;
+	var $cantidad 		 = 0;
+	$idproducto 				 = $(this).attr('idproducto');
+	$cantidad  						= $(this).attr('cantidad');
+ $Parametros = {'IdProducto':$idproducto , 'Cantidad':$cantidad };
+	Borrar_Producto_de_Carrito($Parametros );
+}) ;
+
 $('.btns-carritoTronMas').on('click',function(){
 		var $Input  = '#cantidad';
 		$IdProducto = $(this).attr("id");

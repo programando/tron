@@ -1,4 +1,5 @@
 
+
 <?php if ((Session::Get('iddireccion_despacho') == 0 ||
           Session::Get('iddireccion_despacho') == NULL) and
           Session::Get('imagen_resumen_pedido')== FALSE ) : ;?>

@@ -1,4 +1,4 @@
-
+<tbody id ='resumen_pedido_productos'>
 <?php
     $CarritoTron = Session::Get('CarritoTron');
 
@@ -15,7 +15,7 @@
             <div class="cantidad-producto"> <small> <p> X <?= $cantidad ;?>    </p>  </small>  </div><!--cantidad-producto -->
             <div class="precio-porducto">   <small> <p> $ <?= $pv_tron ;?> </p>  </small>  </div><!--precio-porducto -->
 
-            <div class=" well borrar-producto"
+            <div class="borrar-producto-tron"
                      cantidad   = '<?= $cantidad ; ?>'
                      idproducto = '<?= $idproducto ; ?>'>
                 <small>
@@ -38,3 +38,4 @@
 
 } ;?>
 
+  </tbody>
