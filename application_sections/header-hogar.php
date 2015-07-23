@@ -52,20 +52,10 @@
             <li><a class="list-menu campo_5" id="hogar_novedades"    href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
             <li><a class="list-menu campo_6"                         href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
             <!-- Info -->
-            <li><a href="" class="list-menu" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>
+            <li><a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-menu" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-            <!-- Icon - Buscar -->
-            <li><a
-                  href="#modal_barra_busquedad"
-                  data-toggle="modal"
-                  data-target="#modal_barra_busquedad"
-                  class="list-menu"><span class="glyphicon glyphicon-search"></span> BUSCAR</a></li>
-                   <?php include (APPLICATION_SECTIONS .'modal_barra_busquedad.php');?>
-=======
->>>>>>> origin/master
+          <ul class="nav navbar-nav navbar-right"> 
             <!-- Icon -carrito -->
             <li><a  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
                   <!-- SubMenu -->
