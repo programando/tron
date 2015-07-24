@@ -11,11 +11,12 @@
 
         ?>
         <tr class="fila_por_producto">
-          <td id='datos-producto'> <div class="nombre_producto"> <small> <?= $nom_producto  ;?> </small> </div> <!--Nombre Del Producto -->
-            <div class="cantidad-producto"> <small> <p> X <?= $cantidad ;?>    </p>  </small>  </div><!--cantidad-producto -->
-            <div class="precio-porducto">   <small> <p> $ <?= $pv_tron ;?> </p>  </small>  </div><!--precio-porducto -->
-
-            <div class="borrar-producto-tron"
+          <td id='datos-producto'>
+            <div class="nombre_producto">   <small> <?= $nom_producto  ;?>        </small> </div> <!--Nombre Del Producto -->
+            <div class="cantidad-producto"> <small> <p> X <?= $cantidad ;?> </p>  </small>  </div><!--cantidad-producto -->
+            <div class="precio-porducto">   <small> <p> $ <?= $pv_tron ;?>  </p>  </small>  </div><!--precio-porducto -->
+           <!-- Borrar producto -->
+            <div     class="borrar-producto"
                      cantidad   = '<?= $cantidad ; ?>'
                      idproducto = '<?= $idproducto ; ?>'>
                 <small>
@@ -24,8 +25,7 @@
                      class      ="glyphicon glyphicon-trash  resumen-pedido-img"
                      title      ="Borrar del Pedido"
                      cantidad   = '<?= $cantidad ; ?>'
-                     idproducto = '<?= $idproducto ; ?>'>
-                     </span>
+                     idproducto = '<?= $idproducto ; ?>'></span>
                 </small>
             </div>
 

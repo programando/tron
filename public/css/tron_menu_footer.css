@@ -322,13 +322,13 @@ body
 
 .tabs-menu
 {
-		right: 18px;
+		right: 0px;
 		top: -39px;
 		/*float: right;*/
 		/*margin-bottom: -5px;*/
 		/*margin-right : -20px;*/
 		min-width    : 270px;
-		width        : 400px;
+		width        : 385px;
 		/*margin-top: 8px;*/
 		position: absolute;
 }
