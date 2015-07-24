@@ -401,7 +401,8 @@ class CarritoController extends Controller
       $kit_inicio_peso_total           = 0;
       $kit_cantidad                    = 0;
 
-      $this->compras_tron               = 0 ;     $this->compras_industrial         = 0 ;      $this->compras_otros_productos    = 0 ;     $this->compras_accesorios         = 0 ;
+      $this->compras_tron               = 0 ;     $this->compras_industrial         = 0 ;      $this->compras_otros_productos    = 0 ;
+      $this->compras_accesorios         = 0 ;
 
       $tengo_productos_tron             = FALSE ;
       $aplica_vr_recaudo                = FALSE;
@@ -519,6 +520,7 @@ class CarritoController extends Controller
         $this->Vr_Total_Pedido_Ocasional =  $this->SubTotal_Pedido_Ocasional + $Suma_Conceptos;
         $this->Vr_Total_Pedido_Amigos    =  $this->SubTotal_Pedido_Amigos    + $Suma_Conceptos;
         $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $Suma_Conceptos;
+
         $this->Vr_Transporte             =  $this->Vr_Total_Pedido_Real - $this->SubTotal_Pedido_Real   ;
         if ( $this->Vr_Transporte   < 0){
           $this->Vr_Transporte   = 0;
@@ -983,8 +985,7 @@ class CarritoController extends Controller
 
 
 
-    public function Retornar_Totales_Carro_Json()
-    {
+    public function Retornar_Totales_Carro_Json()  {
 
 
       $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");

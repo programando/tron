@@ -168,18 +168,19 @@
              <div class="col-lg-6"><!-- COLUMNA QUE PRESENTA INFORMACION TEXTO PRODUCTO-->
              <div class="">
                 <div class="div-content">
-
+                  <?php if ( Session::Get('autenticado')== TRUE ) :?>
                   <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
                     <p>
-                       <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar Favoritos
+                       <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
                     </p>
                   </a>
+                <?php endif ;?>
 
-                  <a herf="#" title="Si tu recomendación  es efectiva ganaras comisiones si eres Empresario Tron." data-toggle="modal" data-target="#recomendar">
+                  <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." data-toggle="modal" data-target="#recomendar">
                     <p>
                       <span class="recomendar">
                          <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
-                      </span> ¡Recomendar este Producto a un Amigo!
+                      </span> ¡Recomendar este Producto a un Amigo(a)!
                     </p>
                   </a>
 

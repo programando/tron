@@ -56,16 +56,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-            <!-- Icon - Buscar -->
-            <li><a
-                  href="#modal_barra_busquedad"
-                  data-toggle="modal"
-                  data-target="#modal_barra_busquedad"
-                  class="list-menu"><span class="glyphicon glyphicon-search"></span> BUSCAR</a></li>
-                   <?php include (APPLICATION_SECTIONS .'modal_barra_busquedad.php');?>
-=======
->>>>>>> origin/master
+
             <!-- Icon -carrito -->
             <li><a  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
                   <!-- SubMenu -->
