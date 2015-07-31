@@ -62,9 +62,9 @@ class ProductosController extends Controller
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
       $Tipo_Busqueda    = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
-      $pagina           =  General_Functions::Validar_Entrada('Pagina','NUM');
+      $pagina           = General_Functions::Validar_Entrada('Pagina','NUM');
 
-      if (strlen($Texto_Busqueda)>0){
+      if ( strlen($Texto_Busqueda) > 0 ){
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
       $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));

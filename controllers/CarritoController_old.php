@@ -775,9 +775,11 @@ public function Totalizar_Carrito()
         }// fin foreach
         Session::Set('sub_total_pedido_Tron' ,  $this->SubTotal_Pedido_Amigos );
         Session::Set('sub_total_pedido_Otros' , $this->SubTotal_Pedido_Ocasional);
+
         Session::Set('CarritoTron',$CarritoTron);
         Session::Set('pv_tron_resumen',$pv_tron_resumen);
         Session::Set('pv_ocas_resumen',$pv_ocas_resumen);
+
         Session::Set('presupuesto_recaudo',$presupuesto_recaudo);
         $this->Cerrar_Procesos_Carro();
       }

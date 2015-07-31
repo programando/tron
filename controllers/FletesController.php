@@ -174,9 +174,14 @@
 														$valor_flete_kilos_adiconales = $this->Transportadoras[0]['sv_premier_vr_kilo_mayor_3_reexpedicion'];
 														$this->tipo_tarifa            = 'SERVIENTREGA - PREMIER REEXPEDICIÓN';
 			      	}
-
+										//Debug::Mostrar($valor_flete_kilos_adiconales );
 										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
+
+										/*Debug::Mostrar($valor_flete_hasta_3_kilos );
+										Debug::Mostrar($kilos_adicionales  );
+										*/
+
 
 
 										// HALLO EL SEGURO
@@ -538,7 +543,7 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
 						$Cant_Unid_Si_04_Litros       = 0;      // Cantidad de presentaciones que son 4 litros
 						$Cant_Unid_Si_20_Litros       = 0;      // Cantidad de presentaciones que son 20 litros
 						$Cant_Unid_No_Industriales    = 0;     // Cantidad de productos que no son industriales
-						$this->Cant_Unidades_Despacho = 1;
+						$this->Cant_Unidades_Despacho = 0;
 
       $presentaciones_4_litros   = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
       $presentaciones_20_litros  = array(57, 59, 61, 153, 171, 184, 185 );
@@ -565,16 +570,16 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
           }
 
         }// end foreach
-        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto((int)$Cant_Unid_Si_04_Litros/6);
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto((int)($Cant_Unid_No_Industriales/4000));
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto((int)$Cant_Unid_No_Industriales);
+        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_Si_04_Litros/6));
+        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales/4000));
+        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
         $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
 
-        if ( $this->Cant_Unidades_Despacho == 0){
+        if ( $this->Cant_Unidades_Despacho < 0){
         	$this->Cant_Unidades_Despacho = 0;
         }
 
-
+        Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
 
     }
 }

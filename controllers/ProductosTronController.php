@@ -71,7 +71,7 @@
 											if (	$precio_especial >  $Precio_Lista_Total ){
 														$precio_especial = $Precio_Lista_Total;
 											}
-											//$precio_especial  = round($precio_especial ,0);
+
 
 											$descuento_especial = $Precio_Lista_Total  - $precio_especial ;
 											//$descuento_especial = round($descuento_especial,0);
@@ -171,9 +171,7 @@
 																Session::Set('vr_unitario_banios',$vr_unitario_banios);
 																Session::Set('vr_unitario_pisos',$vr_unitario_pisos);
 																Session::Set('vr_unitario_loza',$vr_unitario_loza);
-
 		    }
-
 
 		 }
  ?>
