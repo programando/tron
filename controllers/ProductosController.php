@@ -67,7 +67,7 @@ class ProductosController extends Controller
       if ( strlen($Texto_Busqueda) > 0 ){
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
-      $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
+      $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','mostrar_tabla_carrito'));
       $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
 
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
