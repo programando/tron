@@ -143,12 +143,11 @@
 										$this->idmcipio               = Session::Get('idmcipio');
 										$this->iddpto                 = Session::Get('iddpto');
 										$this->tipo_despacho										= 3;  // SERVIENTREGA PREMIER
-										$this->Transportadoras = $this->Parametros->Transportadoras();
+										$this->Transportadoras 							= $this->Parametros->Transportadoras();
 
 			      	// 1. HALLAR KILOS ADICIONALES
 			      	if ($peso_kilos_pedido > 3) 		      	{
 			      		$kilos_adicionales = $peso_kilos_pedido - 3;
-
 			      		if ($kilos_adicionales < 0) { $kilos_adicionales = 0 ;}
 			      	}
 
@@ -186,9 +185,15 @@
 										if ($seguro_flete < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
 										}
-											$this->valor_flete     =  $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  + $seguro_flete ;
-											$this->flete_calculado = TRUE ;
-           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
+
+										Session::Set('SERVIENTREGA_PREMIER_valor_flete',$valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales);
+										Session::Set('SERVIENTREGA_PREMIER_seguro',$seguro_flete);
+
+										$this->valor_flete     =  $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  + $seguro_flete ;
+										Session::Set('SERVIENTREGA_PREMIER_flete_total',$this->valor_flete);
+
+										$this->flete_calculado = TRUE ;
+          $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
       }
 
       public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado)
@@ -265,7 +270,14 @@
 	      if ($costo_manejo < 	$vr_minimo_manejo ){
 	      				$costo_manejo = $vr_minimo_manejo ;
 	      }
+
+	     	Session::Set('SERVIENTREGA_INDUS_valor_flete',$this->valor_flete);
+							Session::Set('SERVIENTREGA_INDUS_seguro',$costo_manejo);
+
+
 							$this->valor_flete     = $this->valor_flete + $costo_manejo ;
+
+							Session::Set('SERVIENTREGA_INDUS_flete_total',$this->valor_flete);
 							$this->flete_calculado = TRUE ;
        $this->Adicionar_Cobro_Flete_Transportadora(2,'2030','SERVIENTREGA');
       }
@@ -375,7 +387,13 @@
 									$seguro_flete = $seguro_minimo ;
 								}
 
+								Session::Set('REDETRANS_CARGA_valor_flete',$this->valor_flete);
+								Session::Set('REDETRANS_CARGA_seguro',$seguro_flete);
+
 								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
+
+								Session::Set('REDETRANS_CARGA_flete_total',$this->valor_flete);
+
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
 		    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
@@ -418,8 +436,11 @@
 											}
 
 
-
+											Session::Set('REDETRANS_COURRIER_flete', $this->valor_flete );
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
+											Session::Set('REDETRANS_COURRIER_seguro', $this->seguro_redetrans_courrier);
+											Session::Set('REDETRANS_COURRIER_flete_total',  $this->valor_flete );
+
 									}
 
 									$this->Adicionar_Cobro_Flete_Transportadora(0,'1572','REDETRANS');
@@ -524,47 +545,40 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
 
       $this->Datos_Carro = Session::Get('carrito');
 
-
-
-       foreach ($this->Datos_Carro as $Productos)
-        {
-          if ($Productos['id_categoria_producto']==6) // Productos industriales
-          {
+       foreach ($this->Datos_Carro as $Productos){
+          if ($Productos['id_categoria_producto']==6){ // Productos industriales
             $ID_Presentacion = $Productos['idpresentacion'];
 
             // Presentaciones diferentes a 4 litros
-            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros))
-              {
+            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros)){
                   $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
               }
-            if (in_array($ID_Presentacion, $presentaciones_4_litros))  // presentaciones iguales a 4 litros
-              {
+            if (in_array($ID_Presentacion, $presentaciones_4_litros)) { // presentaciones iguales a 4 litros
                   $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
               }
-            if (in_array($ID_Presentacion,  $presentaciones_20_litros))  // presentaciones iguales a 4 litros
-              {
+            if (in_array($ID_Presentacion,  $presentaciones_20_litros)){  // presentaciones iguales a 4 litros
                   $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
               }
           }
-          if ($Productos['id_categoria_producto']==7) // Productos que no son industriales
-          {
-              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $peso_kilos_pedido;
+          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
+              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $Productos['peso_gramos'];
           }
 
         }// end foreach
-        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto($Cant_Unid_Si_04_Litros/6);
-        $Cant_Unid_No_Industriales    = $Cant_Unid_No_Industriales*1000/4000;  // Viene en kilos, lo paso a gramos ( * 1000 )
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto($Cant_Unid_No_Industriales);
+        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto((int)$Cant_Unid_Si_04_Litros/6);
+        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto((int)($Cant_Unid_No_Industriales/4000));
+        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto((int)$Cant_Unid_No_Industriales);
         $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
+
         if ( $this->Cant_Unidades_Despacho == 0){
         	$this->Cant_Unidades_Despacho = 0;
         }
 
+
+
     }
-
-
-
-}?>
+}
+?>
 
 
 

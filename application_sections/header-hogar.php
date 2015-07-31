@@ -55,12 +55,10 @@
             <li><a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-menu" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>
           </ul>
 
-<<<<<<< HEAD
+
           <ul class="nav navbar-nav navbar-right">
 
-=======
-          <ul class="nav navbar-nav navbar-right"> 
->>>>>>> origin/master
+
             <!-- Icon -carrito -->
             <li><a  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
                   <!-- SubMenu -->

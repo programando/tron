@@ -1,104 +1,161 @@
+<?php
+    if ( !isset($_SESSION['carrito'] )) {
+      echo "<br><br><h1> AGREGUE PRODUCTOS AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";
+      exit;
+    }
+?>
 
 <?php
-		    	$datos = 	Session::Get('Fletes_Cobrados_Transportadoras');
-
-
-          if (isset($_SESSION['carrito'])){
-		    	$carro = $_SESSION['carrito'];
-        }
-        else
-        {
-          echo "<br><br><h1> AGREGUE PRODUCTO AL CARRO PARA REALIZAR LAS VERIFICACIONES </h1><br><br><br><br>";
-          //Debug::Mostrar($_SESSION['carrito']);
-          exit;
-        }
-
+  $carro = $_SESSION['carrito'] ;
 ?>
 
 
-
-<?php if (isset($carro)) :;?>
-    <div class="row">
+<div class="row" style ='padding-top : 150px ;'>
         <div class="col-lg-12 col-md-12 col-sm-12">
 <table class="table table-bordered table-hover">
                    <thead><!-- Cabezera tabla -->
                        <tr>
                             PRODUCTOS Y VALORES
-                            <th class="titulo-tabla">IdProducto</th>
-                            <th class="titulo-tabla">Produc</th>
-                            <th class="titulo-tabla">presen.</th>
-                            <th class="titulo-tabla">cantidad</th>
-                            <th class="titulo-tabla">$.Ocas</th>
-                            <th class="titulo-tabla">$.Tron</th>
-                            <th class="titulo-tabla">$.Real</th>
-                            <th class="titulo-tabla">$.Sin Iva</th>
+
+                            <th class="titulo-tabla">Producto</th>
+                            <th class="titulo-tabla">Presen.</th>
+                            <th class="titulo-tabla">Frag.</th>
+                            <th class="titulo-tabla">Cant.</th>
+                            <th class="titulo-tabla">Peso(gr)</th>
+                            <th class="titulo-tabla">Peso Tot.</th>
                             <th class="titulo-tabla">Iva</th>
                             <th class="titulo-tabla">Grupo</th>
-                            <th class="titulo-tabla">Peso Gr.</th>
-                            <th class="titulo-tabla">%.Ppto</th>
-                            <th class="titulo-tabla">Vr.Ppto</th>
+                            <th class="titulo-tabla">$ Vr.Unit</th>
+                            <th class="titulo-tabla">$ Vta.Total</th>
+                            <th class="titulo-tabla">$ Declarado</th>
+                            <th class="titulo-tabla">% Sub.Flete</th>
+                            <th class="titulo-tabla">$ Vr.Sub.Flete</th>
+                            <th class="titulo-tabla">$ Vr.Ant.Rcdo</th>
 
                        </tr>
                    </thead>
 
                    <tbody><!-- Cuerpo -->
+                   <?php
+                      $_peso_gramos_total          = 0;
+                      $_precio_total_produc_pedido = 0;
+                      $_valor_declarado            = 0;
+                      $_vr_ppto_fletes             = 0;
+                      $_vr_anticipo_recaudo        = 0;
+                   ?>
                    	<?php foreach ($carro as $productos) :?>
                        <tr>
-                       				<td class="cuerpo-tabla"><?= $productos['idproducto'] ;?>  </td>
                            <td class="cuerpo-tabla"><?= $productos['nom_producto'] ;?>  </td>
                            <td class="cuerpo-tabla"><?= $productos['nompresentacion'] ;?>  </td>
+                           <td class="cuerpo-tabla"><?= $productos['fragancia'] ;?>  </td>
                            <td class="cuerpo-tabla"><?= $productos['cantidad'] ;?>  </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['pv_ocasional']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['pv_tron']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100)) ;?> </td>
-
-                           <td class="cuerpo-tabla"><?= number_format( $productos['iva']).'%' ;?> </td>
-                           <td class="cuerpo-tabla"><?=  $productos['codigo_grupo'] ;?> </td>
                            <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos']) ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100,2) .'%' ;?> </td>
-                           <td class="cuerpo-tabla"><?=
-                           									number_format( $productos['precio_unitario_produc_pedido']/(1+$productos['iva']/100) * $productos['cantidad'] * $productos['ppto_fletes']) ;?> </td>
-
-
-
+                           <td class="cuerpo-tabla"><?= number_format( $productos['peso_gramos_total'] ) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['iva']  )."%" ;?> </td>
+                           <td class="cuerpo-tabla"><?=  $productos['codigo_grupo'] ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_unitario_produc_pedido']) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['precio_total_produc_pedido'] ) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['valor_declarado'] ) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['ppto_fletes']*100 )."%" ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['vr_ppto_fletes'] ) ;?> </td>
+                           <td class="cuerpo-tabla"><?= number_format( $productos['vr_anticipo_recaudo'] ) ;?> </td>
+                           <?php
+                              $_peso_gramos_total          = $_peso_gramos_total          + $productos['peso_gramos_total'] ;
+                              $_precio_total_produc_pedido = $_precio_total_produc_pedido + $productos['precio_total_produc_pedido'];
+                              $_valor_declarado            = $_valor_declarado            + $productos['valor_declarado'];
+                              $_vr_ppto_fletes             = $_vr_ppto_fletes             + $productos['vr_ppto_fletes'];
+                              $_vr_anticipo_recaudo        = $_vr_anticipo_recaudo        + $productos['vr_anticipo_recaudo'];
+                            ?>
                        </tr>
-																				<?php endforeach ;?>
+										<?php endforeach ;?>
+                    <tr>
+                        <th class="titulo-tabla" colspan="5"></th>
+                        <th class="titulo-tabla"><?= number_format($_peso_gramos_total) ;?> </th>
+                        <th class="titulo-tabla" colspan="3"></th>
+                        <th class="titulo-tabla"><?= number_format($_precio_total_produc_pedido) ;?></th>
+                        <th class="titulo-tabla"><?= number_format($_valor_declarado) ;?> </th>
+                        <th class="titulo-tabla"></th>
+                        <th class="titulo-tabla"><?= number_format($_vr_ppto_fletes) ;?> </th>
+                        <th class="titulo-tabla"><?= number_format($_vr_anticipo_recaudo) ;?></th>
+                    </tr>
 
                    </tbody>
               </table>
+</div>
+</div>
 
-           </div>
-        </div>
-    </div>
+<table class="table table-bordered table-hover" style ="width : 50%;">
+   <thead><!-- Cabezera tabla -->
+       <tr>
+            <th class="titulo-tabla" colspan="3">REDETRANS</th>
+            <th class="titulo-tabla" colspan="3">SERVIENTREGA</th>
+       </tr>
+       <tr>
+          <th class="titulo-tabla"></th>
+          <th class="titulo-tabla">COURRIER</th>
+          <th class="titulo-tabla">CARGA</th>
+          <th class="titulo-tabla">PREMIER</th>
+          <th class="titulo-tabla">INDUSTRIAL</th>
+       </tr>
+       <tr>
+          <th class="titulo-tabla">Vr. Flete</th>
+          <th> <?= number_format(Session::Get('REDETRANS_COURRIER_flete'));?>  </th>
+          <th> <?= number_format(Session::Get('REDETRANS_CARGA_valor_flete'));?>  </th>
+          <th> <?= number_format(Session::Get('SERVIENTREGA_PREMIER_valor_flete'));?>  </th>
+          <th> <?= number_format(Session::Get('SERVIENTREGA_INDUS_valor_flete'));?>  </th>
+       </tr>
+       <tr>
+          <th class="titulo-tabla">Vr. Seguro</th>
+          <th> <?=  number_format(Session::Get('REDETRANS_COURRIER_seguro')) ;?></th>
+          <th> <?=  number_format(Session::Get('REDETRANS_CARGA_seguro')) ;?></th>
+          <th> <?= number_format(Session::Get('SERVIENTREGA_PREMIER_seguro'));?>  </th>
+          <th> <?= number_format(Session::Get('SERVIENTREGA_INDUS_seguro'));?>  </th>
+       </tr>
 
-    </div>
-    </div>
+       <tr>
+          <th class="titulo-tabla">Flete Total</th>
+          <th> <?= number_format( Session::Get('REDETRANS_COURRIER_flete_total')) ;?> </th>
+          <th> <?= number_format( Session::Get('REDETRANS_CARGA_flete_total')) ;?> </th>
+          <th> <?= number_format(Session::Get('SERVIENTREGA_PREMIER_flete_total'));?>  </th>
+          <th> <?= number_format(Session::Get('SERVIENTREGA_INDUS_flete_total'));?>  </th>
+       </tr>
+   </thead>
+</table>
 
 
+
+
+FLETES Y VALORES ..... CIUDAD DE DESTINO : <strong><?= Session::Get('nommcipio_despacho') ;?></strong><br>
+TIPO DE DESPACHO SELECCIONADO : <strong><?=   Session::Get('tipo_tarifa'); ?></strong><br>
+<br>
+<table class="table table-bordered table-hover" style ="width : 50%;">
+  <thead>
+    <tr>
+      <th>TOTALES</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tr> <th>VALOR TOTAL FLETE            </th> <th> <?= number_format(Session::Get('flete_cobrado_otros')); ?> </th>  </tr>
+  <tr> <th>( - ) SUBSIDIO FLETE         </th> <th> <?= number_format($_vr_ppto_fletes) ;?> </th>  </tr>
+  <tr> <th>( + ) RECAUDO                </th> <th> <?= number_format(Session::Get('recaudo_total')) ;?> </th>  </tr>
+  <tr> <th>( + ) VR.FIJO RECAUDO        </th> <th> <?= number_format(Session::Get('py_vr_adicional'));?></th>  </tr>
+  <tr> <th>( - ) ANTICIPO RECAUDO       </th> <th> <?= number_format($_vr_anticipo_recaudo) ;?>  </th>  </tr>
+  <tr> <th>( = ) VALOR TOTAL TRANSPORTE </th> <th> <?= number_format(Session::Get('Vr_Transporte'));?>  </th>  </tr>
+</table>
+
+
+
+<!--
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-           <div class="cont-table"><!-- Contenedor -->
+           <div class="cont-table">
               <table class="table table-bordered table-hover">
-                   <thead><!-- Cabezera tabla -->
-                       <tr>
-                            FLETES Y VALORES ..... CIUDAD DE DESTINO : <strong><?= Session::Get('nommcipio_despacho') ;?></strong>
-                            <th class="titulo-tabla">Nombre Empresa</th>
-                            <th class="titulo-tabla">Tipo Tarifa</th>
-                            <th class="titulo-tabla">Valor</th>
+                   <thead>
 
-                       </tr>
                    </thead>
 
-                   <tbody><!-- Cuerpo -->
-                   	<?php foreach ($datos as $dato) :?>
-                       <tr>
-                           <td class="cuerpo-tabla"> Id <?= $dato['idtercero'] . ' '. $dato['transportador'] ;?>  </td>
-                           <td class="cuerpo-tabla"><?= $dato['tipo_tarifa'] ;?> </td>
-                           <td class="cuerpo-tabla"><?= number_format( $dato['valor_flete']) ;?> </td>
+                   <tbody>
 
-                       </tr>
-																				<?php endforeach ;?>
 																				<tr><td></td></tr>
 
 
@@ -143,7 +200,7 @@
 
 																				<tr>
 																				<td class="cuerpo-tabla">FLETE COBRADO  </td>
-																				<td class="cuerpo-tabla"><?=  number_format(Session::Get('flete_cobrado_otros')); ?> </td>
+																				<td class="cuerpo-tabla"> </td>
 																				</tr>
 																				<tr>
 																							<td class="cuerpo-tabla">TRANSPORTADORA  </td>
@@ -151,7 +208,7 @@
 																				 </tr>
                                         <tr>
                                               <td class="cuerpo-tabla">TIPO DESPACHO  </td>
-                                              <td class="cuerpo-tabla"><?=  number_format(Session::Get('tipo_despacho_pedido'),0) . ' ' .  Session::Get('tipo_tarifa'); ?> </td>
+
                                          </tr>
 																				<tr>
 																							<td class="cuerpo-tabla">PRESUPUESTO FLETES  </td>
@@ -183,7 +240,6 @@
                    </tbody>
               </table>
 
-<?php endif ;?>
 
 
-
+-->
