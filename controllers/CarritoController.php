@@ -581,11 +581,7 @@ public function Totalizar_Carrito(){
 
        /// TOTALES DEL CARRO
        $this->Vr_Fletes      = Session::Get('flete_cobrado_otros');
-       Debug::Mostrar(  $this->Vr_Fletes  );
-       Debug::Mostrar(  $this->vr_total_ppto_fletes   );
-       Debug::Mostrar(  $this->Vr_Recaudo   );
-       Debug::Mostrar(  $this->PayuLatam_Valor_Adicional   );
-       Debug::Mostrar( $this->vr_total_anticipo_recaudo );
+
 
 
        $this->Vr_Transporte  = $this->Vr_Fletes  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
