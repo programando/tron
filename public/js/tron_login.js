@@ -72,8 +72,7 @@ var Iniciar_Sesion = function(Parametros){
 
 
 
-function Recuperar_Password(Parametros)
-{
+function Recuperar_Password(Parametros){
 			$("#dv-img-cargando").show();
 			$.ajax({
 							data:  Parametros,
@@ -122,8 +121,7 @@ function Verificar_Activacion_Usuario_Envio_Correo(Parametros){
 }
 
 
-function Verificar_Activacion_Usuario(Parametros)
-{
+function Verificar_Activacion_Usuario(Parametros){
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
@@ -174,6 +172,17 @@ $('.email-usuario').on('focusout',function(){
 		var $Parametros = {'email':$email};
 		Verificar_Activacion_Usuario($Parametros);
 });
+
+// ENTER EN PASSWORD
+$('#login-password').on('keypress',function(e){
+	 if(e.keyCode == 13) {
+	 		$('.btn-login').click();
+	 }
+});
+
+
+
+
 
 //BOTON PARA INICIAR SESION. ENERO 30 DE 2015
 $('.btn-login').on('click', function(){

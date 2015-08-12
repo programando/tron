@@ -36,8 +36,8 @@
 
        <!-- Registrar Amigo -->
         <li>
-           <a href="<?= BASE_URL ;?>terceros/registro">
-             / <span class="registrar_amigo"></span> Registrar Amigo bajo mi Código
+           <a href="<?= BASE_URL ;?>terceros/registro/1">
+             / <span class="registrar_amigo"></span> Registrar Amigo bajo mi código
            </a>
         </li>
 

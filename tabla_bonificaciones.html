@@ -24,9 +24,9 @@
 	 	  padding: 5px;
 	 	  text-align: center;
 	 }
- 
+
     .tabla_bonificaiones{
-    	  
+
     	 display: block;
     	 width: 70%;
     	 text-align: center;
@@ -35,19 +35,19 @@
     	 border-right: 0px;
     	 border-bottom:  0px;
     	 border-left:  0px;
-    	 
+
     }
 
     .tabla_cabezera {
-    	 width:150px; 
+    	 width:100px;
     	 background: #003E90;
     	 color: white;
     	 border: 1px solid #011835;
-    	 font-size: 18px;
+    	 font-size: 14px;
     }
- 
+
     .table_cuerpo {
-     
+
     }
 
 
@@ -62,46 +62,37 @@
          <div class="contenedor" style="width: 95%; margin: 0px auto;">
          	  <!-- Derechos de Inscripcion -->
          	  <div class="derechos_inscripcion" style="width: 50%;">
-         	  	   <h4 style="text-decoration: underline; color: #003E90;">DERECHOS DE INSCRIPCION	</h4><br>
+         	  	   <h4 style="text-decoration: underline; color: #003E90;"> DERECHOS DE INSCRIPCIÓN	</h4><br>
          	  	   <nav style="">
          	  	   	   <ul>
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_1">Valor de la cuota 1 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_1">	 
+         	  	   	   	       <input type="text" class="caja_text" id="cuota_1" disabled="disabled" value ="$20.000">
          	  	   	   	   </li>
-
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_2">Valor de la cuota 2 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_2"> **	 
+         	  	   	   	       <input type="text" class="caja_text" id="cuota_2" disabled="disabled" value ="$30.000">
+                               Cuando las ganancias sean mayores a : <input type="text" class="caja_text" id="" disabled="disabled" value ="$100.000">
          	  	   	   	   </li>
-
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_3">Valor de la cuota 3 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_3"> ***	 
+         	  	   	   	       <input type="text" class="caja_text" id="cuota_3" disabled="disabled" value ="$50.000">
+                               Cuando las ganancias sean mayores a : <input type="text" class="caja_text" id="" disabled="disabled" value ="$200.000">
          	  	   	   	   </li>
-
+                           <li>
+                               <label for="cuota_3">TOTAL DERECHO DE INSCRIPCIÓN : </label>
+                               <input type="text" class="caja_text" id="cuota_3" disabled="disabled" value ="$100.000">
+                           </li>
          	  	   	   </ul>
          	  	   </nav>
          	  	   <!-- Notas -->
-         	  	   <h4 style="text-decoration: underline; color: #003E90;">NOTAS</h4><br>
-         	  	    <nav style="">
-         	  	   	   <ul>
-         	  	   	   	   <li>** Cuando las ganancias sean mayores a : 
-                               <input type="text" class="caja_text" id="">
-         	  	   	   	   </li>
-
-         	  	   	   	   <li>*** Cuando las ganancias sean mayores a : 
-                               <input type="text" class="caja_text" id="">
-         	  	   	   	   </li>
-           	  	   	   </ul>
-         	  	    </nav>
          	  </div><br>
               <!-- Tabla = distribucion de las bonificaciones -->
               <div class="cont_tabla_bonificacines">
-              	 <h4 style="text-decoration: underline; color: #003E90; text-align:center;">DISTRIBUCION DE LAS BONIFICACIONES/ PRIMAS EN LA RED </h4><br>
+              	 <h4 style="text-decoration: underline; color: #003E90; text-align:center;">DISTRIBUCIÓN DE LAS BONIFICACIONES/ PRIMAS EN LA RED </h4><br>
 				 <table  border="1" class="tabla_bonificaiones" style="border-collapse: collapse; ">
 				      <!-- Cabezera -->
-				        <thead style="border-bottom: 1px solid red; ">
+				        <thead style="border-bottom: 1px solid red; " >
 				           <tr>
 						      <th class="tabla_cabezera">Cuota</th>
 						      <th class="tabla_cabezera">Nivel 1</th>
@@ -123,7 +114,7 @@
 				              <td class="table_cuerpo">2%</td>
 				              <td class="table_cuerpo">1%</td>
 				           </tr>
-				 
+
 				           <tr >
 				              <td class="table_cuerpo">2</td>
 				              <td class="table_cuerpo">1%</td>
@@ -142,20 +133,15 @@
 				              <td class="table_cuerpo">8%</td>
 				              <td class="table_cuerpo">16%</td>
 				              <td class="table_cuerpo">32%</td>
-				           </tr>           
+				           </tr>
 				        </tbody>
-				 </table>  
+				 </table>
               </div>
-
-
-
-
-
 
          </div>
 
+
 	  <footer>
-	                       
 	  </footer>
 	</body>
 </html>

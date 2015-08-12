@@ -771,6 +771,7 @@ class TercerosController extends Controller
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
       Session::Set('idtpidentificacion',              $Registro[0]['idtpidentificacion']);
       Session::Set('email',                           $Registro[0]['email']);
+      Session::Set('codigousuario',                   $Registro[0]['codigousuario']);
 
       Session::Set('vr_cupon_descuento'   ,     0);
       Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
@@ -910,15 +911,19 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista("registrarse");
     }
 
-    public function registro()
-    {
-        $this->Registro_Re_Establecer_Tercero_Presenta();
+    public function registro($presentado_por_amigo = 0)  {
+
+        if ( $presentado_por_amigo == 0 ) {
+            $this->Registro_Re_Establecer_Tercero_Presenta();
+          }
         Session::Destroy('idtipo_plan_compras');
-        $this->View->Total_Kit_Inscripcion = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
-        $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
-        $this->View->Departamentos   = $this->Departamentos->Consultar();
+
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
         $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios'));
+        $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
+        $this->View->Departamentos          = $this->Departamentos->Consultar();
+        $this->View->Total_Kit_Inscripcion  = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
+        $this->View->codigousuario          = Session::Get('codigousuario') ;
         $this->View->Mostrar_Vista('registro');
     }
 

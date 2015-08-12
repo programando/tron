@@ -102,6 +102,7 @@ class CarritoController extends Controller{
          *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
          */
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
+
         if ($idpedido >0 ){
            $Vr_Total_Pedido_Real = 1;
         }
@@ -602,6 +603,7 @@ public function Totalizar_Carrito(){
        Session::Set('Peso_Total_Pedido_Kilos',   $this->Peso_Total_Pedido_Kilos);
        Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
        Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
+       Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
 
 
 } // Fin Tootalizar carrito temp
