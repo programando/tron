@@ -959,6 +959,7 @@ class TercerosController extends Controller
         echo json_encode($Respuesta,256);
     }
 
+ 
     public function cambiar_password($numero_confirmacion)
     {
 

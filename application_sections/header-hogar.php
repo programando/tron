@@ -1,27 +1,28 @@
 <!--ESTE ES EL HEADER PRINCIPAL DEL PROYECTO TRON -->
 
-          <div class="row header-tron">
-            <div class="col-lg-4 col-md-4  col-sm-4 columna-logo"><!--LOGO-->
-              <a href="<?= BASE_URL ;?>">
-               <img src= "<?= BASE_IMG_EMPRESA ; ?>logo.png" class="img-logo" >
-             </a>
-           </div><!-- FIN DEL LOGO-->
+          <div class=" row header-tron">
+              <div class="">
+                  <div class="col-lg-4 col-md-4  col-sm-4 columna-logo"><!--LOGO-->
+                    <a href="<?= BASE_URL ;?>">
+                     <img src= "<?= BASE_IMG_EMPRESA ; ?>logo.png" class="img-logo" >
+                   </a>
+                 </div><!-- FIN DEL LOGO-->
 
-           <div class="col-lg-4 col-md-4 contenedor-input">
-                <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
-           </div>
+                 <div class="col-lg-4 col-md-4 contenedor-input">
+                      <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
+                 </div>
 
-            <div class="col-lg-4 col-md-4  col-sm-4 cont-per">
-               <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
-               <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
-               <div style="display: none"><?php include (APPLICATION_SECTIONS .'carrito_header.php');?></div>
-               <div style="display: none;"><?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?></div>
-            </div>
-        </div>
+                  <div class="col-lg-4 col-md-4  col-sm-4 cont-per">
+                     <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
+                     <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
+                      <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
+                  </div>                
+              </div>
+         </div>
 
 <!-- Menu -->
      <!-- Tabs hogar , industrial -->
-     <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
+     
         <nav id="menu" class="navbar navbar-default navbar_tron" role="navigation"  >
 
           <div class="navbar-header">
