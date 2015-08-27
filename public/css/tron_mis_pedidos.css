@@ -1,0 +1,15 @@
+
+.contenedor
+{
+			margin: 0px auto;
+			width : 100%;
+		    padding-top:150px;	
+}
+
+/* Eliminar pedido ,
+   Editar forma de pago */
+.historial-eliminar-pedido ,
+.historial-cambiar-forma-pago
+{
+	   cursor: pointer;
+}

@@ -1,0 +1,22 @@
+
+<!-- MARZO 03 DE 2015
+CONTENIDO DINÁMICO VIA AJAX DEL USUARIO SELECCIONADO -->
+
+<div class="fila-direcciones"><!-- Direccion -->
+   <span class="sutb-titulo" style="margin-left: 5px;">Seleccione la dirección a donde será enviado el pedido...</span>
+  <?php if (Session::Get('cantidad_direcciones') < 3)  :;?>
+    <span><a href="#venta_editar"  data-toggle="modal" data-target="#venta_editar" class="crear-direccion">o cree una nueva dirección</a></span>
+  <?php endif;?>
+  <br>
+      <?php
+        $I = 0;
+        foreach($this->Direcciones as $Direccion) {
+             include (APPLICATION_CODS . 'campos_direccion_usuario.php'); // Carga las variables direcciones
+
+      ;?>
+
+       <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion_datos.php');?>
+
+    <?php };?>
+</div><!-- Direccion -->
+

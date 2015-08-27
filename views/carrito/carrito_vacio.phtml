@@ -1,0 +1,21 @@
+<?php if ( Session::Get('kit_combos_eliminados') == TRUE) : ?>
+    <h4>Los Combos y el kit de inico, son productos exclusivos para los compradores ocasionales por lo tanto serán eliminados de tu carrito, pero como tienes el privilegio de ser cliente o empresario TRON puedes armar estos paquetes en la sección productos TRON.</h4>
+<?php endif;?>
+
+<div class="contenido-carrito-vacio">
+    <div class="row">
+        <div class="col-lg-12">
+             <h2 class="titulo-car-vacio">No ha registrado productos en su carrito de <br> compras !</h2>
+           <img src="<?= BASE_IMG_TIENDA ;?>no-productos.png" class="img-responsive img-carrito-vacio">
+        </div>
+
+      <div class="col-lg-12">
+
+           <div class="contenedor-boton-comprar"><!--Cont-Boton-Comprar -->
+              <a href="<?= BASE_URL ;?>index" class="carrito-comprar">Volver al Inicio</a>
+          </div><!--Cont-Boton-Comprar -->
+
+      </div>
+    </div>
+</div>
+<br>

@@ -1,0 +1,101 @@
+
+
+/*
+_______ Line De Tiempo _________
+
+*/
+.list-line a{
+  border: 1px red solid;
+}
+.link-active
+{
+  font-size: 19px;
+  color:red;
+}
+.line-estado
+{
+   display  : block;
+   width    : 1100px;
+   max-width: 1500px;
+   margin   : 0px auto;
+}
+
+.cont-lista {  /* Raya Gris */
+  position     : relative;
+  display      : block;
+  margin-bottom: 20px;
+  margin-top   : -10px;
+  height       : 3px;
+  background   : #7c7c7c;/* #9b2 */
+}
+.cont-lista::before,
+.cont-lista::after {  /* Circulo - izquierdad */
+  content      : "";
+  position     : absolute;
+  top          : -8px;
+  display      : block;
+  width        : 0;
+  height       : 0;
+  border-radius: 10px;
+  border       : 10px solid #7c7c7c;
+}
+.cont-lista::before {  /*  */
+  left: -5px;
+}
+.cont-lista::after {  /* Flecha - right */
+  right        : -10px;
+  border       : 10px solid transparent;
+  border-right : 0;
+  border-left  : 20px solid #7c7c7c;
+  border-radius: 3px;
+}
+
+/*
+________ Campos de la
+               line de tiempo (li) ___________
+
+*/
+
+.link
+{
+  color: #7c7c7c;
+}
+
+.link:hover
+{
+   text-decoration: none;
+   color: #7c7c7c;
+}
+
+
+.list-line {  /* Text (li) */
+
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  width: 150px;
+   font-size: 14px;
+  list-style: none;
+
+  margin-left: 20px;
+  text-align : center;
+}
+
+.list-line::before {  /* Punto (li) */
+  content      : "";
+  top          : 3px;
+  left         : -20px;
+  display      : block;
+  width        : 5%;
+  margin       : 0px auto;
+  height       : 6px;
+  border       : 4px solid #7c7c7c;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+
+/*PLAN EMPRESARIO TRON*/
+
+.text-tron
+{
+	 text-align:justify;
+}
+
+.lista-empresario
+{
+  width:95%;
+  margin:0px auto;
+}
+
+.lista-empresario-tron
+{
+  cursor:text;
+}
+
+.lista-empresario-tron .img-span
+{
+  margin-right:10px;
+}
+/*PLAN EMPRESARIO TRON*/
+
+/*Comprador Ocacional*/
+
+.boton-ocacional
+{
+	 margin-top:-80px;
+}
+
+/*Comprador Ocacional*/
+
+/*Funcionalidades Interesantes*/
+
+.img-pases-funcionalidades
+{
+  width:80%;
+  margin-top:-20px;
+  max-width:250px;
+}
+
+/*Funcionalidades Interesantes*/

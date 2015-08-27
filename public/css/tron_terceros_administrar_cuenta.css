@@ -1,0 +1,234 @@
+.contenedor_vista {
+	 width: 95%;
+	 margin: 0px auto;
+	 display: block;
+	     padding-top: 150px;
+}
+
+/* Btn = mostrar */
+.cont_btn_mostrar
+{
+    display: block;
+    width: 5%;
+    position: relative;
+}
+
+.btn_mostrar
+{
+	   padding:   3px 10px;
+	   padding-top: 5px;
+	   text-align: center;
+	   font-size: 20px;
+	   color: white;
+	   background: #003E90;
+	   border: none;
+	   display: none;
+	   position: absolute;
+	   z-index:2;
+	   top: 0;
+	   left: 0;
+
+	   -webkit-border-radius: 80%;
+	   -moz-border-radius: 80%;
+	   border-radius: 80%;
+}
+
+.btn_mostrar:hover
+{
+	    background: #0469ED;
+}
+
+/* Barra - izquierdad */
+.barra_tabs
+{
+  display: block;
+  border-right: 2px solid #003E90;
+  padding: 0px;
+  margin-right: 20px;
+
+}
+
+/* Tabs */
+.tabs_click
+{
+	 display: block;
+	 padding: 0px 10px;
+	 background: #B7B7B7;
+	 text-align: left;
+	 width: 100%;
+	 margin-bottom: 10px;
+	 cursor: pointer;
+	 color: white;
+
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+
+	 -webkit-border-radius: 8px 0px 0px 8px;
+	 -moz-border-radius: 8px 0px 0px 8px;
+	 border-radius: 8px 0px 0px 8px;
+}
+
+/* Description de los tab */
+.descriptcion_tab
+{
+	 display: block;
+	 font-size: 13px;
+	 line-height: 0.5em;
+}
+
+
+#mi_perfil
+{
+	 background: #003E90;
+}
+
+.cont-tab-titulo
+{
+	   display : block;
+	   width: 28%;
+	   float: left;
+	   color: #003E90;
+	   margin-top: -15px;
+}
+
+/* Columan derecha */
+#columan_derecha
+{
+    -webkit-transition: all 700ms ease;
+    -moz-transition: all 700ms ease;
+    transition: all 700ms ease;
+}
+
+/* Perfil => Menu  */
+.menu_perfil
+{
+	   display: block;
+	   width: 100%;
+	   padding: 0px;
+	   height: 53px;
+   text-align: center;
+
+}
+
+.menu_perfil li
+{
+	   list-style: none;
+	   display: inline-block;
+	   margin-top: 5px;
+	   margin-left: 0px;
+}
+
+.menu_perfil li .perfil_menu_link
+{
+    display: block;
+    background: #B7B7B7;
+    color:  white;
+    padding: 5px 0px;
+    text-decoration: none;
+    margin: 0px;
+    width: 145px;
+    text-align: center;
+
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+/* BTN = Convenio comercial */
+
+.menu_convenio
+{
+	   display:none;
+	   position:absolute;
+    left: 0px;
+				padding: 0px;
+				font-size: 14px;
+    height: 70px;
+				background-color: #FFF;
+				background-clip: padding-box;
+				border: 1px solid rgba(0, 0, 0, 0.15);
+				border-radius: 4px;
+				box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+    margin: 2px 0px 0px;
+    min-width: 160px;
+}
+
+.menu_convenio > li
+{
+     display: block;
+     width: 100%;
+     text-align: left;
+}
+
+.menu_convenio .link_convenio
+{
+			width: 100%;
+			padding: 3px 20px;
+			clear: both;
+			font-weight: 400;
+			line-height: 1.42857;
+			color: #333;
+			white-space: nowrap;
+			display: block;
+}
+
+.menu_convenio .link_convenio:hover ,
+.menu_convenio .link_convenio:active
+
+{
+	    background: #003E90;
+	    text-decoration: none;
+	    color: white;
+}
+
+.menu_convenio .link_convenio:link
+{
+	    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.btn_convenio_comercial:hover ,
+.btn_convenio_comercial:active
+{
+	   background: #B7B7B7;
+	   color: white;
+
+}
+
+/* convenio comercial */
+
+
+
+/* Cabezera  */
+.cabezera
+{
+	    display: none;
+}
+
+/* Contiene toda l informacion */
+
+.contenedor_cuenta
+{
+     display: block;
+     margin-top: 0px;
+}
+
+
+/* modificaciones */
+.padding_none { padding: 0px;}
+.paddding-left {padding-left: 0px;}

@@ -1,0 +1,66 @@
+.contenedor
+{
+	    width: 95%;
+	    margin: 0px auto;
+      padding-top: 150px;
+}
+
+/* Titullo */
+.titulo_activacion_cuenta
+{
+	     display: block;
+	     margin-bottom: 20px;
+	     color: #003E90;
+}
+
+/* Formulario */
+.contenedor-formulario
+{
+
+	    width: 40%;
+	    margin: 0px auto;
+	    padding: 10px;
+
+     -webkit-border-radius: 4px;
+     -moz-border-radius   : 4px;
+     -ms-border-radius    : 4px;
+     -o-border-radius     : 4px;
+     border-radius        : 4px;
+
+
+	    -webkit-box-shadow: 0px 2px 5px #000000;
+	    -moz-box-shadow: 0px 2px 5px #000000;
+	    box-shadow: 0px 2px 5px #000000;
+}
+
+
+/* Terminos y condicones */
+.label_termino_condiciones
+{
+	      font-size: 12px;
+	      font-weight: normal;
+}
+
+
+/* Ventana modal */
+  .btn-cerrar-modal
+  {
+        margin-right: 5px;
+        margin-top: 5px;
+  }
+
+  .cuerpo-modal
+  {
+         height:  545px;
+         overflow: auto;
+         width: 100%;
+         margin-top: 40px;
+  }
+
+  .ventana-modal
+  {
+        width: 1100px;
+        display: block;
+        left: 10px;
+        top: 0px;
+  }

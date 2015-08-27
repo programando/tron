@@ -1,0 +1,27 @@
+<div id="contenido-productos" class="cont_ofertas_destacados">
+  <section>
+    <div class="row">
+       <div class="col-lg-12">
+           <h3 id="ofertas"><strong>NOVEDADES</strong></h3>
+       </div>
+      </div>
+  </section>
+
+<section>
+    <div class="container">
+       <div class="row">
+       <!-- INFORMACION DEL PRODUCTO -> NOVEDADES-->
+          <?php
+             foreach ($this->Productos_Novedades as $Productos)
+             {
+                include (APPLICATION_CODS . 'campos_productos.php');
+                $mostrar_imagen_varias_referencias=true;
+              ?>
+          <div class="col-lg-2  col-md-2 col-sm-2  col-xs-2"  id="articulos">
+             <?php include (APPLICATION_SECTIONS .'productos_listado.php');?>
+           </div><!-- FINAL COLUMNAS -->
+           <?php }?>
+          </div>    <!-- FINAL ROW -->
+     </div>           <!-- FINAL CONTAINER-->
+   </section>           <!-- FINAL SECCION NOVEDADES -->
+   </div>

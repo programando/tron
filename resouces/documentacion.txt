@@ -1,0 +1,32 @@
+ JQUERY
+ -------------------------
+ $.trim(string). Ej.:
+ $.trim(" cómo están ustedes?? ¡tiesos! ");
+ string.toLowerCase().
+ string.toUpperCase()
+
+
+ if (Session::Get('autenticado')==false)
+      		{
+      				  Session::Set('idmcipio',      153);
+            Session::Set('iddpto',         32);
+            Session::Set('re_expedicion',   0);
+      		}
+
+
+  VENTANAS MODALES
+  $('#ventana-final').modal('show');
+
+#DD3D3F
+
+
+
+       new Messi($Texto,
+         {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+           buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}],
+           callback: function(val) {
+             window.location.href = "/tron/index/";
+              }
+         });
+
+

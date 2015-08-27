@@ -1,0 +1,34 @@
+
+                      <table class=" table table-bordered ">
+                            <thead> <!-- Cabezera -->
+                                   <tr>
+                                        <th class="text-center">  Fecha Pedido</th>
+                                        <th class="text-center"># Pedido</th>
+                                        <th class="text-center">Vr.Pedido</th>
+                                        <th class="text-center">Vr. a Pagar</th>
+                                        <th class="text-center"># Factura</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center">Forma Pago</th>
+                                        <th class="text-center" style'width:20px;'></th>
+                                        <!-- <th class="text-center">Eliminar</th> -->
+                                   </tr>
+                            </thead><!-- Cabezera -->
+
+
+                            <tbody><!-- Cuerpo -->
+                            <?php $Cantidad_Registros = 0 ;?>
+                            <?php foreach ($this->Pedidos as $Pedido) :?>
+                              <?php    include (APPLICATION_CODS.'pedidos_historial.php') ; ?>
+                              <?php    include (APPLICATION_SECTIONS.'pedidos_historial.php') ; ?>
+                              <?php $Cantidad_Registros++; ?>
+                            <?php endforeach ;?>
+
+                            </tbody><!-- Cuerpo -->
+
+                      </table>
+
+
+                           <?php if ( $Cantidad_Registros == 0   ) :?>
+                                 <h2 class="text-center">No existen pedidos asociados a este código de usuario.</h2>
+                            <?php endif ;?>
+

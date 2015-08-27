@@ -1,0 +1,323 @@
+
+<?php
+  if (isset($this->Error))
+  {
+    exit;
+  }
+      $Producto                 = $this->Producto;
+      $Cantidad_Imagenes        = $this->Cantidad_Registros;
+      $codigo_grupo             = $Producto[0]['codigo_grupo'];
+      $en_oferta                = $Producto[0]['en_oferta'];
+      $fabricado_x_ta           = $Producto[0]['fabricado_x_ta'];
+      $fragancia                = String_Functions::Formato_Texto($Producto [0]["fragancia"]);
+      $id_controles             = 'cantidad'.$Producto[0]['idproducto'];
+      $id_controles_escalas     = 'escalas'.$Producto[0]['idproducto'];
+      $id_precio_final_tron     = 'precio_final_tron'.$Producto[0]['idproducto'];
+      $id_pv_tron               = 'pv_tron'.$Producto[0]['idproducto'];
+      $id_pv_tron_escala_a      = 'pv_tron_escala_a'.$Producto[0]['idproducto'];
+      $id_pv_tron_escala_b      = 'pv_tron_escala_b'.$Producto[0]['idproducto'];
+      $id_pv_tron_escala_c      = 'pv_tron_escala_c'.$Producto[0]['idproducto'];
+      $idescala                 = $Producto[0]['idescala'];
+      $idgrupo                  = $Producto[0]['idgrupo'];
+      $idproducto               = $Producto[0]["idproducto"];
+      $nom_producto_descripcion = String_Functions::Formato_Texto($Producto [0]["nom_producto_descripcion"]);
+      $nom_producto_largo       = $Producto[0]["nom_producto_largo"];
+      $nombre_imagen            = $Producto [0]["nombre_imagen"];
+      $nompresentacion          = String_Functions::Formato_Texto($Producto[0]["nompresentacion"]);
+      $pv_ocasional             = Numeric_Functions::Formato_Numero($Producto[0]['pv_ocasional']);
+      $pv_tron                  = Numeric_Functions::Formato_Numero($Producto[0]['pv_tron']);
+      $pv_tron_escala_a         = $Producto[0]['pv_tron_escala_a'];
+      $pv_tron_escala_b         = $Producto[0]['pv_tron_escala_b'];
+      $pv_tron_escala_c         = $Producto[0]['pv_tron_escala_c'];
+      $pv_tron_previo           = $Producto[0]['pv_tron'];   // COPIA, SIN, FORMATO, DEL $ PARA QUE AL REGRESAR LA CANTIDAD A CERO, RETORNO EL VALOR
+      $Escala_1                 = '';
+      $idnomproducto            = 'nomproducto'.$Producto[0]['idproducto'];
+      $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
+      $id_agrupacion            = $Producto[0]['id_agrupacion'];
+
+?>
+
+<!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
+
+<!-- INICA LA PRESENTACION DEL ARTICULO:IMG, PRECIO , TABLA-->
+<div id="contenido">
+<section>
+    <div class="row fila-1"><!--IMAGEN PRODUCTO-->
+      <div  class="col-lg-6  col-md-6 columana_de_la_img_producto">
+          <img id="zoom_03" class="img-responsive" src="<?= BASE_IMG_PRODUCTOS_472x472.$nombre_imagen  ;?>" data-zoom-image="<?= BASE_IMG_PRODUCTOS_944x944.$nombre_imagen  ;?>"  />
+                <?php if ($Cantidad_Imagenes  >1) { ?>
+                  <div id="gallery_01">
+                      <?php   foreach ($this->Producto_Imagenes as $Imagenes_Productos)
+                      {
+                        $nombre_imagen  = $Imagenes_Productos["nombre_imagen"];
+                        if ($Imagenes_Productos["zoom"]==1) { $Imagen_Zoom = BASE_IMG_PRODUCTOS_944x944; }
+                        else                                { $Imagen_Zoom = BASE_IMG_PRODUCTOS_944x944; }
+                      ?>
+                      <a href="#" data-image="<?= BASE_IMG_PRODUCTOS_944x944 .$nombre_imagen  ;?>" data-zoom-image="<?= $Imagen_Zoom.$nombre_imagen  ;?>">
+                        <img id="img_01" src="<?= BASE_IMG_PRODUCTOS_50x50 .$nombre_imagen  ;?>" />
+                      </a>
+                      <?php } ?>
+                  </div>
+                <?php } ?>
+      </div>
+<div id="contenido-productos">
+      <div class="col-lg-6 columan_de_la_info_producto">
+        <div class="row div-content"> <!--INICIO DE SUBCOLUMNA-->
+           <div class="col-lg-12">
+              <div class="pres-contenido" id ="<?= $idnomproducto  ;?>">
+                 <h4 class="subtitulo"><strong>  <?= $nom_producto_largo ;?></strong></h4><br>
+              </div>
+                   <p><?= $nom_producto_descripcion;?> </p>
+                    <?php if (!empty( $fragancia )): ?>
+                        <p><strong></strong><?= $fragancia  ;?> </p>
+                    <?php endif ;?>
+              <div id ="<?=  $idnompresentacion  ;?>">
+                   <p><strong>Presentacion : </strong><?= $nompresentacion ;?> </p>
+                   <?php if ( $id_agrupacion  > 0 ) :?>
+                  <!-- ver referencias -->
+                     <p>
+                        <a href="#" class="nuvv"
+                        title="Prodcutos semejantes con el mismo precio cuyas
+                                compras suman para alcanzar una misma escala" style="text-decoration: none;">
+                            <span class="aS colurAd">
+                                 <strong style="color: #333;">Ver otras referencias :</strong>
+                                 <a href="<?=BASE_URL ;?>productos/varias_referencias/<?=$id_agrupacion ;?> "> <?= $nom_producto_largo ;?></a>
+                            </span>
+                        </a>
+                     </p>
+                 <?php endif ;?>
+              </div>
+            </div>
+         </div><br><!--FIN DE SUBCOLUMNA-->
+
+         <div class="row div-content"><!--INICIO DE HIJA FILA-->
+             <div class="col-lg-6"><!--SUBINICIO DE HIJA-COLUMNA-->
+
+                <p class="text-center"><strong><?= $pv_ocasional ?></strong>
+                   <span><img src="<?= BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional "></span>
+                </p>
+
+                <p class="priceTRONProd  text-center" >
+                   <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
+                   <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"  title="Plan Cliente TRON"></span>
+                   <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"  title="Plan Empresario TRON"></span>
+
+                </p><br>
+
+              <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
+              <div class="costos-cantidad">
+                <form class="form-horizontal" role="form">
+                  <div class=" col-xs-4" id="cont-menos">
+                    <div class="form-group">
+                    <!--Inicio  Boton Menos-->
+                      <button id="<?=$idproducto ;?>"
+                              type="button"
+                              class="btn btn-default btn-menos btns-carrito"
+                              onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"  >-
+                      </button>
+                    <!-- Fin Boton Menos-->
+                    </div>
+                  </div>
+                   <div class="col-xs-4" id="cont-digitos">
+                      <div class="form-group">
+                        <!--Inicio Input-->
+                         <input id="<?=$id_controles ;?>" class=" digitos btn-carrito-input CantProductosComprados"  type="text"  value="1"
+                          id-idescala = "<?= $idescala ;?>"
+                          precio-amigo-tron = "<?= $pv_tron_previo; ?>"
+                          pv-tron-escala-a = "<?= $pv_tron_escala_a; ?>"
+                          pv-tron-escala-b = "<?= $pv_tron_escala_b; ?>"
+                          pv-tron-escala-c = "<?= $pv_tron_escala_c; ?>" >
+                        <!--Fin Input-->
+                      </div>
+                   </div>
+                   <div class=" col-xs-4" id="cont-mas">
+                      <div class="form-group">
+                      <!-- Inicio Boton Mas-->
+                        <button id="<?=$idproducto ;?>"
+                              type="button"
+                              class="btn btn-default btn-menos btns-carrito"
+                              onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
+                      </button>
+                      <!-- Fin Boton Mas-->
+                      </div>
+                   </div>
+
+                     <input id="<?= $id_controles_escalas ;?>"  type="hidden" value="<?= $idescala ; ?>" />
+                     <input id="<?= $id_pv_tron_escala_a ;?>"   type="hidden" value="<?= $pv_tron_escala_a; ?>" />
+                     <input id="<?= $id_pv_tron_escala_b ;?>"   type="hidden" value="<?= $pv_tron_escala_b; ?>" />
+                     <input id="<?= $id_pv_tron_escala_c ;?>"   type="hidden" value="<?= $pv_tron_escala_c; ?>" />
+                     <input id="<?= $id_pv_tron ;?>"            type="hidden" value="<?= $pv_tron_previo; ?>" />
+                </form>
+
+              <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
+                <div class="div-btn-">
+                     <button type="button" class="agregar  boton-agregar-carrito" id="<?=$id_controles ;?>" id-categoria-producto  =   "<?= $id_categoria_producto ;?>">
+                      <div class="btn-agregar-carrito">
+                        Agregar
+                        <span>
+                           <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
+                        </span>
+                      </div>
+                     </button>
+                </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
+              </div>  <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
+
+           </div>
+       <!-- div  -->
+
+             <div class="col-lg-6"><!-- COLUMNA QUE PRESENTA INFORMACION TEXTO PRODUCTO-->
+             <div class="">
+                <div class="div-content">
+                  <?php if ( Session::Get('autenticado')== TRUE ) :?>
+                  <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
+                    <p>
+                       <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
+                    </p>
+                  </a>
+                <?php endif ;?>
+
+                  <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." data-toggle="modal" data-target="#recomendar">
+                    <p>
+                      <span class="recomendar">
+                         <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
+                      </span> ¡Recomendar este Producto a un Amigo(a)!
+                    </p>
+                  </a>
+
+          <!--Llamado a la ventana modal -->
+                  <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
+          <!--Llamado a la ventana modal -->
+
+                </div>
+             </div>
+
+                <?php if ($idgrupo>0) :?>
+                   <div class="imagen_grupo_producto"
+                      title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contáctanos a:  contactos@tecnoaplicadas.com !">
+                      <strong><?= $codigo_grupo  ;?></strong>
+                    </div>
+                <?php endif ;?>
+
+
+                <?php if ($fabricado_x_ta==1) :?>
+                   <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por: Balquimia S.A.S.">
+                      <img class="img-Producto_fabricado_por_Tecnologías" src="<?= BASE_IMG_PRODUCTOS ;?>22.png" alt="">
+                   </div>
+
+                <?php endif ;?>
+
+               <?php if ($en_oferta  ==1) :?>
+                   <div class="imagen_en_oferta" title="Producto en Oferta !!!">
+                      <img class="img_Producto_en_Oferta" src="<?= BASE_IMG ;?>en_oferta.png " alt="">
+                   </div>
+              <?php endif ;?>
+
+             </div><!-- FINAL QUE PRESENTA INFORMACION TEXTO PRODUCTO-->
+         </div><br><!--FIN DE HIJA-FILA-->
+
+
+<?php if ( $idescala > 0 ) : ?>
+<!-- TABLA-->
+   <div class="row">
+       <div class="col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Escala</th>
+                  <th>A</th>
+                  <th>B</th>
+                  <th>C</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cantidad</td>
+                  <?php
+                      foreach ($this->Producto_Escalas_Rangos as $Escalas)
+                        {
+                            $inicio = $Escalas["inicio"] ;
+                            $final  = $Escalas["final"];
+                   ?>
+                    <td>
+                    <?= $inicio ?>
+                    <?php
+                       if($inicio!= $final)
+                          {
+                              if( $final!= 0)
+                                   { echo "- ". $final; }
+                              else { echo "ó +";        }
+                          }
+                      ?>
+                      </td>
+                  <?php }?>
+                </tr>
+                <tr>
+                  <td>Precio Unit.</td>
+                  <td> <?= Numeric_Functions::Formato_Numero($pv_tron_escala_a,'DEC') ;?> </td>
+                  <td> <?= Numeric_Functions::Formato_Numero($pv_tron_escala_b,'DEC');?> </td>
+                  <td> <?= Numeric_Functions::Formato_Numero($pv_tron_escala_c,'DEC');?> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+       </div>
+   </div><!-- FIN DE LA TABLA-->
+<?php endif ;?>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+
+
+<!--INICIO- TABS DEL PRODUCTO-->
+<?php if ( $this->Cantidad_Tabs > 0 ) : ?>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="gene-tabs">
+            <ul class="nav nav-tabs">
+              <?php
+                  $Primer_Tab = true; // BANDERA PARA QUE EN EL PRIMER TAB COLOQUE INFORMACIÓN ADICIONAL
+                  foreach ($this->Productos_Tabs as $Tabs)
+                    {
+                      $Titulo_Tab       = $Tabs["nombre_tab"];
+                      $IdTab            = 'Tab'.$Tabs["idtab"];
+                      if ($Primer_Tab==true)
+                      {  $Primer_Tab=false; ?>
+                        <li class= "active"><a href="#<?= $IdTab ;?>"  data-toggle="tab"> <?= $Titulo_Tab ;?> </a></li><!--TITULO DEL TABS -->
+                      <?php  }
+                        else {  ?>
+                          <li ><a href="#<?= $IdTab ;?>"  data-toggle="tab"> <?= $Titulo_Tab ;?> </a></li><!--TITULO DEL TABS -->
+                        <?php }   }?>
+            </ul>
+           <div class="tab-content">
+              <?php
+                  $Primer_Tab = true; // BANDERA PARA QUE EN EL PRIMER TAB COLOQUE INFORMACIÓN ADICIONAL
+                  foreach ($this->Productos_Tabs as $Tabs)
+                    {
+                      $Información_Tab  = $Tabs["informacion_tab"];
+                      $IdTab            = 'Tab'.$Tabs["idtab"];
+                      if ($Primer_Tab==true)
+                      {  $Primer_Tab=false; ?>
+                         <div class="tab-pane fade in active" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?> </div>
+                         <?php  }
+                            else { ?>
+                              <div class="tab-pane fade" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?></div>
+                          <?php
+                            }   }?>
+           </div><!--FIN-CONTENIDO TABS -->
+        </div>
+      </div>
+    </div>          <!-- FIN ROW-->
+  <?php endif ;?><!-- FIN IF Cantidad_Tabs>0-->
+<!--FINAL- TABS -->
+</section>
+</div>
+
+<br>
+<br>
+<br>
+<br>

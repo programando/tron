@@ -1,0 +1,120 @@
+
+.contenido-index /* Vista hogar */
+{
+    width: 95%;
+    margin: 0px auto;
+    padding-top: 150px;
+
+}
+
+.contenido-industrial /* vista industrial */
+{
+	width: 95%;
+    margin: 0px auto;
+    padding-top: 150px;
+}
+
+/*
+_________ Efecto = Active => Menu _________
+*/
+
+.inicio-index /* Casita = Inicio => index */
+{
+	  background: #0469ED;
+}
+
+
+/*INICIO - IMAGENES ACERCA DELOS PRODUCTOS= MAQUILLAJE , NATURALES , TECNOLOGIA*/
+#avisos
+{
+			margin: 10px auto;
+			width : 95%;
+}
+
+section #prv
+{
+	   margin-bottom: 20px;
+}
+
+section #prv:hover
+{
+			-moz-box-shadow   : 0px 5px 10px 5px #828282 ;
+			-webkit-box-shadow: 0px 5px 10px 5px #828282 ;
+			box-shadow        : 0px 5px 10px 5px #828282 ;
+}
+
+/*FIN - IMAGENES ACERCA DELOS PRODUCTOS= MAQUILLAJE , NATURALES , TECNOLOGIA*/
+
+
+
+/*INICIO - ARTICULOS - PRESENTACION DE LOS PRODUCTOS*/
+
+#complementos
+{
+					height     : 52px;
+					margin-left: -15px;
+					margin-top : 2px;
+					position   : absolute;
+					width      : 79px;
+					z-index    : 5;
+}
+
+#articulos #img-prod
+{
+					margin: 0px auto;
+					width : 90%;
+}
+#articulos a
+{
+	    text-decoration: none;
+}
+
+#precio-cliente-tron
+{
+	    color: red;
+}
+
+#articulos span
+{
+     cursor: pointer;
+}
+
+#articulos
+{
+				margin-bottom: 30px;
+				margin-left  : 40px;
+				margin-top   : 30px;
+				min-width    : 170px;
+				padding-top  : 10px;
+}
+
+#articulos:hover
+{
+				-moz-box-shadow   : 0px 5px 20px 0px  #000000;
+				-webkit-box-shadow: 0px 5px 20px 0px  #000000;
+				box-shadow        : 0px 5px 20px 0px  #000000;
+}
+
+.div-destacados-index-nomproducto
+{
+	   height : 50px;
+	   display: block;
+}
+
+.div-destacados-index-nompresentacion
+{
+		  display   : block;
+		  height    : 20px;
+		  text-align: center;
+}
+
+/*FIN - ARTICULOS - PRESENTACION DE LOS PRODUCTOS*/
+
+
+
+
+
+
+
+
+

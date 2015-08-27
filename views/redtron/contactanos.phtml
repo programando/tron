@@ -1,0 +1,106 @@
+<!--Los estilos se encuentran en la carpeta CSS => tron_red_amigo_general.css -->
+<!--La funcion de la (( Linea Industrial // linea 58 )) se encuetra en la carpeta JS => tron_redtron_formulario.js -->
+
+<div class="contenedor"><!--Contenedor-De-La-Pagina-->
+<div class="row"><!--Fila-->
+
+<!--Boton de Ir Arriba -->
+  <?php include (APPLICATION_SECTIONS . 'btn_ir_arriba.php');?>
+
+<!--Campo de la pagina redtron -->
+
+    <div class="col-lg-9  col-md-9  col-sm-9"><!--Contenido-De-La-Pagina = Titulos , Texto ,Informacion -->
+      <!-- Texto -->
+        <div class="col-lg-6 col-md-6 col-sm-6">
+           <div class="row"><!--Titulo-->
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                  <h4 class="contenido-titulos">Contáctanos</h4>
+               </div>
+           </div><!--Titulo-->
+
+         <div class="col-lg-12 col-md-12 col-sm-12"><!--Contáctanos -->
+              <p>Contáctate con nosotros, estamos a tu disposición.<br>
+                 <strong>Horarios de Atención:</strong><br> Lunes a Viernes de 7:30 am a 12:00 m y 1:30 pm a 6:00 pm. <br><br>
+                 <strong>Línea gratuita al cliente:</strong> <br> 01 8000 18 TRON <small>(8766)</small><br>
+                 <strong>PBX:</strong> <br> (2) 488 1616, Cali - Colombia.
+               </p>
+         </div><!--Contáctanos -->
+        </div>
+
+      <!-- Formulario -->
+        <div class="col-lg-6 col-md-6 col-sm-6">
+              <!-- Titulo -->
+                <div>
+                    <h4 class="contenido-titulos">Formulario de Contacto</h4>
+                </div><br>
+
+               <!-- Formulario -->
+                   <div class="cont-formulario"><!--Contenedor del formulario -->
+                    <form class="form-horizontal" role="form">
+
+                     <div class="col-lg-12 col-md-12 col-sm-12"><!--Nombre-Usuario -->
+                       <div class="form-group">
+                          <label for="nombre_usuario" class="col-lg-4 control-label"><p class="text-label">Nombre:</p></label>
+                          <div class="col-lg-8">
+                               <input type="text" class="form-control" id="nombre_usuario" >
+                          </div>
+                        </div><!--Nombre-Usuario -->
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12"> <!-- Email -->
+                        <div class="form-group">
+                          <label for="email" class="col-lg-4 control-label"><p class="text-label">Email:</p></label>
+                          <div class="col-lg-8">
+                            <input type="text" class="form-control"  id="email">
+                          </div>
+                        </div>
+                       </div>
+
+                       <div class="col-lg-12 col-md-12 col-sm-12"><!--Telefono -->
+                          <div class="form-group">
+                            <label for="telefono" class="col-lg-4 control-label"><p class="text-label">Teléfono:</p></label>
+                            <div class="col-lg-8">
+                                 <input type="text" class="form-control"  id="telefono">
+                            </div>
+                           </div>
+                       </div><!--Telefono -->
+
+                       <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="form-group">
+                            <label for="comentarios" class="col-lg-4 control-label"><p class="text-label">Comentarios:</p></label>
+                            <div class="col-lg-8">
+                                <textarea class="form-control" rows="4" id="comentarios"></textarea>
+                            </div>
+                           </div>
+
+                       </div>
+
+
+
+                     <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="text-center">
+                            <div id="img_cargando" style="display: none; width: 60%;">
+                                <img src="<?=BASE_IMG_EMPRESA;?>cargando.gif" alt=""> Enviando información. Espere unos segundos...<br />
+                             </div>
+
+                              <button type="button" class="btn btn-contac-enviar" id="btn_enviar">Enviar</button>
+                              <button type="button" class="btn btn-contac-cancelar" id="btn_cancelar">Cancelar</button>
+
+                          </div>
+                     </div>
+                </form>
+               </div><!--Contenedor del formulario -->
+
+        </div>
+    </div><!--Contenido-De-La-Pagina = Titulos , Texto ,Informacion -->
+
+
+<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
+
+   <?php include (APPLICATION_SECTIONS . 'col_izquierdad_redtron.php');?>
+
+<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
+
+</div><!--Fin-Fila-->
+</div><!--Contenedor-De-La-Pagina-->
+<br><br> <br>

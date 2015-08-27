@@ -1,0 +1,66 @@
+
+<?php
+     $numero_pedido         = Session::Get('numero_pedido');
+     $vr_total_pedido       = round(Session::Get('vr_total_pedido'),2);
+     $baseIva               = round(Session::Get('Vr_Base_Iva'),2);
+     $pnombre               = utf8_encode(Session::Get('nombre_cliente'));
+     $email                 = utf8_encode(Session::Get('email'));
+     $identificacion        = Session::Get('identificacion');
+     $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
+
+     $vr_devolucion         = $vr_total_pedido - $baseIva;
+     $iva                   = $vr_total_pedido  - $baseIva;
+     if (($vr_total_pedido -  $baseIva )==0 ){
+        $baseIva       = 0;
+        $vr_devolucion = 0 ;
+     }
+
+/*
+$file = fopen("c:/archivo.txt", "w");
+fwrite($file, $vr_total_pedido. ' VALOR TOTAL DEL PEDIDO'. PHP_EOL);
+fwrite($file, $iva . '   IVA' . PHP_EOL);
+fwrite($file, $vr_devolucion  . '  VR BASE DEVOLUCION' . PHP_EOL);
+fclose($file);
+*/
+
+?>
+<br />
+<h2 class="text-center">Estamos ingresando al sistema de pagos en línea, espere unos segundos por favor....</h2>
+
+ <div id="img_cargando" style="display: block; width: 100%; text-align:center;">
+     <br>
+         Procesando información..
+      <br>
+         <img src="<?=BASE_IMG_EMPRESA;?>cargando.gif" style="display: block;  widht: 30%; margin : 0px auto ;">
+      <br>
+         &nbsp;&nbsp;Espere unos segundos......
+</div>
+
+
+<br /> <br /> <br /> <br /> <br />
+<form name="formPaypal" action="https://gateway.payulatam.com/ppp-web-gateway" method="post" id="">
+
+    <input type="hidden" name="description"         id="description"            value = "<?= "Pedido No. ".$numero_pedido ; ?>" />
+    <input type="hidden" name="amount"              id="amount"                 value = "<?= $vr_total_pedido; ?>" />
+    <input type="hidden" name="tax"                 id="tax"                    value = "<?= $iva;?>" />
+    <input type="hidden" name="taxReturnBase"       id="taxReturnBase"          value = "<?= $baseIva ; ?>" />
+    <input type="hidden" name="baseDevolucionIva"   id="baseDevolucionIva"      value = "<?= $vr_devolucion ; ?>" />
+    <input type="hidden" name="accountId"           id="accountId"              value="512832">
+
+    <input type="hidden" name="currency"            id="currency"               value = "COP">
+    <input type="hidden" name="payerFullName"       id="buyerEmail"             value = "<?= $pnombre ;?>">
+    <input type="hidden" name="buyerEmail"          id="buyerEmail"             value = "<?=  $email ; ?>">
+    <input type="hidden" name="payerDocument"       id="payerDocument"          value = "<?= $identificacion ; ?>">
+    <input name="confirmationUrl"                   type="hidden"               value = " <?= BASE_URL ;?>pedidos/Forma_Pago_Pedido_Payu_Latam_Confirmacion/" >
+	<input name="responseUrl"                   	type="hidden"               value = " <?= BASE_URL ;?>pedidos/Forma_Pago_Pedido_Payu_Latam_Confirmacion/" >
+
+
+   <input type="hidden" name="merchantId"           id="merchantId"         value="511623" />
+   <input type="hidden" name="referenceCode"        id="referenceCode"       value = "<?= $numero_pedido ; ?>" />
+   <input type="hidden" name="signature"            id="signature"          value="<?= $signature?>">
+   <!--<input type="hidden" name="test"                 id="test"               value="1">
+   <input type="hidden" name="buyerEmail"           id="buyerEmail"         value="jhonjamesmg@hotmail.com">-->
+</form>
+
+
+

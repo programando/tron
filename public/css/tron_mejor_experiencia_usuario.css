@@ -1,0 +1,47 @@
+.cont-info-pagina
+{
+	    width: 95%;
+	    margin: 0px auto;
+	    padding-top: 150px;
+}
+
+/* Cont-Mensaje */
+.cont-mensaje
+{
+	    width: 100%;
+	    margin: 0px auto;
+	    padding:  10px;
+	    font-size: 14px;
+}
+
+/* IMG = superior alerta */
+.img-alert
+{
+	    display: block;
+	    width: 80px;
+}
+
+/* IMG = Navegadores */
+.img-nagevadores
+{
+	     width: 90%;
+	     display: block;
+	     margin: 0px auto;
+}
+
+.contnedor_IMG
+{
+	     display: block;
+	     text-align: center;
+	     padding: 0px;
+	     margin-left: 15px;
+	     text-decoration: none;
+	     color: #333;
+ }
+
+.contnedor_IMG:hover
+{
+	    text-decoration: none;
+     color: #003E90;
+     font-weight: bold;
+}

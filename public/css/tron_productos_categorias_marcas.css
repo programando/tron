@@ -1,0 +1,273 @@
+
+
+.contenido
+{
+					margin       : 0px auto;
+					margin-bottom: 20px;
+					width        : 95%;
+					padding-top: 150px;
+}
+
+}
+/* Inicio Columna De Categorias y Marcas*/
+
+
+/* Fin Columna De Categorias y Marcas*/
+
+.link
+{
+   font-size: 13px;
+}
+
+.submenu
+{
+	   display: none;
+    font-size: 12px;
+}
+
+.sub-lista
+{
+	   padding:5px 10px;
+	   display: block;
+	   text-decoration: none;
+}
+
+.sub-lista:hover
+{
+	   text-decoration: none;
+}
+
+.lista-marcas , .sub-lista-empresas
+{
+					color    : black;
+					font-size: 12px;
+					text-decoration: none;
+					padding: 10px;
+					width: 100%;
+					display: block;
+}
+
+.lista-marcas:hover
+{
+     background: #ededed;
+					text-decoration: none;
+					color: black;
+}
+
+.columna_categorias-marcas
+{
+					border-right: 2px solid #DDDDDD;
+					display     : block;
+					text-align  : justify;
+					width       : 300px;
+					padding-right:5px;
+}
+
+
+.sub-lista-empresas:hover
+{
+     background: #ededed;
+					text-decoration: none;
+					color: black;
+}
+
+.columna_categorias-marcas
+{
+					border-right: 2px solid #DDDDDD;
+					display     : block;
+					text-align  : justify;
+					width       : 300px;
+					padding-right:5px;
+}
+
+
+.cabezera-panel
+{
+					border    : 0px;
+					height    : 30px;
+					padding   : 5px;
+}
+
+.Aseo_Del_Hogar, .titulo-productos
+{
+
+					color        : #003e90;
+					display      : block;
+					float        : left;
+					font-size    : 16px;
+					margin-top   : 0px;
+					padding      : 0px;
+					width        : 100%;
+					font-weight  : bold;
+					text-decoration: underline;
+}
+
+.panel-title a
+{
+					color          : #003e90;
+					display        : block;
+					padding        : 5px;
+					text-decoration: none;
+					font-size      :14px;
+					font-weight    :bold;
+}
+
+.panel-title a:hover
+{
+				color            :#0469ed;
+}
+
+.lista-productos
+{
+					color    : black;
+					font-size: 12px;
+					cursor: pointer;
+}
+
+.sub-lista-productos
+{
+					display   : none;
+					font-size : 12px;
+					height    : 30px;
+					text-align: left;
+					cursor: pointer;
+}
+
+.lista-marcas
+{
+					color    : black;
+					font-size: 12px;
+}
+
+.lista-empresas-asociadas
+{
+					color    : black;
+					font-size: 12px;
+}
+
+/* Iniio-Section = Innicio-Presentacion del Producto Articulos*/
+
+.Productos-Por-Pagina
+{
+					display   : block;
+					float     : left;
+					margin-top: 3px;
+					width     : 150px;
+}
+
+.pref-png
+{
+						display   : block;
+						float     : right;
+						margin-top: -45px;
+						position  : relative;
+						width     : 300px;
+}
+
+#png
+{
+        -moz-border-radius   : 3px ;
+        -webkit-border-radius: 3px ;
+        border-color         : #ccc;;
+        border-radius        : 3px ;
+        font-size            : 12px;
+        padding              : 5px 10px;
+        float:left;
+}
+
+
+/* Fin-Section = Innicio-Presentacion del Producto Articulos*/
+
+
+
+/*Inicion-Presentacion-Producto*/
+
+#variasref
+{
+					height     : 52px;
+					margin-left: -22px;
+					margin-top : -11px;
+					position   : absolute;
+					width      : 79px;
+					z-index    : 3;
+}
+
+#complementos
+{
+					height     : 52px;
+					margin-left: -15px;
+					margin-top : 2px;
+					position   : absolute;
+					width      : 79px;
+					z-index    : 5;
+}
+
+#articulos #img-prod
+{
+					margin: 0px auto;
+					width : 90%;
+}
+#articulos a
+{
+	    text-decoration : none;
+}
+
+#precio-cliente-tron
+{
+	    color : red;
+}
+
+#articulos span
+{
+     cursor : pointer;
+}
+
+#articulos
+{
+				margin-bottom: 30px;
+				margin-left  : 40px;
+				margin-top   : 30px;
+				min-width    : 170px;
+				padding-top  : 10px;
+				width        : 190px;
+
+}
+
+#articulos:hover
+{
+				-moz-box-shadow   : 0px 5px 20px 0px  #000000;
+				-webkit-box-shadow: 0px 5px 20px 0px  #000000;
+				box-shadow        : 0px 5px 20px 0px  #000000;
+}
+
+.div-destacados-index-nomproducto
+{
+	   height : 50px;
+	   display: block;
+}
+
+.div-destacados-index-nompresentacion
+{
+		  display   : block;
+		  height    : 20px;
+		  text-align: center;
+}
+
+/*Fin-Presentacion-Producto*/
+
+
+/*Paginadores*/
+
+.paginadores
+{
+				display   : block;
+				margin    : 0px auto;
+				text-align: center;
+				width     : 50%;
+}
+
+/*Paginadores*/
+
+
+/* ============  nuevo-Menu => categorias , marcas , empresas  ==============*/
+

@@ -1,0 +1,9 @@
+
+ /**   Efecto activo en la barra-menu
+       Este efecto corresponde a categorias y marcas
+**/
+
+.active_categorias
+{
+    background: #0469ED;
+}

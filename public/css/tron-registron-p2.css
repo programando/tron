@@ -1,0 +1,14 @@
+
+/* diseño paso 2 */
+
+.cont-tabla-planes
+{
+    width: 97%;
+    margin: 0px auto;
+    display: block;
+    border: 1px solid red;
+    padding-top: 150px;
+}
+
+
+

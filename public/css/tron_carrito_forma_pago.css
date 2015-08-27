@@ -1,0 +1,138 @@
+
+.contenedor
+{
+	   width: 95%;
+	   margin: 0px auto;
+     padding-top: 150px;
+}
+
+/*
+________ Efecto Activo  _______
+
+*/
+
+#active5 /* identificador = paso en el que se encuentra el usuario */
+{
+   color: #003e90;
+   font-size: 16px;
+   font-weight: bold;
+}
+
+#active5::before
+{
+   border: 4px solid #003e90;
+}
+
+/*
+_________ Titulo __________
+*/
+
+.cont-titulo
+{
+	   display: block;
+	   margin-bottom: 30px;
+}
+
+.titulo ,
+.sutb-titulo
+{
+	   color: #003e90;
+}
+
+/*
+______ Cuerpo pagina _______
+*/
+
+.cuerpo-pagina
+{
+				margin: 0px auto;
+		 width : 85%;
+}
+
+/*
+_____ Opciones de Pago _______
+*/
+
+.option-pago1
+{
+	   margin: 0px auto;
+	   width: 50%;
+	   text-align:center;
+	   height: 200px;
+	   padding: 0px;
+	   -webkit-transition: all 500ms ease;
+	   -moz-transition: all 500ms ease;
+	   transition: all 500ms ease;
+}
+
+.option-pago1:hover
+{
+	   -webkit-border-radius: 20px;
+	   -moz-border-radius: 20px;
+	   border-radius: 20px;
+    background: #cecece;
+	   cursor: pointer;
+}
+
+.img-pago1
+{
+	   height: 150px;
+	   width: 60%;
+	   margin: 25px 0px;
+}
+
+/*
+__________ Boton ____________
+*/
+
+.cont-btn-slec-forma-pago
+{
+	   display: block;
+	   text-align: center;
+	   margin-top: 20px;
+}
+
+
+.btn-forma-pago
+{
+      -moz-box-shadow      : inset 0px 1px 0px 0px #f7c5c0;
+      -webkit-box-shadow   : inset 0px 1px 0px 0px #f7c5c0;
+      box-shadow           : inset 0px 1px 0px 0px #f7c5c0;
+      background           : -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fc8d83), color-stop(1, #e4685d));
+      background           : -moz-linear-gradient(top, #fc8d83 5%, #e4685d100%);
+      background           : -webkit-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
+      background           : -o-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
+      background           : -ms-linear-gradient(top, #fc8d83 5%, #e4685d 100%);
+      background           : linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
+      filter               : progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc8d83', endColorstr='#e4685d',GradientType=0);
+      background-color     : #fc8d83;
+      -moz-border-radius   : 6px;
+      -webkit-border-radius: 6px;
+      border-radius        : 6px;
+      border               : 1px solid #d83526;
+      color                : #ffffff;
+      font-size            : 15px;
+      font-weight          : bold;
+      padding              : 6px 24px;
+      text-decoration      : none;
+      text-shadow          : 0px 1px 0px #b23e35;
+      cursor               : pointer;
+}
+
+.btn-forma-pago:hover
+{
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4685d), color-stop(1, #fc8d83));
+    background:-moz-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:-webkit-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:-o-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:-ms-linear-gradient(top, #e4685d 5%, #fc8d83 100%);
+    background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4685d', endColorstr='#fc8d83',GradientType=0);
+    background-color:#e4685d;
+}
+
+.btn-forma-pago:active
+{
+    position:relative;
+    top:1px;
+}

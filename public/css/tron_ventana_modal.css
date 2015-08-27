@@ -1,0 +1,31 @@
+
+/*Ventana Modal*/
+
+.encabezado-modal
+{
+			background: #003e90;
+			color     : white;
+			text-align: center;
+}
+
+.cuerpo-modal
+{
+			display: block;
+			margin : 0px auto;
+			width  : 80%;
+}
+
+.tex-area
+{
+   max-width: 450px;
+   display: block;
+}
+
+.pie-modal
+{
+   display: block;
+   width: 80%;
+   margin: 0px auto;
+}
+
+/*Ventana Modal*/

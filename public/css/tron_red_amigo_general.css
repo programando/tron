@@ -1,0 +1,672 @@
+
+/*...Diseño general de las paginas que se encuentrar al lado del slider..... red-amigos-tron , pases-cortesia ect........*/
+
+#img-balquima
+{
+    display: block;
+    width: 600px;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.contenedor
+{
+  width    : 95%;
+  margin   : 0px auto;
+  font-size: 17px;
+  padding-top: 150px;
+}
+
+.titulo-principal
+{
+  color :#003e90;
+  margin-top:40px;
+}
+
+.text-justificado
+{
+   text-align:justify;
+}
+
+.tabs
+ {
+    display:block;
+    border-bottom:2px solid #003e90;
+    padding:0px;
+ }
+.red
+{
+   display:none;
+}
+
+#tab-tienda
+{
+   background:red;
+}
+
+/* #tab-inactive =  Este Estilo da el efecto de que los tabs estan DESACTIVADOS*/
+
+#tab-inactive
+{
+  background: #999999;
+}
+
+/*#tab-inactive*/
+
+
+/* #tab-inative-red = Este Estilo da el efecto de que el tab de RED DE AMIGOS TRON esta ACTIVO */
+
+#tab-inative-red
+{
+     background: #999999;
+}
+
+/* #tab-inative-red */
+
+/* #tabs-tienda-active = Este Estilo da el efecto de que el tab de TIENDA TRON esta ACTIVO */
+#tabs-tienda-active
+{
+   background: #003e90;
+}
+/* #tabs-tienda-active */
+.campos-pagina-red
+{
+   display:inline-block;
+   width:15%;
+   text-align:center;
+   height:30px;
+   background: #003e90;
+   padding-top:6px;
+   -webkit-border-radius: 5px  5px 0px 0px;
+   -moz-border-radius: 5px  5px 0px 0px;
+   -ms-border-radius: 5px  5px 0px 0px;
+   -o-border-radius: 5px  5px 0px 0px;
+   border-radius: 5px  5px 0px 0px;
+   min-width:150px;
+}
+
+.campos-pagina-tienda
+{
+   display:inline-block;
+   width:15%;
+   text-align:center;
+   height:30px;
+   background: #999999;
+   padding-top:6px;
+   -webkit-border-radius: 5px  5px 0px 0px;
+   -moz-border-radius: 5px  5px 0px 0px;
+   -ms-border-radius: 5px  5px 0px 0px;
+   -o-border-radius: 5px  5px 0px 0px;
+   border-radius: 5px  5px 0px 0px;
+   min-width:150px;
+}
+.campos-pagina:hover
+{
+     background:#0469ed;
+     color:white;
+}
+
+.tab-red
+{
+    font-size:13px;
+    text-decoration:none;
+    font-weight:bold;
+    color:white;
+    text-decoration:none;
+}
+
+.tab-tienda
+{
+    font-size:13px;
+    text-decoration:none;
+    font-weight:bold;
+    color:white;
+}
+
+.btn-ir-arriba
+{
+  display:none;
+   width:50px;
+   height:50px;
+   padding:15px;
+   cursor:pointer;
+   -webkit-border-radius: 80px;
+   -moz-border-radius: 80px;
+   -ms-border-radius: 80px;
+   -o-border-radius:80px;
+   border-radius: 80px;
+   background: #003e90;
+   text-align:center;
+   color:white;
+   position:fixed;
+   bottom:20px;
+   right:20px;
+   z-index:1000;
+
+}
+
+.btn-ir-arriba:hover
+{
+    background: #0469ed;
+}
+
+/*Contenido de informacion*/
+
+.contenido-titulo-Introduccion
+{
+   border-bottom: 1px solid #003e90;
+   color        : #003e90;
+   display      : block;
+   font-size    : 20px;
+   padding      : 1px 0px;
+   width        : 17%;
+}
+
+.text-introduccion
+{
+   display   : block;
+   margin    : 0px auto;
+   text-align: justify;
+   width     : 95%;
+}
+
+.contenido-titulos
+{
+  border-bottom: 1px solid #003e90;
+  color        : #003e90;
+  display      : block;
+  font-size    : 20px;
+  margin-bottom: 20px;
+  margin-top   : 50px;
+  padding      : 1px 0px;
+}
+
+/*Contenido de informacion*/
+
+/*Indice*/
+
+.contenido-indice
+{
+   border-right : 1px solid #7f7f7f;
+   display      : block;
+   margin-bottom: 50px;
+   width        : 230px;
+}
+
+.dos , .cuatro
+{
+   display:none;
+}
+.indice ul li
+{
+	margin: 2px 0px;
+}
+
+
+
+.indice ul li a
+{
+   color          : #7f7f7f;
+   font-size      : 14px;
+   text-decoration: none;
+   padding: 5px;
+   width  : 95%;
+   display: block;
+}
+
+.indice ul li a:hover
+{
+	background   : #dddbdb;
+	border-radius: 4px;
+}
+
+/*Indice*/
+
+/*Diseño Columna-Izquierdad*/
+
+/*Diseños Generales De La Columna = link , img */
+.blockques-opciones img ,
+.hola img ,
+.blockques-opciones-rojo img
+{
+   display  : block;
+   margin   : 2px auto;
+   max-width: 80px;
+   width    : 50%;
+}
+
+.blockques-opciones a ,
+.hola a ,
+.blockques-opciones-rojo a
+{
+   color          : black;
+   margin-top     : 5px;
+   text-decoration: none;
+}
+
+/*Diseños Generales De La Columna = link , img */
+
+/*Diseños => Primera Parte Color Azul*/
+
+.cont-columna-derecha
+{
+   padding-left:59px;
+   margin-top:40px;
+}
+
+.blockques-opciones
+{
+   -moz-border-radius   : 8px;
+   -ms-border-radius    : 8px;
+   -o-border-radius     : 8px;
+   -webkit-border-radius: 8px;
+   background           : #ededed;
+   border-radius        : 8px;
+   float                : left;
+   font-size            : 13px;
+   height               : 110px;
+   margin-bottom        : 5px;
+   margin-right         : 5px;
+   max-width            : 200px;
+   min-width            : 100px;
+   text-align           : center;
+   width                : 120px;
+   display:block;
+}
+
+.blockques-opciones:hover
+{
+   background: #d3d3d3;
+}
+
+/*Diseños => Primera Parte Color Azul*/
+
+
+/*Diseños => Opciones de color rojo*/
+
+.blockques-opciones-rojo
+{
+   -moz-border-radius   : 8px;
+   -ms-border-radius    : 8px;
+   -o-border-radius     : 8px;
+   -webkit-border-radius: 8px;
+   background           : #ededed;
+   border-radius        : 8px;
+   float                : left;
+   font-size            : 13px;
+   height               : 110px;
+   margin-bottom        : 5px;
+   margin-right         : 5px;
+   max-width            : 200px;
+   min-width            : 100px;
+   text-align           : center;
+   width                : 120px;
+}
+
+.blockques-opciones-rojo:hover
+{
+	background: #d3d3d3;
+}
+
+/*Diseños => Opciones de color rojo*/
+
+
+/*Diseño Tablas*/
+
+.contenido-tablas thead
+{
+   color: #003e90;
+}
+
+.contenido-tablas td
+{
+    padding: 5px 0px;
+}
+
+/*Diseño Tablas*/
+
+.linea-division
+{
+   border: 1px solid  #7f7f7f;
+   float : left;
+   margin: 20px 0px;
+   width : 95%;
+}
+
+/*Diseños pases de cortesia*/
+
+.text-float-left
+{
+   float       : left;
+   margin-right: 30px;
+   width       : 70%;
+}
+
+.imagen-float-right
+{
+   margin-top: -20px;
+   width     : 25%;
+}
+
+.tabla-pases-cortesia
+{
+   width : 80%;
+   margin: 0px auto;
+}
+
+/*Diseños pases de cortesia*/
+
+/*Los Productos tron*/
+
+.consejo-rojo-right
+{
+  color      : #0C0;
+  font-size  : 30px;
+  font-width : normal;
+  line-height: 30px;
+}
+
+.avisos-verder-left
+{
+  color    : #0C0;
+  font-size: 20px;
+}
+
+.video_presentacion_producto
+{
+     display: block;
+     width: 85%;
+     margin: 0px auto;
+     height: 450px;
+}
+
+
+.img-producto-detergente
+{
+   float: right;
+}
+/*Los Productos tron*/
+
+/*Contenido del Kit de Inicio*/
+
+.cont-img-kit
+{
+   width : 50%;
+   margin: 0px auto;
+}
+
+.contenido-tablas
+{
+   width : 80%;
+   margin: 0px auto;
+}
+
+/*Contenido del Kit de Inicio*/
+
+
+/*Comisiones*/
+
+.lista-Info-General
+{
+   width:90%;
+   margin:0px auto;
+}
+
+.titulo-info-general
+{
+   margin-top:-10px;
+}
+
+/*Comisiones*/
+
+/*Contactanos*/
+
+.cont-formulario
+{
+  width:100%;
+  margin:0px auto;
+
+}
+
+.formulario-cabezera
+{
+  min-width:300px;
+}
+
+.formulario-cabezera .Interes
+{
+   float:left;
+   margin-right:60px;
+}
+
+#info-industrial
+{
+  display:none;
+}
+
+.text-label
+{
+   color:#003e90;
+   text-align: left;
+}
+
+#industial
+{
+   margin-left:20px;
+}
+
+.hogar ,
+.industrial
+{
+   cursor:pointer;
+}
+
+.btn-contac-enviar ,
+.btn-contac-cancelar
+{
+    padding        :  5px;
+    display        : inline-block;
+    width          : 20%;
+    color          : white;
+    border         : 2px solid #da4e48;
+    text-decoration: none;
+    color          : white;
+    margin-top: 3px;
+   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+   background: #ea5b57; /* Old browsers */
+   background: -moz-linear-gradient(top,  #ea5b57 0%, #be3730 100%); /* FF3.6+ */
+   background: -ms-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* IE10+ */
+   background: -o-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* Opera 11.10+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ea5b57), color-stop(100%,#be3730)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ea5b57 0%,#be3730 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom,  #ea5b57 0%,#be3730 100%); /* W3C */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhNWI1NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiZTM3MzAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5b57', endColorstr='#be3730',GradientType=0 ); /* IE6-8 */
+}
+
+.btn-contac-enviar:hover ,
+.btn-contac-cancelar:hover
+{
+    color          : white;
+    text-decoration: none;
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: #be3730; /* Old browsers */
+    background: -moz-linear-gradient(top,  #be3730 0%, #ea5b57 100%); /* FF3.6+ */
+    background: -ms-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* IE10+ */
+    background: -o-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Opera 11.10+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#be3730), color-stop(100%,#ea5b57)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #be3730 0%,#ea5b57 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom,  #be3730 0%,#ea5b57 100%); /* W3C */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JlMzczMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYTViNTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#be3730', endColorstr='#ea5b57',GradientType=0 ); /* IE6-8 */
+}
+
+
+.btn-contac-enviar:active ,
+.btn-contac-cancelar:active
+{
+    position:relative;
+    top:1px;
+}
+
+/*Contactanos*/
+
+
+
+/*
+     Preguntas Frecuentes
+*/
+
+.fonts-flecha-link
+{
+   position: absolute;
+   margin-top: 10px;
+   margin-left: -20px;
+   -webkit-transition: all 0.4s ease;
+   -o-transition: all 0.4s ease;
+   transition: all 0.4s ease;
+}
+
+.open .fonts-flecha-link /* Efecto rotacion de la fonts-flecha*/
+{
+    -webkit-transform: rotate(180deg) ;
+    -moz-transform   : rotate(180deg) ;
+    -ms-transform    : rotate(180deg) ;
+    -o-transform     : rotate(180deg) ;
+    transform        : rotate(180deg) ;
+    margin-top: 5px;
+}
+
+.contenedor-preguntas-frecuentes
+{
+   width  : 90%;
+   margin : 0px auto;
+   display: block;
+}
+
+.cont-titulos-panel
+{
+
+    color          :  #003e90;
+    text-decoration: none;
+    width          : 100%;
+    display        : block;
+    font-size      : 25px;
+}
+
+.panel-titulo
+{
+  width: 100%;
+}
+
+.panel-titulo:hover
+{
+    text-decoration: none;
+}
+
+.panel-titulo:active
+{
+     text-decoration: none;
+}
+
+.panel-titulo:link
+{
+     text-decoration: none;
+}
+
+.panel-titulo:link
+{
+     text-decoration: none;
+}
+
+.link
+{
+   color             : #003e90;
+   display           : block;
+   padding-top       : 5px;
+   position          : relative;
+   -webkit-transition:  all 0.4s ease;
+   -o-transition     :  all 0.4s ease;
+   transition        :  all 0.4s ease;
+   margin-left: 20px;
+}
+
+.fonts-flecha
+{
+   font-size   : 10px;
+   margin-right: 5px;
+}
+
+.panel-pagos-img
+{
+    margin: 10px auto;
+    width : 50%;
+}
+
+
+/*
+      Respuesta
+*/
+
+.submenu
+{
+    border-bottom: 1px solid #003e90;
+    width        : 100%;
+    margin       : 0px auto;
+    font-size    : 15px;
+    padding      : 10px 30px;
+    text-align   : justify;
+    border-radius: 5px 5px 0px 0px;
+    display      : none;
+    margin-bottom: 20px;
+}
+
+
+/*
+       Tabla
+*/
+
+.tabla-titulo
+{
+    color    : #003e90;
+    font-size: 16px;
+}
+
+.tabla-cortesia .emcabezado-tabla
+{
+   border-bottom: 2px solid #003e90;
+   width        : 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Preguntas Frecuentes */

@@ -1,0 +1,89 @@
+
+/*INFORMACION MES, AÑO , CONSULTA*/
+
+h3
+{
+				color     : #003e90;
+				display   : block;
+				margin    : 0px auto;
+				margin-top: 30px;
+				width     : 50%;
+}
+
+ .mes , .anio
+{
+			color      : #003e90;
+			display    : inline-block;
+			margin-left: 60px;
+}
+
+.info-consultas
+{
+				display      : block;
+				margin       : 0px auto;
+				margin-bottom: 30px;
+				margin-top   : 30px;
+				min-width    : 250px;
+				padding      : 10px 10px;
+				width        : 50%;
+}
+
+.consultar
+{
+	   margin-left: 20px;
+}
+
+.consultar:hover
+{
+				background: #003e90;
+				color     : white;
+}
+
+.consultar:active
+{
+				background: #0469ed;
+				color     : white;
+}
+
+#seleccion
+{
+				-moz-border-radius   : 3px ;
+				-webkit-border-radius: 3px ;
+				border-color         : #ccc;;
+				border-radius        : 3px ;
+				font-size            : 12px;
+				padding              : 5px 10px;
+}
+
+#tpp_dos
+{
+			 -moz-border-radius   : 3px ;
+			 -webkit-border-radius: 3px ;
+			 border-color         : #ccc;;
+			 border-radius        : 3px ;
+			 font-size            : 12px;
+			 padding              : 5px 10px;
+}
+
+/*FIN INFORMACION MES, AÑO , CONSULTA*/
+
+/*INICIO TABLA-COMISIONES*/
+
+.cuerpo-tabla
+{
+	   height:200px;
+	   max-height:200px;
+	   overflow:auto;
+
+	   width:100%;
+}
+
+/*FINAL TABLA-COMISIONES*/
+
+
+/*INICIO TABLA-BONIFICACIONES*/
+
+
+
+
+/*FINAL TABLA-BONIFICACIONES*/

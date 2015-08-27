@@ -1,0 +1,91 @@
+.contenedor_barra_usuarion
+{
+     width: 75%;
+     margin: 0px auto;
+}
+
+/*
+______ Barra ususarios _______
+*/
+
+#anio-consulta
+{
+    height: 28px;
+    display: block;
+    margin-top: 5px;
+}
+
+.colum-usurarios
+{
+    display:block;
+    padding: 0px;
+}
+
+.barra-usurarios
+{
+   display      : block;
+   width        : 100%;
+   height       : 40px;
+   margin-bottom: 20px;
+}
+
+.colum-usuarios-rgts
+{
+    display: block;
+    padding: 0px;
+}
+
+.mis_usuarios
+{
+    -webkit-border-radius: 3px 0px 0px 3px;
+    -moz-border-radius   : 3px 0px 0px 3px;
+    border-radius        : 3px 0px 0px 3px;
+    padding    : 0px;
+    height     : 37.5px;
+    padding-top: 10px;
+    color      : #003e90;
+    font-weight: bold;
+}
+
+.usuarios
+{
+    display: inline-block;
+    text-align: center;
+    padding: 0px;
+    width: 120px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: 1px solid #aaaaaa;
+    margin-top: 8px;
+    margin-bottom: -5px;
+    margin-left:  0px;
+
+}
+
+  .divicion_barra_usuario
+  {
+      float: left;
+  }
+
+  .ul-usuarios
+  {
+
+     padding-left: 5px;
+  }
+
+  .padding_none
+  {
+       padding-left: 0px;
+       padding-right: 0px;
+  }
+
+/*.active
+{
+     background: red;
+     color: white;
+     border: 1px solid red;
+}
+*/

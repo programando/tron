@@ -1,0 +1,75 @@
+
+/*
+_____ Estado cuenta dinero ,
+      Estado de mi cuenta puntos _______
+*/
+.Estado-cuenta
+{
+	   font-size: 20px;
+    text-align: center;
+}
+
+.saldos
+{
+	  font-size: 34px;
+	  text-align: center;
+}
+
+/*
+______ Cabezara de la tabla ________
+*/
+
+.cont-cabezera-tabla-dinero /* Tabla-dinero */
+{
+	   display: block;
+	   border-bottom: 2px solid #009900;
+	   padding-bottom: 2px;
+	   height: 25px;
+}
+
+.Cabezera-tabla /* Tabla-dinero */
+{
+				float: left;
+				color: #009900;
+				padding: 0px;
+}
+
+.cont-cabezera-tabla-puntos/* Tabla-puntos */
+{
+	   display: block;
+	   border-bottom: 2px solid #ff6600;
+	   padding-bottom: 2px;
+	   height: 25px;
+}
+
+.Cabezera-tabla-puntos/* Tabla-puntos */
+{
+				float: left;
+				margin: 0px;
+				color: #ff6600;
+}
+
+/*
+_______ Cuerpo de la tabla ________
+*/
+
+.cuerpo-tabla/* Cuerpo-tabla= scroll */
+{
+   overflow:auto;
+   height:200px;
+   display: block;
+   padding: 0px;
+   font-size: 11.2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

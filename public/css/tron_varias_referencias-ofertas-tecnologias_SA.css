@@ -1,0 +1,49 @@
+
+
+.imagenes-referencias-ofertas-tenologias
+{
+    display : block;
+    height  : auto;
+    position: absolute;
+    margin-left:-22px;
+    margin-top:-11px;
+}
+
+.img-varias-referencias
+{
+     background: url(../images/empresa/varias-referencias.png) no-repeat;
+     height    : 52px;
+     width     : 79px;
+     z-index   : 3;
+}
+
+
+.img-ofertas
+{
+     background: url(../images/empresa/en_oferta.png) no-repeat;
+     height    : 60px;
+     width     : 60px;
+     z-index   : 4;
+}
+
+.img-ofertas .img-Producto-en-Oferta
+{
+	height: 65px;
+}
+
+.img-tecnologias
+{
+     /*background: url(../images/empresa/tecnologias.png)no-repeat;*/
+     height: 50px;
+     width: 100px;
+     z-index   : 5;
+
+}
+
+
+.img-varias-referencias ,
+.img-ofertas ,
+.img-tecnologias
+{
+	cursor: pointer;
+}
