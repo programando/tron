@@ -914,7 +914,7 @@ class TercerosController extends Controller
     }
 
 
-    public function registro()
+  /*  public function registro()
     {
         $this->Registro_Re_Establecer_Tercero_Presenta();
         Session::Destroy('idtipo_plan_compras');
@@ -924,6 +924,7 @@ class TercerosController extends Controller
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
         $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios'));
     }
+    */
 
     public function registro($presentado_por_amigo = 0)  {
         if ( $presentado_por_amigo == 0 ) {
