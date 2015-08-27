@@ -18,6 +18,7 @@ class IndexController extends Controller
     public function Index() {
         $info               = General_Functions::Datos_Navegador();
         $Tipo_Navegador     = $info['browser'];
+        $Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
 
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
