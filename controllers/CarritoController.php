@@ -102,10 +102,7 @@ class CarritoController extends Controller{
          *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
          */
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
-<<<<<<< HEAD
-=======
 
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
         if ($idpedido >0 ){
            $Vr_Total_Pedido_Real = 1;
         }
@@ -606,10 +603,9 @@ public function Totalizar_Carrito(){
        Session::Set('Peso_Total_Pedido_Kilos',   $this->Peso_Total_Pedido_Kilos);
        Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
        Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
-<<<<<<< HEAD
-=======
+
        Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 
 
 } // Fin Tootalizar carrito temp
@@ -663,17 +659,13 @@ private function Totalizar_Carrito_Hallar_Presupuesto_Fletes_Anticipo_Recaudo(){
 
 private function Totalizar_Carrito_Hallar_Valor_Declarado(){
 
-<<<<<<< HEAD
-    $factor_seguro_flete_otros_productos           = Session::Get('factor_seguro_flete_otros_productos');
-    $porciento_seguro_flete_productos_industriales = Session::Get('porciento_seguro_flete_productos_industriales'); // También es un Factor
 
-=======
     $factor_seguro_flete_otros_productos              = Session::Get('factor_seguro_flete_otros_productos');
     $porciento_seguro_flete_productos_industriales    = Session::Get('porciento_seguro_flete_productos_industriales'); // También es un Factor
     $factor_vr_declarado_productos_tron               = Session::Get('factor_vr_declarado_productos_tron');            // También es un Factor
     $valor_minimo_aplicar_vr_declarado_productos_tron = Session::Get('valor_minimo_aplicar_vr_declarado_productos_tron');
     $rt_courrier_seguro                               =  Session::Get('rt_courrier_seguro');
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
     $this->Iniciar_Procesos_Carro();
     if ($this->Carrito_Habilitado == FALSE)  {
         return ;
@@ -681,20 +673,16 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
     foreach ($this->Datos_Carro as &$Productos){
       $id_categoria_producto         = $Productos['id_categoria_producto'];
       $idproducto                    = $Productos['idproducto'];
-<<<<<<< HEAD
-      $precio_unitario_produc_pedido = $Productos['precio_unitario_produc_pedido'] ;
-=======
+
       $precio_venta_antes_iva = $Productos['precio_venta_antes_iva'] ;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
       $cantidad                      = $Productos['cantidad'] ;
 
       // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP. Y PASES DE CORTESÍA
       if ($idproducto != 10744 && $idproducto != 2071 && $idproducto != 14999 ){  // IF (1)
-<<<<<<< HEAD
-        $_precio_unitario_produc_pedido                = $precio_unitario_produc_pedido  *  $cantidad  ;
-=======
+
         $_precio_unitario_produc_pedido                = $precio_venta_antes_iva  *  $cantidad  ;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
         // VALOR DECLARADO PARA OTROS PRODUCTOS
         if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
             $Productos['valor_declarado']          =  $_precio_unitario_produc_pedido  * $factor_seguro_flete_otros_productos ;
@@ -707,19 +695,13 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
         }
         // VALOR DECLARADO PRODUCTOS TRON
         if  ( $id_categoria_producto >= 1 &&  $id_categoria_producto <= 4) {
-<<<<<<< HEAD
-           if ( $this->compras_tron  >= 50000 && $this->Cantidad_Productos_Tron > 0  ){
-              $_valor_declarado_item = $this->compras_tron  * 0.4 / $this->Cantidad_Productos_Tron ;
-           }
-           if ( $this->compras_tron  < 50000 && $this->Cantidad_Productos_Tron > 0  ){
-              $_valor_declarado_item  = 15000 /  $this->Cantidad_Productos_Tron ;
-=======
+
            if ( $this->compras_tron  >= $valor_minimo_aplicar_vr_declarado_productos_tron && $this->Cantidad_Productos_Tron > 0  ){
               $_valor_declarado_item = $this->compras_tron  * $factor_vr_declarado_productos_tron / $this->Cantidad_Productos_Tron ;
            }
            if ( $this->compras_tron  < $valor_minimo_aplicar_vr_declarado_productos_tron && $this->Cantidad_Productos_Tron > 0  ){
               $_valor_declarado_item  = $rt_courrier_seguro /  $this->Cantidad_Productos_Tron ;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
            }
            $Productos['valor_declarado']         = $_valor_declarado_item * $cantidad;
            $this->Valor_Declarado_Productos_Tron = $this->Valor_Declarado_Productos_Tron + $Productos['valor_declarado'];

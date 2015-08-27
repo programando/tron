@@ -36,13 +36,10 @@
 
        <!-- Registrar Amigo -->
         <li>
-<<<<<<< HEAD
-           <a href="<?= BASE_URL ;?>terceros/registro">
-             / <span class="registrar_amigo"></span> Registrar Amigo bajo mi Código
-=======
+
            <a href="<?= BASE_URL ;?>terceros/registro/1">
              / <span class="registrar_amigo"></span> Registrar Amigo bajo mi código
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
            </a>
         </li>
 

@@ -30,12 +30,9 @@
  				$this->Cantidad_Registros  = $this->Db->Cantidad_Registros;
  				return $Registro;
 			}
-<<<<<<< HEAD
- 		public function Grabar($Pedido=array())
- 		{/** MARZO 24 DE 2015
-=======
- 		public function Grabar($Pedido=array())	{/** MARZO 24 DE 2015
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
+ 		public function Grabar($Pedido=array())	{
+ 		/** MARZO 24 DE 2015
  			*					GRABAR PEDIDO EN LA BASE DE DATOS
  			*/
  				extract($Pedido);
@@ -45,12 +42,8 @@
 					$Sql = $Sql . $vr_fletes_reserva .',' . $vr_diferencia_recaudo . ',' . $vr_fletes_totales . ',' . $vr_total_pedido.',';
 					$Sql = $Sql . $puntos_redimidos .',' . $tipo_despacho . ',' . $id_transportadora . ',' . $solo_pago_inscripcion_red.',';
 					$Sql = $Sql . $id_pase_cortesia .',' . $idtercero_envia_pase . ',' . $pase_es_premium . ',' . $idtercero_recibe_comisiones.',';
-<<<<<<< HEAD
-					$Sql = $Sql . $peso_gramos_pedido .',' . $email_confirma_factura . ',' . $pagado_online. ',' . $pago_recibido;
-
-=======
 					$Sql = $Sql . $peso_gramos_pedido .',' . $email_confirma_factura . ',' . $pagado_online. ',' . $pago_recibido . ',' . $valor_declarado_pedido;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
  				$Registro = $this->Db->Ejecutar_Sp("pedidos_crear_modificar($Sql);");
  				return $Registro;
  		}
@@ -69,13 +62,5 @@
  			$Registro = $this->Db->Ejecutar_Sp("pedidos_actualizar_forma_de_pago($idpedido,$idformapago,$pagado_online);");
  		}
 
-<<<<<<< HEAD
 
-
-
-
-
-=======
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
-  }
 ?>

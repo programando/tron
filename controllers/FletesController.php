@@ -316,30 +316,26 @@
 								if ($this->iddpto == 32 ){		// VALLE
 													if ( $this->idmcipio == 153 ){
 																	$tipo_destino         ='URBANO';
-<<<<<<< HEAD
-																	$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano']  ;
-=======
+
 																	if ( $this->Cant_Unidades_Despacho <= 1 ){
 																		$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano']  ;
 																	}else{
 																			$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
 																	}
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 																	$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_urbano'] ;
 																	$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_urbano']  ;
 																	$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_urbano']  ;
 													}
 													if ( $this->idmcipio != 153 && $this->re_expedicion  == FALSE) {
 																	$tipo_destino         ='REGIONAL';
-<<<<<<< HEAD
-																	$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_regional']  ;
-=======
+
 																	if ( $this->Cant_Unidades_Despacho <= 1 ){
 																		$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_regional']  ;
 																	}else{
 																			$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_regional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
 																	}
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 																	$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_regional'] ;
 																	$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_regional']  ;
 																	$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_regional']  ;
@@ -347,24 +343,18 @@
 								}
 								if ($this->iddpto != 32 ){
 																	$tipo_destino         ='NACIONAL';
-<<<<<<< HEAD
-																	$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional']  ;
-=======
+
 																	if ( $this->Cant_Unidades_Despacho <= 1 ){
 																		 $peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional']  ;
 																	}else{
 																			$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
 																	}
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 																	$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_nacional'] ;
 																	$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_nacional']  ;
 																	$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_nacional']  ;
 								}
-<<<<<<< HEAD
 
-								if ( $this->re_expedicion  == TRUE) {
-														$tipo_destino         ='RE-EXPEDICION';
-=======
 								if ( $this->re_expedicion  == TRUE) {
 														$tipo_destino         ='RE-EXPEDICION';
 															if ( $this->Cant_Unidades_Despacho <= 1 ){
@@ -372,7 +362,7 @@
 															}else{
 																	$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_reexpedicion_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
 															}
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 														$peso_minino          =	$this->Transportadoras[0]['rdtrans_peso_min_reexpedicion']  ;
 														$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_reexpedicion'] ;
 														$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_reexpedicion']  ;
@@ -609,14 +599,10 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
         $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
         $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
 
-<<<<<<< HEAD
-        if ( $this->Cant_Unidades_Despacho < 0){
-        	$this->Cant_Unidades_Despacho = 0;
-=======
+
         if ( $this->Cant_Unidades_Despacho <= 0){
         	$this->Cant_Unidades_Despacho = 1;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
-        }
+
 
         Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
 

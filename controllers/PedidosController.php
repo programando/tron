@@ -82,10 +82,9 @@ class PedidosController extends Controller
 					$vr_comis_pago_pedidos       = Session::Get('Comisiones_Utilizadas') ;
 					$vr_puntos_redimidos         = Session::Get('Puntos_Utilizados') ;
 					$vr_inscripcion_red          = Session::Get('vr_inscripcion_red') ;
-<<<<<<< HEAD
-=======
+
           $valor_declarado_pedido      = Session::Get('Valor_Declarado_Total') ;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 
           if ( !isset($vr_inscripcion_red))     { $vr_inscripcion_red    = 0 ;     }
           if ( !isset($vr_comis_pago_pedidos))  { $vr_comis_pago_pedidos = 0 ;     }
@@ -117,11 +116,8 @@ class PedidosController extends Controller
 
 
     	  $Datos  = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron','vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos','vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo','vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
-<<<<<<< HEAD
-        'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido');
-=======
         'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado_pedido');
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 
 
 
@@ -144,19 +140,7 @@ class PedidosController extends Controller
      $Valores           = '';
      $Datos             = '';
      $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt) VALUES ";
-<<<<<<< HEAD
-    	foreach ($this->Datos_Carro as $Productos)
-    	{
-							$idpedido  	 = $IdPedido_Generado;
-							$idproducto  = $Productos['idproducto'];
-							$cantidad    = $Productos['cantidad'];
-							$vrunitario  = $Productos['precio_unitario_produc_pedido'];   ;
-							$vr_total    = $Productos['precio_total_produc_pedido'];
-							$idescala_dt = $Productos['idescala_dt'];
-							$Valores     = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
-							$Valores     = '( ' . $Valores . ' ),';
-							$Datos 		    = $Datos . $Valores ;
-=======
+
     	foreach ($this->Datos_Carro as $Productos)	{
 					$idpedido  	 = $IdPedido_Generado;
 					$idproducto  = $Productos['idproducto'];
@@ -167,7 +151,7 @@ class PedidosController extends Controller
 					$Valores     = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
 					$Valores     = '( ' . $Valores . ' ),';
 					$Datos 		    = $Datos . $Valores ;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
     	}
 				$Texto_SQL = $Texto_SQL . $Datos;
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
@@ -180,11 +164,10 @@ class PedidosController extends Controller
 				/// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
 
-<<<<<<< HEAD
+
     echo "OK";
-=======
-        echo "OK";
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
+
     }
 
 

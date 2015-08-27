@@ -15,24 +15,17 @@
           <div class="col-lg-4 col-md-4  col-sm-4 cont-per">
             <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
             <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
-<<<<<<< HEAD
 
-            <div style="display: none;"><?php include (APPLICATION_SECTIONS .'carrito_header.php');?></div>
-            <div style="display: none;"><?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?></div>
-=======
+
             <div><?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?></div>
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
           </div>
         </div>
 
 
   <!--Menu-Vista-Industrial -->
      <!-- Tabs hogar , industrial -->
-<<<<<<< HEAD
-     <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
-=======
- 
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
         <nav id="menu-industial" class="navbar navbar-default" role="navigation">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -57,7 +50,7 @@
             <li><a class="list-indust indus_campo_2"  id="indus_destacados" href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
             <li><a class="list-indust indus_campo_3"                        href="<?=BASE_URL ;?>redtron/contactanos">CONTACTOS</a></li>
             <!-- Info -->
-            <li><a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-indust" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>            
+            <li><a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" class="list-indust" style="padding:5px;"> <img src="<?= BASE_IMG_EMPRESA ; ?>info_menu.png" style="height: 25px;"></a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -68,7 +61,7 @@
                       <li>
                         <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
                       </li>
- 
+
                   </ul>
             </li>
           </ul>

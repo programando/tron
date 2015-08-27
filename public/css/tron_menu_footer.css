@@ -222,7 +222,7 @@ body
 	margin: 2px 0px 0px;
 	min-width: 160px;
 	z-index: 1000;
-}   
+}
 
 /* Mi cuenta  => Menu */
 /*#cuenta_info_menu > li
@@ -323,11 +323,10 @@ body
 .tabs-menu
 {
 		right: 0px;
-<<<<<<< HEAD
-		top: -39px;
-=======
+
+
 		top: 40px;
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
+
 		/*float: right;*/
 		/*margin-bottom: -5px;*/
 		/*margin-right : -20px;*/

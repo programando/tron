@@ -72,12 +72,9 @@ var Iniciar_Sesion = function(Parametros){
 
 
 
-<<<<<<< HEAD
+
 function Recuperar_Password(Parametros)
 {
-=======
-function Recuperar_Password(Parametros){
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
 			$("#dv-img-cargando").show();
 			$.ajax({
 							data:  Parametros,
@@ -126,12 +123,8 @@ function Verificar_Activacion_Usuario_Envio_Correo(Parametros){
 }
 
 
-<<<<<<< HEAD
-function Verificar_Activacion_Usuario(Parametros)
-{
-=======
+
 function Verificar_Activacion_Usuario(Parametros){
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
@@ -183,8 +176,7 @@ $('.email-usuario').on('focusout',function(){
 		Verificar_Activacion_Usuario($Parametros);
 });
 
-<<<<<<< HEAD
-=======
+
 // ENTER EN PASSWORD
 $('#login-password').on('keypress',function(e){
 	 if(e.keyCode == 13) {
@@ -193,10 +185,6 @@ $('#login-password').on('keypress',function(e){
 });
 
 
-
-
-
->>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
 //BOTON PARA INICIAR SESION. ENERO 30 DE 2015
 $('.btn-login').on('click', function(){
 	var email    =  $('.email-usuario').val();
