@@ -84,14 +84,12 @@ class IndexController extends Controller
 
     }
 
-    public function Cerrar_Sesion()
-    {
+    public function Cerrar_Sesion() {
         Session::Destroy();
         $this->Redireccionar();
     }
 
-    public function industrial()
-    {
+    public function industrial(){
         Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
