@@ -152,8 +152,12 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
       dataType: 'json',
       url:      '/tron/carrito/Finalizar_Pedido_Direccion_Final/',
       type:     'post',
+<<<<<<< HEAD
       success:  function (resultado)
        {
+=======
+      success:  function (resultado)  {
+>>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
           //$('#nombre-usuario-pedido').html('El pedido será despachado a nombre de :' + $Nombre_Usuario_Pedido);
       }
       });
@@ -162,8 +166,12 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
 
 
 //$Codigos = $("ul");
+<<<<<<< HEAD
 $('.usu-1').on('click',function()
 {
+=======
+$('.usu-1').on('click',function(){
+>>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
   $Usuario_Seleccionado = $(this).attr('id');
   $Cantidad_Direcciones = $(this).attr('cantidad-direcciones');
   $('.barra-usurarios li').each(function(indice, elemento) {

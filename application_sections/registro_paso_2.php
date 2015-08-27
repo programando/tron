@@ -18,7 +18,11 @@
                 <label for="input_codigo"  class="col-lg-8  control-label  label_codigo"><p class="text-label">
                 Código del usuario que te presenta en la Red:</p></label>
                 <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
+<<<<<<< HEAD
                    <input type="text" class="form-control" id="input_codigo" tabindex="1" />
+=======
+                   <input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>" />
+>>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
                 </div>
               </div>
           </div><!--Codigo -->

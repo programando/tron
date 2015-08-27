@@ -34,6 +34,7 @@ class IndexController extends Controller
         Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);           // valor de la 1 cuota de inscripcion
         Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
         Session::Set('kit_vr_transporte'                  ,0);
+<<<<<<< HEAD
         // VALORES PAYU LATAM
         Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
         Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
@@ -42,6 +43,20 @@ class IndexController extends Controller
         Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_transferencias']));
         Session::Set('factor_seguro_flete_otros_productos',             $Parametros[0]['factor_seguro_flete_otros_productos']);
         Session::Set('porciento_seguro_flete_productos_industriales',   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
+=======
+        Session::Set('rt_courrier_seguro'                  ,$Parametros[0]['rt_courrier_seguro']);          // Valor seguro mínimo para couurier. Aplica para productos TRON
+        // VALORES PAYU LATAM
+        Session::Set('py_porciento_recaudo'                                 ,   $Parametros[0]['py_porciento_recaudo']/100);
+        Session::Set('py_vr_min_recaudo'                                    ,   $Parametros[0]['py_vr_min_recaudo']);
+        Session::Set('py_vr_adicional'                                      ,   $Parametros[0]['py_vr_adicional']);
+        Session::Set('valor_transferencia_bancaria'                         ,   Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
+        Session::Set('valor_minimo_transferencias'                          ,   Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_transferencias']));
+        Session::Set('factor_seguro_flete_otros_productos'                  ,   $Parametros[0]['factor_seguro_flete_otros_productos']);
+        Session::Set('porciento_seguro_flete_productos_industriales'        ,   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
+        Session::Set('factor_vr_declarado_productos_tron'                   ,   $Parametros[0]['factor_vr_declarado_productos_tron']);
+        Session::Set('valor_minimo_aplicar_vr_declarado_productos_tron'     ,   $Parametros[0]['valor_minimo_aplicar_vr_declarado_productos_tron']);
+
+>>>>>>> 251c1da0934975de9c02dd917fb304508e5b0aaa
 
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
