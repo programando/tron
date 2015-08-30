@@ -24,7 +24,7 @@
                   <p>
                     Las condiciones generales aquí señaladas regularán la comercialización de los
                     productos elaborados y/o distribuidos por la sociedad BALQUIMIA S.A.S. con Nit.
-                    900.755.214-4 a través de la Tienda Virtual en su portal de internet
+                    900.755.214 - 4 a través de la Tienda Virtual en su portal de internet
                     <span class="link_entre_amigos">www.entreamigosalcanzamos.com</span>
                      con el cual brindará un servicio en línea a las personas naturales y/o jurídicas,
                     interesadas en participar en su modelo de negocio
