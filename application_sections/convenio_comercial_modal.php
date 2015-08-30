@@ -1,16 +1,17 @@
 <!-- Ventana modal de termino y condiciones -->
-<div>
-    <div class="modal fade" id="convenio_comercial_modal" tabindex="-1" role="dialog" aria-labelledby="convenio_comercial_modal" aria-hidden="true">
-        <div class="modal-dialog ventana-modal">
-            <div class="modal-content">
+<div id="ventana_modal_convenio_comercial">
+    <div id="contenedor_convenio">
+        <!-- BTN = cerrar modal -->
+        <div>
+             <a  id="cerrar_modal" class="close_modal_convenio">
+                <span class="glyphicon glyphicon-remove"></span>
+             </a>   
+        </div>
 
-              <!-- Cabezera -->
-              <div>
-                   <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-
+        <div>
+            <div>
               <!-- Cuerpo -->
-              <div class="modal-body cuerpo-modal">
+              <div class="cuerpo-modal">
               <div style="padding:0 60px; width:100%;  text-align:justify; font-size: 17px;">
 
               <!-- Titulo -->

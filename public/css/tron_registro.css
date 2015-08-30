@@ -233,7 +233,8 @@
 
 .btn-registrar-en-plan /* Diseño BTNS => paso 2  */
 {
-    padding        :  10px;
+    padding        :  10px 0px;
+    width: 120px;
     display        : inline-block;
     color          : white;
     border         : 2px solid #da4e48;

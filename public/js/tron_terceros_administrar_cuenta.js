@@ -317,11 +317,6 @@ $('.contenedor_cuenta').on('change','#new_idmcipio',function(){
 	$('.btn_atualizar_direccion').attr('idmcipio',$idmcipio );
 });
 
-
-
-
-
-
 //  pases de cortesia => pases premium
 $('.contenedor_cuenta').on('click','#ver_pases_premiun',function(){
 	   $('#pases_cortesia_vista').fadeOut();
@@ -361,6 +356,19 @@ $('#perfil-datos-personales').on('click',function(){
 				  });
 });
 
+$('#tabla_comisiones').on('click',function(){
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/tabla_comisiones_tron/',
+         type:     'post',
+				    success:  function (respuesta)
+				      {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
 $('#recomendar_amigo').on('click',function(){
     $.ajax({
          dataType: 'html',
@@ -388,22 +396,49 @@ $('#pases_cortesia').on('click',function(){
 });
 
 // BTN = Convenio comercial
-$control = 0;
 
+
+// $control = 0;
+
+// $('#convenio_comercial').on('click',function(){
+//     if($control == 0){
+//     	 	$('.menu_convenio').show();
+//        $control++;
+//     }else{
+//     	  $('.menu_convenio').hide();
+//        $control--;
+//     }
+
+// });
+
+ 
+// Mostrar menu = vista previa / imprimir
 $('#convenio_comercial').on('click',function(){
-    if($control == 0){
-    	 	$('.menu_convenio').show();
-       $control++;
-    }else{
-    	  $('.menu_convenio').hide();
-       $control--;
-    }
-	// $('.contenedor_cuenta').html('');
-	// $('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
-	// //window.location.href  = '/tron/pdf/Convenio_Comercial';
-	// window.open('/tron/pdf/Convenio_Comercial');
-	// $('.contenedor_cuenta').html('');
+    $('.menu_convenio').show();
 });
+
+// ventana modal :: fadeIn();
+$('#vista_previa').on('click',function(){
+	$('#ventana_modal_convenio_comercial').fadeIn();
+});
+
+// ventana modal :: fadeOut();
+$('#cerrar_modal').on('click',function(){
+	$('#ventana_modal_convenio_comercial').fadeOut();
+	$('.menu_convenio').hide();
+});
+
+// mostrar pdf = convenio comercial
+$('#convenio_pdf').on('click',function(){
+    $('.contenedor_cuenta').html('');
+	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
+	// window.location.href  = '/tron/pdf/Convenio_Comercial';
+	window.open('/tron/pdf/Convenio_Comercial');
+	$('.contenedor_cuenta').html(''); 
+	$('.menu_convenio').hide();
+});
+
+
 
 $('#informes-pedidos-realizados').on('click',function(){
 				$Opciones_Seleccionada ='PEDIDOS_REALIZADOS';
