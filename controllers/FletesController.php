@@ -17,8 +17,7 @@
 						private $Cant_Unidades_Despacho 						= 0;
 						private $Datos_Carro  																= array();
 
-      public function __construct()
-      {
+      public function __construct() {
           parent::__construct();
 										$this->Fletes     = $this->Load_Model('Fletes');
 										$this->Parametros = $this->Load_Model('Parametros');
@@ -27,8 +26,8 @@
       public function Index() { }
 
 
-	    public function Calcular_Flete( $valor_declarado,$Calcular_Flete_Courrier)
-	    {/** MARZO 09 DE 2015
+	    public function Calcular_Flete( $valor_declarado,$Calcular_Flete_Courrier) {
+	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
 	      $this->Cant_Unidades_Despacho = 0;
@@ -429,8 +428,8 @@
 
       }
 
-      public function Redetrans_Courrier($peso_pedido_gramos,$valor_declarado)
-      {/** MARZO 07 DE 2015
+      public function Redetrans_Courrier($peso_pedido_gramos,$valor_declarado)      {
+       /** MARZO 07 DE 2015
       	*					CALCULA EL VALOR DE FLETE QUE SE CORBRA POR COURRIER EN REDETRANS
       	*/
 
@@ -446,16 +445,16 @@
 									$this->flete_calculado           = FALSE ;
 									$this->tipo_despacho													= 1;  // REDETRANS COURRIER
 
-									if ($peso_pedido_gramos >= 16000)
-									{
-										$this->valor_flete        = 0;
-									}else
-									{
+									if ($peso_pedido_gramos >= 16000)	{
+											$this->valor_flete        = 0;
+									}else		{
 											$this->flete_calculado            = TRUE ;
 											$this->Valor_Fletes_Productos_Tron($peso_pedido_gramos,$this->iddpto,$this->re_expedicion );
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos/4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
+
+
 
 											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )
 											{
@@ -474,6 +473,7 @@
 
 									$this->Adicionar_Cobro_Flete_Transportadora(0,'1572','REDETRANS');
    		  }
+
 
 
 						private function Adicionar_Cobro_Flete_Transportadora($posicion,$idtransportadora, $nombre_transportadora)
@@ -602,12 +602,12 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
 
         if ( $this->Cant_Unidades_Despacho <= 0){
         	$this->Cant_Unidades_Despacho = 1;
-
-
+									}
         Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
+				}
 
-    }
-}
+
+	}
 ?>
 
 

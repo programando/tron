@@ -62,5 +62,5 @@
  			$Registro = $this->Db->Ejecutar_Sp("pedidos_actualizar_forma_de_pago($idpedido,$idformapago,$pagado_online);");
  		}
 
-
+}
 ?>

@@ -57,9 +57,6 @@ class IndexController extends Controller
         Session::Set('factor_vr_declarado_productos_tron'                   ,   $Parametros[0]['factor_vr_declarado_productos_tron']);
         Session::Set('valor_minimo_aplicar_vr_declarado_productos_tron'     ,   $Parametros[0]['valor_minimo_aplicar_vr_declarado_productos_tron']);
 
-
-
-
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
         $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();

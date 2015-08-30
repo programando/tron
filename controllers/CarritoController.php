@@ -657,9 +657,8 @@ private function Totalizar_Carrito_Hallar_Presupuesto_Fletes_Anticipo_Recaudo(){
      $this->Cerrar_Procesos_Carro();
 }
 
+
 private function Totalizar_Carrito_Hallar_Valor_Declarado(){
-
-
     $factor_seguro_flete_otros_productos              = Session::Get('factor_seguro_flete_otros_productos');
     $porciento_seguro_flete_productos_industriales    = Session::Get('porciento_seguro_flete_productos_industriales'); // También es un Factor
     $factor_vr_declarado_productos_tron               = Session::Get('factor_vr_declarado_productos_tron');            // También es un Factor
@@ -671,12 +670,11 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
         return ;
      }
     foreach ($this->Datos_Carro as &$Productos){
-      $id_categoria_producto         = $Productos['id_categoria_producto'];
-      $idproducto                    = $Productos['idproducto'];
-
+      $id_categoria_producto  = $Productos['id_categoria_producto'];
+      $idproducto             = $Productos['idproducto'];
       $precio_venta_antes_iva = $Productos['precio_venta_antes_iva'] ;
+      $cantidad               = $Productos['cantidad'] ;
 
-      $cantidad                      = $Productos['cantidad'] ;
 
       // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP. Y PASES DE CORTESÍA
       if ($idproducto != 10744 && $idproducto != 2071 && $idproducto != 14999 ){  // IF (1)
@@ -695,13 +693,11 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
         }
         // VALOR DECLARADO PRODUCTOS TRON
         if  ( $id_categoria_producto >= 1 &&  $id_categoria_producto <= 4) {
-
            if ( $this->compras_tron  >= $valor_minimo_aplicar_vr_declarado_productos_tron && $this->Cantidad_Productos_Tron > 0  ){
               $_valor_declarado_item = $this->compras_tron  * $factor_vr_declarado_productos_tron / $this->Cantidad_Productos_Tron ;
            }
            if ( $this->compras_tron  < $valor_minimo_aplicar_vr_declarado_productos_tron && $this->Cantidad_Productos_Tron > 0  ){
               $_valor_declarado_item  = $rt_courrier_seguro /  $this->Cantidad_Productos_Tron ;
-
            }
            $Productos['valor_declarado']         = $_valor_declarado_item * $cantidad;
            $this->Valor_Declarado_Productos_Tron = $this->Valor_Declarado_Productos_Tron + $Productos['valor_declarado'];
