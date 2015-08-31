@@ -359,10 +359,9 @@ $('#perfil-datos-personales').on('click',function(){
 $('#tabla_comisiones').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/tabla_comisiones_tron/',
+         url:      '/tron/terceros/tabla_comisiones/',
          type:     'post',
-				    success:  function (respuesta)
-				      {
+				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
@@ -374,8 +373,7 @@ $('#recomendar_amigo').on('click',function(){
          dataType: 'html',
          url:      '/tron/terceros/recomendar_amigo/',
          type:     'post',
-				    success:  function (respuesta)
-				      {
+				    success:  function (respuesta) {
 				         $('.contenedor_cuenta').html('');
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
@@ -387,8 +385,7 @@ $('#pases_cortesia').on('click',function(){
          dataType: 'html',
          url:      '/tron/terceros/pases_cortesia/',
          type:     'post',
-				    success:  function (respuesta)
-				      {
+				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
@@ -411,7 +408,7 @@ $('#pases_cortesia').on('click',function(){
 
 // });
 
- 
+
 // Mostrar menu = vista previa / imprimir
 $('#convenio_comercial').on('click',function(){
     $('.menu_convenio').show();
@@ -434,7 +431,7 @@ $('#convenio_pdf').on('click',function(){
 	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
 	// window.location.href  = '/tron/pdf/Convenio_Comercial';
 	window.open('/tron/pdf/Convenio_Comercial');
-	$('.contenedor_cuenta').html(''); 
+	$('.contenedor_cuenta').html('');
 	$('.menu_convenio').hide();
 });
 

@@ -48,6 +48,14 @@
 			 				$Registro = $this->Db->Ejecutar_Sp("historial_comisiones_registro_puntos_ganados_detalle ($idtercero,$idtipo_registro,$puntos_utilizados,'$observacion' );");
 			 		}
 
+			 		public function Comisiones_x_Grupo_Producto(){
+						/** AGOSTO 30 DE 2015
+							*				CONSULTA LOS GRUPO DE COMISIONES QUE SE TIENEN POR CADA GRUPO DE PRODUCTO
+						 */
+			 				$Registro = $this->Db->Ejecutar_Sp("comisiones_x_grupo_producto();");
+			 				return $Registro ;
+			 		}
+
 
    }
 ?>

@@ -10,6 +10,7 @@ class TercerosController extends Controller
         $this->Departamentos       = $this->Load_Model('Departamentos');
         $this->TiposDocumentos     = $this->Load_Model('Tiposdocumentos');
         $this->Parametros          = $this->Load_Model('Parametros');
+        $this->Comisiones_Grupos   = $this->Load_Model('ComisionesPuntos');
         $this->Correos             = $this->Load_Controller('Emails');
     }
 
@@ -30,10 +31,13 @@ class TercerosController extends Controller
       echo json_encode($datos,256);
     }
 
-    public function tabla_comisiones_tron()
-    {
+    public function tabla_comisiones(){
+      /** AGOSTO 30 DE 2015
+       *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
+       */
+        $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
         $this->View->SetCss(array("tabla_tron_estilos"));
-        $this->View->Mostrar_Vista_Parcial("tabla_tron");
+        $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
     public function transferencioa_comisiones_puntos()

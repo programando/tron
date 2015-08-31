@@ -24,7 +24,7 @@ class ProductosController extends Controller
 
     public function Index() {}
 
-        public function mostrar_resumen_producto()
+    public function mostrar_resumen_producto()
     {
         $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
     }
