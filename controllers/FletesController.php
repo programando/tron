@@ -54,7 +54,8 @@
 	                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
 	      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
 
-	      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') + Session::Get('peso_accesorios');
+	      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') ;
+	      $peso_kilos_pedido  = $peso_kilos_pedido  +  Session::Get('peso_accesorios') + Session::Get('peso_productos_tron');
 	      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
 
@@ -188,13 +189,11 @@
 														$valor_flete_kilos_adiconales = $this->Transportadoras[0]['sv_premier_vr_kilo_mayor_3_reexpedicion'];
 														$this->tipo_tarifa            = 'SERVIENTREGA - PREMIER REEXPEDICIÓN';
 			      	}
-										//Debug::Mostrar($valor_flete_kilos_adiconales );
+
 										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
 
-										/*Debug::Mostrar($valor_flete_hasta_3_kilos );
-										Debug::Mostrar($kilos_adicionales  );
-										*/
+
 
 
 
@@ -453,6 +452,7 @@
       	*/
 
 									$peso_pedido_gramos 		           = $peso_pedido_gramos*1000;
+
 									$this->Transportadoras           = $this->Parametros->Transportadoras();
 									$Flete_Redetrans_Courrier        = array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE);
 									$this->valor_flete               = 0;
@@ -464,6 +464,8 @@
 									$this->flete_calculado           = FALSE ;
 									$this->tipo_despacho													= 1;  // REDETRANS COURRIER
 
+
+
 									if ($peso_pedido_gramos >= 16000)	{
 											$this->valor_flete        = 0;
 									}else		{
@@ -472,9 +474,6 @@
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos/4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
-
-
-
 											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )
 											{
 													$this->seguro_redetrans_courrier = $valor_declarado  *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
@@ -482,12 +481,10 @@
 													$this->seguro_redetrans_courrier = $this->Transportadoras[0]['rt_courrier_seguro'] *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
 
-
 											Session::Set('REDETRANS_COURRIER_flete', $this->valor_flete );
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
 											Session::Set('REDETRANS_COURRIER_seguro', $this->seguro_redetrans_courrier);
 											Session::Set('REDETRANS_COURRIER_flete_total',  $this->valor_flete );
-
 									}
 
 									$this->Adicionar_Cobro_Flete_Transportadora(0,'1572','REDETRANS');
@@ -575,7 +572,7 @@
 			      }// fin function
 
 
-public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
+public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido=0)
     {/** MARZO 12 de 2015
       *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
       */
@@ -623,6 +620,7 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
         if ( $this->Cant_Unidades_Despacho <= 0){
         	$this->Cant_Unidades_Despacho = 1;
 									}
+
         Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
 				}
 

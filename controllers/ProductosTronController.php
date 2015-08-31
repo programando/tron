@@ -35,8 +35,12 @@
 									$dscto_precio_mercado_2_banios       = $parametros[0]['dscto_precio_mercado_2_banos'] / 100 ;
 									$dscto_precio_mercado_3_pisos        = $parametros[0]['dscto_precio_mercado_3_pisos'] / 100 ;
 									$dscto_precio_mercado_4_loza         = $parametros[0]['dscto_precio_mercado_4_loza'] / 100 ;
-
 									$valor_minimo_pedido_productos       = $parametros[0]['valor_minimo_pedido_productos'];
+									//VALORES PARA FLETES Y PRESUPUESTO DE FLETES
+									Session::Set('rt_courrier_seguro'                                   ,   $parametros[0]['rt_courrier_seguro']);
+									Session::Set('rt_courrier_porciento_seguro_minimo'                  ,   $parametros[0]['rt_courrier_porciento_seguro_minimo']/100 );
+									Session::Set('factor_vr_declarado_productos_tron'                   ,   $parametros[0]['factor_vr_declarado_productos_tron']);
+         Session::Set('valor_minimo_aplicar_vr_declarado_productos_tron'     ,   $parametros[0]['valor_minimo_aplicar_vr_declarado_productos_tron']);
 
 									$subsidio_flete_valle                = 0;
 									$descuento_mercado_porcentaje_ropa   = 0;
@@ -49,9 +53,8 @@
 											$Costo_Total        = $Cmv_Ropa 										+ $Cmv_Banios 									 + $Cmv_Pisos		 								+ $Cmv_Loza	 ;
 											$Precio_Lista_Total = $Precio_Lista_Ropa  + $Precio_Lista_Banios 	+ $Precio_Lista_Pisos 	+ $Precio_Lista_Loza;
 
-											$Flete_Real = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
-
-											$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
+										$Flete_Real = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
+										$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
 
 											$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional ;
 											$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $Flete_Real  );
@@ -157,10 +160,11 @@
 															if ( $Cantidad_Loza  > 0 ) {
 																	 $vr_unitario_loza = $precio_especial_unitario_loza  / $Cantidad_Loza ;
 																}
-																if ( $vr_unitario_ropa == 0)
-																{
+																if ( $vr_unitario_ropa == 0)	{
 																	$vr_unitario_ropa = $Precio_Lista_Ropa;
 																}
+
+																// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
 
 																Session::Set('precio_especial',$precio_especial);
 																Session::Set('transporte_tron',$transporte_tron);

@@ -54,8 +54,6 @@ class IndexController extends Controller
         Session::Set('valor_minimo_transferencias'                          ,   Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_transferencias']));
         Session::Set('factor_seguro_flete_otros_productos'                  ,   $Parametros[0]['factor_seguro_flete_otros_productos']);
         Session::Set('porciento_seguro_flete_productos_industriales'        ,   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
-        Session::Set('factor_vr_declarado_productos_tron'                   ,   $Parametros[0]['factor_vr_declarado_productos_tron']);
-        Session::Set('valor_minimo_aplicar_vr_declarado_productos_tron'     ,   $Parametros[0]['valor_minimo_aplicar_vr_declarado_productos_tron']);
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
