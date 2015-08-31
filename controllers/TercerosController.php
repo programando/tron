@@ -789,16 +789,8 @@ class TercerosController extends Controller
       Session::Set('nombre_usuario_pedido',           $Registro[0]["nombre_usuario_pedido"]);
       Session::Set('iddireccion_despacho',            0);
       Session::Set('cantidad_direcciones',            $Registro[0]["cantidad_direcciones"]);
-      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
-      Session::Set('nomdpto_despacho',                ucfirst ($Registro[0]["nomdpto_despacho"]));
 
-      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
-      Session::Set('iddpto',                          $Registro[0]["iddpto"]);
-      Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
-      Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
-      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
-      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
+
 
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
@@ -884,8 +876,8 @@ class TercerosController extends Controller
          Session::Set('saldo_puntos_cantidad',           $Registro[0]["saldo_puntos_cantidad"]);
       }
 
-      public function Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho, $idmcipio=153 )
-      {/** MARZO 12 DE 2015
+      public function Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho, $idmcipio=153 )   {
+      /** MARZO 12 DE 2015
         *       CONSULTA INFORMACIÓN DE LA CIUDAD, DEPARTAMENTO Y VARIABLES DE FLETES CON LA DIRECCIÓN DE DESPACHO SELECCIONADA
         *       ESTABLECE UN PARAMETRO idmcipio = 153 ( CALI ), PARA CONSULTAR DESDE EL INDEX CONTROLLER Y CARGAR CIERTAS VARIABLES
         */
@@ -907,24 +899,11 @@ class TercerosController extends Controller
         Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
       }
 
-    public function registrarse()
-    {
+    public function registrarse() {
         $this->View->SetCss(array("tron_registrarse"));
         $this->View->Mostrar_Vista("registrarse");
     }
 
-
-  /*  public function registro()
-    {
-        $this->Registro_Re_Establecer_Tercero_Presenta();
-        Session::Destroy('idtipo_plan_compras');
-        $this->View->Total_Kit_Inscripcion = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
-        $this->View->TiposDocumentos = $this->TiposDocumentos->Consultar();
-        $this->View->Departamentos   = $this->Departamentos->Consultar();
-        $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
-        $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios'));
-    }
-    */
 
     public function registro($presentado_por_amigo = 0)  {
         if ( $presentado_por_amigo == 0 ) {

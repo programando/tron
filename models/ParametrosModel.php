@@ -26,6 +26,16 @@
 						return 	$Parametros  ;
 				}
 
+				public function Transportadoras_Vr_Kilo_Destino($idmcipio)
+				{
+						/** ENERO 04 DE 2014
+						*		 CONSULTA EL VALOR POR KILO SEGÚN EL DESTINO. APLICA PARA FLETES CARGA	*/
+						$Parametros               = $this->Db->Ejecutar_Sp("transportadores_vr_kilo_destino($idmcipio)");
+						$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
+						return 	$Parametros  ;
+				}
+
+
 				public function Bancos_Para_Transferencias(){
 						/** JUNIO 16 DE 2015
 						*		 CONSULTA LOS BANCOS PARA TRANSFERENCIA ELECTRONICA	*/
@@ -33,6 +43,8 @@
 						$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 						return 	$Parametros  ;
 				}
+
+
 
   }
 ?>

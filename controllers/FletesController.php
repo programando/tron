@@ -23,8 +23,23 @@
 										$this->Parametros = $this->Load_Model('Parametros');
       }
 
-      public function Index() { }
+    public function Index() {  }
 
+					public function Consultar_Vr_Kilo_Destino(){
+										$this->idmcipio = Session::Get('idmcipio');
+										$Registro       = $this->Parametros->Transportadoras_Vr_Kilo_Destino($this->idmcipio );
+
+					      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
+					      Session::Set('nomdpto_despacho',                ucfirst ($Registro[0]["nomdpto_despacho"]));
+					      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
+					      Session::Set('iddpto',                          $Registro[0]["iddpto"]);
+					      Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
+					      Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
+					      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
+					      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
+					      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
+
+					}
 
 	    public function Calcular_Flete( $valor_declarado,$Calcular_Flete_Courrier) {
 	    /** MARZO 09 DE 2015
@@ -77,8 +92,8 @@
     }
 
 
-    public function Encontrar_Mejor_Flete()
-      {/**  MARZO 12 DE 2015
+    public function Encontrar_Mejor_Flete() {
+     /**  MARZO 12 DE 2015
       *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
       */
 
@@ -200,8 +215,8 @@
           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
       }
 
-      public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado)
-      {/**  MAZO 16 DE 2015
+      public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado) {
+      /**  MAZO 16 DE 2015
       	*							CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA INDUSTRIAL SERVIENTREGA
        	*/
 
@@ -213,16 +228,15 @@
 								$seguro_flete          = 0;
 								$this->valor_flete     = 0 ;
 								$this->tipo_tarifa     = '';
+								$this->Consultar_Vr_Kilo_Destino();
 								$this->re_expedicion   = Session::Get('re_expedicion_servientrega');
 								$this->idmcipio        = Session::Get('idmcipio');
 								$this->iddpto          = Session::Get('iddpto');
 								$this->Transportadoras = $this->Parametros->Transportadoras();
 								$this->Calcular_Numero_Unidades_Despacho($peso_kilos_pedido);
-								$this->tipo_despacho										= 4;  // SERVIENTREGA CARGA
-
+								$this->tipo_despacho   = 4;  // SERVIENTREGA CARGA
 
 								$peso_minimo           = $this->Cant_Unidades_Despacho * $this->Transportadoras['0']['sv_carga_peso_minimo'];
-
 	      	if ($peso_minimo > $peso_kilos_pedido) {
 	      		$peso_kilos_pedido = $peso_minimo;
 	      	}
@@ -243,21 +257,21 @@
 									$this->tipo_tarifa   = 'SERVIENTREGA - CARGA NACIONAL';
 	      }
 
-	      if ($this->iddpto == 32 ) // Valle
-	      {
-	      	 if ($this->idmcipio != 153) // No Cali
-	      	 {
-									$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_zonal'];
-									$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_zonal'];
-									$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_zonal'];
-										$this->tipo_tarifa   = 'SERVIENTREGA - CARGA DEPARTAMENTAL/ZONAL';
-								 } else			{ // Cali
-									$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_reexpedicion'];
-									$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_reexpedicion'];
-									$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_urbano'];
-									$this->tipo_tarifa   = 'SERVIENTREGA - CARGA URBANO';
+	      if ($this->iddpto == 32 )  {// VALLE
+	      	 if ($this->idmcipio != 153)  {
+											$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_zonal'];
+											$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_zonal'];
+											$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_zonal'];
+												$this->tipo_tarifa   = 'SERVIENTREGA - CARGA DEPARTAMENTAL/ZONAL';
+										 } else			{
+											$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_reexpedicion'];// Aunque dice reexpedidion se trata de zonal/urbano
+											$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_reexpedicion'];
+											$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_urbano'];
+											$this->tipo_tarifa   = 'SERVIENTREGA - CARGA URBANO';
 									}
 							}
+
+
 	      if ($this->re_expedicion == 1){
 											$flete_minimo     = 0;
 											$tasa_manejo      = 0;
@@ -271,6 +285,8 @@
 	      $costo_manejo  = 0;
 							$tasa_manejo  = $tasa_manejo / 100;
 							$costo_manejo = $valor_declarado *  $tasa_manejo;
+							$vr_minimo_manejo  = $vr_minimo_manejo  * $this->Cant_Unidades_Despacho;
+
 	      if ($costo_manejo < 	$vr_minimo_manejo ){
 	      				$costo_manejo = $vr_minimo_manejo ;
 	      }
@@ -297,7 +313,9 @@
 						$seguro_flete               = 0;
 						$descuento_comercial        = 0;
 						$this->valor_flete          = 0;
-						$this->Transportadoras      = $this->Parametros->Transportadoras();
+
+      $this->Consultar_Vr_Kilo_Destino();
+      $this->Transportadoras      = $this->Parametros->Transportadoras();
 						$this->re_expedicion        = Session::Get('re_expedicion');
 						$vr_kilo_idmcipio_redetrans = Session::Get('vr_kilo_idmcipio_redetrans');
 						$vr_re_expedicion_redetrans = Session::Get('vr_re_expedicion_redetrans');
@@ -306,6 +324,7 @@
 						$porciento_dscto_ccial      = $this->Transportadoras[0]['rt_carga_descuento_comercial']/100;
 						$this->idmcipio             = Session::Get('idmcipio');
 						$this->iddpto               = Session::Get('iddpto');
+
 
 								$this->tipo_despacho										= 2;  // CARGA REDETRANS
 
@@ -594,8 +613,9 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido)
           }
 
         }// end foreach
-        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_Si_04_Litros/6));
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales/4000));
+        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_Si_04_Litros/6));
+        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_No_Industriales/4000));
+
         $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
         $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
 

@@ -11,15 +11,16 @@ class ParametrosController extends Controller
 
 						public function Index() { }
 
-						public function Consultar()
-						{
+						public function Consultar(){
 								return $this->Parametros->Consultar();
 						}
 
-						public function Transportadoras()
-						{
+						public function Transportadoras()	{
 									return $this->Parametros->Transportadoras();
 						}
 
-	}
+						public function Transportadoras_Vr_Kilo_Destino($idmcipio){
+									return $this->Parametros->Transportadoras_Vr_Kilo_Destino($idmcipio);
+						}
+	  }
 ?>
