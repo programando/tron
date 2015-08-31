@@ -1,49 +1,73 @@
-<div class="tabla_tron">
-	   <div class="row">
-        <!-- columan superrior -->
-        <div class="col-lg-12 col-md-12 col-sm-12">
+<div class="tabla_tron"><br><br><br><br><br>
+	   <div class="row contenedor_tabla_comisiones">
+      <!-- Columna Sectiones de la tabla -->
+       <div class="col-lg-2 col-md-2 col-sm-2 sectiones_tabla">
+           <!-- section hogar -->
           <div>
-              <div>
-            	   <div style="background: #CAE8F2; " class="col-lg-6 col-md-6 col-sm-6 text-center">
-            	   	  	<p style="font-size: 12.5px;">COMISIONES POR COMPRAS AMIGOS DEL PLAN <br> EMPRESARIO TRON  ( % sobre venta sin IVA ).</p>
-            	   </div>
+            <div class="section_hogar">
+                <!-- logo -->
+                <div class="bloques_img_hogar">
+                   <img src= "<?= BASE_IMG_EMPRESA ; ?>logo.png" class="img_section_hogar">
+                </div>
+                <!-- text = hogar -->
+                <div class="bloques_img_hogar">
+                   <h5 class="columna_left_text text-left"><strong>HOGAR</strong></h5>
+                </div>                
+           </div>
+          </div>
+          <!-- section industrial -->
+          <div>
+              <div class="section_industrial">
+                <!-- text -->
+                <div class="bloques_img_industrial">
+                   <h5 class="columna_left_text text-left"><strong>INDUSTRAL</strong></h5>
+                </div> 
+                <!-- img -->
+                <div class="bloques_img_industrial">
+                     <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png" class="img-responsive img-tecno_aplicds">
+                </div>
               </div>
-
-              <div>
-            	   <div style="background:#CDCBCE;" class="col-lg-6 col-md-6 col-sm-6 text-center">
-            	   	  	<p style="font-size: 12.5px;">COMISIONES POR COMRPAS AMIGOS DEL PLAN CLIENTES TRON <br> ( % sobre venta sin IVA).</p>
-            	   </div>
+          </div>
+          <!-- section otros productos -->
+          <div>
+               <div class="section_otros_productos">
+                <div class="text_otros_product"><br><br><br>
+                   <h5 class="columna_left_text text-left"><strong>OTROS PRODUCTOS</strong></h5>
+                </div> 
+               </div>
+          </div>
+          <!-- section prodcutos promocionales -->
+          <div>
+              <div class="section_promocionales">
+                <div class="text_otros_product"> 
+                   <h5 class="columna_left_text text-left"><strong>PRODUCTOS PROMOCIONALES</strong></h5>
+                </div>                 
               </div>
+          </div>
+       </div>
+    
 
-             <!-- divison columan X 3 -->
-             <div style="background:#EAF9FE;" class="col-lg-4 col-md-4 col-sm-4 text-center">
-             	  <p style="font-size: 12.5px;">COMISIONES PARA EL EMPRESARIO EN RED CON EL COMPRADOR </p>
-             </div>
 
-             <div style="background:#FAF8FB;"class="col-lg-4 col-md-4 col-sm-4 text-center">
-             	  <p style="font-size: 12.5px;">COMISIONES PARA EL EMPRESARIO QUE LO PRESENTO</p><br>
-             </div>
+        <div class="col-lg-9 col-md-9 col-sm-9" style="padding: 0px;">
 
-             <div style="background:#EFEDF0;" class="col-lg-4 col-md-4 col-sm-4 text-center">
-             	  <p style="font-size: 12.5px;">COMISIONES PARA QUIEN PRESENTO AL EMPRESARIO</p><br>
-             </div>
-        </div>
+          <!-- Tabs -->
+          <div class="taba_tabla">
+              <div class="tabla_tab1">
+                 COMISIONES POR COMPRAS AMIGOS DEL PLAN EMPRESARIO TRON  ( % sobre venta sin IVA ).
+              </div>
+              <div class="tabla_tab2"><br>
+                  COMISIONES POR COMPRAS AMIGOS DEL PLAN CLIENTES   TRON  <br>( % sobre venta sin IVA).
+              </div>
+          </div>
+
+        <!-- tabla -->
         <table class="table table-bordered">
-        	    <thead style="font-size: 11.5px">
+        	    <thead style="font-size: 11.5px;">
         	    	   <tr>
-            				<th style="background:#CAE8F2;">Grupo</th>
-            				<th class="table_tron_cabezera text-center">1 UNID</th>
-            				<th class="table_tron_cabezera text-center">Escala A</th>
-            				<th class="table_tron_cabezera text-center">Escala B</th>
-            				<th class="table_tron_cabezera text-center">Escala C</th>
-            				<th class="table_tron_cabezera text-center">1 UNID</th>
-            				<th class="table_tron_cabezera text-center">Escala A</th>
-            				<th class="table_tron_cabezera text-center">Escala B</th>
-            				<th class="table_tron_cabezera text-center">Escala C</th>
-            				<th class="table_tron_cabezera text-center">1 UNID</th>
-            				<th class="table_tron_cabezera text-center">Escala A</th>
-            				<th class="table_tron_cabezera text-center">Escala B</th>
-            				<th class="table_tron_cabezera text-center">Escala C</th>
+            				<th class="text-center" style="border-bottom: 3px solid #003E90;">Grupo</th>
+            				<th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;">1 UNID </th>
+            				<th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;">1 UNID</th>
+            				<th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;">1 UNID</th>
         	    	   </tr>
         	    </thead>
 
@@ -68,41 +92,178 @@
                     $comis_amg_n2_escala_c = $Comisiones['comis_amg_n2_escala_c'].'%';
                 ?>
                   <?php if ( $Primer_Registro == TRUE) :?>
-                      <tr>
-                				<td> <?= $codigo_grupo  ;?> </td>
-                				<td colspan="4"> <?= $comis_empre_1_unidad  ;?> </td>
-                				<td colspan="4"> <?= $comis_amg_n1_unidad ;?>  </td>
-                				<td colspan="4"> <?= $comis_amg_n2_unidad  ;?>  </td>
+                    <!-- Grupo A -->
+                      <tr style="font-size: 11.5px;">
+                				<td class="text-center" > <?= $codigo_grupo  ;?> </td>
+                				<td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
+                				<td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad ;?>  </td>
+                				<td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?>  </td>
                         <?php $Primer_Registro = FALSE ;?>
             	        </tr>
                     <?php else : ?>
-                        <tr>
-                        <td> <?= $codigo_grupo  ;?> </td>
-                        <td> <?= $comis_empre_1_unidad  ;?> </td>
-                        <td> <?= $comis_empre_escala_a  ;?> </td>
-                        <td> <?= $comis_empre_escala_b  ;?> </td>
-                        <td> <?= $comis_empre_escala_c  ;?> </td>
-
-                        <td> <?= $comis_amg_n1_unidad  ;?> </td>
-                        <td> <?= $comis_amg_n1_escala_a  ;?> </td>
-                        <td> <?= $comis_amg_n1_escala_b  ;?> </td>
-                        <td> <?= $comis_amg_n1_escala_c  ;?> </td>
-
-                        <td> <?= $comis_amg_n2_unidad  ;?> </td>
-                        <td> <?= $comis_amg_n2_escala_a ;?> </td>
-                        <td> <?= $comis_amg_n2_escala_b  ;?> </td>
-                        <td> <?= $comis_amg_n2_escala_c  ;?> </td>
-
-                      </tr>
+                     <!-- Grupo B =>  PP -->
+                      <tr style="font-size: 11.5px;">
+                        <td class="text-center"> <?= $codigo_grupo  ;?> </td>
+                        <td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
+                        <td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad  ;?> </td>
+                        <td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?> </td>
+                    </tr>
 
                   <?php endif;?>
         	    </tbody>
               <?php endforeach ;?>
         </table>
         </div>
+        <!-- definicionde colores -->
+       <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="definicion_colores_tabla">
+           <div><span class="color color3"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO EN RED CON EL COMPRADOR.</span></div>
+           <div><span class="color color4"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO QUE LO PRESENTO.</span></div>
+           <div><span class="color color5"></span><span class="defi_color"> COMISIONES PARA QUIEN PRESENTO AL EMPRESARIO.</span></div>
+        </div>         
+       </div>
 	   </div>
 </div>
+ <style>
+    .contenedor_tabla_comisiones
+    {
+      width: 1024px;
+      margin: 0px auto; 
+      max-width: 1024px;
+    }
 
-<style>
+    .tabla_tab1 
+    {
+       display: block;
+       position: absolute;
+       width: 198px;
+       top: -60px;
+       left: 153px;
+       height: 60px;
+       border-top: 1px solid #DDDDDD;
+       border-left: 1px solid #DDDDDD;
+       border-right: 1px solid #DDDDDD;
+       text-align: center;
+       font-size: 11.5px;
+       background:  #C7E9EF;
+       z-index: 1;
+    }
 
+ 
+    .tabla_tab2
+
+    {
+       display: block;
+       position: absolute;
+       width: 417px;
+       top: -60px;
+       left: 351px;
+       height: 60px;
+       border-top: 1px solid #DDDDDD;
+       border-left: 1px solid #DDDDDD;
+       border-right: 1px solid #DDDDDD;
+       text-align: center;
+       font-size: 11.5px;
+       background:  #CCCCCC;
+       z-index: 1;
+    } 
+
+    
+    /* Columan left = section Hogar */
+    .sectiones_tabla
+    {
+      padding: 0px; 
+      width: 200px; 
+      display: block;
+    }
+
+     .section_hogar
+     {
+         border-bottom: 2px solid #DDDDDD;
+         display: block;
+         padding: 0px;
+         height: 38px;
+         border-top: 3px solid #003E90;
+         margin-top: 33px;
+     }
+     
+    .bloques_img_hogar
+    {
+        width: 48%;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .img_section_hogar
+    {
+        width: 80px;
+        height: 26px;
+        margin-top:-3px;
+    }
+
+    /* Section Industrial */
+    .section_industrial
+    {
+       height: 69px;
+       border-bottom: 2px solid #DDDDDD;
+    }
+
+    .bloques_img_industrial
+    {
+       float: left;
+        width: 40%;
+        /*border: 1px solid red;*/
+        margin-top: 20px;
+    }
+
+    .img-tecno_aplicds
+    {
+         margin-top: -5px;
+    }
+
+    /* section otros productos */
+    .section_otros_productos
+    {
+       border-bottom: 2px solid #DDDDDD;
+       display: block;
+       height: 172px;
+    }
+ 
+    /* section productos promocinales*/
+    .section_promocionales
+    {
+        border-bottom: 1px solid #DDDDDD;
+        height:23px;
+    }
+
+     /* Textos de la columna izquierdad */
+     .columna_left_text
+     {
+         color: #666666;
+         font-size: 12px;
+     }
+ 
+     /* dewfinicion de los colores */
+     .color3 { background: #8BDEED;}
+     .color4 { background: #FFA0A0;}
+     .color5 { background: #EEEEEE;}
+
+     .color
+     {
+          display:inline-block;
+          width: 40px;
+          height: 15px;
+          margin-left: 15px;
+          border: 1px solid black;
+          margin-top: 10px;
+
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+     }
+     
+     .defi_color
+     {
+           font-size: 12px;
+     }
 </style>
