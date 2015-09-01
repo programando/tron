@@ -19,7 +19,6 @@ function Depurar_Texto(resultado)
 }
 
 
-
 function Mostrar_Direcciones_Usuario_Seleccionado(Usuario_Seleccionado, Cantidad_Direcciones)
 {
   var $Usuario_Seleccionado = Usuario_Seleccionado;
@@ -221,15 +220,44 @@ $('.img-pago1').on('click',function(){
       dataType: 'text',
       url:      '/tron/pedidos/Forma_Pago_Pedido_Payu_Latam/',
       type:     'post',
-      success:  function (resultado)
-      {
+      success:  function (resultado)  {
          $('#formaspago').html(resultado);
          document.formPaypal.submit();
       }
    });
 });
 
+$('#btn-ing-por-amigo').on('click',function(){
+  $identificacion = $('#cedula-amigo').val();
+  $codigousuario  = $('#usuario-amigo').val();
+  $Parametros     = {'identificacion':$identificacion,'codigousuario':$codigousuario};
+  $Texto          = '';
+      $.ajax({
+      data:  $Parametros,
+      dataType: 'text',
+      url:      '/tron/terceros/Terceros_Consultar_Datos_Identificacion_Codigo_Usuario/',
+      type:     'post',
+      success:  function (resultado) {
+          $Respuesta = $.trim(resultado);
+          if ( $Respuesta =='NO VACIOS'){
+            $Texto = 'Debe registrar el número de cédula y código del amigo para quien hará el pedido.';
+          }
+          if ( $Respuesta =='NO EXISTE'){
+            $Texto = 'No se han encontrado datos con la identificación y código registrados.';
+          }
+          if ($Texto !=''){
+              new Messi($Texto,
+                {
+                  title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+                  buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
+                  });
+          }else{
+             window.location.href = "/tron/carrito/mostrar_carrito/1";
+          }
+      }
+   });
 
+});
 
 
 

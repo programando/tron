@@ -28,6 +28,7 @@
          </li>
 
        <!-- Mi cuenta -->
+       <?php if ( Session::Get('Generando_Pedido_Amigo')== FALSE) :?>
         <li>
           <a href="<?= BASE_URL ;?>terceros/administrar_cuenta">
             / <span class="glyphicon glyphicon-user"></span> Mi Cuenta
@@ -42,6 +43,7 @@
 
            </a>
         </li>
+        <?php endif; ?>
 
         <!-- cerrar secion -->
          <li>

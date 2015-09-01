@@ -16,6 +16,30 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+    public function Terceros_Consultar_Datos_Identificacion_Codigo_Usuario(){
+      /** SEPTIEMBRE 01 DE 2015
+           CONSULTA DATOS DEL USUARIO CON  LA IDENTIFICACION Y EL CÓDIGO      */
+       $identificacion = strtoupper( General_Functions::Validar_Entrada('identificacion','TEXT') );
+       $codigousuario  = strtoupper( General_Functions::Validar_Entrada('codigousuario','TEXT') );
+       $Respuesta      ='';
+       if ( strlen( trim( $identificacion ) ) == 0 || strlen( trim( $codigousuario) ) == 0) {
+          $Respuesta ='NO VACIOS';
+       }
+       if ( strlen( trim( $identificacion ) ) > 0 && strlen( trim( $codigousuario) ) > 0) {
+        $Registro = $this->Terceros->Terceros_Consultar_Datos_Identificacion_Codigo_Usuario($identificacion,$codigousuario );
+        if ( !$Registro ){
+          $Respuesta ='NO EXISTE';
+        }else{
+          $this->Validar_Ingreso_Usuario_Asignar_Datos( $Registro );
+          Session::Set('Generando_Pedido_Amigo', TRUE);
+          $Respuesta ='SI EXISTE';
+        }
+       }
+
+      echo $Respuesta;
+    } //fin function
+
+
 
     public function Comprobar_Tipo_Usuario(){
       //    JUNIO 25 2015
@@ -40,8 +64,7 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
-    public function transferencioa_comisiones_puntos()
-    {
+    public function transferencioa_comisiones_puntos()  {
         $this->View->SetCss(array("transferencia_comisiones"));
         $this->View->Mostrar_Vista("transferencia_comisiones");
     }
@@ -738,47 +761,36 @@ class TercerosController extends Controller
       echo $Resultado ;
     }
 
-
-
-
-
-    public function cuenta_pases_premium()
-    {
+    public function cuenta_pases_premium() {
         $this->View->SetCss(array("tron_cuenta_pases_cortesia","tron_barra_usuarios"));
         $this->View->Mostrar_Vista("cuenta_pases_premium");
     }
 
-    public function cuenta_pases_de_cortesia()
-    {
+    public function cuenta_pases_de_cortesia() {
         $this->View->SetCss(array("tron_cuenta_pases_cortesia","tron_barra_usuarios"));
         $this->View->Mostrar_Vista("cuenta_pases_cortesia");
     }
 
-    public function configuracion_perfil()
-    {
+    public function configuracion_perfil() {
         $this->View->SetCss(array("tron_confi_perfil"));
         $this->View->SetJs(array('cuenta_configuracion_perfil'));
         $this->View->Mostrar_Vista("confi_perfil");
     }
 
-    public function comisiones_bonificaciones_pagadas()
-    {
+    public function comisiones_bonificaciones_pagadas() {
         $this->View->SetCss(array("tron_terceros_comis_bonifi"));
         $this->View->Mostrar_Vista("comisiones_bonificaciones_pagadas");
     }
 
 
     public function Validar_Ingreso_Usuario_Asignar_Datos($Registro ){
-      $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
+
       Session::Set('autenticado',               true);
       Session::Set('idtercero',                       $Registro[0]['idtercero']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
       Session::Set('idtpidentificacion',              $Registro[0]['idtpidentificacion']);
       Session::Set('email',                           $Registro[0]['email']);
-
       Session::Set('codigousuario',                   $Registro[0]['codigousuario']);
-
-
       Session::Set('vr_cupon_descuento'   ,     0);
       Session::Set('idtipo_plan_compras',             $Registro[0]["idtipo_plan_compras"]); // 1 ocasional, 2, cliente, 3 empresarios
       Session::Set('idtipo_plan_compras_confirmado',  $Registro[0]["idtipo_plan_compras_confirmado"]);
@@ -786,24 +798,23 @@ class TercerosController extends Controller
       Session::Set('inscripcion_pagada',              $Registro[0]["inscripcion_pagada"]);
       Session::Set('fecha_hora_acepta_convenio',      $Registro[0]["fecha_hora_acepta_convenio"]);
 
-
       // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
       Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);
       Session::Set('pagado_online',                   0);
       Session::Set('nombre_usuario_pedido',           $Registro[0]["nombre_usuario_pedido"]);
       Session::Set('iddireccion_despacho',            0);
       Session::Set('cantidad_direcciones',            $Registro[0]["cantidad_direcciones"]);
+      Session::Set('Generando_Pedido_Amigo',          FALSE);
 
 
-
+       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
 
     }
 
-    public function Validar_Ingreso_Usuario()
-      {
+    public function Validar_Ingreso_Usuario(){
        $Email                = General_Functions::Validar_Entrada('email','TEXT');
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
@@ -923,21 +934,18 @@ class TercerosController extends Controller
         $this->View->Mostrar_Vista('registro');
     }
 
-    public function registro_paso_2()
-    {
+    public function registro_paso_2() {
         $this->View->SetCss(array('tron_menu_footer','tron_registro','tron_registro','tron-regirtro-pasos','tron-registron-p2'));
         $this->View->SetJs(array('tron_terceros_registro'));
         $this->View->Mostrar_Vista('registro_paso_2');
     }
 
-    public function Consulta_Datos_Por_Email($email)
-    {
+    public function Consulta_Datos_Por_Email($email) {
         $Terceros = $this->Terceros->Consulta_Datos_Por_Email($email);
         return $Terceros;
     }
 
-    public function Consulta_Datos_Por_Email_Registro()
-    {
+    public function Consulta_Datos_Por_Email_Registro() {
         $Respuesta ='';
         $email     = General_Functions::Validar_Entrada('email','TEXT');
         $Es_email  = General_Functions::Validar_Entrada('email','EMAIL');
@@ -956,20 +964,15 @@ class TercerosController extends Controller
     }
 
 
-    public function cambiar_password($numero_confirmacion)
-    {
+    public function cambiar_password($numero_confirmacion) {
 
         $this->View->Numero_Confirmacion = $numero_confirmacion;
-
         $this->View->SetCss(array('tron_cambiar_password','tron_ventana_modal','password'));
         $this->View->SetJs(array('tron_login','tron_cambio_password','password'));
-
-
         $this->View->Mostrar_Vista('cambiar_password');
     }
 
-    public function Clave_Temporal_Grabar_Cambio_Clave($idtercero,$password_temporal)
-    {
+    public function Clave_Temporal_Grabar_Cambio_Clave($idtercero,$password_temporal) {
         /** FEBRERO 03 DE 2015
         **  INSERTA EN LA TABLA UN REGISTRO TEMPORAL QUE SE USARÁ PARA LA VERIFICACIÓN EN EL CAMBIO DE CLAVE
         */
