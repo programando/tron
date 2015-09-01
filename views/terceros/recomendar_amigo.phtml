@@ -1,8 +1,16 @@
+ 
+
+
+
+
+
+
 <div>
 
 <!-- VEntana modal =  recomendar amigo -->
   <?php include (APPLICATION_SECTIONS . 'modal_img_recomendar.php');?>
-
+<!--  -->
+  <?php include (APPLICATION_SECTIONS . 'modal_recomendar_amigo.php');?>
 <!-- /// Recomienda el modelo de negocio a un amigo /// -->
    <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="cont-recomendar-negocio"><!-- Contenedor -->
@@ -36,7 +44,7 @@
                  </p>
 
                  <p><!-- Invitacion-tron -->
-                    <a href="#">
+                    <a href="#"  data-toggle="modal" data-target="#modal_recomendar_amigo">
                         <img src="<?= BASE_IMG_EMPRESA ; ?>enviar.png"> Eviar Invitación de la Red TRON
                     </a>
                  </p><!-- Invitacion-tron -->
