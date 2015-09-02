@@ -244,6 +244,9 @@ class ProductosController extends Controller
     */
      if ($pagina==false) {   $pagina = 1 ;};
       $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
+      if ( !isset($Id_Area_Consulta ) ){
+        echo "ya estoy aqui";
+      }
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
       $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
