@@ -237,15 +237,15 @@ class ProductosController extends Controller
     }
 
 
-    public function Categorias_Marcas ($pagina=false)
-    {
+    public function Categorias_Marcas ($pagina=false){
      /** DIC 31 DE 2014
      *  MUSTRA EL MENU LATERAL DE DATOS RELACIONADOS CON CATEGORÍAS Y MARCAS
     */
      if ($pagina==false) {   $pagina = 1 ;};
       $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
       if ( !isset($Id_Area_Consulta ) ){
-        echo "ya estoy aqui";
+        Session::Set('Id_Area_Consulta',2);
+        $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
       }
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
