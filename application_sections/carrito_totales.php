@@ -1,17 +1,7 @@
 
 <tr>
   <td colspan="6" class="text-right">
-  <!--
-        <div class="cont-cupon">
-          <div class="form-horizontal">
-            <label for="cupon" class="label-cupon text-label">Cupón de descuento:</label>
-            <div>
-              <input type="text" class="form-control input-cupon" id="cupon">
-            </div>
-            <button type="button" class="btn-cupon">Aplicar</button>
-          </div>
-        </div>
-    -->
+
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
         <?php if (Session::Get('autenticado') == FALSE): ; ?>
           <div class="col-resumen-pedido"><strong>Transporte (Calculado para Cali):</strong></div>
@@ -37,7 +27,8 @@
         <div class="col-resumen-pedido"><strong>( = ) Total Pedido:</strong></div>
   </td>
 
-<?php if  (Session::Get('autenticado')== FALSE)  :?>
+
+  <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== TRUE || empty (Session::Get('cumple_condicion_cpras_tron_industial') ))  :?>
         <!-- SUBTOTAL -->
           <?php include (APPLICATION_SECTIONS . 'carrito_totales_ocasional.php');?>
   <td></td>
@@ -45,15 +36,11 @@
   <?php endif ;?>
 
 
-<?php if  (Session::Get('autenticado')== TRUE)  :?>
+
   <td></td>
   <td></td>
-    <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== TRUE)  :?>
-            <?php include (APPLICATION_SECTIONS . 'carrito_totales_tron.php');?>
-      <?php else :?>
-            <?php include (APPLICATION_SECTIONS . 'carrito_totales_ocasional.php');?>
-    <?php endif ;?>
-  <?php endif ;?>
+
+
 </tr>
 
 
