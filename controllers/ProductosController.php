@@ -9,29 +9,24 @@ class ProductosController extends Controller
     private $_Productos_Tron ;
     private $_Accesorios_Tron;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->Productos          = $this->Load_Model('Productos');
         $this->Marcas             = $this->Load_Model('Marcas');
         $this->Escalas            = $this->Load_Controller('ProductosEscalas');
         $this->Email              = $this->Load_Controller('Emails');
-
         $this->Paginador          = $this->Load_External_Library('paginador');
         $this->Paginador          = new Paginador();
-
     }
 
     public function Index() {}
 
-    public function mostrar_resumen_producto()
-    {
+    public function mostrar_resumen_producto() {
         $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
     }
 
 
-    public function Recomendar_Producto_a_Amigo()
-    { /** ENERO 31 DE 2015
+    public function Recomendar_Producto_a_Amigo() { /** ENERO 31 DE 2015
       **  PROCEDIMEINTO POR MEDIO DEL CUAL SE RECOMIENDA PRODUCTOS A AMIGOS
       */
       $IdProducto         = General_Functions::Validar_Entrada('idproducto','NUM');
@@ -55,8 +50,7 @@ class ProductosController extends Controller
     }
 
 
-    public function Busqueda_General()
-    {
+    public function Busqueda_General(){
       /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
       */
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
@@ -77,8 +71,7 @@ class ProductosController extends Controller
 
     }
 
-    public function Varias_Referencias($Id_Agrupacion)
-    {
+    public function Varias_Referencias($Id_Agrupacion) {
       /**  ENERO 22 DE 2015   MUESTRA PRODUCTOS AGRUPADOS EN VARIOS REFERENCIAS
       */
        $this->View->Productos_Varias_Referencias = $this->Productos->Productos_x_Agrupacion( $Id_Agrupacion );
@@ -91,16 +84,12 @@ class ProductosController extends Controller
 
 
 
-    public function Destacados_Index()
-    {
-
+    public function Destacados_Index() {
         $this->View->Productos_Desatacados = $this->Productos->Destacados_Index();
-
     }
 
 
-    public function Destacados()
-    {
+    public function Destacados() {
          $this->View->Productos_Destacados = $this->Productos->Destacados_Index();
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_3'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
@@ -108,13 +97,11 @@ class ProductosController extends Controller
     }
 
 
-    public function Ofertas_Index()
-    {
+    public function Ofertas_Index() {
          $this->View->Productos_Ofertas     = $this->Productos->Ofertas_Index();
     }
 
-    public function Ofertas()
-    {
+    public function Ofertas() {
          $this->View->Productos_Ofertas = $this->Productos->Ofertas_Index();
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_4'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
@@ -122,8 +109,7 @@ class ProductosController extends Controller
     }
 
 
-     public function Productos_Tron()
-    {
+     public function Productos_Tron() {
          Session::Set('Id_Area_Consulta','2');
          $this->View->SetCss(array('tron_carrito','tron_estilos_productos_tron','tron_productos_tron_active','tron_campo_1'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','resumen_pedido_tron','tron_productos_tron'));
@@ -152,22 +138,18 @@ class ProductosController extends Controller
     }
 
 
-    public function Productos_Tron_Consultar($Id_Categoria)
-    {
-
+    public function Productos_Tron_Consultar($Id_Categoria) {
       $this->_Productos_Tron  = $this->Productos->Productos_Tron_x_Id_Categoria_Producto($Id_Categoria);
       $this->_Accesorios_Tron = $this->Productos->Productos_Tron_Accesorios_x_Id_Categoria_Producto($Id_Categoria);
 
     }
 
-    public function Novedades_Index()
-    {
+    public function Novedades_Index() {
          $this->View->Productos_Novedades    = $this->Productos->Novedades_Ofertas();
     }
 
 
-    public function Novedades()
-    {
+    public function Novedades() {
          $this->View->Productos_Novedades = $this->Productos->Novedades_Ofertas();
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_5'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
@@ -177,8 +159,7 @@ class ProductosController extends Controller
 
 
 
-    public function Hallar_Valor_Escala()
-    {
+    public function Hallar_Valor_Escala() {
         /** DIC 29 DE 2014
         * RECIBE COMO PARAMETROS DATOS DEL PRODUCTO Y OBTIENE EL VALOR FINAL DE COMPRA DE ACUERDO
         * A LA CANTIDAD DE COMPRA     */
@@ -203,8 +184,7 @@ class ProductosController extends Controller
          echo json_encode($Datos,256);
     }
 
-    public function Vista_Ampliada($Idproducto , $Id_Area_Consulta)
-    {
+    public function Vista_Ampliada($Idproducto , $Id_Area_Consulta) {
      /** DIC 31 DE 2014
      *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
      */
@@ -243,7 +223,7 @@ class ProductosController extends Controller
     */
      if ($pagina==false) {   $pagina = 1 ;};
       $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
-      if ( !isset($Id_Area_Consulta ) ){
+      if ( !isset( $Id_Area_Consulta ) ){
         Session::Set('Id_Area_Consulta',2);
         $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
       }
@@ -262,8 +242,7 @@ class ProductosController extends Controller
       $this->View->Mostrar_Vista('marcas_y_categorias');
     }
 
-    public function new_productos_categorias()
-    {
+    public function new_productos_categorias() {
      /** DIC 31 DE 2014
      *  MUSTRA EL MENU LATERAL DE DATOS RELACIONADOS CON CATEGORÍAS Y MARCAS
     */
@@ -272,8 +251,7 @@ class ProductosController extends Controller
       $this->View->Mostrar_Vista('new_productos_categorias');
     }
 
-    public function Productos_por_Categoria_Individual( )
-    {
+    public function Productos_por_Categoria_Individual( ) {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
@@ -317,8 +295,7 @@ class ProductosController extends Controller
     } // Fin Productos_por_Categoria
 
 
-    public function Productos_por_Categoria()
-    {
+    public function Productos_por_Categoria() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
@@ -344,8 +321,7 @@ class ProductosController extends Controller
 
     } // Fin Productos_por_Categoria
 
-    public function Productos_Mostrar_Via_Ajax()
-    {
+    public function Productos_Mostrar_Via_Ajax() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
@@ -383,8 +359,7 @@ class ProductosController extends Controller
 
 
 
-   public function Productos_por_Sub_Categoria()
-    {
+   public function Productos_por_Sub_Categoria() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR SUB CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
@@ -411,8 +386,7 @@ class ProductosController extends Controller
 
 
 
-    public function Productos_por_Marca()
-    {
+    public function Productos_por_Marca() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
