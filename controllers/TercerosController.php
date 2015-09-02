@@ -491,15 +491,17 @@ class TercerosController extends Controller
             }
         }
         // GENERACIÓN CÓDIGO DE USUARIO. SI NO ES EMPRESA ->Generar_Codigo_Usuario .... SINO Generar_Codigo_Emmpresa
-        if ( $idtpidentificacion != 31 && $idtipo_plan_compras == 3 )  {
-            $Datos_Nuevo_Codigo = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
+        if ( $idtpidentificacion != 31  )  {
+            $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Usuario($pnombre ,$papellido, $dia, $mes);
             $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
+            $genero                  = 0;
           }
-        if ( $idtpidentificacion == 31 && $idtipo_plan_compras == 3  ) {
-            $Datos_Nuevo_Codigo  = $this->Terceros->Generar_Codigo_Emmpresa( $razonsocial);
+        if ( $idtpidentificacion == 31   ) {
+            $Datos_Nuevo_Codigo      = $this->Terceros->Generar_Codigo_Emmpresa( $razonsocial);
             $codigo_usuario_generado = $Datos_Nuevo_Codigo [0]['codigo_generado'];
-            $genero  = 0;
+            $genero                  = 0;
           }
+
 
 
         $codigousuario                                  = $codigo_usuario_generado;
