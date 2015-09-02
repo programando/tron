@@ -786,8 +786,7 @@ class TercerosController extends Controller
 
 
     public function Validar_Ingreso_Usuario_Asignar_Datos($Registro ){
-
-      Session::Set('autenticado',               true);
+      Session::Set('autenticado',                     TRUE);
       Session::Set('idtercero',                       $Registro[0]['idtercero']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
       Session::Set('idtpidentificacion',              $Registro[0]['idtpidentificacion']);
@@ -807,6 +806,10 @@ class TercerosController extends Controller
       Session::Set('iddireccion_despacho',            0);
       Session::Set('cantidad_direcciones',            $Registro[0]["cantidad_direcciones"]);
       Session::Set('Generando_Pedido_Amigo',          FALSE);
+      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
+      Session::Set('nommcipio_despacho',              $Registro[0]["nommcipio_despacho"]);
+      Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
+      Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
 
 
        $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
@@ -822,11 +825,9 @@ class TercerosController extends Controller
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
 
-       if (!$Registro )
-       {
+       if (!$Registro ) {
          $Resultado_Logueo = "NO-Logueo_OK";
-       }else
-           {
+       }else {
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
          }
@@ -898,8 +899,7 @@ class TercerosController extends Controller
         *       CONSULTA INFORMACIÓN DE LA CIUDAD, DEPARTAMENTO Y VARIABLES DE FLETES CON LA DIRECCIÓN DE DESPACHO SELECCIONADA
         *       ESTABLECE UN PARAMETRO idmcipio = 153 ( CALI ), PARA CONSULTAR DESDE EL INDEX CONTROLLER Y CARGAR CIERTAS VARIABLES
         */
-        if ($IdDireccion_Despacho > 0)
-        {
+        if ($IdDireccion_Despacho > 0) {
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho );
         }else
         {

@@ -64,14 +64,15 @@
 
 
             <!-- Icon -carrito -->
-            <li><a  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
-                  <!-- SubMenu -->
+            <li><a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1"  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" >
+            <span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
+                  <!-- SubMenu
                   <ul  class="navBar_mostrar_carrito">
                       <li>
-                        <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
+
                       </li>
 
-                  </ul>
+                  </ul>-->
             </li>
 
           </ul>
