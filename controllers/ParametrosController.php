@@ -20,6 +20,11 @@ class ParametrosController extends Controller
 						}
 
 						public function Transportadoras_Vr_Kilo_Destino($idmcipio){
+							 echo $idmcipio;
+								 if ( !isset( $idmcipio )){
+								 	$idmcipio = 153;
+								 }
+
 									return $this->Parametros->Transportadoras_Vr_Kilo_Destino($idmcipio);
 						}
 	  }
