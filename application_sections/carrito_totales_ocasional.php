@@ -1,7 +1,5 @@
   <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== TRUE ) :?>
       <td></td>
-
-
    <?php endif ;?>
  <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== FALSE ) :?>
     <td coslpan="3" class="text-right">
@@ -20,13 +18,9 @@
               <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Cupon_Descuento)  ;?> </strong></div>
             <?php endif ;?>
             <!-- TRANSPORTE -->
+        <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Ocasional )  ;?> </strong></div>
 
-            <!-- TOTAL PEDIDO -->
-            <?php if  (Session::Get('autenticado')== FALSE)  :?>
-              <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Ocasional )  ;?> </strong></div>
-            <?php else :?>
-              <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Real )  ;?> </strong></div>
-            <?php endif ;?>
+
     </td>
 <?php endif ;?>
 

@@ -15,14 +15,6 @@
       <?php  if (isset($this->Vr_Cupon_Descuento ) and $this->Vr_Cupon_Descuento >0): ;?>
         <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Cupon_Descuento)  ;?> </strong></div>
       <?php endif ;?>
-
-      <!-- TRANSPORTE -->
-
-        <!-- TOTAL PEDIDO -->
-        <?php if  (Session::Get('autenticado')== FALSE)  :?>
-          <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Tron )  ;?> </strong></div>
-        <?php else :?>
-          <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Real )  ;?> </strong></div>
-        <?php endif ;?>
+ <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Tron )  ;?> </strong></div>
 
 </td>

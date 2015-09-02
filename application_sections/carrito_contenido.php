@@ -114,19 +114,16 @@
 ?>
 
  <?php if ( $Cumple_Compra_Minima_Prod_Tron_Industriales == FALSE || empty( $Cumple_Compra_Minima_Prod_Tron_Industriales)) :?>
-
     <!--TOTAL -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $pv_ocasional ;?> </p></td><!--Precio UNIT. -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Item_Ocasional ;?> </p></td><!--Total -->
-
-
-      <td class="col-tabla-preci2" title="Precio unitario para clientes/empresarios TRON" >
+    <td class="col-tabla-preci2" title="Precio unitario para clientes/empresarios TRON" >
           <p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_tron ;?> </p>
-      </td>
+    </td>
 
-      <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
+    <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
         <p class="info-tabla"> <?=    $Vr_Total_Item_Tron  ;?>   </p>
-      </td>
+    </td>
 
 
 <?php else : ;?>
