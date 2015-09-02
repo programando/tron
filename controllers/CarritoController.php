@@ -852,7 +852,7 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
     $compras_totales_tron                 = $this->compras_tron + $compras_este_mes_tron ;
     $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
 
-    if ( Session::Get('logueado') == TRUE){
+    //if ( Session::Get('logueado') == TRUE){
       // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
       if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
            ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
@@ -863,7 +863,7 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
             Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
             $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
         }
-      }
+    //  }
       return $Cumple_Condic_Cpras_Tron_Industial;
 } // fin Determinar_Cumple_Condiciones_Precio_Especial
 

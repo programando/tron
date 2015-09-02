@@ -2,8 +2,7 @@
       <!--Cuerpo = Tabla -->
     <?php
 
-        foreach ($this->Datos_Carro as $ProductosCarro)
-        {
+        foreach ($this->Datos_Carro as $ProductosCarro)   {
           $idproducto              = $ProductosCarro['idproducto'];
           $nom_producto            = $ProductosCarro['nom_producto'];
           $nompresentacion         = $ProductosCarro['nompresentacion'];
@@ -111,9 +110,11 @@
 <?php
   $Autenticado                                 = Session::Get('autenticado');
   $Cumple_Compra_Minima_Prod_Tron_Industriales = Session::Get('cumple_condicion_cpras_tron_industial');
+  //<?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) ://
 ?>
 
-<?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) :?>
+ <?php if ( $Cumple_Compra_Minima_Prod_Tron_Industriales == FALSE || empty( $Cumple_Compra_Minima_Prod_Tron_Industriales)) :?>
+
     <!--TOTAL -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $pv_ocasional ;?> </p></td><!--Precio UNIT. -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Item_Ocasional ;?> </p></td><!--Total -->
