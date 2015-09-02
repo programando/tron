@@ -26,8 +26,7 @@
     public function Index() {  }
 
 					public function Consultar_Vr_Kilo_Destino(){
-							   echo "municio : ". Session::Get('idmcipio');
-										$this->idmcipio = Session::Get('idmcipio');
+							  		$this->idmcipio = Session::Get('idmcipio');
 										$Registro       = $this->Parametros->Transportadoras_Vr_Kilo_Destino($this->idmcipio );
 
 					      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
