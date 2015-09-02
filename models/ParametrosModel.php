@@ -30,13 +30,11 @@
 				{
 						/** ENERO 04 DE 2014
 						*		 CONSULTA EL VALOR POR KILO SEGÚN EL DESTINO. APLICA PARA FLETES CARGA	*/
-							 echo $idmcipio;
-							 echo "valor";
+
 								 if ( !isset( $idmcipio ) || empty( $idmcipio)){
 								 	$idmcipio = 153;
 								 }
-							 echo $idmcipio;
-							 echo "valor 2";
+
 
 						$Parametros               = $this->Db->Ejecutar_Sp("transportadores_vr_kilo_destino( $idmcipio )");
 						$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
