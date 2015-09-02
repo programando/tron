@@ -19,7 +19,7 @@
                             style="background: #003E90; color: white;"
                         <?php endif ;?>
                        <?php  $es_primero  = FALSE ;?>
-
+                      codigousuario            = "<?= $Usuario['codigousuario'] ;?>"
                       idtercero-pedido        = <?= $Usuario['idtercero'] ;?>
                       cantidad-direcciones    = <?= $Usuario['cantidad_direcciones'] ;?>
                       id = <?= $Usuario['idtercero'] ;?>

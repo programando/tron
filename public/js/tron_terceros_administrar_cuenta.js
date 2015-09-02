@@ -8,6 +8,7 @@
 // });
 
 var $Usuario_Seleccionado = 0;
+var $Codigo_Seleccionado  = '';
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 					$('.tab_link_modif').css('background','transparent');
@@ -40,6 +41,36 @@ var  Mostrar_Participacion_en_Red = function($idtercero,$anio){
 	      }
 	   });
 	}
+
+var  Mostrar_Amigos_Presentados = function($idtercero,$anio){
+	  $.ajax({
+	      data:  '',
+	      dataType: 'html',
+	      url:      '/tron/informes/Amigos_Presentados_Ajax/'+$idtercero+'/'+$anio,
+	      type:     'post',
+	      success:  function (resultado)  {
+				      $('.participacion-red').html('');
+				      $('.participacion-red').html(resultado);
+	      }
+	   });
+	}
+
+var  Mostar_Clientes_x_IdTercero = function($codigousuario){
+	  $.ajax({
+	      data:  '',
+	      dataType: 'html',
+	      url:      '/tron/informes/Clientes_Presentados_Ajax/'+$codigousuario,
+	      type:     'post',
+	      success:  function (resultado)  {
+				      $('.participacion-red').html('');
+				      $('.participacion-red').html(resultado);
+	      }
+	   });
+	}
+
+
+
+
 
 var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
     $.ajax({
@@ -392,22 +423,6 @@ $('#pases_cortesia').on('click',function(){
 				  });
 });
 
-// BTN = Convenio comercial
-
-
-// $control = 0;
-
-// $('#convenio_comercial').on('click',function(){
-//     if($control == 0){
-//     	 	$('.menu_convenio').show();
-//        $control++;
-//     }else{
-//     	  $('.menu_convenio').hide();
-//        $control--;
-//     }
-
-// });
-
 
 // Mostrar menu = vista previa / imprimir
 $('#convenio_comercial').on('click',function(){
@@ -476,6 +491,37 @@ $('#informes-participacion-red').on('click',function(){
 				      }
 				  });
 });
+
+
+$('#informes-amigos-presentados').on('click',function(){
+    $Opciones_Seleccionada = 'AMIGOS_PRESENTADOS';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Amigos_Presentados/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+$('#informes-clientes-presentados').on('click',function(){
+    $Opciones_Seleccionada = 'CLIENTES_PRESENTADOS';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Clientes_Presentados/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+//$('.contenedor_cuenta').on('click','.usu-1',function(){
+	//$Usuario_Seleccionado = $(this).attr('id');
+
 
 $('#compras_tron_link').on('click',function(){
 		$Opciones_Seleccionada = 'COMPRAS_TRON';
@@ -580,6 +626,8 @@ $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
 
 $('.contenedor_cuenta').on('click','.usu-1',function(){
 	$Usuario_Seleccionado = $(this).attr('id');
+	$codigousuario        = $(this).attr('codigousuario');
+
 	 Activar_Usuarios ($Usuario_Seleccionado );
 	 Parametros ={'idtercero':$Usuario_Seleccionado};
 	  if ( $Opciones_Seleccionada  == 'PEDIDOS_REALIZADOS'){
@@ -593,6 +641,12 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   			 $anio = $('#anio-consulta').val();
   				Mostrar_Participacion_en_Red($Usuario_Seleccionado,$anio );
   	}
+
+  	if ( $Opciones_Seleccionada == 'AMIGOS_PRESENTADOS'){
+  			 $anio = $('#anio-consulta').val();
+  				Mostrar_Amigos_Presentados($Usuario_Seleccionado,$anio );
+  	}
+
   	if ( $Opciones_Seleccionada == 'COMPRAS_TRON'){
   			 $anio = $('#anio-consulta').val();
   				Mostar_Compra_Otros_x_IdTercero($Usuario_Seleccionado,$anio );
@@ -609,8 +663,12 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   			 $anio = $('#anio-consulta').val();
   				Mostar_Compra_Totales_x_IdTercero($Usuario_Seleccionado,$anio );
   	}
+  	if ( $Opciones_Seleccionada == 'CLIENTES_PRESENTADOS'){
+  				Mostar_Clientes_x_IdTercero($codigousuario);
+  	}
 
-//compras_otros_link
+
+			//compras_otros_link
   	if ( $Opciones_Seleccionada == 'DATOS_PERSONALES'){
   				Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
   				$('.btn_atualizar_direccion').attr('idtercero',$Usuario_Seleccionado);

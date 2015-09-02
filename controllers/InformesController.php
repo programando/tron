@@ -140,8 +140,7 @@
             $this->View->Mostrar_Vista_Parcial("participacion_la_red");
         }
 
-        public function Participacion_En_La_Red_Ajax($idtercero =false, $anio=0)
-        {
+        public function Participacion_En_La_Red_Ajax($idtercero =false, $anio=0) {
             if ($anio == 0 ) {
                 $anio = date('Y');
             }
@@ -154,10 +153,50 @@
         }
 
 
-        public function Mi_Red_de_Usuarios()
-        {
+        public function Amigos_Presentados($idtercero =false, $anio=0) {
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+            $this->View->Anios              = $this->Informes->Anios_Disponibles_Consultas();
+            $this->View->Terceros           = $this->Informes->Amigos_Presentados($idtercero,$anio);
+            $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
+            $this->View->Mostrar_Vista_Parcial("amigos_presentados");
+        }
+
+        public function Amigos_Presentados_Ajax($idtercero =false, $anio=0) {
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+            $this->View->Anios              = $this->Informes->Anios_Disponibles_Consultas();
+            $this->View->Terceros           = $this->Informes->Amigos_Presentados($idtercero,$anio);
+            $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
+            $this->View->Mostrar_Vista_Parcial("amigos_presentados_x_idtercero");
+        }
 
 
+        public function Clientes_Presentados($codigousuario='') {
+            if ( $codigousuario == '' ){
+              $codigousuario  = Session::Get('codigousuario');
+            }
+            $this->View->Clientes           = $this->Informes->Clientes_Presentados($codigousuario);
+            $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
+            $this->View->Mostrar_Vista_Parcial("clientes_presentados");
+        }
+
+        public function Clientes_Presentados_Ajax($codigousuario='') {
+
+            $this->View->Clientes           = $this->Informes->Clientes_Presentados($codigousuario);
+            $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
+            $this->View->Mostrar_Vista_Parcial("clientes_presentados_x_idtercero");
+        }
+
+        public function Mi_Red_de_Usuarios() {
             $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios");
         }
     }

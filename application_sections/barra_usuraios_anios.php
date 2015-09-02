@@ -1,5 +1,6 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
      <div class="contenedor_barra_usuarion">
+      <?php if ( isset($this->Anios)) : ?>
        <div class="divicion_barra_usuario" style="width: 21%;" >
            <div class="row">
                <div class="col-lg-3 padding_none" style="width:135px;">
@@ -17,8 +18,13 @@
                </div>
            </div>
       </div>
+    <?php endif ;?>
 
-      <div class="divicion_barra_usuario" style="width: 79%;">
+      <?php if ( isset($this->Anios)) : ?>
+        <div class="divicion_barra_usuario" style="width: 79%;">
+       <?php else :?>
+           <div class="divicion_barra_usuario" style="width: 100%;">
+       <?php endif ;?>
          <div class="barra-usurarios"><!-- Barraar -->
          <?php $Usuarios  = Session::Get('codigos_usuario') ;?>
          <?php if ( isset($Usuarios) && count($Usuarios ) > 1 )  :?>
@@ -37,10 +43,11 @@
                           style="background: #003E90; color: white;"
                       <?php endif ;?>
                      <?php  $es_primero  = FALSE ;?>
-
+                    codigousuario            = "<?= $Usuario['codigousuario'] ;?>"
                     idtercero-pedido        = <?= $Usuario['idtercero'] ;?>
                     cantidad-direcciones    = <?= $Usuario['cantidad_direcciones'] ;?>
-                    id = <?= $Usuario['idtercero'] ;?>
+                    id                      = <?= $Usuario['idtercero'] ;?>
+
               >
               <?= $Usuario['codigousuario'] ;?> </li><!-- Usuario -->
             <?php endforeach ;?>
