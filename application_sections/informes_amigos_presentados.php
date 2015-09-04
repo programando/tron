@@ -20,7 +20,7 @@
 	     	    	    </tr>
 	     	    </thead><!-- cabezera -->
 
-	     	    <tbody>
+	     	    <tbody style="font-size:11px;">
                    <?php $I =0 ;?>
                    <?php foreach ($this->Terceros  as $Tercero)  :?>
                     <?php

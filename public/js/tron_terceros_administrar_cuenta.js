@@ -151,10 +151,9 @@ $('#btn_mostrar').on('click',function(){
 });
 
 $('#mi-perfil').on('click',function(){
-				$('.tabs_click').css('background','#B7B7B7');
-				$(this).css('background','#003E90');
-				$('#con-row-menu').css('margin-bottom','0px');
-	   $('.cabezera').css('display','none');
+	$('.tabs_click').css('background','#B7B7B7');
+	$(this).css('background','#003E90');
+   $('.cabezera').css('display','none');
     $('#cabezera_perfil').css('display','block');
     $('.contenedor_cuenta').html('');
     $('#plan_seleccionado').click();
@@ -165,7 +164,6 @@ $('#mi-perfil').on('click',function(){
 $('#informes_pedidos').on('click',function(){
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
-				$('#con-row-menu').css('margin-bottom','50px');
 	   $('.cabezera').css('display','none');
     $('#cabezera_informes').css('display','block');
     $('.contenedor_cuenta').html('');
@@ -177,7 +175,6 @@ $('#favoritos').on('click',function(){
 
 				$('.tabs_click').css('background','#B7B7B7');
 				$(this).css('background','#003E90');
-				$('#con-row-menu').css('margin-bottom','0px');
 	   $('.cabezera').css('display','none');
     $('#cabezera_favoritos').css('display','block');
     $('.contenedor_cuenta').html('');

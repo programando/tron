@@ -10,7 +10,7 @@
           </tr>
      </thead><!-- cabezera -->
 
-     <tbody>
+     <tbody style="font-size: 11px;">
           <?php $I=1; ?>
            <?php foreach ($this->Clientes as $Cliente)  : ?>
             <?php
