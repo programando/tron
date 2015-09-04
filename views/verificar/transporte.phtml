@@ -109,7 +109,7 @@ if (!isset($transporte_kit ))
                                         <tr>
 
                                         <td class="cuerpo-tabla">FLETE COBRADO  </td>
-                                        <td class="cuerpo-tabla"><?=  number_format( Session::Get('flete_cobrado_otros') - $transporte_kit); ?> </td>
+                                        <td class="cuerpo-tabla"><?=  number_format( Session::Get('flete_real_calculado') - $transporte_kit); ?> </td>
                                         </tr>
 
                                         <td class="cuerpo-tabla">TRANSPORTE KIT DE INICIO </td>

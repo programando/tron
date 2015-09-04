@@ -41,7 +41,7 @@
 
 					}
 
-	    public function Calcular_Flete( $valor_declarado,$Calcular_Flete_Courrier) {
+	    public function Calcular_Flete( $valor_declarado, $Calcular_Flete_Courrier ) {
 	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
@@ -119,13 +119,13 @@
 
       if ( isset($Mejor_Flete)){
           $this->valor_flete                  = $Mejor_Flete['valor_flete'] + Session::Get('transporte_tron') + Session::Get('kit_vr_transporte');
-          Session::Set('flete_cobrado_otros', $this->valor_flete);
+          Session::Set('flete_real_calculado', $this->valor_flete);
           Session::Set('id_transportadora',   $Mejor_Flete['idtercero']);
           Session::Set('tipo_despacho_pedido', $Mejor_Flete['tipo_despacho'] );
           Session::Set('tipo_tarifa', $Mejor_Flete['tipo_tarifa']);
         }else{
           $this->valor_flete                  = Session::Get('transporte_tron') + Session::Get('kit_vr_transporte');
-          Session::Set('flete_cobrado_otros', $this->valor_flete);
+          Session::Set('flete_real_calculado', $this->valor_flete);
           Session::Set('id_transportadora',   '1572'); // 1572 REDETRANS
           Session::Set('tipo_despacho_pedido', 1 );     /// REDETRANS COURRIER
           Session::Set('tipo_tarifa', 'REDETRANS COURRIER');

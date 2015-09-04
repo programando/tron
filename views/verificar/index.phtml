@@ -138,7 +138,7 @@ CANTIDAD DE UNIDADES DE DESPACHO :         <strong><?=   Session::Get('Cant_Unid
       <th> </th>
     </tr>
   </thead>
-  <tr> <th>VALOR TOTAL FLETE            </th> <th> <?= number_format(Session::Get('flete_cobrado_otros')); ?> </th>  </tr>
+  <tr> <th>VALOR TOTAL FLETE            </th> <th> <?= number_format(Session::Get('flete_real_calculado')); ?> </th>  </tr>
   <tr> <th>( - ) SUBSIDIO FLETE         </th> <th> <?= number_format($_vr_ppto_fletes) ;?> </th>  </tr>
   <tr> <th>( + ) RECAUDO                </th> <th> <?= number_format(Session::Get('recaudo_total')) ;?> </th>  </tr>
   <tr> <th>( + ) VR.FIJO RECAUDO        </th> <th> <?= number_format(Session::Get('py_vr_adicional'));?></th>  </tr>

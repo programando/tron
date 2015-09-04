@@ -4,7 +4,7 @@
  <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== FALSE ) :?>
     <td coslpan="3" class="text-right">
             <div><strong><?= Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Ocasional)  ; ?></strong></div>
-            <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Transporte_Cliente)  ;?> </strong></div>
+            <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Transporte_Ocasional)  ;?> </strong></div>
             <!-- PUNTOS -->
             <?php if (isset($this->Puntos_Utilizados ) and $this->Puntos_Utilizados >0): ; ?>
               <div><strong> <?=  Numeric_Functions::Formato_Numero( $this->Puntos_Utilizados) ;?> </strong></div>

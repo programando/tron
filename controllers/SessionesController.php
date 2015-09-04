@@ -49,7 +49,7 @@ class SessionesController extends Controller
         Session::Destroy('compras_productos_fabricados_ta');
         Session::Destroy('compras_realizadas_tron');
         Session::Destroy('cumple_condicion_cpras_tron_industial');
-        Session::Destroy('flete_cobrado_otros');
+        Session::Destroy('flete_real_calculado');
         Session::Destroy('Fletes_Cobrados_Transportadoras');
         Session::Destroy('peso_accesorios');
         Session::Destroy('peso_otros_productos');

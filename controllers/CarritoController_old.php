@@ -614,7 +614,7 @@ public function Totalizar_Carrito()
 
         //TOTALES DEL CARRITO
         //-----------------------
-        $this->Vr_Fletes = Session::Get('flete_cobrado_otros');
+        $this->Vr_Fletes = Session::Get('flete_real_calculado');
         $Suma_Conceptos = $this->Vr_Fletes - $this->Presupuesto_Fletes + $this->Vr_Recaudo;
         if ( $Suma_Conceptos < 0 ){
             $Suma_Conceptos = 0;
@@ -894,7 +894,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
        *   CALCULA EL VALOR DE RECAUDO DE ACUERDO AL PEDIDO
        */
         $subsidio_flete = Session::Get('presupuesto_flete_otros');
-        $flete_real     = Session::Get('flete_cobrado_otros');
+        $flete_real     = Session::Get('flete_real_calculado');
         $sub_total_pedido_otros  = $this->SubTotal_Aplica_Recaudo;
         Session::Set('vr_diferencia_recaudo', 0);
         Session::Set('recaudo_total',0);
