@@ -378,7 +378,7 @@ class TercerosController extends Controller
       $idtipo_plan_compras  = General_Functions::Validar_Entrada('idtipo_plan_compras', 'NUM');
       $this->Terceros->Cambio_Plan($tipo_proceso_en_plan, $idtecero, $idtipo_plan_compras);
       echo "OK";
-    }
+    } 
 
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras, $idtpidentificacion )   {
 

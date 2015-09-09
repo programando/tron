@@ -42,25 +42,4 @@
 }
 
 
-/* Ventana modal */
-  .btn-cerrar-modal
-  {
-        margin-right: 5px;
-        margin-top: 5px;
-  }
-
-  .cuerpo-modal
-  {
-         height:  545px;
-         overflow: auto;
-         width: 100%;
-         margin-top: 40px;
-  }
-
-  .ventana-modal
-  {
-        width: 1100px;
-        display: block;
-        left: 10px;
-        top: 0px;
-  }
+ 

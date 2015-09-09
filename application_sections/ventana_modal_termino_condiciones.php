@@ -1,20 +1,12 @@
 <!-- Ventana modal de termino y condiciones -->
 <div>
     <div class="modal fade" id="terminos_condicones_modal" tabindex="-1" role="dialog" aria-labelledby="terminos_condicones_modal" aria-hidden="true">
-        <div class="modal-dialog ventana-modal">
+        <div class="modal-dialog" style="width: 1100px; display: block; left: 10px; top: 0px;">
             <div class="modal-content">
-
-              <!-- Cabezera -->
-              <div>
-                   <button type="button" class="close btn-cerrar-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-
-
-
+             <div class="modal-body">
               <!-- Cuerpo -->
-              <div class="modal-body cuerpo-modal">
-                    <div class="general" style="padding:0 60px; width:100%;  text-align:justify">
-
+              <div class="contenedor_convenio" style="display: block; width: 100%; margin: 0px auto; height: 490px; overflow: auto; position: relative;">
+              <div style="padding: 0px 60px; width:100%; text-align:justify; font-size: 17px;">
                         <div><img src="<?= BASE_IMG_EMPRESA ;?>logo.png"></div>
                         <br /><br />
                         <h1 style="text-align:center;">TÉRMINOS Y CONDICIONES DE USO DE<br />LA TIENDA VIRTUAL TRON</h1>
@@ -100,10 +92,15 @@
                         Estos términos y condiciones de venta se regirán e interpretarán de acuerdo con las leyes de la República de Colombia. Cualquier controversia que derive de este documento se someterá a los tribunales del Municipio de Cali (Valle del Cauca, Colombia), y tanto LA TIENDA VIRTUAL como el cliente renuncian expresamente a cualquier otro fuero que pudiera corresponderles en razón de su domicilio presente o futuro.
 
                         <br /><br /><br /><br />
-                    </div>
-
-                          </div>
-
+                                    
+              </div>
+              </div>
+            </div>
+             <div  class="modal-footer">
+                <div>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" id="cerrar_moda_convenio_comercial">Cerrar</button>
+                </div>
+             </div>
 
             </div>
         </div>

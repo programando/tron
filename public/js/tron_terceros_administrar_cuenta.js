@@ -426,13 +426,8 @@ $('#convenio_comercial').on('click',function(){
     $('.menu_convenio').show();
 });
 
-// ventana modal :: fadeIn();
-$('#vista_previa').on('click',function(){
-	$('#ventana_modal_convenio_comercial').fadeIn();
-});
-
-// ventana modal :: fadeOut();
-$('#cerrar_modal').on('click',function(){
+// funcion = esconde el menu de convenio comercial por medio del cierre de la ventana modal.
+$('#cerrar_moda_convenio_comercial').on('click',function(){
 	$('#ventana_modal_convenio_comercial').fadeOut();
 	$('.menu_convenio').hide();
 });
