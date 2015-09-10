@@ -31,6 +31,7 @@ class IndexController extends Controller
         $this->Terceros->Compra_Productos_Tron_Mes_Actual();
         $Parametros = $this->Parametros->Transportadoras();
 
+        Session::Set('Parametros',$Parametros );
         Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);            // Precio de venta del kit de inicio
         Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);           // valor de la 1 cuota de inscripcion
         Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron

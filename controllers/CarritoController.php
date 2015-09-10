@@ -427,41 +427,41 @@ class CarritoController extends Controller{
 
 private function Totalizar_Carrito_Inicializar_Propiedades(){
    // PROPIEDADES RELACIONADAS CON PRODUCTOS TRON
-  $this->Cantidad_Ropa                   =  0 ;
-  $this->Peso_Ropa                       =  0 ;
-  $this->Cmv_Ropa                        =  0 ;
-  $this->Precio_Lista_Ropa               =  0 ;
+   $this->Cantidad_Ropa                   =  0 ;
+   $this->Peso_Ropa                       =  0 ;
+   $this->Cmv_Ropa                        =  0 ;
+   $this->Precio_Lista_Ropa               =  0 ;
 
-  $this->Cantidad_Banios                 =  0 ;
-  $this->Peso_Banios                     =  0 ;
-  $this->Cmv_Banios                      =  0 ;
-  $this->Precio_Lista_Banios             =  0 ;
+   $this->Cantidad_Banios                 =  0 ;
+   $this->Peso_Banios                     =  0 ;
+   $this->Cmv_Banios                      =  0 ;
+   $this->Precio_Lista_Banios             =  0 ;
 
-  $this->Cantidad_Pisos                  =  0 ;
-  $this->Peso_Pisos                      =  0 ;
-  $this->Cmv_Pisos                       =  0 ;
-  $this->Precio_Lista_Pisos              =  0 ;
+   $this->Cantidad_Pisos                  =  0 ;
+   $this->Peso_Pisos                      =  0 ;
+   $this->Cmv_Pisos                       =  0 ;
+   $this->Precio_Lista_Pisos              =  0 ;
 
-  $this->Cantidad_Loza                   =  0 ;
-  $this->Peso_Loza                       =  0 ;
-  $this->Cmv_Loza                        =  0 ;
-  $this->Precio_Lista_Loza               =  0 ;
-  $this->Tengo_Productos_Tron            =  FALSE;
-  $this->Cantidad_Productos_Tron         =  0;
+   $this->Cantidad_Loza                   =  0 ;
+   $this->Peso_Loza                       =  0 ;
+   $this->Cmv_Loza                        =  0 ;
+   $this->Precio_Lista_Loza               =  0 ;
+   $this->Tengo_Productos_Tron            =  FALSE;
+   $this->Cantidad_Productos_Tron         =  0;
 
-  $this->SubTotal_Pedido_Amigos          =  0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
-  $this->SubTotal_Pedido_Ocasional       =  0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
-  $this->Peso_Total_Pedido_Kilos         =  0 ;
-  $this->Calcular_Flete_Courrier         = TRUE;
-  $this->Tron_Peso_Total_Gramos          =  0 ;
-  $this->Tron_Cmv_Total                  =  0 ;
-  $this->Tron_Precio_Lista_Total         =  0 ;
-  $this->SubTotal_Pedido_Real            =  0 ;
+   $this->SubTotal_Pedido_Amigos          =  0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
+   $this->SubTotal_Pedido_Ocasional       =  0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
+   $this->Peso_Total_Pedido_Kilos         =  0 ;
+   $this->Calcular_Flete_Courrier         = TRUE;
+   $this->Tron_Peso_Total_Gramos          =  0 ;
+   $this->Tron_Cmv_Total                  =  0 ;
+   $this->Tron_Precio_Lista_Total         =  0 ;
+   $this->SubTotal_Pedido_Real            =  0 ;
 
-  $this->compras_tron                    =  0 ;
-  $this->compras_industrial              =  0 ;
-  $this->compras_otros_productos         =  0 ;
-  $this->compras_accesorios              =  0 ;
+   $this->compras_tron                    =  0 ;
+   $this->compras_industrial              =  0 ;
+   $this->compras_otros_productos         =  0 ;
+   $this->compras_accesorios              =  0 ;
 
    $this->Valor_Declarado_Otros_Productos           =  0 ;
    $this->Valor_Declarado_Industriales              =  0 ;
@@ -500,30 +500,30 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->Total_Cpra_Sin_Iva_Prd_Indus_Ocasional    = 0;
 
 
-  $this->PayuLatam_Recaudo               =  Session::Get('py_porciento_recaudo');
-  $this->PayuLatam_Valor_Minimo          =  Session::Get('py_vr_min_recaudo');
-  $this->PayuLatam_Valor_Adicional       =  Session::Get('py_vr_adicional');
+   $this->PayuLatam_Recaudo               =  Session::Get('py_porciento_recaudo');
+   $this->PayuLatam_Valor_Minimo          =  Session::Get('py_vr_min_recaudo');
+   $this->PayuLatam_Valor_Adicional       =  Session::Get('py_vr_adicional');
 
-  Session::Set('REDETRANS_COURRIER_flete',0);
-  Session::Set('REDETRANS_CARGA_valor_flete',0);
-  Session::Set('SERVIENTREGA_PREMIER_valor_flete',0);
-  Session::Set('SERVIENTREGA_INDUS_valor_flete',0);
-  Session::Set('REDETRANS_COURRIER_seguro',0);
-  Session::Set('REDETRANS_CARGA_seguro',0);
-  Session::Set('SERVIENTREGA_PREMIER_seguro',0);
-  Session::Set('SERVIENTREGA_INDUS_seguro',0);
-  Session::Set('REDETRANS_COURRIER_flete_total',0);
-  Session::Set('REDETRANS_CARGA_flete_total',0);
-  Session::Set('SERVIENTREGA_PREMIER_flete_total',0);
-  Session::Set('SERVIENTREGA_INDUS_flete_total',0);
-  Session::Set('precio_especial', 0);
-  Session::Set('transporte_tron',0);
-  Session::Set('descuento_especial',0);
-  Session::Set('descuento_especial_porcentaje', 0);
-  Session::Set('vr_unitario_ropa',0);
-  Session::Set('vr_unitario_banios',0);
-  Session::Set('vr_unitario_pisos',0);
-  Session::Set('vr_unitario_loza',0);
+   Session::Set('REDETRANS_COURRIER_flete',0);
+   Session::Set('REDETRANS_CARGA_valor_flete',0);
+   Session::Set('SERVIENTREGA_PREMIER_valor_flete',0);
+   Session::Set('SERVIENTREGA_INDUS_valor_flete',0);
+   Session::Set('REDETRANS_COURRIER_seguro',0);
+   Session::Set('REDETRANS_CARGA_seguro',0);
+   Session::Set('SERVIENTREGA_PREMIER_seguro',0);
+   Session::Set('SERVIENTREGA_INDUS_seguro',0);
+   Session::Set('REDETRANS_COURRIER_flete_total',0);
+   Session::Set('REDETRANS_CARGA_flete_total',0);
+   Session::Set('SERVIENTREGA_PREMIER_flete_total',0);
+   Session::Set('SERVIENTREGA_INDUS_flete_total',0);
+   Session::Set('precio_especial', 0);
+   Session::Set('transporte_tron',0);
+   Session::Set('descuento_especial',0);
+   Session::Set('descuento_especial_porcentaje', 0);
+   Session::Set('vr_unitario_ropa',0);
+   Session::Set('vr_unitario_banios',0);
+   Session::Set('vr_unitario_pisos',0);
+   Session::Set('vr_unitario_loza',0);
 
 }
 
@@ -673,21 +673,46 @@ public function Totalizar_Carrito(){
 
 } // Fin Tootalizar carrito temp
 
+private function Calcular_Fletes_Productos_Tron(){
+  $Param           = Session::Get('Parametros');
+  $idmcipio        = Session::Get('idmcipio');
+  $iddpto          = Session::Get('iddpto');
+  $re_expedicion   = Session::Get('re_expedicion');
+  $Porciento_Flete = 0;
+  $Flete_Minimo    = 0 ;
+
+  if ( $iddpto == 32 ){
+      $Porciento_Flete  = $Param[0]['tron_valle_porciento']/100;
+      $Flete_Minimo     = $Param[0]['tron_valle_minimo'];
+  }else{
+      $Porciento_Flete  = $Param[0]['tron_nacional_porciento']/100;
+      $Flete_Minimo     = $Param[0]['tron_nacional_minimo'];
+  }
+  if ( $re_expedicion == TRUE ){
+      $Porciento_Flete  = $Param[0]['tron_reexp_porciento']/100;
+      $Flete_Minimo     = $Param[0]['tron_reexp_minimo'];
+  }
+
+
+
+}
 private function Calcular_Fletes_y_Transporte(){
   /** SEPTIEMBRE 03 2015
    *  SEPTIEMBRE 05 2015  -> Se introducen cambio en el cálculo del flete aplicando % al valor de compra sin iva
    */
 
 
+      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total, $this->Calcular_Flete_Courrier );
 
-       $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total, $this->Calcular_Flete_Courrier );
-       $this->Vr_Fletes          = $this->Valor_Total_Compra_Antes_Iva * Session::Get('porciento_flete_pedido')/100;
 
-       $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total_AmigoTron, $this->Calcular_Flete_Courrier );
-       $this->Vr_Fletes_Amigo_Tron = $this->Valor_Total_Compra_Antes_Iva_Amigo_Tron * Session::Get('porciento_flete_pedido')/100;
 
-       $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Otros_Productos_Ocasional, $this->Calcular_Flete_Courrier );
-       $this->Vr_Fletes_Ocasional  = $this->Valor_Total_Compra_Antes_Iva_Ocasional * Session::Get('porciento_flete_pedido')/100;
+      $this->Vr_Fletes          = $this->Valor_Total_Compra_Antes_Iva * Session::Get('porciento_flete_pedido')/100;
+
+      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total_AmigoTron, $this->Calcular_Flete_Courrier );
+      $this->Vr_Fletes_Amigo_Tron = $this->Valor_Total_Compra_Antes_Iva_Amigo_Tron * Session::Get('porciento_flete_pedido')/100;
+
+      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Otros_Productos_Ocasional, $this->Calcular_Flete_Courrier );
+      $this->Vr_Fletes_Ocasional  = $this->Valor_Total_Compra_Antes_Iva_Ocasional * Session::Get('porciento_flete_pedido')/100;
 
       /* if ($this->Vr_Fletes_Amigo_Tron < $this->Vr_Fletes){
            $this->Vr_Fletes = $this->Vr_Fletes_Amigo_Tron;

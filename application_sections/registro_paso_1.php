@@ -124,7 +124,7 @@
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
                 </tr>
                 <tr>
-                   <td class="text-right">Valor del kit de inicio <strong>( Calculado para Cali )</strong> : <br><br>
+                   <td class="text-right">Valor del kit de inicio <strong> <small> ( Calculado para Cali ) </small></strong> : <br><br>
                     Valor Derechos de inscripción <strong>( Primera de 3 cuotas )</strong>:
                    </td>
                    <td class="text-center">
@@ -139,7 +139,7 @@
                    </td>
                 </tr>
                 <tr>
-                   <td class="text-right"> <strong>TOTAL A PAGAR ( Calculado para Cali ) :</strong> </td>
+                   <td class="text-right"> <strong>TOTAL A PAGAR <small> ( Calculado para Cali ) : </small></strong> </td>
                    <td class="text-center">.</td>
                    <td class="text-center">$ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> </td>
                    <td class="text-center">$ <?= number_format($this->Total_Kit_Inscripcion,0) ;?> </td>

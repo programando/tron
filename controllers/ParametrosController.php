@@ -19,7 +19,7 @@ class ParametrosController extends Controller
 									return $this->Parametros->Transportadoras();
 						}
 
-						public function Transportadoras_Vr_Kilo_Destino($idmcipio){
+						public function Transportadoras_Vr_Kilo_Destino( $idmcipio ){
 
 									return $this->Parametros->Transportadoras_Vr_Kilo_Destino($idmcipio);
 						}

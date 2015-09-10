@@ -4,7 +4,7 @@
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
         <?php if (Session::Get('autenticado') == FALSE): ; ?>
-          <div class="col-resumen-pedido"><strong>Transporte <small>(Calculado para Cali):</small></strong></div>
+          <div class="col-resumen-pedido"><strong>Transporte <small>( Calculado para Cali ):</small></strong></div>
         <?php else : ?>
            <div class="col-resumen-pedido"><strong>( + ) Transporte <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
         <?php endif ;?>
