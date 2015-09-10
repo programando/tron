@@ -667,6 +667,28 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   	}
 });
 
+/// RECOMENDAR NEGOCIO A UN AMIGO
 
+
+$('.contenedor_cuenta').on('click','#recomendar_enviar_mnsj',function(){
+
+		$recomendar_nombre        = $('#recomendar_nombre').val();
+		$recomendar_email         = $('#recomendar_email').val();
+		$recomendar_mnsj_personal = $('#recomendar_mnsj_personal').val();
+		$Parametros = {'recomendar_nombre':$recomendar_nombre, 'recomendar_email':$recomendar_email, 'recomendar_mnsj_personal':$recomendar_mnsj_personal };
+
+   /* $.ajax({
+         dataType: 'html',
+         url:      '/tron/Emails/Recomendar_Negocio_Amigo/',
+         type:     'post',
+         data:   $Parametros+6
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+*/
+
+});
 
 

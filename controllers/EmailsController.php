@@ -14,6 +14,27 @@
       public function Index() { }
 
 
+
+
+      public function Recomendar_Negocio_Amigo(){
+        /** SEPTIEMBRE 14 DE 2015
+         *    GENERA CORREO ELECTRONICO PARA RECOMENDAR MODELO DE NEGOCIO A AMIGO.
+         */
+          $Respuesta      = 'OK';
+          $nombre_usuario           = General_Functions::Validar_Entrada('recomendar_nombre', 'TEXT');
+          $email                    = General_Functions::Validar_Entrada('recomendar_email', 'TEXT');
+          $Es_email                 = General_Functions::Validar_Entrada('recomendar_email', 'EMAIL');
+          $recomendar_mnsj_personal = General_Functions::Validar_Entrada('recomendar_mnsj_personal', 'TEXT');
+
+          if ( strlen($nombre_usuario) == 0 ){
+              $Respuesta  = $Respuesta . 'Debe registrar la dirección de correo electrónico de tu amigo(a) a quien recomendarás el modelo de negocio.<br>';
+            }
+          if ( $Es_email == FALSE ){
+              $Respuesta  = $Respuesta . 'la dirección de correo no tiene un formato válido.<br>';
+          }
+          echo json_encode($Respuesta,256);
+      }
+
       /** ENVIO DE CORREOS DESDE EL FORMULARIO DE CONTACTOS
        *    ABRIL 16 DE 2015
        */
@@ -215,3 +236,6 @@
 
     }
 ?>
+
+
+

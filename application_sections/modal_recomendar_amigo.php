@@ -29,17 +29,17 @@
                                 <div class="col-lg-6" >
                                   <input type="text" class="form-control input_recomendar" id="recomendar_nombre"/>
                                 </div>
-                              </div> 
+                              </div>
 
                               <!-- direccion -->
                               <div class="form-group cont_label_input">
-                                <label for="recomendar_email"  class="col-lg-6 control-label">
-                                  <p class="text-label">Direccion electronica ( email ):</p>
+                                <label for="recomendar_email"  class="col-lg-6 control-label" title="Dirección electrónica de tu amigo(a)">
+                                  <p class="text-label">Dirección electrónica ( email ):</p>
                                 </label>
                                 <div class="col-lg-6" >
-                                  <input type="text" class="form-control input_recomendar" id="recomendar_email"/>
+                                  <input type="text" class="form-control input_recomendar" id="recomendar_email" title="Dirección electrónica de tu amigo(a)"/>
                                 </div>
-                              </div>   
+                              </div>
 
                               <!-- nobrede quien envia -->
                               <div class="form-group cont_label_input">
@@ -47,30 +47,22 @@
                                   <p class="text-label">Nombre de quien envia :</p>
                                 </label>
                                 <div class="col-lg-6" >
-                                  <input type="text" class="form-control input_recomendar" id="recomendar_nombre_envia"/>
+                                  <input type="text" class="form-control input_recomendar" id="recomendar_nombre_envia" disabled="disabled" />
                                 </div>
-                              </div>                               
-                              
-                              <!-- Hola -->
-                              <div class="form-group cont_label_input">
-                                <label for="recomendar_hola"  class="col-lg-6 control-label">
-                                  <p class="text-label">Hola : </p>
-                                </label>
-                                <div class="col-lg-6" >
-                                  <input type="text" class="form-control input_recomendar" id="recomendar_hola"/>
-                                </div>
-                              </div> 
-                            
+                              </div>
+
+
+
                             </form>
-                                                    
+
                           </div>
                         </div>
                         <!-- text " te he enviado " -->
                         <div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                Te he enviado este enlace para que conozcas un interesante modelo 
-                                de negocio donde podras encontrar , no solo granades descuento si no
-                                 tambien la posibilidad de generar grandes ingresos para ti . <br><br>
+                                Te he enviado este enlace para que conozcas un interesante modelo
+                                de negocio donde podrás encontrar , no sólo granades descuentos si no
+                                 también la posibilidad de generar grandes ingresos para ti . <br><br>
                             </div>
                         </div>
                         <!-- mensaje personal -->
@@ -83,7 +75,7 @@
                             </div>
                         </div>
                    </div>
-               </div> 
+               </div>
           </div>
       </div>
 

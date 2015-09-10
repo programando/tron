@@ -30,3 +30,11 @@
          });
 
 
+
+         $dias = array("Domingo","Lunes", "Mártes", "Miercoles", "Jueves", "Viernes", "Sabado");
+
+$meses =array("","Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+
+echo "Fecha actual: " . $dias[date(w)] . " " . date(d) . " del mes de " . $meses[date(n)] . " del año " . date(Y);
+
+

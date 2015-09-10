@@ -38,6 +38,7 @@
 					      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
 					      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
 					      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
+					      Session::Set('porciento_flete_pedido',          $Registro[0]["porciento_flete_pedido"]);
 
 					}
 
@@ -45,10 +46,13 @@
 	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
+	    		$this->Consultar_Vr_Kilo_Destino();
+
 	      $this->Cant_Unidades_Despacho = 0;
 	      $peso_kilos_pedido            = 0;
 	      $kit_inicio_peso_total        =   Session::Get('kit_inicio_peso_total');
 	      $kit_cantidad                 =   Session::Get('kit_cantidad');
+
 
 	      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
 	                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
@@ -227,7 +231,7 @@
 								$seguro_flete          = 0;
 								$this->valor_flete     = 0 ;
 								$this->tipo_tarifa     = '';
-								$this->Consultar_Vr_Kilo_Destino();
+
 								$this->re_expedicion   = Session::Get('re_expedicion_servientrega');
 								$this->idmcipio        = Session::Get('idmcipio');
 								$this->iddpto          = Session::Get('iddpto');
@@ -313,7 +317,7 @@
 						$descuento_comercial        = 0;
 						$this->valor_flete          = 0;
 
-      $this->Consultar_Vr_Kilo_Destino();
+
       $this->Transportadoras      = $this->Parametros->Transportadoras();
 						$this->re_expedicion        = Session::Get('re_expedicion');
 						$vr_kilo_idmcipio_redetrans = Session::Get('vr_kilo_idmcipio_redetrans');
