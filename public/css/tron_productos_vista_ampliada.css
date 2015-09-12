@@ -1,4 +1,3 @@
-
 #contenido
 {
 	margin       : 0px auto;
@@ -63,7 +62,15 @@
 
 /*FIN-INFORMACION DE PRODUCTO*/
 
-
+/* Comprartir en faceboook */
+.img_compartir_face
+{
+	width: 22px; 
+	height: 20px;
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
 
 /*INICIO-IMG => COMISIONES PP , OFERTAS , TECNOLOGIAS APLICADAS ,*/
 .div-content a
@@ -159,6 +166,24 @@ th , td
 }
 /*FINA TABS*/
 
+
+/* Diseño de las notificaciones */
+.contenedor_notificaciones
+{
+	 display: none;
+	 position: fixed;
+	 bottom: 0px;
+	 right: 20px;
+	 width: 400px;
+	 z-index: 5000;
+}
+
+.img_llamar_atencion
+{
+	 font-size: 45px;
+	 display: block;
+	 margin-top: 10px;
+}
 
 
 

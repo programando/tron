@@ -1,4 +1,16 @@
 
+// Eventos ::: Notificaicones
+  $('#notificaciones').on('click', function(){
+      $('.contenedor_notificaciones').fadeIn(1000);
+      setTimeout(function() {
+        $(".contenedor_notificaciones").fadeOut(1500);
+      },5000);
+  });
+
+  $('#cerrar_moda_recomendar').on('click',function(){
+  	  $('.contenedor_notificaciones').fadeOut();
+  });
+ 
 // DIC 29 2014
 // FUNCIONALIDAD PARA QUE AL PRESIONAR EN LOS BOTONES + y -, SE ACTUALICEN LOS PRECIOS
 // DE ACUERDO A LA ESCALA

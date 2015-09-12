@@ -61,6 +61,11 @@
                 <?php } ?>
       </div>
 <div id="contenido-productos">
+  <!-- incluciones de docuementos -->
+      <?php include (APPLICATION_SECTIONS . 'estructura_notificaciones.php');?>
+      <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
+  <!-- incluciones de docuementos -->
+
       <div class="col-lg-6 columan_de_la_info_producto">
         <div class="row div-content"> <!--INICIO DE SUBCOLUMNA-->
            <div class="col-lg-12">
@@ -84,8 +89,24 @@
                                  <a href="<?=BASE_URL ;?>productos/varias_referencias/<?=$id_agrupacion ;?> "> <?= $nom_producto_largo ;?></a>
                             </span>
                         </a>
-                     </p>
+                     </p> 
                  <?php endif ;?>
+                  <div>
+                    <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." id="notificaciones" data-toggle="modal" data-target="#recomendar" style="width: 320px; display:block; margin-bottom: -10px;">
+                      <p>
+                        <span class="recomendar">
+                           <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
+                        </span> ¡Recomendar este Producto a un Amigo(a)!
+                      </p>
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#" style="width: 200px; display: block;"> 
+                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                           <span>Compartir en FACEBOOK</span>
+                       </div>
+                    </a>
+                  </div>                 
               </div>
             </div>
          </div><br><!--FIN DE SUBCOLUMNA-->
@@ -175,19 +196,6 @@
                     </p>
                   </a>
                 <?php endif ;?>
-
-                  <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." data-toggle="modal" data-target="#recomendar">
-                    <p>
-                      <span class="recomendar">
-                         <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
-                      </span> ¡Recomendar este Producto a un Amigo(a)!
-                    </p>
-                  </a>
-
-          <!--Llamado a la ventana modal -->
-                  <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
-          <!--Llamado a la ventana modal -->
-
                 </div>
              </div>
 

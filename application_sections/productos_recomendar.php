@@ -1,3 +1,4 @@
+<!-- Ventana modal "Recomendar producto"  -->
 <div class="modal fade" id="recomendar"
       tabindex="-1" role="dialog"
       aria-labelledy="myModallabel"
@@ -54,7 +55,7 @@
             <button type="button" class="btn btn-success btn-enviar-modal" id='btn-recomendar-producto'
                     id-producto ='<?=$idproducto ;?>'
                     nombre-imagen ="<?= $nombre_imagen ;?>"  >Enviar</button>
-            <button type="button" class="btn btn-default btn-cerrar-modal" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default btn-cerrar-modal" data-dismiss="modal" id="cerrar_moda_recomendar">Cerrar</button>
           </div><!--Pie de la ventana modal -->
 
     	  </div>
