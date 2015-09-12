@@ -61,8 +61,8 @@
                         <div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 Te he enviado este enlace para que conozcas un interesante modelo
-                                de negocio donde podrás encontrar , no sólo granades descuentos si no
-                                 también la posibilidad de generar grandes ingresos para ti . <br><br>
+                                de negocio donde podrás encontrar , no sólo grandes descuentos si no
+                                 también la posibilidad de generar ingresos adicionales para ti. <br><br>
                             </div>
                         </div>
                         <!-- mensaje personal -->

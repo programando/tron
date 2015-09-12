@@ -38,11 +38,9 @@
 					      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
 					      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
 					      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
-					      Session::Set('porciento_flete_pedido',          $Registro[0]["porciento_flete_pedido"]);
-
 					}
 
-	    public function Calcular_Flete( $valor_declarado, $Calcular_Flete_Courrier ) {
+	    public function Calcular_Flete( $valor_declarado) {
 	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
@@ -63,16 +61,15 @@
 	      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
 
 
+
 	      if ( $valor_declarado >0 ){
-	        if ( $Calcular_Flete_Courrier == TRUE ){
-	              $this->Redetrans_Courrier         ($peso_kilos_pedido,$valor_declarado);
-	            }
-	        $this->Redetrans_Carga            ($peso_kilos_pedido,$valor_declarado);
-	        $this->Servientrega_Industrial    ($peso_kilos_pedido,$valor_declarado);
-	        $this->Sevientrega_Premier        ($peso_kilos_pedido,$valor_declarado);
+	        $this->Redetrans_Courrier         ( $peso_kilos_pedido , $valor_declarado );
+	        $this->Redetrans_Carga            ( $peso_kilos_pedido , $valor_declarado );
+	        $this->Servientrega_Industrial    ( $peso_kilos_pedido , $valor_declarado );
+	        $this->Sevientrega_Premier        ( $peso_kilos_pedido , $valor_declarado );
 	      }
 	      if ( $kit_cantidad > 0 ){
-	          $this->Vr_Transporte_Kit_Inicio($kit_inicio_peso_total,$kit_cantidad  );
+	          $this->Vr_Transporte_Kit_Inicio( $kit_inicio_peso_total,$kit_cantidad  );
 	      }
 	       $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
 	       $this->Encontrar_Mejor_Flete();
@@ -134,6 +131,7 @@
           Session::Set('tipo_despacho_pedido', 1 );     /// REDETRANS COURRIER
           Session::Set('tipo_tarifa', 'REDETRANS COURRIER');
         }
+
     }
 
       public function Vr_Transporte_Kit_Inicio($kit_inicio_peso_total,$kit_cantidad ){
@@ -602,7 +600,7 @@ public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido=0)
             if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros)){
                   $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
               }
-            if (in_array($ID_Presentacion, $presentaciones_4_litros)) { // presentaciones iguales a 4 litros
+            if ( in_array($ID_Presentacion, $presentaciones_4_litros )) { // presentaciones iguales a 4 litros
                   $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
               }
             if (in_array($ID_Presentacion,  $presentaciones_20_litros)){  // presentaciones iguales a 4 litros

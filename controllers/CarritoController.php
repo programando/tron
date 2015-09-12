@@ -2,103 +2,90 @@
 <?php
 
 class CarritoController extends Controller{
-     private $Carrito_Vacio             = false;
-     private $Cantidad_Filas_Carrito    = 0;
+     private $Carrito_Vacio                   = false;
+     private $Cantidad_Filas_Carrito          = 0;
      private $Datos_Carro;
 
-     private $SubTotal_Pedido_Amigos    = 0;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
-     private $SubTotal_Pedido_Ocasional = 0;
-     private $SubTotal_Pedido_Real      = 0;
-     private $SubTotal_Aplica_Recaudo   = 0;
+     private $SubTotal_Pedido_Amigos          = 0;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
+     private $SubTotal_Pedido_Ocasional       = 0;
+     private $SubTotal_Pedido_Real            = 0;
+     private $SubTotal_Aplica_Recaudo         = 0;
 
-     private $Vr_Fletes                 = 0;
-     private $Vr_Fletes_Amigo_Tron      = 0;
-     private $Vr_Fletes_Ocasional       = 0;
+     private $Vr_Fletes                       = 0;
+     private $Vr_Fletes_Amigo_Tron            = 0;
+     private $Vr_Fletes_Ocasional             = 0;
 
-     private $Presupuesto_Fletes        = 0;
-     private $Vr_Recaudo                = 0;
-     private $Vr_Transporte             = 0;
-     private $Vr_Total_Pedido_Amigos    = 0;
-     private $Vr_Total_Pedido_Real      = 0;
-     private $Vr_Base_Iva               = 0;
-     private $Calcular_Flete_Courrier   = FALSE;
+     private $Presupuesto_Fletes              = 0;
+     private $Vr_Recaudo                      = 0;
+     private $Vr_Transporte                   = 0;
+     private $Vr_Total_Pedido_Amigos          = 0;
+     private $Vr_Total_Pedido_Real            = 0;
+     private $Vr_Base_Iva                     = 0;
 
-     private $Peso_Total_Pedido_Kilos   = 0;
-     private $Carrito_Habilitado        = false;
+     private $Peso_Total_Pedido_Kilos         = 0;
+     private $Carrito_Habilitado              = false;
      // VARIABLES PARA PRODUCTOS TRON
-     private $Tron_Peso_Total_Gramos    = 0;
-     private $Tron_Cmv_Total            = 0;
-     private $Tron_Precio_Lista_Total   = 0;
+     private $Tron_Peso_Total_Gramos          = 0;
+     private $Tron_Cmv_Total                  = 0;
+     private $Tron_Precio_Lista_Total         = 0;
      //VARIABLES PARA OPERACIONES TOTALES EN EL CARRITO
-     private $Saldo_Puntos_Cantidad     = 0;
-     private $Saldo_Comisiones          = 0;
-     private $Vr_Cupon_Descuento        = 0;
+     private $Saldo_Puntos_Cantidad           = 0;
+     private $Saldo_Comisiones                = 0;
+     private $Vr_Cupon_Descuento              = 0;
 
 
-     private $Vr_Transporte_Tron        = 0;
-     private $Vr_Transporte_Cliente     = 0; // CONTIENE LA SUMA DE TRANSPORTE TRON Y TRANSPORTE OTROS PRODUCTOS
+     private $Vr_Transporte_Tron              = 0;
+     private $Vr_Transporte_Cliente           = 0; // CONTIENE LA SUMA DE TRANSPORTE TRON Y TRANSPORTE OTROS PRODUCTOS
 
-     private $Vr_Total_Pedido_Ocasional = 0;
-     private $Vr_Total_Pedido_Tron      = 0;
+     private $Vr_Total_Pedido_Ocasional       = 0;
+     private $Vr_Total_Pedido_Tron            = 0;
 
-     private $Cant_Unidades_Despacho    = 0;
-     private $compras_tron              = 0;
-     private $compras_industrial        = 0;
-     private $compras_otros_productos   = 0;
-     private $compras_accesorios        = 0;
+     private $Cant_Unidades_Despacho          = 0;
+     private $compras_tron                    = 0;
+     private $compras_industrial              = 0;
+     private $compras_otros_productos         = 0;
+     private $compras_accesorios              = 0;
 
-     private $PayuLatam_Recaudo         = 0;
-     private $PayuLatam_Valor_Minimo    = 0;
-     private $PayuLatam_Valor_Adicional = 0;
+     private $PayuLatam_Recaudo               = 0;
+     private $PayuLatam_Valor_Minimo          = 0;
+     private $PayuLatam_Valor_Adicional       = 0;
 
-     private $Cantidad_Ropa             =  0 ;
-     private $Peso_Ropa                 =  0 ;
-     private $Cmv_Ropa                  =  0 ;
-     private $Precio_Lista_Ropa         =  0 ;
+     private $Cantidad_Ropa                   =  0 ;
+     private $Peso_Ropa                       =  0 ;
+     private $Cmv_Ropa                        =  0 ;
+     private $Precio_Lista_Ropa               =  0 ;
 
-     private $Cantidad_Banios           =  0 ;
-     private $Peso_Banios               =  0 ;
-     private $Cmv_Banios                =  0 ;
-     private $Precio_Lista_Banios       =  0 ;
+     private $Cantidad_Banios                 =  0 ;
+     private $Peso_Banios                     =  0 ;
+     private $Cmv_Banios                      =  0 ;
+     private $Precio_Lista_Banios             =  0 ;
 
-     private $Cantidad_Pisos            =  0 ;
-     private $Peso_Pisos                =  0 ;
-     private $Cmv_Pisos                 =  0 ;
-     private $Precio_Lista_Pisos        =  0 ;
+     private $Cantidad_Pisos                  =  0 ;
+     private $Peso_Pisos                      =  0 ;
+     private $Cmv_Pisos                       =  0 ;
+     private $Precio_Lista_Pisos              =  0 ;
 
-     private $Cantidad_Loza             =  0 ;
-     private $Peso_Loza                 =  0 ;
-     private $Cmv_Loza                  =  0 ;
-     private $Precio_Lista_Loza         =  0 ;
-     private $Tengo_Productos_Tron      = FALSE;
-     private $Cantidad_Productos_Tron   = 0;
+     private $Cantidad_Loza                   =  0 ;
+     private $Peso_Loza                       =  0 ;
+     private $Cmv_Loza                        =  0 ;
+     private $Precio_Lista_Loza               =  0 ;
+     private $Tengo_Productos_Tron            = FALSE;
+     private $Cantidad_Productos_Tron         = 0;
 
-    private $Valor_Declarado_Otros_Productos           = 0 ;
-    private $Valor_Declarado_Industriales              = 0 ;
-    private $Valor_Declarado_Productos_Tron            = 0 ;
-    private $Valor_Declarado_Total                     = 0;
-    private $Valor_Declarado                           = 0;
+     private $Valor_Declarado_Otros_Productos = 0 ;
+     private $Valor_Declarado_Industriales    = 0 ;
+     private $Valor_Declarado_Productos_Tron  = 0 ;
+     private $Valor_Declarado_Total           = 0;
+     private $Valor_Declarado                 = 0;
 
-    private $Valor_Declarado_Otros_Productos_AmigoTron = 0 ;
-    private $Valor_Declarado_Industriales_AmigoTron    = 0 ;
-    private $Valor_Declarado_Total_AmigoTron           = 0;
+     private $vr_total_ppto_fletes            = 0;
+     private $vr_total_anticipo_recaudo       = 0;
 
-    private $Valor_Declarado_Otros_Productos_Ocasional = 0 ;
-    private $Valor_Declarado_Industriales_Ocasional    = 0 ;
-    private $Valor_Declarado_Total_Ocasional           = 0;
-    private $Valor_Total_Compra_Antes_Iva              = 0;
-    private $Valor_Total_Compra_Antes_Iva_Amigo_Tron   = 0;
-    private $Valor_Total_Compra_Antes_Iva_Ocasional    = 0;
+     private $Vr_Declarado_Courrier_Ocas      = 0;
+     private $Vr_Declarado_Courrier_Tron      = 0;
+     private $Peso_Pedido_Courrier            = 0;
 
-    private $vr_total_ppto_fletes                   = 0;
-    private $vr_total_anticipo_recaudo              = 0;
-    private $Total_Cpra_Sin_Iva_Prd_Tron_Amigo      = 0;
-    private $Total_Cpra_Sin_Iva_Prd_Otros_Amigo     = 0;
-    private $Total_Cpra_Sin_Iva_Prd_Indus_Amigo     = 0;
 
-    private $Total_Cpra_Sin_Iva_Prd_Tron_Ocasional  = 0;
-    private $Total_Cpra_Sin_Iva_Prd_Otros_Ocasional = 0;
-    private $Total_Cpra_Sin_Iva_Prd_Indus_Ocasional = 0;
 
     public function __construct()  {
         parent::__construct();
@@ -452,7 +439,6 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->SubTotal_Pedido_Amigos          =  0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
    $this->SubTotal_Pedido_Ocasional       =  0 ;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
    $this->Peso_Total_Pedido_Kilos         =  0 ;
-   $this->Calcular_Flete_Courrier         = TRUE;
    $this->Tron_Peso_Total_Gramos          =  0 ;
    $this->Tron_Cmv_Total                  =  0 ;
    $this->Tron_Precio_Lista_Total         =  0 ;
@@ -468,9 +454,6 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->Valor_Declarado_Productos_Tron            =  0 ;
    $this->Valor_Declarado_Total                     =  0 ;
 
-   $this->Valor_Declarado_Otros_Productos_AmigoTron = 0 ;
-   $this->Valor_Declarado_Industriales_AmigoTron    = 0 ;
-   $this->Valor_Declarado_Total_AmigoTron           = 0;
 
    $this->Valor_Declarado_Otros_Productos_Ocasional = 0 ;
    $this->Valor_Declarado_Industriales_Ocasional    = 0 ;
@@ -484,20 +467,14 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->Vr_Recaudo                                = 0;
    $this->vr_total_anticipo_recaudo                 = 0;
    $this->vr_total_ppto_fletes                      = 0;
-   $this->Valor_Total_Compra_Antes_Iva              = 0;
-   $this->Valor_Total_Compra_Antes_Iva_Amigo_Tron   = 0;
-   $this->Valor_Total_Compra_Antes_Iva_Ocasional    = 0;
 
    $this->vr_total_ppto_fletes                      = 0;
    $this->vr_total_anticipo_recaudo                 = 0;
 
-   $this->Total_Cpra_Sin_Iva_Prd_Tron_Amigo         = 0;
-   $this->Total_Cpra_Sin_Iva_Prd_Otros_Amigo        = 0;
-   $this->Total_Cpra_Sin_Iva_Prd_Indus_Amigo        = 0;
+   $this->Vr_Declarado_Courrier_Ocas                = 0;
+   $this->Vr_Declarado_Courrier_Tron                = 0;
+   $this->Peso_Pedido_Courrier                      = 0;
 
-   $this->Total_Cpra_Sin_Iva_Prd_Tron_Ocasional     = 0;
-   $this->Total_Cpra_Sin_Iva_Prd_Otros_Ocasional    = 0;
-   $this->Total_Cpra_Sin_Iva_Prd_Indus_Ocasional    = 0;
 
 
    $this->PayuLatam_Recaudo               =  Session::Get('py_porciento_recaudo');
@@ -555,8 +532,7 @@ public function Totalizar_Carrito(){
       $cumple_condiciones_precio_especial = $this->Determinar_Cumple_Condiciones_Precio_Especial();
       //---------------------------------------------------------------------------------------------
       $this->compras_tron = 0;
-      /// ESTAS PRESENTACIONES ON DE INDUSTRIAL, PERO APLICAN EN COURRIER
-      $presentaciones_aplican_courrier   = array(3, 6, 7, 9, 14, 87, 90,144, 149, 158, 159, 165, 167, 168, 178, 180, 192 );
+
       foreach ($this->Datos_Carro as &$Productos){
           $cantidad                                   = $Productos['cantidad'];
           $idproducto                                 = $Productos['idproducto'];
@@ -569,6 +545,7 @@ public function Totalizar_Carrito(){
           $porciento_iva                              = 1 + $Productos['iva'] / 100;
           $porciento_ppto_fletes                      = $Productos['ppto_fletes'];
           $ID_Presentacion                            = $Productos['idpresentacion'];
+
 
           $Productos['sub_total_pv_tron']             = $cantidad     * $pv_tron;
           $Productos['sub_total_pv_ocasional']        = $cantidad     * $pv_ocasional ;
@@ -586,23 +563,7 @@ public function Totalizar_Carrito(){
           $Productos['precio_venta_antes_iva']           = $Productos['precio_unitario_produc_pedido'] / $porciento_iva ;
           $Productos['precio_venta_antes_iva_tron']      = $pv_tron             / $porciento_iva ;
           $Productos['precio_venta_antes_iva_ocasional'] = $pv_ocasional        / $porciento_iva ;
-          $this->Valor_Total_Compra_Antes_Iva            = $this->Valor_Total_Compra_Antes_Iva  + ( $Productos['precio_venta_antes_iva']  * $cantidad );
 
-          $this->Valor_Total_Compra_Antes_Iva_Amigo_Tron = $this->Valor_Total_Compra_Antes_Iva_Amigo_Tron  + ( $pv_tron  * $cantidad);
-          $this->Valor_Total_Compra_Antes_Iva_Ocasional  = $this->Valor_Total_Compra_Antes_Iva_Ocasional   + ( $pv_ocasional * $cantidad);
-
-          if ( $id_categoria_producto  <= 4 ){
-              $this->Total_Cpra_Sin_Iva_Prd_Tron_Amigo         =  $this->Total_Cpra_Sin_Iva_Prd_Tron_Amigo       + ( $pv_tron  * $cantidad);
-              $this->Total_Cpra_Sin_Iva_Prd_Tron_Ocasional     =  $this->Total_Cpra_Sin_Iva_Prd_Tron_Ocasional   + ( $pv_ocasional * $cantidad);
-          }
-          if ( $id_categoria_producto  == 6 ){
-              $this->Total_Cpra_Sin_Iva_Prd_Indus_Amigo        =  $this->Total_Cpra_Sin_Iva_Prd_Indus_Amigo      + ( $pv_tron  * $cantidad);
-              $this->Total_Cpra_Sin_Iva_Prd_Indus_Ocasional    =  $this->Total_Cpra_Sin_Iva_Prd_Indus_Ocasional  + ( $pv_ocasional * $cantidad);
-          }
-          if ( $id_categoria_producto > 4 && $id_categoria_producto != 6 ) {
-              $this->Total_Cpra_Sin_Iva_Prd_Otros_Amigo        =  $this->Total_Cpra_Sin_Iva_Prd_Otros_Amigo      + ( $pv_tron  * $cantidad);
-              $this->Total_Cpra_Sin_Iva_Prd_Otros_Ocasional    =  $this->Total_Cpra_Sin_Iva_Prd_Otros_Ocasional  + ( $pv_ocasional * $cantidad);
-          }
 
 
           //PRESUPUESTO DE FLETES
@@ -627,16 +588,12 @@ public function Totalizar_Carrito(){
 
           // TOTALIZAR PRODUCTOS TRON POR CATEGORIAS
           $this->Totalizar_Carrito_Productos_Tron_Por_Categoria($id_categoria_producto, $cantidad, $_sub_total_pv_tron , $pv_ocasional, $peso_gramos , $cmv  );
-          //----------------------------------------------------------------------------------------------------------------------------------------------------------
-          //DETERMINAR EL TIPO DE DESPACHO
-          if ( $id_categoria_producto == 6 &&  !in_array($ID_Presentacion, $presentaciones_aplican_courrier) ) {  // Industriales
-              $this->compras_industrial      = $this->compras_industrial  + $_sub_total_pv_tron ;
-              $this->Calcular_Flete_Courrier = FALSE ;
-          }
+
           if ($idproducto == 10744){
               $kit_inicio_peso_total       = $kit_inicio_peso_total + $peso_gramos ;
               $kit_cantidad                = $kit_cantidad          + $cantidad;
           }
+
        }// Fin recorrido foreach carrito
 
        Session::Set('kit_inicio_peso_total',     $kit_inicio_peso_total);
@@ -668,67 +625,24 @@ public function Totalizar_Carrito(){
        Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
        Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
        Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
-
-
-
 } // Fin Tootalizar carrito temp
 
-private function Calcular_Fletes_Productos_Tron(){
-  $Param           = Session::Get('Parametros');
-  $idmcipio        = Session::Get('idmcipio');
-  $iddpto          = Session::Get('iddpto');
-  $re_expedicion   = Session::Get('re_expedicion');
-  $Porciento_Flete = 0;
-  $Flete_Minimo    = 0 ;
-
-  if ( $iddpto == 32 ){
-      $Porciento_Flete  = $Param[0]['tron_valle_porciento']/100;
-      $Flete_Minimo     = $Param[0]['tron_valle_minimo'];
-  }else{
-      $Porciento_Flete  = $Param[0]['tron_nacional_porciento']/100;
-      $Flete_Minimo     = $Param[0]['tron_nacional_minimo'];
-  }
-  if ( $re_expedicion == TRUE ){
-      $Porciento_Flete  = $Param[0]['tron_reexp_porciento']/100;
-      $Flete_Minimo     = $Param[0]['tron_reexp_minimo'];
-  }
 
 
 
-}
 private function Calcular_Fletes_y_Transporte(){
   /** SEPTIEMBRE 03 2015
    *  SEPTIEMBRE 05 2015  -> Se introducen cambio en el cálculo del flete aplicando % al valor de compra sin iva
    */
-
-
-      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total, $this->Calcular_Flete_Courrier );
-
-
-
-      $this->Vr_Fletes          = $this->Valor_Total_Compra_Antes_Iva * Session::Get('porciento_flete_pedido')/100;
-
-      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total_AmigoTron, $this->Calcular_Flete_Courrier );
-      $this->Vr_Fletes_Amigo_Tron = $this->Valor_Total_Compra_Antes_Iva_Amigo_Tron * Session::Get('porciento_flete_pedido')/100;
-
-      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Otros_Productos_Ocasional, $this->Calcular_Flete_Courrier );
-      $this->Vr_Fletes_Ocasional  = $this->Valor_Total_Compra_Antes_Iva_Ocasional * Session::Get('porciento_flete_pedido')/100;
-
-      /* if ($this->Vr_Fletes_Amigo_Tron < $this->Vr_Fletes){
-           $this->Vr_Fletes = $this->Vr_Fletes_Amigo_Tron;
-       }
-       if ( $this->Vr_Fletes_Ocasional < $this->Vr_Fletes){
-            $this->Vr_Fletes = $this->Vr_Fletes_Ocasional;
-       }*/
+      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total);
+      $this->Vr_Fletes = Session::Get('flete_real_calculado');
 
       $this->Vr_Transporte  = $this->Vr_Fletes  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
                               $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
 
-      $Valor_Transporte_Amigo_Tron = $this->Vr_Fletes_Amigo_Tron  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
-                              $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
+      $Valor_Transporte_Amigo_Tron = 105;
 
-      $Valor_Transporte_Ocasional = $this->Vr_Fletes_Ocasional - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
-                              $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
+      $Valor_Transporte_Ocasional = 100;
 
       if ( $this->Vr_Transporte          < 100 )   { $this->Vr_Transporte         = 0;  }
       if ( $Valor_Transporte_Amigo_Tron < 100 )    { $Valor_Transporte_Amigo_Tron = 0;  }
@@ -793,6 +707,8 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
     $factor_vr_declarado_productos_tron               = Session::Get('factor_vr_declarado_productos_tron');            // También es un Factor
     $valor_minimo_aplicar_vr_declarado_productos_tron = Session::Get('valor_minimo_aplicar_vr_declarado_productos_tron');
     $rt_courrier_seguro                               = Session::Get('rt_courrier_seguro');
+          /// ESTAS PRESENTACIONES ON DE INDUSTRIAL, PERO APLICAN EN COURRIER
+    $presentaciones_aplican_courrier   = array(3, 6, 7, 9, 14, 87, 90,144, 149, 158, 159, 165, 167, 168, 178, 180, 192 );
 
     $this->Iniciar_Procesos_Carro();
     if ($this->Carrito_Habilitado == FALSE)  {
@@ -806,8 +722,10 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
       $cantidad                         =  $Productos['cantidad'] ;
       $precio_venta_antes_iva_tron      =  $Productos['precio_venta_antes_iva_tron']  ;
       $precio_venta_antes_iva_ocasional =  $Productos['precio_venta_antes_iva_ocasional'] ;
-
-
+      $porciento_iva                    =  1+ $Productos['iva']/100;
+      $tipo_despacho                    =  $Productos['tipo_despacho'];
+      $idpresentacion                   =  $Productos['idpresentacion'];
+      $peso_gramos                      =  $Productos['peso_gramos']  ;
 
       // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP. Y PASES DE CORTESÍA
       if ($idproducto != 10744 && $idproducto != 2071 && $idproducto != 14999 ){  // IF (1)
@@ -816,35 +734,30 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
         $_precio_venta_antes_iva_tron      = $precio_venta_antes_iva_tron       *  $cantidad  ;
         $_precio_venta_antes_iva_ocasional = $precio_venta_antes_iva_ocasional  *  $cantidad  ;
 
+        if ( $tipo_despacho  == 1 || in_array( $idpresentacion, $presentaciones_aplican_courrier ) ){ // DESPACHO COURRIER
+            $this->Vr_Declarado_Courrier_Ocas   = $this->Vr_Declarado_Courrier_Ocas  + ( $_precio_venta_antes_iva_ocasional  * $factor_seguro_flete_otros_productos );
+            $this->Vr_Declarado_Courrier_Tron   = $this->Vr_Declarado_Courrier_Tron  + ( $_precio_venta_antes_iva_tron       * $factor_seguro_flete_otros_productos );
+            $this->Peso_Pedido_Courrier         = $this->Peso_Pedido_Courrier        +  $peso_gramos * $cantidad ;
+        }
+
+
         // VALOR DECLARADO PARA OTROS PRODUCTOS
         if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
             $Productos['valor_declarado']          =  $_precio_unitario_produc_pedido  * $factor_seguro_flete_otros_productos ;
             $this->Valor_Declarado_Otros_Productos = $this->Valor_Declarado_Otros_Productos + $Productos['valor_declarado'] ;
-
-            // CALCULOS POR TIPO DE USUARIO
-            $_valor_declarado_alterno                        = $_precio_venta_antes_iva_tron  * $factor_seguro_flete_otros_productos ;
-
-            $this->Valor_Declarado_Otros_Productos_AmigoTron = $this->Valor_Declarado_Otros_Productos_AmigoTron + $_valor_declarado_alterno ;
-
-            $_valor_declarado_alterno                        = $_precio_venta_antes_iva_ocasional  * $factor_seguro_flete_otros_productos ;
-            $this->Valor_Declarado_Otros_Productos_Ocasional = $this->Valor_Declarado_Otros_Productos_Ocasional  +  $_valor_declarado_alterno ;
-
         }
         // VALOR DECLARADO PRODUCTOS INDUSTRIALES
         if ( $id_categoria_producto == 6 ){
             $Productos['valor_declarado']       = $_precio_unitario_produc_pedido  * $porciento_seguro_flete_productos_industriales  ;
             $this->Valor_Declarado_Industriales = $this->Valor_Declarado_Industriales + $Productos['valor_declarado'] ;
-            // CALCULOS POR TIPO DE USUARIO
-             $_valor_declarado_alterno                     = $_precio_venta_antes_iva_tron * $porciento_seguro_flete_productos_industriales  ;
-             $this->Valor_Declarado_Industriales_AmigoTron = $this->Valor_Declarado_Industriales_AmigoTron  + $_valor_declarado_alterno;
-
-             $_valor_declarado_alterno                     = $_precio_venta_antes_iva_ocasional * $porciento_seguro_flete_productos_industriales  ;
-             $this->Valor_Declarado_Industriales_Ocasional = $this->Valor_Declarado_Industriales_Ocasional  + $_valor_declarado_alterno ;
         }
+
+
+
         // VALOR DECLARADO PRODUCTOS TRON
         if  ( $id_categoria_producto >= 1 &&  $id_categoria_producto <= 4) {
            if ( $this->compras_tron  >= $valor_minimo_aplicar_vr_declarado_productos_tron && $this->Cantidad_Productos_Tron > 0  ){
-              $_valor_declarado_item = $this->compras_tron/1.16 * $factor_vr_declarado_productos_tron / $this->Cantidad_Productos_Tron ;
+              $_valor_declarado_item = $this->compras_tron/$porciento_iva * $factor_vr_declarado_productos_tron / $this->Cantidad_Productos_Tron ;
            }
            if ( $this->compras_tron  < $valor_minimo_aplicar_vr_declarado_productos_tron && $this->Cantidad_Productos_Tron > 0  ){
               $_valor_declarado_item  = $rt_courrier_seguro /  $this->Cantidad_Productos_Tron ;
@@ -865,8 +778,6 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
     } // fin foreach
     $this->Cerrar_Procesos_Carro();
     $this->Valor_Declarado_Total           = $this->Valor_Declarado_Otros_Productos            + $this->Valor_Declarado_Industriales           + $this->Valor_Declarado_Productos_Tron ;
-    $this->Valor_Declarado_Total_AmigoTron = $this->Valor_Declarado_Otros_Productos_AmigoTron  + $this->Valor_Declarado_Industriales_AmigoTron + $this->Valor_Declarado_Productos_Tron ;
-    $this->Valor_Declarado_Total_Ocasional = $this->Valor_Declarado_Otros_Productos_Ocasional  + $this->Valor_Declarado_Industriales_Ocasional + $this->Valor_Declarado_Productos_Tron ;
 
 
 } // fin functio Totalizar_Carrito_Hallar_Valor_Declarado
@@ -964,26 +875,26 @@ private function Totalizar_Carrito_Productos_Tron_Por_Categoria($id_categoria_pr
           // CALCULO CANTIDADES Y PESOS DE LOS PRODUCTOS TRON ( 1= ROPA   2 = BAÑOS   3 = PISOS       4 = LOZA)
          if ( $id_categoria_producto == 1) {
             $this->Cantidad_Ropa     = $this->Cantidad_Ropa     + $cantidad ;
-            $this->Peso_Ropa         = $this->Peso_Ropa         + ( $peso_gramos *  $cantidad  );
-            $this->Cmv_Ropa          = $this->Cmv_Ropa          + ( $cmv         *  $cantidad );
+            $this->Peso_Ropa         = $this->Peso_Ropa         + ( $peso_gramos  *  $cantidad  );
+            $this->Cmv_Ropa          = $this->Cmv_Ropa          + ( $cmv          *  $cantidad );
             $this->Precio_Lista_Ropa = $this->Precio_Lista_Ropa + ( $pv_ocasional *  $cantidad );
          }
          if ( $id_categoria_producto == 2) {
-            $this->Cantidad_Banios     = $this->Cantidad_Banios + $cantidad ;
-            $this->Peso_Banios         = $this->Peso_Banios     + ( $peso_gramos *  $cantidad  );
-            $this->Cmv_Banios          = $this->Cmv_Banios      + ( $cmv         * $cantidad );
+            $this->Cantidad_Banios     = $this->Cantidad_Banios     + $cantidad ;
+            $this->Peso_Banios         = $this->Peso_Banios         + ( $peso_gramos  *  $cantidad  );
+            $this->Cmv_Banios          = $this->Cmv_Banios          + ( $cmv          * $cantidad );
             $this->Precio_Lista_Banios = $this->Precio_Lista_Banios + ( $pv_ocasional *  $cantidad );
          }
          if ( $id_categoria_producto == 3) {
-            $this->Cantidad_Pisos     = $this->Cantidad_Pisos + $cantidad ;
-            $this->Peso_Pisos         = $this->Peso_Pisos     + ( $peso_gramos *  $cantidad  );
-            $this->Cmv_Pisos          = $this->Cmv_Pisos      + ( $cmv         * $cantidad );
+            $this->Cantidad_Pisos     = $this->Cantidad_Pisos     + $cantidad ;
+            $this->Peso_Pisos         = $this->Peso_Pisos         + ( $peso_gramos  *  $cantidad  );
+            $this->Cmv_Pisos          = $this->Cmv_Pisos          + ( $cmv          * $cantidad );
             $this->Precio_Lista_Pisos = $this->Precio_Lista_Pisos + ( $pv_ocasional *  $cantidad );
          }
          if ( $id_categoria_producto == 4) {
-            $this->Cantidad_Loza     = $this->Cantidad_Loza + $cantidad ;
-            $this->Peso_Loza         = $this->Peso_Loza     + ( $peso_gramos *  $cantidad  );
-            $this->Cmv_Loza          = $this->Cmv_Loza      + ( $cmv         * $cantidad );
+            $this->Cantidad_Loza     = $this->Cantidad_Loza     + $cantidad ;
+            $this->Peso_Loza         = $this->Peso_Loza         + ( $peso_gramos  *  $cantidad  );
+            $this->Cmv_Loza          = $this->Cmv_Loza          + ( $cmv          * $cantidad );
             $this->Precio_Lista_Loza = $this->Precio_Lista_Loza + ( $pv_ocasional *  $cantidad );
          }
     }
