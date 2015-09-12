@@ -13,8 +13,10 @@
 
       public function Index() { }
 
-
-
+// vista :: plantilla correo
+      public function vista_correo_logo_text(){
+        $this->View->Mostrar_Vista('corre_logo_texto');
+      }
 
       public function Recomendar_Negocio_Amigo(){
         /** SEPTIEMBRE 14 DE 2015

@@ -461,8 +461,7 @@
    cursor:pointer;
 }
 
-.btn-contac-enviar ,
-.btn-contac-cancelar
+.btn-contac-enviar
 {
     padding        :  5px;
     display        : inline-block;
@@ -484,8 +483,7 @@
     filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5b57', endColorstr='#be3730',GradientType=0 ); /* IE6-8 */
 }
 
-.btn-contac-enviar:hover ,
-.btn-contac-cancelar:hover
+.btn-contac-enviar:hover
 {
     color          : white;
     border         : 2px solid #da4e48;
@@ -502,14 +500,12 @@
     filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#be3730', endColorstr='#ea5b57',GradientType=0 ); /* IE6-8 */
 }
 
-.btn-contac-enviar:link ,
-.btn-contac-cancelar:link
+.btn-contac-enviar:link
 {
    color: white;
 }
 
-.btn-contac-enviar:active ,
-.btn-contac-cancelar:active
+.btn-contac-enviar:active
 {
     position:relative;
     top:1px;
