@@ -64,15 +64,10 @@
 
 
             <!-- Icon -carrito -->
-            <li><a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1"  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" >
-            <span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
-                  <!-- SubMenu
-                  <ul  class="navBar_mostrar_carrito">
-                      <li>
-
-                      </li>
-
-                  </ul>-->
+            <li>
+              <a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1"  class="list-menu" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" >
+                <span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO
+              </a>
             </li>
 
           </ul>

@@ -54,15 +54,10 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <!-- Icon -carrito -->
-            <li><a  class="list-indust" id="menu_mostrar_carrito" title="Ir al carrito"style="cursor:pointer;" ><span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO</a>
-                  <!-- SubMenu -->
-                  <ul  class="navBar_mostrar_carrito">
-                      <li>
-                        <?php include (APPLICATION_SECTIONS .'carrito_header.php');?>
-                      </li>
-
-                  </ul>
+            <li>
+              <a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1"  class="list-indust" title="Ir al carrito" style="cursor:pointer;" >
+                <span class="glyphicon glyphicon-shopping-cart"></span> VER CARRITO
+              </a>              
             </li>
           </ul>
 
