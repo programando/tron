@@ -129,23 +129,24 @@
 
       }
 
-      public function Recuperar_Password($email)
+      public function Recuperar_Password( $email )
       {
          /** ENERO 31 DE 2015
          **  PROCEDIMIENTO PARA RECUPERAR CONTRASEÑA DE USUARIOS
          */
+          $this->Configurar_Cuenta('Recuperación de Contraseña.');
+          $this->Email->AddAddress($email );
 
           $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
           $enlace              = '<a href=' . BASE_URL .'terceros/cambiar_password/'. $codigo_confirmacion .'> Cambio de Contraseña </a>';
-          $Texto_Correo        =  'Has solicitado que el sistema recuerde tu contraseña en la Red de Usuarios TRON. ';
-          $Texto_Correo        = $Texto_Correo  .'Se ha generado una clave temporal que se usará para que puedas cambiar tu contraseña.<br>';
-          $Texto_Correo        = $Texto_Correo  .'Presione Click en el siguiente enlace : ' . $enlace . "  para continuar con el proceso.";
+          $logo                = BASE_IMG_EMPRESA .'logo.png';
 
-          $this->Configurar_Cuenta('Recuperación de Contraseña.');
-          $this->Email->AddAddress($email );
-          $this->Email->Body   = CORREO_HEADER ;
-          $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
-          $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
+          $Pagina_Correo       = file_get_contents(BASE_EMAILS.'recuperar_password.phtml','r');
+          $Pagina_Correo       = str_replace("#_PAGINA_TRON_#"                , BASE_URL,$Pagina_Correo);
+          $Pagina_Correo       = str_replace("#_LOGO_#"                       , $logo ,$Pagina_Correo);
+          $Pagina_Correo       = str_replace("#_ENLACE_RECUPERA_PASSWORD_#"   , $enlace  ,$Pagina_Correo);
+
+          $this->Email->Body   = $Pagina_Correo ;
 
           if ( $this->Email->Send()) {
               $this->Email->clearAddresses();
