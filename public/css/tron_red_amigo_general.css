@@ -488,6 +488,7 @@
 .btn-contac-cancelar:hover
 {
     color          : white;
+    border         : 2px solid #da4e48;
     text-decoration: none;
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     background: #be3730; /* Old browsers */
@@ -501,6 +502,11 @@
     filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#be3730', endColorstr='#ea5b57',GradientType=0 ); /* IE6-8 */
 }
 
+.btn-contac-enviar:link ,
+.btn-contac-cancelar:link
+{
+   color: white;
+}
 
 .btn-contac-enviar:active ,
 .btn-contac-cancelar:active
