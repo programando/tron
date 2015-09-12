@@ -39,21 +39,23 @@
 				      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
 					}
 
+				private function Calcular_Valor_Fletes_Inicializacion_Variables(){
+					      $this->Cant_Unidades_Despacho 			= 0;
+					      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
+					                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
+					      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+
+				}
 					public function Calcular_Valor_Flete_Courrier ( $peso_pedido_courrier, $valor_declarado){
-	      $this->Consultar_Vr_Kilo_Destino();
-	      $this->Cant_Unidades_Despacho 			= 0;
-	      $peso_kilos_pedido            			= 0;
-	      $kit_inicio_peso_total        			= Session::Get('kit_inicio_peso_total');
-	      $kit_cantidad                 			= Session::Get('kit_cantidad');
-	      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
-	                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
-	      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+						 $this->Consultar_Vr_Kilo_Destino();
+						 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
 	      $peso_kilos_pedido  = $peso_pedido_courrier /1000;
+							$kit_inicio_peso_total        			= Session::Get('kit_inicio_peso_total');
+					  $kit_cantidad                 			= Session::Get('kit_cantidad');
 
 	      if ( $kit_cantidad > 0 ){
 	          $this->Vr_Transporte_Kit_Inicio( $kit_inicio_peso_total,$kit_cantidad  );
 	      }
-
 	      if ( $valor_declarado > 0 ){
 	      	 $this->Redetrans_Courrier     ( $peso_kilos_pedido , $valor_declarado );
 	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
@@ -67,15 +69,14 @@
 	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
-	      $this->Cant_Unidades_Despacho = 0;
-	      $peso_kilos_pedido            = 0;
+	    	 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
        $peso_kilos_pedido  = $peso_pedid_carga /1000;  // PASAR A KILOS
-
 	      if ( $valor_declarado >0 ){
-
 	        $this->Redetrans_Carga            ( $peso_kilos_pedido , $valor_declarado );
 	        $this->Servientrega_Industrial    ( $peso_kilos_pedido , $valor_declarado );
 	        $this->Sevientrega_Premier        ( $peso_kilos_pedido , $valor_declarado );
+	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
+	        $this->Encontrar_Mejor_Flete();
 	      }
 	    }
 

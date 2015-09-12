@@ -488,26 +488,37 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->PayuLatam_Valor_Minimo          =  Session::Get('py_vr_min_recaudo');
    $this->PayuLatam_Valor_Adicional       =  Session::Get('py_vr_adicional');
 
-   Session::Set('REDETRANS_COURRIER_flete',0);
-   Session::Set('REDETRANS_CARGA_valor_flete',0);
-   Session::Set('SERVIENTREGA_PREMIER_valor_flete',0);
-   Session::Set('SERVIENTREGA_INDUS_valor_flete',0);
-   Session::Set('REDETRANS_COURRIER_seguro',0);
-   Session::Set('REDETRANS_CARGA_seguro',0);
-   Session::Set('SERVIENTREGA_PREMIER_seguro',0);
-   Session::Set('SERVIENTREGA_INDUS_seguro',0);
-   Session::Set('REDETRANS_COURRIER_flete_total',0);
-   Session::Set('REDETRANS_CARGA_flete_total',0);
-   Session::Set('SERVIENTREGA_PREMIER_flete_total',0);
-   Session::Set('SERVIENTREGA_INDUS_flete_total',0);
-   Session::Set('precio_especial', 0);
-   Session::Set('transporte_tron',0);
-   Session::Set('descuento_especial',0);
-   Session::Set('descuento_especial_porcentaje', 0);
-   Session::Set('vr_unitario_ropa',0);
-   Session::Set('vr_unitario_banios',0);
-   Session::Set('vr_unitario_pisos',0);
-   Session::Set('vr_unitario_loza',0);
+   Session::Set('REDETRANS_COURRIER_flete'           ,0);
+   Session::Set('REDETRANS_CARGA_valor_flete'        ,0);
+   Session::Set('SERVIENTREGA_PREMIER_valor_flete'   ,0);
+   Session::Set('SERVIENTREGA_INDUS_valor_flete'     ,0);
+   Session::Set('REDETRANS_COURRIER_seguro'          ,0);
+   Session::Set('REDETRANS_CARGA_seguro'             ,0);
+   Session::Set('SERVIENTREGA_PREMIER_seguro'        ,0);
+   Session::Set('SERVIENTREGA_INDUS_seguro'          ,0);
+   Session::Set('REDETRANS_COURRIER_flete_total'     ,0);
+   Session::Set('REDETRANS_CARGA_flete_total'        ,0);
+   Session::Set('SERVIENTREGA_PREMIER_flete_total'   ,0);
+   Session::Set('SERVIENTREGA_INDUS_flete_total'     ,0);
+   Session::Set('precio_especial'                    , 0);
+   Session::Set('transporte_tron'                    ,0);
+   Session::Set('descuento_especial'                 ,0);
+   Session::Set('descuento_especial_porcentaje'      , 0);
+   Session::Set('vr_unitario_ropa'                   ,0);
+   Session::Set('vr_unitario_banios'                 ,0);
+   Session::Set('vr_unitario_pisos'                  ,0);
+   Session::Set('vr_unitario_loza'                   ,0);
+
+   Session::Set('id_transportadora'        ,0 );
+   Session::Set('tipo_despacho'            ,0 );
+   Session::Set('vr_flete'                 ,0 );
+   Session::Set('valor_declarado'          ,0 );
+
+   Session::Set('id_transportadora_carga'  ,0 );
+   Session::Set('tipo_despacho_carga'      ,0 );
+   Session::Set('vr_flete_carga'           ,0 );
+   Session::Set('valor_declarado_carga'    ,0 );
+
 
 }
 
@@ -614,7 +625,10 @@ public function Totalizar_Carrito(){
        $this->Totalizar_Carrito_Hallar_Presupuesto_Fletes_Anticipo_Recaudo();
        $this->Totalizar_Pedido_x_Categoria_Producto();
        $this->Calcular_Valor_Recaudo( $this->SubTotal_Pedido_Real ) ;
-       $this->Calcular_Fletes_y_Transporte();
+
+       $this->Calcular_Valor_Flete_Transporte_Courrier();
+
+      // $this->Calcular_Fletes_y_Transporte();
        $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
 
        $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte ;
@@ -633,39 +647,37 @@ public function Totalizar_Carrito(){
 } // Fin Tootalizar carrito temp
 
 
-
-
-private function Calcular_Fletes_y_Transporte(){
-  /** SEPTIEMBRE 03 2015
-   *  SEPTIEMBRE 05 2015  -> Se introducen cambio en el cálculo del flete aplicando % al valor de compra sin iva
-   */
-
-      Session::Set('id_transportadora',0);
-      Session::Set('tipo_despacho',0);
-      Session::Set('vr_flete',0);
-      Session::Set('valor_declarado',0);
-
-      $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Total );
-      $this->Vr_Fletes      = Session::Get('flete_real_calculado');
+private function Calcular_Valor_Flete_Transporte_Courrier (){
+     $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Total );
+     $this->Vr_Fletes      = Session::Get('flete_real_calculado');
       if ( $this->Vr_Declarado_Courrier_Total > 0 ){
          Session::Set('id_transportadora'    , Session::Get('id_transportadora'));
          Session::Set('tipo_despacho'        , Session::Get('tipo_despacho_pedido'));
          Session::Set('vr_flete'             , Session::Get('flete_real_calculado'));
          Session::Set('valor_declarado'      , $this->Vr_Declarado_Courrier_Total);
       }
-
       $this->Vr_Transporte  = $this->Vr_Fletes  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
                               $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
+
+      if ( $this->Vr_Transporte         < 100 )    { $this->Vr_Transporte         = 0;  }
+
+      Session::Set('Vr_Transporte',             $this->Vr_Transporte );
+}
+
+private function Calcular_Valor_Flete_Transporte_Carga(){
+  /** SEPTIEMBRE 03 2015
+   *  SEPTIEMBRE 05 2015  -> Se introducen cambio en el cálculo del flete aplicando % al valor de compra sin iva
+   */
 
       $Valor_Transporte_Amigo_Tron = 105;
 
       $Valor_Transporte_Ocasional = 100;
 
-    if ( $this->Vr_Transporte         < 100 )    { $this->Vr_Transporte         = 0;  }
+
     if ( $Valor_Transporte_Amigo_Tron < 100 )    { $Valor_Transporte_Amigo_Tron = 0;  }
     if ( $Valor_Transporte_Ocasional  < 100 )    { $Valor_Transporte_Ocasional  = 0;  }
 
-     Session::Set('Vr_Transporte',             $this->Vr_Transporte );
+
      Session::Set('Vr_Transporte_Amigo_Tron',  $Valor_Transporte_Amigo_Tron );
      Session::Set('Vr_Transporte_Ocasional',   $Valor_Transporte_Ocasional  );
 }
