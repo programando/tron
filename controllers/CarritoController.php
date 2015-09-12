@@ -72,9 +72,7 @@ class CarritoController extends Controller{
      private $Tengo_Productos_Tron            = FALSE;
      private $Cantidad_Productos_Tron         = 0;
 
-     private $Valor_Declarado_Otros_Productos = 0 ;
-     private $Valor_Declarado_Industriales    = 0 ;
-     private $Valor_Declarado_Productos_Tron  = 0 ;
+
      private $Valor_Declarado_Total           = 0;
      private $Valor_Declarado                 = 0;
 
@@ -83,7 +81,13 @@ class CarritoController extends Controller{
 
      private $Vr_Declarado_Courrier_Ocas      = 0;
      private $Vr_Declarado_Courrier_Tron      = 0;
+     private $Vr_Declarado_Courrier_Total     = 0;
      private $Peso_Pedido_Courrier            = 0;
+
+     private $Vr_Declarado_Carga_Ocas         = 0;
+     private $Vr_Declarado_Carga_Tron         = 0;
+     private $Vr_Declarado_Carga_Total        = 0;
+     private $Peso_Pedido_Carga               = 0;
 
 
 
@@ -449,15 +453,13 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->compras_otros_productos         =  0 ;
    $this->compras_accesorios              =  0 ;
 
-   $this->Valor_Declarado_Otros_Productos           =  0 ;
-   $this->Valor_Declarado_Industriales              =  0 ;
+
+
    $this->Valor_Declarado_Productos_Tron            =  0 ;
    $this->Valor_Declarado_Total                     =  0 ;
 
 
-   $this->Valor_Declarado_Otros_Productos_Ocasional = 0 ;
-   $this->Valor_Declarado_Industriales_Ocasional    = 0 ;
-   $this->Valor_Declarado_Total_Ocasional           = 0;
+
 
    $this->Vr_Fletes                                 = 0;
    $this->Vr_Fletes_Amigo_Tron                      = 0;
@@ -473,8 +475,13 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
 
    $this->Vr_Declarado_Courrier_Ocas                = 0;
    $this->Vr_Declarado_Courrier_Tron                = 0;
+   $this->Vr_Declarado_Courrier_Total               = 0;
    $this->Peso_Pedido_Courrier                      = 0;
 
+   $this->Vr_Declarado_Carga_Ocas                   = 0;
+   $this->Vr_Declarado_Carga_Tron                   = 0;
+   $this->Vr_Declarado_Carga_Total                  = 0;
+   $this->Peso_Pedido_Carga                         = 0;
 
 
    $this->PayuLatam_Recaudo               =  Session::Get('py_porciento_recaudo');
@@ -564,8 +571,6 @@ public function Totalizar_Carrito(){
           $Productos['precio_venta_antes_iva_tron']      = $pv_tron             / $porciento_iva ;
           $Productos['precio_venta_antes_iva_ocasional'] = $pv_ocasional        / $porciento_iva ;
 
-
-
           //PRESUPUESTO DE FLETES
           if ( $porciento_ppto_fletes > 0 && $id_categoria_producto > 4 ) {
             $Productos['vr_ppto_fletes']              = $Productos['precio_total_produc_pedido'] * $porciento_ppto_fletes;
@@ -634,8 +639,20 @@ private function Calcular_Fletes_y_Transporte(){
   /** SEPTIEMBRE 03 2015
    *  SEPTIEMBRE 05 2015  -> Se introducen cambio en el cálculo del flete aplicando % al valor de compra sin iva
    */
-      $this->Fletes->Calcular_Flete( $this->Valor_Declarado_Total);
-      $this->Vr_Fletes = Session::Get('flete_real_calculado');
+
+      Session::Set('id_transportadora',0);
+      Session::Set('tipo_despacho',0);
+      Session::Set('vr_flete',0);
+      Session::Set('valor_declarado',0);
+
+      $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Total );
+      $this->Vr_Fletes      = Session::Get('flete_real_calculado');
+      if ( $this->Vr_Declarado_Courrier_Total > 0 ){
+         Session::Set('id_transportadora'    , Session::Get('id_transportadora'));
+         Session::Set('tipo_despacho'        , Session::Get('tipo_despacho_pedido'));
+         Session::Set('vr_flete'             , Session::Get('flete_real_calculado'));
+         Session::Set('valor_declarado'      , $this->Vr_Declarado_Courrier_Total);
+      }
 
       $this->Vr_Transporte  = $this->Vr_Fletes  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
                               $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
@@ -644,9 +661,9 @@ private function Calcular_Fletes_y_Transporte(){
 
       $Valor_Transporte_Ocasional = 100;
 
-      if ( $this->Vr_Transporte          < 100 )   { $this->Vr_Transporte         = 0;  }
-      if ( $Valor_Transporte_Amigo_Tron < 100 )    { $Valor_Transporte_Amigo_Tron = 0;  }
-      if ( $Valor_Transporte_Ocasional  < 100 )    { $Valor_Transporte_Ocasional  = 0;  }
+    if ( $this->Vr_Transporte         < 100 )    { $this->Vr_Transporte         = 0;  }
+    if ( $Valor_Transporte_Amigo_Tron < 100 )    { $Valor_Transporte_Amigo_Tron = 0;  }
+    if ( $Valor_Transporte_Ocasional  < 100 )    { $Valor_Transporte_Ocasional  = 0;  }
 
      Session::Set('Vr_Transporte',             $this->Vr_Transporte );
      Session::Set('Vr_Transporte_Amigo_Tron',  $Valor_Transporte_Amigo_Tron );
@@ -734,24 +751,17 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
         $_precio_venta_antes_iva_tron      = $precio_venta_antes_iva_tron       *  $cantidad  ;
         $_precio_venta_antes_iva_ocasional = $precio_venta_antes_iva_ocasional  *  $cantidad  ;
 
-        if ( $tipo_despacho  == 1 || in_array( $idpresentacion, $presentaciones_aplican_courrier ) ){ // DESPACHO COURRIER
+        if ( $tipo_despacho  == 1 || in_array( $idpresentacion, $presentaciones_aplican_courrier )== TRUE ){ // DESPACHO COURRIER
             $this->Vr_Declarado_Courrier_Ocas   = $this->Vr_Declarado_Courrier_Ocas  + ( $_precio_venta_antes_iva_ocasional  * $factor_seguro_flete_otros_productos );
             $this->Vr_Declarado_Courrier_Tron   = $this->Vr_Declarado_Courrier_Tron  + ( $_precio_venta_antes_iva_tron       * $factor_seguro_flete_otros_productos );
+
             $this->Peso_Pedido_Courrier         = $this->Peso_Pedido_Courrier        +  $peso_gramos * $cantidad ;
         }
-
-
-        // VALOR DECLARADO PARA OTROS PRODUCTOS
-        if ( $id_categoria_producto == 5 || $id_categoria_producto == 7 || $id_categoria_producto == 8 ){
-            $Productos['valor_declarado']          =  $_precio_unitario_produc_pedido  * $factor_seguro_flete_otros_productos ;
-            $this->Valor_Declarado_Otros_Productos = $this->Valor_Declarado_Otros_Productos + $Productos['valor_declarado'] ;
+        if ( $tipo_despacho  == 2 && in_array( $idpresentacion, $presentaciones_aplican_courrier ) == FALSE ){ // DESPACHO COURRIER
+            $this->Vr_Declarado_Carga_Ocas  = $this->Vr_Declarado_Carga_Ocas  + ( $_precio_venta_antes_iva_ocasional  * $porciento_seguro_flete_productos_industriales );
+            $this->Vr_Declarado_Carga_Tron  = $this->Vr_Declarado_Carga_Tron  + ( $_precio_venta_antes_iva_tron       * $porciento_seguro_flete_productos_industriales );
+            $this->Peso_Pedido_Carga        = $this->Peso_Pedido_Carga        + $peso_gramos ;
         }
-        // VALOR DECLARADO PRODUCTOS INDUSTRIALES
-        if ( $id_categoria_producto == 6 ){
-            $Productos['valor_declarado']       = $_precio_unitario_produc_pedido  * $porciento_seguro_flete_productos_industriales  ;
-            $this->Valor_Declarado_Industriales = $this->Valor_Declarado_Industriales + $Productos['valor_declarado'] ;
-        }
-
 
 
         // VALOR DECLARADO PRODUCTOS TRON
@@ -777,7 +787,11 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
       } // FIN (1)
     } // fin foreach
     $this->Cerrar_Procesos_Carro();
-    $this->Valor_Declarado_Total           = $this->Valor_Declarado_Otros_Productos            + $this->Valor_Declarado_Industriales           + $this->Valor_Declarado_Productos_Tron ;
+
+    $this->Vr_Declarado_Courrier_Total =  $this->Vr_Declarado_Courrier_Ocas     + $this->Vr_Declarado_Courrier_Tron;
+    $this->Vr_Declarado_Carga_Total    =  $this->Vr_Declarado_Carga_Ocas        + $this->Vr_Declarado_Carga_Tron  ;
+    $this->Valor_Declarado_Total       =  $this->Vr_Declarado_Courrier_Total    + $this->Vr_Declarado_Carga_Total  + $this->Valor_Declarado_Productos_Tron ;
+
 
 
 } // fin functio Totalizar_Carrito_Hallar_Valor_Declarado
@@ -930,9 +944,6 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
     //  }
       return $Cumple_Condic_Cpras_Tron_Industial;
 } // fin Determinar_Cumple_Condiciones_Precio_Especial
-
-
-
 
 
 public function Totalizar_Pedido_x_Categoria_Producto()

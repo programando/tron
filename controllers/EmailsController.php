@@ -110,7 +110,6 @@
           $Pie_Pagina = $Pie_Pagina . '<div class="campo-escrit"> ' . $Mensaje_Enviado .'</div></div>';
         }
         $Texto_Correo     = str_replace(" #Pie_Pagina#"    , $Pie_Pagina  ,$Texto_Correo);
-
         $this->Configurar_Cuenta('Recomendación de ' .$Nombre_Quien_Envia );
         $this->Email->AddAddress($Email_Amigo );
 

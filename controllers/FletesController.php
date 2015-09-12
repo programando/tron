@@ -28,51 +28,55 @@
 					public function Consultar_Vr_Kilo_Destino(){
 							  	$this->idmcipio = Session::Get('idmcipio');
 										$Registro       = $this->Parametros->Transportadoras_Vr_Kilo_Destino($this->idmcipio );
-
-					      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
-					      Session::Set('nomdpto_despacho',                ucfirst ($Registro[0]["nomdpto_despacho"]));
-					      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
-					      Session::Set('iddpto',                          $Registro[0]["iddpto"]);
-					      Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
-					      Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
-					      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
-					      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-					      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
+				      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
+				      Session::Set('nomdpto_despacho',                ucfirst ($Registro[0]["nomdpto_despacho"]));
+				      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
+				      Session::Set('iddpto',                          $Registro[0]["iddpto"]);
+				      Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
+				      Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
+				      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
+				      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
+				      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
 					}
 
-	    public function Calcular_Flete( $valor_declarado) {
-	    /** MARZO 09 DE 2015
-	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
-	      */
-	    		$this->Consultar_Vr_Kilo_Destino();
-
-	      $this->Cant_Unidades_Despacho = 0;
-	      $peso_kilos_pedido            = 0;
-	      $kit_inicio_peso_total        =   Session::Get('kit_inicio_peso_total');
-	      $kit_cantidad                 =   Session::Get('kit_cantidad');
-
-
+					public function Calcular_Valor_Flete_Courrier ( $peso_pedido_courrier, $valor_declarado){
+	      $this->Consultar_Vr_Kilo_Destino();
+	      $this->Cant_Unidades_Despacho 			= 0;
+	      $peso_kilos_pedido            			= 0;
+	      $kit_inicio_peso_total        			= Session::Get('kit_inicio_peso_total');
+	      $kit_cantidad                 			= Session::Get('kit_cantidad');
 	      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
 	                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
 	      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
+	      $peso_kilos_pedido  = $peso_pedido_courrier /1000;
 
-	      $peso_kilos_pedido  = Session::Get('peso_productos_industriales') + Session::Get('peso_otros_productos') ;
-	      $peso_kilos_pedido  = $peso_kilos_pedido  +  Session::Get('peso_accesorios') + Session::Get('peso_productos_tron');
-	      $peso_kilos_pedido  = $peso_kilos_pedido /1000;  // PASAR A KILOS
+	      if ( $kit_cantidad > 0 ){
+	          $this->Vr_Transporte_Kit_Inicio( $kit_inicio_peso_total,$kit_cantidad  );
+	      }
+
+	      if ( $valor_declarado > 0 ){
+	      	 $this->Redetrans_Courrier     ( $peso_kilos_pedido , $valor_declarado );
+	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
+	        $this->Encontrar_Mejor_Flete();
+	      }
 
 
+					}
+
+	    public function Calcular_Valor_Flete_Carga($peso_pedid_carga, $valor_declarado) {
+	    /** MARZO 09 DE 2015
+	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
+	      */
+	      $this->Cant_Unidades_Despacho = 0;
+	      $peso_kilos_pedido            = 0;
+       $peso_kilos_pedido  = $peso_pedid_carga /1000;  // PASAR A KILOS
 
 	      if ( $valor_declarado >0 ){
-	        $this->Redetrans_Courrier         ( $peso_kilos_pedido , $valor_declarado );
+
 	        $this->Redetrans_Carga            ( $peso_kilos_pedido , $valor_declarado );
 	        $this->Servientrega_Industrial    ( $peso_kilos_pedido , $valor_declarado );
 	        $this->Sevientrega_Premier        ( $peso_kilos_pedido , $valor_declarado );
 	      }
-	      if ( $kit_cantidad > 0 ){
-	          $this->Vr_Transporte_Kit_Inicio( $kit_inicio_peso_total,$kit_cantidad  );
-	      }
-	       $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
-	       $this->Encontrar_Mejor_Flete();
 	    }
 
 
@@ -90,7 +94,6 @@
            $i++;
         }
        Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
-
     }
 
 
