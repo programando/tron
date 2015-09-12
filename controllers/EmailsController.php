@@ -15,7 +15,7 @@
 
 // vista :: plantilla correo
       public function vista_correo_logo_text(){
-        $this->View->Mostrar_Vista('corre_logo_texto');
+        $this->View->Mostrar_Vista('correo_logo_texto');
       }
 
       public function Recomendar_Negocio_Amigo(){
