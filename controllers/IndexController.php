@@ -20,6 +20,11 @@ class IndexController extends Controller
         $Tipo_Navegador     = $info['browser'];
         $Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
+        $usuario_autenticado = Session::Get('autenticado');
+        if ( !isset( $usuario_autenticado )){
+            Session::Set('autenticado',FALSE);
+            Session::Set('idtipo_plan_compras',1);
+        }
 
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
 

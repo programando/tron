@@ -1,16 +1,31 @@
 
 // Eventos ::: Notificaicones
   $('#notificaciones').on('click', function(){
-      $('.contenedor_notificaciones').fadeIn(1000);
+  	 $autenticado 							  = $('#contenido').attr('autenticado');
+  	 $id_tipo_plan_compras = $('#contenido').attr('idtipo-plan-compras');
+  	 if ($autenticado == false){
+      $('.contenedor_notificaciones_no_logueado').fadeIn(1000);
       setTimeout(function() {
-        $(".contenedor_notificaciones").fadeOut(1500);
+        $(".contenedor_notificaciones_no_logueado").fadeOut(6500);
       },5000);
+  	 }else{
+  	 	if ($id_tipo_plan_compras == 3){
+	     $('.contenedor_notificaciones_empresario').fadeIn(1000);
+	      setTimeout(function() {
+	        $(".contenedor_notificaciones_empresario").fadeOut(5500);
+	      },5000);
+     }else{
+     		     $('.contenedor_notificaciones_cliente_ocasional').fadeIn(1000);
+
+     }
+    }
   });
 
   $('#cerrar_moda_recomendar').on('click',function(){
   	  $('.contenedor_notificaciones').fadeOut();
   });
- 
+
+
 // DIC 29 2014
 // FUNCIONALIDAD PARA QUE AL PRESIONAR EN LOS BOTONES + y -, SE ACTUALICEN LOS PRECIOS
 // DE ACUERDO A LA ESCALA
@@ -24,7 +39,7 @@ var $Total_Venta_Tron           = $('.carrito-Total_Parcial_pv_tron');
 var $Mensaje_Add_Producto       = $('.mensaje-agregar_producto');
 var $Imagen_Cargando            = $("#dv-img-cargando-recomendar-producto");
 //-------------------------------------------------------------------------
-var $idtipo_plan_compras                   = 0;
+var $idtipo_plan_compras                   = 0;http://localhost/tron/index
 var $usuario_viene_del_registro            = false;
 var $usuario_viene_del_registro_es_empresa = false;
 var $compra_productos_industriales									= 0;
@@ -228,8 +243,7 @@ function Borrar_Producto(Parametros){
 
 
 
-function Borrar_Producto_de_Carrito(Parametros)
-{
+function Borrar_Producto_de_Carrito(Parametros){
 				 // junio 08 2015
 				// ANTES DE BORRAR VERIFICO SI VIENE DEL REGISTRO Y SI EL PRODUCTO QUE DESEA BORRAR ES EL KIT DE INICIO
 				// SE LE ADVIERT QUE SI LO BORRA SE DEGRADARÁ DE PLAN.
@@ -242,14 +256,12 @@ function Borrar_Producto_de_Carrito(Parametros)
 											}else{
 												Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan_Empresa($idtipo_plan_compras ,Parametros);
 											}
-
 				}
 
 }
 
 
-function Recomendar_Producto_a_Mi_Amigo(Parametros)
-{
+function Recomendar_Producto_a_Mi_Amigo(Parametros){
 		$Imagen_Cargando.show();
 
 			$.ajax({
@@ -257,20 +269,16 @@ function Recomendar_Producto_a_Mi_Amigo(Parametros)
 					dataType: 'text',
 					url:      '/tron/productos/Recomendar_Producto_a_Amigo/',
 					type:     'post',
-     success:  function (resultado)
-    	 {
+     success:  function (resultado)    	 {
     	 		resultado =  resultado.replace("\n", "");
     	 		resultado = resultado.replace(/\s+/g, '');
-    	 		if (resultado=='correoOK')
-    	 		{
+    	 		if (resultado=='correo_OK')    	 		{
     	 			Recomendar_Producto_a_Mi_Amigo_Mensaje('La información del producto ha sido enviada con éxito.');
     	 		}
-    	 		if (resultado=='correo_No_OK')
-    	 		{
+    	 		if (resultado=='correo_No_OK')    	 		{
     	 			Recomendar_Producto_a_Mi_Amigo_Mensaje('El correo no pudo ser enviado, puede deberse a congestión en el servidor. Favor inténtalo más tarde.');
     	 		}
-    	 		if (resultado=='Email_Amigo_No_Ok')
-    	 		{
+    	 		if (resultado=='Email_Amigo_No_Ok')    	 		{
     	 			Recomendar_Producto_a_Mi_Amigo_Mensaje('La dirección de correo electrónico parece tener un formato no válido. Por favor verifícala.');
     	 		}
     	 		$Imagen_Cargando.hide();
@@ -317,13 +325,18 @@ function Recomendar_Producto_a_Mi_Amigo_Validaciones()
 {
 			var $email_amigo        = $("#email-amigo").val()
 			var $nombre_quien_envia = $('#nombre-quien-envia').val();
-				if ($email_amigo.length==0)
-			{
+			var $nombre_amigo       = $('#nombre_amigo').val();
+
+				if ($nombre_amigo.length==0){
+					Recomendar_Producto_a_Mi_Amigo_Mensaje('Debes indicar el nombre de tu amig@ para enviar el mensaje.');
+					return false;
+			}
+
+				if ($email_amigo.length==0){
 					Recomendar_Producto_a_Mi_Amigo_Mensaje('Debes registrar el correo electrónico de tu amigo.');
 					return false;
 			}
-			if ($nombre_quien_envia.length==0)
-			{
+			if ($nombre_quien_envia.length==0)	{
 					Recomendar_Producto_a_Mi_Amigo_Mensaje('Debes registrar tu nombre para que tu amigo(a) sepa quién envía la recomendación.');
 					return false;
 			}
@@ -350,14 +363,14 @@ $('#btn-recomendar-producto').on('click',function(){
 			var $nombre_imagen      = $(this).attr('nombre-imagen');
 			var $email_amigo        = $('#email-amigo').val();
 			var $nombre_quien_envia = $('#nombre-quien-envia').val();
+			var $nombre_amigo       = $('#nombre_amigo').val();
 			var $Datos_Valiados     = Recomendar_Producto_a_Mi_Amigo_Validaciones();
-			if ($Datos_Valiados==false)
-					{
+			if ($Datos_Valiados==false)	{
 						return false;
 					}
 
 			var Parametros          = {'idproducto':$idproducto,  'email_amigo': $email_amigo , 'nombre_quien_envia':$nombre_quien_envia,
-																													 'mensaje_enviado': $mensaje_enviado, 'nombre_imagen':$nombre_imagen };
+																													 'mensaje_enviado': $mensaje_enviado, 'nombre_imagen':$nombre_imagen,'nombre_amigo':$nombre_amigo };
 
 		 		$Imagen_Cargando.show();
 		 			Recomendar_Producto_a_Mi_Amigo(Parametros );

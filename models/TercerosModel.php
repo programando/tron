@@ -3,11 +3,24 @@
 		{
 				public $Cantidad_Registros;
 
-				public function __construct()
-				{
+				public function __construct()	{
 					parent::__construct();
 				}
 
+
+				public function Recomendacion_Amigo_Producto_Grabar($nombre, $email, $idproducto, $idconfirmacion){
+					/** SEPTIEMBRE 13 DE 2015
+					 * 		ALMACENA INFORMACIÓN DE LA PERSONA A LA QUE SE RECOMIENDA PRODUCTOS
+					 */
+ 				$SQL 								= "'$nombre', '$email', $idproducto,'$idconfirmacion'";
+ 				$Registro    =  $this->Db->Ejecutar_Sp("terceros_productos_recomendados_grabar(".$SQL.")");
+
+				}
+
+				public function Recomendacion_Amigo_Producto_Borrar( $idconfirmacion){
+					$SQL         ="'$idconfirmacion'";
+					$Registro    =  $this->Db->Ejecutar_Sp("terceros_productos_recomendados_borrar(".$SQL.")");
+				}
 
 				public function Actualizar_Datos_Usuario($params=array()){
 						extract($params);

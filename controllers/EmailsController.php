@@ -7,6 +7,7 @@
       public function __construct()
       {
           parent::__construct();
+          $this->Terceros = $this->Load_Model('Terceros');
           $this->Email    = $this->Load_External_Library('class.phpmailer');
           $this->Email    = new PHPMailer();
       }
@@ -90,43 +91,41 @@
      }
 
 
-      public function Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto   )
-      { /** ENERO 31 DE 2015
+      public function Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo    ){
+       /** ENERO 31 DE 2015
         **  PROCEDIMEINTO POR MEDIO DEL CUAL SE RECOMIENDA PRODUCTOS A AMIGOS
         */
-        $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-        $logo             = BASE_IMG_EMPRESA .'logo.png';
-        $imagen           = BASE_IMG_PRODUCTOS_232x232 .$Nombre_Imagen;
-        $Url_Imagen       = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta";
-        $Texto_Correo     = file_get_contents(BASE_EMAILS.'productos_recomendar.html','r');
-        $Texto_Correo     = str_replace("#Nombre_Quien_Envia#" , $Nombre_Quien_Envia ,$Texto_Correo);
-        $Texto_Correo     = str_replace("#Nombre_Imagen#"      , $imagen,$Texto_Correo);
-        $Texto_Correo     = str_replace("#logo#"               , $logo ,$Texto_Correo);
-        $Texto_Correo     = str_replace("#Url#"                , $Url_Imagen ,$Texto_Correo);
-        $Texto_Correo     = str_replace("#tron#"               , BASE_URL,$Texto_Correo);
-        $Pie_Pagina       ='';
-        if (strlen($Mensaje_Enviado)>0)
-        {
-          $Pie_Pagina = '<div> ';
-          $Pie_Pagina = $Pie_Pagina . '<strong><p>Nota:  ' . $Nombre_Quien_Envia . ':</p></strong>';
-          $Pie_Pagina = $Pie_Pagina . '<div class="campo-escrit"> ' . $Mensaje_Enviado .'</div></div>';
-        }
-        $Texto_Correo     = str_replace(" #Pie_Pagina#"    , $Pie_Pagina  ,$Texto_Correo);
-        $this->Configurar_Cuenta('Recomendación de ' .$Nombre_Quien_Envia );
-        $this->Email->AddAddress($Email_Amigo );
+          $this->Configurar_Cuenta('Recomendación de ' .$Nombre_Quien_Envia );
+          $this->Email->AddAddress($Email_Amigo );
 
-        $this->Email->Body = $Texto_Correo;
+          $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
+          $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+          $logo             = BASE_IMG_EMPRESA .'logo.png';
+          $imagen           = BASE_IMG_PRODUCTOS_232x232 .$Nombre_Imagen;
+          $Url_Imagen       = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta";
+          $Borrar_Registro  = BASE_URL."terceros/Borrar_Lista_Suscripcion/".$codigo_confirmacion;
 
-        if ( $this->Email->Send())
-        {
-          $this->Email->clearAddresses();
-          return "correoOK";
-        }else
-        {
-         return "correo_No_OK";
-        }
+          $Texto_Correo     = file_get_contents(BASE_EMAILS.'productos_recomendar.html','r');
+          $Texto_Correo     = str_replace("#Nombre_Quien_Envia#"    , $Nombre_Quien_Envia ,$Texto_Correo);
+          $Texto_Correo     = str_replace("#Nombre_Imagen#"         , $imagen,$Texto_Correo);
+          $Texto_Correo     = str_replace("#logo#"                  , $logo ,$Texto_Correo);
+          $Texto_Correo     = str_replace("#Url#"                   , $Url_Imagen ,$Texto_Correo);
+          $Texto_Correo     = str_replace("#tron#"                  , BASE_URL,$Texto_Correo);
+          $Texto_Correo     = str_replace("#_CERRAR_SUSCIPCIÓN_#"   , $Borrar_Registro,$Texto_Correo);
 
+          $Pie_Pagina       ='';
 
+          if (strlen($Mensaje_Enviado)>0) {
+            $Pie_Pagina = '<div> ';
+            $Pie_Pagina = $Pie_Pagina . '<strong><p>Nota:  </strong>';
+            $Pie_Pagina = $Pie_Pagina . '<div class="campo-escrit"> ' . $Mensaje_Enviado .'</div></div>';
+          }
+          $Texto_Correo     = str_replace(" #Pie_Pagina#"    , $Pie_Pagina  ,$Texto_Correo);
+          $this->Email->Body = $Texto_Correo;
+          // GRABAR RECOMENDACION
+          $this->Terceros->Recomendacion_Amigo_Producto_Grabar ( $Nombre_Amigo ,$Email_Amigo,$IdProducto,$codigo_confirmacion );
+          //-------------------
+          return $this->Enviar_Correo();
       }
 
       public function Recuperar_Password( $email )

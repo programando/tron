@@ -39,7 +39,13 @@ class TercerosController extends Controller
       echo $Respuesta;
     } //fin function
 
-
+     public function Borrar_Lista_Suscripcion( $idconfirmacion){
+      /** SEPTIEMBRE 13 DE 2015
+       *    BORRA REGISTRO DE LA LISTA DE TERCEROS A QUIENES SE LES HA RECOMENDADO PRODUCTOS
+       */
+      $this->Terceros->Recomendacion_Amigo_Producto_Borrar($idconfirmacion);
+      $this->View->Mostrar_Vista('lista_correos_recomendacion_produc_confirma_eliminacion');
+     }
 
     public function Comprobar_Tipo_Usuario(){
       //    JUNIO 25 2015
@@ -378,7 +384,7 @@ class TercerosController extends Controller
       $idtipo_plan_compras  = General_Functions::Validar_Entrada('idtipo_plan_compras', 'NUM');
       $this->Terceros->Cambio_Plan($tipo_proceso_en_plan, $idtecero, $idtipo_plan_compras);
       echo "OK";
-    } 
+    }
 
    public function activar_cuenta_usuario($codigo_confirmacion,$email,$idtercero,$idtipo_plan_compras, $idtpidentificacion )   {
 

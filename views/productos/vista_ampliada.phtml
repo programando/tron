@@ -1,7 +1,6 @@
 
 <?php
-  if (isset($this->Error))
-  {
+  if (isset($this->Error)){
     exit;
   }
       $Producto                 = $this->Producto;
@@ -34,13 +33,27 @@
       $idnomproducto            = 'nomproducto'.$Producto[0]['idproducto'];
       $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
       $id_agrupacion            = $Producto[0]['id_agrupacion'];
+      $autenticado              = Session::Get('autenticado');
+      $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
+
+      $host                     = $_SERVER["HTTP_HOST"];
+      $url                      = $_SERVER["REQUEST_URI"];
+      $URL                      = "http://www.facebook.com/sharer.php?s=100&p[url]=http://" . $host . $url;
+
+
+
+//=http://www.lostiemposcambian.com/blog/posts/share-fb/share-facebook.html&p[title]=Compartir URLs en Face&p[summary]=Un buen recurso para aprender a compartir enlaces por código&&p[images][0]=http://www.lostiemposcambian.com/blog/posts/share-fb/img/200x200_lostiemposcambian_ejemplo_facebook_foto3.jpg
+
 
 ?>
 
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
 
 <!-- INICA LA PRESENTACION DEL ARTICULO:IMG, PRECIO , TABLA-->
-<div id="contenido">
+<div id="contenido"
+      autenticado          = "<?= $autenticado; ?>"
+      idtipo-plan-compras  = "<?= $idtipo_plan_compras; ?>">
+
 <section>
     <div class="row fila-1"><!--IMAGEN PRODUCTO-->
       <div  class="col-lg-6  col-md-6 columana_de_la_img_producto">
@@ -89,24 +102,25 @@
                                  <a href="<?=BASE_URL ;?>productos/varias_referencias/<?=$id_agrupacion ;?> "> <?= $nom_producto_largo ;?></a>
                             </span>
                         </a>
-                     </p> 
+                     </p>
                  <?php endif ;?>
                   <div>
                     <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." id="notificaciones" data-toggle="modal" data-target="#recomendar" style="width: 320px; display:block; margin-bottom: -10px;">
                       <p>
                         <span class="recomendar">
                            <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
-                        </span> ¡Recomendar este Producto a un Amigo(a)!
+                        </span> ¡ Recomendar este Producto a un Amig@ !
                       </p>
                     </a>
                   </div>
                   <div>
-                    <a href="#" style="width: 200px; display: block;"> 
+                    <a target="_blank" href="<?= $URL ;?>"
+                         style="width: 200px; display: block;">
                        <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir en FACEBOOK</span>
+                           <span>Compartir en Facebook</span>
                        </div>
                     </a>
-                  </div>                 
+                  </div>
               </div>
             </div>
          </div><br><!--FIN DE SUBCOLUMNA-->

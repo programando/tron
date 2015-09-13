@@ -65,7 +65,7 @@
 /* Comprartir en faceboook */
 .img_compartir_face
 {
-	width: 22px; 
+	width: 22px;
 	height: 20px;
 	display: block;
 	float: left;
@@ -168,8 +168,7 @@ th , td
 
 
 /* Diseño de las notificaciones */
-.contenedor_notificaciones
-{
+.contenedor_notificaciones{
 	 display: none;
 	 position: fixed;
 	 bottom: 0px;
@@ -178,8 +177,35 @@ th , td
 	 z-index: 5000;
 }
 
-.img_llamar_atencion
-{
+/* Diseño de las notificaciones */
+.contenedor_notificaciones_no_logueado{
+	 display: none;
+	 position: fixed;
+	 bottom: 0px;
+	 right: 20px;
+	 width: 400px;
+	 z-index: 5000;
+}
+
+/* Diseño de las notificaciones */
+.contenedor_notificaciones_empresario{
+	 display: none;
+	 position: fixed;
+	 bottom: 0px;
+	 right: 20px;
+	 width: 400px;
+	 z-index: 5000;
+}
+.contenedor_notificaciones_cliente_ocasional{
+	 display: none;
+	 position: fixed;
+	 bottom: 0px;
+	 right: 20px;
+	 width: 500px;
+	 z-index: 5000;
+}
+
+.img_llamar_atencion{
 	 font-size: 45px;
 	 display: block;
 	 margin-top: 10px;

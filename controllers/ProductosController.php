@@ -36,14 +36,13 @@ class ProductosController extends Controller
       $Mensaje_Enviado    = General_Functions::Validar_Entrada('mensaje_enviado','TEXT');
       $Nombre_Imagen      = General_Functions::Validar_Entrada('nombre_imagen','TEXT');
       $Nombre_Imagen      = General_Functions::Validar_Entrada('nombre_imagen','TEXT');
+      $Nombre_Amigo       = General_Functions::Validar_Entrada('nombre_amigo','TEXT');
 
       $Texto_Respuesta    = '';
-      if ($Email_AmigoOk==false)
-      {
+      if ($Email_AmigoOk==false)      {
         $Texto_Respuesta  ='Email_Amigo_No_Ok';
-      }else
-      {
-        $Texto_Respuesta = $this->Email->Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto  );
+      }else      {
+        $Texto_Respuesta = $this->Email->Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo   );
       }
 
       echo $Texto_Respuesta ;
