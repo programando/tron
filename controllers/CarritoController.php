@@ -648,38 +648,40 @@ public function Totalizar_Carrito(){
 
 
 private function Calcular_Valor_Flete_Transporte_Courrier (){
-     $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Total );
+     $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Tron );
      $this->Vr_Fletes      = Session::Get('flete_real_calculado');
-      if ( $this->Vr_Declarado_Courrier_Total > 0 ){
+
+      if (  $this->Vr_Declarado_Courrier_Tron> 0 ){
          Session::Set('id_transportadora'    , Session::Get('id_transportadora'));
          Session::Set('tipo_despacho'        , Session::Get('tipo_despacho_pedido'));
          Session::Set('vr_flete'             , Session::Get('flete_real_calculado'));
          Session::Set('valor_declarado'      , $this->Vr_Declarado_Courrier_Total);
-      }
-      $this->Vr_Transporte  = $this->Vr_Fletes  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
-                              $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
 
-      if ( $this->Vr_Transporte         < 100 )    { $this->Vr_Transporte         = 0;  }
+          $this->Vr_Transporte  = $this->Vr_Fletes  - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
+                                  $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
 
-      Session::Set('Vr_Transporte',             $this->Vr_Transporte );
+          //---------------------------------------  CALCULAR LOS VALORES PARA COMPRADOR OCASIONAL -----------------
+          $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Ocas);
+          $this->Vr_Fletes                    = Session::Get('flete_real_calculado');
+          $Valor_Transporte_Ocasional         = $this->Vr_Fletes  + $this->Vr_Recaudo +
+                                                $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo ;
+
+          if ( $this->Vr_Transporte         < 100 )    { $this->Vr_Transporte         = 0;  }
+          if ( $Valor_Transporte_Ocasional  < 100 )    { $Valor_Transporte_Ocasional  = 0;  }
+
+          Session::Set('Vr_Transporte',             $this->Vr_Transporte );
+          Session::Set('Vr_Transporte_Ocasional',   $Valor_Transporte_Ocasional  );
+    }
 }
 
 private function Calcular_Valor_Flete_Transporte_Carga(){
   /** SEPTIEMBRE 03 2015
    *  SEPTIEMBRE 05 2015  -> Se introducen cambio en el cálculo del flete aplicando % al valor de compra sin iva
    */
-
-      $Valor_Transporte_Amigo_Tron = 105;
-
-      $Valor_Transporte_Ocasional = 100;
-
-
     if ( $Valor_Transporte_Amigo_Tron < 100 )    { $Valor_Transporte_Amigo_Tron = 0;  }
-    if ( $Valor_Transporte_Ocasional  < 100 )    { $Valor_Transporte_Ocasional  = 0;  }
-
 
      Session::Set('Vr_Transporte_Amigo_Tron',  $Valor_Transporte_Amigo_Tron );
-     Session::Set('Vr_Transporte_Ocasional',   $Valor_Transporte_Ocasional  );
+
 }
 
 private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
@@ -800,7 +802,7 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
     } // fin foreach
     $this->Cerrar_Procesos_Carro();
 
-    $this->Vr_Declarado_Courrier_Total =  $this->Vr_Declarado_Courrier_Ocas     + $this->Vr_Declarado_Courrier_Tron;
+    //$this->Vr_Declarado_Courrier_Total =  $this->Vr_Declarado_Courrier_Ocas     + $this->Vr_Declarado_Courrier_Tron;
     $this->Vr_Declarado_Carga_Total    =  $this->Vr_Declarado_Carga_Ocas        + $this->Vr_Declarado_Carga_Tron  ;
     $this->Valor_Declarado_Total       =  $this->Vr_Declarado_Courrier_Total    + $this->Vr_Declarado_Carga_Total  + $this->Valor_Declarado_Productos_Tron ;
 
