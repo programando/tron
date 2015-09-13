@@ -1,3 +1,5 @@
+
+
 #contenido
 {
 	margin       : 0px auto;
@@ -211,7 +213,10 @@ th , td
 	 margin-top: 10px;
 }
 
-
+.alert_notificaciones
+{
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
 
 
 

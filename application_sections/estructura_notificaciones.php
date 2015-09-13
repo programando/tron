@@ -2,8 +2,8 @@
 <div>
 	 <div class="contenedor_notificaciones_cliente_ocasional">
 	 	  <div>
-				<div class="alert alert-success alert-dismissible" role="alert"style="box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);">
-				  <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+				<div class="alert alert-success alert-dismissible alert_notificaciones" role="alert">
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				  <div class="row">
 				  <div class="col-lg-2">
 				  	<span class="glyphicon glyphicon glyphicon glyphicon-question-sign  img_llamar_atencion"></span>
@@ -20,8 +20,7 @@
 
 	 	 <div class="contenedor_notificaciones_no_logueado">
 	 	  <div>
-				<div class="alert alert-success alert-dismissible" role="alert"style="box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);">
-				  <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+				<div class="alert alert-success alert-dismissible alert_notificaciones" role="alert">
 				  <div class="row">
 				  <div class="col-lg-2">
 				  	<span class="glyphicon glyphicon glyphicon-hand-right  img_llamar_atencion"></span>
@@ -36,14 +35,13 @@
 
 	 	 <div class="contenedor_notificaciones_empresario">
 	 	  <div>
-				<div class="alert alert-success alert-dismissible" role="alert"style="box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);">
-				  <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+				<div class="alert alert-success alert-dismissible alert_notificaciones" role="alert">
 				  <div class="row">
 				  <div class="col-lg-2">
 				  	<span class="glyphicon glyphicon glyphicon-thumbs-up  img_llamar_atencion"></span>
 				  </div>
 				  <div class="col-lg-10">
-																										¡ BUENA SUERTE ! <br /> Recuerda, entre más recomendaciones envíes, más posibilidades tienes de ganar !!!.
+					¡ BUENA SUERTE ! <br /> Recuerda, entre más recomendaciones envíes, más posibilidades tienes de ganar !!!.
 				  </div>
 				  </div>
 				</div>
@@ -53,3 +51,4 @@
 </div>
 
 
+ 

@@ -47,3 +47,11 @@
 {
 	cursor: pointer;
 }
+
+   .vista_varias_referencias
+   {
+     padding-top: 150px;
+     display: block;
+     width: 95%;
+     margin:0px auto;
+   }

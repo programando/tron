@@ -591,6 +591,7 @@
    -o-transition     :  all 0.4s ease;
    transition        :  all 0.4s ease;
    margin-left: 20px;
+   cursor: pointer;
 }
 
 .fonts-flecha
