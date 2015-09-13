@@ -114,12 +114,18 @@
                     </a>
                   </div>
                   <div>
-                    <a target="_blank" href="<?= $URL ;?>"
+                  <!--  <a target="_blank" href="<?= $URL ;?>"
                          style="width: 200px; display: block;">
                        <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
                            <span>Compartir en Facebook</span>
                        </div>
-                    </a>
+                    </a>-->
+
+      <a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);var
+               dir2= encodeURIComponent(dir);window.location.href=('http://www.facebook.com/share.php?u='+dir2+'&amp;t='+tit2+'');">
+               <img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face" border="0" width="128" height="52" alt="Compartir" /><span>Compartir en Facebook</span> </a>
+
+
                   </div>
               </div>
             </div>
