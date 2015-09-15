@@ -34,20 +34,15 @@
       $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
       $id_agrupacion            = $Producto[0]['id_agrupacion'];
       $autenticado              = Session::Get('autenticado');
-      $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
+      $idtipo_plan_compras    = Session::Get('idtipo_plan_compras');
 
-      $Pagina_Actual            = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-
-      $URL_COMPARTIR_FACEBOOK                      = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
+      $Pagina_Actual          = "http://www.".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      $URL_COMPARTIR_FACEBOOK = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
       Session::Set('FACEBOOK',TRUE);
       Session::Set('Pagina_Facebook_URL',$Pagina_Actual );
       Session::Set('Pagina_Facebook_TITULO',$nom_producto_largo );
       Session::Set('Pagina_Facebook_DESCRIPCION',$nom_producto_descripcion );
       Session::Set('Pagina_Facebook_IMAGEN',BASE_IMG_PRODUCTOS_472x472.$nombre_imagen );
-
-
-
-
 ?>
 
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
