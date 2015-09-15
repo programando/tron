@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php if ( Session::Get('FACEBOOK') == TRUE ):?>
+      <meta property="og:type"          content="website" />
       <meta property="og:url"           content="<?= Session::Get('Pagina_Facebook_URL') ;?>" />
       <meta property="og:title"         content="<?= Session::Get('Pagina_Facebook_TITULO') ;?>" />
       <meta property="og:description"   content="<?= Session::Get('Pagina_Facebook_DESCRIPCION') ;?>" />
