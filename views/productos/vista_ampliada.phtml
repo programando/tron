@@ -36,8 +36,15 @@
       $autenticado              = Session::Get('autenticado');
       $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
 
+      $Pagina_Actual            = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-      $URL                      = "http://www.facebook.com/sharer.php?u=".FACEBOOK .'recomendar_producto.pthml'
+      $URL_COMPARTIR_FACEBOOK                      = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
+      Session::Set('FACEBOOK',TRUE);
+      Session::Set('Pagina_Facebook_URL',$Pagina_Actual );
+      Session::Set('Pagina_Facebook_TITULO',$nom_producto_largo );
+      Session::Set('Pagina_Facebook_DESCRIPCION',$nom_producto_descripcion );
+      Session::Set('Pagina_Facebook_IMAGEN',BASE_IMG_PRODUCTOS_150x150.$nombre_imagen );
+
 
 
 
@@ -111,10 +118,10 @@
                   </div>
                   <div>
 
-                   <a target="_blank" href="<?= $URL ;?>"
+                   <a target="_blank" href="<?= $URL_COMPARTIR_FACEBOOK ;?>"
                          style="width: 200px; display: block;">
                        <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir en Facebook</span>
+                           <span>Compartir en Facebook <span>
                        </div>
                     </a>
 
