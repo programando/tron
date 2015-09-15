@@ -36,7 +36,7 @@
       $autenticado              = Session::Get('autenticado');
       $idtipo_plan_compras    = Session::Get('idtipo_plan_compras');
 
-      $Pagina_Actual          = "http://www.".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
       $URL_COMPARTIR_FACEBOOK = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
       Session::Set('FACEBOOK',TRUE);
       Session::Set('Pagina_Facebook_URL',$Pagina_Actual );
