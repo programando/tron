@@ -7,13 +7,13 @@
       $('.contenedor_notificaciones_no_logueado').fadeIn(1000);
       setTimeout(function() {
         $(".contenedor_notificaciones_no_logueado").fadeOut(6500);
-      },5000);
+      },5500);
   	 }else{
   	 	if ($id_tipo_plan_compras == 3){
 	     $('.contenedor_notificaciones_empresario').fadeIn(1000);
 	      setTimeout(function() {
 	        $(".contenedor_notificaciones_empresario").fadeOut(5500);
-	      },5000);
+	      },5500);
      }else{
      		     $('.contenedor_notificaciones_cliente_ocasional').fadeIn(1000);
 

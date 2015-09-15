@@ -36,12 +36,9 @@
       $autenticado              = Session::Get('autenticado');
       $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
 
-      $url                      =  BASE_URL;
-      $URL                      =  "http://www.facebook.com/sharer.php?s=100&p[url]=http://" . $host . $url;
-      $URL                      = $URL . "&p[title]=Compartir URLs en Face&p[summary]=Un buen recurso para aprender a compartir enlaces por código";
-      $URL                      ="http://www.facebook.com/sharer.php?u=". $url;
 
-//=http://www.lostiemposcambian.com/blog/posts/share-fb/share-facebook.html&p[title]=Compartir URLs en Face&p[summary]=Un buen recurso para aprender a compartir enlaces por código&&p[images][0]=http://www.lostiemposcambian.com/blog/posts/share-fb/img/200x200_lostiemposcambian_ejemplo_facebook_foto3.jpg
+      $URL                      = "http://www.facebook.com/sharer.php?u=".FACEBOOK .'recomendar_producto.pthml'
+
 
 
 ?>
@@ -74,7 +71,7 @@
       </div>
 <div id="contenido-productos">
   <!-- incluciones de docuementos -->
-      <?php include (APPLICATION_SECTIONS . 'estructura_notificaciones.php');?>
+      <?php include (APPLICATION_SECTIONS . 'notificaciones_recomendar_producto.php');?>
       <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
   <!-- incluciones de docuementos -->
 
@@ -113,14 +110,14 @@
                     </a>
                   </div>
                   <div>
-                  <!--
+
                    <a target="_blank" href="<?= $URL ;?>"
                          style="width: 200px; display: block;">
                        <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
                            <span>Compartir en Facebook</span>
                        </div>
                     </a>
-                    -->
+
 
 
 
