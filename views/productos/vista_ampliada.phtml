@@ -38,11 +38,23 @@
 
       $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
       $URL_COMPARTIR_FACEBOOK = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
+      $URL_COMPARTIR_GOOGLE   = "https://plus.google.com/share?url=".$Pagina_Actual;
+      $URL_COMPARTIR_LINKEDIN = "http://www.linkedin.com/shareArticle?url=".$Pagina_Actual;
+      $URL_COMPARTIR_TWITER   = "https://twitter.com/?status=Me gusta esta página: ".$Pagina_Actual;
+      $URL_COMPARTIR_PINTERES = "http://pinterest.com/pin/create/link/?url=".$Pagina_Actual . "&media=".BASE_IMG_PRODUCTOS_472x472.$nombre_imagen;
+      $URL_COMPARTIR_PINTERES = $URL_COMPARTIR_PINTERES ."&description=".$nom_producto_largo;
       Session::Set('FACEBOOK',TRUE);
       Session::Set('Pagina_Facebook_URL',$Pagina_Actual );
       Session::Set('Pagina_Facebook_TITULO',$nom_producto_largo );
       Session::Set('Pagina_Facebook_DESCRIPCION',$nom_producto_descripcion );
       Session::Set('Pagina_Facebook_IMAGEN',BASE_IMG_PRODUCTOS_472x472.$nombre_imagen );
+
+/*
+http://www.oloblogger.com/2012/03/pinterest-boton-que-se-ve-y-funciona.html
+<a href="http://pinterest.com/pin/create/button/?url=URL_ENVIADA&media=URL_IMAGEN&description=RESUMEN_TEXTO" class="pin-it-button" count-layout="horizontal">Pin It</a>
+<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
+*/
+
 ?>
 
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
@@ -112,16 +124,39 @@
                     </a>
                   </div>
                   <div>
-
+                    Comparte en Redes Sociales
                    <a target="_blank" href="<?= $URL_COMPARTIR_FACEBOOK ;?>"
                          style="width: 200px; display: block;">
                        <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
                            <span>Compartir en Facebook <span>
                        </div>
                     </a>
-
-
-
+                   <a target="_blank" href="<?= $URL_COMPARTIR_TWITER ;?>"
+                         style="width: 200px; display: block;">
+                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                           <span>Compartir Twuiter <span>
+                       </div>
+                    </a>
+                   <a target="_blank" href="<?= $URL_COMPARTIR_GOOGLE ;?>"
+                         style="width: 200px; display: block;">
+                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                           <span>Compartir Google + <span>
+                       </div>
+                    </a>
+                  <!--
+                   <a target="_blank" href="<?= $URL_COMPARTIR_LINKEDIN ;?>"
+                         style="width: 200px; display: block;">
+                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                           <span>Compartir Linkein <span>
+                       </div>
+                    </a>
+                   <a target="_blank" href="<?= $URL_COMPARTIR_PINTERES ;?>"
+                         style="width: 200px; display: block;">
+                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                           <span>Compartir Pinteres <span>
+                       </div>
+                    </a>
+                -->
 
 
                   </div>

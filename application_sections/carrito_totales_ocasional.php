@@ -1,3 +1,5 @@
+
+
   <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== TRUE ) :?>
       <td></td>
    <?php endif ;?>

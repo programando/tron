@@ -49,7 +49,7 @@
 					public function Calcular_Valor_Flete_Courrier ( $peso_pedido_courrier, $valor_declarado){
 						 $this->Consultar_Vr_Kilo_Destino();
 						 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
-	      $peso_kilos_pedido  = $peso_pedido_courrier /1000;
+	      $peso_kilos_pedido  = $peso_pedido_courrier / 1000  ;
 							$kit_inicio_peso_total        			= Session::Get('kit_inicio_peso_total');
 					  $kit_cantidad                 			= Session::Get('kit_cantidad');
 
@@ -58,6 +58,7 @@
 	      }
 	      if ( $valor_declarado > 0 ){
 	      	 $this->Redetrans_Courrier     ( $peso_kilos_pedido , $valor_declarado );
+
 	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
 	        $this->Encontrar_Mejor_Flete();
 	      }
@@ -470,8 +471,6 @@
 									$this->flete_calculado           = FALSE ;
 									$this->tipo_despacho													= 1;  // REDETRANS COURRIER
 
-
-
 									if ($peso_pedido_gramos >= 16000)	{
 											$this->valor_flete        = 0;
 									}else		{
@@ -480,19 +479,16 @@
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos/4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
-											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )
-											{
+											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )		{
 													$this->seguro_redetrans_courrier = $valor_declarado  *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}else{
 													$this->seguro_redetrans_courrier = $this->Transportadoras[0]['rt_courrier_seguro'] *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
-
 											Session::Set('REDETRANS_COURRIER_flete', $this->valor_flete );
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
 											Session::Set('REDETRANS_COURRIER_seguro', $this->seguro_redetrans_courrier);
 											Session::Set('REDETRANS_COURRIER_flete_total',  $this->valor_flete );
 									}
-
 									$this->Adicionar_Cobro_Flete_Transportadora(0,'1572','REDETRANS');
    		  }
 

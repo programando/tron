@@ -31,6 +31,7 @@
   <?php if  ( Session::Get('cumple_condicion_cpras_tron_industial')== TRUE || empty (Session::Get('cumple_condicion_cpras_tron_industial') ))  :?>
         <!-- SUBTOTAL -->
         <?php include (APPLICATION_SECTIONS . 'carrito_totales_ocasional.php');?>
+      <?php else :?>
   <td></td>
       <?php include (APPLICATION_SECTIONS . 'carrito_totales_tron.php');?>
   <?php endif ;?>
