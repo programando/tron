@@ -65,16 +65,32 @@
 /*FIN-INFORMACION DE PRODUCTO*/
 
 /* Comprartir en faceboook */
+.compartir_en
+{
+   float: left;
+   margin-right: 20px;
+   color: #003E90;
+   font-family: cursive;
+}
+
 .img_compartir_face
 {
-	width: 22px;
-	height: 20px;
+	width: 25px;
+	height: 25px;
 	display: block;
 	float: left;
 	margin-right: 5px;
 }
 
 /*INICIO-IMG => COMISIONES PP , OFERTAS , TECNOLOGIAS APLICADAS ,*/
+.pertenece_grupo
+{
+   color: #003E90;
+   float: left;
+   margin-right: 10px;
+/*   margin-top: 30px;*/
+}
+
 .div-content a
 {
 	  cursor: pointer;
@@ -94,6 +110,7 @@
 				text-align : center;
 				text-shadow: 1px 1px 3px #000000;
 				width      : 64px;
+				margin-top: -15px;
 }
 
 .imagen_tecnoaplicadas_producto
@@ -115,6 +132,7 @@
 {
 				margin-top: -15px;
 				width     : 100%;
+				margin-top: -55px;
 }
 
 .imagen_en_oferta

@@ -123,41 +123,76 @@ http://www.oloblogger.com/2012/03/pinterest-boton-que-se-ve-y-funciona.html
                       </p>
                     </a>
                   </div>
-                  <div>
-                    Comparte en Redes Sociales
-                   <a target="_blank" href="<?= $URL_COMPARTIR_FACEBOOK ;?>"
-                         style="width: 200px; display: block;">
-                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir en Facebook <span>
-                       </div>
-                    </a>
-                   <a target="_blank" href="<?= $URL_COMPARTIR_TWITER ;?>"
-                         style="width: 200px; display: block;">
-                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir Twuiter <span>
-                       </div>
-                    </a>
-                   <a target="_blank" href="<?= $URL_COMPARTIR_GOOGLE ;?>"
-                         style="width: 200px; display: block;">
-                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir Google + <span>
-                       </div>
-                    </a>
-                  <!--
-                   <a target="_blank" href="<?= $URL_COMPARTIR_LINKEDIN ;?>"
-                         style="width: 200px; display: block;">
-                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir Linkein <span>
-                       </div>
-                    </a>
-                   <a target="_blank" href="<?= $URL_COMPARTIR_PINTERES ;?>"
-                         style="width: 200px; display: block;">
-                       <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                           <span>Compartir Pinteres <span>
-                       </div>
-                    </a>
-                -->
+                <div class="div-content">
+                  <?php if ( Session::Get('autenticado')== TRUE ) :?>
+                  <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
+                    <p>
+                       <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
+                    </p>
+                  </a>
+                <?php endif ;?>
+                </div>                  
+                  <!-- compartir en redes sociales -->
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="compartir_en">Compartir :</div>
 
+                         <a target="_blank" href="<?= $URL_COMPARTIR_FACEBOOK ;?>">
+                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                                <!--  <span>Compartir en Facebook <span> -->
+                             </div>
+                          </a>
+
+                         <a target="_blank" href="<?= $URL_COMPARTIR_TWITER ;?>">
+                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_twitter.jpg" class="img_compartir_face">
+                             </div>
+                          </a>
+                          
+                         <a target="_blank" href="<?= $URL_COMPARTIR_GOOGLE ;?>">
+                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_googleMas.jpg" class="img_compartir_face">
+                             </div>
+                          </a>
+                        <!--
+                         <a target="_blank" href="<?= $URL_COMPARTIR_LINKEDIN ;?>"
+                               style="width: 200px; display: block;">
+                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                                 <span>Compartir Linkein <span>
+                             </div>
+                          </a>
+                         <a target="_blank" href="<?= $URL_COMPARTIR_PINTERES ;?>"
+                               style="width: 200px; display: block;">
+                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
+                                 <span>Compartir Pinteres <span>
+                             </div>
+                          </a>
+                      -->
+                      </div>
+                      <!-- grupo al que pertenece el producto -->
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                         <div>
+                          <div class="pertenece_grupo">Producto grupo: </div>
+                              <?php if ($idgrupo>0) :?>
+                                 <div class="imagen_grupo_producto"
+                                    title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contáctanos a:  contactos@tecnoaplicadas.com !">
+                                    <strong><?= $codigo_grupo  ;?></strong>
+                                  </div>
+                              <?php endif ;?>
+
+
+                              <?php if ($fabricado_x_ta==1) :?>
+                                 <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por: Balquimia S.A.S.">
+                                    <img class="img-Producto_fabricado_por_Tecnologías" src="<?= BASE_IMG_PRODUCTOS ;?>22.png" alt="">
+                                 </div>
+
+                              <?php endif ;?>
+
+                             <?php if ($en_oferta  ==1) :?>
+                                 <div class="imagen_en_oferta" title="Producto en Oferta !!!">
+                                    <img class="img_Producto_en_Oferta" src="<?= BASE_IMG ;?>en_oferta.png " alt="">
+                                 </div>
+                            <?php endif ;?>                           
+                         </div>
+                      </div>
 
                   </div>
               </div>
@@ -239,7 +274,11 @@ http://www.oloblogger.com/2012/03/pinterest-boton-que-se-ve-y-funciona.html
            </div>
        <!-- div  -->
 
-             <div class="col-lg-6"><!-- COLUMNA QUE PRESENTA INFORMACION TEXTO PRODUCTO-->
+<!-- 
+* agregar a favorito.
+* grupo al que pertenece el producto
+
+             <div class="col-lg-6"> 
              <div class="">
                 <div class="div-content">
                   <?php if ( Session::Get('autenticado')== TRUE ) :?>
@@ -273,7 +312,7 @@ http://www.oloblogger.com/2012/03/pinterest-boton-que-se-ve-y-funciona.html
                    </div>
               <?php endif ;?>
 
-             </div><!-- FINAL QUE PRESENTA INFORMACION TEXTO PRODUCTO-->
+             </div>  -->
          </div><br><!--FIN DE HIJA-FILA-->
 
 

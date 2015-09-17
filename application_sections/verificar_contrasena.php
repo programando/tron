@@ -27,15 +27,9 @@
                                <div class="cont-mensj-validacion"><!-- Mensaje de validacio -->
                                    <img style="width: 12px;"src="<?= BASE_IMG_TIENDA;?>negativo-rojo.png" alt="">
                                    <span>Ingrese  su contraseña..!!</span>
-                               </div><!-- Mensaje de validacio -->
-                           </form>
-                        </div>
-                    </div>
-                </div><!-- Cuerpo-modal -->
-
-              <div class="modal-footer"><!-- Pie-modal -->
-                 <div>
-                     <button type ="button" class="btn btn-success" id="validar">Validar</button>
+                               casi me lo saco
+                               
+                        </div>            <button type ="button" class="btn btn-success" id="validar">Validar</button>
                      <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
                  </div>
               </div><!-- Pie-modal -->
