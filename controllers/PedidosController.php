@@ -98,28 +98,38 @@ class PedidosController extends Controller
 					$vr_diferencia_recaudo       = Session::Get('vr_diferencia_recaudo') ;
 					$vr_fletes_totales           = Session::Get('Vr_Transporte');
 					$vr_total_pedido             = Session::Get('Vr_Total_Pedido_Real');
+
           Session::Set('Valor_Final_Pedido_Real',$vr_total_pedido );
 
 					$puntos_redimidos            = $vr_puntos_redimidos;
-					$tipo_despacho               = Session::Get('tipo_despacho_pedido');
-					$id_transportadora           = Session::Get('id_transportadora');
 					$solo_pago_inscripcion_red   = 0 ;
 					$id_pase_cortesia            = 0 ;
 					$idtercero_envia_pase        = 0 ;
 					$pase_es_premium             = 0 ;
 					$idtercero_recibe_comisiones = 0 ;
-					$peso_gramos_pedido          = Session::Get('Peso_Total_Pedido_Kilos') * 1000 ;
+
 					$email_confirma_factura      = 0 ;
 					$pagado_online               = 0 ;
 					$pago_recibido               = 0 ;
+          //Transporte Courrier
+          $tipo_despacho               = Session::Get('tipo_despacho');
+          $id_transportadora           = Session::Get('id_transportadora');
+          $vr_flete                    = Session::Get('vr_flete');
+          $valor_declarado             = Session::Get('valor_declarado');
+          $peso_gramos_pedido          = Session::Get('Peso_Pedido_Courrier');
+
+          $tipo_despacho_carga               = Session::Get('tipo_despacho_carga');
+          $id_transportadora_carga           = Session::Get('id_transportadora_carga');
+          $vr_flete_transportadora_carga     = Session::Get('vr_flete_carga');
+          $vr_declarado_carga             = Session::Get('valor_declarado_carga');
+          $peso_gramos_pedido_carga          = Session::Get('Peso_Pedido_Carga');
+
 
 
 
     	  $Datos  = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron','vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos','vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo','vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
-        'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado_pedido');
-
-
-
+        'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado',
+        'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga');
 
 
       $Pedido            = $this->Pedidos->Grabar($Datos );
@@ -139,16 +149,23 @@ class PedidosController extends Controller
 
      $Valores           = '';
      $Datos             = '';
-     $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt) VALUES ";
+     $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt,id_transportadora) VALUES ";
 
     	foreach ($this->Datos_Carro as $Productos)	{
-					$idpedido  	 = $IdPedido_Generado;
-					$idproducto  = $Productos['idproducto'];
-					$cantidad    = $Productos['cantidad'];
-					$vrunitario  = $Productos['precio_unitario_produc_pedido'];   ;
-					$vr_total    = $Productos['precio_total_produc_pedido'];
-					$idescala_dt = $Productos['idescala_dt'];
+          $idpedido      = $IdPedido_Generado;
+          $idproducto    = $Productos['idproducto'];
+          $cantidad      = $Productos['cantidad'];
+          $vrunitario    = $Productos['precio_unitario_produc_pedido'];   ;
+          $vr_total      = $Productos['precio_total_produc_pedido'];
+          $idescala_dt   = $Productos['idescala_dt'];
+          $tipo_despacho =  $Productos['tipo_despacho'];
+          if ( $tipo_despacho == 1 ){
+            $_idtransportadora = $id_transportadora;
+          }else{
+            $_idtransportadora = $id_transportadora_carga ;
+          }
 					$Valores     = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
+          $Valores     = $Valores  .',' . $_idtransportadora ;
 					$Valores     = '( ' . $Valores . ' ),';
 					$Datos 		    = $Datos . $Valores ;
 
@@ -163,6 +180,7 @@ class PedidosController extends Controller
 
 				/// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
+
 
 
     echo "OK";

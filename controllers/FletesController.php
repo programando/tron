@@ -47,6 +47,7 @@
 
 				}
 					public function Calcular_Valor_Flete_Courrier ( $peso_pedido_courrier, $valor_declarado){
+						 Session::Set('flete_real_calculado',0);
 						 $this->Consultar_Vr_Kilo_Destino();
 						 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
 	      $peso_kilos_pedido  = $peso_pedido_courrier / 1000  ;
@@ -70,6 +71,7 @@
 	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
+	      Session::Set('flete_real_calculado',0);
 	    	 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
        $peso_kilos_pedido  = $peso_pedid_carga /1000;  // PASAR A KILOS
 	      if ( $valor_declarado >0 ){

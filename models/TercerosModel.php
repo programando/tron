@@ -52,6 +52,7 @@
 
 				public function Grabar($params=array()){
 					extract($params);
+						// 	Debug::Mostrar( $idterceropresenta);
 					$SQL = "$idtpidentificacion,'$identificacion','$digitoverificacion','$pnombre','$papellido','$razonsocial',";
 				 $SQL = $SQL."$genero,$dianacimiento,$mesnacimiento,'$passwordusuario', '$direccion','$barrio','$contacto','$telefono',";
 				 $SQL = $SQL."'$celular1','$email',$idmcipio,'$codigousuario','$codautorizacionmenoredad','$codigoterceropresenta_inicial',";

@@ -108,12 +108,10 @@
 </td><!--Botones => Cantidad -->
 
 <?php
-  $Autenticado                                 = Session::Get('autenticado');
-  $Cumple_Compra_Minima_Prod_Tron_Industriales = Session::Get('cumple_condicion_cpras_tron_industial');
-  //<?php if (Session::Get('idtipo_plan_compras')==1 || Session::Get('autenticado')==false) ://
+  $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 ?>
 
- <?php if ( $Cumple_Compra_Minima_Prod_Tron_Industriales == FALSE || empty( $Cumple_Compra_Minima_Prod_Tron_Industriales)) :?>
+ <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial)) :?>
     <!--TOTAL -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $pv_ocasional ;?> </p></td><!--Precio UNIT. -->
     <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Item_Ocasional ;?> </p></td><!--Total -->

@@ -512,8 +512,8 @@ class TercerosController extends Controller
 
         $codigousuario                                  = $codigo_usuario_generado;
         $codautorizacionmenoredad                       = '';
-        $dianacimiento                                  = $dia;
-        $mesnacimiento                                  = $mes;
+        $dianacimiento                                  = intval($dia);
+        $mesnacimiento                                  = intval($mes);
         $email                                          = strtolower($e_mail);
         $passwordusuario                                = '';
         $contacto                                       = '';
@@ -627,6 +627,7 @@ class TercerosController extends Controller
        *      ESTABLECE EL TIPO PLAN DE COMPRAS EN EL REGISTRO DE DATOS INICIALES
        */
         $idtipo_plan_compras = General_Functions::Validar_Entrada('idtipo_plan_compras','NUM');
+
         Session::Set('idtipo_plan_compras',$idtipo_plan_compras);
         $Datos    = compact('idtipo_plan_compras');
         echo json_encode($Datos,256);

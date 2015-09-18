@@ -180,8 +180,7 @@ var Grabar_Datos_Registro = function(Parametros){
                               {id: 1, label: 'Opps, espere... deseo corregir !!!', val: 'N', class: 'btn-danger'}
                               ],
                     callback: function(val) {
-                      if (val=='N')
-                      {
+                      if (val=='N')    {
                         Re_Establecer_Tipo_Plan();
                       }
                     }});
@@ -204,8 +203,7 @@ $('#input_codigo').on('blur',function(){
                       {id: 1, label: 'Opps !!!, Espere !!! deseo corregir !!!', val: 'N', class: 'btn-danger'}
                       ],
             callback: function(val) {
-              if (val=='N')
-              {
+              if (val=='N')  {
                 Re_Establecer_Tipo_Plan();
               }
             }});

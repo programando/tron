@@ -8,8 +8,7 @@ $(".usu-1" ).first().css('color','white')
 $(".direccion1").css('background','white');
 var $iddireccion_despacho_seleccionada = 0;
 
-function Depurar_Texto(resultado)
-{/*     MARZO 20 DE 2015
+function Depurar_Texto(resultado){/*     MARZO 20 DE 2015
   *         QUITA ESPACIOS EN BLANCO Y SALTOS DE LINEA DEL TEXTO PASADO COMO PARAMETRO
   */
   $.trim(resultado);

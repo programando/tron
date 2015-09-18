@@ -312,7 +312,6 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
     	 }
 					});
 
-
 });
 
 

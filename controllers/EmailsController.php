@@ -14,10 +14,6 @@
 
       public function Index() { }
 
-// vista :: plantilla correo
-      public function vista_correo_logo_text(){
-        $this->View->Mostrar_Vista('correo_logo_texto');
-      }
 
       public function Recomendar_Negocio_Amigo(){
         /** SEPTIEMBRE 14 DE 2015
@@ -128,8 +124,7 @@
           return $this->Enviar_Correo();
       }
 
-      public function Recuperar_Password( $email )
-      {
+      public function Recuperar_Password( $email ) {
          /** ENERO 31 DE 2015
          **  PROCEDIMIENTO PARA RECUPERAR CONTRASEÑA DE USUARIOS
          */
@@ -159,30 +154,29 @@
       }
 
       public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $genero, $idtipo_plan_compras,$idtpidentificacion , $razonsocial ){
-           $pre = '';
-           if ( $genero == 1){
-            $pre = 'o';
-           }
-           if ( $genero == 0 ){
-            $pre = 'a';
-           }
-         $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
-         $enlace   = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/'.$email . '/'.$idtercero. '/' .$idtipo_plan_compras . '/'. $idtpidentificacion . '/ > Activar mi cuenta y finalizar registro </a>';
-         if ( $idtpidentificacion != 31 ) {
-              $Texto_Correo        = 'Bienvenid' . $pre . ' '. $nombre_usuario .'<br><br>';
-            }else {
-                $Texto_Correo        = 'Bienvenidos '. $razonsocial  .'<br><br>';
-            }
-         $Texto_Correo        = $Texto_Correo .'Para activar tu cuenta de usuario y finalizar el registro, presiona el siguiente enlace :' . $enlace ;
-         $Texto_Correo        = $Texto_Correo . "desde donde podrás cambiar tu contraseña y a partir de allí, ingresar a la tienda virtual.";
-
-
-         $this->Configurar_Cuenta('Activación Cuenta/Finalización Registro');
+         $this->Configurar_Cuenta('Activación Cuenta/Registro de Usuario');
          $this->Email->AddAddress($email );
-         $this->Email->Body   = CORREO_HEADER ;
-         $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
-         $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
-         $Respuesta = $this->Enviar_Correo();
+         $logo                = BASE_IMG_EMPRESA .'logo.png';
+         $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
+
+         $pre = '';
+         if (   $idtpidentificacion != 31 ){
+            $nombre = $nombre_usuario ;
+         }else{
+          $nombre = $razonsocial  ;
+         }
+         $Saludo  = $nombre .' , Te damos una cordial bienvenida !!!';
+         $enlace   = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/';
+         $enlace   = $enlace .  $email . '/'.$idtercero. '/' .$idtipo_plan_compras . '/';
+         $enlace   = $enlace .  $idtpidentificacion . '/ > Activar mi cuenta y finalizar registro </a>';
+
+         $Texto_Correo      = file_get_contents(BASE_EMAILS.'activacion_registro_usuario.phtml','r');
+         $Texto_Correo      = str_replace("#_SALUDO_#"                  , $Saludo ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_ENLACE_ACTIVA_CUENTA_#"    , $enlace ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_LOGO_#"                    , $logo   ,$Texto_Correo);
+         $this->Email->Body = $Texto_Correo  ;
+
+         $Respuesta         = $this->Enviar_Correo();
          Session::Set('codigo_confirmacion',$codigo_confirmacion);
          return $Respuesta;
       }
@@ -209,8 +203,7 @@
          $Respuesta = $this->Enviar_Correo();
 
     }
-      private function Configurar_Cuenta($asunto)
-      {
+      private function Configurar_Cuenta($asunto) {
       		/** ENERO 30 DE 2015
       		*		 ESTABLECE LA CONFIGURACIÓN PARA EL ENVÍO DE CORREOS ELECTRÓNICOS
       		*/
@@ -225,14 +218,13 @@
                   $this->Email->Port          = 465;
                   $this->Email->SMTPKeepAlive = true;
                   $this->Email->Mailer        = "smtp";                   // set the SMTP port
-                  $this->Email->Username      = 'contactos@tecnoaplicadas.com';;								// GMAIL username
+                  $this->Email->Username      = 'contactos@tecnoaplicadas.com';								// GMAIL username
                   $this->Email->Password      = "*contac*911";            	 					// GMAIL password
                   $this->Email->From          = CORREO_01;
                   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
                   $this->Email->Subject       = $asunto;
                   $this->Email->AltBody       = ""; //Text Body
                   $this->Email->WordWrap      = 50; // set word wrap																// send as HTML
-
       }
 
     }
