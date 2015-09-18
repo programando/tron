@@ -16,23 +16,23 @@
              <!-- Mi cuenta_dinero -->
                <div class="col-lg-6 col-md-6 col-sm-6" style="padding: 0px;">
 
-                     <div class="col-lg-12 col-md-12 col-sm-12"><!-- logo = Cuenta-dinero -->
+                     <div class="col-lg-12 col-md-12 col-sm-12 contenedor_estado_cuentas"><!-- logo = Cuenta-dinero -->
                      	   <div><!-- Contenededor -->
                      	   	    <p class="Estado-cuenta"  style="color: #009900;">Estado de Mi Cuenta Dinero</p>
                      	   	    <p class="saldos" style="color: #009900;"> <?= $this->Saldo_Comisiones ;?> </p>
                      	   </div><!-- Contenededor -->
                      </div><!-- logo = Cuenta-dinero -->
 
-                     <div class="col-lg-12 col-md-12 col-ms-12" style="padding-left: 0px;"><!-- Tabla-Cuenta-dinero -->
+                     <div class="col-lg-12 col-md-12 col-ms-12"style="  padding: 0px;"><!-- Tabla-Cuenta-dinero -->
                           <div class="cont-cabezera-tabla-dinero"><!-- Tabla-header = fija -->
-                              <p class="Cabezera-tabla text-center" style="width: 10%;">Fecha</p>
-                              <p class="Cabezera-tabla text-center" style="width: 40%;">Concepto</p>
-                              <p class="Cabezera-tabla text-center" style="width: 16.6%;">Entran</p>
-                              <p class="Cabezera-tabla text-center" style="width: 16.6%">Salen</p>
-                              <p class="Cabezera-tabla text-center" style="width: 16.6%;">Saldo</p>
+                              <p class="Cabezera-tabla text-center" style="width: 13%;">Fecha</p>
+                              <p class="Cabezera-tabla text-center" style="width: 37%;">Concepto</p>
+                              <p class="Cabezera-tabla text-center" style="width: 16%;">Entran</p>
+                              <p class="Cabezera-tabla text-center" style="width: 16%;">Salen</p>
+                              <p class="Cabezera-tabla text-center" style="width: 16%;">Saldo</p>
                           </div><!-- Tabla-header = fija -->
 
-                          <table class="table table-condensed table-hover cuerpo-tabla">
+                          <table class="table table-bordered table-hover cuerpo-tabla">
                             <tbody><!-- Cuerpo -->
                             <?php foreach ($this->Comisiones as $Comisiones)  :?>
                             <?php
@@ -43,11 +43,11 @@
                                   $saldo             = Numeric_Functions::Formato_Numero_SinSigno( $Comisiones['saldo'] );
                             ?>
                                  <tr style="padding: 0px;">
-                                     <td class="fecha text-right"    style="width: 10%;"> <?= $Comisiones['fecha_registro'] ;?> </td>
-                                     <td class="text-left concepto"style="width: 40%;"><?= $nom_tipo_registro ;?> </td>
-                                     <td class="text-right entran"  style="width: 16.6%;"><?= $vr_entrada ;?>   </td>
-                                     <td class="text-right salen"   style="width: 16.6%"><?= $vr_salida  ;?>   </td>
-                                     <td class="text-right saldo"   style="width: 16.6%;"> <?= $saldo ;?>  </td>
+                                     <td class="text-left   fecha"    style="width: 10%;"> <?= $Comisiones['fecha_registro'] ;?> </td>
+                                     <td class="text-left   concepto" style="width: 40%;"><?= $nom_tipo_registro ;?> </td>
+                                     <td class="text-right  entran"   style="width: 16.6%;"><?= $vr_entrada ;?>   </td>
+                                     <td class="text-right  salen"    style="width: 16.6%"><?= $vr_salida  ;?>   </td>
+                                     <td class="text-right  saldo"    style="width: 16.6%;"> <?= $saldo ;?>  </td>
                                  </tr>
                             <?php endforeach ;?>
 
@@ -61,82 +61,53 @@
    <!-- Mi cuenta_Puntos -->
     <div class="col-lg-6" style="padding: 0px;">
 
-          <div class="col-lg-12 col-md-12 col-sm-12"><!-- logo = Cuenta-puntos -->
+          <div class="col-lg-12 col-md-12 col-sm-12  contenedor_estado_cuentas"><!-- logo = Cuenta-puntos -->
           	   <div><!-- Contenededor -->
           	   	    <p class="Estado-cuenta" style="color: #ff6600;" >Estado de Mi Cuenta Puntos</p>
           	   	    <p class="saldos" style="color: #ff6600;"><?= $this->Saldo_Puntos ;?> </p>
           	   </div><!-- Contenededor -->
           </div><!-- logo = Cuenta-puntos -->
 
-         <div class="col-lg-12 col-md-12 col-ms-12" style="  padding: 0px;"><!-- Tabla-Cuenta-puntos -->
-              <div class="cont-cabezera-tabla-puntos"><!-- Tabla-header = fija -->
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 10%;">Fecha</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 40%;">Concepto</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 16.6%;">Entran</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 16.6%;">Salen</p>
-                  <p class="Cabezera-tabla-puntos text-center" style="width: 16.6%;">Saldo</p>
-              </div><!-- Tabla-header = fija -->
+                     <div class="col-lg-12 col-md-12 col-ms-12"style="  padding: 0px;"><!-- Tabla-Cuenta-dinero -->
+                          <div class="cont-cabezera-tabla-puntos"><!-- Tabla-header = fija -->
+                              <p class="Cabezera-tabla-puntos text-center" style="width: 13%;">Fecha</p>
+                              <p class="Cabezera-tabla-puntos text-center" style="width: 37%;">Concepto</p>
+                              <p class="Cabezera-tabla-puntos text-center" style="width: 16%;">Entran</p>
+                              <p class="Cabezera-tabla-puntos text-center" style="width: 16%;">Salen</p>
+                              <p class="Cabezera-tabla-puntos text-center" style="width: 16%;">Saldo</p>
+                          </div><!-- Tabla-header = fija -->
 
-              <table class="table table-condensed table-hover cuerpo-tabla">
-                <tbody ><!-- Cuerpo -->
-                <?php foreach ($this->Puntos as $Puntos)  :?>
-                <?php
-                      $nom_tipo_registro = strtolower( $Puntos['nom_tipo_registro']);
-                      $cant_entrada      = Numeric_Functions::Formato_Numero( $Puntos['cant_entrada'] );
-                      $cant_salida       = Numeric_Functions::Formato_Numero($Puntos['cant_salida'] );
-                      $saldo             = Numeric_Functions::Formato_Numero( $Puntos['saldo'] );
-                ?>
+                          <table class="table table-bordered table-hover cuerpo-tabla" >
+                            <tbody style="margin-top: -20px;" ><!-- Cuerpo -->
+                            <?php foreach ($this->Puntos as $Puntos)  :?>
+                            <?php
+                                  $nom_tipo_registro = strtolower( $Puntos['nom_tipo_registro']);
+                                  $cant_entrada      = Numeric_Functions::Formato_Numero( $Puntos['cant_entrada'] );
+                                  $cant_salida       = Numeric_Functions::Formato_Numero($Puntos['cant_salida'] );
+                                  $saldo             = Numeric_Functions::Formato_Numero( $Puntos['saldo'] );
+                            ?>
 
-                     <tr style="width: 100%;">
-                         <td class="fecha text-center"><?= $Puntos['fecha_registro'] ;?> </td>
-                         <td class="text-center concepto"><?= $nom_tipo_registro;?> </td>
-                         <td class="text-center entran"><?= $cant_entrada;?>   </td>
-                         <td class="text-center salen"><?= $cant_salida ;?>   </td>
-                         <td class="text-center saldo"><?= $saldo;?> </td>
-                     </tr>
+                             <tr style="padding: 0px;">
+                                 <td class="text-left   fecha"    style="width: 10%;"> <?= $Puntos['fecha_registro'] ;?> </td>
+                                 <td class="text-left   concepto" style="width: 40%;"> <?= $nom_tipo_registro;?> </td>
+                                 <td class="text-right  entran"   style="width: 16.6%;"><?= $cant_entrada;?>   </td>
+                                 <td class="text-right  salen"    style="width: 16.6%">  <?= $cant_salida ;?>   </td>
+                                 <td class="text-right  saldo"    style="width: 16.6%;"> <?= $saldo;?>   </td>
+                             </tr>
 
 
-     <?php endforeach ;?>
-                </tbody><!-- Cuerpo -->
-              </table>
-         </div><!-- Tabla-Cuenta-puntos -->
+                             <?php endforeach ;?>
+                            </tbody><!-- Cuerpo -->
+                          </table>
+                     </div><!-- Tabla-Cuenta-dinero -->
       </div>
 
 
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	   </div>
 </div><!-- Contenedor de la pagina -->
-<br>
-<br>
-<br>
+ 
+ 
+ 

@@ -3,10 +3,15 @@
 _____ Estado cuenta dinero ,
       Estado de mi cuenta puntos _______
 */
+.contenedor_estado_cuentas
+{
+	margin-bottom: -15px
+}
+
 .Estado-cuenta
 {
 	   font-size: 20px;
-    text-align: center;
+      text-align: center;
 }
 
 .saldos
@@ -18,37 +23,25 @@ _____ Estado cuenta dinero ,
 /*
 ______ Cabezara de la tabla ________
 */
-
-.cont-cabezera-tabla-dinero /* Tabla-dinero */
+.cont-cabezera-tabla-dinero  ,
+.cont-cabezera-tabla-puntos 
 {
-	   display: block;
-	   border-bottom: 2px solid #009900;
-	   padding-bottom: 2px;
-	   height: 25px;
+   display: block;
+   padding-bottom: 2px;
+   height: 25px;
 }
 
-.Cabezera-tabla /* Tabla-dinero */
+.Cabezera-tabla  ,
+.Cabezera-tabla-puntos 
 {
-				float: left;
-				color: #009900;
-				padding: 0px;
+	float: left;
+	padding: 0px;
+	height: 10px;
+ 
 }
-
-.cont-cabezera-tabla-puntos/* Tabla-puntos */
-{
-	   display: block;
-	   border-bottom: 2px solid #ff6600;
-	   padding-bottom: 2px;
-	   height: 25px;
-}
-
-.Cabezera-tabla-puntos/* Tabla-puntos */
-{
-				float: left;
-				margin: 0px;
-				color: #ff6600;
-}
-
+  
+.cont-cabezera-tabla-dinero { border-bottom: 2px solid #009900; color : #009900;}
+.cont-cabezera-tabla-puntos { border-bottom: 2px solid #ff6600; color : #ff6600;}  
 /*
 _______ Cuerpo de la tabla ________
 */
@@ -56,7 +49,7 @@ _______ Cuerpo de la tabla ________
 .cuerpo-tabla/* Cuerpo-tabla= scroll */
 {
    overflow:auto;
-   height:200px;
+   height:300px;
    display: block;
    padding: 0px;
    font-size: 11.2px;
