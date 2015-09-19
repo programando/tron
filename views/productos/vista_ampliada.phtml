@@ -36,7 +36,12 @@
       $autenticado              = Session::Get('autenticado');
       $idtipo_plan_compras    = Session::Get('idtipo_plan_compras');
 
-      $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      if ( $autenticado  == TRUE ){
+           $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/1/'.Session::Get('idtercero').'/'.Session::Get('codigousuario').'/';
+      }else{
+        $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      }
+
       $URL_COMPARTIR_FACEBOOK = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
       $URL_COMPARTIR_GOOGLE   = "https://plus.google.com/share?url=".$Pagina_Actual;
       $URL_COMPARTIR_LINKEDIN = "http://www.linkedin.com/shareArticle?url=".$Pagina_Actual;
