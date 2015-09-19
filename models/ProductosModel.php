@@ -3,10 +3,9 @@
 	{
 		public $Cantidad_Registros;
 
-		public function __construct()
-		{
+		public function __construct(){
 			parent::__construct();
-		}
+        }
 
         public function Busqueda_General($texto_a_buscar, $tipo_busqueda)
         {

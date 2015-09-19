@@ -139,8 +139,7 @@ var Grabar_Datos_Registro = function(Parametros){
               dataType: 'json',
               url:      '/tron/terceros/Registro_Establecer_Tipo_Plan_Seleccionado/',
               type:     'post',
-         success:  function (respuesta)
-           {
+         success:  function (respuesta){
               $Tipo_Plan_Seleccionado = respuesta.idtipo_plan_compras
            }
            });

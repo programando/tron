@@ -4,6 +4,7 @@
   -->
 
  <!-- Tooltip *** Mensaje del codigo *** -->
+
  <div class="ventana_modal_codigo">
     <?php include (APPLICATION_SECTIONS . 'registro_tooltip_codigo.php');?>
  </div>
@@ -18,8 +19,11 @@
                 <label for="input_codigo"  class="col-lg-8  control-label  label_codigo"><p class="text-label">
                 Código del usuario que te presenta en la Red:</p></label>
                 <div class="col-lg-6" style=" padding-left: 5px;width: 166px;">
-
-                   <input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>" />
+                   <?php if ( $this->Modifica_Codigo_Presenta == FALSE) :?>
+                      <input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>" disabled="disabled" />
+                    <?php else :?>
+                      <input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>"/>
+                  <?php endif ;?>
 
                 </div>
               </div>

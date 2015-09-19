@@ -19,7 +19,7 @@
         /** SEPTIEMBRE 14 DE 2015
          *    GENERA CORREO ELECTRONICO PARA RECOMENDAR MODELO DE NEGOCIO A AMIGO.
          */
-          $Respuesta      = 'OK';
+          $Respuesta                = 'OK';
           $nombre_usuario           = General_Functions::Validar_Entrada('recomendar_nombre', 'TEXT');
           $email                    = General_Functions::Validar_Entrada('recomendar_email', 'TEXT');
           $Es_email                 = General_Functions::Validar_Entrada('recomendar_email', 'EMAIL');
@@ -75,7 +75,6 @@
 
 
      public function Enviar_Correo(){
-
         if ( $this->Email->Send()){
           $this->Email->clearAddresses();
             return "correo_OK";
@@ -93,12 +92,20 @@
         */
           $this->Configurar_Cuenta('Recomendación de ' .$Nombre_Quien_Envia );
           $this->Email->AddAddress($Email_Amigo );
+          $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+          if ( Session::Get('autenticado') == TRUE ) {
+            $idtercero_presenta     = Session::Get('idtercero');
+            $codigousuario_presenta = Session::Get('codigousuario');
+            $Url_Imagen        = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/1/$idtercero_presenta/$codigousuario_presenta/";
+          }else{
+            $Url_Imagen       = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/";
+          }
 
           $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
-          $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+
           $logo             = BASE_IMG_EMPRESA .'logo.png';
           $imagen           = BASE_IMG_PRODUCTOS_232x232 .$Nombre_Imagen;
-          $Url_Imagen       = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta";
+
           $Borrar_Registro  = BASE_URL."terceros/Borrar_Lista_Suscripcion/".$codigo_confirmacion;
 
           $Texto_Correo     = file_get_contents(BASE_EMAILS.'productos_recomendar.html','r');

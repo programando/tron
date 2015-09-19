@@ -591,12 +591,16 @@ class TercerosController extends Controller
 
   }
 
-    public function Registro_Buscar_Por_Codigo(){
+    public function Registro_Buscar_Por_Codigo( $codigousuario_presenta='', $salida_jquery=TRUE){
       /** MAYO 24 DE 2015
        *      REALIZA LA BÚSQUEDA DE DATOS POR CÓDIGO DE USUARIO
        */
       $this->Registro_Re_Establecer_Tercero_Presenta();
-      $codigousuario  = General_Functions::Validar_Entrada('codigousuario','TEXT');
+      if ( $codigousuario_presenta == ''){
+        $codigousuario  = General_Functions::Validar_Entrada('codigousuario','TEXT');
+      }else{
+        $codigousuario  =  $codigousuario_presenta ;
+      }
       $Registro       = $this->Terceros->Buscar_Por_Codigo($codigousuario);
       $Respuesta      = '';
 
@@ -614,7 +618,9 @@ class TercerosController extends Controller
         $Respuesta ='CODIGO_SI_EXISTE';
         $Datos = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
       }
-      echo json_encode($Datos,256);
+      if ( $salida_jquery == TRUE ){
+          echo json_encode($Datos,256);
+          }
     }
 
       public function Registro_Re_Establecer_Tercero_Presenta(){
@@ -908,8 +914,7 @@ class TercerosController extends Controller
         */
         if ($IdDireccion_Despacho > 0) {
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho );
-        }else
-        {
+        }else  {
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_IdMcipio($idmcipio);
         }
         Session::Set('iddireccion_despacho',            $IdDireccion_Despacho);
@@ -939,7 +944,18 @@ class TercerosController extends Controller
         $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos          = $this->Departamentos->Consultar();
         $this->View->Total_Kit_Inscripcion  = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
-        $this->View->codigousuario          = Session::Get('codigousuario') ;
+        if ( Session::Get('codigousuario') == 'JUANBAUTISTA'){
+          $codigo = substr(Session::Get('codigousuario') ,0,4);
+          $codigo_2 = substr(Session::Get('codigousuario') ,4,8);
+          Session::Set('codigousuario',$codigo . ' ' .$codigo_2 );
+        }
+        $this->View->codigousuario          = Session::Get('codigousuario') ; // Es el usuario que presenta a la persona que se registra
+
+        $this->View->Modifica_Codigo_Presenta = TRUE;
+        if ( strlen($this->View->codigousuario) > 0 ){
+            $this->Registro_Buscar_Por_Codigo($this->View->codigousuario, FALSE );
+            $this->View->Modifica_Codigo_Presenta = FALSE;
+        }
         $this->View->Mostrar_Vista('registro');
     }
 

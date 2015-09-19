@@ -44,7 +44,6 @@ class ProductosController extends Controller
       }else      {
         $Texto_Respuesta = $this->Email->Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo   );
       }
-
       echo $Texto_Respuesta ;
     }
 
@@ -183,21 +182,29 @@ class ProductosController extends Controller
          echo json_encode($Datos,256);
     }
 
-    public function Vista_Ampliada($Idproducto , $Id_Area_Consulta) {
+    public function Vista_Ampliada($Idproducto , $Id_Area_Consulta,$reasigna_valores = 0, $idterceropresenta=0, $codigousuario_presenta='') {
      /** DIC 31 DE 2014
      *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
      */
+      if( $reasigna_valores == TRUE){
+          Session::Set('idtercero_presenta',0);
+          Session::Set('codigousuario','');
+          if ( $idterceropresenta > 0){
+              Session::Set('idtercero_presenta',$idterceropresenta);
+              Session::Set('codigousuario',$codigousuario_presenta);
+            }
+        }
+
+
       Session::Set('Id_Area_Consulta',$Id_Area_Consulta) ; // 2, Corresponde a productos de la linea hogar
       $idproducto                          = $Idproducto ;
       $this->View->Producto                = $this->Productos->Buscar_por_IdProducto($idproducto);
       $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);
       $this->View->Cantidad_Registros      = $this->Productos->Cantidad_Registros;
 
-      if ($this->View->Cantidad_Registros>0)
-          {
+      if ($this->View->Cantidad_Registros>0) {
             $this->View->Producto_Escalas_Rangos = $this->Escalas->Escalas_Consultar_Rangos($this->View->Producto[0]["idescala"]);
-          }else
-          {
+          }else {
             $this->View->Error ="No ha sido posible encontrar el producto indicado.";
           }
       $this->View->Productos_Tabs          = $this->Productos->Tabs_Consultar($idproducto);
