@@ -34,27 +34,24 @@
       $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
       $id_agrupacion            = $Producto[0]['id_agrupacion'];
       $autenticado              = Session::Get('autenticado');
-      $idtipo_plan_compras    = Session::Get('idtipo_plan_compras');
+      $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
 
       if ( $autenticado  == TRUE ){
-           $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/1/'.Session::Get('idtercero').'/'.Session::Get('codigousuario').'/';
+           $Pagina_Actual = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/1/';
+           $Pagina_Actual = $Pagina_Actual . Session::Get('idtercero').'/'.Session::Get('codigousuario').'/';
       }else{
         $Pagina_Actual          = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
       }
 
       $URL_COMPARTIR_FACEBOOK = "http://www.facebook.com/sharer.php?u=".$Pagina_Actual;
       $URL_COMPARTIR_GOOGLE   = "https://plus.google.com/share?url=".$Pagina_Actual;
-      $URL_COMPARTIR_LINKEDIN = "http://www.linkedin.com/shareArticle?url=".$Pagina_Actual;
       $URL_COMPARTIR_TWITER   = "https://twitter.com/?status=Me gusta esta página: ".$Pagina_Actual;
-      $URL_COMPARTIR_PINTERES = "http://pinterest.com/pin/create/link/?url=".$Pagina_Actual . "&media=".BASE_IMG_PRODUCTOS_472x472.$nombre_imagen;
-      $URL_COMPARTIR_PINTERES = $URL_COMPARTIR_PINTERES ."&description=".$nom_producto_largo;
+
       Session::Set('FACEBOOK',TRUE);
       Session::Set('Pagina_Facebook_URL',$Pagina_Actual );
       Session::Set('Pagina_Facebook_TITULO',$nom_producto_largo );
       Session::Set('Pagina_Facebook_DESCRIPCION',$nom_producto_descripcion );
       Session::Set('Pagina_Facebook_IMAGEN',BASE_IMG_PRODUCTOS_472x472.$nombre_imagen );
-
-
 ?>
 
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
@@ -152,20 +149,7 @@
                              <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_googleMas.png" class="img_compartir_face">
                              </div>
                           </a>
-                        <!--
-                         <a target="_blank" href="<?= $URL_COMPARTIR_LINKEDIN ;?>"
-                               style="width: 200px; display: block;">
-                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                                 <span>Compartir Linkein <span>
-                             </div>
-                          </a>
-                         <a target="_blank" href="<?= $URL_COMPARTIR_PINTERES ;?>"
-                               style="width: 200px; display: block;">
-                             <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" class="img_compartir_face">
-                                 <span>Compartir Pinteres <span>
-                             </div>
-                          </a>
-                      -->
+
                       </div>
                       <!-- grupo al que pertenece el producto -->
                       <div class="col-lg-6 col-md-6 col-sm-6">
