@@ -210,11 +210,9 @@ class ProductosController extends Controller
       $this->View->Productos_Tabs          = $this->Productos->Tabs_Consultar($idproducto);
       $this->View->Cantidad_Tabs           = $this->Productos->Cantidad_Registros;
 
-      if ($Id_Area_Consulta ==2) // HOGAR
-      {
+      if ($Id_Area_Consulta ==2)   {// HOGAR
           $this->View->SetCss(array('tron_carrito','tron_productos_vista_ampliada','font_styles','tron_ventana_modal'));
-      } else
-      {
+      } else {
         $this->View->SetCss(array('tron_carrito','tron-vista-industrial','tron_productos_vista_ampliada','tron_ventana_modal'));
       }
       $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));

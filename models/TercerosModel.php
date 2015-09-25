@@ -228,11 +228,11 @@
 						return $Terceros;
 				}
 
-				public function Terceros_Consultar_Datos_Identificacion_Codigo_Usuario($identificacion,$codigo_usuario)
+				public function Terceros_Consultar_Datos_Identificacion_Codigo_Usuario($identificacion)
 				{
 						/** SEPTIEMBRE 01 DE 2015
 								 CONSULTA DATOS DEL USUARIO CON  LA IDENTIFICACION Y EL CÓDIGO			*/
-						$Terceros                 = $this->Db->Ejecutar_Sp("terceros_consultar_datos_identific_codigo_usuario('$identificacion','$codigo_usuario')");
+						$Terceros                 = $this->Db->Ejecutar_Sp("terceros_consultar_datos_identific_codigo_usuario('$identificacion')");
 						$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 						return $Terceros;
 				}

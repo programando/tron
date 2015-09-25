@@ -99,6 +99,7 @@ class CarritoController extends Controller{
      private $Vr_Transporte_Real              = 0;
      private $Vr_Transporte_Ocasional         = 0;
      private $Vr_Transporte_Tron              = 0;
+     private $Existe_Derecho_Inscripcion      = FALSE;
 
 
 
@@ -271,23 +272,18 @@ class CarritoController extends Controller{
           $IdProducto  = $producto;
           $Cantidad    = $cantidad;
         }
-
       $i                 = 0;
       $NombreArray       = 'TRON'.$IdProducto;              // CAPTURA CANTIDAD DE PRODUCTO TRON COMPRADO
 
-      foreach ($this->Datos_Carro as $key => $productos)
-      {
-        if ($productos['idproducto'] == $IdProducto)
-        {
+      foreach ($this->Datos_Carro as $key => $productos) {
+        if ($productos['idproducto'] == $IdProducto)  {
             $cantidad_producto = $this->Datos_Carro[$key]['cantidad'];
             $cantidad_producto = $cantidad_producto - $Cantidad;
             Session::Set($NombreArray,$cantidad_producto);
-            if ($cantidad_producto <= 0)
-            {
+            if ($cantidad_producto <= 0) {
               array_splice($this->Datos_Carro, $i, 1);
               Session::Set($NombreArray,0);
-            }else
-            {
+            }else   {
              $this->Datos_Carro[$key]['cantidad'] = $cantidad_producto;
             }
         }
@@ -538,6 +534,17 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
 
 }
 
+private function Verificar_Compra_Derecho_Inscripcion($Array_Producto=array()){
+
+  $this->Existe_Derecho_Inscripcion =  FALSE ;
+
+  foreach ($Array_Producto as $Producto  ) {
+    if ( $Producto['idproducto'] == 2071){
+      $this->Existe_Derecho_Inscripcion = TRUE;
+
+    }
+  }
+}
 
 public function Totalizar_Carrito(){
   /** JULIO 24 DE 2015
@@ -563,15 +570,29 @@ public function Totalizar_Carrito(){
       $cumple_condiciones_precio_especial = $this->Determinar_Cumple_Condiciones_Precio_Especial();
       //---------------------------------------------------------------------------------------------
       $this->compras_tron = 0;
+      $this->Verificar_Compra_Derecho_Inscripcion( $this->Datos_Carro);
+
 
       foreach ($this->Datos_Carro as &$Productos){
+
           $cantidad                                   = $Productos['cantidad'];
           $idproducto                                 = $Productos['idproducto'];
           $id_categoria_producto                      = $Productos['id_categoria_producto'];
           $peso_gramos                                = $Productos['peso_gramos'];
           $cmv                                        = $Productos['cmv'];
+          //Precio Diferencial del Kit de inicio según e compren o no los derechos de inscripción.
+          if ( $this->Existe_Derecho_Inscripcion == TRUE && $idproducto == 10744 ){
+            $Productos['pv_ocasional']        = $Productos['precio_kit_tron'];
+            $Productos['pv_tron']             = $Productos['precio_kit_tron'];
+          }
+          if ( $this->Existe_Derecho_Inscripcion == FALSE && $idproducto == 10744 ){
+           $Productos['pv_tron']             =  $Productos['precio_kit_ocasional'] ;
+           $Productos['pv_ocasional']        =  $Productos['precio_kit_ocasional'];
+          }
+
           $pv_tron                                    = $Productos['pv_tron'] ;
           $pv_ocasional                               = $Productos['pv_ocasional'];
+
           $peso_total_producto                        = $Productos['peso_gramos'] * $cantidad;
           $porciento_iva                              = 1 + $Productos['iva'] / 100;
           $porciento_ppto_fletes                      = $Productos['ppto_fletes'];
@@ -654,8 +675,13 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Ocasional =  $this->SubTotal_Pedido_Ocasional + $this->Vr_Transporte_Ocasional;
        $this->Vr_Total_Pedido_Amigos    =  $this->SubTotal_Pedido_Amigos    + $this->Vr_Transporte_Tron;
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
-       // Aplición de descuentos por concepto de puntos y comisiones pendientes por pagar
-       $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
+
+      // Aplición de descuentos por concepto de puntos y comisiones pendientes por pagar
+      // Si el pedido se realiza para un amigo, no se aplican descuentos de comisiones y puntos
+       $Pedido_Para_Amigo = Session::Get('Generando_Pedido_Amigo');
+       if ( isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = TRUE ){
+          $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
+        }
 
 
        Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
@@ -1218,9 +1244,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
         //
 
-
-        if (!isset($_SESSION['carrito']))
-        {
+        if (!isset($_SESSION['carrito'])) {
           $_SESSION['carrito'] = array();
         }
         $Carrito_Actual     = $_SESSION['carrito'];
@@ -1314,10 +1338,9 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                                         'precio_venta_antes_iva'=>0, 'peso_gramos_total'=>0, 'vr_ppto_fletes'=>0,
                                         'vr_anticipo_recaudo'=>0,'precio_venta_antes_iva_tron'=>0, 'precio_venta_antes_iva_ocasional'=>0,
                                         'vr_ppto_fletes_tron'=>0, 'vr_ppto_fletes_ocas'=>0, 'vr_anticipo_recaudo_tron'=>0,
-                                        'vr_anticipo_recaudo_ocas'=>0);
+                                        'vr_anticipo_recaudo_ocas'=>0, 'precio_kit_ocasional'=>0, 'precio_kit_tron'=>0);
 
-        if (!isset( $Parametros))
-        {
+        if (!isset( $Parametros)) {
           $Parametros = $this->Parametros->Consultar();
         }
 
@@ -1325,13 +1348,11 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
         $CarroFinalCompleto = array();
         $Datos_Carro        = $_SESSION['carrito'];
-        foreach ($Datos_Carro as $ProductosCarro)
-          {
+        foreach ($Datos_Carro as $ProductosCarro) {
             $Cantidad     = $ProductosCarro['cantidad'] ;
             $IdProducto   = $ProductosCarro['idproducto'];
 
-            if ($Cantidad>0)
-            {
+            if ($Cantidad>0)   {
                 $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto($IdProducto );
 
                 $CarroTemporal['idproducto']            = $IdProducto;
@@ -1361,9 +1382,13 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                 $CarroTemporal['ppto_fletes_escala_a']   = $ProductoComprado[0]['ppto_fletes'] / 100;
                 $CarroTemporal['ppto_fletes_escala_b']   = $ProductoComprado[0]['ppto_fletes'] / 100;
                 $CarroTemporal['ppto_fletes_escala_c']   = $ProductoComprado[0]['ppto_fletes'] / 100;
+
+
                 $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
                 $CarroTemporal['pv_tron']                = $ProductoComprado[0]['pv_tron'];
                 $CarroTemporal['pv_tron_real']           = $ProductoComprado[0]['pv_tron'];
+                $CarroTemporal['precio_kit_ocasional']   = $ProductoComprado[0]['pv_ocasional'];
+                $CarroTemporal['precio_kit_tron']        = $ProductoComprado[0]['pv_tron'];
 
                 $CarroTemporal['pv_tron_escala_a']       = $ProductoComprado[0]['pv_tron_escala_a'];
                 $CarroTemporal['pv_tron_escala_b']       = $ProductoComprado[0]['pv_tron_escala_b'];

@@ -12,6 +12,8 @@ class SessionesController extends Controller
     public function index(){}
 
     public function Pedidos_Reiniciar_Variables(){
+
+
         Session::Destroy('descuento_especial');
         Session::Destroy('descuento_especial_porcentaje');
         Session::Destroy('precio_especial');
@@ -44,6 +46,7 @@ class SessionesController extends Controller
         Session::Set('vr_diferencia_recaudo',0) ;
         Session::Set('Vr_Transporte',0) ;
         Session::Set('Vr_Total_Pedido_Real',0) ;
+        Session::Set('Generando_Pedido_Amigo', FALSE);
 
         Session::Destroy('compras_productos_fabricados_ta');
         Session::Destroy('compras_realizadas_tron');

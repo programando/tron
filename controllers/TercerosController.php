@@ -16,17 +16,30 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+    public function Invitacion($reasigna_valores = 0,$idterceropresenta=0,$codigousuario_presenta=''){
+        if( $reasigna_valores == TRUE){
+          Session::Set('idtercero_presenta',0);
+          Session::Set('codigousuario','');
+          if ( $idterceropresenta > 0){
+              Session::Set('idtercero_presenta',$idterceropresenta);
+              Session::Set('codigousuario',$codigousuario_presenta);
+            }
+            header('Location: ' . BASE_URL );
+        }
+    }
+
     public function Terceros_Consultar_Datos_Identificacion_Codigo_Usuario(){
       /** SEPTIEMBRE 01 DE 2015
            CONSULTA DATOS DEL USUARIO CON  LA IDENTIFICACION Y EL CÓDIGO      */
+       Session::Set('Generando_Pedido_Amigo', FALSE);
        $identificacion = strtoupper( General_Functions::Validar_Entrada('identificacion','TEXT') );
-       $codigousuario  = strtoupper( General_Functions::Validar_Entrada('codigousuario','TEXT') );
+      // $codigousuario  = strtoupper( General_Functions::Validar_Entrada('codigousuario','TEXT') );
        $Respuesta      ='';
-       if ( strlen( trim( $identificacion ) ) == 0 || strlen( trim( $codigousuario) ) == 0) {
+       if ( strlen( trim( $identificacion ) ) == 0 ) { //|| strlen( trim( $codigousuario) ) == 0
           $Respuesta ='NO VACIOS';
        }
-       if ( strlen( trim( $identificacion ) ) > 0 && strlen( trim( $codigousuario) ) > 0) {
-        $Registro = $this->Terceros->Terceros_Consultar_Datos_Identificacion_Codigo_Usuario($identificacion,$codigousuario );
+       if ( strlen( trim( $identificacion ) ) > 0 ) { //&& strlen( trim( $codigousuario) ) > 0
+        $Registro = $this->Terceros->Terceros_Consultar_Datos_Identificacion_Codigo_Usuario($identificacion );
         if ( !$Registro ){
           $Respuesta ='NO EXISTE';
         }else{
@@ -36,6 +49,27 @@ class TercerosController extends Controller
         }
        }
 
+      echo $Respuesta;
+    } //fin function
+
+public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
+      /** SEPTIEMBRE 01 DE 2015
+           CONSULTA DATOS DEL USUARIO CON  LA IDENTIFICACION Y EL CÓDIGO      */
+       $identificacion = strtoupper( General_Functions::Validar_Entrada('identificacion','TEXT') );
+       $Respuesta      ='';
+       if ( strlen( trim( $identificacion ) ) == 0 ) {
+          $Respuesta ='NO VACIOS';
+       }
+       if ( strlen( trim( $identificacion ) ) > 0 ) {
+        $Registro = $this->Terceros->Buscar_Por_Identificacion($identificacion);
+        if ( !$Registro ){
+          $Respuesta ='NO EXISTE';
+        }else{
+          $this->Validar_Ingreso_Usuario_Asignar_Datos( $Registro );
+          Session::Set('Generando_Pedido_Amigo', TRUE);
+          $Respuesta ='SI EXISTE';
+        }
+       }
       echo $Respuesta;
     } //fin function
 
@@ -225,61 +259,59 @@ class TercerosController extends Controller
 
     }
 
+     private function modificacion_datos_asigna_datos_vista($Registro){
+              $this->View->Departamentos       = $this->Departamentos->Consultar();
+              $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
+              $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho( $Registro [0]['idtercero'] );
+
+              $this->View->idtpidentificacion                             = $Registro [0]['idtpidentificacion'];
+              $this->View->idtercero                                      = $Registro [0]['idtercero'];
+              $this->View->identificacion_nat                             = $Registro [0]['identificacion'];
+              $this->View->identificacion                                 = $Registro [0]['identificacion'];
+              $this->View->digitoverificacion                             = $Registro [0]['digitoverificacion'];
+              $this->View->pnombre                                        = $Registro [0]['pnombre'];
+              $this->View->papellido                                      = $Registro [0]['papellido'];
+              $this->View->razonsocial                                    = $Registro [0]['razonsocial'];
+              $this->View->direccion                                      = $Registro [0]['direccion'];
+              $this->View->barrio                                         = $Registro [0]['barrio'];
+              $this->View->contacto                                       = $Registro [0]['contacto'];
+              $this->View->celular1                                       = $Registro [0]['celular1'];
+              $this->View->email                                          = $Registro [0]['email'];
+              $this->View->idmcipio                                       = $Registro [0]['idmcipio'];
+              $this->View->param_confirmar_nuevos_amigos_x_email          = $Registro [0]['param_confirmar_nuevos_amigos_x_email'];
+              $this->View->param_acepto_pago_valor_transferencia          = $Registro [0]['param_acepto_pago_valor_transferencia'];
+              $this->View->valor_minimo_transferencia                     = $Registro [0]['valor_minimo_transferencia'];
+              $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
+              $this->View->mis_datos_son_privados                         = $Registro [0]['mis_datos_son_privados'];
+              $this->View->pago_comisiones_efecty                         = $Registro [0]['pago_comisiones_efecty'];
+              $this->View->pago_comisiones_transferencia                  = $Registro [0]['pago_comisiones_transferencia'];
+              $this->View->param_acepto_retencion_comis_para_pago_pedidos = $Registro [0]['param_acepto_retencion_comis_para_pago_pedidos'];
+              $this->View->param_valor_comisiones_para_pago_pedidos       = $Registro [0]['param_valor_comisiones_para_pago_pedidos'];
+              $this->View->declaro_renta                                  = $Registro [0]['declaro_renta'];
+              $this->View->nommcipio                                      = $Registro [0]['nommcipio'];
+              $this->View->iddpto                                         = $Registro [0]['iddpto'];
+              $this->View->nomdpto                                        = $Registro [0]['nomdpto'];
+              $this->View->recibo_promociones_email                       = $Registro [0]['recibo_promociones_email'];
+              $this->View->recibo_promociones_celular                     = $Registro [0]['recibo_promociones_celular'];
+              $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
 
 
-    public function modificacion_datos()
-    {
+              $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
+              $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
+              $this->View->param_tipo_cuenta_transferencias               = $Registro [0]['param_tipo_cuenta_transferencias'];
+              $this->View->param_idmcipio_transferencias                  = $Registro [0]['param_idmcipio_transferencias'];
+              $this->View->nommcipio_transferencia                        = $Registro [0]['nommcipio_transferencia'];
+              $this->View->iddpto_transferencia                           = $Registro [0]['iddpto_transferencia'];
+              $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];
+              $this->View->idtipo_plan_compras                            = $Registro [0]['idtipo_plan_compras'];
+      }
+
+    public function modificacion_datos()  {
         $idtercero                 = Session::Get('idtercero');
         $Registro                  = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
-
-        $this->View->Departamentos = $this->Departamentos->Consultar();
-        $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
-        $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho( $idtercero);
-
-        $this->View->idtpidentificacion                             = $Registro [0]['idtpidentificacion'];
-        $this->View->idtercero                                      = $Registro [0]['idtercero'];
-        $this->View->identificacion_nat                             = $Registro [0]['identificacion'];
-        $this->View->identificacion                                 = $Registro [0]['identificacion'];
-        $this->View->digitoverificacion                             = $Registro [0]['digitoverificacion'];
-        $this->View->pnombre                                        = $Registro [0]['pnombre'];
-        $this->View->papellido                                      = $Registro [0]['papellido'];
-        $this->View->razonsocial                                    = $Registro [0]['razonsocial'];
-        $this->View->direccion                                      = $Registro [0]['direccion'];
-        $this->View->barrio                                         = $Registro [0]['barrio'];
-        $this->View->contacto                                       = $Registro [0]['contacto'];
-        $this->View->celular1                                       = $Registro [0]['celular1'];
-        $this->View->email                                          = $Registro [0]['email'];
-        $this->View->idmcipio                                       = $Registro [0]['idmcipio'];
-        $this->View->param_confirmar_nuevos_amigos_x_email          = $Registro [0]['param_confirmar_nuevos_amigos_x_email'];
-        $this->View->param_acepto_pago_valor_transferencia          = $Registro [0]['param_acepto_pago_valor_transferencia'];
-        $this->View->valor_minimo_transferencia                     = $Registro [0]['valor_minimo_transferencia'];
-        $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
-        $this->View->mis_datos_son_privados                         = $Registro [0]['mis_datos_son_privados'];
-        $this->View->pago_comisiones_efecty                         = $Registro [0]['pago_comisiones_efecty'];
-        $this->View->pago_comisiones_transferencia                  = $Registro [0]['pago_comisiones_transferencia'];
-        $this->View->param_acepto_retencion_comis_para_pago_pedidos = $Registro [0]['param_acepto_retencion_comis_para_pago_pedidos'];
-        $this->View->param_valor_comisiones_para_pago_pedidos       = $Registro [0]['param_valor_comisiones_para_pago_pedidos'];
-        $this->View->declaro_renta                                  = $Registro [0]['declaro_renta'];
-        $this->View->nommcipio                                      = $Registro [0]['nommcipio'];
-        $this->View->iddpto                                         = $Registro [0]['iddpto'];
-        $this->View->nomdpto                                        = $Registro [0]['nomdpto'];
-        $this->View->recibo_promociones_email                       = $Registro [0]['recibo_promociones_email'];
-        $this->View->recibo_promociones_celular                     = $Registro [0]['recibo_promociones_celular'];
-        $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
-
-
-        $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
-        $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
-        $this->View->param_tipo_cuenta_transferencias               = $Registro [0]['param_tipo_cuenta_transferencias'];
-        $this->View->param_idmcipio_transferencias                  = $Registro [0]['param_idmcipio_transferencias'];
-        $this->View->nommcipio_transferencia                        = $Registro [0]['nommcipio_transferencia'];
-        $this->View->iddpto_transferencia                           = $Registro [0]['iddpto_transferencia'];
-        $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];
-        $this->View->idtipo_plan_compras                            = $Registro [0]['idtipo_plan_compras'];
-
+        $this->modificacion_datos_asigna_datos_vista($Registro);
         $this->View->Mostrar_Vista_Parcial("modificacion_datos");
-
-    }
+      }
 
 
     public function Recuperar_Password(){
@@ -352,9 +384,7 @@ class TercerosController extends Controller
         if ( $idtipo_plan_compras == 2 || $idtipo_plan_compras == 3) {  Session::Set('usuario_viene_del_registro',TRUE);    }
         if ( $idtpidentificacion != 31 ){ Session::Set('usuario_viene_del_registro_es_empresa',FALSE); }
         else {                            Session::Set('usuario_viene_del_registro_es_empresa',TRUE);  }
-
-        $this->Correos->Activacion_Registro_Usuario_Exitoso($email, $Registro[0]["nombre_usuario_pedido"],$pre,$idtpidentificacion );
-        $Respuesta = 'El registro ha finalizado con éxito !!! <br> Ahora prodrás disfrutar de los beneficios de pertenecer a la Tienda Virtual TRON.';
+        $Respuesta = 'Tu registro ha finalizado con éxito !!! <br> Ahora prodrás disfrutar de los beneficios de pertenecer a la Tienda Virtual TRON.';
       }
       $Respuesta = compact('Respuesta','idtipo_plan_compras','nombre_usuario','idtpidentificacion','pedido_minimo_productos_fabricados_ta');
       echo json_encode($Respuesta ,256);
@@ -1010,21 +1040,18 @@ class TercerosController extends Controller
      */
      $identificacion = General_Functions::Validar_Entrada('identificacion','TEXT');
      $Tercero        = $this->Terceros->Buscar_Por_Identificacion($identificacion);
+
+
      if (!$Tercero){
           $Respuesta ='NO_EXISTE';
      }else{
         $Respuesta ='SI_EXISTE';
      }
-
-     $Datos = compact('Respuesta');
+     $Datos = compact('Respuesta' );
      echo json_encode($Datos ,256);
-
     }
 
-}
-
-
-
+   }
 
 ?>
 

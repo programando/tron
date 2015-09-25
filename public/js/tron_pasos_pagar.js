@@ -200,13 +200,7 @@ $('#btn-ing-por-amigo').on('click',function(){ //......... Ingresar hacer pedido
 	    	  $('.msj-validacion-cedu-amigo').fadeOut();
 	    }
 
-	    if($usuario_amigo == ''){ //............................ Condicion = Codigo usuario de tu amigo
-	    	  $('.msj-validacion-amigo').fadeIn();
-	    	  $('#usuario-amigo').focus();
-	    	  return false;
-	    }else{
-	    	  $('.msj-validacion-amigo').fadeOut();
-	    }
+
 });
 
 // etas es la imagen de payu latam... luego de esto cargo la pagina
@@ -228,8 +222,7 @@ $('.img-pago1').on('click',function(){
 
 $('#btn-ing-por-amigo').on('click',function(){
   $identificacion = $('#cedula-amigo').val();
-  $codigousuario  = $('#usuario-amigo').val();
-  $Parametros     = {'identificacion':$identificacion,'codigousuario':$codigousuario};
+  $Parametros     = {'identificacion':$identificacion};
   $Texto          = '';
       $.ajax({
       data:  $Parametros,
@@ -239,10 +232,10 @@ $('#btn-ing-por-amigo').on('click',function(){
       success:  function (resultado) {
           $Respuesta = $.trim(resultado);
           if ( $Respuesta =='NO VACIOS'){
-            $Texto = 'Debe registrar el número de cédula y código del amigo para quien hará el pedido.';
+            $Texto = 'Debe registrar el número de cédula del amigo para quien hará el pedido.';
           }
           if ( $Respuesta =='NO EXISTE'){
-            $Texto = 'No se han encontrado datos con la identificación y código registrados.';
+            $Texto = 'No se han encontrado datos con la identificación registrada.';
           }
           if ($Texto !=''){
               new Messi($Texto,

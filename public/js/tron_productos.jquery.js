@@ -73,9 +73,7 @@ function Hallar_Precio_Final_Tron(IdProducto,Parametros){
 								dataType: 'json',
 								url:      '/tron/productos/Hallar_Valor_Escala/',
 								type:     'post',
-	       success:  function (resultado)
-	      	 {
-
+	       success:  function (resultado) {
 	      	 	$("#precio_final_tron"+IdProducto).html(resultado.Precio_Final_Tron);
 	      	 }
 					});
@@ -88,8 +86,7 @@ function Consultar_Total_Compra_Productos_Industriales(){
 								url:      '/tron/carrito/Consultar_Total_Compra_Productos_Industriales',
 								type:     'post',
 								async:    false,
-	       success:  function (resultado)
-	      	 {
+	       success:  function (resultado)	 {
 											$compra_productos_industriales   = resultado.compra_productos_industriales	;
 											$minimo_compras_productos_ta = resultado.minimo_compras_productos_ta  ;
 	      	 }
@@ -103,8 +100,7 @@ function Agregar_Producto_a_Carrito(NomProducto,Parametros){
 					dataType: 'json',
 					url:      '/tron/carrito/Agregar_Producto/',
 					type:     'post',
-     success:  function (resultado)
-    	 {
+     success:  function (resultado) {
     	 		Imprimir_Totales_Carrito_Header( resultado.SubTotal_Pedido_Ocasional, resultado.SubTotal_Pedido_Amigos );
     	 }
 

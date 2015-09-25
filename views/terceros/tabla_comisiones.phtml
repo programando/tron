@@ -1,4 +1,4 @@
-<div class="tabla_tron"><br><br><br><br><br>
+<div class="tabla_tron"><br><br><br>
 	   <div class="row contenedor_tabla_comisiones">
       <!-- Columna Sectiones de la tabla -->
        <div class="col-lg-2 col-md-2 col-sm-2 sectiones_tabla">
@@ -12,7 +12,7 @@
                 <!-- text = hogar -->
                 <div class="bloques_img_hogar">
                    <h5 class="columna_left_text text-left"><strong>HOGAR</strong></h5>
-                </div>                
+                </div>
            </div>
           </div>
           <!-- section industrial -->
@@ -21,7 +21,7 @@
                 <!-- text -->
                 <div class="bloques_img_industrial">
                    <h5 class="columna_left_text text-left"><strong>INDUSTRAL</strong></h5>
-                </div> 
+                </div>
                 <!-- img -->
                 <div class="bloques_img_industrial">
                      <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png" class="img-responsive img-tecno_aplicds">
@@ -33,19 +33,19 @@
                <div class="section_otros_productos">
                 <div class="text_otros_product"><br><br><br>
                    <h5 class="columna_left_text text-left"><strong>OTROS PRODUCTOS</strong></h5>
-                </div> 
+                </div>
                </div>
           </div>
           <!-- section prodcutos promocionales -->
           <div>
               <div class="section_promocionales">
-                <div class="text_otros_product"> 
+                <div class="text_otros_product">
                    <h5 class="columna_left_text text-left"><strong>PRODUCTOS PROMOCIONALES</strong></h5>
-                </div>                 
+                </div>
               </div>
           </div>
        </div>
-    
+
 
 
         <div class="col-lg-9 col-md-9 col-sm-9" style="padding: 0px;">
@@ -76,20 +76,20 @@
               <?php foreach ($this->Comisiones_Grupos as $Comisiones)  : ; ?>
                 <?php
                     $codigo_grupo          = $Comisiones['codigo_grupo'];
-                    $comis_empre_1_unidad  = $Comisiones['comis_empre_1_unidad'].'%';
-                    $comis_empre_escala_a  = $Comisiones['comis_empre_escala_a'].'%';
-                    $comis_empre_escala_b  = $Comisiones['comis_empre_escala_b'].'%';
-                    $comis_empre_escala_c  = $Comisiones['comis_empre_escala_c'].'%';
+                    $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],3).'%';
+                    $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],3).'%';
+                    $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],3).'%';
+                    $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],3).'%';
 
-                    $comis_amg_n1_unidad   = $Comisiones['comis_amg_n1_unidad'].'%';
-                    $comis_amg_n1_escala_a = $Comisiones['comis_amg_n1_escala_a'].'%';
-                    $comis_amg_n1_escala_b = $Comisiones['comis_amg_n1_escala_b'].'%';
-                    $comis_amg_n1_escala_c = $Comisiones['comis_amg_n1_escala_c'].'%';
+                    $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],3).'%';
+                    $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],3).'%';
+                    $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],3).'%';
+                    $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],3).'%';
 
-                    $comis_amg_n2_unidad   = $Comisiones['comis_amg_n2_unidad'].'%';
-                    $comis_amg_n2_escala_a = $Comisiones['comis_amg_n2_escala_a'].'%';
-                    $comis_amg_n2_escala_b = $Comisiones['comis_amg_n2_escala_b'].'%';
-                    $comis_amg_n2_escala_c = $Comisiones['comis_amg_n2_escala_c'].'%';
+                    $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],3).'%';
+                    $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],3).'%';
+                    $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],3).'%';
+                    $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],3).'%';
                 ?>
                   <?php if ( $Primer_Registro == TRUE) :?>
                     <!-- Grupo A -->
@@ -120,7 +120,7 @@
            <div><span class="color color3"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO EN RED CON EL COMPRADOR.</span></div>
            <div><span class="color color4"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO QUE LO PRESENTO.</span></div>
            <div><span class="color color5"></span><span class="defi_color"> COMISIONES PARA QUIEN PRESENTO AL EMPRESARIO.</span></div>
-        </div>         
+        </div>
        </div>
 	   </div>
 </div>
@@ -128,11 +128,11 @@
     .contenedor_tabla_comisiones
     {
       width: 1024px;
-      margin: 0px auto; 
+      margin: 0px auto;
       max-width: 1024px;
     }
 
-    .tabla_tab1 
+    .tabla_tab1
     {
        display: block;
        position: absolute;
@@ -149,7 +149,7 @@
        z-index: 1;
     }
 
- 
+
     .tabla_tab2
 
     {
@@ -166,14 +166,14 @@
        font-size: 11.5px;
        background:  #CCCCCC;
        z-index: 1;
-    } 
+    }
 
-    
+
     /* Columan left = section Hogar */
     .sectiones_tabla
     {
-      padding: 0px; 
-      width: 200px; 
+      padding: 0px;
+      width: 200px;
       display: block;
     }
 
@@ -186,7 +186,7 @@
          border-top: 3px solid #003E90;
          margin-top: 33px;
      }
-     
+
     .bloques_img_hogar
     {
         width: 48%;
@@ -228,7 +228,7 @@
        display: block;
        height: 172px;
     }
- 
+
     /* section productos promocinales*/
     .section_promocionales
     {
@@ -242,7 +242,7 @@
          color: #666666;
          font-size: 12px;
      }
- 
+
      /* dewfinicion de los colores */
      .color3 { background: #8BDEED;}
      .color4 { background: #FFA0A0;}
@@ -261,7 +261,7 @@
           -moz-border-radius: 2px;
           border-radius: 2px;
      }
-     
+
      .defi_color
      {
            font-size: 12px;

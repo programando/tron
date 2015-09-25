@@ -21,6 +21,7 @@ class IndexController extends Controller
         $Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
         $usuario_autenticado = Session::Get('autenticado');
+
         if ( !isset( $usuario_autenticado )){
             Session::Set('autenticado',FALSE);
             Session::Set('idtipo_plan_compras',1);

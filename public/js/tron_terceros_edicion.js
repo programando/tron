@@ -193,10 +193,10 @@ $('.contenedor_cuenta').on('blur','#email',function(){
    success:  function (respuesta)
      {
         if (respuesta.Respuesta == 'EMAIL-NO-OK'){
-            $Texto = 'El correo electrónico : <strong>' + $email + '</strong> tiene un formato no válido. por favor corrija los datos.';
+            $Texto = 'El correo electrónico  <strong>' + $email + '</strong> tiene un formato no válido. por favor corrija los datos.';
           }
          if (respuesta.Respuesta == 'EMAIL-EXISTE'){
-            $Texto = 'El correo electrónico : <strong>' +  $email + '</strong> ya se encuentra registrado en nuestra base de datos.';
+            $Texto = 'El correo electrónico  <strong>' +  $email + '</strong> ya se encuentra registrado en nuestra base de datos.';
           }
           if ( $Texto.length > 0){
                 new Messi($Texto,

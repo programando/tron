@@ -268,6 +268,8 @@ var Mensaje_Identificacion_Ya_Existe = function(){
       $('#identificacion').val('');
 }
 
+
+
 /// IDENTIFICACION
 $('#identificacion_nat').on('blur',function(){
     var $identificacion = $('#identificacion_nat').val();
@@ -278,10 +280,14 @@ $('#identificacion_nat').on('blur',function(){
           url:      '/tron/terceros/Buscar_Por_Identificacion/',
           type:     'post',
      success:  function (respuesta)     {
-          if (respuesta.Respuesta == 'SI_EXISTE'){ Mensaje_Identificacion_Ya_Existe(); }
-       }
+          if (respuesta.Respuesta == 'SI_EXISTE'){
+              Mensaje_Identificacion_Ya_Existe();
+            }
+          }
        });
 });
+
+
 $('#identificacion_nat').on('focusout',function(){
   $(this).get(0).type='password';
 });
@@ -333,10 +339,17 @@ $('#identificacion').on('blur',function(){
           url:      '/tron/terceros/Buscar_Por_Identificacion/',
           type:     'post',
      success:  function (respuesta)   {
-          if (respuesta.Respuesta == 'SI_EXISTE'){ Mensaje_Identificacion_Ya_Existe(); }
+          if (respuesta.Respuesta == 'SI_EXISTE'){
+            Mensaje_Identificacion_Ya_Existe();
+
+          }
        }
        });
 });
+
+
+
+
 $('#identificacion').on('focusout',function(){
   $(this).get(0).type='password';
 });
@@ -414,10 +427,10 @@ $('#email').on('blur',function(){
    success:  function (respuesta)
      {
         if (respuesta.Respuesta == 'EMAIL-NO-OK'){
-            $Texto = 'El correo electrónico : <strong>' + $email + '</strong> tiene un formato no válido. por favor corrija los datos.';
+            $Texto = 'El correo electrónico  <strong>' + $email + '</strong> tiene un formato no válido. por favor corrija los datos.';
           }
          if (respuesta.Respuesta == 'EMAIL-EXISTE'){
-            $Texto = 'El correo electrónico : <strong>' +  $email + '</strong> ya se encuentra registrado en nuestra base de datos.';
+            $Texto = 'El correo electrónico  <strong>' +  $email + '</strong> ya se encuentra registrado en nuestra base de datos.';
           }
           if ( $Texto.length > 0){
                 new Messi($Texto,

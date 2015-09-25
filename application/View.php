@@ -16,8 +16,7 @@
 
 
 
-        public function __construct(Request $peticion)
-        {
+        public function __construct(Request $peticion) {
             $this->Controlador = $peticion->getControlador();
             $this->Argumentos  = $peticion->getArgs();
             $this->Css         = array();
@@ -27,8 +26,7 @@
 
 
 
-        public function Mostrar_Vista($vista,$View_Vars=array())
-        {
+        public function Mostrar_Vista($vista,$View_Vars=array())  {
          /**
          * REALIZA LA LLAMADA A LA VISTA DE ACUERDO A SU CONTROLADOR
          * @param [text] $vista     [nombre de la vista]
@@ -42,9 +40,7 @@
 
          //Debug::Mostrar($RutaView );
 
-             if(is_readable($RutaView))
-            {
-
+             if(is_readable($RutaView))  {
                extract($View_Vars);
                ob_start();
                require_once ($RutaView);
@@ -59,8 +55,7 @@
 
           }
 
-        public function Mostrar_Vista_Parcial($vista)
-        {
+        public function Mostrar_Vista_Parcial($vista) {
          /**
          * REALIZA LA LLAMADA A LA VISTA DE ACUERDO A SU CONTROLADOR
          * @param [text] $vista     [nombre de la vista]
@@ -68,7 +63,6 @@
          */
          $RutaView     = ROOT .  'views' . DS  . $this->Controlador. DS . $vista . '.phtml';
          $RutaTemplate = $RutaView;
-
 
             if(is_readable($RutaView))
             {
@@ -81,9 +75,7 @@
           }
 
 
-        public function SetCss($Archivos_Css=array())
-        {
-
+        public function SetCss($Archivos_Css=array()) {
         /**
          * OCTUBRE 14 DE 2014
          * CARGA ARCHIVOS CSS INDEPENDIENTES EN CADA UNA DE LAS VISTAS
@@ -103,8 +95,7 @@
          * @param array $Archivos_Css : ARRAY DE ARCHIVOS JS QUE SE CARGARÁN CON LA VISTA
          *                              LOS CONTROLADORES
          */
-        public function SetJs($Archivos_Js=array())
-        {
+        public function SetJs($Archivos_Js=array()) {
            extract($Archivos_Js);
            foreach ($Archivos_Js as $Archivo_Js)
            {

@@ -24,13 +24,36 @@
           $email                    = General_Functions::Validar_Entrada('recomendar_email', 'TEXT');
           $Es_email                 = General_Functions::Validar_Entrada('recomendar_email', 'EMAIL');
           $recomendar_mnsj_personal = General_Functions::Validar_Entrada('recomendar_mnsj_personal', 'TEXT');
+          $recomendar_mnsj_personal = General_Functions::Validar_Entrada('recomendar_mnsj_personal', 'TEXT');
+          $recomendado_por  = General_Functions::Validar_Entrada('recomendar_nombre_envia', 'TEXT');
 
           if ( strlen($nombre_usuario) == 0 ){
-              $Respuesta  = $Respuesta . 'Debe registrar la dirección de correo electrónico de tu amigo(a) a quien recomendarás el modelo de negocio.<br>';
+              $Respuesta  = 'Debes registrar el nombre de la persona a quien envías la recomendación.<br>';
             }
           if ( $Es_email == FALSE ){
-              $Respuesta  = $Respuesta . 'la dirección de correo no tiene un formato válido.<br>';
+              $Respuesta  =  'La dirección de correo no tiene un formato válido.<br>';
           }
+
+          if ( $Respuesta  == 'OK'){
+              $this->Configurar_Cuenta('Recomendación de : ' . $recomendado_por );
+              $this->Email->AddAddress($email );
+              $recomendado_por        = strtoupper ($recomendado_por);
+              $nombre_usuario         = strtoupper( $nombre_usuario);
+              $logo                   = BASE_IMG_EMPRESA .'logo.png';
+              $idtercero_presenta     = Session::Get('idtercero');
+              $codigousuario_presenta = Session::Get('codigousuario');
+              $Enlace                 = BASE_URL."terceros/invitacion/1/$idtercero_presenta/$codigousuario_presenta/";;
+              $Texto_Correo           = file_get_contents(BASE_EMAILS.'recomendar_modelo_negocio.phtml','r');
+              $Texto_Correo           = str_replace("#_NOMBRE_AMIGO_#"                     , $nombre_usuario ,$Texto_Correo);
+              $Texto_Correo           = str_replace("#_NOMBRE_QUIEN_ENVIA_INVITACION_#"    , $recomendado_por ,$Texto_Correo);
+              $Texto_Correo           = str_replace("#_ENLACE_#"                           , $Enlace ,$Texto_Correo);
+              $Texto_Correo           = str_replace("#_MENSAJE_OPCIONAL_#"                 , $recomendar_mnsj_personal,$Texto_Correo);
+              $Texto_Correo           = str_replace("#_LOGO_#"                             , $logo ,$Texto_Correo);
+
+              $this->Email->Body      = $Texto_Correo;
+              $Respuesta              = $this->Enviar_Correo();
+          }
+          $Respuesta = compact('Respuesta');
           echo json_encode($Respuesta,256);
       }
 
@@ -74,16 +97,6 @@
         }
 
 
-     public function Enviar_Correo(){
-        if ( $this->Email->Send()){
-          $this->Email->clearAddresses();
-            return "correo_OK";
-        }else {
-          echo "Error: " . $this->Email->ErrorInfo;
-         return "correo_No_OK";
-        }
-
-     }
 
 
       public function Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo    ){
@@ -188,28 +201,7 @@
          return $Respuesta;
       }
 
-    public function Activacion_Registro_Usuario_Exitoso( $email, $nombre_usuario, $pre,$idtpidentificacion ){
-          $enlace              = '<a href=' . BASE_URL .'redtron/preguntas_frecuentes/>' .   'Preguntas Frecuentes</a>';
-          if ( $idtpidentificacion != 31 ){
-            $Texto = "Bienvenid".$pre." ". $nombre_usuario .".<br /><br />";
-          }else{
-           $Texto = "Bienvenidos ". $nombre_usuario .".<br /><br />";
-          }
-          $Texto_Correo = "<div style='text-align:justify;'>" . $Texto ."
-                      Tu registro en la Tienda Virtual <a href='".BASE_URL ."'>TRON Entre amigos alcanzamos</a> ha finalizado satisfactoriamente.<br /><br />
-                      Te invitamos a conocer m&aacute;s sobre nuestro modelo de negocio,
-                      consultando " . $enlace . " o
-                      solicitando atención personalizada a la línea gratuita 01 8000 18TRON (8766) o
-                      al PBX (2) 488 1616. Horarios de atención;n: 7:30 am a 12:00 m y 1:30 pm a 6:00 pm de lunes a viernes.
-                      </div>";
-         $this->Configurar_Cuenta('Registro Exitoso | Tienda Virtual TRON');
-         $this->Email->AddAddress($email );
-         $this->Email->Body   = CORREO_HEADER ;
-         $this->Email->Body   = $this->Email->Body .  $Texto_Correo;
-         $this->Email->Body   = $this->Email->Body . CORREO_FOOTER_USER;
-         $Respuesta = $this->Enviar_Correo();
 
-    }
       private function Configurar_Cuenta($asunto) {
       		/** ENERO 30 DE 2015
       		*		 ESTABLECE LA CONFIGURACIÓN PARA EL ENVÍO DE CORREOS ELECTRÓNICOS
@@ -226,7 +218,7 @@
                   $this->Email->SMTPKeepAlive = true;
                   $this->Email->Mailer        = "smtp";                   // set the SMTP port
                   $this->Email->Username      = 'contactos@entreamigosalcanzamos.com';								// GMAIL username
-                  $this->Email->Password      = "*TEN0TR0N*";            	 					// GMAIL password
+                  $this->Email->Password      = "*TECN0TR0N*";            	 					// GMAIL password
                   $this->Email->From          = CORREO_01;
                   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
                   $this->Email->Subject       = $asunto;
@@ -234,7 +226,24 @@
                   $this->Email->WordWrap      = 50; // set word wrap																// send as HTML
       }
 
+
+
+    public function Enviar_Correo(){
+        if ( $this->Email->Send()){
+          $this->Email->clearAddresses();
+            return "correo_OK";
+        }else {
+          echo "Error: " . $this->Email->ErrorInfo;
+         return "correo_No_OK";
+        }
+     }
     }
+/* PAGINAS QUE HABILITAN EL EVÍO DE CORREOS EN CUENTAS
+    https://www.google.com/settings/u/1/security/lesssecureapps
+    https://accounts.google.com/b/0/DisplayUnlockCaptcha
+    https://security.google.com/settings/security/activity?hl=en&pli=1
+*/
+
 ?>
 
 

@@ -17,7 +17,6 @@ class Bootstrap
 
 
 
-
         if(is_readable($RutaControlador))
         {
             require_once $RutaControlador;

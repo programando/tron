@@ -1,21 +1,18 @@
 <?php
 Class Numeric_Functions
 {
-    public static function Formato_Numero($value)
-    {
+    public static function Formato_Numero($value)    {
      $numero = "$" . number_format($value, 0, "" ,".");
      return $numero;
     }
 
 
-    public static function Formato_Numero_SinSigno($value)
-    {
+    public static function Formato_Numero_SinSigno($value)    {
      $numero = number_format($value, 0, "" ,".");
      return $numero;
     }
 
-     Public static function Filtrar_Entero( $int )
-     {
+     Public static function Filtrar_Entero( $int )     {
         $int = (int) $int;
         if(is_int($int))
         {
@@ -27,8 +24,8 @@ Class Numeric_Functions
     }
 
 
-    public static function Valor_Absoluto($valor)
-        {/**  MARZO 15 DE 2015
+    public static function Valor_Absoluto($valor)        {
+    /**  MARZO 15 DE 2015
             *                       DEVUELVE EL VALOR ABSOLUTO DE UN NÚMERO
             */
                 $valor_absoluto = intval(abs ($valor));
@@ -40,8 +37,7 @@ Class Numeric_Functions
         }
 
 
-   public static  function Redondear_Al_100_Mas_Proximo($numero)
-    {
+   public static  function Redondear_Al_100_Mas_Proximo($numero)    {
     /**
     *   JUNIO 14 2013
     *   Función utilitaria que se encarga de redondear a la centena más proxima.

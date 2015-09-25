@@ -376,13 +376,13 @@ $('#perfil-datos-personales').on('click',function(){
          dataType: 'html',
          url:      '/tron/terceros/modificacion_datos/',
          type:     'post',
-				    success:  function (respuesta)
-				      {
+				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
 				  });
 });
+
 
 $('#tabla_comisiones').on('click',function(){
     $.ajax({
@@ -670,25 +670,40 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
 /// RECOMENDAR NEGOCIO A UN AMIGO
 
 
-$('.contenedor_cuenta').on('click','#recomendar_enviar_mnsj',function(){
-
+$('.contenedor_cuenta').on('click','#btn-recomendar-modelo-metodo-1',function(){
 		$recomendar_nombre        = $('#recomendar_nombre').val();
 		$recomendar_email         = $('#recomendar_email').val();
 		$recomendar_mnsj_personal = $('#recomendar_mnsj_personal').val();
-		$Parametros = {'recomendar_nombre':$recomendar_nombre, 'recomendar_email':$recomendar_email, 'recomendar_mnsj_personal':$recomendar_mnsj_personal };
+		$recomendar_nombre_envia  = $('#recomendar_nombre_envia').val();
 
-   /* $.ajax({
-         dataType: 'html',
+		$Parametros 														= {'recomendar_nombre':$recomendar_nombre, 'recomendar_email':$recomendar_email,
+																															'recomendar_mnsj_personal':$recomendar_mnsj_personal,
+																															 'recomendar_nombre_envia':$recomendar_nombre_envia };
+  $.ajax({
+         dataType: 'json',
          url:      '/tron/Emails/Recomendar_Negocio_Amigo/',
          type:     'post',
-         data:   $Parametros+6
-				    success:  function (respuesta){
-				         $('.contenedor_cuenta').html('');
-				         $('.contenedor_cuenta').html(respuesta);
+         data:     $Parametros,
+				    success:  function (Server){
+				    			respuesta = Server.Respuesta;
+				    				$('#msj-error').html('');
+				    				if ( respuesta =='OK' || respuesta =='correo_OK'){
+				    						  $('#msj-error').html('Tu invitación ha sido enviada con éxito.');
+				    						} else{
+				         		$('#msj-error').html(respuesta);
+				         	}
 				      }
 				  });
-*/
 
 });
+
+$('.contenedor_cuenta').on('focus','#recomendar_email,#recomendar_nombre',function(){
+		$('#msj-error').html('');
+})
+
+
+
+
+
 
 
