@@ -387,7 +387,7 @@ $('#perfil-datos-personales').on('click',function(){
 $('#tabla_comisiones').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/tabla_comisiones/',
+         url:      '/tron/terceros/tabla_comisiones_tron/',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');

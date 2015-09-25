@@ -95,12 +95,12 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       echo json_encode($datos,256);
     }
 
-    public function tabla_comisiones(){
+    public function tabla_comisiones_tron(){
       /** AGOSTO 30 DE 2015
        *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
        */
         $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
-        $this->View->SetCss(array("tabla_tron_estilos"));
+        $this->View->SetCss(array("tabla_comisiones_tron"));
         $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
