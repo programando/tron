@@ -111,27 +111,94 @@
                         </a>
                      </p>
                  <?php endif ;?>
-                  <div>
-                    <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." id="notificaciones" data-toggle="modal" data-target="#recomendar" style="width: 320px; display:block; margin-bottom: -10px;">
-                      <p>
-                        <span class="recomendar">
-                           <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
-                        </span> ¡ Recomendar este Producto a un Amig@ !
-                      </p>
-                    </a>
-                  </div>
-                <div class="div-content">
-                  <?php if ( Session::Get('autenticado')== TRUE ) :?>
-                  <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
-                    <p>
-                       <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
-                    </p>
-                  </a>
-                <?php endif ;?>
-                </div>
-                  <!-- compartir en redes sociales -->
+
+
+                  <!-- Contendor = botenes , compartir -->
                   <div class="row">
-                      <div class="col-lg-6 col-md-6 col-sm-6">
+                      <!-- contenedor de los botones de agragar carrito -->
+                      <div class="col-lg-3 col-md-3 col-sm-3"><!--SUBINICIO DE HIJA-COLUMNA-->
+                        <p class="text-center"><strong><?= $pv_ocasional ?></strong>
+                           <span><img src="<?= BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional "></span>
+                        </p>
+                        <p class="priceTRONProd  text-center" >
+                           <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
+                           <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"  title="Plan Cliente TRON"></span>
+                           <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"  title="Plan Empresario TRON"></span>
+
+                        </p><br>
+
+                      <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
+                      <div class="costos-cantidad">
+                        <form class="form-horizontal" role="form">
+                          <div class=" col-xs-4" id="cont-menos">
+                            <div class="form-group">
+                            <!--Inicio  Boton Menos-->
+                              <button id="<?=$idproducto ;?>"
+                                      type="button"
+                                      class="btn btn-default btn-menos btns-carrito"
+                                      onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"  >-
+                              </button>
+                            <!-- Fin Boton Menos-->
+                            </div>
+                          </div>
+                           <div class="col-xs-4" id="cont-digitos">
+                              <div class="form-group">
+                                <!--Inicio Input-->
+                                 <input id="<?=$id_controles ;?>" class=" digitos btn-carrito-input CantProductosComprados"  type="text"  value="1"
+                                  id-idescala = "<?= $idescala ;?>"
+                                  precio-amigo-tron = "<?= $pv_tron_previo; ?>"
+                                  pv-tron-escala-a = "<?= $pv_tron_escala_a; ?>"
+                                  pv-tron-escala-b = "<?= $pv_tron_escala_b; ?>"
+                                  pv-tron-escala-c = "<?= $pv_tron_escala_c; ?>" >
+                                <!--Fin Input-->
+                              </div>
+                           </div>
+                           <div class=" col-xs-4" id="cont-mas">
+                              <div class="form-group">
+                              <!-- Inicio Boton Mas-->
+                                <button id="<?=$idproducto ;?>"
+                                      type="button"
+                                      class="btn btn-default btn-menos btns-carrito"
+                                      onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
+                              </button>
+                              <!-- Fin Boton Mas-->
+                              </div>
+                           </div>
+
+                             <input id="<?= $id_controles_escalas ;?>"  type="hidden" value="<?= $idescala ; ?>" />
+                             <input id="<?= $id_pv_tron_escala_a ;?>"   type="hidden" value="<?= $pv_tron_escala_a; ?>" />
+                             <input id="<?= $id_pv_tron_escala_b ;?>"   type="hidden" value="<?= $pv_tron_escala_b; ?>" />
+                             <input id="<?= $id_pv_tron_escala_c ;?>"   type="hidden" value="<?= $pv_tron_escala_c; ?>" />
+                             <input id="<?= $id_pv_tron ;?>"            type="hidden" value="<?= $pv_tron_previo; ?>" />
+                        </form>
+
+                      <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
+                        <div class="div-btn-">
+                             <button type="button" class="agregar  boton-agregar-carrito" id="<?=$id_controles ;?>" id-categoria-producto  =   "<?= $id_categoria_producto ;?>">
+                              <div class="btn-agregar-carrito">
+                                Agregar
+                                <span>
+                                   <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
+                                </span>
+                              </div>
+                             </button>
+                        </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
+                      </div>  <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
+                   </div>
+                  <!-- contienedor ( row ) = compartir , recomendar amigo , grupo porducto , agregar a favorito -->
+                    <div class="col-lg-9 col-md-9 col-sm-9">
+                     <!-- recomendar producto a un amigo -->
+                      <div class="recomendar_amigo">
+                        <a herf="#" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." id="notificaciones" data-toggle="modal" data-target="#recomendar" style="width: 320px; display:block; margin-bottom: -10px;">
+                          <p>
+                            <span class="recomendar">
+                               <img src="<?= BASE_IMG_PRODUCTOS ;?>25.png" alt="">
+                            </span> ¡ Recomendar este Producto a un Amig@ !
+                          </p>
+                        </a>
+                      </div>
+                      <!-- compartir en redes sociales -->
+                      <div class="compartir_en_redes_sociales">
                         <div class="compartir_en">Compartir :</div>
 
                          <a target="_blank" href="<?= $URL_COMPARTIR_FACEBOOK ;?>">
@@ -149,113 +216,49 @@
                              <div><img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_googleMas.png" class="img_compartir_face">
                              </div>
                           </a>
-                      </div>
-
-                      <!-- grupo al que pertenece el producto -->
-                      <div class="col-lg-6 col-md-6 col-sm-6">
-                         <div>
-                          <div class="pertenece_grupo">Producto grupo: </div>
-                              <?php if ($idgrupo>0) :?>
-                                 <div class="imagen_grupo_producto"
-                                    title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contáctanos a:  contactos@entreamigosalcanzamos.com !">
-                                    <strong><?= $codigo_grupo  ;?></strong>
-                                  </div>
-                              <?php endif ;?>
-
-
-                              <?php if ($fabricado_x_ta==1) :?>
-                                 <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por: Balquimia S.A.S.">
-                                    <img class="img-Producto_fabricado_por_Tecnologías" src="<?= BASE_IMG_PRODUCTOS ;?>22.png" alt="">
-                                 </div>
-
-                              <?php endif ;?>
-
-                             <?php if ($en_oferta  ==1) :?>
-                                 <div class="imagen_en_oferta" title="Producto en Oferta !!!">
-                                    <img class="img_Producto_en_Oferta" src="<?= BASE_IMG ;?>en_oferta.png " alt="">
-                                 </div>
+                        </div>
+                        <!-- agregar favorito -->
+                       <div class="contenedor_agregar_favorito">
+                          <?php if ( Session::Get('autenticado')== TRUE ) :?>
+                          <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
+                            <p>
+                               <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
+                            </p>
+                          </a>
+                        <?php endif ;?>
+                        </div>
+                        <!-- grupo del prodcuto -->
+                       <div>
+                        <div class="pertenece_grupo">Producto grupo: </div>
+                            <?php if ($idgrupo>0) :?>
+                               <div class="imagen_grupo_producto"
+                                  title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contáctanos a:  contactos@entreamigosalcanzamos.com !">
+                                  <strong><?= $codigo_grupo  ;?></strong>
+                                </div>
                             <?php endif ;?>
-                         </div>
-                      </div>
 
+
+                            <?php if ($fabricado_x_ta==1) :?>
+                               <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por: Balquimia S.A.S.">
+                                  <img class="img-Producto_fabricado_por_Tecnologías" src="<?= BASE_IMG_PRODUCTOS ;?>22.png" alt="">
+                               </div>
+
+                            <?php endif ;?>
+
+                           <?php if ($en_oferta  ==1) :?>
+                               <div class="imagen_en_oferta" title="Producto en Oferta !!!">
+                                  <img class="img_Producto_en_Oferta" src="<?= BASE_IMG ;?>en_oferta.png " alt="">
+                               </div>
+                          <?php endif ;?>
+                       </div>
+                    </div>
                   </div>
               </div>
             </div>
          </div><br><!--FIN DE SUBCOLUMNA-->
 
          <div class="row div-content"><!--INICIO DE HIJA FILA-->
-             <div class="col-lg-6"><!--SUBINICIO DE HIJA-COLUMNA-->
 
-                <p class="text-center"><strong><?= $pv_ocasional ?></strong>
-                   <span><img src="<?= BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional "></span>
-                </p>
-
-                <p class="priceTRONProd  text-center" >
-                   <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
-                   <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"  title="Plan Cliente TRON"></span>
-                   <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"  title="Plan Empresario TRON"></span>
-
-                </p><br>
-
-              <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
-              <div class="costos-cantidad">
-                <form class="form-horizontal" role="form">
-                  <div class=" col-xs-4" id="cont-menos">
-                    <div class="form-group">
-                    <!--Inicio  Boton Menos-->
-                      <button id="<?=$idproducto ;?>"
-                              type="button"
-                              class="btn btn-default btn-menos btns-carrito"
-                              onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"  >-
-                      </button>
-                    <!-- Fin Boton Menos-->
-                    </div>
-                  </div>
-                   <div class="col-xs-4" id="cont-digitos">
-                      <div class="form-group">
-                        <!--Inicio Input-->
-                         <input id="<?=$id_controles ;?>" class=" digitos btn-carrito-input CantProductosComprados"  type="text"  value="1"
-                          id-idescala = "<?= $idescala ;?>"
-                          precio-amigo-tron = "<?= $pv_tron_previo; ?>"
-                          pv-tron-escala-a = "<?= $pv_tron_escala_a; ?>"
-                          pv-tron-escala-b = "<?= $pv_tron_escala_b; ?>"
-                          pv-tron-escala-c = "<?= $pv_tron_escala_c; ?>" >
-                        <!--Fin Input-->
-                      </div>
-                   </div>
-                   <div class=" col-xs-4" id="cont-mas">
-                      <div class="form-group">
-                      <!-- Inicio Boton Mas-->
-                        <button id="<?=$idproducto ;?>"
-                              type="button"
-                              class="btn btn-default btn-menos btns-carrito"
-                              onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
-                      </button>
-                      <!-- Fin Boton Mas-->
-                      </div>
-                   </div>
-
-                     <input id="<?= $id_controles_escalas ;?>"  type="hidden" value="<?= $idescala ; ?>" />
-                     <input id="<?= $id_pv_tron_escala_a ;?>"   type="hidden" value="<?= $pv_tron_escala_a; ?>" />
-                     <input id="<?= $id_pv_tron_escala_b ;?>"   type="hidden" value="<?= $pv_tron_escala_b; ?>" />
-                     <input id="<?= $id_pv_tron_escala_c ;?>"   type="hidden" value="<?= $pv_tron_escala_c; ?>" />
-                     <input id="<?= $id_pv_tron ;?>"            type="hidden" value="<?= $pv_tron_previo; ?>" />
-                </form>
-
-              <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
-                <div class="div-btn-">
-                     <button type="button" class="agregar  boton-agregar-carrito" id="<?=$id_controles ;?>" id-categoria-producto  =   "<?= $id_categoria_producto ;?>">
-                      <div class="btn-agregar-carrito">
-                        Agregar
-                        <span>
-                           <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
-                        </span>
-                      </div>
-                     </button>
-                </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
-              </div>  <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
-
-           </div>
        <!-- div  -->
 
 <!--
