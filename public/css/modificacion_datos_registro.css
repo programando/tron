@@ -1,0 +1,63 @@
+.cont_vista_modificaion_datos
+{
+	   padding-top: 150px;
+	   width: 95%;
+	   margin: 0px auto;
+}
+
+/* Formulario modificacion datos */
+.formulario_modificacion
+{
+    display: block;
+    width: 80%;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.titulo_modififcacion
+{
+	   color: #003E90;
+	   margin-bottom:  20px;
+}
+
+/* BTN = Actualizar registro */
+.btn_actualizar_registro
+{
+    background     : #5bc15b; /* Old browsers */
+    background     : -moz-linear-gradient(top,  #5bc15b 0%, #469352 50%, #438c46 51%, #2a5428 100%); /* FF3.6+ */
+    background     : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5bc15b), color-stop(50%,#469352), color-stop(51%,#438c46), color-stop(100%,#2a5428)); /* Chrome,Safari4+ */
+    background     : -webkit-linear-gradient(top,  #5bc15b 0%,#469352 50%,#438c46 51%,#2a5428 100%); /* Chrome10+,Safari5.1+ */
+    background     : -o-linear-gradient(top,  #5bc15b 0%,#469352 50%,#438c46 51%,#2a5428 100%); /* Opera 11.10+ */
+    background     : -ms-linear-gradient(top,  #5bc15b 0%,#469352 50%,#438c46 51%,#2a5428 100%); /* IE10+ */
+    background     : linear-gradient(to bottom,  #5bc15b 0%,#469352 50%,#438c46 51%,#2a5428 100%); /* W3C */
+    filter         : progid:DXImageTransform.Microsoft.gradient( startColorstr='#5bc15b', endColorstr='#2a5428',GradientType=0 ); /* IE6-9 */
+    border         : 2px solid #396D3A;
+    color          : #ffffff;
+    font-size      : 15px;
+    padding        : 6px 24px;
+    text-decoration: none;
+    text-shadow    : 0px 1px 0px #396D3A;
+    cursor         : pointer;
+}
+
+.btn_actualizar_registro:hover
+{
+    background: #2a5428; /* Old browsers */
+    background: -moz-linear-gradient(top,  #2a5428 0%, #438c46 49%, #469352 50%, #5bc15b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a5428), color-stop(49%,#438c46), color-stop(50%,#469352), color-stop(100%,#5bc15b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #2a5428 0%,#438c46 49%,#469352 50%,#5bc15b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #2a5428 0%,#438c46 49%,#469352 50%,#5bc15b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #2a5428 0%,#438c46 49%,#469352 50%,#5bc15b 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #2a5428 0%,#438c46 49%,#469352 50%,#5bc15b 100%); /* W3C */
+    filter    : progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a5428', endColorstr='#5bc15b',GradientType=0 ); /* IE6-9 */
+
+}
+
+.btn_actualizar_registro:active
+{
+      position: relative;
+      top: 1px;
+}
+
+
+

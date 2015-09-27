@@ -16,6 +16,13 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+
+    public function modificacion_datos_registro(){
+        $this->View->SetCss(array("modificacion_datos_registro"));
+        $this->View->SetJs(array('modificacion_datos_registro'));
+        $this->View->Mostrar_Vista("modificacion_datos_registro");
+    }
+
     public function Invitacion($reasigna_valores = 0,$idterceropresenta=0,$codigousuario_presenta=''){
         if( $reasigna_valores == TRUE){
           Session::Set('idtercero_presenta',0);
