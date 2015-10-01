@@ -74,5 +74,12 @@
 								return 			$Registro   ;
 						}
 
+						public function Total_Amigos_Detallado_Por_Nivel( $idtercero ){
+						  $Registro   =  $this->Db->Ejecutar_Sp("terceros_total_amigos_red_insert_tabla_terceros_temporal( $idtercero )");
+		 				 $Registro   =  $this->Db->Ejecutar_Sp("terceros_total_amigos_red_detallado_por_nivel( $idtercero )");
+								return $Registro;
+				}
+
+
    }
 ?>

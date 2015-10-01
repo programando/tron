@@ -63,8 +63,6 @@
 	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
 	        $this->Encontrar_Mejor_Flete();
 	      }
-
-
 					}
 
 	    public function Calcular_Valor_Flete_Carga($peso_pedid_carga, $valor_declarado) {
@@ -111,8 +109,7 @@
       $Asignar_Flete                   = TRUE;
       $this->valor_flete                 = 0;
 
-      foreach ($Fletes_Cobrados_Transportadoras as $Fletes)
-      {
+      foreach ($Fletes_Cobrados_Transportadoras as $Fletes)   {
         if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE )        {
               $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
               $Asignar_Flete = FALSE;
@@ -126,13 +123,13 @@
         }
 
       if ( isset($Mejor_Flete)){
-          $this->valor_flete                  = $Mejor_Flete['valor_flete'] + Session::Get('transporte_tron') + Session::Get('kit_vr_transporte');
+          $this->valor_flete                  = $Mejor_Flete['valor_flete']  + Session::Get('kit_vr_transporte');
           Session::Set('flete_real_calculado', $this->valor_flete);
           Session::Set('id_transportadora',   $Mejor_Flete['idtercero']);
           Session::Set('tipo_despacho_pedido', $Mejor_Flete['tipo_despacho'] );
           Session::Set('tipo_tarifa', $Mejor_Flete['tipo_tarifa']);
         }else{
-          $this->valor_flete                  = Session::Get('transporte_tron') + Session::Get('kit_vr_transporte');
+          $this->valor_flete                  =   Session::Get('kit_vr_transporte');
           Session::Set('flete_real_calculado', $this->valor_flete);
           Session::Set('id_transportadora',   '1572'); // 1572 REDETRANS
           Session::Set('tipo_despacho_pedido', 1 );     /// REDETRANS COURRIER
@@ -154,8 +151,8 @@
 
       }
 
-      public function Sevientrega_Premier($peso_kilos_pedido,$valor_declarado)
-      {/** MARZO 16 DE 2015
+      public function Sevientrega_Premier($peso_kilos_pedido,$valor_declarado)  {
+      /** MARZO 16 DE 2015
       	*				CALCULA VALOR DE FLETE SE COBRARÁ POR SERVIENTREGA PREMIER
       	*/
 										$kilos_adicionales            = 0;
@@ -312,10 +309,11 @@
 
 
 
-      public function Redetrans_Carga($peso_kilos_pedido,$valor_declarado)
-      {/** MARZO 12 DE 2015
+      public function Redetrans_Carga($peso_kilos_pedido,$valor_declarado) {
+      /** MARZO 12 DE 2015
       	*				CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA REDE TRANS
       	*/
+
 						$seguro_fijo                = 0;
 						$seguro_reexpedicion        = 0;
 						$seguro_flete               = 0;
@@ -480,14 +478,18 @@
 											$this->Valor_Fletes_Productos_Tron($peso_pedido_gramos,$this->iddpto,$this->re_expedicion );
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos/4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
+
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
+
 											if ($valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro'] )		{
 													$this->seguro_redetrans_courrier = $valor_declarado  *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}else{
 													$this->seguro_redetrans_courrier = $this->Transportadoras[0]['rt_courrier_seguro'] *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
+
 											Session::Set('REDETRANS_COURRIER_flete', $this->valor_flete );
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
+
 											Session::Set('REDETRANS_COURRIER_seguro', $this->seguro_redetrans_courrier);
 											Session::Set('REDETRANS_COURRIER_flete_total',  $this->valor_flete );
 									}
@@ -510,8 +512,8 @@
 								 Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
 						}
 
-      public function Valor_Fletes_Productos_Tron($peso_total_pedido,$iddpto,$re_expedicion)
-      {		/** FEBRERO 10 DE 2014
+      public function Valor_Fletes_Productos_Tron($peso_total_pedido,$iddpto,$re_expedicion){
+        /** FEBRERO 10 DE 2014
 									*	CONSULTA LOS FLETES PARA EL CALCULO DE PRECIOS EN PRODUCTOS TRON. TIENE EN CUENTA EL DEPARTAMENTO,
 								 *	PUES SI ES REGIONAL TIENE UN PRECIO DIFERENTE AL PRECIO NACIONAL.
 									* EL SISTEMA EVALUA SI SE ENVÍA PARÁMETRO DE REEXPEDICIÓN EN CUYO CASO TOMA LOS VALORES DE LAS COLUMNAS CORRESPONDIENTES
@@ -522,14 +524,7 @@
 									$Tabla_Fletes 					         	 		    = $this->Fletes->Consultar_Fletes_Productos_Tron();// TABLA FLETES REDETRANS
 									Session::Set('subsisio_flete_valle',0);
 
-
-									/*
-										* EN EL KIT DE INICIO SE COBRARA EL EXCENDE QUE RESULTE DE RESTAR EL VALOR DEL FLETE - EL VALOR PARA "CALI"
-										* TOMO EL PRIMER VALOR QUE CORRESPONDERÍA AL PESO Y POSTERIORMENTE, AL FINAL DEL MÉTODO LO OPERO.
-									 */
-
-			      		foreach ($Tabla_Fletes as $Flete)
-			      		 {
+			      		foreach ($Tabla_Fletes as $Flete) 		 {
 														$inicio                 = $Flete['inicio'];
 														$final                  = $Flete['final'];
 														$courrier_regional      = $Flete['courrier_regional'];
@@ -576,58 +571,80 @@
 			      }// fin function
 
 
-public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido=0)
-    {/** MARZO 12 de 2015
-      *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
-      */
-      /*  38  4 kg.   39  4 kg.   42  4 lts.    122 4 lts(1)    123 4 lts(1)    124 4 lts(1)    145 4 lts.      148 4 lts.
-          151 4 kg.   155 4 kg.   160 4 lts.    162 4 lts(1)    163 4 lts.      164 4 lts.(1)   195 4 lts (1)
-      */
-						$Cant_Unid_No_04_20_Litros    = 0;       // Cantidad de productos que no son 4 y 20 litros
-						$Cant_Unid_Si_04_Litros       = 0;      // Cantidad de presentaciones que son 4 litros
-						$Cant_Unid_Si_20_Litros       = 0;      // Cantidad de presentaciones que son 20 litros
-						$Cant_Unid_No_Industriales    = 0;     // Cantidad de productos que no son industriales
-						$this->Cant_Unidades_Despacho = 0;
+						public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido=0)
+			    {/** MARZO 12 de 2015
+			      *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
+			      */
+			      /*  38  4 kg.   39  4 kg.   42  4 lts.    122 4 lts(1)    123 4 lts(1)    124 4 lts(1)    145 4 lts.      148 4 lts.
+			          151 4 kg.   155 4 kg.   160 4 lts.    162 4 lts(1)    163 4 lts.      164 4 lts.(1)   195 4 lts (1)
+			      */
+									$Cant_Unid_No_04_20_Litros    = 0;       // Cantidad de productos que no son 4 y 20 litros
+									$Cant_Unid_Si_04_Litros       = 0;      // Cantidad de presentaciones que son 4 litros
+									$Cant_Unid_Si_20_Litros       = 0;      // Cantidad de presentaciones que son 20 litros
+									$Cant_Unid_No_Industriales    = 0;     // Cantidad de productos que no son industriales
+									$this->Cant_Unidades_Despacho = 0;
 
-      $presentaciones_4_litros   = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
-      $presentaciones_20_litros  = array(57, 59, 61, 153, 171, 184, 185 );
+			      $presentaciones_4_litros   = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
+			      $presentaciones_20_litros  = array(57, 59, 61, 153, 171, 184, 185 );
 
-      $this->Datos_Carro = Session::Get('carrito');
+			      $this->Datos_Carro = Session::Get('carrito');
 
-       foreach ($this->Datos_Carro as $Productos){
-          if ($Productos['id_categoria_producto']==6){ // Productos industriales
-            $ID_Presentacion = $Productos['idpresentacion'];
+			       foreach ($this->Datos_Carro as $Productos){
+			          if ($Productos['id_categoria_producto']==6){ // Productos industriales
+			            $ID_Presentacion = $Productos['idpresentacion'];
 
-            // Presentaciones diferentes a 4 litros
-            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros)){
-                  $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
-              }
-            if ( in_array($ID_Presentacion, $presentaciones_4_litros )) { // presentaciones iguales a 4 litros
-                  $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
-              }
-            if (in_array($ID_Presentacion,  $presentaciones_20_litros)){  // presentaciones iguales a 4 litros
-                  $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
-              }
-          }
-          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
-              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $Productos['peso_gramos'];
-          }
+			            // Presentaciones diferentes a 4 litros
+			            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros)){
+			                  $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
+			              }
+			            if ( in_array($ID_Presentacion, $presentaciones_4_litros )) { // presentaciones iguales a 4 litros
+			                  $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
+			              }
+			            if (in_array($ID_Presentacion,  $presentaciones_20_litros)){  // presentaciones iguales a 4 litros
+			                  $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
+			              }
+			          }
+			          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
+			              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $Productos['peso_gramos'];
+			          }
 
-        }// end foreach
-        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_Si_04_Litros/6));
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_No_Industriales/4000));
+			        }// end foreach
+			        $Cant_Unid_Si_04_Litros       = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_Si_04_Litros/6));
+			        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_No_Industriales/4000));
 
-        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
-        $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
+			        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
+			        $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
 
 
-        if ( $this->Cant_Unidades_Despacho <= 0){
-        	$this->Cant_Unidades_Despacho = 1;
+			        if ( $this->Cant_Unidades_Despacho <= 0){
+			        	$this->Cant_Unidades_Despacho = 1;
+												}
+
+			        Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
+
+							}
+
+						public function Presupuesto_Fletes_Productos_Tron($valor_total_compra_tron, $cantidad, $valor_declarado){
+							 Session::Set('SubSidio_Flete_Unitario_Tron',0);
+								$this->Transportadoras        = $this->Parametros->Transportadoras();
+								$subsisio_flete_valle         = Session::Get('subsisio_flete_valle');
+								$SubSidio_Flete_Unitario_Tron = 0;
+								if ( $cantidad > 0 ){
+									if ( $valor_total_compra_tron >= $this->Transportadoras[0]['valor_minimo_pedido_productos']){
+											//CALCULO DEL SEGURO
+											if ( $valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro']){
+														$Seguro  = $valor_declarado  * $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
+											}else{
+												$Seguro  = $valor_declarado *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
+											}
+											$SubSidio_Flete_Unitario_Tron = ($subsisio_flete_valle  + $Seguro ) / $cantidad;
 									}
+									Session::Set('SubSidio_Flete_Unitario_Tron',$SubSidio_Flete_Unitario_Tron);
 
-        Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
-				}
+						}
 
+
+					} // Fin Func
 
 	}
 ?>

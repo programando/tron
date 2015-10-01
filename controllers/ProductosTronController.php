@@ -167,7 +167,7 @@
 																// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
 
 																Session::Set('precio_especial',$precio_especial);
-																Session::Set('transporte_tron',$transporte_tron);
+																Session::Set('transporte_tron',0);
 																Session::Set('descuento_especial',$descuento_especial);
 																Session::Set('descuento_especial_porcentaje', $descuento_especial_porciento);
 

@@ -69,6 +69,17 @@ var  Mostar_Clientes_x_IdTercero = function($codigousuario){
 	}
 
 
+var Mostrar_Red_de_Usuarios_Detallada_Por_Usuario = function($idtercero){
+   $.ajax({
+         dataType: 'html',
+         url:      '/tron/informes/Mi_Red_de_Usuarios_x_IdTtercero/'+$idtercero,
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor-datos-informe').html('');
+				         $('.contenedor-datos-informe').html(respuesta);
+				      }
+				  });
+}
 
 
 
@@ -581,14 +592,8 @@ $('#informes-red-usuarios').on('click',function(){
 				  });
 });
 
-/* MODIFICACION DE LA FORMA DEL PAGO DEL PEDIDO.
-			SE INHABILITA PORQUE A LA FECHA ( JULIO 02 DE 2015)
-			SÓLO TENEMOS UNA FORMA DE PAGO
-$('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago',function(){
-		$idpedido = $(this).attr('idpedido');
-		 window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago/"+$idpedido;
-});
-*/
+
+
 
 
 $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
@@ -658,12 +663,14 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
   	if ( $Opciones_Seleccionada == 'CLIENTES_PRESENTADOS'){
   				Mostar_Clientes_x_IdTercero($codigousuario);
   	}
-
-
 			//compras_otros_link
   	if ( $Opciones_Seleccionada == 'DATOS_PERSONALES'){
   				Mostrar_Direcciones_x_IdTercero($Usuario_Seleccionado );
   				$('.btn_atualizar_direccion').attr('idtercero',$Usuario_Seleccionado);
+  	}
+  	if ( $Opciones_Seleccionada == 'RED_USUARIOS'){
+  			Mostrar_Red_de_Usuarios_Detallada_Por_Usuario( $Usuario_Seleccionado );
+  			Activar_Usuarios ( $Usuario_Seleccionado );
   	}
 });
 

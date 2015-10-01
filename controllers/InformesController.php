@@ -1,7 +1,6 @@
 <?php
 
-  class InformesController extends Controller
-  {
+  class InformesController extends Controller  {
       public function __construct()
       {
           parent::__construct();
@@ -196,9 +195,22 @@
             $this->View->Mostrar_Vista_Parcial("clientes_presentados_x_idtercero");
         }
 
-        public function Mi_Red_de_Usuarios() {
-            $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios");
+        public function Mi_Red_de_Usuarios(  $idtercero=0 ) {
+          if ( $idtercero == 0 ){
+              $idtercero = Session::Get('idtercero_pedido');
+          }
+          $this->View->SetCss(array("cuenta_informe_mi_red"));
+          $this->View->row =   $this->Informes->Total_Amigos_Detallado_Por_Nivel ( $idtercero);
+          $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios");
         }
+
+
+        public function Mi_Red_de_Usuarios_x_IdTtercero(  $idtercero=0 ) {
+          $this->View->SetCss(array("cuenta_informe_mi_red"));
+          $this->View->row =   $this->Informes->Total_Amigos_Detallado_Por_Nivel ( $idtercero);
+          $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios_x_idtercero");
+        }
+
     }
 
 ?>
