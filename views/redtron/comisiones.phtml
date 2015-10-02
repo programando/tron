@@ -1,3 +1,8 @@
+<?php
+    $Pedido_Minimo_Tron   = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus  = Session::Get('pedido_minimo_productos_fabricados_ta');
+?>
+
 <!--Los estilos se ecuentran en la carpeta CSS => tron_red_amigo_general.css -->
 
 <div class="contenedor"><!--Contenedor-De-La-Pagina-->
@@ -61,8 +66,9 @@
            </li>
         </ul><br><br>
 
-        <p class="text-justificado">Las Comisiones se liquidan los primeros 3 días hábiles del mes siguiente al mes que se liquida. <br><br>
-          Las comisiones se pierden cuando un Empresario TRON se inactiva un mes, o sea, no realiza su compra mínima mensual reglamentaria. ($ 25.000 en productos TRON para el hogar ó $ 40.000 en productos industriales fabricados por Balquimia S.A.S.). <br><br>
+        <p class="text-justificado">Las Comisiones se liquidan los primeros 3 días hábiles de cada mes. <br><br>
+          Las comisiones se pierden cuando un Empresario TRON se inactiva un mes, es decir, no realiza su compra mínima mensual reglamentaria.
+          ( <?= $Pedido_Minimo_Tron ;?> en productos TRON para el hogar ó <?= $Pedido_Minimo_Indus ;?> en productos industriales fabricados por Balquimia S.A.S.). <br><br>
           Al registrarse en el Plan Empresario TRON, se crearán dos (2) cuentas virtuales a nombre del usuario. La cuenta Dinero y la cuenta Puntos. El 70% del valor total de comisiones serán consignadas en la cuenta Dinero y el 30% restante serán consignados en la cuenta Puntos y estos sólo se utilizaran para compras en la Tienda Virtual. Cada punto tendrá el valor <a name="porcentajes"></a>de $1 M/cte. (un peso moneda colombiana corriente). <br><br>
           Las liquidaciones se basan en todas las compras de productos hechas en el mes por las personas que conforman tu red (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresarios TRON hasta el nivel sexto (6º.) en tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de Usuario en el Plan Cliente TRON. <br><br>
           Hay algunas cuantías sobre las que no se pagan comisiones, estas son: el IVA, el valor del transporte, la compra de accesorios o de productos promocionales los cuales se encuentran identificados con el ícono</p>
@@ -89,23 +95,23 @@
               <tbody><!--Cuerpo-->
                   <tr>
                      <td>Empresario TRON:</td>
-                     <td class="text-center">Productos TRON (cojines)</td>
+                     <td class="text-left">Productos TRON (cojines)</td>
                      <td class="text-center">5%</td>
                   </tr>
                   <tr>
                      <td></td>
-                     <td class="text-center">Otros productos</td>
-                     <td class="text-center">Variable<small>(ver tabla en menú Mi Cuenta)</small></td>
+                     <td class="text-lef">Otros productos</td>
+                     <td class="text-left">Variable<small>(ver tabla en menú Mi Cuenta)</small></td>
                   </tr>
                   <tr>
                      <td>Cliente TRON</td>
-                     <td class="text-center">Productos TRON (cojines)</td>
+                     <td class="text-left">Productos TRON (cojines)</td>
                      <td class="text-center">20%</td>
                   </tr>
                   <tr>
                      <td></td>
-                     <td class="text-center">Otros productos</td>
-                     <td class="text-center">Variable x 4  <small>(ver tabla en menú Mi Cuenta)</small></td>
+                     <td class="text-left">Otros productos</td>
+                     <td class="text-left">Variable x 4  <small>(ver tabla en menú Mi Cuenta)</small></td>
                   </tr>
               </tbody><!--Cuerpo-->
          </table>
@@ -121,14 +127,16 @@
       <p class="text-justificado">Los puntos son lo correspondiente al 30% de las Comisiones del Empresario TRON. <br><br>
         Los puntos son una estrategia importante para el funcionamiento de la Red, porque así como tú te ves obligado a comprar en la Tienda Virtual para redimirlos, así lo tendrán que hacer tus muchos amigos registrados en tu red y al hacerlo, tú ganas más porque ganas comisiones por esas compras.
         <br><br>
+
         Los puntos tendrán una vigencia de 60 días. Por ejemplo: En la liquidación de comisiones del mes de Marzo, un usuario obtiene 15000 puntos. Estos puntos aparecen en su cuenta Puntos los primeros días de Abril cuando se realiza la liquidación de comisiones. El usuario tiene todo el mes de Abril y todo el mes de Mayo para utilizarlos comprando en la Tienda Virtual. El proceso para redimirlos es muy sencillo. Basta comprar cualquier producto TRON u otro producto. Al momento de la liquidación del pedido el sistema verificará en primera instancia si existen puntos a favor y los aplicará al valor a pagar a razón de $ 1 por cada punto. De esta forma los puntos se convierten en dinero.
         </p>
-  </div><!--Puntos-->
+  </div>
 
 <!--////////////////////////////////////////////////-Medios de Cobro-//////////////////////////////////////////////////-->
 
     <div class="col-lg-12 col-md-12 col-sm-12"><!--Puntos-->
-      <div><p class="contenido-titulos">Medios de Cobro</p></div><!--Titulo-->
+
+      <div><p class="contenido-titulos">Medios de Cobro</p></div>
 
       <p class="text-justificado">Por defecto, el pago de las comisiones se hará en efectivo a través de Efecty., pero pueden los usuarios de la Red, a través del menú <em>Mi Cuenta / Información Adicional</em>, solicitar que sean pagadas mediante transferencia electrónica a alguna cuenta corriente o de ahorros que se encuentre a su nombre. <br><br>
 
@@ -136,8 +144,12 @@
 
         Si has escogido recibir sus pagos en efectivo a través de Efecty (opción por defecto), las cuantías inferiores a $ 30.000, no se te pagarán por ser consideradas de menor valor. Estos valores se abonan a la cuenta personal (cuenta Dinero) y contarán para ser restados en el próximo pedido del valor a pagar. En otras palabras, no se te entregan de forma directa pero sirven para que abones al valor de tu próximo pedido. <br><br>
 
-        Si por el contrario, has escogido mediante el menú <em>Mi Cuenta / Información Adicional</em>, modificar tus preferencias a transferencia bancaria como medio de pago de tus comisiones y bonificaciones, se pagará cualquier valor que supere un mínimo determinado (hoy $ 10.000).</p>
-  </div><!--Puntos-->
+        Si por el contrario, has escogido mediante el menú <em>Mi Cuenta / Información Adicional</em>, modificar tus preferencias a transferencia bancaria como medio de pago de tus comisiones y bonificaciones, se pagará cualquier valor que supere un mínimo determinado (hoy $ 10.000).
+        </p>
+
+
+  </div>
+
 </div><!--Contenido-De-La-Pagina = Titulos , Texto ,Informacion -->
 
 <!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->

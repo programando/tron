@@ -13,7 +13,7 @@
        	  	   <div class="blockques-opciones"><a href="<?= BASE_URL ;?>redtron/kint_de_inicio"><img src="<?= BASE_IMG_TIENDA ;?>kit.png" /><p>Kit de Inicio <br></p></a>
        	  	   </div>
 
-       	  	   <div class="blockques-opciones"><a href="<?= BASE_URL ;?>redtron/pases_de_cortesia"><img src="<?= BASE_IMG_TIENDA ;?>pases.png" /> <p>Pases de Cortesia</p></a></div>
+       	  	   <!--<div class="blockques-opciones"><a href="<?= BASE_URL ;?>redtron/pases_de_cortesia"><img src="<?= BASE_IMG_TIENDA ;?>pases.png" /> <p>Pases de Cortesia</p></a></div>-->
        	  </div>
 
        	  <div>

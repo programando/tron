@@ -173,7 +173,8 @@
             return $CorreoEnviado ;
       }
 
-      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $genero, $idtipo_plan_compras,$idtpidentificacion , $razonsocial ){
+      public function Activacion_Registro_Usuario($idtercero,$email, $nombre_usuario, $genero, $idtipo_plan_compras,
+                                                  $idtpidentificacion , $razonsocial, $codigousuario ){
          $this->Configurar_Cuenta('Activación Cuenta/Registro de Usuario');
          $this->Email->AddAddress($email );
          $logo                = BASE_IMG_EMPRESA .'logo.png';
@@ -185,15 +186,21 @@
          }else{
           $nombre = $razonsocial  ;
          }
+         $codigo_generado = '';
+         if ( $idtipo_plan_compras == 3 ){
+            $codigo_generado = 'Para que lo tengas en cuenta, tu código de usuario es : <strong>'. $codigousuario .'</strong><br />';
+            $codigo_generado = $codigo_generado . 'Este será el código que entregarás a tus amigos para que al registrarse queden bajo tu red.';
+         }
          $Saludo  = $nombre .' , Te damos una cordial bienvenida !!!';
          $enlace   = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/';
          $enlace   = $enlace .  $email . '/'.$idtercero. '/' .$idtipo_plan_compras . '/';
          $enlace   = $enlace .  $idtpidentificacion . '/ > Activar mi cuenta y finalizar registro </a>';
 
          $Texto_Correo      = file_get_contents(BASE_EMAILS.'activacion_registro_usuario.phtml','r');
-         $Texto_Correo      = str_replace("#_SALUDO_#"                  , $Saludo ,$Texto_Correo);
-         $Texto_Correo      = str_replace("#_ENLACE_ACTIVA_CUENTA_#"    , $enlace ,$Texto_Correo);
-         $Texto_Correo      = str_replace("#_LOGO_#"                    , $logo   ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_SALUDO_#"                  , $Saludo            ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_ENLACE_ACTIVA_CUENTA_#"    , $enlace            ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_LOGO_#"                    , $logo              ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_CODIGO_GENERADO_#"         , $codigo_generado   ,$Texto_Correo);
          $this->Email->Body = $Texto_Correo  ;
 
          $Respuesta         = $this->Enviar_Correo();

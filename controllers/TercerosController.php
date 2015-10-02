@@ -608,7 +608,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
      //--------------------------------------------------------------------------------------
      $this->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,$idmcipio);
 
-     $this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial);
+     $this->Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras ,
+                                                          $idtpidentificacion,$razonsocial,  $codigousuario);
 
      // DEJAR LAS VARIABLES EN BLANCO
      $this->Registro_Re_Establecer_Tercero_Presenta();
@@ -619,10 +620,12 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
      echo json_encode($Datos,256);
     }
 
-  public function Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial)
+  public function Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras ,
+                  $idtpidentificacion,$razonsocial, $codigousuario)
   {
      // ENVIO CORREO PARA ACTIVACIÓN DE USUARIO
-     $Res = $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre,$genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial );
+     $Res = $this->Correos->Activacion_Registro_Usuario($idtercero ,$email, $pnombre,$genero, $idtipo_plan_compras ,
+                                                        $idtpidentificacion,$razonsocial, $codigousuario );
      // GENERA REGISTRO TEMPORAL PARA CONFIRMACIÓN DE CUENTA.
      $this->Terceros->Clave_Temporal_Grabar_Cambio_Clave($idtercero ,Session::Get('codigo_confirmacion'));
 

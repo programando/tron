@@ -1,4 +1,4 @@
- 
+
 
 <style>
 	 .derechos_inscripcion nav ul li {
@@ -14,9 +14,9 @@
 	 	  text-align: center;
           width: 70px;
 	 }
- 
+
     .tabla_bonificaiones{
-    	  
+
     	 display: block;
     	 width: 70%;
     	 text-align: center;
@@ -26,47 +26,47 @@
     	 border-bottom:  0px;
     	 border-left:  0px;
          font-size: 14px;
-    	 
+
     }
 
     .tabla_cabezera {
-    	 width:150px; 
+    	 width:150px;
     	 background: #003E90;
     	 color: white;
     	 border: 1px solid #011835;
          text-align: center;
     }
- 
+
     .table_cuerpo {
-     
+
     }
 
 
 </style>
 
- 
- 
+
+
 
          <!-- Contenedor principal -->
          <div>
          	  <!-- Derechos de Inscripcion -->
          	  <div class="derechos_inscripcion">
-         	  	   <h4 style="color: #003E90; text-align: center; font-size: 14px;"><strong>DERECHOS DE INSCRIPCION</strong></h4><br>
+         	  	   <h4 style="color: #003E90; text-align: center; font-size: 14px;"><strong>DERECHOS DE INSCRIPCIÓN</strong></h4><br>
          	  	   <nav style="">
          	  	   	   <ul>
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_1">Valor de la cuota 1 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_1">	 
+         	  	   	   	       <input type="text" class="caja_text" id="cuota_1">
          	  	   	   	   </li>
 
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_2">Valor de la cuota 2 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_2"> Cuando las ganancias sean mayores a :  <input type="text" class="caja_text" id="">	 
+         	  	   	   	       <input type="text" class="caja_text" id="cuota_2"> Cuando las ganancias sean mayores a :  <input type="text" class="caja_text" id="">
          	  	   	   	   </li>
 
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_3">Valor de la cuota 3 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_3"> Cuando las ganancias sean mayores a : <input type="text" class="caja_text" id="">	 
+         	  	   	   	       <input type="text" class="caja_text" id="cuota_3"> Cuando las ganancias sean mayores a : <input type="text" class="caja_text" id="">
          	  	   	   	   </li>
 
                            <li>
@@ -76,11 +76,11 @@
 
          	  	   	   </ul>
          	  	   </nav>
- 
+
          	  </div><br>
               <!-- Tabla = distribucion de las bonificaciones -->
               <div class="cont_tabla_bonificacines">
-              	 <h4 style="color: #003E90; text-align: center; font-size: 14px;"><strong>DISTRIBUCION DE LAS BONIFICACIONES/ PRIMAS EN LA RED</strong> </h4><br>
+              	 <h4 style="color: #003E90; text-align: center; font-size: 14px;"><strong>DISTRIBUCIÓN DE LAS BONIFICACIONES/ PRIMAS EN LA RED</strong> </h4><br>
 				 <table  border="1" class="tabla_bonificaiones" style="border-collapse: collapse; ">
 				      <!-- Cabezera -->
 				        <thead style="border-bottom: 1px solid red; ">
@@ -105,7 +105,7 @@
 				              <td class="table_cuerpo">2%</td>
 				              <td class="table_cuerpo">1%</td>
 				           </tr>
-				 
+
 				           <tr >
 				              <td class="table_cuerpo">2</td>
 				              <td class="table_cuerpo">1%</td>
@@ -124,13 +124,13 @@
 				              <td class="table_cuerpo">8%</td>
 				              <td class="table_cuerpo">16%</td>
 				              <td class="table_cuerpo">32%</td>
-				           </tr>           
+				           </tr>
 				        </tbody>
-				 </table>  
+				 </table>
               </div>
          </div><br><br>
 
- 
+
 
 
 

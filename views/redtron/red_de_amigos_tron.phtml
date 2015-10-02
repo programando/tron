@@ -1,3 +1,7 @@
+<?php
+    $Pedido_Minimo_Tron   = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus  = Session::Get('pedido_minimo_productos_fabricados_ta');
+?>
 <!--Los estilos se encuentran en la carpeta CSS => tron_red_amigo_general.css -->
 <div class="contenedor"><!--Contenedor-De-La-Pagina-->
 <div class="row"><!--Fila-->
@@ -17,7 +21,7 @@
     <div class="col-lg-9  col-md-9  col-sm-9"><!--Contenido-De-La-Pagina = Titulos , Texto ,Informacion -->
        <div class="row"><!--Titulo-->
        	   <div class="col-lg-12 col-md-12 col-sm-12">
-       	   	  <h1 class="titulo-principal">La	Red De Amigos TRON</h1> <br>
+       	   	  <h1 class="titulo-principal">La	Red de Amigos TRON</h1> <br>
        	   </div>
        </div><!--Titulo-->
 
@@ -28,11 +32,11 @@
         <nav class="indice">
            <ul class="list-unstyled">
               <li><a href="#introducion">Introdución</a></li>
-              <li><a href="#diferencias">Diferencias con Multinivel Tradicional</a></li>
+              <li><a href="#diferencias">Diferencias con Multinivel tradicional</a></li>
               <li><a href="#beneficios">Beneficios</a></li>
               <li><a href="#requisitos">Requisitos</a></li>
-              <li><a href="#estructura">Estructura de La red</a></li>
-              <li><a href="#diferencias_ilegales">Diferencias en Las redes legales de las ilegales</a></li>
+              <li><a href="#estructura">Estructura de la red</a></li>
+              <li><a href="#diferencias_ilegales">Diferencias en las redes legales de las ilegales</a></li>
            </ul>
         </nav>
     </div><!--Idice-->
@@ -171,12 +175,13 @@
        	   	  	  <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
        	   	  </tr>
 
-       	   	  <tr>
+       	   	 <!-- <tr>
        	   	  	  <td>PASES DE CORTESÍA <br>
        	   	  	  <small>Para que le otorgue a tus amigos potenciales los Precios Especiales a los que tú tienes derecho, incentivandolos de manera discreta a unirse a tu red.</small>
        	   	  	  </td>
-       	   	  	  <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
+       	   	  	  <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td>
        	   	  </tr>
+              -->
 
        	   	  <tr>
        	   	  	  <td>ADQUISICIÓN DE CÓDIGO DE USUARIO PARA INVITAR AMIGOS A LA RED</td>
@@ -230,8 +235,8 @@
       	  <li>Registrarse como Empresario TRON y para ello se debe comprar el Kit de Inicio y pagar los Derechos de Inscripción.</li>
          <li>Comprometerse con ingresar como mínimo 4 amigos que se registren en el plan Empresarios TRON.</li>
          <li>Asesorar y motivar a los amigos ingresados para que estos a su vez puedan ingresar también los cuatro (4) amigos que les corresponde.</li>
-         <li>Comprar como mínimo $25.000 pesos mensuales en productos  TRON que se encuentran en la zona HOGAR Y PERSONAL ó si eres comprador de productos industriales, comprar como mínimo $40.000 pesos mensuales en productos de la zona INDUSTRIAL fabricados por Balquimia S.A.S. y marcados en la Tienda Virtual con el símbolo
-            <span><img src="<?= BASE_IMG_PRODUCTOS ;?>22.png" /></span>
+         <li>Comprar como mínimo <?= $Pedido_Minimo_Tron ;?> pesos mensuales en productos  TRON que se encuentran en la zona HOGAR Y PERSONAL ó si eres comprador de productos industriales, comprar como mínimo <?= $Pedido_Minimo_Indus ;?>  pesos mensuales en productos de la zona INDUSTRIAL fabricados por Balquimia S.A.S. y marcados en la Tienda Virtual con el símbolo :
+             <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="100px" />
          </li>
       </ul>
    </div><!--Contenido-Requisitos -->
@@ -239,7 +244,7 @@
 <!--///////////////////////////////////////////////////-Estructura-//////////////////////////////////////////////////////////////-->
 
    <div class="col-lg-12 col-md-12 col-sm-12"><!--Contenido-Esctructura-->
-      <div>	<p class="contenido-titulos">Estructura</p></div><!--Titulo-->
+      <div>	<p class="contenido-titulos">Estructura de la Red</p></div><!--Titulo-->
       <p>	La Red de Amigos TRON tiene una estructura que permite un crecimiento exponencial, ya que cada persona puede tener cuatro (4) Frontales y cada uno de ellos se puede expandir hasta seis (6) niveles de profundidad, dando como resultado recibir comisiones de una red de más de 5400 usuarios y ése, no es el límite.
       </p>
       <p class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>estructura.jpg" /> <a name="diferencias_ilegales"></a></p>
@@ -250,7 +255,7 @@
 
      <div class=" col-lg-12 col-md-12 col-sm-12"><!--Diferencias entre redes legales e ilegales <-->
      	   <div><p class="contenido-titulos" >	Diferencias entre redes legales e ilegales</p></div><!--Titulo-->
-     	   <p>Existen diferencias facilmente reconocibles entre las redes legales y las ilegales:</p>
+     	   <p>Existen diferencias fácilmente reconocibles entre las redes legales y las ilegales:</p>
      	   <table class="table table-condesed table-hover contenido-tablas">
      	       <thead>	<!--Emcabezado-->
      	          <tr>
