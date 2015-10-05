@@ -1,6 +1,13 @@
 <?php
-    $Pedido_Minimo_Tron   = Session::Get('valor_minimo_pedido_productos');
-    $Pedido_Minimo_Indus  = Session::Get('pedido_minimo_productos_fabricados_ta');
+    $Pedido_Minimo_Tron        = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus       = Session::Get('pedido_minimo_productos_fabricados_ta');
+    $cuota_1_valor             = Numeric_Functions::Formato_Numero( $this->Bonificacion_Cuotas[0]['cuota_1_valor'] );
+    $cuota_2_valor             = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_valor'] );
+    $cuota_3_valor             = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_valor'] );
+    $cuota_2_tope_ganancias    = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_tope_ganancias'] );
+    $cuota_3_tope_gananacias   = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_tope_gananacias'] );
+    $Total_Derecho_Inscripcion = $this->Bonificacion_Cuotas[0]['cuota_1_valor'] + $this->Bonificacion_Cuotas[0]['cuota_2_valor'] + $this->Bonificacion_Cuotas[0]['cuota_3_valor'] ;
+    $Total_Derecho_Inscripcion = Numeric_Functions::Formato_Numero($Total_Derecho_Inscripcion);
 ?>
 
 <!--Los estilos se encuentran en la carpeta CSS => tron_red_amigo_general.css -->
@@ -291,7 +298,7 @@
                                <?php include (APPLICATION_SECTIONS . 'preguntas_bonificaciones_tabla.php');?>
                             <!-- application_sections : preguntas_bonificaciones_tabla.php  -->
 
-                            Tú estás en el nivel cero (0). Los cuatro (4) amigos de ingresaste están en el nivel 1 y así sucesivamente. Mientras más alejado esté el nivel de ti, más amigos habrán en ese nivel. Haz cuentas y te sorprenderás. Así bonificamos tu interés en hacer crecer esta red de solidaridad. Te invitamos a transformar esta promesa en algo real, simplemente Pasando la Voz y observando cómo cada que crece tu red, crecen tus ingresos por concepto de Bonificaciones. Los resultados de tu gestión podrás confirmarlos a principios de cada mes cuando se liquiden Bonificaciones y Comisiones, a través de los distintos Informes que hemos puesto a tu disposición. El 100% de lo ganado será depositado en tu Cuenta Dinero. Recuerda, TRON Entre amigos alcanzamos ha sido diseñado pensando en beneficiar a muchísimas personas, a todos los que se vinculen. Te invitamos a ser parte de esta visión.
+                            Tú estás en el nivel cero (0). Los cuatro (4) amigos que ingresaste están en el nivel 1 y así sucesivamente. Mientras más alejado esté el nivel de ti, más amigos habrán en ese nivel. Haz cuentas y te sorprenderás. Así bonificamos tu interés en hacer crecer esta red de solidaridad. Te invitamos a transformar esta promesa en algo real, simplemente Pasando la Voz y observando cómo cada que crece tu red, crecen tus ingresos por concepto de Bonificaciones. Los resultados de tu gestión podrás confirmarlos a principios de cada mes cuando se liquiden Bonificaciones y Comisiones, a través de los distintos Informes que hemos puesto a tu disposición. El 100% de lo ganado será depositado en tu Cuenta Dinero. Recuerda, TRON Entre amigos alcanzamos ha sido diseñado pensando en beneficiar a muchísimas personas, a todos los que se vinculen. Te invitamos a ser parte de esta visión.
                        </li>
 
                      </ul><!--Contenido -->

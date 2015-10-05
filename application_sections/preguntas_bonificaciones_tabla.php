@@ -12,7 +12,8 @@
 	 	  border: 1px solid #9B9B9B;
 	 	  padding: 5px;
 	 	  text-align: center;
-          width: 70px;
+     width: 90px;
+     text-align: right;
 	 }
 
     .tabla_bonificaiones{
@@ -56,22 +57,22 @@
          	  	   	   <ul>
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_1">Valor de la cuota 1 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_1">
+         	  	   	   	       <input type="text" class="caja_text" disabled="disabled"  id="cuota_1" value=" <?= $cuota_1_valor ;?> ">
          	  	   	   	   </li>
 
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_2">Valor de la cuota 2 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_2"> Cuando las ganancias sean mayores a :  <input type="text" class="caja_text" id="">
+         	  	   	   	       <input type="text" class="caja_text"disabled="disabled"  id="cuota_2" value=" <?= $cuota_2_valor ;?> "> Cuando las ganancias sean mayores a :  <input type="text" class="caja_text"  disabled="disabled"value=" <?= $cuota_2_tope_ganancias ;?> " >
          	  	   	   	   </li>
 
          	  	   	   	   <li>
          	  	   	   	       <label for="cuota_3">Valor de la cuota 3 : </label>
-         	  	   	   	       <input type="text" class="caja_text" id="cuota_3"> Cuando las ganancias sean mayores a : <input type="text" class="caja_text" id="">
+         	  	   	   	       <input type="text" class="caja_text" disabled="disabled" id="cuota_3" value=" <?= $cuota_3_valor ;?> "> Cuando las ganancias sean mayores a : <input type="text" class="caja_text" disabled="disabled" value=" <?= $cuota_3_tope_gananacias ;?> ">
          	  	   	   	   </li>
 
                            <li>
                                 <label for="total">Total : </label>
-                                <input type="text" class="caja_text" id="total" style="margin-left: 92px;">
+                                <input type="text" class="caja_text" disabled="disabled" id="total" style="margin-left: 92px;" value=" <?=$Total_Derecho_Inscripcion;?> ">
                            </li>
 
          	  	   	   </ul>
@@ -96,35 +97,18 @@
 				        </thead>
                       <!-- Cuerpo -->
 				        <tbody>
+				        	<?php foreach ($this->Bonificaciones_Porcentajes as $Porcentajes) :?>
 				           <tr>
-				              <td class="table_cuerpo">1</td>
-				              <td class="table_cuerpo">32%</td>
-				              <td class="table_cuerpo">16%</td>
-				              <td class="table_cuerpo">8%</td>
-				              <td class="table_cuerpo">4%</td>
-				              <td class="table_cuerpo">2%</td>
-				              <td class="table_cuerpo">1%</td>
+				              <td class="table_cuerpo"> <?= $Porcentajes['idcuota'] ;?> </td>
+				              <td class="table_cuerpo"> <?= number_format( $Porcentajes['porciento_nivel_1'] ).'%' ;?> </td>
+				              <td class="table_cuerpo"> <?= number_format( $Porcentajes['porciento_nivel_2'] ).'%' ;?></td>
+				              <td class="table_cuerpo"> <?= number_format( $Porcentajes['porciento_nivel_3'] ).'%' ;?></td>
+				              <td class="table_cuerpo"> <?= number_format( $Porcentajes['porciento_nivel_4'] ).'%' ;?></td>
+				              <td class="table_cuerpo"> <?= number_format( $Porcentajes['porciento_nivel_5'] ).'%' ;?></td>
+				              <td class="table_cuerpo"> <?= number_format( $Porcentajes['porciento_nivel_6'] ).'%' ;?></td>
 				           </tr>
 
-				           <tr >
-				              <td class="table_cuerpo">2</td>
-				              <td class="table_cuerpo">1%</td>
-				              <td class="table_cuerpo">2%</td>
-				              <td class="table_cuerpo">4%</td>
-				              <td class="table_cuerpo">8%</td>
-				              <td class="table_cuerpo">16%</td>
-				              <td class="table_cuerpo">32%</td>
-				           </tr>
-
-				           <tr>
-				              <td class="table_cuerpo">2</td>
-				              <td class="table_cuerpo">1%</td>
-				              <td class="table_cuerpo">2%</td>
-				              <td class="table_cuerpo">4%</td>
-				              <td class="table_cuerpo">8%</td>
-				              <td class="table_cuerpo">16%</td>
-				              <td class="table_cuerpo">32%</td>
-				           </tr>
+				         	<?php endforeach ;?>
 				        </tbody>
 				 </table>
               </div>

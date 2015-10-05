@@ -9,6 +9,7 @@ class RedtronController extends Controller
     public function __construct()
     {
         parent::__construct();
+        $this->RedTron = $this->Load_Model('RedTron');
 
     }
 
@@ -119,6 +120,10 @@ class RedtronController extends Controller
 
     public function preguntas_frecuentes()
         {
+
+            $this->View->Bonificacion_Cuotas        = $this->RedTron->Bonificaciones_Cuotas();
+            $this->View->Bonificaciones_Porcentajes = $this->RedTron->Bonificaciones_Porcentajes();
+
             $this->View->SetCss(array('tron_red_amigo_general'));
             $this->View->SetJs(array('preguntas_frecuentes','tron_btn_ir_arriba','menu-accordion'));
             $this->View->Mostrar_Vista("preguntas_frecuentes");
