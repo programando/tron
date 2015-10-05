@@ -1,3 +1,8 @@
+<?php
+    $Pedido_Minimo_Tron   = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus  = Session::Get('pedido_minimo_productos_fabricados_ta');
+?>
+
 
 <div class="contenedor"><!--Contenedor-De-La-Pagina-->
 <div class="row"><!--Fila-->
@@ -50,10 +55,12 @@
 
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Precios Especiales para Amigos TRON.</li>
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Invitación a capacitaciones y eventos sobre el modelo de negocio.</li>
+                <!--
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span><a href="#">Pases de Cortesía y Pases Premium.</a></li>
+                -->
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Código de usuario para invitar amigos a tu red.</li>
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span><a href="#">Comisiones.</a></li>
-        	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span><a href="#">Bonificacion.</a></li>
+        	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span><a href="#">Bonificaciones.</a></li>
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Primas Anuales.</li>
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Reconocimiento y estatus por logros alcanzados en tu red.</li>
         	  	  <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Acceso a Informes administrativos sobre el desempeño de tu red.</li>
@@ -78,9 +85,9 @@
        </div><!--img-float-left -->
 
        <div class="col-lg-8 col-md-8  col-sm-8"><!--text-float-left -->
-           <p class="text-tron">Como su nombre lo indica este es el Plan de las personas que desean aprovechar todos los beneficios que ofrecen los productos TRON, convirtiéndose en consumidores habituales de ellos con una compra mensual mínima de $25.000. El hacerlo les da derecho a acceder a precios preferenciales aún mejores que en el Plan Comprador Ocasional, no solo en los productos TRON sino también en toda la tienda virtual. Para registrarse en este Plan se debe adquirir el kit de Inicio de productos TRON para el hogar ó comprar $40.000 en productos Industriales fabricados por
+           <p class="text-tron">Como su nombre lo indica este es el Plan de las personas que desean aprovechar todos los beneficios que ofrecen los productos TRON, convirtiéndose en consumidores habituales de ellos con una compra mensual mínima de <?= $Pedido_Minimo_Tron ;?>. El hacerlo les da derecho a acceder a precios preferenciales aún mejores que en el Plan Comprador Ocasional, no solo en los productos TRON sino también en toda la tienda virtual. Para registrarse en este Plan se debe adquirir el kit de Inicio de productos TRON para el hogar ó comprar <?= $Pedido_Minimo_Indus ;?> en productos Industriales fabricados por Balquimia S.A.S.
 
-           <img src="<?= BASE_IMG_PRODUCTOS ;?>22.png"/>
+           <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="100px"/>
            </p>
        </div><!--text-float-left -->
 
