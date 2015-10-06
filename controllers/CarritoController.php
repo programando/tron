@@ -840,7 +840,7 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
     $Parametros                                       =  Session::Get('Parametros');
 
     /// ESTAS PRESENTACIONES ON DE INDUSTRIAL, PERO APLICAN EN COURRIER
-    $presentaciones_aplican_courrier   = array(3, 6, 7, 9, 14, 87, 90,144, 149, 158, 159, 165, 167, 168, 178, 180, 192 );
+    $presentaciones_aplican_courrier   = array(3, 6, 7, 9, 14, 85, 87, 90,144, 149, 158, 159, 165, 167, 168, 178, 180, 192 );
 
     $this->Iniciar_Procesos_Carro();
     if ($this->Carrito_Habilitado == FALSE)  {

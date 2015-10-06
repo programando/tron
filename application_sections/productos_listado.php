@@ -21,7 +21,7 @@
 
                 <?php if ($fabricado_x_ta ==1): ?>
                 <!--IMG-tecnologias -->
-                  <img src="<?=BASE_IMG_PRODUCTOS;?>22.png" title="Producto Fabricado por Balquimia S.A.S." >
+                  <img src="<?=BASE_IMG_PRODUCTOS;?>22.png" width="67" title="Producto Fabricado por Balquimia S.A.S." >
                   <div class="img-tecnologias" title="Producto Fabricado por Balquimia S.A.S."></div>
                 <?php endif ?>
 
