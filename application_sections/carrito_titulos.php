@@ -1,5 +1,6 @@
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
+  $logueado                              = Session::Get('autenticado');
 ?>
 
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->
@@ -10,7 +11,7 @@
    <th class="text-center  titulos-tabla"><strong>Presentación</strong></th>
    <th class="text-center  titulos-tabla"><strong>Cantidad</strong> </th><!--Cantidad -->
 
-  <?php if ($cumple_condicion_cpras_tron_industial == FALSE ) :?>
+  <?php if ($cumple_condicion_cpras_tron_industial == FALSE ||  $logueado == FALSE ) :?>
     <th class="text-right   titulos-tabla"><strong>Precio Unit.</strong> </th><!--Precio UNIT. -->
     <th class="text-right   titulos-tabla"><strong>Total</strong> </th><!--Total -->
     <th class="text-right  titulo-tron" title="Precio unitario para clientes/empresarios TRON"><strong>Precio Unit.</strong> </th><!--Total -->
