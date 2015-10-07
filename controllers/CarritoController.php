@@ -581,6 +581,7 @@ public function Totalizar_Carrito(){
           $id_categoria_producto                      = $Productos['id_categoria_producto'];
           $peso_gramos                                = $Productos['peso_gramos'];
           $cmv                                        = $Productos['cmv'];
+
           //Precio Diferencial del Kit de inicio según e compren o no los derechos de inscripción.
           if ( $this->Existe_Derecho_Inscripcion == TRUE && $idproducto == 10744 ){
             $Productos['pv_ocasional']        = $Productos['precio_kit_tron'];
@@ -603,6 +604,7 @@ public function Totalizar_Carrito(){
           $Productos['sub_total_pv_tron']             = $cantidad     * $pv_tron;
           $Productos['sub_total_pv_ocasional']        = $cantidad     * $pv_ocasional ;
           $Productos['peso_gramos_total']             = $peso_gramos   * $cantidad ;
+
           $Productos['precio_unitario_produc_pedido'] = $pv_ocasional ;
           $_sub_total_pv_tron                         = $Productos['sub_total_pv_tron'] ;
 
@@ -912,6 +914,7 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
               $Recaudo_Productos_Tron = $this->PayuLatam_Valor_Minimo ;
             }
             $Productos['vr_anticipo_recaudo']     = ($Recaudo_Productos_Tron + $this->PayuLatam_Valor_Adicional) / $this->Cantidad_Productos_Tron ;
+            $Productos['vr_anticipo_recaudo']     = $Productos['vr_anticipo_recaudo'] * $cantidad;
             $this->vr_total_anticipo_recaudo_tron = $this->vr_total_anticipo_recaudo_tron + $Productos['vr_anticipo_recaudo'];
           }
          }
