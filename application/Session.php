@@ -17,21 +17,21 @@
          * DESTRE UNA VARIABLE(S) DE SESSION
          * @param boolean $clave [Nombre de la clave que se va a destruir]
          */
-        public static function Destroy($clave = false)
-        {
-            if($clave)
-              {
-                if(is_array($clave))
-                {
-                    for($i = 0; $i < count($clave); $i++)
-                    {
+        public static function Destroy($clave = false){
+            if($clave) {
+                if(is_array($clave)) {
+                    for($i = 0; $i < count($clave); $i++) {
                         if(isset($_SESSION[$clave[$i]])) {  unset($_SESSION[$clave[$i]]); }
                     }
                 }
-                else{ if(isset($_SESSION[$clave]))  	{ unset($_SESSION[$clave]); }
+                else{
+                    if(isset($_SESSION[$clave])) {
+                        unset($_SESSION[$clave]);
+                    }
                 }
-              }
-            else {  session_destroy(); }
+              } else {
+                session_destroy();
+            }
         }
 
 
