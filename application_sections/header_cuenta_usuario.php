@@ -1,3 +1,7 @@
+<?php
+          Debug::Mostrar( 'Logueado... ? ' . Session::Get('autenticado')  );
+
+?>
 
  <?php if (Session::Get('autenticado') == FALSE ) :?>
   <div class="row" id="personal"><!-- INFORMACION SOBRE CUENTAS-->
@@ -8,7 +12,7 @@
         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
       </a>
       <a href="<?=BASE_URL ;?>terceros/registro" class="registrar">
-         <span class="glyphicon glyphicon-list-alt"></span> Registrarme..
+         <span class="glyphicon glyphicon-list-alt"></span> Registrarme
       </a>
 
     </p>
