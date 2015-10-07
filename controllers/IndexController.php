@@ -88,7 +88,6 @@ class IndexController extends Controller
 
     public function Cerrar_Sesion() {
         Session::Destroy();
-
         $this->Redireccionar();
     }
 
