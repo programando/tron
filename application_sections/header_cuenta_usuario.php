@@ -1,7 +1,4 @@
-<?php
-          Debug::Mostrar( 'Logueado... ? ' . Session::Get('autenticado')  );
-
-?>
+<?php $Logueado = Session::Get('autenticado') ; ?>
 
  <?php if (Session::Get('autenticado') == FALSE ) :?>
   <div class="row" id="personal"><!-- INFORMACION SOBRE CUENTAS-->
@@ -12,7 +9,7 @@
         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
       </a>
       <a href="<?=BASE_URL ;?>terceros/registro" class="registrar">
-         <span class="glyphicon glyphicon-list-alt"></span> Registrarme
+         <span class="glyphicon glyphicon-list-alt"></span> Registrarme... <?= $Logueado  ;?>
       </a>
 
     </p>
@@ -52,7 +49,7 @@
         <!-- cerrar secion -->
          <li>
             <a href="<?=BASE_URL ;?>index/Cerrar_Sesion">
-                / <span class="exit"></span> Cerrar Sesión
+                / <span class="exit"></span> Cerrar Sesión <?= $Logueado  ;?>
             </a>
         </li>
       </ul>
