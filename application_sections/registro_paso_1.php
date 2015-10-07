@@ -68,14 +68,14 @@
                    <td> <strong>
                         <a class="nuvv aS colurAd" title="
                               Para que le otorgue Precios Especiales en toda la tienda a tus amigos potenciales a unirse a la red TRON. ">
-                              PASES DE CORTESÍA Y PASES PREMIUM
+                              PASES DE CORTESÍA
                         </a></strong> </td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
                 </tr>
                 <tr>
-                   <td>CODIGO DE USUARIO INVITAR AMIGO A TU RED</td>
+                   <td>CÓDIGO DE USUARIO INVITAR AMIGO A TU RED</td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>

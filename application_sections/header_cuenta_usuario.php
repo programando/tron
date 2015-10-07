@@ -1,5 +1,5 @@
 
- <?php if (Session::Get('autenticado')==false ) :?>
+ <?php if (Session::Get('autenticado') == FALSE ) :?>
   <div class="row" id="personal"><!-- INFORMACION SOBRE CUENTAS-->
 
     <p class="text-right">
@@ -8,7 +8,7 @@
         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
       </a>
       <a href="<?=BASE_URL ;?>terceros/registro" class="registrar">
-         <span class="glyphicon glyphicon-list-alt"></span> Registrarme
+         <span class="glyphicon glyphicon-list-alt"></span> Registrarme..
       </a>
 
     </p>
@@ -17,7 +17,7 @@
   <?php endif ;?>
 
   <!-- INFORMACIÓN PARA USUARIOS AUTENTICADOS -->
- <?php if (Session::Get('autenticado')== TRUE ) :?>
+ <?php if (Session::Get('autenticado') == TRUE ) :?>
   <div class="row"  id="personal"><!-- INFORMACION SOBRE CUENTAS-->
     <ul class="list-unstyled cont-mi-cuenta">
          <!-- bienvenido -->
