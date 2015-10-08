@@ -5,6 +5,7 @@ class CarritoController extends Controller{
      private $Carrito_Vacio                   = false;
      private $Cantidad_Filas_Carrito          = 0;
      private $Datos_Carro;
+     Private $flfl;
 
      private $SubTotal_Pedido_Amigos          = 0;    // SON PARCIALES PORQUE AÚN NO SE APLIAN DESCUENTOS
      private $SubTotal_Pedido_Ocasional       = 0;
