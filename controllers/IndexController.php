@@ -16,12 +16,12 @@ class IndexController extends Controller
     }
 
     public function Index() {
-        $info               = General_Functions::Datos_Navegador();
-        $Tipo_Navegador     = $info['browser'];
-        $Tipo_Navegador_2   = $info['browser'];
+        //$info               = General_Functions::Datos_Navegador();
+        //$Tipo_Navegador     = $info['browser'];
+        //$Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
-        $usuario_autenticado = Session::Get('autenticado');
 
+        $usuario_autenticado = Session::Get('autenticado');
         if ( !isset( $usuario_autenticado )){
             Session::Set('autenticado',FALSE);
             Session::Set('idtipo_plan_compras',1);
@@ -87,6 +87,8 @@ class IndexController extends Controller
     }
 
     public function Cerrar_Sesion() {
+        Session::Set('autenticado', FALSE );
+        session_unset($_SESSION['autenticado']);
         Session::Destroy();
         $this->Redireccionar();
     }

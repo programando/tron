@@ -29,9 +29,10 @@
 
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
+  $logueado                              = Session::Get('autenticado');
 ?>
 
- <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial)) :?>
+ <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) || $logueado == FALSE) :?>
         <!-- SUBTOTAL -->
         <?php include (APPLICATION_SECTIONS . 'carrito_totales_no_cumple_condiciones_compra.php');?>
       <?php else :?>
