@@ -9,7 +9,7 @@
         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
       </a>
       <a href="<?=BASE_URL ;?>terceros/registro" class="registrar">
-         <span class="glyphicon glyphicon-list-alt"></span> Registrarme... <?= $Logueado  ;?>
+         <span class="glyphicon glyphicon-list-alt"></span> Registrarme...
       </a>
 
     </p>
@@ -49,7 +49,7 @@
         <!-- cerrar secion -->
          <li>
             <a href="<?=BASE_URL ;?>index/Cerrar_Sesion">
-                / <span class="exit"></span> Cerrar Sesión <?= $Logueado  ;?>
+                / <span class="exit"></span> Cerrar Sesión
             </a>
         </li>
       </ul>
