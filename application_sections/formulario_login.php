@@ -5,8 +5,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header header-login">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="login-fom-btn-x">&times;</span>
-          </button>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="login-fom-btn-x">&times;</span></button>
           Ingreso a Red TRON
         </div>
         <div class="modal-body">
