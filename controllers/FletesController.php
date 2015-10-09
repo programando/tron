@@ -663,6 +663,7 @@
 								$this->Transportadoras        = $this->Parametros->Transportadoras();
 								$subsisio_flete_valle         = Session::Get('subsisio_flete_valle');
 								$SubSidio_Flete_Unitario_Tron = 0;
+
 								if ( $cantidad > 0 ){
 									if ( $valor_total_compra_tron >= $this->Transportadoras[0]['valor_minimo_pedido_productos']){
 											//CALCULO DEL SEGURO
@@ -671,6 +672,7 @@
 											}else{
 												$Seguro  = $valor_declarado *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
+
 											$SubSidio_Flete_Unitario_Tron = ($subsisio_flete_valle  + $Seguro ) / $cantidad;
 									}
 									Session::Set('SubSidio_Flete_Unitario_Tron',$SubSidio_Flete_Unitario_Tron);

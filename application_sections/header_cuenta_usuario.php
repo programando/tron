@@ -1,4 +1,4 @@
-<?php $Logueado = Session::Get('autenticado') ; ?>
+
 
  <?php if (Session::Get('autenticado') == FALSE ) :?>
   <div class="row" id="personal"><!-- INFORMACION SOBRE CUENTAS-->

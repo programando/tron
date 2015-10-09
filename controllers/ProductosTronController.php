@@ -35,6 +35,8 @@
 									$dscto_precio_mercado_2_banios       = $parametros[0]['dscto_precio_mercado_2_banos'] / 100 ;
 									$dscto_precio_mercado_3_pisos        = $parametros[0]['dscto_precio_mercado_3_pisos'] / 100 ;
 									$dscto_precio_mercado_4_loza         = $parametros[0]['dscto_precio_mercado_4_loza'] / 100 ;
+
+
 									$valor_minimo_pedido_productos       = $parametros[0]['valor_minimo_pedido_productos'];
 									//VALORES PARA FLETES Y PRESUPUESTO DE FLETES
 									Session::Set('rt_courrier_seguro'                                   ,   $parametros[0]['rt_courrier_seguro']);
@@ -53,8 +55,12 @@
 											$Costo_Total        = $Cmv_Ropa 										+ $Cmv_Banios 									 + $Cmv_Pisos		 								+ $Cmv_Loza	 ;
 											$Precio_Lista_Total = $Precio_Lista_Ropa  + $Precio_Lista_Banios 	+ $Precio_Lista_Pisos 	+ $Precio_Lista_Loza;
 
-										$Flete_Real = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
+
+										$Flete_Real           = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
 										$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
+
+
+
 
 											$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional ;
 											$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $Flete_Real  );
@@ -77,9 +83,11 @@
 
 
 											$descuento_especial = $Precio_Lista_Total  - $precio_especial ;
+
 											//$descuento_especial = round($descuento_especial,0);
 											$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
 											$descuento_especial_porciento = round($descuento_especial_porciento,2);
+
 
 											// *	10. HALLAR DESCUENTO NEGATIVO PARA ENCONTRAR EL TRANSPORTE
 											$descuento_negativo = 0 ;

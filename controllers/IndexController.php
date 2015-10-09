@@ -90,7 +90,8 @@ class IndexController extends Controller
         Session::Set('autenticado', FALSE );
         session_unset($_SESSION['autenticado']);
         Session::Destroy();
-        $this->Redireccionar();
+        //$this->Redireccionar();
+        header('Location: ' . BASE_URL);
     }
 
     public function industrial(){
