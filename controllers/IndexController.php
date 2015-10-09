@@ -93,7 +93,7 @@ class IndexController extends Controller
         header('location:' . BASE_URL .'cerrar.php');
         header('location:' . BASE_URL .'redtron/contactanos');
         sleep(5);
-        $this->Redireccionar();
+        //$this->Redireccionar();
     }
 
     public function industrial(){
