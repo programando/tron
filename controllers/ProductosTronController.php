@@ -59,9 +59,6 @@
 										$Flete_Real           = $this->Fletes->Valor_Fletes_Productos_Tron($Peso_Total,$iddpto ,$re_expedicion   );
 										$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
 
-
-
-
 											$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional ;
 											//$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $Flete_Real  );
 											$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $subsidio_flete_valle  );

@@ -1091,30 +1091,32 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
   /** JULIO 24 DE 2015
    *      DETERMINA SI CUMPLE LAS CONDICIONES PARA APLICAR EL PRECIO ESPECIAL EN LA COMPRA
    */
-    Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
-    $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
-    $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
-    $compra_minima_productos_industriales = Session::Get('minimo_compras_productos_ta');
-    $compras_este_mes_tron                = Session::Get('compras_productos_tron');
-    $compras_este_mes_industiales         = Session::Get('compras_productos_fabricados_ta');
-    $usuario_viene_del_registro           = Session::Get('usuario_viene_del_registro');
-    $kit_comprado                         = Session::Get('kit_comprado') ;
-    $compras_totales_tron                 = $this->compras_tron + $compras_este_mes_tron ;
-    $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
 
-    //if ( Session::Get('logueado') == TRUE){
-      // INCLUIR LAS COMPRAS DE ESTE PEDIDO Y ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
-      if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
-           ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
-           ($usuario_viene_del_registro == TRUE && $kit_comprado  == FALSE)){
-           Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
-           $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
-        }else{
-            Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
-            $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
-        }
-    //  }
+    Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
+    $Cumple_Condic_Cpras_Tron_Industial = Session::Get('cumple_condicion_cpras_tron_industial');
+    if ( Session::Get('autenticado') == TRUE ) {
+      $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
+      $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
+      $compra_minima_productos_industriales = Session::Get('minimo_compras_productos_ta');
+      $compras_este_mes_tron                = Session::Get('compras_productos_tron');
+      $compras_este_mes_industiales         = Session::Get('compras_productos_fabricados_ta');
+      $usuario_viene_del_registro           = Session::Get('usuario_viene_del_registro');
+      $kit_comprado                         = Session::Get('kit_comprado') ;
+      $compras_totales_tron                 = $this->compras_tron + $compras_este_mes_tron ;
+      $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
+
+        if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
+             ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
+             ($usuario_viene_del_registro == TRUE && $kit_comprado  == FALSE)){
+             Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
+             $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
+          }else{
+              Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
+              $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
+          }
+    }
       return $Cumple_Condic_Cpras_Tron_Industial;
+
 } // fin Determinar_Cumple_Condiciones_Precio_Especial
 
 
