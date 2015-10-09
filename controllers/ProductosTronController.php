@@ -63,7 +63,8 @@
 
 
 											$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional ;
-											$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $Flete_Real  );
+											//$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $Flete_Real  );
+											$formula_a = 	$formula_a    + ( $correctorvariacion * $subsidio_flete_valle  ) + ( $py_porciento_recaudo * $subsidio_flete_valle  );
 											$formula_a = 	$formula_a / ( $correctorvariacion - $py_porciento_recaudo );
 
 											$formula_b = $Costo_Total  +  $costofijo +  $py_vr_min_recaudo + $py_vr_adicional;

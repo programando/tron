@@ -38,3 +38,17 @@ $meses =array("","Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
 echo "Fecha actual: " . $dias[date(w)] . " " . date(d) . " del mes de " . $meses[date(n)] . " del año " . date(Y);
 
 
+
+
+<?php
+session_start();
+unset($_SESSION["idUsuario"]);
+unset($_SESSION["nombre"]);
+unset($_SESSION["apellido"]);
+unset($_SESSION["usuario"]);
+session_unset();
+session_destroy();
+echo "Cerrando...<script language='JavaScript' type='text/javascript'>
+          setTimeout('self.location=\"../personal/\"', 1000)
+          </script>";
+?>
