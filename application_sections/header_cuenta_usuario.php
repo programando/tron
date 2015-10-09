@@ -1,4 +1,4 @@
-<?php $Logueado = Session::Get('autenticado') ; ?>
+
 
  <?php if (Session::Get('autenticado') == FALSE ) :?>
   <div class="row" id="personal"><!-- INFORMACION SOBRE CUENTAS-->
@@ -9,9 +9,8 @@
         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
       </a>
       <a href="<?=BASE_URL ;?>terceros/registro" class="registrar">
-         <span class="glyphicon glyphicon-list-alt"></span> Registrarme... <?= $Logueado  ;?>
+         <span class="glyphicon glyphicon-list-alt"></span> Registrarme
       </a>
-
     </p>
 
   </div><!-- FINAL DE INFORMACION SOBRE CUENTAS--  >
@@ -49,7 +48,7 @@
         <!-- cerrar secion -->
          <li>
             <a href="<?=BASE_URL ;?>index/Cerrar_Sesion">
-                / <span class="exit"></span> Cerrar Sesión <?= $Logueado  ;?>
+                / <span class="exit"></span> Cerrar Sesión
             </a>
         </li>
       </ul>

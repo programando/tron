@@ -90,6 +90,9 @@ class IndexController extends Controller
         Session::Set('autenticado', FALSE );
         session_unset($_SESSION['autenticado']);
         Session::Destroy();
+        //header('location:' . BASE_URL .'cerrar.php');
+        //header('location:' . BASE_URL .'redtron/contactanos');
+        //sleep(5);
         $this->Redireccionar();
     }
 

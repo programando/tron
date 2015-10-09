@@ -578,22 +578,24 @@
 			      /*  38  4 kg.   39  4 kg.   42  4 lts.    122 4 lts(1)    123 4 lts(1)    124 4 lts(1)    145 4 lts.      148 4 lts.
 			          151 4 kg.   155 4 kg.   160 4 lts.    162 4 lts(1)    163 4 lts.      164 4 lts.(1)   195 4 lts (1)
 			      */
-									$Cant_Unid_No_04_20_Litros = 0;       // Cantidad de productos que no son 4 y 20 litros
-									$Cant_Unid_Si_04_Litros    = 0;      // Cantidad de presentaciones que son 4 litros
-									$Cant_Unid_Si_20_Litros    = 0;      // Cantidad de presentaciones que son 20 litros
-									$Cant_Unid_1_8_Octavos     = 0 ;		// Cantidad de productos que tienen presentacion de 1/8 de galón
-									$Cant_Unid_1_4_Cuarto      = 0 ;		// Cantidad de productos que tienen presentacion de 1/4 de galón
-									$Cant_Unid_1000_mL         = 0 ;		// Cantidad de productos que tienen presentacion de 1000 mL.
+									$Cant_Unid_No_04_20_Litros         = 0;       // Cantidad de productos que no son 4 y 20 litros
+									$Cant_Unid_Si_04_Litros            = 0;      // Cantidad de presentaciones que son 4 litros
+									$Cant_Unid_Si_20_Litros            = 0;      // Cantidad de presentaciones que son 20 litros
+									$Cant_Unid_1_8_Octavos             = 0 ;		// Cantidad de productos que tienen presentacion de 1/8 de galón
+									$Cant_Unid_1_4_Cuarto              = 0 ;		// Cantidad de productos que tienen presentacion de 1/4 de galón
+									$Cant_Unid_1000_mL                 = 0 ;		// Cantidad de productos que tienen presentacion de 1000 mL.
 
-									$Cant_Unid_No_Industriales    = 0;     // Cantidad de productos que no son industriales
+									$Cant_Unid_No_Industriales         = 0;     // Cantidad de productos que no son industriales
+									$peso_total_present_1_8_1_4_100_mL = 0;			// Peso total de las presentaciones 1/4, 1/8, 100 mL
 
-									$this->Cant_Unidades_Despacho = 0;
+									$this->Cant_Unidades_Despacho      = 0;
 
-									$presentaciones_4_litros  = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
-									$presentaciones_20_litros = array(57, 59, 61, 153, 171, 184, 185 );
-									$presentaciones_1_8       = array( 144 ) ;
-									$presentaciones_1_4       = array( 85,87 ) ;
-									$presentaciones_1000_mL   = array( 90, 149, 192 ) ;
+									$presentaciones_4_litros           = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
+									$presentaciones_20_litros          = array(57, 59, 61, 153, 171, 184, 185 );
+									$presentaciones_1_8                = array( 144 ) ;
+									$presentaciones_1_4                = array( 85,87 ) ;
+									$presentaciones_1000_mL            = array( 90, 149, 192 ) ;
+
 
 			      $this->Datos_Carro = Session::Get('carrito');
 
@@ -617,12 +619,15 @@
 			              }
 			            if (in_array($ID_Presentacion,  $presentaciones_1_8)){  // presentaciones iguales 1/8
 			                  $Cant_Unid_1_8_Octavos = $Cant_Unid_1_8_Octavos + $Productos['cantidad'];
+			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
 			              }
 			            if (in_array($ID_Presentacion,  $presentaciones_1_4)){  // presentaciones iguales 1/4
 			                  $Cant_Unid_1_4_Cuarto = $Cant_Unid_1_4_Cuarto + $Productos['cantidad'];
+			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
 			              }
 			            if (in_array($ID_Presentacion,  $presentaciones_1000_mL)){  // presentaciones iguales 100 mL
 			                  $Cant_Unid_1000_mL = $Cant_Unid_1000_mL + $Productos['cantidad'];
+			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
 			              }
 			          }
 			          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
@@ -630,15 +635,20 @@
 			          }
 
 			        }// end foreach
-											$Cant_Unid_Si_04_Litros    = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_Si_04_Litros/6));
-											$Cant_Unid_1_8_Octavos     = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1_8_Octavos / 32));
-											$Cant_Unid_1_4_Cuarto      = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1_4_Cuarto / 30));
-											$Cant_Unid_1000_mL         = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1000_mL / 16));
-											$Cant_Unid_No_Industriales = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_No_Industriales/4000));
+											$peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL  / 1000 ;
+											$Cant_Unid_Si_04_Litros            = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_Si_04_Litros/6));
+											$Cant_Unid_1_8_Octavos             = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1_8_Octavos / 32));
+											$Cant_Unid_1_4_Cuarto              = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1_4_Cuarto / 30));
+											$Cant_Unid_1000_mL                 = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1000_mL / 16));
+											$Unidades_Adicionales              = $Cant_Unid_Si_04_Litros + 	$Cant_Unid_1_8_Octavos  + 	$Cant_Unid_1_4_Cuarto  ;
 
+											if ( $peso_total_present_1_8_1_4_100_mL <= 24 ){
+												$Unidades_Adicionales = Numeric_Functions::Valor_Absoluto(ceil($peso_total_present_1_8_1_4_100_mL / 24));
+											}
+											$Cant_Unid_No_Industriales         = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_No_Industriales/4000));
 			        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
 			        $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros    + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
-			        $this->Cant_Unidades_Despacho = $this->Cant_Unidades_Despacho + $Cant_Unid_1_8_Octavos  + $Cant_Unid_1_4_Cuarto   + $Cant_Unid_1000_mL;
+			        $this->Cant_Unidades_Despacho = $this->Cant_Unidades_Despacho + $Unidades_Adicionales;
 
 			        if ( $this->Cant_Unidades_Despacho <= 0){
 			        	$this->Cant_Unidades_Despacho = 1;
@@ -653,6 +663,7 @@
 								$this->Transportadoras        = $this->Parametros->Transportadoras();
 								$subsisio_flete_valle         = Session::Get('subsisio_flete_valle');
 								$SubSidio_Flete_Unitario_Tron = 0;
+
 								if ( $cantidad > 0 ){
 									if ( $valor_total_compra_tron >= $this->Transportadoras[0]['valor_minimo_pedido_productos']){
 											//CALCULO DEL SEGURO
@@ -661,6 +672,7 @@
 											}else{
 												$Seguro  = $valor_declarado *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
+
 											$SubSidio_Flete_Unitario_Tron = ($subsisio_flete_valle  + $Seguro ) / $cantidad;
 									}
 									Session::Set('SubSidio_Flete_Unitario_Tron',$SubSidio_Flete_Unitario_Tron);

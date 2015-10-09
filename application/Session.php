@@ -30,9 +30,11 @@
                     }
                 }
               } else {
-                $_SESSION           = array();
-                session_destroy();
+                 $_SESSION           = array();
+                session_start();
+                session_unset();
                 session_unset( $_SESSION );
+                session_destroy();
                 $parametros_cookies = session_get_cookie_params();
                 setcookie(session_name(),0,1,$parametros_cookies["path"]);
             }
