@@ -9,9 +9,8 @@
         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión
       </a>
       <a href="<?=BASE_URL ;?>terceros/registro" class="registrar">
-         <span class="glyphicon glyphicon-list-alt"></span> Registrarme...
+         <span class="glyphicon glyphicon-list-alt"></span> Registrarme
       </a>
-
     </p>
 
   </div><!-- FINAL DE INFORMACION SOBRE CUENTAS--  >

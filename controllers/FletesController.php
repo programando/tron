@@ -619,15 +619,15 @@
 			              }
 			            if (in_array($ID_Presentacion,  $presentaciones_1_8)){  // presentaciones iguales 1/8
 			                  $Cant_Unid_1_8_Octavos = $Cant_Unid_1_8_Octavos + $Productos['cantidad'];
-			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad'])
+			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
 			              }
 			            if (in_array($ID_Presentacion,  $presentaciones_1_4)){  // presentaciones iguales 1/4
 			                  $Cant_Unid_1_4_Cuarto = $Cant_Unid_1_4_Cuarto + $Productos['cantidad'];
-			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad'])
+			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
 			              }
 			            if (in_array($ID_Presentacion,  $presentaciones_1000_mL)){  // presentaciones iguales 100 mL
 			                  $Cant_Unid_1000_mL = $Cant_Unid_1000_mL + $Productos['cantidad'];
-			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad'])
+			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
 			              }
 			          }
 			          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
