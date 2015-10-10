@@ -1,6 +1,7 @@
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
   $logueado                              = Session::Get('autenticado');
+
 ?>
 
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->

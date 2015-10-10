@@ -1,13 +1,15 @@
 <?php
-    $Pedido_Minimo_Tron        = Session::Get('valor_minimo_pedido_productos');
-    $Pedido_Minimo_Indus       = Session::Get('pedido_minimo_productos_fabricados_ta');
-    $cuota_1_valor             = Numeric_Functions::Formato_Numero( $this->Bonificacion_Cuotas[0]['cuota_1_valor'] );
-    $cuota_2_valor             = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_valor'] );
-    $cuota_3_valor             = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_valor'] );
-    $cuota_2_tope_ganancias    = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_tope_ganancias'] );
-    $cuota_3_tope_gananacias   = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_tope_gananacias'] );
-    $Total_Derecho_Inscripcion = $this->Bonificacion_Cuotas[0]['cuota_1_valor'] + $this->Bonificacion_Cuotas[0]['cuota_2_valor'] + $this->Bonificacion_Cuotas[0]['cuota_3_valor'] ;
-    $Total_Derecho_Inscripcion = Numeric_Functions::Formato_Numero($Total_Derecho_Inscripcion);
+    $Pedido_Minimo_Tron           = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus          = Session::Get('pedido_minimo_productos_fabricados_ta');
+    $cuota_1_valor                = Numeric_Functions::Formato_Numero( $this->Bonificacion_Cuotas[0]['cuota_1_valor'] );
+    $cuota_2_valor                = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_valor'] );
+    $cuota_3_valor                = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_valor'] );
+    $cuota_2_tope_ganancias       = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_tope_ganancias'] );
+    $cuota_3_tope_gananacias      = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_tope_gananacias'] );
+    $Total_Derecho_Inscripcion    = $this->Bonificacion_Cuotas[0]['cuota_1_valor'] + $this->Bonificacion_Cuotas[0]['cuota_2_valor'] + $this->Bonificacion_Cuotas[0]['cuota_3_valor'] ;
+    $Total_Derecho_Inscripcion    = Numeric_Functions::Formato_Numero($Total_Derecho_Inscripcion);
+    $valor_transferencia_bancaria =  Session::Get('valor_transferencia_bancaria');
+    $valor_minimo_transferencias  =  Session::Get('valor_minimo_transferencias');
 ?>
 
 <!--Los estilos se encuentran en la carpeta CSS => tron_red_amigo_general.css -->
@@ -58,7 +60,7 @@
                              </div><!--Pregunta -->
                                  <ul class="list-unstyled submenu"><!--Contenido -->
                                      <li>
-                                     Realmente existen más de dos (2) precios. El primero (más alto y en negro) es para los Compradores ocasionales, es un excelente precio y estamos vigilando para que sea el mejor precio del mercado. El segundo (en rojo) es el precio para los Amigos de los productos TRON. Aquellas personas que conocen que sólo elaboramos productos de alta calidad y que nuestros precios son supremamente atractivos. A ellos que consumen mensualmente los productos TRON para el aseo del hogar en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> mensuales ó los productos industriales fabricados por Balquimia S.A.S. en cuantía mínima de <?= $Pedido_Minimo_Indus ;?> mensuales, les ofrecemos el beneficio de este precio especial.
+                                      El primero (más alto y en negro) es para los Compradores ocasionales, es un excelente precio y estamos vigilando para que sea el mejor precio del mercado. El segundo (en rojo) es el precio para los Amigos de los productos TRON. Aquellas personas que conocen que sólo elaboramos productos de alta calidad y que nuestros precios son supremamente atractivos. A ellos que consumen mensualmente los productos TRON para el aseo del hogar en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> mensuales ó los productos industriales fabricados por Balquimia S.A.S. en cuantía mínima de <?= $Pedido_Minimo_Indus ;?> mensuales, les ofrecemos el beneficio de este precio especial.
 
                                      </li>
                                  </ul><!--Contenido -->
@@ -89,17 +91,17 @@
                                          <tbody>
                                              <tr>
                                                 <td class="text-left">Comprador Ocasional</td>
-                                                <td class="text-center">Un (1) Pase de Cortesía</td>
+                                                <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un (1) Pase de Cortesía</td>
                                              </tr>
 
                                              <tr>
                                                 <td class="text-left">Cliente TRON</td>
-                                                <td class="text-center">Comisiones sobre todas las compras que ese amigo haga en su vida + Un (1) Pase de Cortesía.</td>
+                                                <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comisiones sobre todas las compras que ese amigo haga en su vida + Un (1) Pase de Cortesía.</td>
                                              </tr>
 
                                              <tr>
                                                 <td class="text-left">Empresario TRON</td>
-                                                <td class="text-center">Todo lo anterior + BONIFICACIÓN (ver tipos y tabla de bonificaciones más abajo)</td>
+                                                <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Todo lo anterior + BONIFICACIÓN (ver tipos y tabla de bonificaciones más abajo)</td>
                                              </tr>
                                          </tbody>
                                     </table>
@@ -279,7 +281,7 @@
               <li><!--¿Tienen los puntos fecha de expiración?-->
                   <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Tienen los puntos fecha de expiración?   </p></div><!--Pregunta -->
                    <ul class="list-unstyled submenu"><!--Contenido -->
-                         <li>Sí, Los puntos tendrán una vigencia de 60 días. Por ejemplo: En la liquidación de comisiones del mes de Marzo, un usuario obtiene 15000 puntos. Estos puntos aparecen en su cuenta Puntos los primeros días de Abril cuando se realiza la liquidación de comisiones. El usuario tiene todo el mes de Abril y todo el mes de Mayo para utilizarlos comprando en la Tienda Virtual. El proceso para redimirlos es muy sencillo. Basta comprar cualquier producto TRON u otro producto. Al momento de la liquidación del pedido el sistema verificará en primera instancia si existen puntos a favor y los aplicará al valor a pagar a razón de $ 1 por cada punto. De esta forma los puntos se convierten en dinero.    </li>
+                         <li>Sí, Los puntos tendrán una vigencia de 60 días. Por ejemplo: En la liquidación de comisiones del mes de Marzo, un usuario obtiene 15.000 puntos. Estos puntos aparecen en su cuenta Puntos los primeros días del mes de Abril cuando se realiza la liquidación de comisiones. El usuario tiene todo el mes de Abril y todo el mes de Mayo para utilizarlos comprando en la Tienda Virtual. El proceso para redimirlos es muy sencillo: basta comprar cualquier producto TRON u otro producto. Al momento de la liquidación del pedido el sistema verificará en primera instancia si existen puntos a favor y los aplicará al valor a pagar a razón de $ 1 por cada punto. De esta forma los puntos se convierten en dinero.    </li>
                      </ul><!--Contenido -->
                </li><!--¿Tienen los puntos fecha de expiración? -->
 
@@ -323,7 +325,8 @@
                   <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Existen cuantías pequeñas en comisiones y/o bonificaciones que quedan pendientes de pago?  </p></div><!--Pregunta -->
                    <ul class="list-unstyled submenu"><!--Contenido -->
                       <li>
-                         Debido a que el costo de la transferencia electrónica entre nuestro banco y el que tú has registrado es de $ 5.220, valor que debes asumir, habrán cuantías que no se justifica pagar y que permanecerán en tu cuenta Dinero. Contarás con estos saldos a tu favor para ser restados en el próximo pedido del valor a pagar. El valor mínimo a pagar, por defecto, es de $ 20.000 pero tú puedes incrementarlo a la cifra de tu conveniencia en Mi Cuenta/Configuración de mi cuenta/Editar.
+                         Debido a que el costo de la transferencia electrónica entre nuestro banco y el que tú has registrado es de <?= $valor_transferencia_bancaria ;?>, valor que debes asumir, habrán cuantías que no se justifica pagar y que permanecerán en tu cuenta Dinero. Contarás con estos saldos a tu favor para ser restados en el próximo pedido del valor a pagar. El valor mínimo a pagar, por defecto, es de
+                         <?= $valor_minimo_transferencias ;?> pero tú puedes incrementarlo modificando esta cifra en: Mi Cuenta / Mi Perfil / Datos Personales.
                        </li>
                      </ul><!--Contenido -->
                </li><!--¿Existen cuantías pequeñas en comisiones y/o bonificaciones que quedan pendientes de pago? -->
@@ -356,7 +359,7 @@
                <li>
                   <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>Número de amigos empresarios TRON por nivel  </p></div><!--Pregunta -->
                    <ul class="list-unstyled submenu"><!--Contenido -->
-                         <li> Número de amigos empresarios por nivel: Podrás tener hasta 4 amigos Empresarios en tu primer nivel (acción que el sistema hace de forma automática). Cada uno de ellos también puede tener 4 amigos por lo que, en este, tu segundo nivel habrán 16 amigos. Cada uno de estos últimos puede también inscribir 4 amigos por lo que, en este, tu tercer nivel habrán 64 amigos. Al repetir esta operación, tenemos que habrán: 256 amigos en tu cuarto nivel, 1024 amigos en tu quinto nivel y 4096 amigos en tu sexto nivel. El total de amigos que habrán en tu Red será de 5460. Pero este no es el límite. Si estando copada tu Red, con tu código de usuario ingresas otro amigo, el sistema abrirá una posición adicional en tu primer nivel o sea, abrirá el quinto amigo en tu primer nivel. Esto permitirá que tu red pueda a partir de este nuevo amigo, crecer hasta el sexto nivel. Cuando así se haya hecho, contarás con 1365 amigos adicionales. Cuando vuelvas a ingresar otro amigo con tu código de usuario, al estar todos los niveles copados, sucederá lo mismo, el sistema abrirá una posición adicional en tu primer nivel o sea, abrirá el sexto amigo en tu primer nivel, y así sucesivamente, cuantas veces ocurra. Esto garantizará que puedas tener un número ilimitado de amigos que te benefician con un porcentaje sobre sus consumos.   </li>
+                         <li> Número de amigos empresarios por nivel: Podrás tener hasta 4 amigos Empresarios en tu primer nivel (acción que el sistema hace de forma automática). Cada uno de ellos también puede tener 4 amigos por lo que, en este, tu segundo nivel habrán 16 amigos. Cada uno de estos últimos puede también inscribir 4 amigos por lo que, en este, tu tercer nivel habrán 64 amigos. Al repetir esta operación, tenemos que habrán: 256 amigos en tu cuarto nivel, 1.024 amigos en tu quinto nivel y 4.096 amigos en tu sexto nivel. El total de amigos que habrán en tu Red será de 5.460. Pero este no es el límite. Si estando copada tu Red, con tu código de usuario ingresas otro amigo, el sistema abrirá una posición adicional en tu primer nivel o sea, abrirá el quinto amigo en tu primer nivel. Esto permitirá que tu red pueda a partir de este nuevo amigo, crecer hasta el sexto nivel. Cuando así se haya hecho, contarás con 1.365 amigos adicionales. Cuando vuelvas a ingresar otro amigo con tu código de usuario, al estar todos los niveles copados, sucederá lo mismo, el sistema abrirá una posición adicional en tu primer nivel o sea, abrirá el sexto amigo en tu primer nivel, y así sucesivamente, cuantas veces ocurra. Esto garantizará que puedas tener un número ilimitado de amigos que te benefician con un porcentaje sobre sus consumos.   </li>
                     </ul><!--Contenido -->
                </li><!--Número de amigos empresarios TRON por nivel  -->
 
@@ -560,7 +563,7 @@
               <li><!--¿Si tengo comisiones o bonificaciones acumuladas puedo hacer cruce para pagar mis pedidos?  -->
                   <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Si tengo comisiones o bonificaciones acumuladas puedo hacer cruce para pagar mis pedidos?    </p></div><!--Pregunta -->
                    <ul class="list-unstyled submenu"><!--Contenido -->
-                         <li>Sí, pero como se te pagará al principio del mes, para cuando hagas tu pedido no habrá que cruzar, excepto que lo ganado sea de menor valor y se retenga en tu cuenta a tu favor. Para poder hacer el cruce, en el menú Mi Cuenta/Configuración de Mi Cuenta/Editar , aparece: “Acepto que se retenga de mis comisiones de manera indefinida y mientras no modifique este registro, la suma de $0 para el pago de mis pedidos.” Al colocar una cifra, autorizas que esta se retenga y se use para pagar tu próximo pedido. De esta forma evitas tener que hacer tu próximo pago.    </li>
+                         <li>Sí, pero como se te pagará al principio del mes, para cuando hagas tu pedido no habrá que cruzar, excepto que lo ganado sea de menor valor y se retenga en tu cuenta a tu favor. Para poder hacer el cruce, en el menú Mi Cuenta/ Mi Perfil / Datos Personales / Datos de Cuenta , aparece: “Acepto que se retenga de mis comisiones de manera indefinida y mientras no modifique este registro, la suma de ... para el pago de mis pedidos.” Al colocar una cifra, autorizas que esta se retenga y se use para pagar tu próximo pedido. De esta forma evitas tener que hacer tu próximo pago.    </li>
                      </ul><!--Contenido -->
                </li><!--¿Si tengo comisiones o bonificaciones acumuladas puedo hacer cruce para pagar mis pedidos?  -->
 

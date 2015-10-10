@@ -59,6 +59,7 @@
 	      }
 	      if ( $valor_declarado > 0 ){
 	      	 $this->Redetrans_Courrier     ( $peso_kilos_pedido , $valor_declarado );
+	    				$this->Sevientrega_Premier    ( $peso_kilos_pedido , $valor_declarado );
 
 	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
 	        $this->Encontrar_Mejor_Flete();

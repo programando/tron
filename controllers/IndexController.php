@@ -48,7 +48,7 @@ class IndexController extends Controller
         Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
         Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
         Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
-        Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_transferencias']));
+        Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_transferencias'] ));
         Session::Set('factor_seguro_flete_otros_productos',             $Parametros[0]['factor_seguro_flete_otros_productos']);
         Session::Set('porciento_seguro_flete_productos_industriales',   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
 
@@ -58,9 +58,9 @@ class IndexController extends Controller
         Session::Set('py_porciento_recaudo'                                 ,   $Parametros[0]['py_porciento_recaudo']/100);
         Session::Set('py_vr_min_recaudo'                                    ,   $Parametros[0]['py_vr_min_recaudo']);
         Session::Set('py_vr_adicional'                                      ,   $Parametros[0]['py_vr_adicional']);
-        Session::Set('valor_minimo_pedido_productos',          Numeric_Functions::Formato_Numero($Parametros[0]['valor_minimo_pedido_productos']));
-        Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero($Parametros[0]['pedido_minimo_productos_fabricados_ta']));
-
+        Session::Set('valor_minimo_pedido_productos',          Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_pedido_productos']  ));
+        Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero( $Parametros[0]['pedido_minimo_productos_fabricados_ta'] ));
+        Session::Set('pago_minimo_payulatam',                  Numeric_Functions::Formato_Numero( $Parametros[0]['pago_minimo_payulatam'] ));
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
@@ -93,7 +93,11 @@ class IndexController extends Controller
         //header('location:' . BASE_URL .'cerrar.php');
         //header('location:' . BASE_URL .'redtron/contactanos');
         //sleep(5);
-        $this->Redireccionar();
+        //$this->Redireccionar();
+        echo " <div style='margin : 0 auto;'> <br> <h3> Cerrando procesos en el sistema... por favor espere unos segundos... </h3> </div>
+                <script language='JavaScript' type='text/javascript'>
+                    setTimeout('self.location=\"tron\"', 700)
+                  </script>";
     }
 
     public function industrial(){
