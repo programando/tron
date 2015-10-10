@@ -34,7 +34,7 @@
         <nav class="indice">
            <ul class="list-unstyled">
               <li><a href="#introduccion">Introducción</a></li>
-              <li><a href="#info_general">Informacion general</a></li>
+              <li><a href="#info_general">Información general</a></li>
               <li><a href="#porcentajes">Porcentajes de Comisiones</a></li>
               <li><a href="#puntos">Puntos</a></li>
               <li><a href="#medios">Medios de Cobro</a></li>
@@ -100,8 +100,8 @@
                   </tr>
                   <tr>
                      <td></td>
-                     <td class="text-lef">Otros productos</td>
-                     <td class="text-left">Variable<small>(ver tabla en menú Mi Cuenta)</small></td>
+                     <td class="text-left">Otros productos</td>
+                     <td class="text-center">Variable<small>( ver tabla en menú Mi Cuenta )</small></td>
                   </tr>
                   <tr>
                      <td>Cliente TRON</td>
@@ -111,7 +111,7 @@
                   <tr>
                      <td></td>
                      <td class="text-left">Otros productos</td>
-                     <td class="text-left">Variable x 4  <small>(ver tabla en menú Mi Cuenta)</small></td>
+                     <td class="text-center">Variable x 4  <small>(ver tabla en menú Mi Cuenta)</small></td>
                   </tr>
               </tbody><!--Cuerpo-->
          </table>
@@ -128,7 +128,7 @@
         Los puntos son una estrategia importante para el funcionamiento de la Red, porque así como tú te ves obligado a comprar en la Tienda Virtual para redimirlos, así lo tendrán que hacer tus muchos amigos registrados en tu red y al hacerlo, tú ganas más porque ganas comisiones por esas compras.
         <br><br>
 
-        Los puntos tendrán una vigencia de 60 días. Por ejemplo: En la liquidación de comisiones del mes de Marzo, un usuario obtiene 15000 puntos. Estos puntos aparecen en su cuenta Puntos los primeros días de Abril cuando se realiza la liquidación de comisiones. El usuario tiene todo el mes de Abril y todo el mes de Mayo para utilizarlos comprando en la Tienda Virtual. El proceso para redimirlos es muy sencillo. Basta comprar cualquier producto TRON u otro producto. Al momento de la liquidación del pedido el sistema verificará en primera instancia si existen puntos a favor y los aplicará al valor a pagar a razón de $ 1 por cada punto. De esta forma los puntos se convierten en dinero.
+        Los puntos tendrán una vigencia de 60 días. Por ejemplo: En la liquidación de comisiones del mes de Marzo, un usuario obtiene 15.000 puntos. Estos puntos aparecen en su cuenta Puntos los primeros días de Abril cuando se realiza la liquidación de comisiones. El usuario tiene todo el mes de Abril y todo el mes de Mayo para utilizarlos comprando en la Tienda Virtual. El proceso para redimirlos es muy sencillo. Basta comprar cualquier producto TRON u otro producto. Al momento de la liquidación del pedido el sistema verificará en primera instancia si existen puntos a favor y los aplicará al valor a pagar a razón de $ 1 por cada punto. De esta forma los puntos se convierten en dinero.
         </p>
   </div>
 
@@ -138,13 +138,9 @@
 
       <div><p class="contenido-titulos">Medios de Cobro</p></div>
 
-      <p class="text-justificado">Por defecto, el pago de las comisiones se hará en efectivo a través de Efecty., pero pueden los usuarios de la Red, a través del menú <em>Mi Cuenta / Información Adicional</em>, solicitar que sean pagadas mediante transferencia electrónica a alguna cuenta corriente o de ahorros que se encuentre a su nombre. <br><br>
+      <p class="text-justificado">El pago de las Bonificaciones se hará los primeros tres (3) días hábiles de cada mes, directamente a la cuenta bancaria que has registrado en el momento de la inscripción o posteriormente, en cualquier momento, en Mi Cuenta / Perfil / Datos de Cuenta.
+Recuerda que el costo de la transferencia bancaria es de <?= Session::Get('valor_transferencia_bancaria') ;?> por lo que debes ajustar la cifra Valor Mínimo a Transferir a la cuantía que te convenga. Esta cifra viene por defecto en <?= Session::Get('valor_minimo_transferencias') ;?> y puedes incrementarla a tu conveniencia (no disminuirla).
 
-        Al escogerse esta opción, se está autorizando que el costo que tenga esta transferencia (hoy $ 4.500), es asumido por el usuario. En este caso, también hay que autorizar cuál es el valor mínimo que puede ser transferido a su cuenta (por defecto y mínimo $ 10.000) puesto que un valor muy cercano al costo de la transferencia, no se justificaría transferirlo. <br><br>
-
-        Si has escogido recibir sus pagos en efectivo a través de Efecty (opción por defecto), las cuantías inferiores a $ 30.000, no se te pagarán por ser consideradas de menor valor. Estos valores se abonan a la cuenta personal (cuenta Dinero) y contarán para ser restados en el próximo pedido del valor a pagar. En otras palabras, no se te entregan de forma directa pero sirven para que abones al valor de tu próximo pedido. <br><br>
-
-        Si por el contrario, has escogido mediante el menú <em>Mi Cuenta / Información Adicional</em>, modificar tus preferencias a transferencia bancaria como medio de pago de tus comisiones y bonificaciones, se pagará cualquier valor que supere un mínimo determinado (hoy $ 10.000).
         </p>
 
 
