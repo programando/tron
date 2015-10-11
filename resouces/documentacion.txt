@@ -52,3 +52,8 @@ echo "Cerrando...<script language='JavaScript' type='text/javascript'>
           setTimeout('self.location=\"../personal/\"', 1000)
           </script>";
 ?>
+
+
+
+              //foreach (glob(APP_PATH .'*.php') as $file) {   require_once $file;     } //Arhivos de aplicacion
+              //echo '<pre>';print_r(get_required_files());

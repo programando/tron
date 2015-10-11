@@ -1,8 +1,10 @@
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
   $logueado                              = Session::Get('autenticado');
-
 ?>
+<?php if ( $logueado == TRUE ) :?>
+ <small> Pedido a nombre del Usuario : <strong> <?= strtoupper( Session::Get('codigousuario')) ;?></strong></small>
+<?php endif ;?>
 
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->
   <tr>

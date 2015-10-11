@@ -148,12 +148,12 @@
 					 																									'$barrio','$destinatario')");
 				}
 
-				public function Direcciones_Despacho($idtercero=false)
+				public function Direcciones_Despacho( $idtercero = false)
 				{
 					if ( $idtercero == false ) {
 							$idtercero                = Session::Get('idtercero_pedido');
 						}
-					$Registro                 =  $this->Db->Ejecutar_Sp("terceros_direcciones_despacho_x_idtercero($idtercero)");
+					$Registro                 =  $this->Db->Ejecutar_Sp("terceros_direcciones_despacho_x_idtercero( $idtercero )");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 					return $Registro;
 				}

@@ -8,8 +8,9 @@
          reexpedicion          = <?= $Re_Expedicion;?>
          numero-opcion         = <?= $I ;?>
          nombre-usuario-pedido = <?= $Nombre_Usuario_Pedido ;?>
-         nommcipio           = <?= "'".$NomMcipio."'"   ;?>
-         nomdpto             = <?= "'".$NomDpto."'"   ;?>
+         nommcipio             = <?= "'".$NomMcipio."'"   ;?>
+         nomdpto               = <?= "'".$NomDpto."'"   ;?>
+         codigousuario         = <?= "'".$CodigoUsuario."'"   ;?>
          >
 
          <div class="direccion">
@@ -30,6 +31,7 @@
             telefono            = <?= "'".$telefono."'"   ;?>
             nommcipio           = <?= "'".$NomMcipio."'"   ;?>
             nomdpto             = <?= "'".$NomDpto."'"   ;?>
+            codigousuario       = <?= "'".$CodigoUsuario."'"   ;?>
             >
           <img src="<?= BASE_IMG_TIENDA ;?>editar.png" class="img-editar">
         </a>

@@ -178,8 +178,10 @@ class CarritoController extends Controller{
      $IdMcipio             =  General_Functions::Validar_Entrada('idmcipio','NUM');
      $IdDpto               =  General_Functions::Validar_Entrada('iddpto','NUM');
      $Re_Expedicion        =  General_Functions::Validar_Entrada('reexpedicion','BOL');
+     $codigousuario        =  General_Functions::Validar_Entrada('codigousuario','TEXT');
 
-     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho);
+     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho );
+     Session::Set('codigousuario',  $codigousuario);
     }
 
 

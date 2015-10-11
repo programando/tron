@@ -19,8 +19,9 @@
   <!-- INFORMACIÓN PARA USUARIOS AUTENTICADOS -->
  <?php if (Session::Get('autenticado') == TRUE ) :?>
   <div class="row"  id="personal"><!-- INFORMACION SOBRE CUENTAS-->
+
     <ul class="list-unstyled cont-mi-cuenta">
-         <!-- bienvenido -->
+
          <li>
             <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
                 <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
@@ -51,7 +52,9 @@
                 / <span class="exit"></span> Cerrar Sesión
             </a>
         </li>
+
       </ul>
+
   </div><!-- FINAL DE INFORMACION SOBRE CUENTAS--  >
 <?php endif ;?>
 
