@@ -209,7 +209,6 @@ $('#btn-ing-por-amigo').on('click',function(){ //......... Ingresar hacer pedido
 $('.img-pago1').on('click',function(){
     $id_forma_pago = $(this).attr("id");
     $Parametros    = {'id_forma_pago':$id_forma_pago};
-
       $.ajax({
       data:  $Parametros,
       dataType: 'text',

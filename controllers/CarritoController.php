@@ -121,16 +121,23 @@ class CarritoController extends Controller{
     public function index() {}
 
 
-
-    public function Finalizar_Pedido_Forma_Pago($idpedido = 0)  {
+    public function Finalizar_Pedido_Forma_Pago( $idpedido = 0)  {
         /** JULIO 02 DE 2015
          *      MUESTRA VISTA PARA ELEGIR LA FORMA DE PAGO DEL PEDIDO
          *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
          */
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
 
-        if ($idpedido >0 ){
+        if ( $idpedido > 0 ){
            $Vr_Total_Pedido_Real = 1;
+           Session::Set('idpedido_temporal', $idpedido);
+           $Registro = $this->Pedidos->Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido );
+           Session::Set('numero_pedido',      $Registro[0]['numero_pedido']);
+           Session::Set('vr_total_pedido',    $Registro[0]['vr_total_pedido']);
+           Session::Set('Vr_Base_Iva',        $Registro[0]['Vr_Base_Iva']);
+           Session::Set('nombre_cliente',     $Registro[0]['nombre_cliente']);
+           Session::Set('email',              $Registro[0]['email']);
+           Session::Set('identificacion',     $Registro[0]['identificacion']);
         }
         if ( $Vr_Total_Pedido_Real > 0 ){
                 $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));

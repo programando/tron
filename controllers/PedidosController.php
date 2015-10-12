@@ -207,8 +207,8 @@ class PedidosController extends Controller
 
 
 
-    public function Forma_Pago_Efecty()
-    {/**
+    public function Forma_Pago_Efecty()  {
+    /**
      * MAYO 01 DE 2015
      *      ESTABLECE LA FORMA DE PAGO PARA EL PEDIDO
      */
@@ -219,8 +219,9 @@ class PedidosController extends Controller
       $this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
     }
 
-    public function Forma_Pago_Pedido_Payu_Latam_Confirmacion()
-    {
+    public function Forma_Pago_Pedido_Payu_Latam_Confirmacion() {
+
+
       $this->View->Mostrar_Vista('finalizar_pedido_pago_payu_confirmacion');
     }
 

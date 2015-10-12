@@ -65,5 +65,11 @@
  			$Registro = $this->Db->Ejecutar_Sp("pedidos_actualizar_forma_de_pago($idpedido,$idformapago,$pagado_online);");
  		}
 
+ 		public function Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido ){
+
+ 			$Registro = $this->Db->Ejecutar_Sp("pedidos_consulta_datos_cambio_forma_pago( $idpedido );");
+ 			return $Registro;
+ 		}
+
 }
 ?>

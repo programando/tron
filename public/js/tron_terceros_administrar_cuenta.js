@@ -619,6 +619,15 @@ $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
 
 });
 
+$('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago', function(){
+		 var $idtercero             = $(this).attr('idtercero');
+			var $idpedido              = $(this).attr('idpedido');
+			var $comisiones_utilizadas = $(this).attr('comisiones-utilizadas');
+			var $puntos_utilizados     = $(this).attr('puntos-utilizados');
+			var $numero_pedido         = $(this).attr('numero-pedido');
+   window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
+});
+
 
 
 $('.contenedor_cuenta').on('click','.usu-1',function(){
