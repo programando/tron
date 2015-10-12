@@ -1,0 +1,21 @@
+/* contendor principal*/
+.contenedor_error_404
+{
+	  padding-top: 150px;
+	   display: block;
+	   width: 95%;
+	   margin: 0px auto;
+}
+
+/*  pagina */
+
+.titulo_error
+{
+	       color: #FF0102;
+}
+
+.pagina_error_404
+{
+	   text-align: center;
+
+}

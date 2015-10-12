@@ -1,0 +1,35 @@
+/* Contenedor principal */
+.contenedor_eliminar_cuenta
+{
+   padding-top: 150px;
+   display: block;
+   margin: 0px auto;
+   width: 95%;
+}
+
+/* informacion de la pagina */
+.info_eliminar_cuenta
+{
+	    display: block;
+	    width: 35%;
+	    margin: 0px auto;
+	    text-align: justify;
+}
+
+.titulo_eliminar_registro
+{
+     color: #003E90;
+}
+
+.img_manos
+{
+   display: block;
+   width: 50%;
+   margin: 0px auto;
+}
+
+.vinculo_direccion
+{
+	  display: block;
+	  margin-top: -10px;
+}

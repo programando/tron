@@ -14,6 +14,10 @@
 
       public function Index() { }
 
+      public function eliminar_cuenta_correo(){
+          $this->View->SetCss(array('tron_eliminar_cuenta_correo'));
+          $this->View->Mostrar_Vista('eliminar_cuenta_correo');
+      }
 
       public function Recomendar_Negocio_Amigo(){
         /** SEPTIEMBRE 14 DE 2015

@@ -14,6 +14,13 @@
         $this->View->Mostrar_Vista('index');
     }
 
+        public function error_pgn__404()
+    {
+        $this->View->SetCss(array('tron_error_404'));
+        $this->View->Mostrar_Vista("error_404");
+
+    }
+
    public function Access($codigo)
     {
 
