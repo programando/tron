@@ -70,8 +70,7 @@ class PedidosController extends Controller
     }
 
 
-    public function Grabar()
-    {
+    public function Grabar() {
 					$id_forma_pago               = 0;
 					$idtercero                   = Session::Get('idtercero_pedido');
 					$iddireccion_despacho        = Session::Get('iddireccion_despacho');
@@ -235,6 +234,10 @@ class PedidosController extends Controller
       Session::Set('idformapago',$IdFormaPago);
       $this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
       $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
+    }
+
+    public function Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido ){
+      return $this->Pedidos->Pedido_Consulta_Datos_Cambio_Forma_Pago($idpedido );
     }
 
 }

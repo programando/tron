@@ -75,6 +75,15 @@
                                  </div>
                             </div>
                         </div>
+
+               <div id="img_cargando" style="display: none; width: 100%; text-align:center;">
+               <br>
+                   Enviando recomendación...
+                <br>
+                   <img src="<?=BASE_IMG_EMPRESA;?>cargando.gif" style="display: block;  widht: 30%; margin : 0px auto ;">
+                        &nbsp;&nbsp;Espere unos segundos......
+                  </div>
+
                    </div>
                </div>
           </div>

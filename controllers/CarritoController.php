@@ -350,14 +350,11 @@ class CarritoController extends Controller{
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
 
-      if ($this->Cantidad_Filas_Carrito == 0)
-      {
-        if ($Tipo_Vista==1)
-        {
+      if ($this->Cantidad_Filas_Carrito == 0)  {
+        if ($Tipo_Vista==1){
           $this->View->Mostrar_Vista('carrito_vacio');
         }
-        if ( $Tipo_Vista ==2 )
-        {
+        if ( $Tipo_Vista ==2 ) {
           $this->View->Mostrar_Vista_Parcial('carrito_vacio');
         }
       }
@@ -368,6 +365,17 @@ class CarritoController extends Controller{
         $this->View->Datos_Carro                = $_SESSION['carrito'];
         $this->View->Puntos_Utilizados          = Session::Get('Puntos_Utilizados');
         $this->View->Comisiones_Utilizadas      = Session::Get('Comisiones_Utilizadas');
+
+        //DATOS RELACIONADOS CON EL VALOR MÍNIMO DEL PEDIDO Y CONDICION PARA REALIZAR EL PAGO.
+        if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE){
+            Session::Set('valor_real_pedido', $this->Vr_Total_Pedido_Amigos );
+            }else{
+             Session::Set('valor_real_pedido', $this->Vr_Total_Pedido_Ocasional );
+            }
+        Session::Set('cumple_valor_minimo_pedido', TRUE);
+        if ( Session::Get('pago_minimo_payulatam') > Session::Get('valor_real_pedido' ) ){
+          Session::Set('cumple_valor_minimo_pedido', FALSE);
+        }
 
         //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
 
@@ -393,6 +401,25 @@ class CarritoController extends Controller{
           }
       }
 
+    }
+
+
+    public function Verificar_Valor_Minimo_A_Pagar(){
+        if (Session::Get('cumple_valor_minimo_pedido') == TRUE ){
+          $Respuesta ='CUMPLE';
+        }else{
+          $Respuesta ='NO-CUMPLE';
+        }
+        echo trim($Respuesta);
+    }
+
+    public function Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario( $Segir_Comprando, $No_Usar_Comis_Puntos ){
+        if ( $Segir_Comprando == TRUE ){
+            Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
+          }
+        if ( $No_Usar_Comis_Puntos  == TRUE ){
+          Session::Set('Aplicacion_Puntos_Comisiones', FALSE);
+        }
     }
 
    public function Borrar_Productos_Carro_Plan_2_3(){
@@ -684,13 +711,8 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Ocasional =  $this->SubTotal_Pedido_Ocasional + $this->Vr_Transporte_Ocasional;
        $this->Vr_Total_Pedido_Amigos    =  $this->SubTotal_Pedido_Amigos    + $this->Vr_Transporte_Tron;
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
+       $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
 
-      // Aplición de descuentos por concepto de puntos y comisiones pendientes por pagar
-      // Si el pedido se realiza para un amigo, no se aplican descuentos de comisiones y puntos
-       $Pedido_Para_Amigo = Session::Get('Generando_Pedido_Amigo');
-       if ( isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = TRUE ){
-          $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
-        }
 
        Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
        Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
@@ -1197,48 +1219,55 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
     {/** FEBRERO 02 DE 2015
       *     REALIZA APLICACION DE DESCUENTOS POR CONCEPTO DE PUNTOS, COMISIONES Y CUPONES DE DESCUENTO
       */
-      $Vr_Usado_Cupon_Descuento = 0;
-      $Puntos_Utilizados        = 0;
-      $Comisiones_Utilizadas    = 0;
-      $autenticado              = false;
-      $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
-      //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
-      $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');
-      $this->Saldo_Comisiones           = Session::Get('saldo_comisiones');
-      $this->Vr_Cupon_Descuento         = Session::Get('vr_cupon_descuento');
+            // Aplición de descuentos por concepto de puntos y comisiones pendientes por pagar
+      // Si el pedido se realiza para un amigo, no se aplican descuentos de comisiones y puntos
+      Session::Set('Vr_Usado_Cupon_Descuento',    0);
+      Session::Set('Puntos_Utilizados',           0 );
+      Session::Set('Comisiones_Utilizadas',       0 );
 
-//
-//
+     $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
+     $Aplicacion_Puntos_Comisiones = Session::Get('Aplicacion_Puntos_Comisiones');
 
-      if ( $this->Vr_Total_Pedido_Real > 0 ){
-          if ( $this->Saldo_Puntos_Cantidad >= $this->Vr_Total_Pedido_Real ){
-             $Puntos_Utilizados               =  $this->Vr_Total_Pedido_Real;
-             $this->Vr_Total_Pedido_Real      = 0;
-             $this->Vr_Total_Pedido_Ocasional = 0;
-             $this->Vr_Total_Pedido_Amigos    = 0;
-          }else{
-            $this->Vr_Total_Pedido_Real      = $this->Vr_Total_Pedido_Real      - $this->Saldo_Puntos_Cantidad;
-            $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Puntos_Cantidad;
-            $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Puntos_Cantidad;
-            $Puntos_Utilizados          =  $this->Saldo_Puntos_Cantidad ;
+     if ( (isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = FALSE ) || ( isset($Aplicacion_Puntos_Comisiones ) && $Aplicacion_Puntos_Comisiones == TRUE ) ){
+          $Vr_Usado_Cupon_Descuento = 0;
+          $Puntos_Utilizados        = 0;
+          $Comisiones_Utilizadas    = 0;
+          $autenticado              = false;
+          $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
+          //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
+          $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');
+          $this->Saldo_Comisiones           = Session::Get('saldo_comisiones');
+          $this->Vr_Cupon_Descuento         = Session::Get('vr_cupon_descuento');
+          if ( $this->Vr_Total_Pedido_Real > 0 ){
+              if ( $this->Saldo_Puntos_Cantidad >= $this->Vr_Total_Pedido_Real ){
+                 $Puntos_Utilizados               =  $this->Vr_Total_Pedido_Real;
+                 $this->Vr_Total_Pedido_Real      = 0;
+                 $this->Vr_Total_Pedido_Ocasional = 0;
+                 $this->Vr_Total_Pedido_Amigos    = 0;
+              }else{
+                $this->Vr_Total_Pedido_Real      = $this->Vr_Total_Pedido_Real      - $this->Saldo_Puntos_Cantidad;
+                $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Puntos_Cantidad;
+                $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Puntos_Cantidad;
+                $Puntos_Utilizados          =  $this->Saldo_Puntos_Cantidad ;
+              }
           }
-      }
-      if ( $this->Vr_Total_Pedido_Real > 0 ){
-          if ( $this->Saldo_Comisiones >= $this->Vr_Total_Pedido_Real ){
-             $Comisiones_Utilizadas           =  $this->Vr_Total_Pedido_Real;
-             $this->Vr_Total_Pedido_Real      = 0;
-             $this->Vr_Total_Pedido_Ocasional = 0;
-             $this->Vr_Total_Pedido_Amigos    = 0;
-          }else{
-            $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
-            $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Comisiones;
-            $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Comisiones;
-            $Comisiones_Utilizadas           =  $this->Saldo_Comisiones;
-          }
+          if ( $this->Vr_Total_Pedido_Real > 0 ){
+              if ( $this->Saldo_Comisiones >= $this->Vr_Total_Pedido_Real ){
+                 $Comisiones_Utilizadas           =  $this->Vr_Total_Pedido_Real;
+                 $this->Vr_Total_Pedido_Real      = 0;
+                 $this->Vr_Total_Pedido_Ocasional = 0;
+                 $this->Vr_Total_Pedido_Amigos    = 0;
+              }else{
+                $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
+                $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Comisiones;
+                $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Comisiones;
+                $Comisiones_Utilizadas           =  $this->Saldo_Comisiones;
+              }
+            }
+            Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
+            Session::Set('Puntos_Utilizados',           $Puntos_Utilizados );
+            Session::Set('Comisiones_Utilizadas',       $Comisiones_Utilizadas );
         }
-        Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
-        Session::Set('Puntos_Utilizados',           $Puntos_Utilizados );
-        Session::Set('Comisiones_Utilizadas',       $Comisiones_Utilizadas );
     }
 
   public function Calcular_Valor_Recaudo( $valor_total_pedido,$valor_total_pedido_tron, $valor_total_pedido_ocas  ) {

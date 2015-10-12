@@ -1,4 +1,10 @@
 
+// DIC 29 2014
+// FUNCIONALIDAD PARA QUE AL PRESIONAR EN LOS BOTONES + y -, SE ACTUALICEN LOS PRECIOS
+// DE ACUERDO A LA ESCALA
+var $idtipo_plan_compras_kit =0;
+var $kit_comprado            = false;
+var $Respuesta_Servidor      ='';
 // Eventos ::: Notificaicones
   $('#notificaciones').on('click', function(){
   	 $autenticado 							  = $('#contenido').attr('autenticado');
@@ -26,13 +32,15 @@
   });
 
 
-// DIC 29 2014
-// FUNCIONALIDAD PARA QUE AL PRESIONAR EN LOS BOTONES + y -, SE ACTUALICEN LOS PRECIOS
-// DE ACUERDO A LA ESCALA
-var $idtipo_plan_compras_kit =0;
-var $kit_comprado            = false;
+
+
+
+
 
 $('#ventana_mensaje').modal('show');
+
+
+
 
 var $Total_Venta_Ocasional      = $('.carrito-Total_Parcial_pv_ocasional');
 var $Total_Venta_Tron           = $('.carrito-Total_Parcial_pv_tron');
@@ -285,6 +293,33 @@ function Recomendar_Producto_a_Mi_Amigo(Parametros){
 }
 
 
+var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
+				$.ajax({
+					dataType: 'text',
+					url:      '/tron/carrito/Verificar_Valor_Minimo_A_Pagar/',
+					type:     'post',
+					async: false,
+     success:  function (Respuesta)    	 {
+     		 $Respuesta_Servidor = $.trim(Respuesta);
+
+    	 }
+					});
+}
+var Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario = function( $Seguir_Comprando, $Usar_Comis_Puntos ){
+				$.ajax({
+					dataType: 'text',
+					url:      '/tron/carrito/Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario/'+ $Seguir_Comprando+'/'+$Usar_Comis_Puntos,
+					type:     'post',
+					async: false,
+     success:  function (Respuesta)    	 {
+     		 $Respuesta_Servidor = $.trim(Respuesta);
+
+    	 }
+					});
+}
+
+
+
 // FEBRERO 28 DE 2015... PASOS CARRITO
 // BOTÓN SEGUIR COMPRANDO
 	$('#contenido-productos').on('click','.btn-seguir-comprando',function(){
@@ -297,19 +332,40 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 
 // BOTON ELEGIR FORMA DE PAGO PARA EL PEDIDO
 	$('#contenido-productos').on('click','.btn-forma-pago-pedido',function(){
-
-			$.ajax({
-					dataType: 'text',
-					url:      '/tron/pedidos/Grabar/',
-					type:     'post',
-     success:  function (resultado)	 {
- 							window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
- 							Imprimir_Totales_Carrito_Header( 0, 0);
-    	 }
-					});
-
+			// Octubre 12 de 2015
+		 // Verificar si el pedido tiene un valor mínimo para pagarse por medio de payu-latam
+	   Pedidos_Verificar_Valor_Minimo_A_Pagar();
+	   if ( $Respuesta_Servidor == 'NO-CUMPLE'){
+	   	 $('#modal_no_cumple_pedido_minimo').modal('show');
+	   }else{
+							$.ajax({
+									dataType: 'text',
+									url:      '/tron/pedidos/Grabar/',
+									type:     'post',
+				     success:  function (resultado)	 {
+				 							window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
+				 							Imprimir_Totales_Carrito_Header( 0, 0);
+				    	 }
+									});
+ 		}
 });
 
+
+	$('#contenido-productos').on('click','#btn-seguir_comprando',function(){
+				window.location.href = "/tron";
+				$('#modal_no_cumple_pedido_minimo').modal('hide');
+				$Seguir_Comprando = true;
+				$Usar_Comis_Puntos = true;
+				Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario ( $Seguir_Comprando,$Usar_Comis_Puntos );
+	});
+
+	$('#contenido-productos').on('click','#btn-usar-comisiones-puntos',function(){
+				$('#modal_no_cumple_pedido_minimo').modal('hide');
+				$Seguir_Comprando  = true;
+				$Usar_Comis_Puntos = false;
+				Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario ( $Seguir_Comprando,$Usar_Comis_Puntos );
+				window.location.href = "/tron/carrito/mostrar_carrito/1";
+	});
 
 
 

@@ -686,11 +686,13 @@ $('.contenedor_cuenta').on('click','.usu-1',function(){
 /// RECOMENDAR NEGOCIO A UN AMIGO
 
 
+
 $('.contenedor_cuenta').on('click','#btn-recomendar-modelo-metodo-1',function(){
 		$recomendar_nombre        = $('#recomendar_nombre').val();
 		$recomendar_email         = $('#recomendar_email').val();
 		$recomendar_mnsj_personal = $('#recomendar_mnsj_personal').val();
 		$recomendar_nombre_envia  = $('#recomendar_nombre_envia').val();
+		var $img_cargando   					 = $('#img_cargando');
 
 		$Parametros 														= {'recomendar_nombre':$recomendar_nombre, 'recomendar_email':$recomendar_email,
 																															'recomendar_mnsj_personal':$recomendar_mnsj_personal,
@@ -708,9 +710,19 @@ $('.contenedor_cuenta').on('click','#btn-recomendar-modelo-metodo-1',function(){
 				    						} else{
 				         		$('#msj-error').html(respuesta);
 				         	}
-				      }
+				      },
+				      beforeSend: function(){
+              $img_cargando.css('display','block');
+           },
+           complete: function(){
+              $img_cargando.css('display','none');
+           },
+           error: function(xhr){
+           							 $img_cargando.css('display','none');
+                  new Messi('Se ha presentado el siguiente error : <br>' + xhr.responseText,
+                         {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+           }
 				  });
-
 });
 
 $('.contenedor_cuenta').on('focus','#recomendar_email,#recomendar_nombre',function(){

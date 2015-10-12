@@ -53,6 +53,7 @@
            </div>
           </div><!--Cuerpo de la ventana modal -->
 
+
           <div class="modal-footer pie-modal"><!--Pie de la ventana modal -->
             <button type="button" class="btn btn-success btn-enviar-modal" id='btn-recomendar-producto'
                     id-producto ='<?=$idproducto ;?>'

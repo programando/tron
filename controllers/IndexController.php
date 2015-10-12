@@ -61,6 +61,7 @@ class IndexController extends Controller
         Session::Set('valor_minimo_pedido_productos',          Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_pedido_productos'] ));
         Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero( $Parametros[0]['pedido_minimo_productos_fabricados_ta']));
         Session::Set('pago_minimo_payulatam',                  Numeric_Functions::Formato_Numero( $Parametros[0]['pago_minimo_payulatam'] ));
+        Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();

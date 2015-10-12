@@ -107,7 +107,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
        */
         $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
-        $this->View->SetCss(array("tabla_comisiones_tron"));
+        //$this->View->SetCss(array("tabla_comisiones_tron"));
         $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
