@@ -85,7 +85,10 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        *    BORRA REGISTRO DE LA LISTA DE TERCEROS A QUIENES SE LES HA RECOMENDADO PRODUCTOS
        */
       $this->Terceros->Recomendacion_Amigo_Producto_Borrar($idconfirmacion);
-      $this->View->Mostrar_Vista('lista_correos_recomendacion_produc_confirma_eliminacion');
+      $this->View->SetCss(array('tron_eliminar_cuenta_correo'));
+      $this->View->Mostrar_Vista('eliminar_cuenta_correo');
+
+
      }
 
     public function Comprobar_Tipo_Usuario(){

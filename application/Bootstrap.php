@@ -38,7 +38,7 @@ class Bootstrap
             }
 
         } else {
-            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+            throw new Exception(header('Location: ' . BASE_URL .'views/error/error_404.php'));
             //Debug::Mostrar($RutaControlador);
 
         }

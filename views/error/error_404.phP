@@ -6,7 +6,7 @@
 			       <div>
 			       	   <h1 class="titulo_error">Pagina no encontrada <br> (404)..!</h1>
 			       	   <p>La pagina a la que intenta acceder no se encuentra disponible en <br> nuestro sitio.</p>
-			       	   <p><a href="#">Volver al inicio</a></p>
+			       	   <p><a href="<?=BASE_URL ;?>">Volver al inicio</a></p>
 			       </div>
      	 </div>
      </div>
