@@ -127,6 +127,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        $this->View->Mostrar_Vista_Parcial("recomendar_amigo");
    }
 
+
    public function plan_seleccionado(){
        $this->View->idtipo_plan_compras            = Session::Get('idtipo_plan_compras');
        $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');

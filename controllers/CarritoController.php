@@ -790,7 +790,7 @@ public function Totalizar_Carrito(){
         // Transporte acumulado
 
           if ( $_Vr_Transporte_Ocasional  < 1 ){ $_Vr_Transporte_Ocasional   = 0 ;}
-          if (  $_Vr_Transporte_Tronon    < 1 ){  $_Vr_Transporte_Tron       = 0 ;}
+          if (  $_Vr_Transporte_Tron      < 1 ){  $_Vr_Transporte_Tron       = 0 ;}
           if ( $_Vr_Transporte_Real       < 1 ){ $_Vr_Transporte_Real        = 0 ;}
 
           $this->Vr_Transporte_Real      =  $this->Vr_Transporte_Real     + $_Vr_Transporte_Real;
