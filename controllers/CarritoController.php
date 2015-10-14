@@ -800,7 +800,7 @@ public function Totalizar_Carrito(){
   }
 
    private function Calcular_Valor_Flete_Transporte_Carga(){
-			// Calculo tranporte comprador ocasional // - $this->vr_total_ppto_fletes_ocas
+//$this->vr_total_ppto_fletes_ocas //$this->vr_total_ppto_fletes
 
 				if ( $this->Peso_Pedido_Carga > 0){
 						$this->Fletes->Calcular_Valor_Flete_Carga($this->Peso_Pedido_Carga, $this->Vr_Declarado_Carga_Ocas);
@@ -813,7 +813,7 @@ public function Totalizar_Carrito(){
 		        // Calculo tranporte comprador tron
 		   	    $this->Fletes->Calcular_Valor_Flete_Carga($this->Peso_Pedido_Carga, $this->Vr_Declarado_Carga_Tron);
 						$this->Vr_Fletes                 = Session::Get('flete_real_calculado');
-            $_Vr_Transporte_Tron       = $this->Vr_Fletes                 - $this->vr_total_ppto_fletes_ocas +
+            $_Vr_Transporte_Tron       = $this->Vr_Fletes                 - 0 +
                                                $this->Vr_Recaudo_tron     + $this->PayuLatam_Valor_Adicional -
                                                $this->vr_total_anticipo_recaudo_tron;
             Session::Set('VR_TRANS_TRON_CARGA', $_Vr_Transporte_Tron )  ;
@@ -829,7 +829,7 @@ public function Totalizar_Carrito(){
            // Caculo con el precio real
   		     $this->Fletes->Calcular_Valor_Flete_Carga( $this->Peso_Pedido_Carga, $this->Vr_Declarado_Carga_Total);
   		     $this->Vr_Fletes                   = Session::Get('flete_real_calculado');
-  		     $_Vr_Transporte_Real               = $this->Vr_Fletes                 - $this->vr_total_ppto_fletes +
+  		     $_Vr_Transporte_Real               = $this->Vr_Fletes                 - 0 +
                                                  $this->Vr_Recaudo          + $this->PayuLatam_Valor_Adicional -
                                                  $this->vr_total_anticipo_recaudo;
 
@@ -911,6 +911,7 @@ private function Totalizar_Carrito_Hallar_Presupuesto_Fletes_Anticipo_Recaudo(){
      foreach ($this->Datos_Carro as &$Productos){
         $this->vr_total_ppto_fletes_tron      = $this->vr_total_ppto_fletes_tron       + $Productos['vr_ppto_fletes_tron'];
         $this->vr_total_ppto_fletes_ocas      = $this->vr_total_ppto_fletes_ocas       + $Productos['vr_ppto_fletes_ocas'];
+
         $this->vr_total_anticipo_recaudo_tron = $this->vr_total_anticipo_recaudo_tron  + $Productos['vr_anticipo_recaudo_tron'];
         $this->vr_total_anticipo_recaudo_ocas = $this->vr_total_anticipo_recaudo_ocas  + $Productos['vr_anticipo_recaudo_ocas'];
         $this->vr_total_anticipo_recaudo      = $this->vr_total_anticipo_recaudo       +  $Productos['vr_anticipo_recaudo'];
