@@ -835,7 +835,7 @@ public function Totalizar_Carrito(){
 
          Session::Set('CARGA_FLETES',               $this->Vr_Fletes );
          Session::Set('CARGA_UNIDADES',             Session::Get('Cant_Unidades_Despacho') );
-         Session::Set('CARGA_SUBSIDIO_FLETE',       $this->vr_total_ppto_fletes);
+         Session::Set('CARGA_SUBSIDIO_FLETE',       0);
          Session::Set('CARGA_FLETE_REAL',           $this->Vr_Fletes - $this->vr_total_ppto_fletes );
          Session::Set('CARGA_VR_TRANSPORTE_FINAL',  $_Vr_Transporte_Real );
          Session::Set('CARGA_TIPO_TARIFA',          Session::Get('tipo_tarifa'));
