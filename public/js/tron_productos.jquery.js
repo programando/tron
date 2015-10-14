@@ -33,7 +33,23 @@ var $Respuesta_Servidor      ='';
 
 
 
+$("#agregar-producto-favoritos").on('click',function(){
+	$idproducto = $(this).attr('idproducto');
+	$idtercero  = $(this).attr('idtercero');
+ 				$.ajax({
+								dataType: 'text',
+								url:      '/tron/productos/Favoritos_Grabar/'+$idproducto+"/"+	$idtercero,
+								type:     'post',
+	       success:  function (resultado) {
+		       new Messi("Producto agregado a tus favoritos !.",
+		         {
+		         	title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
+		           buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
+		         });
+	      	 }
+					});
 
+});
 
 
 

@@ -607,9 +607,9 @@ public function Totalizar_Carrito(){
       //EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
       $cumple_condiciones_precio_especial = $this->Determinar_Cumple_Condiciones_Precio_Especial();
       //---------------------------------------------------------------------------------------------
+
       $this->compras_tron = 0;
       $this->Verificar_Compra_Derecho_Inscripcion( $this->Datos_Carro);
-
 
       foreach ($this->Datos_Carro as &$Productos){
 
@@ -657,10 +657,15 @@ public function Totalizar_Carrito(){
           $Productos['precio_venta_antes_iva_ocasional'] = $pv_ocasional        / $porciento_iva ;
 
           //PRESUPUESTO DE FLETES
-          if ( $porciento_ppto_fletes > 0 && $id_categoria_producto > 4 ) {
+
+          if ( ($porciento_ppto_fletes > 0 && $id_categoria_producto > 4) && ( $cumple_condiciones_precio_especial == TRUE) ) {
             $Productos['vr_ppto_fletes']              = $precio_unitario_producto  * $cantidad  * $porciento_ppto_fletes;
             $Productos['vr_ppto_fletes_ocas']         = $pv_ocasional              * $cantidad  * $porciento_ppto_fletes;
             $Productos['vr_ppto_fletes_tron']         = $pv_tron                   * $cantidad  * $porciento_ppto_fletes;
+          }else{
+                  $Productos['vr_ppto_fletes']      = 0;
+                  $Productos['vr_ppto_fletes_ocas'] = 0;
+                  $Productos['vr_ppto_fletes_tron'] = 0;
           }
 
           // ANTICIPO DE RECAUDO
@@ -728,29 +733,57 @@ public function Totalizar_Carrito(){
   private function Calcular_Valor_Flete_Transporte_Courrier (){
 
     //Calulo Transporte Comprador Ocasional - $this->vr_total_ppto_fletes_ocas
-
+    Session::Set('CARGA_FLETES', 0 );
+    Session::Set('CARGA_UNIDADES', 0 );
+    Session::Set('CARGA_SUBSIDIO_FLETE',0);
+    Session::Set('CARGA_FLETE_REAL',0);
+    Session::Set('CARGA_VR_TRANSPORTE_FINAL',0);
+    Session::Set('CARGA_TIPO_TARIFA','');
+    Session::Set('VR_TRANS_OCASI_COURIER', 0)  ;
+    Session::Set('VR_TRANS_TRON_COURIER', 0 )  ;
+    Session::Set('VR_TRANS_OCASI_CARGA', 0)  ;
+    Session::Set('VR_TRANS_TRON_CARGA', 0 )  ;
      if ( $this->Peso_Pedido_Courrier > 0 ){
           $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Ocas);
           $this->Vr_Fletes                    = Session::Get('flete_real_calculado');
           $this->Vr_Transporte_Ocasional      = $this->Vr_Fletes  + $this->Vr_Recaudo_ocas +
                                                 $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo_ocas ;
-
+          Session::Set('VR_TRANS_OCASI_COURIER', $this->Vr_Transporte_Ocasional )  ;
           // Calculo transporte Comprador TRON
-          $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Tron);
+          $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Tron );
           $this->Vr_Fletes                    = Session::Get('flete_real_calculado');
           $this->Vr_Transporte_Tron           = $this->Vr_Fletes  - $this->vr_total_ppto_fletes_tron + $this->Vr_Recaudo_tron +
                                                 $this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo_tron ;
 
+          Session::Set('VR_TRANS_TRON_COURIER', $this->Vr_Transporte_Tron )  ;
 
+          if ( Session::Get('cumple_condicion_cpras_tron_industial') == FALSE ){
+              if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron  ){
+                $this->Vr_Transporte_Tron  = $this->Vr_Transporte_Ocasional ;
+              }
+              if ( $this->Vr_Transporte_Tron  > $this->Vr_Transporte_Ocasional ){
+                $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Tron;
+              }
+        }
           // Caculo con el precio real
           $this->Fletes->Calcular_Valor_Flete_Courrier( $this->Peso_Pedido_Courrier, $this->Vr_Declarado_Courrier_Total);
           $this->Vr_Fletes                    = Session::Get('flete_real_calculado');
           $this->Vr_Transporte_Real           = $this->Vr_Fletes - $this->vr_total_ppto_fletes + $this->Vr_Recaudo +
                                     						$this->PayuLatam_Valor_Adicional -  $this->vr_total_anticipo_recaudo;
 
+
           if ( $this->Vr_Transporte_Ocasional < 1 ){ $this->Vr_Transporte_Ocasional  = 0 ;}
           if ( $this->Vr_Transporte_Tron      < 1 ){ $this->Vr_Transporte_Tron       = 0 ;}
           if ( $this->Vr_Transporte_Real      < 1 ){ $this->Vr_Transporte_Real       = 0 ;}
+
+
+          Session::Set('COURRIER_FLETES',                 $this->Vr_Fletes );
+          Session::Set('COURRIER_UNIDADES',               Session::Get('Cant_Unidades_Despacho') );
+          Session::Set('COURRIER_SUBSIDIO_FLETE',         $this->vr_total_ppto_fletes);
+          Session::Set('COURRIER_FLETE_REAL',             $this->Vr_Fletes - $this->vr_total_ppto_fletes );
+          Session::Set('COURRIER_VR_TRANSPORTE_FINAL',    $this->Vr_Transporte_Real);
+          Session::Set('COURRIER_TIPO_TARIFA',            Session::Get('tipo_tarifa'));
+
       }
 
 
@@ -775,24 +808,42 @@ public function Totalizar_Carrito(){
 						$_Vr_Transporte_Ocasional       = $this->Vr_Fletes +
                                               $this->Vr_Recaudo_ocas + $this->PayuLatam_Valor_Adicional -
                                               $this->vr_total_anticipo_recaudo_ocas ;
+            Session::Set('VR_TRANS_OCASI_CARGA', $_Vr_Transporte_Ocasional )  ;
+
 		        // Calculo tranporte comprador tron
 		   	    $this->Fletes->Calcular_Valor_Flete_Carga($this->Peso_Pedido_Carga, $this->Vr_Declarado_Carga_Tron);
 						$this->Vr_Fletes                 = Session::Get('flete_real_calculado');
             $_Vr_Transporte_Tron       = $this->Vr_Fletes                 - $this->vr_total_ppto_fletes_ocas +
                                                $this->Vr_Recaudo_tron     + $this->PayuLatam_Valor_Adicional -
                                                $this->vr_total_anticipo_recaudo_tron;
-  		     // Caculo con el precio real
+            Session::Set('VR_TRANS_TRON_CARGA', $_Vr_Transporte_Tron )  ;
+
+           if ( Session::Get('cumple_condicion_cpras_tron_industial') == FALSE ){
+               if ( $_Vr_Transporte_Ocasional > $_Vr_Transporte_Tron )   {
+                $_Vr_Transporte_Tron = $_Vr_Transporte_Ocasional;
+               }
+               if ( $_Vr_Transporte_Tron > $_Vr_Transporte_Ocasional  )  {
+                $_Vr_Transporte_Ocasional  =  $_Vr_Transporte_Tron ;
+               }
+           }
+           // Caculo con el precio real
   		     $this->Fletes->Calcular_Valor_Flete_Carga( $this->Peso_Pedido_Carga, $this->Vr_Declarado_Carga_Total);
   		     $this->Vr_Fletes                   = Session::Get('flete_real_calculado');
   		     $_Vr_Transporte_Real               = $this->Vr_Fletes                 - $this->vr_total_ppto_fletes +
                                                  $this->Vr_Recaudo          + $this->PayuLatam_Valor_Adicional -
                                                  $this->vr_total_anticipo_recaudo;
-        // Transporte acumulado
+
+         Session::Set('CARGA_FLETES',               $this->Vr_Fletes );
+         Session::Set('CARGA_UNIDADES',             Session::Get('Cant_Unidades_Despacho') );
+         Session::Set('CARGA_SUBSIDIO_FLETE',       $this->vr_total_ppto_fletes);
+         Session::Set('CARGA_FLETE_REAL',           $this->Vr_Fletes - $this->vr_total_ppto_fletes );
+         Session::Set('CARGA_VR_TRANSPORTE_FINAL',  $_Vr_Transporte_Real );
+         Session::Set('CARGA_TIPO_TARIFA',          Session::Get('tipo_tarifa'));
 
           if ( $_Vr_Transporte_Ocasional  < 1 ){ $_Vr_Transporte_Ocasional   = 0 ;}
           if (  $_Vr_Transporte_Tron      < 1 ){  $_Vr_Transporte_Tron       = 0 ;}
           if ( $_Vr_Transporte_Real       < 1 ){ $_Vr_Transporte_Real        = 0 ;}
-
+          // Transporte acumulado
           $this->Vr_Transporte_Real      =  $this->Vr_Transporte_Real     + $_Vr_Transporte_Real;
           $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional + $_Vr_Transporte_Ocasional;
           $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron      + $_Vr_Transporte_Tron ;
@@ -872,6 +923,7 @@ private function Totalizar_Carrito_Hallar_Presupuesto_Fletes_Anticipo_Recaudo(){
       }else{
         $this->vr_total_ppto_fletes        = $this->vr_total_ppto_fletes_ocas;
       }
+
   }
 
 
@@ -932,10 +984,12 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
         }
 
         if (Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ){
-            $Productos['valor_declarado'] = $_precio_venta_antes_iva_tron       * $porciento_seguro_flete ;
+            $Productos['valor_declarado'] = $_precio_venta_antes_iva_tron        * $porciento_seguro_flete ;
           }else{
-             $Productos['valor_declarado'] = $_precio_venta_antes_iva_ocasional       * $porciento_seguro_flete ;
+             $Productos['valor_declarado'] = $_precio_venta_antes_iva_ocasional  * $porciento_seguro_flete ;
           }
+
+
 
         // VALOR DECLARADO PRODUCTOS TRON
         if  ( $id_categoria_producto >= 1 &&  $id_categoria_producto <= 4) {
@@ -1120,8 +1174,8 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
   /** JULIO 24 DE 2015
    *      DETERMINA SI CUMPLE LAS CONDICIONES PARA APLICAR EL PRECIO ESPECIAL EN LA COMPRA
    */
-     $this->Terceros->Compra_Productos_Tron_Mes_Actual($this->compras_tron  , $this->compras_industrial  );
-    $Cumple_Condic_Cpras_Tron_Industial = Session::Get('cumple_condicion_cpras_tron_industial');
+    $this->Terceros->Compra_Productos_Tron_Mes_Actual( $this->compras_tron  , $this->compras_industrial  );
+    $Cumple_Condic_Cpras_Tron_Industial = FALSE;
 
     if ( Session::Get('autenticado') == TRUE ) {
       $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
@@ -1137,20 +1191,21 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
         if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
              ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
              ($usuario_viene_del_registro == TRUE && $kit_comprado  == FALSE)){
-             Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
+
              $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
           }else{
-              Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
               $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
           }
     }
+      //$Cumple_Condic_Cpras_Tron_Industial  = TRUE;
+      Session::Set('cumple_condicion_cpras_tron_industial', $Cumple_Condic_Cpras_Tron_Industial );
       return $Cumple_Condic_Cpras_Tron_Industial;
 
 } // fin Determinar_Cumple_Condiciones_Precio_Especial
 
 
-public function Totalizar_Pedido_x_Categoria_Producto()
-    {/** MARZO 19 DE 2015
+public function Totalizar_Pedido_x_Categoria_Producto() {
+      /** MARZO 19 DE 2015
       *       TOTALIZA LOS VALORES DEL PEDIDO POR CATEGORIA DE PRODUCTO. TRON, INDUSTRIALES, ACCESORIOS, OTROS
       */
       $this->compras_tron            = 0;

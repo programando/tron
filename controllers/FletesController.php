@@ -48,6 +48,7 @@
 				}
 					public function Calcular_Valor_Flete_Courrier ( $peso_pedido_courrier, $valor_declarado){
 						 Session::Set('flete_real_calculado',0);
+						 Session::Set('Cant_Unidades_Despacho', 0 );
 						 $this->Consultar_Vr_Kilo_Destino();
 						 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
 	      $peso_kilos_pedido  = $peso_pedido_courrier / 1000  ;
@@ -70,6 +71,7 @@
 	    /** MARZO 09 DE 2015
 	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
 	      */
+
 	      Session::Set('flete_real_calculado',0);
 	    	 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
        $peso_kilos_pedido  = $peso_pedid_carga /1000;  // PASAR A KILOS
@@ -199,10 +201,6 @@
 
 										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
-
-
-
-
 
 										// HALLO EL SEGURO
 										$seguro_flete = $valor_declarado * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
@@ -479,6 +477,7 @@
 											$this->Valor_Fletes_Productos_Tron($peso_pedido_gramos,$this->iddpto,$this->re_expedicion );
 											$this->cantidad_unidades_despacho = $peso_pedido_gramos / 4000;
 											$this->cantidad_unidades_despacho = Numeric_Functions::Valor_Absoluto($this->cantidad_unidades_despacho);
+											Session::Set('Cant_Unidades_Despacho',$this->cantidad_unidades_despacho );
 
 											$this->valor_flete                = $this->valor_flete  * $this->cantidad_unidades_despacho;
 
@@ -632,7 +631,7 @@
 			              }
 			          }
 			          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
-			              $Cant_Unid_No_Industriales = $Cant_Unid_No_Industriales + $Productos['peso_gramos'];
+			              $Cant_Unid_No_Industriales = 0 ;//$Cant_Unid_No_Industriales + $Productos['peso_gramos'];
 			          }
 
 			        }// end foreach
@@ -656,6 +655,7 @@
 												}
 
 			        Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
+
 
 							}
 

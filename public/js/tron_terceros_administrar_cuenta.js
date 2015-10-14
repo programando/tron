@@ -181,6 +181,7 @@ $('#informes_pedidos').on('click',function(){
     $('#informes-pedidos-realizados').click();
 });
 
+
 // Favoritos
 $('#favoritos').on('click',function(){
 

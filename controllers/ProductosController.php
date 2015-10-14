@@ -21,9 +21,22 @@ class ProductosController extends Controller
 
     public function Index() {}
 
+    public function Favoritos_Consulta_x_idTercero( $idtercero ){
+        $this->View->Productos =  $this->Productos->Favoritos_Consulta_x_idTercero(   $idtercero ) ;
+        $this->$this->View->Mostrar_Vista_Parcial('resultado_busqueda');
+    }
+
+    public function Favoritos_Grabar( $idproducto, $idtercero ){
+
+      $this->Productos->Favoritos_Grabar( $idproducto, $idtercero ) ;
+      echo "FAVORITO-OK";
+
+    }
+
     public function mostrar_resumen_producto() {
         $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
     }
+
 
 
     public function Recomendar_Producto_a_Amigo() { /** ENERO 31 DE 2015

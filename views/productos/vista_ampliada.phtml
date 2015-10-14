@@ -219,9 +219,10 @@
                           </a>
                         </div>
                         <!-- agregar favorito -->
-                       <div class="contenedor_agregar_favorito">
+                       <div class="recomendar_amigo">
                           <?php if ( Session::Get('autenticado')== TRUE ) :?>
-                          <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
+                          <a  id="agregar-producto-favoritos" idproducto ="<?= $idproducto ;?>" idtercero = "<?= Session::Get('idtercero_pedido') ;?>"
+                           herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
                             <p>
                                <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
                             </p>
@@ -262,45 +263,7 @@
 
        <!-- div  -->
 
-<!--
-* agregar a favorito.
-* grupo al que pertenece el producto
 
-             <div class="col-lg-6">
-             <div class="">
-                <div class="div-content">
-                  <?php if ( Session::Get('autenticado')== TRUE ) :?>
-                  <a herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
-                    <p>
-                       <span ><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span> Agregar a Favoritos
-                    </p>
-                  </a>
-                <?php endif ;?>
-                </div>
-             </div>
-
-                <?php if ($idgrupo>0) :?>
-                   <div class="imagen_grupo_producto"
-                      title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡ Contáctanos a:  contactos@entreamigosalcanzamos.com !">
-                      <strong><?= $codigo_grupo  ;?></strong>
-                    </div>
-                <?php endif ;?>
-
-
-                <?php if ($fabricado_x_ta==1) :?>
-                   <div class="imagen_tecnoaplicadas_producto" title="Producto fabricado por: Balquimia S.A.S.">
-                      <img class="img-Producto_fabricado_por_Tecnologías" src="<?= BASE_IMG_PRODUCTOS ;?>22.png" alt="">
-                   </div>
-
-                <?php endif ;?>
-
-               <?php if ($en_oferta  ==1) :?>
-                   <div class="imagen_en_oferta" title="Producto en Oferta !!!">
-                      <img class="img_Producto_en_Oferta" src="<?= BASE_IMG ;?>en_oferta.png " alt="">
-                   </div>
-              <?php endif ;?>
-
-             </div>  -->
          </div><br><!--FIN DE HIJA-FILA-->
 
 
