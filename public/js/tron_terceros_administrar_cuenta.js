@@ -434,14 +434,14 @@ $('#pases_cortesia').on('click',function(){
 
 
 // Mostrar menu = vista previa / imprimir
-$('#convenio_comercial').on('click',function(){
+$('#cont_conevion_comercial').on('mouseover',function(){
+    $('#convenio_comercial').css('background','#003E90');
     $('.menu_convenio').show();
 });
 
-// funcion = esconde el menu de convenio comercial por medio del cierre de la ventana modal.
-$('#cerrar_moda_convenio_comercial').on('click',function(){
-	$('#ventana_modal_convenio_comercial').fadeOut();
-	$('.menu_convenio').hide();
+$('#cont_conevion_comercial').on('mouseout',function(){
+	   $('#convenio_comercial').css('background','#B7B7B7');
+    $('.menu_convenio').hide();
 });
 
 // mostrar pdf = convenio comercial
@@ -451,7 +451,7 @@ $('#convenio_pdf').on('click',function(){
 	// window.location.href  = '/tron/pdf/Convenio_Comercial';
 	window.open('/tron/pdf/Convenio_Comercial');
 	$('.contenedor_cuenta').html('');
-	$('.menu_convenio').hide();
+	// $('.menu_convenio').hide();
 });
 
 
