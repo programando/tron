@@ -597,6 +597,11 @@
 									$presentaciones_1000_mL            = array( 90, 149, 192 ) ;
 
 
+
+
+
+
+
 			      $this->Datos_Carro = Session::Get('carrito');
 
 			       foreach ($this->Datos_Carro as $Productos){
@@ -617,6 +622,8 @@
 			            if (in_array($ID_Presentacion,  $presentaciones_20_litros)){  // presentaciones iguales a 4 litros
 			                  $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
 			              }
+
+
 			            if (in_array($ID_Presentacion,  $presentaciones_1_8)){  // presentaciones iguales 1/8
 			                  $Cant_Unid_1_8_Octavos = $Cant_Unid_1_8_Octavos + $Productos['cantidad'];
 			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);

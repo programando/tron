@@ -120,7 +120,7 @@ class PedidosController extends Controller
           $tipo_despacho_carga               = Session::Get('tipo_despacho_carga');
           $id_transportadora_carga           = Session::Get('id_transportadora_carga');
           $vr_flete_transportadora_carga     = Session::Get('vr_flete_carga');
-          $vr_declarado_carga             = Session::Get('valor_declarado_carga');
+          $vr_declarado_carga                = Session::Get('valor_declarado_carga');
           $peso_gramos_pedido_carga          = Session::Get('Peso_Pedido_Carga');
 
 
