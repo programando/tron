@@ -89,7 +89,6 @@
             	  	    <div>
            	  	    	   <div class="text-center">
            	  	    	   	    <strong> Cuenta para transferencias:</strong><br>
-
            	  	    	   </div>
            	  	    </div>
                  </div><br><br><br>
