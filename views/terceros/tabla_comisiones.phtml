@@ -27,7 +27,7 @@
               </thead>
 
               <tbody>
-              <?php $Primer_Registro = TRUE ;?>
+              <?php $Primer_Registro  = TRUE ;?>
               <?php $Segundo_Registro = TRUE ;?>
               <?php foreach ($this->Comisiones_Grupos as $Comisiones)  : ; ?>
                 <?php
@@ -58,10 +58,10 @@
                         <?php $Primer_Registro = FALSE ;?>
                       </tr>
 
-                     <?php endif;?>
+
 
                      <!-- Grupo B =>  PP -->
-                     <?php if ( $Segundo_Registro == TRUE) :?>
+                     <?php elseif ( $Segundo_Registro == TRUE) :?>
                       <tr style="font-size: 11.5px;">
                         <td >Industrial
                            <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png" class="img-responsive img-tecno_aplicds">
@@ -74,9 +74,9 @@
                          <td>industrial</td>
                         <tr>
 
-                      <?php endif;?>
+                      <?php else : ?>
 
-                    <?php if ( $Primer_Registro == FALSE  && $Segundo_Registro == FALSE ) :?>
+
                       <tr>
                       <td>nueva columna</td>
                         <td class="text-center"> <?= $codigo_grupo  ;?> </td>
