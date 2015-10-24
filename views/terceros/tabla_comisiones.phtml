@@ -1,201 +1,7 @@
-<style>
-
-
-
-    .contenedor_tabla_comisiones
-    {
-      width: 1024px;
-      margin: 0px auto;
-      max-width: 1024px;
-    }
-
-    .tabla_tab1
-    {
-       display: block;
-       position: absolute;
-       width: 198px;
-       top: -60px;
-       left: 153px;
-       height: 60px;
-       border-top: 1px solid #DDDDDD;
-       border-left: 1px solid #DDDDDD;
-       border-right: 1px solid #DDDDDD;
-       text-align: center;
-       font-size: 11.5px;
-       background:  #C7E9EF;
-       z-index: 1;
-    }
-
-
-    .tabla_tab2
-
-    {
-       display: block;
-       position: absolute;
-       width: 417px;
-       top: -60px;
-       left: 351px;
-       height: 60px;
-       border-top: 1px solid #DDDDDD;
-       border-left: 1px solid #DDDDDD;
-       border-right: 1px solid #DDDDDD;
-       text-align: center;
-       font-size: 11.5px;
-       background:  #CCCCCC;
-       z-index: 1;
-    }
-
-
-    /* Columan left = section Hogar */
-    .sectiones_tabla
-    {
-      padding: 0px;
-      width: 200px;
-      display: block;
-    }
-
-     .section_hogar
-     {
-         border-bottom: 2px solid #DDDDDD;
-         display: block;
-         padding: 0px;
-         height: 38px;
-         border-top: 3px solid #003E90;
-         margin-top: 33px;
-     }
-
-    .bloques_img_hogar
-    {
-        width: 48%;
-        text-align: center;
-        display: inline-block;
-    }
-
-    .img_section_hogar
-    {
-        width: 80px;
-        height: 26px;
-        margin-top:-3px;
-    }
-
-    /* Section Industrial */
-    .section_industrial
-    {
-       height: 40px;
-       border-bottom: 2px solid #DDDDDD;
-    }
-
-    .bloques_img_industrial
-    {
-       float: left;
-        width: 40%;
-        /*border: 1px solid red;*/
-        margin-top: 20px;
-    }
-
-    .img-tecno_aplicds
-    {
-         margin-top: -5px;
-    }
-
-    /* section otros productos */
-    .section_otros_productos
-    {
-       border-bottom: 2px solid #DDDDDD;
-       display: block;
-       height: 172px;
-    }
-
-    /* section productos promocinales*/
-    .section_promocionales
-    {
-        border-bottom: 1px solid #DDDDDD;
-        height:23px;
-    }
-
-     /* Textos de la columna izquierdad */
-     .columna_left_text
-     {
-         color: #666666;
-         font-size: 12px;
-     }
-
-     /* dewfinicion de los colores */
-     .color3 { background: #8BDEED;}
-     .color4 { background: #FFA0A0;}
-     .color5 { background: #EEEEEE;}
-
-     .color
-     {
-          display:inline-block;
-          width: 40px;
-          height: 15px;
-          margin-left: 15px;
-          border: 1px solid black;
-          margin-top: 10px;
-
-          -webkit-border-radius: 2px;
-          -moz-border-radius: 2px;
-          border-radius: 2px;
-     }
-
-     .defi_color
-     {
-           font-size: 12px;
-     }
-
-</style>
 <div class="tabla_tron"><br><br><br>
-	   <div class="row contenedor_tabla_comisiones">
-      <!-- Columna Sectiones de la tabla -->
-       <div class="col-lg-2 col-md-2 col-sm-2 sectiones_tabla">
-           <!-- section hogar -->
-          <div>
-            <div class="section_hogar">
-                <!-- logo -->
-                <div class="bloques_img_hogar">
-                   <img src= "<?= BASE_IMG_EMPRESA ; ?>logo.png" class="img_section_hogar">
-                </div>
-                <!-- text = hogar -->
-                <div class="bloques_img_hogar">
-                   <h5 class="columna_left_text text-left"><strong>HOGAR</strong></h5>
-                </div>
-           </div>
-          </div>
-          <!-- section industrial -->
-          <div class="well">
-              <div class="section_industrial">
-                <!-- text -->
-                <div class="bloques_img_industrial">
-                   <h5 class="columna_left_text text-left"><strong>INDUSTRAL</strong></h5>
-                </div>
-                <!-- img -->
-                <div class="bloques_img_industrial">
-                     <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png" class="img-responsive img-tecno_aplicds">
-                </div>
-              </div>
-          </div>
-          <!-- section otros productos -->
-          <div>
-               <div class="section_otros_productos">
-                <div class="text_otros_product"><br><br><br>
-                   <h5 class="columna_left_text text-left"><strong>OTROS PRODUCTOS</strong></h5>
-                </div>
-               </div>
-          </div>
-          <!-- section prodcutos promocionales -->
-          <div>
-              <div class="section_promocionales">
-                <div class="text_otros_product">
-                   <h5 class="columna_left_text text-left"><strong>PRODUCTOS PROMOCIONALES</strong></h5>
-                </div>
-              </div>
-          </div>
-       </div>
+     <div class="row contenedor_tabla_comisiones">
 
-
-
-        <div class="col-lg-9 col-md-9 col-sm-9" style="padding: 0px;">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
 
           <!-- Tabs -->
           <div class="taba_tabla">
@@ -207,19 +13,22 @@
               </div>
           </div>
 
+
         <!-- tabla -->
         <table class="table table-bordered">
-        	    <thead style="font-size: 11.5px;">
-        	    	   <tr>
-            				<th class="text-center" style="border-bottom: 3px solid #003E90;">Grupo</th>
-            				<th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;">  </th>
-            				<th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;"> </th>
-            				<th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;"> </th>
-        	    	   </tr>
-        	    </thead>
+              <thead style="font-size: 11.5px;">
+                   <tr>
+                   <th colspan="" rowspan="" headers="" scope="">nueva columna</th>
+                    <th class="text-center" style="border-bottom: 3px solid #003E90;">Grupo</th>
+                    <th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;">  </th>
+                    <th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;"> </th>
+                    <th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;"> </th>
+                   </tr>
+              </thead>
 
-        	    <tbody>
+              <tbody>
               <?php $Primer_Registro = TRUE ;?>
+              <?php $Segundo_Registro = TRUE ;?>
               <?php foreach ($this->Comisiones_Grupos as $Comisiones)  : ; ?>
                 <?php
                     $codigo_grupo          = $Comisiones['codigo_grupo'];
@@ -241,23 +50,43 @@
                   <?php if ( $Primer_Registro == TRUE) :?>
                     <!-- Grupo A -->
                       <tr style="font-size: 11.5px;">
-                				<td class="text-center" > <?= $codigo_grupo  ;?> </td>
-                				<td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
-                				<td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad ;?>  </td>
-                				<td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?>  </td>
+                        <td>Tron Hogar</td>
+                        <td class="text-center" > <?= $codigo_grupo  ;?> </td>
+                        <td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
+                        <td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad ;?>  </td>
+                        <td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?>  </td>
                         <?php $Primer_Registro = FALSE ;?>
-            	        </tr>
-                    <?php else : ?>
+                      </tr>
+
+                     <?php endif;?>
+
                      <!-- Grupo B =>  PP -->
+                     <?php if ( $Segundo_Registro == TRUE) :?>
                       <tr style="font-size: 11.5px;">
+                        <td >Industrial
+                           <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png" class="img-responsive img-tecno_aplicds">
+
+                            <?php $Segundo_Registro = FALSE ;?>
+                        </td>
+                         <td class="text-center" > B </td>
+                         <td>industrial</td>
+                         <td>industrial</td>
+                         <td>industrial</td>
+                        <tr>
+
+                      <?php endif;?>
+
+                    <?php if ( $Primer_Registro == FALSE  && $Segundo_Registro == FALSE ) :?>
+                      <tr>
+                      <td>nueva columna</td>
                         <td class="text-center"> <?= $codigo_grupo  ;?> </td>
                         <td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
                         <td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad  ;?> </td>
                         <td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?> </td>
                     </tr>
-
                   <?php endif;?>
-        	    </tbody>
+
+              </tbody>
               <?php endforeach ;?>
         </table>
         </div>
@@ -269,6 +98,5 @@
            <div><span class="color color5"></span><span class="defi_color"> COMISIONES PARA QUIEN PRESENTO AL EMPRESARIO.</span></div>
         </div>
        </div>
-	   </div>
+     </div>
 </div>
-
