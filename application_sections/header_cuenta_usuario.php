@@ -24,7 +24,7 @@
 
          <li>
             <a  href="#" class="bienvenido_usuario  bienvenido_industrial" id="bienvenido_usuario">
-                <strong>Bienvenido: </strong> <?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
+                <strong>Bienvenido: </strong> <?= ucwords(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
             </a>
          </li>
 

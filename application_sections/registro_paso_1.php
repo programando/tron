@@ -3,6 +3,7 @@
     Js          => Carpeta Js  => tron_terceros_registro.js
 -->
 
+
 <div  class="col-lg-12"><!--Contenedor de la pagina -->
    <div class="cont-tabla-planes" style="font-size: 11px;"><!--Fila -->
 

@@ -10,6 +10,8 @@
     $Total_Derecho_Inscripcion    = Numeric_Functions::Formato_Numero($Total_Derecho_Inscripcion);
     $valor_transferencia_bancaria =  Session::Get('valor_transferencia_bancaria');
     $valor_minimo_transferencias  =  Session::Get('valor_minimo_transferencias');
+    $valor_kit_inicio_ocasional   = Numeric_Functions::Formato_Numero( Session::Get('valor_kit_inicio_ocasional' ));
+    $valor_kit_inicio_empresario  = Numeric_Functions::Formato_Numero( Session::Get('valor_kit_inicio_empresario' ));
 ?>
 
 <!--Los estilos se encuentran en la carpeta CSS => tron_red_amigo_general.css -->
@@ -334,9 +336,9 @@
               <li><!-- ¿Dónde reclamar el pago?-->
                   <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Dónde reclamar el pago?   </p></div><!--Pregunta -->
                    <ul class="list-unstyled submenu"><!--Contenido -->
-                         <li> Por defecto, el pago de las comisiones y/o bonificaciones se hará en efectivo a través de Efecty., pero pueden los usuarios de la Red, a través del menú Mi Cuenta, solicitar que sean pagadas mediante transferencia electrónica a alguna cuenta corriente o de ahorros que se encuentre a su nombre. Al escogerse esta opción, se está autorizando que el costo que tenga esta transferencia (hoy $ 4.500), es asumido por el usuario. En este caso, también hay que autorizar cuál es el valor mínimo que puede ser transferido a su cuenta (por defecto y mínimo $ 10.000) puesto que un valor muy cercano al costo de la transferencia, no se justificaría transferirlo. </li>
+                         <li> Los pagos son hechos todos los meses directamente a la cuenta corriente o de ahorros que los usuarios deben registrar al momento de inscribirse o en otro momento utilizando el menú Mi cuenta/Datos personales/Datos de cuenta. Al hacerlo, autorizan asumir  el costo de esta transferencia (hoy <?= $valor_transferencia_bancaria ;?>).   Igualmente el usuario debe saber que el valor mínimo que se trasladará a su cuenta es por defecto $ 30.000. Este valor puede ser aumentado a voluntad del usuario pero no disminuido. Lo ganado que no alcance este valor mínimo a trasferir, permanecerá en la cuenta Dinero y servirá para ser abonado al próximo pedido.” </li>
                      </ul><!--Contenido -->
-               </li><!--¿Dónde reclamar el pago? -->
+               </li>
              </ul><!--Menu accordion -->
             </div><!--Contenedor de  -->
           </div>
@@ -429,7 +431,7 @@
                 <li><!--¿Cuánto cuesta el kit de inicio?  -->
                     <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuánto cuesta el kit de inicio?    </p></div><!--Pregunta -->
                      <ul class="list-unstyled submenu"><!--Contenido -->
-                           <li>El kit de inicio cuesta $ 15.000 e incluye los 4 productos TRON por este valor. Adicionalmente recibirás sin costo alguno los accesorios como envases vacíos con sus tapas, pistola o válvulas especiales, indispensables para usar los producto. Como si fuera poco, incluye además obsequios de bienvenida.    </li>
+                           <li>El kit de Inicio cuesta <?=$valor_kit_inicio_ocasional ;?> pero si es adquirido junto con el pago de los Derechos de Inscripción, tiene un precio especial de <?=$valor_kit_inicio_empresario ;?> . En él encontrarás 4 productos TRON en cojines, sus envases vacíos correspondientes, tapas, pistola y válvulas especiales para utilizarlos y además unos obsequios de bienvenida.”    </li>
                        </ul><!--Contenido -->
                  </li><!--¿Cuánto cuesta el kit de inicio?  -->
 

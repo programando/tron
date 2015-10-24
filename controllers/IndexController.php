@@ -38,8 +38,14 @@ class IndexController extends Controller
         $Parametros = $this->Parametros->Transportadoras();
 
         Session::Set('Parametros',$Parametros );
+
         Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);            // Precio de venta del kit de inicio
-        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);           // valor de la 1 cuota de inscripcion
+
+        Session::Set('valor_kit_inicio_ocasional', $Parametros[0]['valor_kit_inicio_ocasional']);
+        Session::Set('valor_kit_inicio_empresario', $Parametros[0]['valor_kit_inicio_empresario']);
+
+        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
+                // valor de la 1 cuota de inscripcion
         Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
         Session::Set('kit_vr_transporte'                  ,0);
 
