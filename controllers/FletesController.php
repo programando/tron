@@ -1,7 +1,6 @@
 <?php
 
-  class FletesController extends Controller
-  {
+  class FletesController extends Controller {
 						public  $valor_flete                  = 0;
 						public 	$valor_dscto_flete_kit_inicio = 0;
 						public 	$valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
@@ -39,50 +38,14 @@
 				      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
 					}
 
-				private function Calcular_Valor_Fletes_Inicializacion_Variables(){
+				public function Calcular_Valor_Fletes_Inicializacion_Variables(){
 					      $this->Cant_Unidades_Despacho 			= 0;
 					      $Fletes_Cobrados_Transportadoras = array(array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE,
 					                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
 					      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
 
 				}
-					public function Calcular_Valor_Flete_Courrier ( $peso_pedido_courrier, $valor_declarado){
-						 Session::Set('flete_real_calculado',0);
-						 Session::Set('Cant_Unidades_Despacho', 0 );
-						 $this->Consultar_Vr_Kilo_Destino();
-						 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
-	      $peso_kilos_pedido  = $peso_pedido_courrier / 1000  ;
-							$kit_inicio_peso_total        			= Session::Get('kit_inicio_peso_total');
-					  $kit_cantidad                 			= Session::Get('kit_cantidad');
 
-	      if ( $kit_cantidad > 0 ){
-	          $this->Vr_Transporte_Kit_Inicio( $kit_inicio_peso_total,$kit_cantidad  );
-	      }
-	      if ( $valor_declarado > 0 ){
-	      	 $this->Redetrans_Courrier     ( $peso_kilos_pedido , $valor_declarado );
-	    				$this->Sevientrega_Premier    ( $peso_kilos_pedido , $valor_declarado );
-
-	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
-	        $this->Encontrar_Mejor_Flete();
-	      }
-					}
-
-	    public function Calcular_Valor_Flete_Carga($peso_pedid_carga, $valor_declarado) {
-	    /** MARZO 09 DE 2015
-	      *     REALIZA CALCULO DEL VALOR DEL FLETE DE LAS DIFERNTES TRANSPORTADORAS QUE TENEMOS
-	      */
-
-	      Session::Set('flete_real_calculado',0);
-	    	 $this->Calcular_Valor_Fletes_Inicializacion_Variables();
-       $peso_kilos_pedido  = $peso_pedid_carga /1000;  // PASAR A KILOS
-	      if ( $valor_declarado >0 ){
-	        $this->Redetrans_Carga            ( $peso_kilos_pedido , $valor_declarado );
-	        $this->Servientrega_Industrial    ( $peso_kilos_pedido , $valor_declarado );
-	        $this->Sevientrega_Premier        ( $peso_kilos_pedido , $valor_declarado );
-	      	 $this->Encontrar_Mejor_Flete_Depurar(); /// Borrar fletes iguales a cero
-	        $this->Encontrar_Mejor_Flete();
-	      }
-	    }
 
 
     public function Encontrar_Mejor_Flete_Depurar(){
@@ -106,22 +69,26 @@
      /**  MARZO 12 DE 2015
       *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
       */
-
+     $this->Encontrar_Mejor_Flete_Depurar();
       $i                               = 0;
       $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+
       $Asignar_Flete                   = TRUE;
       $this->valor_flete                 = 0;
 
+
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)   {
-        if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE )        {
-              $Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
-              $Asignar_Flete = FALSE;
+        if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE ) {
+														$Mejor_Flete   = $Fletes_Cobrados_Transportadoras[$i];
+														$Asignar_Flete = FALSE;
+
             }
-            if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete'] )  {
+            if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete']  )  {
                 $Mejor_Flete['idtercero']     = $Fletes['idtercero']   ;
                 $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
                 $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
                 $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
+
             }
         }
 
@@ -154,10 +121,11 @@
 
       }
 
-      public function Sevientrega_Premier($peso_kilos_pedido,$valor_declarado)  {
+      public function Sevientrega_Premier( $Peso_Pedido, $Valor_Declarado )  {
       /** MARZO 16 DE 2015
       	*				CALCULA VALOR DE FLETE SE COBRARÁ POR SERVIENTREGA PREMIER
       	*/
+										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE', 0 );
 										$kilos_adicionales            = 0;
 										$valor_flete_hasta_3_kilos    = 0;
 										$valor_flete_kilos_adiconales = 0;
@@ -168,10 +136,11 @@
 										$this->iddpto                 = Session::Get('iddpto');
 										$this->tipo_despacho										= 3;  // SERVIENTREGA PREMIER
 										$this->Transportadoras 							= $this->Parametros->Transportadoras();
+										$Peso_Pedido 																	= $Peso_Pedido / 1000;
 
 			      	// 1. HALLAR KILOS ADICIONALES
-			      	if ($peso_kilos_pedido > 3) 		      	{
-			      		$kilos_adicionales = $peso_kilos_pedido - 3;
+			      	if ($Peso_Pedido > 3) 		      	{
+			      		$kilos_adicionales = $Peso_Pedido - 3;
 			      		if ($kilos_adicionales < 0) { $kilos_adicionales = 0 ;}
 			      	}
 
@@ -203,27 +172,26 @@
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
 
 										// HALLO EL SEGURO
-										$seguro_flete = $valor_declarado * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
+										$seguro_flete = $Valor_Declarado  * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
 
 										if ($seguro_flete < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
 										}
 
-										Session::Set('SERVIENTREGA_PREMIER_valor_flete',$valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales);
-										Session::Set('SERVIENTREGA_PREMIER_seguro',$seguro_flete);
+
 
 										$this->valor_flete     =  $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  + $seguro_flete ;
-										Session::Set('SERVIENTREGA_PREMIER_flete_total',$this->valor_flete);
+										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE',$this->valor_flete);
 
 										$this->flete_calculado = TRUE ;
           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
       }
 
-      public function Servientrega_Industrial($peso_kilos_pedido,$valor_declarado) {
+      public function Servientrega_Industrial( $Numero_Unidades, $Valor_Declarado, $Peso_Pedido ) {
       /**  MAZO 16 DE 2015
       	*							CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA INDUSTRIAL SERVIENTREGA
        	*/
-
+      	 Session::Set('SERVIENTREGA_INDUSTRIAL_VR_FLETE', 0 );
 								$descuento_comercial   = 0;
 								$tasa_manejo           = 0;
 								$valor_minimo_manejo   = 0;
@@ -237,15 +205,16 @@
 								$this->idmcipio        = Session::Get('idmcipio');
 								$this->iddpto          = Session::Get('iddpto');
 								$this->Transportadoras = $this->Parametros->Transportadoras();
-								$this->Calcular_Numero_Unidades_Despacho($peso_kilos_pedido);
+								$Peso_Pedido 									 = $Peso_Pedido / 1000;
+
 								$this->tipo_despacho   = 4;  // SERVIENTREGA CARGA
 
-								$peso_minimo           = $this->Cant_Unidades_Despacho * $this->Transportadoras['0']['sv_carga_peso_minimo'];
-	      	if ($peso_minimo > $peso_kilos_pedido) {
-	      		$peso_kilos_pedido = $peso_minimo;
+								$peso_minimo           = $Numero_Unidades * $this->Transportadoras['0']['sv_carga_peso_minimo'];
+	      	if ($peso_minimo > $Peso_Pedido) {
+	      		$Peso_Pedido = $peso_minimo;
 	      	}
 
-	      	$this->valor_flete = $peso_kilos_pedido  * Session::Get('vr_kilo_idmcipio_servientrega');
+	      	$this->valor_flete = $Peso_Pedido  * Session::Get('vr_kilo_idmcipio_servientrega');
 
 
 	      	if ($this->re_expedicion == 0)  	{
@@ -258,7 +227,7 @@
 									$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_nacional'];
 									$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_nacional'];
 									$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_nacional'];
-									$this->tipo_tarifa   = 'SERVIENTREGA - CARGA NACIONAL';
+									$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL NACIONAL';
 	      }
 
 	      if ($this->iddpto == 32 )  {// VALLE
@@ -266,12 +235,12 @@
 											$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_zonal'];
 											$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_zonal'];
 											$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_zonal'];
-												$this->tipo_tarifa   = 'SERVIENTREGA - CARGA DEPARTAMENTAL/ZONAL';
+												$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL DEPARTAMENTAL/ZONAL';
 										 } else			{
 											$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_reexpedicion'];// Aunque dice reexpedidion se trata de zonal/urbano
 											$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_reexpedicion'];
 											$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_urbano'];
-											$this->tipo_tarifa   = 'SERVIENTREGA - CARGA URBANO';
+											$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL URBANO';
 									}
 							}
 
@@ -281,44 +250,50 @@
 											$tasa_manejo      = 0;
 											$vr_minimo_manejo = 0;
 	      }
+
 	      // HALLO EL FLETE MÍNIMO
 	      if ( $this->valor_flete < $flete_minimo ){
 	      	$this->valor_flete  = $flete_minimo;
 	      }
 	      //6. APLICAR TASA DE MANEJO Y COMPARAR CON EL VALOR DEL FLETE
-	      $costo_manejo  = 0;
-							$tasa_manejo  = $tasa_manejo / 100;
-							$costo_manejo = $valor_declarado *  $tasa_manejo;
-							$vr_minimo_manejo  = $vr_minimo_manejo  * $this->Cant_Unidades_Despacho;
+							$costo_manejo     = 0;
+							$tasa_manejo      = $tasa_manejo / 100;
+							$costo_manejo     = $Valor_Declarado *  $tasa_manejo;
+							$vr_minimo_manejo = $vr_minimo_manejo  * $Numero_Unidades;
 
 	      if ($costo_manejo < 	$vr_minimo_manejo ){
 	      				$costo_manejo = $vr_minimo_manejo ;
 	      }
 
-	     	Session::Set('SERVIENTREGA_INDUS_valor_flete',$this->valor_flete);
-							Session::Set('SERVIENTREGA_INDUS_seguro',$costo_manejo);
 
 
 							$this->valor_flete     = $this->valor_flete + $costo_manejo ;
 
-							Session::Set('SERVIENTREGA_INDUS_flete_total',$this->valor_flete);
+							Session::Set('SERVIENTREGA_INDUSTRIAL_VR_FLETE',$this->valor_flete);
 							$this->flete_calculado = TRUE ;
        $this->Adicionar_Cobro_Flete_Transportadora(2,'2030','SERVIENTREGA');
       }
 
 
+				private function Redetrans_Carga_Evaluar_Peso_Minimo ($Peso_Minimo_Calculado, $Peso_Total_Pedido   ){
+							if ( $Peso_Minimo_Calculado < $Peso_Total_Pedido ){
+										$Peso_Minimo_Calculado = $Peso_Total_Pedido  ;
+							}
 
-      public function Redetrans_Carga($peso_kilos_pedido,$valor_declarado) {
+							return $Peso_Minimo_Calculado;
+				}
+
+      public function Redetrans_Carga( $Numero_Unidades, $Valor_Declarado, $Peso_Pedido ) {
       /** MARZO 12 DE 2015
       	*				CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA REDE TRANS
       	*/
-
+      Session::Set('REDETRANS_CARGA_VR_FLETE'        ,0);
 						$seguro_fijo                = 0;
 						$seguro_reexpedicion        = 0;
 						$seguro_flete               = 0;
 						$descuento_comercial        = 0;
 						$this->valor_flete          = 0;
-
+						$Peso_Pedido 															= $Peso_Pedido / 1000;
 
       $this->Transportadoras      = $this->Parametros->Transportadoras();
 						$this->re_expedicion        = Session::Get('re_expedicion');
@@ -329,53 +304,52 @@
 						$porciento_dscto_ccial      = $this->Transportadoras[0]['rt_carga_descuento_comercial']/100;
 						$this->idmcipio             = Session::Get('idmcipio');
 						$this->iddpto               = Session::Get('iddpto');
+						$this->tipo_despacho								= 2;  // CARGA REDETRANS
 
 
-								$this->tipo_despacho										= 2;  // CARGA REDETRANS
-
-								$this->Calcular_Numero_Unidades_Despacho($peso_kilos_pedido);
 								// DETERMINAR EL TIPO DE TARIFA A APLICAR.  URBANO - REGIONAL - NACIONAL O REEXPEDICION
 								//----------------------------------------------------------------------------------------
-								if ($this->iddpto == 32 ){		// VALLE
-													if ( $this->idmcipio == 153 ){
-																	$tipo_destino         ='URBANO';
+							if ( $this->re_expedicion  == FALSE) {
+											if ($this->iddpto == 32 ){		// VALLE
+																if ( $this->idmcipio == 153 ){
+																				$tipo_destino         ='URBANO';
 
-																	if ( $this->Cant_Unidades_Despacho <= 1 ){
-																		$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano']  ;
-																	}else{
-																			$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
-																	}
+																				if ( $this->Cant_Unidades_Despacho <= 1 ){
+																					$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano']  ;
+																				}else{
+																						$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
+																						$peso_minimo										= $this->Redetrans_Carga_Evaluar_Peso_Minimo ($peso_minimo, $Peso_Pedido );
+																				}
+																				$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_urbano'] ;
+																				$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_urbano']  ;
+																				$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_urbano']  ;
+																}
+																if ( $this->idmcipio != 153  ) {
+																				$tipo_destino         ='REGIONAL';
 
-																	$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_urbano'] ;
-																	$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_urbano']  ;
-																	$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_urbano']  ;
-													}
-													if ( $this->idmcipio != 153 && $this->re_expedicion  == FALSE) {
-																	$tipo_destino         ='REGIONAL';
-
-																	if ( $this->Cant_Unidades_Despacho <= 1 ){
-																		$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_regional']  ;
-																	}else{
-																			$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_regional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
-																	}
-
-																	$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_regional'] ;
-																	$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_regional']  ;
-																	$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_regional']  ;
-													}
-								}
-								if ($this->iddpto != 32 ){
-																	$tipo_destino         ='NACIONAL';
-
-																	if ( $this->Cant_Unidades_Despacho <= 1 ){
-																		 $peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional']  ;
-																	}else{
-																			$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
-																	}
-
-																	$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_nacional'] ;
-																	$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_nacional']  ;
-																	$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_nacional']  ;
+																				if ( $this->Cant_Unidades_Despacho <= 1 ){
+																					$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_regional']  ;
+																				}else{
+																						$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_regional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
+																						$peso_minimo										= $this->Redetrans_Carga_Evaluar_Peso_Minimo ($peso_minimo, $Peso_Pedido );
+																				}
+																				$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_regional'] ;
+																				$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_regional']  ;
+																				$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_regional']  ;
+																}
+											}
+											if ($this->iddpto != 32 ){
+																				$tipo_destino         ='NACIONAL';
+																				if ( $this->Cant_Unidades_Despacho <= 1 ){
+																					 $peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional']  ;
+																				}else{
+																						$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
+																						$peso_minimo										= $this->Redetrans_Carga_Evaluar_Peso_Minimo ($peso_minimo, $Peso_Pedido );
+																				}
+																				$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_nacional'] ;
+																				$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_nacional']  ;
+																				$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_nacional']  ;
+												}
 								}
 
 								if ( $this->re_expedicion  == TRUE) {
@@ -384,23 +358,22 @@
 																 $peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_reexpedicion']  ;
 															}else{
 																	$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_reexpedicion_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
+																	$peso_minimo										= $this->Redetrans_Carga_Evaluar_Peso_Minimo ($peso_minimo, $Peso_Pedido );
 															}
-
-														//$flete_minimo       =	$this->Transportadoras[0]['rdtrans_flete_min_reexpedicion'] ;
 															$flete_minimo  					 = $peso_minimo  * $vr_kilo_idmcipio_redetrans ;
 														$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_reexpedicion']  ;
 														$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_reexpedicion']  ;
 										}
 
 							$flete_variable_porc = $flete_variable_porc / 100;
-
+							$flete_minimo 							= $flete_minimo  * $Numero_Unidades;
 							// DETERMINO PESO REAL DEL PEDIDO
-							if ( $peso_kilos_pedido < $peso_minimo ){
-											$peso_kilos_pedido = $peso_minimo;
+							if ( $Peso_Pedido < $peso_minimo ){
+											$Peso_Pedido = $peso_minimo;
 							}
 
 							//CALCULO EL VALOR DEL FLETE
-								$this->valor_flete          = $peso_kilos_pedido * $vr_kilo_idmcipio_redetrans ;
+								$this->valor_flete          = $Peso_Pedido * $vr_kilo_idmcipio_redetrans ;
 
 
     		if ($this->re_expedicion == 0) {
@@ -421,17 +394,17 @@
 							$seguro_minimo = 0;
 
 						if ( $this->re_expedicion== 0){
-									$seguro  = $valor_declarado * $this->Transportadoras[0]['rt_carga_porciento_seguro']/100;
+									$seguro  = $Valor_Declarado * $this->Transportadoras[0]['rt_carga_porciento_seguro']/100;
 									if ($seguro < $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo']){
 											 $seguro  = $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo'];
 									}
-									$seguro_minimo = $this->Cant_Unidades_Despacho * $this->Transportadoras[0]['rdtrans_carga_vr_seguro_fijo_unidad'];
+									$seguro_minimo = $Numero_Unidades * $this->Transportadoras[0]['rdtrans_carga_vr_seguro_fijo_unidad'];
 								}else{ /// ES REEXPEDICION
-									$seguro  = $valor_declarado * $this->Transportadoras[0]['rt_carga_porciento_reexpedicion']/100;
+									$seguro  = $Valor_Declarado * $this->Transportadoras[0]['rt_carga_porciento_reexpedicion']/100;
 									if ( $seguro < $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo_reexp']){
 											$seguro = $this->Transportadoras[0]['rdtrans_carga_vr_seguro_minimo_reexp'];
 									}
-									$seguro_minimo = $this->Cant_Unidades_Despacho * $this->Transportadoras[0]['rdtrans_carga_vr_seguro_fijo_unidad_reexp'];
+									$seguro_minimo = $Numero_Unidades * $this->Transportadoras[0]['rdtrans_carga_vr_seguro_fijo_unidad_reexp'];
 								}
 
 								$seguro_flete = $seguro ;
@@ -439,13 +412,8 @@
 									$seguro_flete = $seguro_minimo ;
 								}
 
-								Session::Set('REDETRANS_CARGA_valor_flete',$this->valor_flete);
-								Session::Set('REDETRANS_CARGA_seguro',$seguro_flete);
-
 								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
-
-								Session::Set('REDETRANS_CARGA_flete_total',$this->valor_flete);
-
+								Session::Set('REDETRANS_CARGA_VR_FLETE',$this->valor_flete);
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
 		    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
@@ -571,102 +539,122 @@
 			      }// fin function
 
 
-						public function Calcular_Numero_Unidades_Despacho($peso_kilos_pedido=0)
-			    {/** MARZO 12 de 2015
+
+
+
+						public function Numero_Unidades_Despacho() {
+			    /** MARZO 12 de 2015
 			      *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
 			      */
-			      /*  38  4 kg.   39  4 kg.   42  4 lts.    122 4 lts(1)    123 4 lts(1)    124 4 lts(1)    145 4 lts.      148 4 lts.
-			          151 4 kg.   155 4 kg.   160 4 lts.    162 4 lts(1)    163 4 lts.      164 4 lts.(1)   195 4 lts (1)
-			      */
-									$Cant_Unid_No_04_20_Litros         = 0;       // Cantidad de productos que no son 4 y 20 litros
-									$Cant_Unid_Si_04_Litros            = 0;      // Cantidad de presentaciones que son 4 litros
-									$Cant_Unid_Si_20_Litros            = 0;      // Cantidad de presentaciones que son 20 litros
-									$Cant_Unid_1_8_Octavos             = 0 ;		// Cantidad de productos que tienen presentacion de 1/8 de galón
-									$Cant_Unid_1_4_Cuarto              = 0 ;		// Cantidad de productos que tienen presentacion de 1/4 de galón
-									$Cant_Unid_1000_mL                 = 0 ;		// Cantidad de productos que tienen presentacion de 1000 mL.
-
-									$Cant_Unid_No_Industriales         = 0;     // Cantidad de productos que no son industriales
-									$peso_total_present_1_8_1_4_100_mL = 0;			// Peso total de las presentaciones 1/4, 1/8, 100 mL
-
-									$this->Cant_Unidades_Despacho      = 0;
-
-									$presentaciones_4_litros           = array(38, 39, 42, 122, 123, 124, 145, 148, 151, 155, 160, 162, 163, 164, 195 );
-									$presentaciones_20_litros          = array(57, 59, 61, 153, 171, 184, 185 );
-									$presentaciones_1_8                = array( 144 ) ;
-									$presentaciones_1_4                = array( 85,87 ) ;
-									$presentaciones_1000_mL            = array( 90, 149, 192 ) ;
+							$_20_Litros_Garrafas_Presentaciones = array(46, 49, 54, 57, 59, 61, 62, 70, 71, 72, 73, 74, 75, 76, 103, 104, 105,106, 108,110, 111, 112, 113, 114, 115, 130, 147, 153, 154, 156, 171, 173, 184, 185, 186, 190 );
+							$_20_Litros_Garrafas_Cantidad       = 0;
+							$_20_Litros_Garrafas_Vr_Declarado   = 0;
+							$_20_Litros_Garrafas_Peso_Gramos    = 0;
+							$_20_Litros_Garrafas_Subsidio_Flete = 0;
+							$_20_Litros_Garrafas_Recaudo        = 0;
+							$_20_Litros_Garrafas_Vr_Compra      = 0;
+							$_20_Litros_Garrafas_Unidades       = 0;
 
 
+							$_04_Litros_Galon_Presentaciones = array(30, 38, 145, 148, 151, 155, 157, 160, 163, 164, 179, 195, 196, 281, 282, 287, 39, 42, 122, 123, 124, 162 );
+							$_04_Litros_Galon_Cantidad       = 0;
+							$_04_Litros_Galon_Vr_Declarado   = 0;
+							$_04_Litros_Galon_Peso_Gramos    = 0;
+							$_04_Litros_Galon_Subsidio_Flete = 0;
+							$_04_Litros_Galon_Recaudo        = 0;
+							$_04_Litros_Galon_Vr_Compra      = 0;
+							$_04_Litros_Galon_Unidades       = 0;
 
 
+							$_Otros_Productos_Presentaciones = array(144, 85, 87, 90, 149, 192);
+							$_Otros_Productos_Cantidad       = 0;
+							$_Otros_Productos_Vr_Declarado   = 0;
+							$_Otros_Productos_Peso_Gramos    = 0;
+							$_Otros_Productos_Subsidio_Flete = 0;
+							$_Otros_Productos_Recaudo        = 0;
+							$_Otros_Productos_Vr_Compra      = 0;
+							$_Otros_Productos_Unidades							= 0;
 
-
+							$Espacio_Libre																		 = 0;
 
 			      $this->Datos_Carro = Session::Get('carrito');
 
 			       foreach ($this->Datos_Carro as $Productos){
-			          if ($Productos['id_categoria_producto']==6){ // Productos industriales
-			            $ID_Presentacion = $Productos['idpresentacion'];
+													$ID_Presentacion       = $Productos['idpresentacion'] ;
+													$ID_categoria_producto = $Productos['id_categoria_producto'];
+			          if ( in_array($ID_Presentacion, $_20_Litros_Garrafas_Presentaciones )) {
+																			$_20_Litros_Garrafas_Cantidad       = $_20_Litros_Garrafas_Cantidad  					+ $Productos['cantidad'];
+																			$_20_Litros_Garrafas_Vr_Declarado   = $_20_Litros_Garrafas_Vr_Declarado 		+ $Productos['valor_declarado'];
+																			$_20_Litros_Garrafas_Peso_Gramos    = $_20_Litros_Garrafas_Peso_Gramos 			+ $Productos['peso_gramos'] * $Productos['cantidad'];
+																			$_20_Litros_Garrafas_Subsidio_Flete = $_20_Litros_Garrafas_Subsidio_Flete + $Productos['vr_ppto_fletes'];
+																			$_20_Litros_Garrafas_Recaudo        = $_20_Litros_Garrafas_Recaudo 							+ $Productos['vr_anticipo_recaudo'];
+																			$_20_Litros_Garrafas_Vr_Compra      = $_20_Litros_Garrafas_Vr_Compra  				+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
+			             }
+			          if ( in_array($ID_Presentacion, $_04_Litros_Galon_Presentaciones  )) {
+																			$_04_Litros_Galon_Cantidad       = $_04_Litros_Galon_Cantidad  					+ $Productos['cantidad'];
+																			$_04_Litros_Galon_Vr_Declarado   = $_04_Litros_Galon_Vr_Declarado 		+ $Productos['valor_declarado'];
+																			$_04_Litros_Galon_Peso_Gramos    = $_04_Litros_Galon_Peso_Gramos 			+ $Productos['peso_gramos'] * $Productos['cantidad'];
+																			$_04_Litros_Galon_Subsidio_Flete = $_04_Litros_Galon_Subsidio_Flete + $Productos['vr_ppto_fletes'];
+																			$_04_Litros_Galon_Recaudo        = $_04_Litros_Galon_Recaudo 							+ $Productos['vr_anticipo_recaudo'];
+																			$_04_Litros_Galon_Vr_Compra      = $_04_Litros_Galon_Vr_Compra  				+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
+			             }
 
-			            // Presentaciones diferentes a 4 litros
-			            if (!in_array($ID_Presentacion, $presentaciones_4_litros) and !in_array($ID_Presentacion, $presentaciones_20_litros)
-			            			and !in_array($ID_Presentacion, $presentaciones_1_8 )
-			            			and !in_array($ID_Presentacion, $presentaciones_1_4 )
-			            			and !in_array($ID_Presentacion, $presentaciones_1000_mL ) )
-			            {
-			                  $Cant_Unid_No_04_20_Litros = $Cant_Unid_No_04_20_Litros + $Productos['cantidad'];
-			              }
-			            if ( in_array($ID_Presentacion, $presentaciones_4_litros )) { // presentaciones iguales a 4 litros
-			                  $Cant_Unid_Si_04_Litros = $Cant_Unid_Si_04_Litros + $Productos['cantidad'];
-			              }
-			            if (in_array($ID_Presentacion,  $presentaciones_20_litros)){  // presentaciones iguales a 4 litros
-			                  $Cant_Unid_Si_20_Litros = $Cant_Unid_Si_20_Litros + $Productos['cantidad'];
-			              }
+			          if ( $ID_categoria_producto != 6 || in_array($ID_Presentacion, $_Otros_Productos_Presentaciones )) {
+																			$_Otros_Productos_Cantidad       = $_Otros_Productos_Cantidad  					+ $Productos['cantidad'];
+																			$_Otros_Productos_Vr_Declarado   = $_Otros_Productos_Vr_Declarado 		+ $Productos['valor_declarado'];
+																			$_Otros_Productos_Peso_Gramos    = $_Otros_Productos_Peso_Gramos 			+ $Productos['peso_gramos'] * $Productos['cantidad'];
+																			$_Otros_Productos_Subsidio_Flete = $_Otros_Productos_Subsidio_Flete + $Productos['vr_ppto_fletes'];
+																			$_Otros_Productos_Recaudo        = $_Otros_Productos_Recaudo 							+ $Productos['vr_anticipo_recaudo'];
+																			$_Otros_Productos_Vr_Compra      = $_Otros_Productos_Vr_Compra 				+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
 
-
-			            if (in_array($ID_Presentacion,  $presentaciones_1_8)){  // presentaciones iguales 1/8
-			                  $Cant_Unid_1_8_Octavos = $Cant_Unid_1_8_Octavos + $Productos['cantidad'];
-			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
-			              }
-			            if (in_array($ID_Presentacion,  $presentaciones_1_4)){  // presentaciones iguales 1/4
-			                  $Cant_Unid_1_4_Cuarto = $Cant_Unid_1_4_Cuarto + $Productos['cantidad'];
-			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
-			              }
-			            if (in_array($ID_Presentacion,  $presentaciones_1000_mL)){  // presentaciones iguales 100 mL
-			                  $Cant_Unid_1000_mL = $Cant_Unid_1000_mL + $Productos['cantidad'];
-			                  $peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL + ( $Productos['peso_gramos'] * $Productos['cantidad']);
-			              }
-			          }
-			          if ($Productos['id_categoria_producto']==7) {// Productos que no son industriales
-			              $Cant_Unid_No_Industriales = 0 ;//$Cant_Unid_No_Industriales + $Productos['peso_gramos'];
-			          }
+			             }
 
 			        }// end foreach
-											$peso_total_present_1_8_1_4_100_mL = $peso_total_present_1_8_1_4_100_mL  / 1000 ;
-											$Cant_Unid_Si_04_Litros            = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_Si_04_Litros/6));
-											$Cant_Unid_1_8_Octavos             = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1_8_Octavos / 32));
-											$Cant_Unid_1_4_Cuarto              = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1_4_Cuarto / 30));
-											$Cant_Unid_1000_mL                 = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_1000_mL / 16));
-											$Unidades_Adicionales              = $Cant_Unid_Si_04_Litros + 	$Cant_Unid_1_8_Octavos  + 	$Cant_Unid_1_4_Cuarto  ;
 
-											if ( $peso_total_present_1_8_1_4_100_mL <= 24 ){
-												$Unidades_Adicionales = Numeric_Functions::Valor_Absoluto(ceil($peso_total_present_1_8_1_4_100_mL / 24));
-											}
-											$Cant_Unid_No_Industriales         = Numeric_Functions::Valor_Absoluto(ceil($Cant_Unid_No_Industriales/4000));
-			        $Cant_Unid_No_Industriales    = Numeric_Functions::Valor_Absoluto(intval($Cant_Unid_No_Industriales));
-			        $this->Cant_Unidades_Despacho = $Cant_Unid_No_04_20_Litros    + $Cant_Unid_Si_04_Litros + $Cant_Unid_Si_20_Litros + $Cant_Unid_No_Industriales;
-			        $this->Cant_Unidades_Despacho = $this->Cant_Unidades_Despacho + $Unidades_Adicionales;
+			        if ( $_04_Litros_Galon_Cantidad > 0 ){ 				// IF - 1						//// CALCULAR EL ESPECIO LIBRE
+			        			$_04_Litros_Galon_Unidades  = $_04_Litros_Galon_Cantidad /6;
+			        			if ( $_04_Litros_Galon_Unidades < 1 ){
+			        				  $_04_Litros_Galon_Unidades  = 1 ;
+			        			}else{
+			        					$_04_Litros_Galon_Unidades   = Numeric_Functions::Valor_Absoluto(ceil( $_04_Litros_Galon_Cantidad / 6 ));
+			        			}
+			        			$Espacio_Libre	 = 24 - ((( $_04_Litros_Galon_Cantidad /6 - (int)($_04_Litros_Galon_Cantidad /6 ))) * 24 );
+			        			if ( $Espacio_Libre	 == 24 ){
+			        						$Espacio_Libre	 = 0;
+			        			}
+			        } //IF - 1
 
-			        if ( $this->Cant_Unidades_Despacho <= 0){
-			        	$this->Cant_Unidades_Despacho = 1;
-												}
+											$Carga_Fija_Unidades       = $_04_Litros_Galon_Unidades 										+ $_20_Litros_Garrafas_Cantidad ;
+											$Carga_Fija_Vr_Declarado   = $_20_Litros_Garrafas_Vr_Declarado  		+ $_04_Litros_Galon_Vr_Declarado ;
+											$Carga_Fija_Peso_Pedido    = $_20_Litros_Garrafas_Peso_Gramos  			+ $_04_Litros_Galon_Peso_Gramos ;
+											$Carga_Fija_Subsidio_Flete = $_20_Litros_Garrafas_Subsidio_Flete 	+ $_04_Litros_Galon_Subsidio_Flete;
+											$Carga_Fija_Recaudo        = $_20_Litros_Garrafas_Recaudo  							+ $_04_Litros_Galon_Recaudo  ;
+											$Carga_Fija_Vr_Compra      = $_20_Litros_Garrafas_Vr_Compra  					+ $_04_Litros_Galon_Vr_Compra;
 
-			        Session::Set('Cant_Unidades_Despacho',$this->Cant_Unidades_Despacho );
+			        Session::Set('Unidades_Adicionales', FALSE );
+			        $Peso_Total_Kg_Otros_Productos = $_Otros_Productos_Peso_Gramos  / 1000;
+
+			        if ( $Espacio_Libre >= $Peso_Total_Kg_Otros_Productos  ) {
+			        	  $_Otros_Productos_Unidades = 0;
+			        	  $Carga_Fija_Subsidio_Flete  = $Carga_Fija_Subsidio_Flete  + $_Otros_Productos_Subsidio_Flete ;
+			        	 }
+			        	  else{
+			        	  	 Session::Set('Unidades_Adicionales', TRUE );
+			        	  	 $Courrier_Unidades 						= Numeric_Functions::Valor_Absoluto(ceil( $Peso_Total_Kg_Otros_Productos - $Espacio_Libre  ) / 4);
+			        	  	 $Carga_Variable_Unidades = Numeric_Functions::Valor_Absoluto(ceil( $Peso_Total_Kg_Otros_Productos - $Espacio_Libre  ) / 24);
+			        	  }
+			        	  Session::Set('Carga_Fija_Vr_Compra', 					$Carga_Fija_Vr_Compra);
+			        	  Session::Set('Carga_Fija_Unidades',  					$Carga_Fija_Unidades);
+			        	  Session::Set('Carga_Fija_Vr_Declarado',   $Carga_Fija_Vr_Declarado);
+			        	  Session::Set('Carga_Fija_Peso_Pedido',    $Carga_Fija_Peso_Pedido);
+
+			        	  Session::Set('Otros_Productos_Vr_Compra', $_Otros_Productos_Vr_Compra );
 
 
-							}
+							} //  Fin  Calcular_Numero_Unidades
 
-						public function Presupuesto_Fletes_Productos_Tron($valor_total_compra_tron, $cantidad, $valor_declarado){
+
+						public function Presupuesto_Fletes_Productos_Tron( $valor_total_compra_tron, $cantidad, $valor_declarado ){
 							 Session::Set('SubSidio_Flete_Unitario_Tron',0);
 								$this->Transportadoras        = $this->Parametros->Transportadoras();
 								$subsisio_flete_valle         = Session::Get('subsisio_flete_valle');
