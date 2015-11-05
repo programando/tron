@@ -531,9 +531,6 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
    $this->PayuLatam_Valor_Minimo          =  Session::Get('py_vr_min_recaudo');
    $this->PayuLatam_Valor_Adicional       =  Session::Get('py_vr_adicional');
 
-   Session::Set('REDETRANS_COURRIER_flete'           ,0);
-
-   Session::Set('REDETRANS_COURRIER_seguro'          ,0);
 
    Session::Set('SERVIENTREGA_PREMIER_seguro'        ,0);
    Session::Set('SERVIENTREGA_INDUS_seguro'          ,0);
@@ -679,6 +676,7 @@ public function Totalizar_Carrito(){
         }
         /// CALCULO DE FLETES
         $this->Fletes_Carga_Fija();
+        $this->Fletes_Courrier_Carga_Variable();
 
 
       // $this->Calcular_Valor_Flete_Transporte_Courrier();
@@ -722,6 +720,16 @@ public function Totalizar_Carrito(){
           */
 
     }
+
+    private function Fletes_Courrier_Carga_Variable(){
+        $_Otros_Productos_Peso_Gramos  =     Session::Get('Otros_Productos_Peso_Gramos');
+        $_Otros_Productos_Vr_Declarado =     Session::Get('Otros_Productos_Vr_Declarado');
+        $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
+        if ( Session::Get('Unidades_Adicionales') == TRUE){
+
+        }
+    }
+
 
   private function Totalizar_Carrito_Valor_Recaudo( $Valor_Total_Compra, $Aproximar_Recaudo){
       /** NOVIEMBRE 02 DE 2015

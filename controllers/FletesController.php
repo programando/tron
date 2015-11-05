@@ -178,8 +178,6 @@
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
 										}
 
-
-
 										$this->valor_flete     =  $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  + $seguro_flete ;
 										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE',$this->valor_flete);
 
@@ -420,15 +418,12 @@
 
       }
 
-      public function Redetrans_Courrier($peso_pedido_gramos,$valor_declarado)      {
+      public function Redetrans_Courrier( $Peso_Pedido, $Valor_Declarado )      {
        /** MARZO 07 DE 2015
       	*					CALCULA EL VALOR DE FLETE QUE SE CORBRA POR COURRIER EN REDETRANS
       	*/
 
-									$peso_pedido_gramos 		           = $peso_pedido_gramos*1000;
-
 									$this->Transportadoras           = $this->Parametros->Transportadoras();
-									$Flete_Redetrans_Courrier        = array('idtercero'=>0, 'valor_flete'=>0, 'aplica'=>FALSE);
 									$this->valor_flete               = 0;
 									$this->seguro_redetrans_courrier = 0;
 									$this->idmcipio                  = Session::Get('idmcipio');
@@ -455,10 +450,10 @@
 													$this->seguro_redetrans_courrier = $this->Transportadoras[0]['rt_courrier_seguro'] *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
 
-											Session::Set('REDETRANS_COURRIER_flete', $this->valor_flete );
+
 											$this->valor_flete = $this->valor_flete + $this->seguro_redetrans_courrier;
 
-											Session::Set('REDETRANS_COURRIER_seguro', $this->seguro_redetrans_courrier);
+
 											Session::Set('REDETRANS_COURRIER_flete_total',  $this->valor_flete );
 									}
 									$this->Adicionar_Cobro_Flete_Transportadora(0,'1572','REDETRANS');
@@ -647,8 +642,10 @@
 			        	  Session::Set('Carga_Fija_Unidades',  					$Carga_Fija_Unidades);
 			        	  Session::Set('Carga_Fija_Vr_Declarado',   $Carga_Fija_Vr_Declarado);
 			        	  Session::Set('Carga_Fija_Peso_Pedido',    $Carga_Fija_Peso_Pedido);
-
-			        	  Session::Set('Otros_Productos_Vr_Compra', $_Otros_Productos_Vr_Compra );
+			        	  //---
+			        	  Session::Set('Otros_Productos_Peso_Gramos',  $_Otros_Productos_Peso_Gramos);
+			        	  Session::Set('Otros_Productos_Vr_Declarado', $_Otros_Productos_Vr_Declarado);
+			        	  Session::Set('Otros_Productos_Vr_Compra',    $_Otros_Productos_Vr_Compra );
 
 
 							} //  Fin  Calcular_Numero_Unidades
