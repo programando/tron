@@ -973,6 +973,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
         Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
         Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
+        Session::Set('servientrega_tipo_despacho',      $Registro[0]["servientrega_tipo_despacho"]);
         Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
       }
 

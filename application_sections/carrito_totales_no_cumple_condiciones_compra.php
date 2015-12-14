@@ -20,6 +20,7 @@
 
     </td>
 <td></td>
+
 <td coslpan="3" class="text-right">
    <!-- SUBTOTAL -->
        <div><strong><?=  Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Amigos ) ; ?> </strong></div>
