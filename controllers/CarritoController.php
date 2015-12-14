@@ -698,25 +698,31 @@ public function Totalizar_Carrito(){
         Session::Set('Courrier_Recaudo', 0 );
 
          $Carga_Fija_Recaudo = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Carga_Fija_Vr_Compra'), TRUE);
+         $Carga_Fija_Recaudo_Ocasional =  $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Carga_Fija_Vr_Compra_Ocasional'), TRUE);
         if ( Session::Get('Carga_Fija_Unidades') > 0 ){
           $Courrier_Recaudo = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Otros_Productos_Vr_Compra'), FALSE);
         }else{
             $Courrier_Recaudo = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Otros_Productos_Vr_Compra'), TRUE);
         }
-        Session::Set('Carga_Fija_Recaudo', $Carga_Fija_Recaudo );
+        Session::Set('Recaudo_Pedido_Tron', $Carga_Fija_Recaudo );
+        Session::Set('Recaudo_Pedido_Ocasional', $Carga_Fija_Recaudo_Ocasional );
+
+
         Session::Set('Courrier_Recaudo',   $Courrier_Recaudo   );
       }
 
     private function Fletes_Carga_Fija(){
-      $_Carga_Fija_Unidades     = Session::Get('Carga_Fija_Unidades');
-      $_Carga_Fija_Vr_Declarado = Session::Get('Carga_Fija_Vr_Declarado');
-      $_Carga_Fija_Peso_Pedido  = Session::Get('Carga_Fija_Peso_Pedido') ;
+      $_Carga_Fija_Unidades       = Session::Get('Carga_Fija_Unidades');
+      $_Carga_Fija_Vr_Declarado   = Session::Get('Carga_Fija_Vr_Declarado');
+      $_Carga_Fija_Peso_Pedido    = Session::Get('Carga_Fija_Peso_Pedido') ;
 
-      $Subsidio_Flete_Ocasional = Session::Get('Carga_Fija_Subsidio_Flete_Ocasional');
-      $Recaudo_Ocasional        = Session::Get('Carga_Fija_Recaudo_Ocasional');
+      $Subsidio_Flete_Ocasional   = Session::Get('Carga_Fija_Subsidio_Flete_Ocasional');
+      $Anticipo_Recaudo_Ocasional = Session::Get('Carga_Fija_Recaudo_Ocasional');
+      $Recaudo_Pedido_Ocasional   = Session::Get('Recaudo_Pedido_Ocasional');
 
-      $Subsidio_Flete_Tron = Session::Get('Carga_Fija_Subsidio_Flete_Tron');
-      $Recaudo_Tron        = Session::Get('Carga_Fija_Recaudo_Tron');
+      $Subsidio_Flete_Tron        = Session::Get('Carga_Fija_Subsidio_Flete_Tron');
+      $Anticipo_Recaudo_Tron      = Session::Get('Carga_Fija_Recaudo_Tron');;
+      $Recaudo_Pedido_Tron       = Session::Get('Recaudo_Pedido_Tron');
 
 
       $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
@@ -729,14 +735,13 @@ public function Totalizar_Carrito(){
       $this->Fletes->Encontrar_Mejor_Flete();
 
       $Valor_Flete_Ocasional = Session::Get('flete_real_calculado');
-      ;
-      $Valor_Transporte_Ocasional      = $Valor_Flete_Ocasional - $Subsidio_Flete_Ocasional;
-      $Valor_Transporte_Ocasional      = $Valor_Transporte_Ocasional      + $Recaudo_Ocasional - $Recaudo_Ocasional ;
-      $this->Vr_Transporte_Ocasional   = $Valor_Transporte_Ocasional;
+
+      $this->Vr_Transporte_Ocasional      = $Valor_Flete_Ocasional - $Subsidio_Flete_Ocasional + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional  ;
+
 
       $Valor_Flete_Tron   = Session::Get('flete_real_calculado');
-      $Valor_Tranporte_Tron = $Valor_Flete_Tron  - $Subsidio_Flete_Tron;
-      $this->Vr_Transporte_Tron = $Valor_Tranporte_Tron ;
+      $this->Vr_Transporte_Tron = $Valor_Flete_Tron  - $Subsidio_Flete_Tron + $Recaudo_Pedido_Tron - $Anticipo_Recaudo_Tron ;
+
     //
 
 
