@@ -688,6 +688,7 @@
 																			$_Otros_Productos_Vr_Declarado_ocasional   = $_Otros_Productos_Vr_Declarado_ocasional 		+ $Productos['valor_declarado_ocasional'];
 																			$_Otros_Productos_Vr_Declarado_tron        = $_Otros_Productos_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
 
+
 																			$_Otros_Productos_Peso_Gramos              = $_Otros_Productos_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
 
 																			$_Otros_Productos_Subsidio_Flete           = $_Otros_Productos_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
@@ -778,9 +779,19 @@
 			        	  //---
 			        	  Session::Set('Courrier_Unidades',  						 				$_Courrier_Unidades);
 			        	  Session::Set('Carga_Variable_Unidades',   				$_Carga_Variable_Unidades);
-			        	  Session::Set('Otros_Productos_Vr_Declarado',  $_Otros_Productos_Vr_Declarado);
+			        	  Session::Set('Otros_Productos_Vr_Declarado',  $_Otros_Productos_Vr_Declarado_tron);
+			        	  Session::Set('Otros_Productos_Vr_Declarado_Ocasional',  $_Otros_Productos_Vr_Declarado_ocasional);
+
+
 			        	  Session::Set('Otros_Productos_Peso_Gramos',   $_Otros_Productos_Peso_Gramos);
+
 			        	  Session::Set('Otros_Productos_Recaudo',    		 $_Otros_Productos_Recaudo );
+			        	  Session::Set('Otros_Productos_Antic_Rcdo_Ocas',    		 $_Otros_Productos_Recaudo_Ocasional );
+			        	  Session::Set('Otros_Productos_Antic_Rcdo_Tron',    		 $_Otros_Productos_Recaudo_Tron );
+
+			        	  Session::Set('Otros_Productos_SubFlete_Ocas', $_Otros_Productos_Subsidio_Flete_Ocasional);
+			        	  Session::Set('Otros_Productos_SubFlete_Tron', $_Otros_Productos_Subsidio_Flete_Tron);
+
 			        	  Session::Set('Otros_Productos_Vr_Compra',     $_Otros_Productos_Vr_Compra );
 
 
