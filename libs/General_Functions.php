@@ -3,6 +3,14 @@
 	class General_Functions
 	{
 
+public static function Menor_Entre_2_Numeros ( $numero1 , $numero2){
+
+			$Menor = $numero1;
+			if ( $numero2 < $Menor){
+					$Menor = $numero2;
+			}
+			return $Menor ;
+		}
 
 		public static function Generar_Codigo_Unico($longitud=5)
 	{

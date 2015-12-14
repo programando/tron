@@ -673,7 +673,7 @@ public function Totalizar_Carrito(){
 
         /// CALCULO DE FLETES
         $this->Fletes_Carga_Fija();
-        $this->Fletes_Courrier_Carga_Variable();
+        //$this->Fletes_Courrier_Carga_Variable();
 
        $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
        $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte_Real;
@@ -697,8 +697,9 @@ public function Totalizar_Carrito(){
         Session::Set('Carga_Fija_Recaudo', 0 );
         Session::Set('Courrier_Recaudo', 0 );
 
-         $Carga_Fija_Recaudo = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Carga_Fija_Vr_Compra'), TRUE);
-         $Carga_Fija_Recaudo_Ocasional =  $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Carga_Fija_Vr_Compra_Ocasional'), TRUE);
+        $Carga_Fija_Recaudo           = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Carga_Fija_Vr_Compra'), TRUE);
+        $Carga_Fija_Recaudo_Ocasional = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Carga_Fija_Vr_Compra_Ocasional'), TRUE);
+
         if ( Session::Get('Carga_Fija_Unidades') > 0 ){
           $Courrier_Recaudo = $this->Totalizar_Carrito_Valor_Recaudo( Session::Get('Otros_Productos_Vr_Compra'), FALSE);
         }else{
@@ -737,11 +738,10 @@ public function Totalizar_Carrito(){
          $Valor_Flete_Tron              = Session::Get('flete_real_calculado');
          $this->Vr_Transporte_Tron      = $Valor_Flete_Tron  - $Subsidio_Flete_Tron + $Recaudo_Pedido_Tron - $Anticipo_Recaudo_Tron ;
          if ( Session::Get('autenticado') == FALSE ){
-         if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     { $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Ocasional ; }
-         if ( $this->Vr_Transporte_Tron       > $this->Vr_Transporte_Ocasional ){ $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Tron ; }
+            if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     { $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Ocasional ; }
+            if ( $this->Vr_Transporte_Tron       > $this->Vr_Transporte_Ocasional ){ $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Tron ; }
        }
       }
-
     }
 
     private function Fletes_Courrier_Carga_Variable(){
@@ -761,24 +761,47 @@ public function Totalizar_Carrito(){
         $Anticipo_Recaudo_Tron      = Session::Get('Carga_Fija_Recaudo_Tron');;
 
 
-        Session::Set('FLETE_VARIABLE_1', 0);  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
-        Session::Set('FLETE_VARIABLE_2', 0 ); // CORRESPONDE A LOS FLETES CARGA ( REDETRANS Y SERVIENTREGA )  ( OTROS PRODUCTOS )
+        Session::Set('FLETE_VARIABLE_1_OCASIONAL', 0);  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
+        Session::Set('FLETE_VARIABLE_1_AMIGO',     0);  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
+        Session::Set('FLETE_VARIABLE_2_OCASIONAL', 0 ); // CORRESPONDE A LOS FLETES CARGA ( REDETRANS Y SERVIENTREGA )  ( OTROS PRODUCTOS )
+        Session::Set('FLETE_VARIABLE_2_AMIGO',     0 ); // CORRESPONDE A LOS FLETES CARGA ( REDETRANS Y SERVIENTREGA )  ( OTROS PRODUCTOS )
 
-        $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
+
         if ( Session::Get('Unidades_Adicionales') == TRUE){
+            //--------------------------------------------------------------------------------------------------------------------
+            $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $_Otros_Productos_Vr_Declarado_Ocasional );
             $this->Fletes->Sevientrega_Premier    ( $_Otros_Productos_Peso_Gramos , $_Otros_Productos_Vr_Declarado_Ocasional );
             $this->Fletes->Encontrar_Mejor_Flete();
-            Session::Set('FLETE_VARIABLE_1', Session::Get('flete_real_calculado'));
+            Session::Set('FLETE_VARIABLE_1_OCASIONAL', Session::Get('flete_real_calculado'));
 
-            //---------------------------------------------------------------------------------------------------
+            //--------------------------------------------------------------------------------------------------------------------
+            $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
+            $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $_Otros_Productos_Vr_Declarado_Tron );
+            $this->Fletes->Sevientrega_Premier    ( $_Otros_Productos_Peso_Gramos , $_Otros_Productos_Vr_Declarado_Tron );
+            $this->Fletes->Encontrar_Mejor_Flete();
+            Session::Set('FLETE_VARIABLE_1_AMIGO', Session::Get('flete_real_calculado'));
+
+            //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $_Otros_Productos_Vr_Declarado_Ocasional , $_Otros_Productos_Peso_Gramos );
             $this->Fletes->Servientrega_Industrial ( $_Courrier_Unidades     , $_Otros_Productos_Vr_Declarado_Ocasional , $_Otros_Productos_Peso_Gramos );
             $this->Fletes->Encontrar_Mejor_Flete();
-            Session::Set('FLETE_VARIABLE_2', Session::Get('flete_real_calculado'));
+            Session::Set('FLETE_VARIABLE_2_OCASIONAL', Session::Get('flete_real_calculado'));
+            //--------------------------------------------------------------------------------------------------------------------
+            //--------------------------------------------------------------------------------------------------------------------
+            $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
+            $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $_Otros_Productos_Vr_Declarado_Tron , $_Otros_Productos_Peso_Gramos );
+            $this->Fletes->Servientrega_Industrial ( $_Courrier_Unidades     , $_Otros_Productos_Vr_Declarado_Tron , $_Otros_Productos_Peso_Gramos );
+            $this->Fletes->Encontrar_Mejor_Flete();
+            Session::Set('FLETE_VARIABLE_2_AMIGO', Session::Get('flete_real_calculado'));
+
         }
-        $Flete_1_Ocasional             = Session::Get('FLETE_VARIABLE_1');
+        $Flete_Ocasional = General_Functions::Menor_Entre_2_Numeros(Session::Get('FLETE_VARIABLE_1_OCASIONAL'),Session::Get('FLETE_VARIABLE_2_OCASIONAL'));
+        $Flete_Amigo     = General_Functions::Menor_Entre_2_Numeros(Session::Get('FLETE_VARIABLE_1_AMIGO'),Session::Get('FLETE_VARIABLE_2_AMIGO'));
+
+        $Flete_1_Ocasional             = Session::Get('FLETE_VARIABLE_1_OCASIONAL');
+
         if ( $Flete_1_Ocasional > 0 ) {
           $Flete_1_Ocasional             = $Flete_1_Ocasional - $Subsidio_Flete_Ocasional  + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional + $this->PayuLatam_Valor_Adicional;
           $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional      + $Flete_1_Ocasional;

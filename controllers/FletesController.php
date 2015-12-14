@@ -678,7 +678,8 @@
 																			$_04_Litros_Galon_Recaudo_Tron             = $_04_Litros_Galon_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
 
 																			$_04_Litros_Galon_Vr_Compra                = $_04_Litros_Galon_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
-																			$_04_Litros_Galon_Vr_Compra_Ocasional      = $_04_Litros_Galon_Vr_Compra  														+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
+																			$_04_Litros_Galon_Vr_Compra_Ocasional      = $_04_Litros_Galon_Vr_Compra_Ocasional  														+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
+
 			             }
 
 			          if ( $ID_categoria_producto != 6 || in_array($ID_Presentacion, $_Otros_Productos_Presentaciones )) {
@@ -732,7 +733,8 @@
 											$Carga_Fija_Recaudo_Tron             = $_20_Litros_Garrafas_Recaudo_Tron  												+ $_04_Litros_Galon_Recaudo_Tron  ;
 
 											$Carga_Fija_Vr_Compra                = $_20_Litros_Garrafas_Vr_Compra  															+ $_04_Litros_Galon_Vr_Compra;
-											$Carga_Fija_Vr_Compra_Ocasional      = $_20_Litros_Garrafas_Vr_Compra_Ocasional  															+ $_04_Litros_Galon_Vr_Compra_Ocasional;
+											$Carga_Fija_Vr_Compra_Ocasional      = $_20_Litros_Garrafas_Vr_Compra_Ocasional  					+ $_04_Litros_Galon_Vr_Compra_Ocasional;
+
 
 											$Peso_Total_Kg_Otros_Productos       = $_Otros_Productos_Peso_Gramos  / 1000;
 
