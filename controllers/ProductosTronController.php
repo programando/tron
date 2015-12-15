@@ -78,17 +78,31 @@
 											}
 
 											$precio_especial 			= $precio_especial  * ( 1 + $parametros[0]['iva'] / 100 ) + $Flete_Real ;
+											$precio_especial_temp = $precio_especial ;
+											$Por100_Precio_Lista  = $Precio_Lista_Total  * ( 1-60/100);
+											$Res =0;
+											if ($Por100_Precio_Lista > $precio_especial  ){
+													$Res = $Por100_Precio_Lista;
+											}else{
+													$Res = $precio_especial ;
+											}
+											if (  $precio_especial  < $Precio_Lista_Total ){
+														$precio_especial  = $Res;
+											}else{
+													$precio_especial  = $Precio_Lista_Total;
+											}
+
 											$descuento_especial = $Precio_Lista_Total  - $precio_especial ;
 											if ( $descuento_especial < 0 ) { $descuento_especial = $descuento_especial * -1 ;}
-											//$descuento_especial = round($descuento_especial,0);
+
 											$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
 											$descuento_especial_porciento = round($descuento_especial_porciento,2);
 
 
 											// *	10. HALLAR DESCUENTO NEGATIVO PARA ENCONTRAR EL TRANSPORTE
 											$descuento_negativo = 0 ;
-											if  ( $formula_elegida > $Precio_Lista_Total ){
-															$descuento_negativo = $formula_elegida - $Precio_Lista_Total;
+											if  ( $Precio_Lista_Total = $precio_especial){
+															$descuento_negativo = 	$precio_especial_temp - $Precio_Lista_Total;
 											}
 											//*	11.	HALLAR EL VALOR DE TRANSPORTE
 											$transporte_tron = $Flete_Real - $subsidio_flete_valle + $descuento_negativo ;
