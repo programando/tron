@@ -168,12 +168,10 @@ class CarritoController extends Controller{
 
 
       $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($iddireccion_despacho);
-      if (!isset($iddireccion_despacho) || ($iddireccion_despacho==0) || ($iddireccion_despacho== NULL))
-      {
+      if (!isset($iddireccion_despacho) || ($iddireccion_despacho==0) || ($iddireccion_despacho== NULL)) {
           $Texto_Resultado =$Texto_Error;
       }
-      if (!isset($idtercero_pedido) || ($idtercero_pedido==0) || ($idtercero_pedido== NULL))
-      {
+      if (!isset($idtercero_pedido) || ($idtercero_pedido==0) || ($idtercero_pedido== NULL)) {
           $Texto_Resultado =$Texto_Error;
       }
       echo $Texto_Resultado ;
@@ -587,9 +585,9 @@ public function Totalizar_Carrito(){
         return ;
       }
 
+      $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,Session::Get('idmcipio') );
       // INICIALIZA VARIABLES
      $this->Totalizar_Carrito_Inicializar_Propiedades();
-     //------------------------------------------------------
      $i                                  = 0 ;
      $kit_inicio_peso_total              = 0;
      $kit_cantidad                       = 0;
@@ -725,20 +723,24 @@ public function Totalizar_Carrito(){
       $Anticipo_Recaudo_Tron      = Session::Get('Carga_Fija_Recaudo_Tron');;
       $Recaudo_Pedido_Tron       = Session::Get('Recaudo_Pedido_Tron');
 
+
       $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
       if ( $_Carga_Fija_Unidades  > 0 && $_Carga_Fija_Vr_Declarado  > 0 && $_Carga_Fija_Peso_Pedido > 0 ){
           $this->Fletes->Redetrans_Carga         ( $_Carga_Fija_Unidades    , $_Carga_Fija_Vr_Declarado , $_Carga_Fija_Peso_Pedido );
           $this->Fletes->Servientrega_Industrial ( $_Carga_Fija_Unidades    , $_Carga_Fija_Vr_Declarado , $_Carga_Fija_Peso_Pedido );
           $this->Fletes->Sevientrega_Premier     ( $_Carga_Fija_Peso_Pedido , $_Carga_Fija_Vr_Declarado );
      }
+//Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras')  );
      $this->Fletes->Encontrar_Mejor_Flete();
+
      $Valor_Flete_Ocasional         = Session::Get('flete_real_calculado');
+
        if ( $Valor_Flete_Ocasional > 0 ){
          $this->Vr_Transporte_Ocasional = $Valor_Flete_Ocasional - $Subsidio_Flete_Ocasional + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional  ;
          $Valor_Flete_Tron              = Session::Get('flete_real_calculado');
          $this->Vr_Transporte_Tron      = $Valor_Flete_Tron  - $Subsidio_Flete_Tron + $Recaudo_Pedido_Tron - $Anticipo_Recaudo_Tron ;
-
       }
+
     }
 
     private function Fletes_Courrier_Carga_Variable(){
@@ -803,6 +805,9 @@ public function Totalizar_Carrito(){
         if ( Session::Get('autenticado') == FALSE ){
             if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     { $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Ocasional ; }
             if ( $this->Vr_Transporte_Tron       > $this->Vr_Transporte_Ocasional ){ $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Tron ; }
+       }
+       if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ){
+          $this->Vr_Transporte_Real = $this->Vr_Transporte_Tron;
        }
     }
 

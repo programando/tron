@@ -595,6 +595,8 @@ public function Totalizar_Carrito(){
       }
       // INICIALIZA VARIABLES
      $this->Totalizar_Carrito_Inicializar_Propiedades();
+
+     //$this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,);
      //------------------------------------------------------
      $i                                  = 0 ;
      $kit_inicio_peso_total              = 0;

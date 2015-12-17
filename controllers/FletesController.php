@@ -48,46 +48,31 @@
 
 
 
-    public function Encontrar_Mejor_Flete_Depurar(){
-     /**  MAYO 30 DE 2015
-       *        BORRA DEL ARRAY DE FLETES, LOS QUE SEAN IGUALES A CERO
-       */
-     $i                                = 0;
-      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
-
-      foreach ($Fletes_Cobrados_Transportadoras as $Fletes) {
-         if ($Fletes['valor_flete'] == 0 ) {
-              array_splice ($Fletes_Cobrados_Transportadoras , $i, 1);
-           }
-           $i++;
-        }
-       Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
-    }
 
 
     public function Encontrar_Mejor_Flete() {
      /**  MARZO 12 DE 2015
       *       VERIFICA DE LOS FLETES ENCONTRADOS EL MEJOR PARA ASIGNARLO AL PEDIDO
       */
-     $this->Encontrar_Mejor_Flete_Depurar();
-      $i                               = 0;
-      $Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
 
-      $Asignar_Flete                   = TRUE;
-      $this->valor_flete                 = 0;
+						$i                               = 0;
+						$Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
 
+						$Asignar_Flete                   = TRUE;
+						$this->valor_flete               = 0;
+						$Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[0];
 
+	//	Debug::Mostrar( $Fletes_Cobrados_Transportadoras );
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)   {
-        if ($Fletes['valor_flete'] > 0 && $Asignar_Flete == TRUE ) {
-														$Mejor_Flete   = $Fletes_Cobrados_Transportadoras[$i];
-														$Asignar_Flete = FALSE;
-            }
-            if ($Fletes['valor_flete'] < $Mejor_Flete['valor_flete']  )  {
-                $Mejor_Flete['idtercero']     = $Fletes['idtercero']   ;
-                $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
-                $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
-                $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
-            }
+        if ( $Fletes['valor_flete'] > 0 && $Mejor_Flete['valor_flete']  >0 &&  $Mejor_Flete['valor_flete'] <   $Fletes['valor_flete']){
+        	   $Mejor_Flete['idtercero']     = $Fletes['idtercero']   ;
+            $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
+            $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
+            $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
+           }else  {
+           		$Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
+           }
+           $i++;
         }
 
       if ( isset($Mejor_Flete)){
@@ -142,6 +127,7 @@
 										$this->tipo_despacho										= 3;  // SERVIENTREGA PREMIER
 										$this->Transportadoras 							= $this->Parametros->Transportadoras();
 										$Peso_Pedido 																	= $Peso_Pedido / 1000;
+										$this->tipo_tarifa												='';
 
 			      	// 1. HALLAR KILOS ADICIONALES
 			      	if ($Peso_Pedido > 3) 		      	{
@@ -149,7 +135,7 @@
 			      		if ($kilos_adicionales < 0) { $kilos_adicionales = 0 ;}
 			      	}
 
-			      	$servientrega_tipo_despacho  = Session::Get('servientrega_tipo_despacho');
+			      	$servientrega_tipo_despacho  = trim(Session::Get('servientrega_tipo_despacho'));
 
 			      	if ( $servientrega_tipo_despacho == 'NACION' ){
 											$valor_flete_hasta_3_kilos    = $this->Transportadoras[0]['sv_premier_vr_kilo_1_3_nacional'];
@@ -172,6 +158,7 @@
 														$this->tipo_tarifa            = 'SERVIENTREGA - PREMIER REEXPEDICIÓN';
 			      	}
 
+
 										$valor_flete_hasta_3_kilos    = $valor_flete_hasta_3_kilos ;
 										$valor_flete_kilos_adiconales = $valor_flete_kilos_adiconales *  $kilos_adicionales ;
 
@@ -192,6 +179,7 @@
       /**  MAZO 16 DE 2015
       	*							CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA INDUSTRIAL SERVIENTREGA
        	*/
+
       	 Session::Set('SERVIENTREGA_INDUSTRIAL_VR_FLETE', 0 );
 								$descuento_comercial   = 0;
 								$tasa_manejo           = 0;
@@ -256,6 +244,7 @@
 	      if ( $this->valor_flete < $flete_minimo ){
 	      	$this->valor_flete  = $flete_minimo;
 	      }
+
 	      //6. APLICAR TASA DE MANEJO Y COMPARAR CON EL VALOR DEL FLETE
 							$costo_manejo     = 0;
 							$tasa_manejo      = $tasa_manejo / 100;
@@ -265,6 +254,7 @@
 	      if ($costo_manejo < 	$vr_minimo_manejo ){
 	      				$costo_manejo = $vr_minimo_manejo ;
 	      }
+
 							$this->valor_flete     = $this->valor_flete + $costo_manejo ;
 
 
@@ -305,6 +295,7 @@
 						$porciento_dscto_ccial      = $this->Transportadoras[0]['rt_carga_descuento_comercial']/100;
 						$this->idmcipio             = Session::Get('idmcipio');
 						$this->iddpto               = Session::Get('iddpto');
+
 						$this->tipo_despacho								= 2;  // CARGA REDETRANS
 						$this->Cant_Unidades_Despacho  = $Numero_Unidades;
 

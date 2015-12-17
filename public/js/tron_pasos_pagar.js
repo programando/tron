@@ -66,15 +66,12 @@ $('.btn-continuar').on('click',function()
       dataType: 'text',
       url:      '/tron/carrito/Finalizar_Pedido_Finalizar_Direccion/',
       type:     'post',
-      success:  function (resultado)
-      {
+      success:  function (resultado) {
         resultado=$.trim(resultado);
-        if (resultado!='Siguente_Paso_OK')
-        {
+        if (resultado!='Siguente_Paso_OK')  {
           $('.modal-body #texto').html(resultado);
           $('#ventana_error').modal('show');
-        }else
-        {
+        }else   {
             window.location.href = "/tron/carrito/mostrar_carrito/1";
         }
       }
