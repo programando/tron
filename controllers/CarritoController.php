@@ -734,7 +734,7 @@ public function Totalizar_Carrito(){
      $this->Fletes->Encontrar_Mejor_Flete();
 
      $Valor_Flete_Ocasional         = Session::Get('flete_real_calculado');
-
+    //Debug::Mostrar( $Valor_Flete_Ocasional   );
        if ( $Valor_Flete_Ocasional > 0 ){
          $this->Vr_Transporte_Ocasional = $Valor_Flete_Ocasional - $Subsidio_Flete_Ocasional + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional  ;
          $Valor_Flete_Tron              = Session::Get('flete_real_calculado');

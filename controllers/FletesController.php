@@ -60,20 +60,24 @@
 
 						$Asignar_Flete                   = TRUE;
 						$this->valor_flete               = 0;
-						$Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[0];
 
-	//	Debug::Mostrar( $Fletes_Cobrados_Transportadoras );
+					 $Mejor_Flete   = $Fletes_Cobrados_Transportadoras[0];
+
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)   {
-        if ( $Fletes['valor_flete'] > 0 && $Mejor_Flete['valor_flete']  >0 &&  $Mejor_Flete['valor_flete'] <   $Fletes['valor_flete']){
+      		if ( $Asignar_Flete  == TRUE &&  $Fletes['valor_flete'] > 0 )	  {
+											$Mejor_Flete   = $Fletes_Cobrados_Transportadoras[$i];
+											$Asignar_Flete = FALSE ;
+      		}
+      		if ( $Mejor_Flete['valor_flete'] > 0 && $Mejor_Flete['valor_flete'] > $Fletes['valor_flete'] && $Fletes['valor_flete'] > 0 ){
         	   $Mejor_Flete['idtercero']     = $Fletes['idtercero']   ;
             $Mejor_Flete['valor_flete']   = $Fletes['valor_flete'] ;
             $Mejor_Flete['tipo_tarifa']   = $Fletes['tipo_tarifa'] ;
             $Mejor_Flete['tipo_despacho'] = $Fletes['tipo_despacho'] ;
-           }else  {
-           		$Mejor_Flete                     = $Fletes_Cobrados_Transportadoras[$i];
-           }
+      		}
+
            $i++;
         }
+        //		Debug::Mostrar( $Mejor_Flete );
 
       if ( isset($Mejor_Flete)){
           $this->valor_flete                  = $Mejor_Flete['valor_flete']  + Session::Get('kit_vr_transporte');
