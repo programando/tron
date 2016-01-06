@@ -976,6 +976,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
         Session::Set('servientrega_tipo_despacho',      $Registro[0]["servientrega_tipo_despacho"]);
         Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
+
       }
 
     public function registrarse() {
@@ -989,8 +990,10 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
             $this->Registro_Re_Establecer_Tercero_Presenta();
           }
         Session::Destroy('idtipo_plan_compras');
+
         $this->View->SetCss(array('tron_menu_footer','tron_dptos_mcipios','tron_registro','tron-registro-p2'));
         $this->View->SetJs(array('tron_terceros_registro','tron_dptos_mcipios'));
+
         $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos          = $this->Departamentos->Consultar();
         $this->View->Total_Kit_Inscripcion  = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');

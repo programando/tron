@@ -30,6 +30,7 @@
 					    Session::Init();
 					    $url_requerida = new Request();
 					    Bootstrap::Run( $url_requerida );
+
 					}
 					catch(Exception $e){
 					    echo $e->getMessage();

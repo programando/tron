@@ -143,13 +143,15 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
     $Label.css('background','#003E90');
     $Label.css('color','white');
 
+
     Parametros = {'iddirecciondespacho':$IdDireccion_Despacho , 'idmcipio':$IdMcipio ,'iddpto':$IdDpto ,'reexpedicion':$Re_Expedicion,'codigousuario':$codigousuario};
     $.ajax({
       data:  Parametros,
       dataType: 'json',
-      url:      '/tron/carrito/Finalizar_Pedido_Direccion_Final/',
+      url:      '/tron/carrito/Finalizar_Pedido_Seleccionar_Direccion/',
       type:     'post',
       success:  function (resultado)   {
+          //alert(resultado.IdDireccion_Despacho );
           //$('#nombre-usuario-pedido').html('El pedido será despachado a nombre de :' + $Nombre_Usuario_Pedido);
       }
       });

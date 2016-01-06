@@ -165,7 +165,7 @@ body
 .registrar:hover
 {
 			text-decoration: none;
-			color          : #003e90;
+			color          : red;
 }
 
 /* Para usuarios logiados en nuestro sistema =  Bienvenidos : ... , Mi cuenta , Cerrar secion */

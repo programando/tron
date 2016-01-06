@@ -2,6 +2,7 @@
 
 
           <div class=" row header-tron">
+
               <div class="">
                   <div class="col-lg-4 col-md-4  col-sm-4 columna-logo"><!--LOGO-->
                     <a href="<?= BASE_URL ;?>">

@@ -44,6 +44,11 @@
 					                                               'transportador'=>'', 'tipo_tarifa'=>'','tipo_despacho'=>0));
 					      Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
 
+					    Session::Set('tipo_despacho_carga',         0	);
+         Session::Set('id_transportadora_carga',     0	);
+         Session::Set('vr_flete_carga',              0 );
+         Session::Set('valor_declarado_carga',       0	) ;
+         Session::Set('Peso_Pedido_Carga',           0 );
 				}
 
 

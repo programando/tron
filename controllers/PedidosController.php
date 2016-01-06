@@ -94,7 +94,7 @@ class PedidosController extends Controller
 					$vr_flete_seguro             = 0 ;
 					$vr_flete_tron_otros_seguro  = 0 ;
 					$vr_fletes_reserva           = 0 ;
-					$vr_diferencia_recaudo       = Session::Get('vr_diferencia_recaudo') ;
+					$vr_diferencia_recaudo       = 0 ;
 					$vr_fletes_totales           = Session::Get('Vr_Transporte');
 					$vr_total_pedido             = Session::Get('Vr_Total_Pedido_Real');
 
@@ -126,7 +126,9 @@ class PedidosController extends Controller
 
 
 
-    	  $Datos  = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron','vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos','vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo','vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
+    	  $Datos  = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron','vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos',
+          'vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo',
+          'vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
         'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado',
         'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga');
 
