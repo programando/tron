@@ -103,7 +103,7 @@ class IndexController extends Controller
         //$this->Redireccionar();
         echo " <div style='margin : 0 auto;'> <br> <h3> Cerrando procesos en el sistema... por favor espere unos segundos... </h3> </div>
                 <script language='JavaScript' type='text/javascript'>
-                    setTimeout('self.location=\"tron\"', 700)
+                    setTimeout('self.location=\"../\"', 700)
                   </script>";
     }
 

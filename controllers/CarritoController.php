@@ -104,7 +104,7 @@ class CarritoController extends Controller{
      private $Vr_Transporte_Ocasional         = 0;
      private $Vr_Transporte_Tron              = 0;
      private $Existe_Derecho_Inscripcion      = FALSE;
-     private $ejemplo;
+;
 
 
 
