@@ -166,9 +166,9 @@
 					return $Registro;
 				}
 
-				public function Consultar_Datos_Mcipio_x_IdMcipio($idmcipio)
-				{
-			 	$Registro =  $this->Db->Ejecutar_Sp("terceros_direcciones_despacho_x_idmcipio($idmcipio)");
+				public function Consultar_Datos_Mcipio_x_IdMcipio($idmcipio )	{
+
+			 	$Registro =  $this->Db->Ejecutar_Sp("terceros_direcciones_despacho_x_idmcipio( $idmcipio )");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 					return $Registro;
 				}

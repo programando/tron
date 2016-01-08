@@ -722,7 +722,7 @@
 											$Carga_Fija_Vr_Declarado             = $_20_Litros_Garrafas_Vr_Declarado  											 + $_04_Litros_Galon_Vr_Declarado ;
 											$Carga_Fija_Vr_Declarado_Ocasional   = $_20_Litros_Garrafas_Vr_Declarado_ocasional  		+ $_04_Litros_Galon_Vr_Declarado_ocasional ;
 											$Carga_Fija_Vr_Declarado_Tron        = $_20_Litros_Garrafas_Vr_Declarado_tron  						 + $_04_Litros_Galon_Vr_Declarado_tron ;
-
+											$Carga_Fija_Peso_Pedido_Temporal			  = $_20_Litros_Garrafas_Peso_Gramos 													 + $_04_Litros_Galon_Peso_Gramos;
 											$Carga_Fija_Peso_Pedido              = Numeric_Functions::Redondear_Al_1000_Mas_Proximo($_20_Litros_Garrafas_Peso_Gramos) 	+ Numeric_Functions::Redondear_Al_1000_Mas_Proximo( $_04_Litros_Galon_Peso_Gramos ) ;
 											$Carga_Fija_Subsidio_Flete           = $_20_Litros_Garrafas_Subsidio_Flete 											+ $_04_Litros_Galon_Subsidio_Flete;
 											$Carga_Fija_Subsidio_Flete_Ocasional = $_20_Litros_Garrafas_Subsidio_Flete_Ocasional 	+ $_04_Litros_Galon_Subsidio_Flete_Ocasional;
@@ -749,7 +749,7 @@
 														$Carga_Fija_Subsidio_Flete_Ocasional = $Carga_Fija_Subsidio_Flete_Ocasional  + $_Otros_Productos_Subsidio_Flete_Ocasional ;
 														$Carga_Fija_Subsidio_Flete_Tron      = $Carga_Fija_Subsidio_Flete_Tron  					+ $_Otros_Productos_Subsidio_Flete_Tron ;
 
-														$Carga_Fija_Peso_Pedido              = $Carga_Fija_Peso_Pedido  													+  Numeric_Functions::Redondear_Al_1000_Mas_Proximo( $_Otros_Productos_Peso_Gramos  ) ;
+														$Carga_Fija_Peso_Pedido              =  Numeric_Functions::Redondear_Al_1000_Mas_Proximo( $Carga_Fija_Peso_Pedido_Temporal + $_Otros_Productos_Peso_Gramos  ) ;
 														$Carga_Fija_Recaudo                  = $Carga_Fija_Recaudo  						 										+ $_Otros_Productos_Recaudo  ;
 														$Carga_Fija_Recaudo_Ocasional        = $Carga_Fija_Recaudo_Ocasional  						 + $_Otros_Productos_Recaudo_Ocasional  ;
 														$Carga_Fija_Recaudo_Tron             = $Carga_Fija_Recaudo_Tron  						 					+ $_Otros_Productos_Recaudo_Tron  ;
@@ -803,18 +803,20 @@
 						public function Presupuesto_Fletes_Productos_Tron( $valor_total_compra_tron, $cantidad, $valor_declarado ){
 							 Session::Set('SubSidio_Flete_Unitario_Tron',0);
 								$this->Transportadoras        = $this->Parametros->Transportadoras();
+								Session::Set('subsisio_flete_valle', $this->Transportadoras [0]['subsidio_transporte_tron']);
+
 								$subsisio_flete_valle         = Session::Get('subsisio_flete_valle');
 								$SubSidio_Flete_Unitario_Tron = 0;
 
 								if ( $cantidad > 0 ){
 									if ( $valor_total_compra_tron >= $this->Transportadoras[0]['valor_minimo_pedido_productos']){
 											//CALCULO DEL SEGURO
-											if ( $valor_declarado > $this->Transportadoras[0]['rt_courrier_seguro']){
+
+											if ( $valor_declarado >= $this->Transportadoras[0]['rt_courrier_seguro'] ){
 														$Seguro  = $valor_declarado  * $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}else{
 												$Seguro  = $valor_declarado *  $this->Transportadoras[0]['rt_courrier_porciento_seguro_minimo']/100;
 											}
-
 											$SubSidio_Flete_Unitario_Tron = ($subsisio_flete_valle  + $Seguro ) / $cantidad;
 									}
 									Session::Set('SubSidio_Flete_Unitario_Tron',$SubSidio_Flete_Unitario_Tron);
