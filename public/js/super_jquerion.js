@@ -23,9 +23,9 @@ function calcularAlturas(){
 	var ancho = $(window).width();
 		
 	
-	var hein1 = $(".hein1").height();
-	var hein2 = $(".hein2").height();
-	$(".contenido-index, .contenido-industrial").css('padding-top', (hein1+hein2));
+	//var hein1 = $(".hein1").height();
+	//var hein2 = $(".hein2").height();
+	//$(".contenido-index, .contenido-industrial").css('padding-top', (hein1+hein2));
 	
 			
 	var mukSlide1 = $(".mukSlide1").height();

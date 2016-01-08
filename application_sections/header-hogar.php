@@ -1,5 +1,5 @@
 <!--ESTE ES EL HEADER PRINCIPAL DEL PROYECTO TRON -->
-
+<div style="position:static;">
 <div class="ionix hein1">
     <div class="generalMax">
     
@@ -81,6 +81,8 @@
     
 	</div>
 </div>
+</div>
+
 
 <!--
       /.. AREAS DE CONSULTA CORRESPONDEN A LOS TIPOS DE PRODUCTOS ( HOGAR / INDUSTRIAL)

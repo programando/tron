@@ -152,8 +152,9 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $this->View->kit_comprado                   = Session::Get('kit_comprado');
         $this->View->inscripcion_pagada             = Session::Get('inscripcion_pagada');
 
-
-        $this->View->Mostrar_Vista('administrar_mi_cuenta');
+		$this->View->Mostrar_Vista('administrar_mi_cuenta');
+		
+		
    }
 
 
