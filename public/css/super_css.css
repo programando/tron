@@ -5,15 +5,15 @@
 */
 
 *										{ margin:0; border:0; padding:0; outline:none; text-decoration:none; word-break:break-strict; }
-img										{ max-width:100%; }
-body									{ font-size:14px; line-height:1em; position:relative; }
-a:hover, a:focus 						{ text-decoration:none; }
+img										{ max-width       :100%; }
+body									{ font-size       :14px; line-height:1em; position:relative; }
+a                              :hover, a:focus 						{ text-decoration:none; }
 a, input, button						{ outline:none !important; }
 
-.ionix									{ width:100%; height:auto; position:relative; background:#FFF; }
-.general								{ width:90%; max-width:1200px; min-width:320px; height:auto; position:relative; margin:0 auto; }
-.generalMax								{ width:98%; max-width:1440px; min-width:320px; height:auto; position:relative; margin:0 auto; }
-.generalFull							{ width:100%; max-width:1600px; min-width:320px; height:auto; position:relative; margin:0 auto; }
+.ionix									{ width         :100%; height:auto; position:relative; background:#FFF; }
+.general								{ width        :90%; max-width:1200px; min-width:320px; height:auto; position:relative; margin:0 auto; }
+.generalMax								{ width     :98%; max-width:1440px; min-width:320px; height:auto; position:relative; margin:0 auto; }
+.generalFull							{ width     :100%; max-width:1600px; min-width:320px; height:auto; position:relative; margin:0 auto; }
 
 .bGray2									{ background-color:#333; }
 
@@ -51,7 +51,7 @@ a, input, button						{ outline:none !important; }
 .menGion .navbar-brand:hover			{ background-color:#069; }
 .menGion .navbar-toggle					{ background:#fff; padding:5px; margin:7px 10px 0 0;}
 .menGion .navbar-toggle .icon-bar		{ background:#003e90; }
- 
+
 .menGion .navbar-nav li					{ background-color:transparent; height:40px; display:table; padding:0; }
 .menGion .navbar-nav li.active			{ background-color:#0469ED; }
 .menGion .navbar-nav li	a				{ background-color:transparent; height:40px; display:table-cell; padding:0 10px; height:auto; vertical-align:middle; color:#FFF; }
@@ -211,13 +211,13 @@ a, input, button						{ outline:none !important; }
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;	
+	background-size: cover;
 }
 .bContain	{
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
 	-o-background-size: contain;
-	background-size:contain;	
+	background-size:contain;
 }
 .vcenter {
     display: inline-block;
