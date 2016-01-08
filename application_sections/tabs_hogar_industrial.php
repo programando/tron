@@ -3,23 +3,30 @@
     - Productos-Hogar
     - Productos-Industrial
 -->
-      <!--TABS= Hoga // Industrial -->
-        <div class=" row header-tron">
-          <div class="col-lg-12 col-md-12 col-sm-12 columna-tabs">
-           <div class="tabs-menu">
-            <!-- Tab = hogar -->
-             <a href="<?=BASE_URL ;?>index/index" class="tab-hogar">
-                  <h5><strong><span class="glyphicon glyphicon-home" ></span> HOGAR Y PERSONAL</strong></h5>
-             </a>
-            <!-- Tab = industrial -->
-             <a href="<?=BASE_URL ;?>index/industrial" class="tab-industrial">
-                  <h5 ><strong>
-                    <span><img src="<?= BASE_IMG_CATEGORIAS_INDEX ;?>industrial.png" class="logo-indusrial"></span> INDUSTRIAL</strong>
-                  </h5>
-             </a>
-          </div>
+<!--TABS= Hogar // Industrial -->
+
+<div class="menTipoZonas">
+
+    <a href="<?=BASE_URL ;?>index/index" class="tab-hogar">
+    	<div class="tabAll">
+            <div class="tabIn t14">
+                <span class="glyphicon glyphicon-home" ></span>
+                &nbsp; HOGAR Y PERSONAL
+            </div>
+        </div>        
+    </a>
+    
+    <a href="<?=BASE_URL ;?>index/industrial" class="tab-industrial">
+    	<div class="tabAll">
+            <div class="tabIn t14">
+                <span><img src="<?= BASE_IMG_CATEGORIAS_INDEX ;?>industrial.png" class="logo-indusrial"></span>
+                &nbsp; INDUSTRIAL
+    		</div>
         </div>
-       </div>
-      <!--TABS= Hoga // Industrial -->
+    </a>
+    
+</div>
+
+<!--TABS= Hogar // Industrial -->
 
 

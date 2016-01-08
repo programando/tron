@@ -73,11 +73,11 @@
 
 .columna_categorias-marcas
 {
-					border-right: 2px solid #DDDDDD;
-					display     : block;
-					text-align  : justify;
-					width       : 300px;
-					padding-right:5px;
+	border-right: 2px solid #DDDDDD;
+	display     : block;
+	text-align  : justify;
+	width       : 300px;
+	padding-right:5px;
 }
 
 
@@ -102,7 +102,7 @@
 					text-decoration: underline;
 }
 
-.panel-title a
+.panel-title a.anulado
 {
 					color          : #003e90;
 					display        : block;

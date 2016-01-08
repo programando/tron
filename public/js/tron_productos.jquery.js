@@ -360,7 +360,7 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 									type:     'post',
 				     success:  function (resultado)	 {
 				 							window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
-				 							//Imprimir_Totales_Carrito_Header( 0, 0);
+				 							Imprimir_Totales_Carrito_Header( 0, 0);
 				    	 }
 									});
  		}
@@ -586,7 +586,7 @@ $('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function()
 
 // ENE 01 DE 2014
 // FUNCIONALIDAD PARA EL ZOOM DE LAS IMAGENES EN LA VISTA AMPLIADA
-/*$("#zoom_03").elevateZoom({
+$("#zoom_03").elevateZoom({
 	constrainType				  : "height",
 	constrainSize				  : 274,
 	zoomType									  : "inner",
@@ -596,7 +596,6 @@ $('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function()
 	galleryActiveClass : "active",
 	imageCrossfade 			 : false
 });
-*/
 
 $("#zoom_03").on("click", function(e) {
 		var ez = $('#zoom_03').data('elevateZoom');

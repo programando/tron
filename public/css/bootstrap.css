@@ -3844,7 +3844,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar_tron
 {
-   border: 1px solid red;
+   border:0;
 }
 
 @media (min-width: 768px) {

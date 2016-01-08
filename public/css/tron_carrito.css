@@ -6,9 +6,9 @@
 				color        : #608A17;
 				font-size    : 20px;
 				font-weight  : 700;
-				height       : auto;
-				margin-bottom: -15px;
-				margin-top   : -5px;
+				height       : 20px;
+				margin-bottom:;
+				margin-top   :;
 				padding      : 0;
 				width        : auto;
 }
@@ -75,7 +75,7 @@
 {
     background: #003E90;
    	color     : white;
-	   padding   : 5px;
+	padding   : 5px;
    	width     : 100px;
 				color     : white;
 				margin-bottom:10px;
@@ -86,8 +86,8 @@
 
 .agregar:hover
 {
-	  border:2px solid #0469ED;
-	  background: #0469ED;
+	  border:2px solid #069;
+	  background: #069;
   	color     : white;
 }
 

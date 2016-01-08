@@ -1,0 +1,251 @@
+/*
+	SUPER CSS
+	Tecnologías aplicadas - Optimización visual
+	_Will_
+*/
+
+*										{ margin:0; border:0; padding:0; outline:none; text-decoration:none; word-break:break-strict; }
+img										{ max-width:100%; }
+body									{ font-size:14px; line-height:1em; position:relative; }
+a:hover, a:focus 						{ text-decoration:none; }
+a, input, button						{ outline:none !important; }
+
+.ionix									{ width:100%; height:auto; position:relative; background:#FFF; }
+.general								{ width:90%; max-width:1200px; min-width:320px; height:auto; position:relative; margin:0 auto; }
+.generalMax								{ width:98%; max-width:1440px; min-width:320px; height:auto; position:relative; margin:0 auto; }
+.generalFull							{ width:100%; max-width:1600px; min-width:320px; height:auto; position:relative; margin:0 auto; }
+
+.bGray2									{ background-color:#333; }
+
+/* HEADER */
+.header-tron							{ height:auto; }
+.header-tron .logo						{ padding:10px; max-width:240px; }
+
+.contenido-input-buscar					{ border:1px solid #b5b5b5; display:block; margin:0 auto; width:80%; min-width:0; overflow:hidden; }
+.columan-input							{ width:100%; max-width:none; }
+.contenido-input-buscar					{ position:relative; }
+.input-buscar							{ position:relative; width:100%; border:none; z-index:1; padding-right:120px;  }
+
+.cont-btn-buscar						{ background:#ff0; position:absolute; top:0; z-index:2; right:0; }
+.btn-buscar								{ background:#003e90; width:86px; height:34px; border:none; }
+.btn-buscar:hover						{ background:#069; }
+.arro									{ background-color:#eee; padding:7px; }
+
+.menTipoZonas							{ position:absolute; bottom:0; right:0; z-index:10; }
+.tab-hogar,
+.tab-industrial							{ float:left; width:auto; padding:0 30px; text-align:center; height:40px; }
+.tab-hogar 								{ margin-right:10px; }
+
+.dropCuenta								{}
+.dropCuenta .dropdown .btn				{ background-color:transparent; }
+.dropCuenta .dropdown ul li a			{ padding:10px 20px; }
+
+
+/* MENU */
+.menGion								{ background-color:#003e90; height:40px; margin-bottom:10px; }
+.menGion .navbar						{ border:0; }
+.menGion .navbar-default				{ border:0; }
+.menGion .navbar-collapse				{ background-color:#003e90; }
+.menGion .navbar-header					{ background-color:#003e90; height:40px; }
+.menGion .navbar-brand					{ background-color:transparent; display:table; padding:0; width:40px; height:40px; text-align:center; }
+.menGion .navbar-brand:hover			{ background-color:#069; }
+.menGion .navbar-toggle					{ background:#fff; padding:5px; margin:7px 10px 0 0;}
+.menGion .navbar-toggle .icon-bar		{ background:#003e90; }
+ 
+.menGion .navbar-nav li					{ background-color:transparent; height:40px; display:table; padding:0; }
+.menGion .navbar-nav li.active			{ background-color:#0469ED; }
+.menGion .navbar-nav li	a				{ background-color:transparent; height:40px; display:table-cell; padding:0 10px; height:auto; vertical-align:middle; color:#FFF; }
+.menGion .navbar-nav li	a:hover			{ background-color:#069; color:#FFF; }
+.menGion .navbar-nav li.active	a		{ background-color:transparent; }
+
+.menGion .navbar-nav li	a.infoSpecial	{ background-color:#FC0; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#0469ED; }
+.menGion .navbar-nav li	a.infoSpecial:hover	{ background-color:#fff; color:#0469ED; }
+
+
+/* INDEX */
+.contenido-index, .contenido-industrial { width:100%; margin:0px auto; padding-top:0; }
+.mukSlide								{ margin-top:20px;}
+.mukSlide1								{ width:80%; float:left; }
+.mukSlide2								{ width:19%; float:right; }
+.mukSlideIn								{ background:#fff; width:100%; margin-bottom:4px; border-bottom:solid 1px #eee; color:#333; }
+.mukSlideIn:hover						{ background:#eee; color:#003e90; }
+
+.avisos4								{ float:left; width:25%; border-top:solid 1px #eee; padding:20px; }
+.avisos4:hover							{ background:#eee; padding:10px; }
+
+/* PRODUCTOS */
+.titleM1								{ padding:10px; border-bottom:solid 1px #003e90; }
+.titleM2								{ padding:10px; border-bottom:solid 1px #666666; }
+.artPor5								{ float:left; width:18%; margin:0 1% 30px; }
+.artPor4								{ float:left; width:23%; margin:0 1% 30px; }
+
+.artOpt 								{ padding:20px; position:relative; }
+.artOpt:hover							{ -moz-box-shadow:0px 0px 8px 0px  #666; -webkit-box-shadow:0px 0px 8px 0px  #666; box-shadow:0px 0px 8px 0px  #666; }
+.artOpt .imgRefTec						{ height:auto; position:absolute; left:-8px; top:5px; }
+.artOpt .imgRefTec .img-varRef			{ background:url(../images/empresa/varias-referencias.png) no-repeat; height:60px; width:79px; z-index:3; }
+.artOpt .imgRefTec .img-ofertas			{ background:url(../images/empresa/en_oferta.png) no-repeat; height:65px; width:65px; z-index:4; }
+.artOpt .imgRefTec .img-tecno			{ height:50px; width:70px; z-index:5; background-color:#69C; }
+
+.artOpt .nomproducto					{ height:50px; display:block; }
+.artOpt .nompresentacion				{ display:block; height:20px; }
+
+.listEnd								{ list-style-type:none; }
+.listEnd li								{ padding:3px 10px; }
+.listEnd li a							{ color:#999; }
+.listEnd li a:hover						{ color:#666; text-decoration:underline; }
+
+.colCatMar								{ text-align:justify; padding-right:5px; }
+
+.lateralion .panel						{}
+.lateralion .panel .panel-heading		{ padding:0; }
+.lateralion .panel .panel-title			{}
+.lateralion .panel-title a				{ padding:10px; border-bottom:solid 1px #003e90; display:block; }
+
+
+
+
+
+
+
+
+
+
+.tab									{ display:table; width:100%; height:auto; position:relative; }
+.tabAll									{ display:table; width:100%; height:100%; position:relative; }
+.tabIn									{ display:table-cell; width:auto; height:100%; position:relative; vertical-align:middle; }
+
+
+/* MiniConfiguración General */
+
+.aS									{ color:inherit; }
+.aS:hover							{ text-decoration:underline; color:#069; }
+.cP									{ cursor:pointer; }
+.dB									{ display:block; }
+.dIB								{ display:inline-block; }
+.taC								{ text-align:center; }
+.taL								{ text-align:left; }
+.taR								{ text-align:right; }
+.taJ								{ text-align:justify; }
+.p10								{ padding:10px;}
+.p20								{ padding:20px; }
+.p30								{ padding:30px; }
+.p40								{ padding:40px; }
+.p50								{ padding:50px; }
+.pAA30								{ padding:30px 0; }
+.pAA50								{ padding:50px 0; }
+.pAA80								{ padding:80px 0; }
+.pAA100								{ padding:100px 0; }
+.colorfff							{ color:#FFF; }
+.colorccc							{ color:#ccc; }
+.color999							{ color:#999; }
+.color666							{ color:#666; }
+.color333							{ color:#333; }
+.color000							{ color:#000; }
+.colorRed							{ color:#C33; }
+.colorBlue							{ color:#003e90; }
+.mb5								{ margin-bottom:5px; }
+.mb10								{ margin-bottom:10px; }
+.mb20								{ margin-bottom:20px; }
+.mb30								{ margin-bottom:30px; }
+
+
+/* _______________________________________________________________________________________________________________________________________________ */
+
+/* TRANSITION */
+.btn-buscar, .aS, .avisos4, .artOpt,
+.mukSlideIn, .menGion .navbar-nav li a, .menGion .navbar-nav li	a.infoSpecial, .menGion .navbar-brand, .btn-buscar
+{
+	-webkit-transition: all 300ms ease-in;
+	-moz-transition: all 300ms ease-in;
+	-ms-transition: all 300ms ease-in;
+	-o-transition: all 300ms ease-in;
+	transition: all 300ms ease-in;
+}
+
+::selection			{ background: #069; color:#FFF; }
+::-moz-selection 	{ background: #069; color:#FFF; }
+
+
+/* PLACEHOLDER */
+.qwqwqw::-webkit-input-placeholder 	{ color:#666; font-style:italic; }
+.wqwqw::-moz-placeholder 			{ color:#666; font-style:italic; } /* firefox 19+ */
+.qwqw:-ms-input-placeholder 		{ color:#666; font-style:italic; } /* ie */
+.qwqwa:-moz-placeholder 			{ color:#666; font-style:italic; }
+
+
+/* FONT SIZE */
+.t8 								{ font-size:0.6em; line-height:1em; }
+.t10 								{ font-size:0.714em; line-height:1em; }
+.t12 								{ font-size:0.857em; line-height:1em; }
+.t14								{ font-size:1em; line-height:1em; }
+.t16								{ font-size:1.143em; line-height:1em; }
+.t18								{ font-size:1.286em; line-height:1em; }
+.t20								{ font-size:1.429em; line-height:1em; }
+.t24								{ font-size:1.714em; line-height:1em; }
+.t30								{ font-size:2.143em; line-height:1em; }
+.t40								{ font-size:2.71em; line-height:1em; }
+.t50								{ font-size:3.571em; line-height:1em; }
+.t60								{ font-size:4.286em; line-height:1em; }
+.t80								{ font-size:5.1em; line-height:1em; }
+.t100								{ font-size:7.142em; line-height:1em; }
+.t160								{ font-size:11.428em; line-height:1em; }
+.tU 								{ text-transform:uppercase; }
+
+.ff0								{ font-family: 'Raleway', sans-serif; font-weight:300; }
+.ff1								{ font-family: 'Raleway', sans-serif; font-weight:400; }
+.ff2								{ font-family: 'Raleway', sans-serif; font-weight:600; }
+.ff3								{ font-family: 'Raleway', sans-serif; font-weight:700; }
+.ff4								{ font-family: 'Raleway', sans-serif; font-weight:800; }
+.ff5								{ font-family: 'Open Sans', sans-serif; font-weight:400; }
+.ff6								{ font-family: 'Open Sans', sans-serif; font-weight:700; }
+.ff7								{ font-family: 'Open Sans', sans-serif; font-weight:300; }
+
+.rr5								{ -webkit-border-radius: 5px; border-radius: 5px; }
+.rr10								{ -webkit-border-radius:10px; border-radius: 10px; }
+.rr20								{ -webkit-border-radius:20px; border-radius: 20px; }
+.rr40								{ -webkit-border-radius:40px; border-radius: 40px; }
+.rr60								{ -webkit-border-radius:60px; border-radius: 60px; }
+.rr50								{ -webkit-border-radius: 50%; border-radius: 50%; }
+
+.bFull	{
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
+}
+.bContain	{
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size:contain;	
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+	padding:0;
+}
+
+/* MANSORY */
+.masonry {
+    column-count:3;
+    -moz-column-count:3;
+    -webkit-column-count:3;
+    column-gap:40px;
+    -moz-column-gap:40px;
+    -webkit-column-gap:40px;
+}
+.masonry .post {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 40px;
+    padding:0;
+    border:0;
+}
+
+.masonry div {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+

@@ -1,11 +1,11 @@
-
-<div class="panel"><!--aqui va el panel-default = el color del panel -->
-    <div class="panel-heading  cabezera-panel">
-      <h4 class="panel-title">
-           <a  class="categorias" data-toggle="collapse" data-parent="#accordion" href="#one">CATEGORÍAS</a>
-      </h4>
-    </div>
-    <div id="one" class="panel-collapse collapse in"> <!-- collapse in -->
+<div class="lateralion">
+    <div class="panel"><!--aqui va el panel-default = el color del panel -->
+        <div class="panel-heading">
+            <div class="panel-title">
+               <a class="colorBlue t24 mb30" data-toggle="collapse" data-parent="#accordion" href="#one">CATEGORÍAS</a>
+            </div>
+        </div>
+        <div id="one" class="panel-collapse collapse in"> <!-- collapse in -->
             <div class="panel-body">
                 <ul class="nav" >
                   <?php foreach ($this->Productos_Categorias_Nv_1  as $Categorias_Nv_1)
@@ -29,7 +29,7 @@
                               $idorden_nv_1_en_nv_2 = $Categorias_Nv_2['idorden_menu_nivel_1']; // Campo que relaciona Categoria y subcategoria
                               $orden_nivel_2        =  $Categorias_Nv_2['orden_nivel_2'] ;
                               $orden_nivel_2        = $orden_nivel_2  .' (' . $Categorias_Nv_2['cantidad'] . ')';
-
+    
                               $idorden_nv_2         = $Categorias_Nv_2['idorden_nv_2'] ;
                               if ( $idorden_nv_1 == $idorden_nv_1_en_nv_2) {
                           ?>
@@ -45,7 +45,7 @@
                  <?php };?>  <!-- Fin Ciclo $this->Productos_Categorias_Nv_1  -->
                 </ul>
             </div> <!-- Fin  class="panel-body" -->
-     </div> <!-- id="one" class="panel-collapse collapse in"> -->
+        </div> <!-- id="one" class="panel-collapse collapse in"> -->
+    </div>
 </div>
-
 

@@ -1,0 +1,102 @@
+/*
+	SUPER CSS
+	Tecnologías aplicadas - Optimización visual
+	_Will_
+*/
+
+@charset "utf-8";
+
+
+@media only screen and (min-width: 1080px) {
+	.onlySmart								{ display:none; }
+	.onlyPC									{ }
+	
+	 
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1079px) {
+	body									{ font-size:12px; }
+	.onlySmart								{ }
+	.onlyPC, .onlyMax						{ display:none !important; }
+								
+	.tab-hogar, .tab-industrial				{ height:30px; }
+	
+	.artPor5								{ width:23%; margin:0 1% 30px; }
+	.artOpt 								{ padding:10px;}
+	
+	
+}
+
+@media only screen and (min-width: 482px) and (max-width: 767px) {
+	body									{ font-size:11px; }
+	.onlySmart								{ }
+	.onlyPC									{ display:none; }
+	
+	.artPor5								{ width:31.3%; margin:0 1% 30px; }
+	.artOpt 								{ padding:10px;}
+
+}
+
+@media only screen and (max-width: 481px) {
+	body									{ font-size:11px; }
+	.onlySmart								{ }
+	.onlyPC									{ display:none; }
+	
+	.artPor5								{ width:48%; margin:0 1% 30px; }
+	.artOpt 								{ padding:10px;}
+
+
+
+	
+
+
+}
+
+
+
+
+
+
+
+/* BOOTSTRAP */
+
+@media (min-width: 768px) {
+	
+	.onlySmartBoo							{ display:none; }
+	.onlyPCBoo								{ }
+	
+	.taLC									{ text-align:left; }
+	.taRC									{ text-align:right; }
+				
+	
+}
+
+@media screen and (max-width: 767px) {
+
+	.onlySmartBoo							{ }
+	.onlyPCBoo								{ display:none; }
+	
+	.taLC									{ text-align:center; }
+	.taRC									{ text-align:center; }
+	.mb10_onlySmart							{ margin-bottom:10px; }
+	.mb20_onlySmart							{ margin-bottom:20px; }
+	
+	.menTipoZonas							{ position:relative; bottom:; right:0; z-index:10; height:40px; }
+	.tab-hogar,
+	.tab-industrial							{ float:none; width:45%; margin:0 1%; padding:0 10px; text-align:center; height:40px; }
+	.tab-hogar 								{ margin-right:0; }
+
+	.mukSlide1								{ width:100%; float:none; margin-bottom:10px; }
+	.mukSlide2								{ width:100%; float:none; }
+	.mukSlideIn								{ width:48%; height:60px; margin:0 1% 4px; float:left; }
+	.mukSlideIn img							{ max-height:50px; }
+	 
+	.menGion .navbar-nav li					{ width:100%; }
+	.menGion .navbar-nav li	a.infoSpecial	{ display:block;  }
+
+	#wowslider-container1  .ws_bullets 		{ display:none !important; } 
+	.avisos4								{ float:left; width:50%; }
+	
+}
