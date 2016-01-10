@@ -2,7 +2,7 @@
     <div class="panel"><!--aqui va el panel-default = el color del panel -->
         <div class="panel-heading">
             <div class="panel-title colorBlue">
-               <a class="t18" data-toggle="collapse" data-parent="#accordion" href="#one">Categorías</a>
+               <a class="t18 oneX" data-toggle="collapse" data-parent="#accordion" href="#one">Categorías</a>
             </div>
         </div>
         <div id="one" class="panel-collapse collapse in"> <!-- collapse in -->
@@ -21,8 +21,8 @@
                             nombre-categoria=" <?= $orden_nivel_1 ;?> "
                             aria-expanded="false"><?= ucwords(strtolower($orden_nivel_1)); ?>
                         </a>
-                      </li>
-                      <ul class="nav collapse " id="<?= $nombre_clase; ?>" role="menu" aria-labelledby="btn-1">
+					</li>
+					<ul class="nav collapse " id="<?= $nombre_clase; ?>" role="menu" aria-labelledby="btn-1">
                           <?php
                             foreach($this->Productos_Categorias_Nv_2  as $Categorias_Nv_2)
                             {
@@ -44,8 +44,8 @@
                                 </a>
                             </li>
                           <?php }};?> <!-- $this->Productos_Categorias_Nv_2  -->
-                       </ul>
-                 <?php };?>  <!-- Fin Ciclo $this->Productos_Categorias_Nv_1  -->
+					</ul>
+                 	<?php };?>  <!-- Fin Ciclo $this->Productos_Categorias_Nv_1  -->
                 </ul>
             </div> <!-- Fin  class="panel-body" -->
         </div> <!-- id="one" class="panel-collapse collapse in"> -->

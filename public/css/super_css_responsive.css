@@ -24,6 +24,7 @@
 	.tab-hogar, .tab-industrial				{ height:30px; }
 	
 	.artPor5								{ width:23%; margin:0 1% 30px; }
+	.artPor4								{ width:31.3%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
 	
 	
@@ -34,7 +35,7 @@
 	.onlySmart								{ }
 	.onlyPC									{ display:none; }
 	
-	.artPor5								{ width:31.3%; margin:0 1% 30px; }
+	.artPor5, .artPor4						{ width:31.3%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
 
 }
@@ -44,7 +45,7 @@
 	.onlySmart								{ }
 	.onlyPC									{ display:none; }
 	
-	.artPor5								{ width:48%; margin:0 1% 30px; }
+	.artPor5, .artPor4						{ width:48%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
 
 

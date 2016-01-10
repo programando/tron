@@ -120,15 +120,57 @@ a, input, button						{ outline:none !important; }
 .lateralion .panel-body	ul li a:hover .cantti	{ background-color:#fff; color:#999; }
 
 
+/* INFORMACIÓN */
+.blockques-opciones								{ background-color:transparent; float:left; width:46%; padding:0; margin:10px 2% 0; height:auto; position:relative; display:table; border:solid 1px #eee; }
+.blockques-opciones:hover						{ background-color:#666; }
+.blockques-opciones .tion						{ width:100%; color:#003e90; padding:10px; display:table; position:absolute; bottom:0; margin:0; background:url(../images/categorias_index/shad-info.png);}
+.blockques-opciones img							{ width:60%; display:block; margin:0 auto; }
+
+.latInfo .panel									{}
+.latInfo .panel .panel-heading					{ padding:0;border:0; }
+.latInfo .panel .panel-title					{ }
+.latInfo .panel-title a							{ border:solid 1px #ccc; padding:11px 10px; display:block; border-top:solid 3px #003e90; }
+
+.latInfo .panel-body							{ padding:0 !important; border:0 !important; }
+.latInfo .panel-collapse						{ background:; border:0;}
+.latInfo .collapse 								{ }
+.latInfo .collapse .in							{ }
+.latInfo .panel-body	ul						{ background:; border:solid 1px #ccc; padding:10px; border-top:0; }
+.latInfo .panel-body	ul li					{ }
+.latInfo .panel-body	ul li a					{ padding:0; padding:5px; color:#666;  }
+.latInfo .panel-body	ul li a.collapsed		{ }
+.latInfo .panel-body	ul li a.lista-marcas	{ padding:10px; background:none; }
+.latInfo .panel-body	ul li a:hover			{ background-color:#eee; color:#003e90; }
+.latInfo .panel-body	ul li a img				{ }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =============================================================================================================================================== */
+/* =============================================================================================================================================== */
+/* =============================================================================================================================================== */
 
 .tab									{ display:table; width:100%; height:auto; position:relative; }
 .tabAll									{ display:table; width:100%; height:100%; position:relative; }
 .tabIn									{ display:table-cell; width:auto; height:100%; position:relative; vertical-align:middle; }
-
+.tab30									{ display:table-cell; width:30%; height:100%; position:relative; vertical-align:middle; }
+.tab70									{ display:table-cell; width:70%; height:100%; position:relative; vertical-align:middle; }
 
 /* MiniConfiguración General */
 
@@ -141,6 +183,7 @@ a, input, button						{ outline:none !important; }
 .taL								{ text-align:left; }
 .taR								{ text-align:right; }
 .taJ								{ text-align:justify; }
+.p5									{ padding:5px;}
 .p10								{ padding:10px;}
 .p20								{ padding:20px; }
 .p30								{ padding:30px; }
@@ -167,7 +210,7 @@ a, input, button						{ outline:none !important; }
 /* _______________________________________________________________________________________________________________________________________________ */
 
 /* TRANSITION */
-.btn-buscar, .aS, .avisos4, .artOpt,
+.btn-buscar, .aS, .avisos4, .artOpt, .blockques-opciones, .blockques-opciones .tion, .latInfo .panel-body	ul li a,
 .mukSlideIn, .menGion .navbar-nav li a, .menGion .navbar-nav li	a.infoSpecial, .menGion .navbar-brand, .btn-buscar,
 .lateralion .panel-body	ul li a, .lateralion .panel-body	ul ul li .sub-lista-productos, .lateralion .panel-body	ul li a .cantti
 {

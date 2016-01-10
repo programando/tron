@@ -229,10 +229,7 @@
 .hola img ,
 .blockques-opciones-rojo img
 {
-   display  : block;
-   margin   : 2px auto;
-   max-width: 80px;
-   width    : 50%;
+
 }
 
 .blockques-opciones a ,
@@ -256,19 +253,9 @@
 
 .blockques-opciones
 {
-   -moz-border-radius   : 8px;
-   -ms-border-radius    : 8px;
-   -o-border-radius     : 8px;
-   -webkit-border-radius: 8px;
    background           : #ededed;
-   border-radius        : 8px;
    float                : left;
-   font-size            : 13px;
    height               : 110px;
-   margin-bottom        : 5px;
-   margin-right         : 5px;
-   max-width            : 200px;
-   min-width            : 100px;
    text-align           : center;
    width                : 120px;
    display:block;
