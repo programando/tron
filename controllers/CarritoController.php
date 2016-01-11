@@ -104,7 +104,7 @@ class CarritoController extends Controller{
      private $Vr_Transporte_Ocasional         = 0;
      private $Vr_Transporte_Tron              = 0;
      private $Existe_Derecho_Inscripcion      = FALSE;
-;
+
 
 
 
@@ -192,6 +192,21 @@ class CarritoController extends Controller{
      Session::Set('codigousuario',  $codigousuario);
     }
 
+    public function Finalizar_Pedido_Direccion_Final() {
+    /**  MARZO 04 DE 2015
+      *   REALIZA EL CAMBIO DE LOS DATOS DE UBICACIÓN PARA ENTREGA DEL PEDIDO
+      */
+     $IdDireccion_Despacho =  General_Functions::Validar_Entrada('iddirecciondespacho','NUM');
+     $IdMcipio             =  General_Functions::Validar_Entrada('idmcipio','NUM');
+     $IdDpto               =  General_Functions::Validar_Entrada('iddpto','NUM');
+     $Re_Expedicion        =  General_Functions::Validar_Entrada('reexpedicion','BOL');
+     $codigousuario        =  General_Functions::Validar_Entrada('codigousuario','TEXT');
+
+     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho );
+     Session::Set('codigousuario',  $codigousuario);
+
+
+    }
 
     public function Finalizar_Pedido_Direccion_Envio() {
       /** FEBRERO 28 DE 2015
@@ -811,23 +826,28 @@ public function Totalizar_Carrito(){
 
         if ( Session::Get('aplica_pago_adicional_payu_latam') == FALSE ){
           $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional + 0;
-          $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron      +0;
+          $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron      + 0;
         }
 
         if ( Session::Get('autenticado') == FALSE ){
             if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     {
                   $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Ocasional ;
-                  Session::Set('Vr_Transporte',  $this->Vr_Transporte_Tron );
+                  $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;
                 }
             if ( $this->Vr_Transporte_Tron       > $this->Vr_Transporte_Ocasional ) {
-              $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Tron ;
-              Session::Set('Vr_Transporte',  $this->Vr_Transporte_Ocasional );
+               $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Tron ;
+               $this->Vr_Transporte_Real      = $this->Vr_Transporte_Ocasional;
             }
         }
-       if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ) {
-          $this->Vr_Transporte_Real = $this->Vr_Transporte_Tron;
-          Session::Set('Vr_Transporte',  $this->Vr_Transporte_Real );
-       }
+
+        if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE  ){
+             $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;
+        }else{
+            $this->Vr_Transporte_Real      = $this->Vr_Transporte_Ocasional;
+        }
+
+        Session::Set('Vr_Transporte',  $this->Vr_Transporte_Real);
+
     }
 
 

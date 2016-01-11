@@ -234,8 +234,8 @@ class PedidosController extends Controller
       $IdPedido      = Session::Get('idpedido_temporal');
       $Pagado_Online = 1;
       Session::Set('idformapago',$IdFormaPago);
-      $this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
-      $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
+      //$this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
+      //$this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
     }
 
     public function Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido ){

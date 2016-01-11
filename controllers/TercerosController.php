@@ -153,8 +153,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $this->View->inscripcion_pagada             = Session::Get('inscripcion_pagada');
 
 		$this->View->Mostrar_Vista('administrar_mi_cuenta');
-		
-		
+
+
    }
 
 
@@ -961,7 +961,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         *       CONSULTA INFORMACIÓN DE LA CIUDAD, DEPARTAMENTO Y VARIABLES DE FLETES CON LA DIRECCIÓN DE DESPACHO SELECCIONADA
         *       ESTABLECE UN PARAMETRO idmcipio = 153 ( CALI ), PARA CONSULTAR DESDE EL INDEX CONTROLLER Y CARGAR CIERTAS VARIABLES
         */
-
+        if ( empty($idmcipio )){ $idmcipio = 153 ;}
         if ($IdDireccion_Despacho > 0) {
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho );
         }else  {
