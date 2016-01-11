@@ -1,9 +1,9 @@
-
-<!--Campos De La Pagina RED DE AMIGOS TRON-->
-    <div class="col-lg-12  col-md-12  col-sm-12">
-     <div class="tabs">
-      <a class="tab-red"    href="<?= BASE_URL ;?>redtron/red_de_amigos_tron"><div class="campos-pagina-red">RED DE AMIGOS TRON</div></a>
-      <a class="tab-tienda" href="<?= BASE_URL ;?>redtron/planes_de_registro"><div class="campos-pagina-tienda">  TIENDA TRON  </div></a>
+<!-- Campos De La Pagina RED DE AMIGOS TRON -->
+<div>
+    <div class="tabion">
+        <a class="tab-on taC" href="<?= BASE_URL ;?>redtron/red_de_amigos_tron">RED DE AMIGOS TRON</a>
+        <a class="tab-off taC" href="<?= BASE_URL ;?>redtron/planes_de_registro">TIENDA TRON</a>
+        <br style="clear:both;" />
     </div>
-    </div>
-<!--Campos De La Pagina RED DE AMIGOS TRON-->
+</div>
+<!-- Campos De La Pagina RED DE AMIGOS TRON -->

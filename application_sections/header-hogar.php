@@ -54,7 +54,7 @@
                 </div>
             
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav t12">
+                    <ul class="nav navbar-nav t14">
                         <li><a href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a></li>
                         <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
                         <li><a href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>

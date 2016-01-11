@@ -25,7 +25,7 @@
         <div class="cont-formulario"><!--Contenedor del formulario -->
             <form class="form-horizontal" role="form">
                 <div class="form-group">                                    
-                    <label for="nombre_usuario" class="col-sm-4 col-xs-4 control-label">Nombre:</label>
+                    <label for="nombre_usuario" class="col-sm-4 col-xs-4 control-label" style="text-align:left;">Nombre:</label>
                     <div class="col-sm-8 col-xs-8">
                         <input type="text" class="form-control" id="nombre_usuario" >
                     </div>
@@ -33,7 +33,7 @@
     
     
                 <div class="form-group">
-                    <label for="email" class="col-sm-4 col-xs-4 control-label">Email:</label>
+                    <label for="email" class="col-sm-4 col-xs-4 control-label" style="text-align:left;">Email:</label>
                     <div class="col-sm-8 col-xs-8">
                         <input type="text" class="form-control"  id="email">
                     </div>
@@ -41,14 +41,14 @@
     
                 
                 <div class="form-group">
-                    <label for="telefono" class="col-sm-4 col-xs-4 control-label">Teléfono:</label>
+                    <label for="telefono" class="col-sm-4 col-xs-4 control-label" style="text-align:left;">Teléfono:</label>
                     <div class="col-sm-8 col-xs-8">
                         <input type="text" class="form-control"  id="telefono">
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="comentarios" class="col-sm-4 col-xs-4 control-label">Comentarios:</label>
+                    <label for="comentarios" class="col-sm-4 col-xs-4 control-label" style="text-align:left;">Comentarios:</label>
                     <div class="col-sm-8 col-xs-8">
                         <textarea class="form-control" rows="4" id="comentarios"></textarea>
                     </div>

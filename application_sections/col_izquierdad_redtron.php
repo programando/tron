@@ -5,6 +5,7 @@
     <?php
     
 		include "application_sections/menu_info_1.php";
+		include "application_sections/menu_info_2.php";
 		include "application_sections/menu_info_3.php";
 	
 	?>

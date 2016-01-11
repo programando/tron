@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <div id="twoInfo" class="panel-collapse collapse in">
+        <div id="twoInfo" class="panel-collapse collapse <?php if($ml3 == true) echo "in";?>">
             <div class="panel-body">
                 <nav>
                     <ul class="nav">
@@ -48,7 +48,7 @@
                         </li>
                         
                         <li>
-                            <a href="http://www.balquimia.com" target="_blank" class="cP t14">
+                            <a href="<?= BASE_URL ;?>redtron/terminos_condiciones" class="cP t14">
                                 <div class="tab">
                                     <div class="tab30 p5"><img src="<?= BASE_IMG_TIENDA ;?>terminosC.png" /></div>
                                     <div class="tab70 p5">Términos y Condiciones</div>

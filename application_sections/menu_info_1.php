@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <div id="two" class="panel-collapse collapse in">
+        <div id="two" class="panel-collapse collapse <?php if($ml1 == true) echo "in";?>">
             <div class="panel-body">
                 <nav>
                     <ul class="nav">

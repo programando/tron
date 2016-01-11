@@ -490,7 +490,6 @@
     text-decoration: none;
     width          : 100%;
     display        : block;
-    font-size      : 25px;
 }
 
 .panel-titulo
@@ -550,13 +549,12 @@
 
 .submenu
 {
-    border-bottom: 1px solid #003e90;
+    border-bottom: 1px solid #ccc;
     width        : 100%;
     margin       : 0px auto;
-    font-size    : 15px;
-    padding      : 10px 30px;
+    font-size    : 14px;
+    padding      : 20px 30px;
     text-align   : justify;
-    border-radius: 5px 5px 0px 0px;
     display      : none;
     margin-bottom: 20px;
 }

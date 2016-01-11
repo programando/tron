@@ -7,7 +7,7 @@
 
 <div class="menTipoZonas">
 
-    <a href="<?=BASE_URL ;?>index/index" class="tab-hogar">
+    <a href="<?=BASE_URL ;?>" class="tab-hogar">
     	<div class="tabAll">
             <div class="tabIn t14">
                 <span class="glyphicon glyphicon-home" ></span>

@@ -1,141 +1,39 @@
+<?php
+    $Pedido_Minimo_Tron   = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus  = Session::Get('pedido_minimo_productos_fabricados_ta');
+?>
 
-<div class="contenedor"><!--Contenedor-De-La-Pagina-->
-<div class="row"><!--Fila-->
+<div class="ionix">
+    <div class="general">    
+    	<div class="contenido-index mb30 pAA30">
+        
+        	<?php include (APPLICATION_SECTIONS . 'btn_ir_arriba.php');?><!--Boton de Ir Arriba -->
+            <?php include (APPLICATION_SECTIONS . 'redtron_btn_superior2.php');?>
+            
+            <div class="row">
 
-<!--Boton de Ir Arriba -->
+				<div class="col-sm-9 col-xs-12">                
+                
+                	<!-- ZONA INFORMATIVA -->
+                    <!-- ZONA INFORMATIVA -->
+                    <!-- ZONA INFORMATIVA -->                    
+                    
+                 	<div class="titleM1 colorBlue t24">Funcionalidades Interesantes</div>
+                    <?php $ml1 = false; $ml2 = true; $ml3 = true; ?>
+                    <?php include "views/redtron/info/funcionalidades.php"; ?>
+                    
+                    <!-- /ZONA INFORMATIVA/ -->
+                    <!-- /ZONA INFORMATIVA/ -->
+                    <!-- /ZONA INFORMATIVA/ -->                    
+                    
+                </div>
 
-  <?php include (APPLICATION_SECTIONS . 'btn_ir_arriba.php');?>
-
-<!--Boton de Ir Arriba -->
-
-<!--Campo de la pagina redtron -->
-
-<?php include (APPLICATION_SECTIONS . 'redtron_tienda_active.php');?>
-
-<!--Campo de la pagina redtron -->
-
-    <div class="col-lg-9  col-md-9  col-sm-9"><!--Contenido-De-La-Pagina = Titulos , Texto ,Informacion -->
-       <div class="row"><!--Titulo-->
-           <div class="col-lg-12 col-md-12 col-sm-12">
-              <h1 class="titulo-principal">Funcionalidades Interesantes</h1> <br>
-           </div>
-       </div><!--Titulo-->
-
-
-    <div class="col-lg-3 col-md-3 col-sm-3 contenido-indice"><!--Idice-->
-       <h5><strong>INDICE</strong></h5><!--Titulo-->
-
-        <nav class="indice">
-           <ul class="list-unstyled">
-
-              <li><a href="#">Introdución</a></li>
-              <li><a href="#">Pases de Cortesia</a></li>
-              <li><a href="#">Envío de URL</a></li>
-              <li><a href="#">Recomendar Productos</a></li>
-              <li><a href="#">Registrar Amigos</a></li>
-              <li><a href="#">Realizar Pedidos a Amigos</a></li>
-
-           </ul>
-        </nav>
-    </div><!--Idice-->
-
-    <div class="col-lg-9 col-md-9 col-sm-9"><!--Informacion-Contendo-Introduccion -->
-
-       <div>   <p class="contenido-titulo-Introduccion">Introducción</p> </div> <br><br><!--Titulo -->
+				<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
+				<?php include (APPLICATION_SECTIONS . 'col_izquierdad_redtron.php');?>
+				<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
+			</div>
+		</div>
+	</div>
+</div>
 
 
-       <p class="text-introduccion">La Tienda Virtual TRON y la Red de Amigos poseen una importante cantidad de herramientas con Funcionalidades Interesantes que te servirán para llegar y/o ayudar de manera sencilla a tus prospectos amigos de tu red. <br><br>
-        Dale un buen uso a estas herramientas y ve crecer a tu red, solo compartiendo y ayudando a quien lo necesite. </p>
-    </div><!--Informacion-Contendo-Introduccion -->
-
-
-<!--//////////////////////////////////////////////-Pases de Cortesía-////////////////////////////////////////////////////////////-->
-
-    <div class="col-lg-12 col-md-12 col-sm-12"><!--Pases de Cortesía-->
-       <div><a name="pases"></a><p class="contenido-titulos">Pases de Cortesía</p></div><!--Titulo -->
-
-       <div class="col-lg-8"><!--Text-float-Left-->
-       <p>Los Pases de Cortesía es una herramienta creada para facilitar la difusión y promoción de la Tienda Virtual y el Modelo de Negocio TRON Entre amigos alcanzamos. <br><br>
-          Con ellos le otorgas a tus amigos potenciales los Precios Especiales a los que tú tienes derecho, incentivandolos de manera discreta a unirse a tu red. </p>
-       </div><!--Text-float-Left-->
-
-
-       <div class="col-lg-4"><!--IMG-Float-right -->
-          <img src="<?= BASE_IMG_EMPRESA ;?>pases-version2.png" class="img-pases-funcionalidades"/>
-       </div><!--IMG-Float-right -->
-
-      <div class="col-lg-3">
-          <a type="button" href="<?= BASE_URL ;?>redtron/pases_de_cortesia" class="botones_tron">Aprender Más</a>
-      </div>
-    </div><!--Pases de Cortesía-->
-
-
-<!--//////////////////////////////////////////////-Envio De URL-////////////////////////////////////////////////////////////-->
-
-    <div class="col-lg-12 col-md-12 col-sm-12 "><!--Envío de URL -->
-        <div><a name="envio"></a><p class="contenido-titulos">Envío de URL </p></div><!--Titulo -->
-
-        <p> La URL es la dirección electrónica de la página web. En ella se encuentra inmerso tu código de usuario. Cuando alguien entra a la página a través del link (enlace) que tú le envías, el sistema reconoce que eres tú quien lo presenta y si esta persona se registra en algún Plan y compra, se te reconocerán bonificaciones y/o comisiones. </p><br><br>
-
-        <p>Podrás encontrar tu URL
-           <em>
-               en Mi Cuenta / Mi Perfil / Recomendar.
-           </em>
-        </p>
-    </div><!--Envío de URL-->
-
-
-<!--//////////////////////////////////////////////-Recomendar Prodcutos-/////////////////////////////////////////////////////////-->
-
-    <div class="col-lg-12 col-md-12 col-sm-12"><!--Recomendar Productos-->
-        <div><a name="recomendar"></a><p class="contenido-titulos">Envío de URL </p></div><!--Titulo -->
-
-        <p> Cuando te encuentres viendo un producto y consideres que dicho producto le puede especialmente interesar a un amigo tuyo, puede usar la opción
-        <em> ¡Recomienda este producto a un amigo!.</em>
-         <br><br>
-        Si perteneces al plan Empresario TRON, al compartir el producto, se relaciona automáticamente a quien lo recibe con tu código de usuario permitiendo que sus compras te  generen comisiones. Esto aplica bajo 2 condiciones: a) Si quien lo recibe al realizar la compra se registra en el plan Cliente ó en el plan Empresario TRON. b) Si quien lo recibe y realiza la compra, ya es parte de tus Clientes o tu red de Empresarios TRON.
-        </p>
-    </div><!--Recomendar Productos-->
-
-
-
-<!--//////////////////////////////////////////////-Registrar Amigos-////////////////////////////////////////////////////////////-->
-
-    <div class="col-lg 12 col-md-12 col-sm-12"><!--Registrar Amigos-->
-         <div><a name="registro"></a><p class="contenido-titulos">Registrar Amigos</p></div><!--Titulo -->
-
-         <p> Siendo un Empresario TRON, podrás registrar a otras personas, éstas recibirán un correo para que terminen su registro y realicen la compra para activar la cuenta.
-        <br><br>
-         Al iniciar el registro, éste usuario quedará registrado en tu red automáticamente.</p>
-    </div><!--Registrar Amigos-->
-
-
-<!--//////////////////////////////////////////////-Realizar Pedidos a Amigos-////////////////////////////////////////////////////-->
-
-    <div class="col-lg-12 col-md-12 col-sm-12"><!--Realizar Pedido a Amigos -->
-        <div><a name="realizar"></a><p class="contenido-titulos"> Realizar Pedido a Amigos</p></div><!--Titulo -->
-
-        <p> Ahora también podrás realizar pedido por tus amigos, pudiendo incluso pagarlos. <br><br>
-
-          Ingresando en la opción Pedido a Amigo, luego suministrando su número de cédula o NIT, podrás realizar este proceso. <br><br>
-
-          En ningún momento por este método se tiene acceso a la información personal, solo puedes hacer el pedido y pagarlo si así se desea.
-        </p>
-    </div><!--Realizar Pedido a Amigos -->
-
-
-
-   </div><!--Contenido-De-La-Pagina = Titulos , Texto ,Informacion -->
-
-<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
-
-  <?php include (APPLICATION_SECTIONS . 'col_izquierdad_redtron4.php');?>
-
-<!-- llamado =  col_izquierdad_redtron4.php => se enceuntra 4 campos en la columna = red de amigos tron , porductos tron ect-->
-
-<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
-
-
-</div><!--Fin-Fila-->
-</div><!--Contenedor-De-La-Pagina-->
-<br><br> <br>

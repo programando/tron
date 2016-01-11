@@ -27,6 +27,8 @@
 	.artPor4								{ width:31.3%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
 	
+	.menGion .navbar-nav li	a				{ padding:0 5px; }
+
 	
 }
 
@@ -94,6 +96,7 @@
 	.mukSlideIn								{ width:48%; height:60px; margin:0 1% 4px; float:left; }
 	.mukSlideIn img							{ max-height:50px; }
 	 
+	 .menGion								{ position:relative; z-index:999; }
 	.menGion .navbar-nav li					{ width:100%; }
 	.menGion .navbar-nav li	a.infoSpecial	{ display:block;  }
 

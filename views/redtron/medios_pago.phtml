@@ -1,42 +1,39 @@
-<div class="contenedor"><!--Contenido`de la pagina -->
-	<div class="row"><!--contenido de la informacion de la pagina-->
+<?php
+    $Pedido_Minimo_Tron   = Session::Get('valor_minimo_pedido_productos');
+    $Pedido_Minimo_Indus  = Session::Get('pedido_minimo_productos_fabricados_ta');
+?>
 
-<!--Boton de Ir Arriba -->
+<div class="ionix">
+    <div class="general">    
+    	<div class="contenido-index mb30 pAA30">
+        
+        	<?php include (APPLICATION_SECTIONS . 'btn_ir_arriba.php');?><!--Boton de Ir Arriba -->
+            <?php include (APPLICATION_SECTIONS . 'redtron_btn_superior2.php');?>
+            
+            <div class="row">
 
-  <?php include (APPLICATION_SECTIONS . 'btn_ir_arriba.php');?>
+				<div class="col-sm-9 col-xs-12">                
+                
+                	<!-- ZONA INFORMATIVA -->
+                    <!-- ZONA INFORMATIVA -->
+                    <!-- ZONA INFORMATIVA -->                    
+                    
+                 	<div class="titleM1 colorBlue t24">Medios de Pago</div>
+                    <?php $ml1 = false; $ml2 = true; $ml3 = true; ?>
+                    <?php include "views/redtron/info/medios_pago.php"; ?>
+                    
+                    <!-- /ZONA INFORMATIVA/ -->
+                    <!-- /ZONA INFORMATIVA/ -->
+                    <!-- /ZONA INFORMATIVA/ -->                    
+                    
+                </div>
 
-<!--Boton de Ir Arriba -->
-
-<!--Campo de la pagina redtron -->
-
-<?php include (APPLICATION_SECTIONS . 'redtron_tienda_active.php');?>
-
-<!--Campo de la pagina redtron -->
-
-         <div class="col-lg-9">
-           <div class="row">
-            <div class="cont-titulo-pagos"><!--Titulo -->
-                  <h1 class="titulo-principal text-center">Medios de Pago</h1>
-            </div><!--Titulo -->
-           </div>
-
-            <div class="col-lg-12">
-                 <div class="img-medios-pagos"><!--Contenedor de la IMG -->
-                   <img src="<?= BASE_IMG_TIENDA ;?>medio_pago.png" class="img-responsive img-pagos" >
-             </div><!--Contenedor de la IMG -->
-            </div>
-         </div>
-
-<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
-
-  <?php include (APPLICATION_SECTIONS . 'col_izquierdad_redtron4.php');?>
-
-<!-- llamado =  col_izquierdad_redtron4.php => se enceuntra 4 campos en la columna = red de amigos tron , porductos tron ect-->
-
-<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
-
-</div><!--contenido de la informacion de la pagina-->
-</div><!--Contenido`de la pagina -->
-<br><br><br>
+				<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
+				<?php include (APPLICATION_SECTIONS . 'col_izquierdad_redtron.php');?>
+				<!--////////////////////////////////////////////////-Columna-Derecha-/////////////////////////////////////////////////////////////-->
+			</div>
+		</div>
+	</div>
+</div>
 
 

@@ -5,7 +5,11 @@
     </div>
     
     <div class="cont-btn-buscar">
-    	<button type="button" class="btn-buscar"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+    	<button type="button" class="btn-buscar">
+        	<div class="tabAll">
+            	<div class="tabIn"><img src="<?= BASE_IMG_CATEGORIAS_INDEX; ?>lupa.png" /></div>
+            </div>
+        </button>
     </div>
 
 </div>
