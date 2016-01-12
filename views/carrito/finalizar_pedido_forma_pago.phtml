@@ -1,72 +1,37 @@
 <!-- Los estilos Css se encuentran en el documento CSS => tron_carrito_forma_pago.css
                     ******** Paso 4 = Seleccion de froma de pago ********
 -->
+<div class="ionix">
+	<div class="general pAA30">
+		<div id="formaspago">
 
-<div id="formaspago">
+			<center>
+				<?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
+                    <img src="<?=  BASE_IMG_TIENDA ;?>line_forma_pago.png" class="">
+                <?php else : ?>
+                    <img src="<?=  BASE_IMG_TIENDA ;?>line_forma_pago_industrial.png" class="">
+                <?php endif ;?>
+			</center>
+            	
+			<h3 class="colorBlue ff2 t30 titleM1">
+            	<strong>Paso 4 </strong> <br>
+				<small class="sutb-titulo">seleccione la forma de pago.</small>
+            </h3>
 
-<div class="contenedor"><!-- Contenedor -->
-	   <div class="row">
-
-    <!-- /// Linea de tiempo /// -->
-          <div class="col-lg-12">
-              <div>
-                   <p class="text-center">
-                        <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
-                        <img src="<?=  BASE_IMG_TIENDA ;?>line_forma_pago.png" class="line_tiempo">
-                        <?php else : ?>
-                        <img src="<?=  BASE_IMG_TIENDA ;?>line_forma_pago_industrial.png" class="line_tiempo">
-                        <?php endif ;?>
-                   </p>
-              </div>
-          </div>
-    <!-- /// Linea de tiempo /// -->
-
-   <!-- /// Cuerpo  de la pagina ///  -->
-        <div class="cuerpo-pagina"><!-- Contenedor de la pagina -->
-
-            <!-- Titulo -->
-       	   <div class=" col-lg-12 col-md-12 col-sm-12">
-              <div class="cont-titulo"><!-- Contenedor-titulo -->
-              	   <h2 class="titulo"><strong>Paso 4 </strong> <br>
-                       <small class="sutb-titulo">seleccione la forma de pago.</small>
-              	   </h2><!--Titulo -->
-              </div><!-- Contenedor-titulo -->
-       	   </div>
-            <!-- Titulo -->
-
-
-           <!-- opciones de pago -->
-		           <div>
-		           	<div class="col-lg-12 col-md-12 col-sm-12">
-		           		<div class="cont-opciones-pago"><!-- Cont-optiones-pago-->
-                  <!-- Forma-pago1 PAYU LATAM-->
-		           			<div class="option-pago1">
-		           				   <img src="<?= BASE_IMG_TIENDA ;?>forma-pago1.png" class="img-pago1" id="1" />
-		           			</div><!-- Forma-pago1 -->
-
-
-
-		           		</div>
-		           	</div>
-
-		           </div>
-           <!-- opciones de pago -->
-
-           <!-- Boton = Seleccionar modo de pago despues -->
-														<div class="col-lg-12 col-md-12 col-sm-12">
-														    <div class="cont-btn-slec-forma-pago"><!-- contenedor del boton  -->
-                                    <a href="<?= BASE_URL ;?>">
-														        <button type="button" class="btn-forma-pago">Seleccionar forma de pago más tarde</button>
-                                    </a>
-														    </div>
-														</div>
-           <!-- Boton = Seleccionar modo de pago despues -->
-
-        </div><!-- Contenedor de la pagina -->
-
-   <!-- /// Cuerpo  de la pagina ///  -->
-
-	   </div>
-</div><!-- Contenedor -->
+            <div class="option-pago1">
+            	<div class="tabAll"><div class="tabIn">
+            		<img src="<?= BASE_IMG_TIENDA ;?>forma-pago1.png" class="img-pago1" id="1" />
+                </div></div>
+            </div><!-- Forma-pago1 -->
+            
+            <div class="cont-btn-slec-forma-pago"><!-- contenedor del boton  -->
+                <a href="<?= BASE_URL ;?>">
+                    <button type="button" class="btn-forma-pagon btn btn-danger">Seleccionar forma de pago más tarde</button>
+                </a>
+            </div>
+            
+		</div>
+		<br /><br /><br />
+        
+	</div>
 </div>
-<br><br><br>

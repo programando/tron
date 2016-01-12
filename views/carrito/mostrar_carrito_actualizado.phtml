@@ -1,33 +1,48 @@
-<div id="contenido-productos">
-  <div class="carrito-compras">
-     <div class=" row"><!--Inicio-Fila = Contenido De La Tabla -->
-          <?php if (Session::Get('imagen_resumen_pedido')== TRUE) : ; ?>
-          <div class="col-lg-12 col-md-12 col-sm-12">
-              <div>
-                   <p class="text-center">
-                     <img src="<?=  BASE_IMG_TIENDA ;?>line_resumen_pedido.png">
-                   </p>
-              </div>
-          </div>
-        <?php else : ;?>
-              <h3 class="text-center titulo">
-                <strong>
-                     Carrito de Compras
-                </strong>
-               </h3>
-        <?php endif;?>
-         <div class="col-lg-12 col-md-12 col-sm-12"><!--Tabla Cliente TRON -->
-          <table class="table">
+<div class="ionix">
+	<div class="general pAA30">
+    
+		<div class="row"><!--- Contenido-Principal Pagina-->
+		<!-- Llamado a :: ventana_modal_atencion.php -->
+			<?php if ( Session::Get('imagen_resumen_pedido')== TRUE ) : ; ?>
 
-           <?php include (APPLICATION_SECTIONS . 'carrito_titulos.php');?>
-           <?php include (APPLICATION_SECTIONS . 'carrito_contenido.php');?>
-           <?php include (APPLICATION_SECTIONS . 'carrito_totales.php');?>
+                <div class="taC">
+                    <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
+                        <img src="<?=  BASE_IMG_TIENDA ;?>line_resumen_pedido.png" class="">
+                    <?php else : ?>
+                        <img src="<?=  BASE_IMG_TIENDA ;?>line_resumen_pedido_industrial.png" class="">
+                    <?php endif ;?>
+                </div>
+                <br />
 
-         </table>
-       </div>
-        <?php include (APPLICATION_SECTIONS . 'carrito_botones.php');?>
+			<?php else : ?>
+                <h3 class="colorBlue ff2 t30 titleM1">Carrito de Compras</h3>
+            <?php endif;?>
+
+			<?php if ( Session::Get('kit_combos_eliminados') == TRUE) : ?>
+                <h4 class="t16 p20">Los Combos y el kit de inicio, son productos exclusivos para los compradores ocasionales por lo tanto serán eliminados de tu carrito, pero como tienes el privilegio de ser cliente o empresario TRON puedes armar estos paquetes en la sección productos TRON.</h4>
+            <?php endif;?>
+        
+            <!--Tabla Cliente TRON -->
+            <table class="table">
+                <?php include (APPLICATION_SECTIONS . 'carrito_titulos.php');?>
+                <?php include (APPLICATION_SECTIONS . 'carrito_contenido.php');?>
+                <?php include (APPLICATION_SECTIONS . 'carrito_totales.php');?>
+            </table>
+            <!--Tabla Cliente TRON -->
+        
+            <!--Botones => Seguir Comprando , Pagar-->
+                <?php include (APPLICATION_SECTIONS . 'carrito_botones.php');?>
+            <!--Botones => Seguir Comprando , Pagar-->
+        
+            <?php if ( Session::Get('cumple_condicion_cpras_tron_industial') == FALSE and Session::Get('imagen_resumen_pedido')== TRUE) : ;?>
+                <?php include (APPLICATION_SECTIONS . 'ventana_no_cumple_compras_minimas.php');?>
+            <?php endif ;?>
+        
+            <?php include (APPLICATION_SECTIONS . 'ventana_modal_no_cumple_pedido_minimo.php');?>
+
+		</div>
+		<br /><br /><br />
+        
+	</div>
 </div>
- </div>
- </div>
 
- <br><br><br>>

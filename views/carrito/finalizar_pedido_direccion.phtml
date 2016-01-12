@@ -1,91 +1,40 @@
 <!-- Los Estilos css Se encuentran en CSS => tron_carrito_confi_envio.css -->
 
-<div class="contenedor"><!-- Contenedor principal -->
- <div class="row">
+<div class="ionix"><!-- Contenedor principal -->
+	<div class="general pAA30">
 
-   <!--- //// Linea de tiempo //// -->
-          <div class="col-lg-12">
-              <div>
-                   <p class="text-center">
-                        <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
-                        <img src="<?=  BASE_IMG_TIENDA ;?>linea_confirmacion_envio.png" class="line_tiempo">
-                        <?php else : ?>
-                        <img src="<?=  BASE_IMG_TIENDA ;?>linea_confirmacion_envio_industrial.png" class="line_tiempo">
-                        <?php endif ;?>
-                   </p>
-              </div>
-          </div>
-  <!--- //// Linea de tiempo //// -->
-
-  <!-- /// Cuerpo de la pagina  /// -->
-  <div class="cuerpo-pagina"><!-- Contenedor del cuepro de la pagina -->
-
-   <!-- Titulo -->
-   <div class =" col-lg-12 col-md-12 col-sm-12">
-     <div class="cont-titulo"><!-- Contenedor-titulo -->
-       <h2 class="titulo"><strong>Paso 2 </strong> <br>
-        <small class="sutb-titulo">Usuario Pedido y Confirmación dirección de envío</small>
-      </h2><!--Titulo -->
-    </div><!-- Contenedor-titulo -->
-  </div>
-  <!-- Titulo -->
-
-  <?php include(APPLICATION_SECTIONS .'barra_usuraios.php') ;?>
+        <center>
+			<?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
+            	<img src="<?=  BASE_IMG_TIENDA ;?>linea_confirmacion_envio.png" class="">
+            <?php else : ?>
+            	<img src="<?=  BASE_IMG_TIENDA ;?>linea_confirmacion_envio_industrial.png" class="">
+            <?php endif ;?>
+        </center>
 
 
+  		<div>
+        
+        	<h3 class="colorBlue ff2 t30 titleM1">
+            	<strong>Paso 2</strong><br>
+        		<small class="sutb-titulo">Usuario Pedido y Confirmación dirección de envío</small>
+            </h3>
 
-<!-- Formulario -->
-<div class="col-lg-12 col-md-12 col-sm-12">
-   <div class="fila-direcciones"><!-- Direccion -->
-   <span class="sutb-titulo" style="margin-left: 5px;">Seleccione la dirección a donde será enviado el pedido...</span>
+  			<?php include(APPLICATION_SECTIONS .'barra_usuraios.php') ;?>
 
-  <?php if (Session::Get('cantidad_direcciones') < 3)  :;?>
-    <span>
-          <a href="#venta_editar"
-            class="btn-editar-direccion"
-            iddirecciondespacho   = "0" >
-          o cree una nueva dirección
-        </a>
-    </span>
-  <?php endif;?>
-  <br>
-    <?php
-          $I = 0;
-            foreach($this->Direcciones as $Direccion) {
-              include (APPLICATION_CODS . 'campos_direccion_usuario.php'); // Carga las variables direcciones
-    ;?>
-    <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion_datos.php');?>
-    <?php };?>
-  </div><!-- Direccion -->
+			<hr />
+
+			<!-- Formulario -->
+
+            <!-- Direccion -->
+			<?php include "views/carrito/finalizar_pedido_direccion_usuario.phtml"; ?>
+            
+			<br /><br />
+    		<center><button type="button" class="btn-continuar btn btn-danger">Continuar</button></center>
+
+			<?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion.php');?>
+            <?php include (APPLICATION_SECTIONS . 'ventana_mensaje_error.php');?>
+            	
+            <br /><br /><br />
+		</div>
+	</div>
 </div>
-
-
-
-<!-- /// Button /// -->
-<div class="col-lg-12 col-md-12 col-sm-12">
-  <div class="cont-btn-continuar">
-    <button type="button" class="btn-continuar">Continuar</button>
-  </div>
-</div>
-<!-- /// Button /// -->
-
-</div><!-- Contenedor del cuepro de la pagina -->
-<!-- /// Cuerpo de la pagina  /// -->
-
-</div>
-</div><!-- Contenedor principal -->
-   <?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion.php');?>
-   <?php include (APPLICATION_SECTIONS . 'ventana_mensaje_error.php');?>
-
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-
-
-

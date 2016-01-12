@@ -586,22 +586,9 @@ $('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function()
 
 // ENE 01 DE 2014
 // FUNCIONALIDAD PARA EL ZOOM DE LAS IMAGENES EN LA VISTA AMPLIADA
-$("#zoom_03").elevateZoom({
-	constrainType				  : "height",
-	constrainSize				  : 274,
-	zoomType									  : "inner",
-	containLensZoom	   : true,
-	gallery            :'gallery_01',
-	cursor             : 'pointer',
-	galleryActiveClass : "active",
-	imageCrossfade 			 : false
-});
 
-$("#zoom_03").on("click", function(e) {
-		var ez = $('#zoom_03').data('elevateZoom');
-		$.fancybox(ez.getGalleryList());
-		return false;
-	}); // FIN FUNCIONES ZOOM EN LA VISTA AMPLIADA.
+// Will se las llevó xD
+
 
 
 

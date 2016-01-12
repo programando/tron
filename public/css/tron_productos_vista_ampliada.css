@@ -88,9 +88,8 @@
 {
    float: left;
    margin-right: 20px;
-   margin-left: 10px;
+   margin-left: 0;
    color: #003E90;
-   font-family: cursive;
 
 }
 
@@ -122,19 +121,16 @@
 
 .imagen_grupo_producto
 {
-				background : url('../images/productos/23.png');
+				background : url('../images/productos/23.png') center center no-repeat;
 				color      : white;
 				cursor     : pointer;
 				display    : block;
-				float      : left;
+				float      : none;
 				font-size  : 24px;
 				height     : 60px;
-				margin     :10px;
-				padding-top: 17px;
 				text-align : center;
 				text-shadow: 1px 1px 3px #000000;
 				width      : 64px;
-				margin-top: -10px;
 }
 
 .imagen_tecnoaplicadas_producto
@@ -142,13 +138,8 @@
 				color      : white;
 				cursor     : pointer;
 				display    : block;
-				float      : left;
-				font-size  : 24px;
 				height     : 60px;
-				margin     : 10px;
-				padding-top: 17px;
 				text-align : center;
-				text-shadow: 1px 1px 3px #000000;
 				width      : 64px;
 }
 
@@ -164,10 +155,8 @@
 				color      : white;
 				cursor     : pointer;
 				display    : block;
-				float      : left;
 				font-size  : 24px;
 				height     : 60px;
-				margin     : 10px;
 				text-align : center;
 				text-shadow: 1px 1px 3px #000000;
 				width      : 64px;
@@ -194,19 +183,13 @@ th , td
 
 .gene-tabs
 {
-				margin     : 0px auto;
-				padding-top: 30px;
-				width      : 80%;
+	
 }
 
 .tab-content
 {
 				display      : block;
-				margin       : 0px auto;
-				margin-bottom: 10px;
-				margin-top   : 20px;
-				text-align   : justify;
-				width        : 95%;
+
 }
 /*FINA TABS*/
 

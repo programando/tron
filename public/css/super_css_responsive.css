@@ -103,4 +103,23 @@
 	#wowslider-container1  .ws_bullets 		{ display:none !important; } 
 	.avisos4								{ float:left; width:50%; }
 	
+	.depuraContForz	img						{ padding:10px; }
+
+.direccion1,
+.direccion2,
+.direccion3
+{
+	display:block;
+	width        : 98%;
+	margin		 : 0 1%;
+	
+	
+}
+.cont-direccion
+{
+    display:block;
+	width:100%;
+	height:auto;
+}
+	
 }

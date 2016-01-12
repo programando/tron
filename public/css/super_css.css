@@ -58,8 +58,20 @@ a, input, button						{ outline:none !important; }
 .menGion .navbar-nav li	a:hover			{ background-color:#069; color:#FFF; }
 .menGion .navbar-nav li.active	a		{ background-color:transparent; }
 
-.menGion .navbar-nav li	a.infoSpecial	{ background-color:#fc8e01; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#0469ED; }
-.menGion .navbar-nav li	a.infoSpecial:hover	{ background-color:#fff; color:#0469ED; }
+
+
+.headion								{}
+.headHogar								{}
+.headIndustrial							{}
+.headIndustrial .menGion								{ background-color:#7D170F; }
+.headIndustrial .menGion .navbar-collapse				{ background-color:#7D170F; }
+.headIndustrial .menGion .navbar-header					{ background-color:#7D170F; }
+.headIndustrial .menGion .navbar-brand:hover			{ background-color:#BA070D; }
+.headIndustrial .menGion .navbar-nav li	a:hover			{ background-color:#BA070D; }
+.headIndustrial .menGion .navbar-nav li.active			{ background-color:#BA070D; }
+
+.menGion .navbar-nav li	a.infoSpecial					{ background-color:#fc8e01; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#0469ED; }
+.menGion .navbar-nav li	a.infoSpecial:hover				{ background-color:#fff; color:#0469ED; }
 
 
 /* INDEX */
@@ -158,10 +170,11 @@ a, input, button						{ outline:none !important; }
 .terminos h3 strong								{ font-size:18px; margin:30px 0 10px; display:block;}
 
 
-
-
-
-
+/* PRODUCTO */
+.depuraContForz									{ padding:30px;} /* FORZAR EL CONTENIDO DE UN PRODUCTO */
+.depuraContForz	img								{ max-width:100% !important; height:auto !important; margin:0 auto; display:block; padding:30px; background-color:#eee;}
+.depuraContForz ul								{ margin:10px !important; }
+.depuraContForz ul li							{ margin:0 auto 8px 30px !important; }
 
 
 

@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <div id="two" class="panel-collapse collapse">
+        <div id="two" class="panel-collapse collapse in">
             <div class="panel-body">
                 <nav>
                     <ul class="nav">
