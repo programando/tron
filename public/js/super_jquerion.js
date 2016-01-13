@@ -7,6 +7,18 @@ $(document).ready(function() {
 	var alto = $(window).height();
 	var ancho = $(window).width();
 	
+	$("#pedido-amigo").click(function(){
+		$(".contFormPedAmig").slideDown(400);
+	});
+	
+	$(".ingSeInf").click(function(){
+		$(".contFormPedAmig").slideUp(400);
+	});
+	
+	
+	
+	
+	
 	
 	$(window).resize(function() {
 		var alto = $(window).height();
@@ -27,7 +39,7 @@ $(document).ready(function() {
 	
 	setTimeout('calcularAlturas()', 100);
 	
-	if(ancho<768) $('.oneX').trigger('click');
+	if(ancho<768) $('.oneX, .oneX2').trigger('click');
 });
 
 

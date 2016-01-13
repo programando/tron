@@ -105,21 +105,12 @@
 	
 	.depuraContForz	img						{ padding:10px; }
 
-.direccion1,
-.direccion2,
-.direccion3
-{
-	display:block;
-	width        : 98%;
-	margin		 : 0 1%;
+	.direccion1,
+	.direccion2,
+	.direccion3								{ display:block; width:98%; margin:0 1%; }
+	.cont-direccion							{ display:block; width:100%; height:auto; }
 	
-	
-}
-.cont-direccion
-{
-    display:block;
-	width:100%;
-	height:auto;
-}
+	.li_pasos_registro						{ padding:20px; background:#85ABDD; width:50%; float:left; margin:0; }
+	.rgts_pasos								{ padding:30px; border:0; border-top:solid 5px #003e90; }
 	
 }

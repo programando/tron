@@ -1,13 +1,18 @@
-
 <?php if (Session::Get('autenticado')==false ) :?>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myModal"
+      tabindex="-1" role="dialog"
+      aria-labelledy="myModallabel"
+      aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header header-login">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="login-fom-btn-x">&times;</span></button>
-          Ingreso a Red TRON
-        </div>
+
+        <div class="modal-header encabezado-modal header-login"><!--Emcabezado de la ventana modal -->
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="login-fom-btn-x">&times;</span></button>
+            <h4>
+            	<br />Ingreso a Red TRON<br /><br />
+            </h4>
+        </div><!--Emcabezado de la ventana modal -->
         <div class="modal-body">
           <div class="container-fluid" >
             <div class="formulario_ingresar">
@@ -37,12 +42,14 @@
                       </span> <!--INPUT = CONTRASEÑA -->
                       <input id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña">
                     </div>
-                    <div class="olvide_contraseña"><!-- INICIO RECORDAR CONTRASEÑA -->
+                    
+                    <br />
+                    <div class="olvide_contraseña taC"><!-- INICIO RECORDAR CONTRASEÑA -->
                       <small>
                         <a href="#" id="olvide-password">He olvidado mi contraseña , favor recordármela..</a>
                       </small>
                     </div><br><!--FIN RECORDAR CONTRASEÑA -->
-                    <div class="messagebox" "text-center" >
+                    <div class="messagebox text-center" >
                     </div>
 
                     <br>

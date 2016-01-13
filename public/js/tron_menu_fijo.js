@@ -2,7 +2,7 @@
    $('#olvide-password').click(function(){
      $('.formulario-olvide-password').slideDown('slow');
      $('.contenido-login').slideUp('slow');
-     $('.header-login').html('Recuperar Contraseña');
+     $('.header-login').html('<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="login-fom-btn-x">&times;</span></button><br>Recuperar Contraseña<br><br>');
    });
 
    // BARRA DE BUSQUEDA

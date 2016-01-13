@@ -16,6 +16,7 @@ a, input, button						{ outline:none !important; }
 .generalFull							{ width:100%; max-width:1600px; min-width:320px; height:auto; position:relative; margin:0 auto; }
 
 .bGray2									{ background-color:#333; }
+.priceTRONProd							{ color:#0C0; /* colorarranque:#608A17; */ }
 
 /* HEADER */
 .header-tron							{ height:auto; }
@@ -177,9 +178,11 @@ a, input, button						{ outline:none !important; }
 .depuraContForz ul li							{ margin:0 auto 8px 30px !important; }
 
 
+/* REGISTRO */
+.li_pasos_registro								{ padding:20px; background:#85ABDD; width:100%; margin:10px 0; }
+.rgts_pasos										{ padding:20px 50px; border-left:solid 5px #003e90; }
 
-
-
+.btn-registrar-en-plan							{ padding:10px 0px; padding:10px 10px; text-align:center; }
 
 
 /* =============================================================================================================================================== */
@@ -204,6 +207,8 @@ a, input, button						{ outline:none !important; }
 .taR								{ text-align:right; }
 .taJ								{ text-align:justify; }
 .p5									{ padding:5px;}
+.pR20								{ padding-right:20px; }
+.pLR20								{ padding:0 20px; }
 .p10								{ padding:10px;}
 .p20								{ padding:20px; }
 .p30								{ padding:30px; }
