@@ -15,7 +15,19 @@ $(document).ready(function() {
 		$(".contFormPedAmig").slideUp(400);
 	});
 	
-	
+		
+	$('a.perfil_menu_link').on('click',function(){
+		$("#columna_izquierdad").hide(400);
+		$("#menuAppr").show(400);
+		$("#columan_derecha").delay(600).removeClass("col-sm-10");
+		$("#columan_derecha").delay(600).addClass("col-sm-12");
+	});		
+	$('#menuAppr').on('click',function(){
+		$("#columan_derecha").removeClass("col-sm-12");
+		$("#columan_derecha").addClass("col-sm-10");
+		$("#columna_izquierdad").delay(600).show(400);
+		$("#menuAppr").hide(400);
+	});
 	
 	
 	
@@ -58,6 +70,28 @@ function calcularAlturas(){
 		$(".mukSlideIn").css('height', (mukSlide1/4-3));
 		$(".mukSlideIn img").css('max-height', (mukSlide1/4-3));
 	}
+	
+	var columna_izquierdad = $("#columna_izquierdad").height();
+	if(ancho > 750){
+		$(".rgts_pasos").css('min-height', columna_izquierdad);
+		
+		$('a.perfil_menu_link').on('click',function(){
+			$("#columna_izquierdad").hide(400);
+			$("#menuAppr").show(400);
+			$("#columan_derecha").delay(600).removeClass("col-sm-10");
+			$("#columan_derecha").delay(600).addClass("col-sm-12");
+		});		
+		$('#menuAppr').on('click',function(){
+			$("#columan_derecha").removeClass("col-sm-12");
+			$("#columan_derecha").addClass("col-sm-10");
+			$("#columna_izquierdad").delay(600).show(400);
+			$("#menuAppr").hide(400);
+		});
+		
+		
+	}
+	
+	
 	
 	var blockques = $(".blockques-opciones").width();
 	if(ancho > 750){

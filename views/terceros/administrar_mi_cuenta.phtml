@@ -1,185 +1,78 @@
 <!-- llamado de la ventana modal del convenio comercial -->
- <?php include (APPLICATION_SECTIONS . 'convenio_comercial_modal.php');?>
+	<?php include (APPLICATION_SECTIONS . 'convenio_comercial_modal.php');?>
 <!--  / llamado de la ventana modal del convenio comercial -->
 
-<div class="contenedor_vista">
-	<div class="row" style="padding: 0px;">
-		<div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
-			<!-- BTN = Mostrar TABs -->
-			<div class="cont_btn_mostrar">
-				<div>
-					<button type="button" class="btn_mostrar" id="btn_mostrar"><span class="glyphicon glyphicon-chevron-right"></span></button>
-				</div>
-			</div>
+       
+<div class="ionix">
+    <div class="general pAA30 mb30">
+		<div class="row">
+        	
+            <img src="../public/images/tienda/menu.png" id="menuAppr" class="cP" style="position:absolute; top:30px; left:-52px; z-index:100; display:none;" />
+    		
+            <div id="columna_izquierdad" class="col-sm-2 col-xs-12 vcenter" style="vertical-align:top; position:relative;"><!-- Columna - Izquierdad -->
+                <!-- BTN = Mostrar TABs -->
+                <?php include (APPLICATION_SECTIONS . 'micuenta_lateral.php');?>
+            </div><!--
+    
+            --><div id="columan_derecha" class="col-sm-10 col-xs-12 vcenter"><!-- columna - derecha -->
+            
+            	<article class="rgts_pasos">
+                
+                    <div id="cabezera_perfil" class="menuMiCuenta"><!-- Menu -->
+                        <ul>
+                            <li><a class="perfil_menu_link" href="#" id="plan_seleccionado" style="background-color:#003e90;"><span>Plan Seleccionado</span></a></li>
+                            <li><a class="perfil_menu_link" href="#" id='perfil-datos-personales'><span>Datos Personales</span></a></li>
+                            <?php if ( $this->idtipo_plan_compras == 3 ) :?>
+                                <li><a class="perfil_menu_link" href="#" id="recomendar_amigo"><span>Recomendar</span></a></li>
+                                <!--<li><a class="perfil_menu_link" href="#" id="pases_cortesia">Pases</a></li>-->
+                                <!-- BTN = Convenio comercial -->
+                                <li style="position:relative;" id="cont_conevion_comercial">
+                                    <a class="perfil_menu_link" href="#" id="convenio_comercial"><span>Convenio Comercial</span></a>
+                                    <ul class="menu_convenio" style="display:none">
+                                        <li><a  href="#convenio_comercial_modal" data-toggle="modal" data-target="#convenio_comercial_modal" class="link_convenio"><span>Vista Previa</span></a></li>
+                                        <li><a href="#" class="link_convenio" id="convenio_pdf"><span>Imprimir / Grabar</span></a></li>
+                                    </ul>
+                                </li>                                
+                                <li><a class="perfil_menu_link" href="#" id="tabla_comisiones"><span>Tabla Comisiones</span></a></li>
+                            <?php endif ;?>
+                        </ul>
+                    </div>
+                    
+                    <div id="cabezera_informes" class="cabezera menuMiCuenta">
+                        <ul>
+                            <li><a class="perfil_menu_link" href="#" id='informes-pedidos-realizados'><span>Pedidos Realizados</span></a></li>
+                            <li><a class="perfil_menu_link" href="#"id ='informes-estado-cuenta' ><span>Estado de Cuentas</span></a></li>
+                            <?php if ( $this->idtipo_plan_compras == 3 ) :?>
+                                <li><a class="perfil_menu_link" href="#" id ='informes-participacion-red' title="Participación en la Red"><span>Partic. en la Red</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ='informes-red-usuarios'><span>Mi Red</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ='informes-amigos-presentados' title="Empresarios Presentados"><span>Empresarios Presen.</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ='informes-clientes-presentados' title="Clientes Presentados"><span>Clientes Presentados</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ="compras_tron_link"><span>Compra Tron</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ="compras_otros_link"><span>Compra Otros</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ="compras_industriales_link" title="Compras Indiustriales"><span>Compra Indust.</span></a></li>
+                                <li><a class="perfil_menu_link" href="#" id ="compras_totales_link"><span>Compras Totales</span></a></li>
+                            <?php endif ;?>
+                        </ul>
+                    </div>
+                    
+                    <div id="cabezera_favoritos" class="cabezera menuMiCuenta">
+                        <ul>
+                            <li><a class="perfil_menu_link" href="#" id="cuenta_favoritos"><span>Mis Favoritos</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contenedor_cuenta">
+                    
+                    	<?php include 'views/terceros/plan_seleccionado.phtml'; ?>
+                    
+                    </div>
 
-			<!-- Columna - Izquierdad -->
-			<div class="col-lg-2 col-md-2 col-sm-2 padding_none " id="columna_izquierdad" style="width: 250px;">
-				<div class="barra_tabs">
-					<div><!-- Contenedor -->
-						<!-- Contenedor  =  Mi perfil-->
+                </article>
+                
+				
 
-
-						<!-- Contenedor  = Informes -->
-						<div class="tabs_click" id="mi-perfil" style="background: #003E90;">
-							<div class="row">
-								<div class="col-lg-12">
-									<h4>Mi Perfil</h4>
-									<div class="descriptcion_tab"><!-- Descripcion -->
-										<p>Información Personal,</p>
-										<p>pases de cortesía,</p>
-										<p>recomendar modelo de negocio,</p>
-										<p>mi plan actual.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Contenedor  = Informes -->
-						<div class="tabs_click" id="informes_pedidos">
-							<div class="row">
-								<div class="col-lg-12">
-									<h4>Pedidos e Informes</h4>
-									<div class="descriptcion_tab"><!-- Descripcion -->
-										<p>Pedidos realizados,</p>
-										<p>estado de mis cuentas e</p>
-										<p>informes de la actividad</p>
-										<p>de los integrantes de mi red.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Contenedor  = Favoritos -->
-						<div class="tabs_click" id="favoritos">
-							<div class="row">
-								<div class="col-lg-12">
-									<h4>Favoritos</h4>
-									<div class="descriptcion_tab"><!-- Descripcion -->
-										<p>Acceso rápido</p>
-										<p>a mis productos</p>
-										<p>favoritos</p>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			<!-- columna - derecha -->
-			<div class="col-lg-9 col-md-9 col-sm-9" id="columan_derecha">
-				<div class="row" id="con-row-menu" style="margin-bottom: 15px;">
-					<div class="col-lg-12 col-md-12 col-sm-12"  >
-						<!-- Contenedor Informacion Tabs -->
-						<div>
-							<div class="col-lg-12 col-md-12 col-sm-12 paddding-left">
-								<div><!-- Contenedor -->
-
-									<div><!-- CABEZERAS  -->
-										<div id="cabezera_perfil" class="cabezera" style="display: block;">
-											<!-- Mi perfil -->
-											<div class="col-lg-12 col-md-12 col-sm-12 paddding-left">
-												<div class="menu_perfil"><!-- Menu -->
-													<nav>
-														<ul>
-															<li><a class="perfil_menu_link" href="#" id="plan_seleccionado">Plan Seleccionado</a></li>
-															<li><a class="perfil_menu_link" href="#" id='perfil-datos-personales'>Datos Personales</a></li>
-															<?php if ( $this->idtipo_plan_compras == 3 ) :?>
-																<li><a class="perfil_menu_link" href="#" id="recomendar_amigo">Recomendar </a></li>
-																<!--<li><a class="perfil_menu_link" href="#" id="pases_cortesia">Pases</a></li>-->
-
-																<!-- BTN = Convenio comercial -->
-																<li style="position:relative;" id="cont_conevion_comercial">
-																	<a class="perfil_menu_link" href="#" id="convenio_comercial">Convenio Comercial</a>
-																	<ul class="menu_convenio">
-																		<!-- <li><a href="#" id="vista_previa" class="link_convenio">Vista Previa</a></li> -->
-																		<li><a  href="#convenio_comercial_modal" data-toggle="modal"  data-target="#convenio_comercial_modal" class="link_convenio">Vista Previa</a></li>
-																		<li><a href="#" class="link_convenio" id="convenio_pdf">Imprimir / Grabar</a></li>
-																	</ul>
-																</li>
-
-																<li><a class="perfil_menu_link" href="#" id="tabla_comisiones">Tabla Comisiones</a></li>
-															<?php endif ;?>
-														</ul>
-													</nav>
-												</div>
-											</div>
-										</div>
-
-										<!-- informes y pedidos -->
-										<div id="cabezera_informes" class="cabezera">
-											<div class="col-lg-12 col-md-12 col-sm-12 paddding-left">
-												<div id="cabezera_perfil">
-													<div class="menu_perfil"><!-- Menu -->
-														<nav>
-															<ul>
-																<li><a class="perfil_menu_link" href="#" id='informes-pedidos-realizados'>Pedidos Realizados</a></li>
-																<li><a class="perfil_menu_link" href="#"id ='informes-estado-cuenta' >Estado de Cuentas</a></li>
-																<?php if ( $this->idtipo_plan_compras == 3 ) :?>
-																		<li><a class="perfil_menu_link" href="#" id ='informes-participacion-red' title="Participación en la Red">Partic. en la Red</a></li>
-																		<li><a class="perfil_menu_link" href="#" id ='informes-red-usuarios'>Mi Red </a></li>
-																		<li><a class="perfil_menu_link" href="#" id ='informes-amigos-presentados' title="Empresarios Presentados">Empresarios Presen.</a></li>
-																		<li><a class="perfil_menu_link" href="#" id ='informes-clientes-presentados' title="Clientes Presentados">Clientes Presentados</a></li>
-																		<li><a class="perfil_menu_link" href="#" id ="compras_tron_link">Compra Tron</a></li>
-																		<li><a class="perfil_menu_link" href="#" id ="compras_otros_link">Compra Otros</a></li>
-																		<li><a class="perfil_menu_link" href="#" id ="compras_industriales_link" title="Compras Indiustriales">Compra Indust.</a></li>
-																		<li><a class="perfil_menu_link" href="#" id ="compras_totales_link">Compras Totales </a></li>
-																<?php endif ;?>
-															</ul>
-														</nav>
-													</div>
-												</div>
-											</div>
-										</div>
-							 <!--
-							     Tab - Favorito =  no contiene menu..!
-							    -->
-							   </div>
-							  </div>
-							 </div>
-							</div>
-						</div>
-					</div>
-
-					<div class="contenedor_cuenta">
-
-						<div class="row">
-							<div class="col-lg-12">
-								<div></div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<br>
+</div>
 
-
-<style>
-
-
-/*.modal_convenio
-{
-	   display:block;
-	   background-image: url('../public/images/productos/fondo_ventana_modal.png');
-	   position: fixed;
-	   z-index: 1000;
-	   top: 0;
-	   left: 0;
-	   width: 100%;
-	   height: 100%;
-}
-
-.body_modal
-{
-	    display: block;
-	    width: 50%;
-	    margin: 50px auto;
-	    background: white;
-}*/
-</style>

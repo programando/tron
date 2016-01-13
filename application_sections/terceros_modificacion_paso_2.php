@@ -1,6 +1,7 @@
 <div class="contenedor_from_2">
 	   <div class="row">
 	   	  <!-- Formulario -->
+         	<br /><br />
 	   	  <div>
            <div class="col-lg-12 col-md-12 col-sm-12">
                <div>

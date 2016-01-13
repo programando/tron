@@ -1,3 +1,5 @@
+<hr />
+
 <table class="table table-bordered table-hover  tabla_info_compras">
          <thead><!-- cabezera -->
               <tr>

@@ -110,7 +110,14 @@
 	.direccion3								{ display:block; width:98%; margin:0 1%; }
 	.cont-direccion							{ display:block; width:100%; height:auto; }
 	
+	
 	.li_pasos_registro						{ padding:20px; background:#85ABDD; width:50%; float:left; margin:0; }
+	#columna_izquierdad .li_pasos_registro	{ padding:20px; background:#85ABDD; width:33.3%; float:left; margin:0; min-height:80px; text-align:center; }
 	.rgts_pasos								{ padding:30px; border:0; border-top:solid 5px #003e90; }
+	
+	.menuMiCuenta ul						{ display:block; height:auto; }
+	.menuMiCuenta ul li						{ display:block; }
+	.menuMiCuenta ul li a span				{ text-align:left; padding:7px 15px; }
+	
 	
 }

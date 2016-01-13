@@ -18,10 +18,10 @@
            <!-- cedula -->
 												<div class="form-group">
 													  <div class="radio">
-												     <label class="col-lg-2 control-label radio_cedula" style="padding-left: 35px;">
-												        <input type="radio" value="option1">Cedula
+												     <label class="col-lg-4 control-label radio_cedula">
+												        <input type="radio" value="option1" name="asdfsa">Cedula
 												     </label>
-												    <div class="col-lg-10">
+												    <div class="col-lg-8">
 												    	   <input type="text" class="form-control" id="">
 												    </div>
 												   </div>
@@ -29,10 +29,10 @@
            <!-- Nit -->
 												<div class="form-group">
 													  <div class="radio">
-												     <label class="col-lg-2 control-label radio_nit" style="padding-left: 35px; padding-right: 30px;">
-												        <input type="radio" value="option2">Nit
+												     <label class="col-lg-4 control-label radio_nit">
+												        <input type="radio" value="option2" name="asdfsa">Nit
 												     </label>
-												    <div class="col-lg-10">
+												    <div class="col-lg-8">
 												    	   <input type="text" class="form-control" id="">
 												    </div>
 												   </div>

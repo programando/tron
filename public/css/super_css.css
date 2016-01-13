@@ -181,8 +181,24 @@ a, input, button						{ outline:none !important; }
 /* REGISTRO */
 .li_pasos_registro								{ padding:20px; background:#85ABDD; width:100%; margin:10px 0; }
 .rgts_pasos										{ padding:20px 50px; border-left:solid 5px #003e90; }
-
 .btn-registrar-en-plan							{ padding:10px 0px; padding:10px 10px; text-align:center; }
+
+
+/* MI CUENTA */
+.menuMiCuenta									{}
+.menuMiCuenta ul								{ list-style-type:none; display:table; width:100%; height:70px; background:#b7b7b7; }
+.menuMiCuenta ul li								{ display:table-cell; vertical-align:middle; }
+.menuMiCuenta ul li a							{ display:table; width:100%; height:100%; }
+.menuMiCuenta ul li a:hover						{ background-color:#85ABDD !important; }
+.menuMiCuenta ul li a span						{ display:table-cell; vertical-align:middle; padding:10px; text-align:center; color:#FFF; }
+
+
+
+
+
+
+
+
 
 
 /* =============================================================================================================================================== */

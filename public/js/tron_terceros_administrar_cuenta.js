@@ -144,67 +144,69 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 				  });
 }
 
- //  Menu deslizante  =
- $('.perfil_menu_link').on('click',function(){
+//  Menu deslizante  =
+/*
+$('.perfil_menu_link').on('click',function(){
      $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
-	    $('#btn_mostrar').fadeIn(600);
+	 $('#btn_mostrar').fadeIn(600);
      $('#columan_derecha').attr('class','col-lg-12');
 });
-
+*/
 // BTn = mostrar menu
+/*
 $('#btn_mostrar').on('click',function(){
-	    $('.contenido-reporte').html('');
-	    $('.contenedor_cuenta').html('');
-	    $('#columna_izquierdad').animate({'margin-left':'0px'});
-	    $('#btn_mostrar').fadeOut(400);
-	    $('#columan_derecha').attr('class','col-lg-9' );
-
+	$('.contenido-reporte').html('');
+	$('.contenedor_cuenta').html('');
+	$('#columna_izquierdad').animate({'margin-left':'0px'});
+	$('#btn_mostrar').fadeOut(400);
+	$('#columan_derecha').attr('class','col-lg-9' );
 });
-
+*/
 $('#mi-perfil').on('click',function(){
-	$('.tabs_click').css('background','#B7B7B7');
+	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
-   $('.cabezera').css('display','none');
-    $('#cabezera_perfil').css('display','block');
-    $('.contenedor_cuenta').html('');
-    $('#plan_seleccionado').click();
+	//$('.cabezera').css('display','none');
+	//$('#cabezera_perfil').css('display','block');
+	//$('.contenedor_cuenta').html('');
+	
+	$('#cabezera_perfil').slideDown(400);
+	$('#cabezera_informes').slideUp(400);
+	$('#cabezera_favoritos').slideUp(400);
+	
+	$('#plan_seleccionado').click();
 });
-
 
 // Informes
 $('#informes_pedidos').on('click',function(){
-				$('.tabs_click').css('background','#B7B7B7');
-				$(this).css('background','#003E90');
-	   $('.cabezera').css('display','none');
-    $('#cabezera_informes').css('display','block');
-    $('.contenedor_cuenta').html('');
-    $('#informes-pedidos-realizados').click();
+	$('.li_pasos_registro').css('background','#85ABDD');
+	$(this).css('background','#003E90');
+	
+	$('#cabezera_perfil').slideUp(400);
+	$('#cabezera_informes').slideDown(400);
+	$('#cabezera_favoritos').slideUp(400);
+	$('#informes-pedidos-realizados').click();
 });
-
 
 // Favoritos
 $('#favoritos').on('click',function(){
-
-				$('.tabs_click').css('background','#B7B7B7');
-				$(this).css('background','#003E90');
-	   $('.cabezera').css('display','none');
-    $('#cabezera_favoritos').css('display','block');
-    $('.contenedor_cuenta').html('');
-
+	$('.li_pasos_registro').css('background','#85ABDD');
+	$(this).css('background','#003E90');
+	
+	$('#cabezera_perfil').slideUp(400);
+	$('#cabezera_informes').slideUp(400);
+	$('#cabezera_favoritos').slideDown(400);
+	$('#cuenta_favoritos').click();
 });
 
 $('li .perfil_menu_link').on('click',function(){
-				$('.perfil_menu_link').css('background','#B7B7B7');
-				$(this).css('background','#003E90');
+	$('.perfil_menu_link').css('background','#B7B7B7');
+	$(this).css('background','#003E90');
 });
-
-
-
 
 // Menu sueprior
 $('li .perfil_menu_link').on('click',function(){
-				$('.perfil_menu_link').css('background','#B7B7B7');
-				$(this).css('background','#003E90');
+	$('.perfil_menu_link').css('background','#B7B7B7');
+	$(this).css('background','#003E90');
 });
 
 var Mostrar_Direcciones_x_IdTercero = function($idtercero){
@@ -400,6 +402,19 @@ $('#tabla_comisiones').on('click',function(){
     $.ajax({
          dataType: 'html',
          url:      '/tron/terceros/tabla_comisiones_tron/',
+         type:     'post',
+				    success:  function (respuesta){
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(respuesta);
+				      }
+				  });
+});
+
+$('#cuenta_favoritos').on('click',function(){
+	$Opciones_Seleccionada = 'CUENTA_FAVORITOS';
+    $.ajax({
+         dataType: 'html',
+         url:      '/tron/terceros/cuenta_favoritos/',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');

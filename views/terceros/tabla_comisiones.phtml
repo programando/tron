@@ -1,102 +1,102 @@
-<div class="tabla_tron"><br><br><br>
-     <div class="row contenedor_tabla_comisiones">
+<div class="pAA30">
 
-        <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0px;">
-
-          <!-- Tabs -->
-          <div class="taba_tabla">
-              <div class="tabla_tab1">
-                 COMISIONES POR COMPRAS AMIGOS DEL PLAN EMPRESARIO TRON  ( % sobre venta sin IVA ).
-              </div>
-              <div class="tabla_tab2"><br>
-                  COMISIONES POR COMPRAS AMIGOS DEL PLAN CLIENTES TRON  <br>( % sobre venta sin IVA).
-              </div>
-          </div>
-
-
-        <!-- tabla -->
-        <table class="table table-bordered">
-              <thead style="font-size: 11.5px;">
-                   <tr>
-                   <th colspan="" rowspan="" headers="" scope="">nueva columna</th>
-                    <th class="text-center" style="border-bottom: 3px solid #003E90;">Grupo</th>
-                    <th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;">  </th>
-                    <th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;"> </th>
-                    <th class="text-center" style="background: #FFFFDF; border-bottom: 3px solid #003E90;"> </th>
-                   </tr>
-              </thead>
-
-              <tbody>
-              <?php $Primer_Registro  = TRUE ;?>
-              <?php $Segundo_Registro = TRUE ;?>
-              <?php foreach ($this->Comisiones_Grupos as $Comisiones)  : ; ?>
-                <?php
-                    $codigo_grupo          = $Comisiones['codigo_grupo'];
-                    $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],3).'%';
-                    $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],3).'%';
-                    $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],3).'%';
-                    $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],3).'%';
-
-                    $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],3).'%';
-                    $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],3).'%';
-                    $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],3).'%';
-                    $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],3).'%';
-
-                    $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],3).'%';
-                    $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],3).'%';
-                    $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],3).'%';
-                    $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],3).'%';
-                ?>
-                  <?php if ( $Primer_Registro == TRUE) :?>
-                    <!-- Grupo A -->
-                      <tr style="font-size: 11.5px;">
-                        <td>Tron Hogar</td>
-                        <td class="text-center" > <?= $codigo_grupo  ;?> </td>
-                        <td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
-                        <td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad ;?>  </td>
-                        <td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?>  </td>
-                        <?php $Primer_Registro = FALSE ;?>
-                      </tr>
-
-
-
-                     <!-- Grupo B =>  PP -->
-                     <?php elseif ( $Segundo_Registro == TRUE) :?>
-                      <tr style="font-size: 11.5px;">
-                        <td >Industrial
-                           <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png" class="img-responsive img-tecno_aplicds">
-
-                            <?php $Segundo_Registro = FALSE ;?>
-                        </td>
-                         <td class="text-center" > B </td>
-                         <td>industrial</td>
-                         <td>industrial</td>
-                         <td>industrial</td>
-                        <tr>
-
-                      <?php else : ?>
-
-
-                      <tr>
-                      <td style="background: red;">otros productos</td>
-                        <td class="text-center"> <?= $codigo_grupo  ;?> </td>
-                        <td class="text-center" style="background: #8BDEED;"> <?= $comis_empre_1_unidad  ;?> </td>
-                        <td class="text-center" style="background: #FFA0A0;"> <?= $comis_amg_n1_unidad  ;?> </td>
-                        <td class="text-center" style="background: #EEEEEE;"> <?= $comis_amg_n2_unidad  ;?> </td>
-                    </tr>
-                  <?php endif;?>
-
-              </tbody>
-              <?php endforeach ;?>
-        </table>
+    <div class="taba_tabla">
+        <div class="tabla_tab1">
+            COMISIONES POR COMPRAS AMIGOS DEL PLAN EMPRESARIO TRON  ( % sobre venta sin IVA ).
         </div>
-        <!-- definicionde colores -->
-       <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="definicion_colores_tabla">
-           <div><span class="color color3"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO EN RED CON EL COMPRADOR.</span></div>
-           <div><span class="color color4"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO QUE LO PRESENTO.</span></div>
-           <div><span class="color color5"></span><span class="defi_color"> COMISIONES PARA QUIEN PRESENTO AL EMPRESARIO.</span></div>
+        <div class="tabla_tab2"><br>
+            COMISIONES POR COMPRAS AMIGOS DEL PLAN CLIENTES TRON ( % sobre venta sin IVA).
         </div>
-       </div>
-     </div>
+    </div>
+    <br /><br />
+    <style>
+        td				{ vertical-align:middle !important; }
+    </style>
+    
+    <!-- tabla -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr style="border-bottom: 3px solid #003E90;">
+                <th>Nueva Columna</th>
+                <th class="text-center">Grupo</th>
+                <th class="text-center" colspan="3"></th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <?php $Primer_Registro  = TRUE ;?>
+            <?php $Segundo_Registro = TRUE ;?>
+		<?php
+            $ggg = 1;
+            foreach ($this->Comisiones_Grupos as $Comisiones)  : 
+        
+                $codigo_grupo          = $Comisiones['codigo_grupo'];
+                $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],3).'%';
+                $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],3).'%';
+                $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],3).'%';
+                $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],3).'%';
+                
+                $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],3).'%';
+                $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],3).'%';
+                $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],3).'%';
+                $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],3).'%';
+                
+                $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],3).'%';
+                $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],3).'%';
+                $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],3).'%';
+                $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],3).'%';
+                
+                if ( $Primer_Registro == TRUE) :
+        ?>
+                <!-- Grupo A -->
+                <tr>
+                    <td>Tron Hogar</td>
+                    <td class="text-center" > <?= $codigo_grupo  ;?> </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad ;?>  </td>
+                    <td class="text-center" style="background:#e7fbe8;"> <?= $comis_amg_n2_unidad  ;?>  </td>
+                    <?php $Primer_Registro = FALSE ;?>
+                </tr>
+    
+            <!-- Grupo B =>  PP -->
+            <?php elseif ( $Segundo_Registro == TRUE) :?>
+    
+                <tr>
+                    <td>Industrial &nbsp; <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png">
+                        <?php $Segundo_Registro = FALSE ;?>
+                    </td>
+                    <td class="text-center" >B</td>
+                    <td class="taC" style="background:#d7f8fe;">Industrial</td>
+                    <td class="taC" style="background:#fadfdf;">Industrial</td>
+                    <td class="taC" style="background:#e7fbe8;">Industrial</td>
+                </tr>
+    
+            <?php else : ?>
+    
+                <tr>
+                    <?php if($ggg <2){ ?>
+                        <td rowspan="9">Otros productos</td>
+                    <?php } ?>
+                    <td class="text-center"> <?= $codigo_grupo  ;?> </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#e7fbe8;"> <?= $comis_amg_n2_unidad  ;?> </td>
+                </tr>
+            
+            <?php $ggg++; endif; ?>
+    
+            
+        <?php endforeach ;?>
+        
+        </tbody>
+    </table>
+        
+    
+    <div class="definicion_colores_tabla">
+       <div><span class="color color3"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO EN RED CON EL COMPRADOR.</span></div>
+       <div><span class="color color4"></span><span class="defi_color"> COMISIONES PARA EL EMPRESARIO QUE LO PRESENTO.</span></div>
+       <div><span class="color color5"></span><span class="defi_color"> COMISIONES PARA QUIEN PRESENTO AL EMPRESARIO.</span></div>
+    </div>
+
 </div>
+

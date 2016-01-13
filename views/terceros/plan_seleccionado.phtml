@@ -1,46 +1,31 @@
 <!-- Esta vista se carga em administracion de mi cuenta ....  por medio de ajax -->
+<div class="taC pAA30">
 
-<div class="">
-    <div class="row">
-        <div class="contenedor_plan_selec">
-            <!-- /// Cabezera = plan-tron , pases de cortesia /// -->
-             <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="banner-cabezera"><!--- Contenedor -->
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12 col-sm-12"><!-- Plan Empresario Tron -->
-                          <div class="cont-img_plan-empresario">
-                              <?php if ( $this->idtipo_plan_compras == 3 ) :?>
-                                    <?php if ($this->kit_comprado == TRUE && $this->inscripcion_pagada == TRUE && $this->idtipo_plan_compras_confirmado == TRUE ) :?>
-                                        <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
-                                        <p class="text-perteneces-A"> Perteneces al <br> <strong>PLAN EMPRESARIO TRON</strong></p><!-- Perteneces -->
-                                      <?php else :?>
-                                        <img src="<?= BASE_IMG_EMPRESA ; ?>empresario_por_confirmar.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
-                                        <p class="text-perteneces-A"> Tu vinculación al <br> <strong>PLAN EMPRESARIO TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
-                                    <?php endif ;?>
-                              <?php endif ;?>
-                              <?php if ( $this->idtipo_plan_compras == 2 ) :?>
-                                   <?php if ($this->kit_comprado == TRUE ) :?>
-                                      <img src="<?= BASE_IMG_EMPRESA ; ?>amigoI.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
-                                      <p class="text-perteneces-A"> Perteneces al <br><strong> PLAN CLIENTE TRON</strong> </p><!-- Perteneces -->
-                                      <?php else :?>
-                                      <img src="<?= BASE_IMG_EMPRESA ; ?>amigo_por_confirmar.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
-                                      <p class="text-perteneces-A"> Tu vinculación al  <br> <strong>PLAN CLIENTE TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
-                                     <?php endif ;?>
-                              <?php endif ;?>
-                              <?php if ( $this->idtipo_plan_compras == 1 ) :?>
-                              <img src="<?= BASE_IMG_EMPRESA ; ?>visitanteI.png" class="img-empresario-tron"  /><!-- IMG = Empresario tron -->
-                                <p class="text-perteneces-A"> Perteneces al <br> PLAN COMPRADOR OCASIONAL</p><!-- Perteneces -->
-                              <?php endif ;?>
-                          </div>
-                       </div><!-- Plan Empresario Tron -->
+	<?php if ( $this->idtipo_plan_compras == 3 ) :?>
+        <?php if ($this->kit_comprado == TRUE && $this->inscripcion_pagada == TRUE && $this->idtipo_plan_compras_confirmado == TRUE ) :?>
+            <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" /><!-- IMG = Empresario tron -->
+            <p class="text-perteneces-A"> Perteneces al <br> <strong>PLAN EMPRESARIO TRON</strong></p><!-- Perteneces -->
+        <?php else :?>
+            <img src="<?= BASE_IMG_EMPRESA ; ?>empresario_por_confirmar.png" /><!-- IMG = Empresario tron -->
+            <p class="text-perteneces-A"> Tu vinculación al <br> <strong>PLAN EMPRESARIO TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
+        <?php endif ;?>
+    <?php endif ;?>
+    
+    <?php if ( $this->idtipo_plan_compras == 2 ) :?>
+        <?php if ($this->kit_comprado == TRUE ) :?>
+            <img src="<?= BASE_IMG_EMPRESA ; ?>amigoI.png" /><!-- IMG = Empresario tron -->
+            <p class="text-perteneces-A"> Perteneces al <br><strong> PLAN CLIENTE TRON</strong> </p><!-- Perteneces -->
+        <?php else :?>
+            <img src="<?= BASE_IMG_EMPRESA ; ?>amigo_por_confirmar.png" /><!-- IMG = Empresario tron -->
+            <p class="text-perteneces-A"> Tu vinculación al  <br> <strong>PLAN CLIENTE TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
+        <?php endif ;?>
+    <?php endif ;?>
+    
+    <?php if ( $this->idtipo_plan_compras == 1 ) :?>
+        <img src="<?= BASE_IMG_EMPRESA ; ?>visitanteI.png"  /><!-- IMG = Empresario tron -->
+        <p class="text-perteneces-A"> Perteneces al <br> PLAN COMPRADOR OCASIONAL</p><!-- Perteneces -->
+    <?php endif ;?>
 
-
-                    </div>
-                </div><!--- Contenedor -->
-             </div>
-
-        </div>
-    </div>
 </div>
 
 
