@@ -59,6 +59,8 @@ function calcularAlturas(){
 	var alto = $(window).height();
 	var ancho = $(window).width();
 		
+	$(".closeSesssion").css('height',alto);
+	$(".closeSesssion").css('width',ancho);
 	
 	//var hein1 = $(".hein1").height();
 	//var hein2 = $(".hein2").height();
