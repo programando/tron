@@ -157,11 +157,15 @@ class ProductosController extends Controller
 
     public function Novedades_Index() {
          $this->View->Productos_Novedades    = $this->Productos->Novedades_Ofertas();
+         $this->View->Cantidad_Registros     = $this->Productos->Cantidad_Registros;
+         Session::Set('Cantidad_Novedades' , $this->View->Cantidad_Registros );
     }
 
 
     public function Novedades() {
          $this->View->Productos_Novedades = $this->Productos->Novedades_Ofertas();
+         $this->View->Cantidad_Registros     = $this->Productos->Cantidad_Registros;
+         Session::Set('Cantidad_Novedades' , $this->View->Cantidad_Registros );
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_5'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('novedades');

@@ -1,8 +1,9 @@
+<?php if ( $this->Cantidad_Registros  >= 5 ) : ; ?>
 <div class="ionix">
-    <div class="general">    
+    <div class="general">
     	<div class="contenido-index mb30 pAA30">
         	<div class="titleM1 colorBlue t24 mb30">NOVEDADES</div>
-        
+
             <div class="row">
                 <?php
                     foreach ($this->Productos_Novedades as $Productos) {
@@ -12,10 +13,11 @@
                         <div class="artOpt artPor5">
                             <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
                         </div>
-                
+
                 <?php } ?>
             </div>
 
 		</div>
     </div>
 </div>
+<?php  endif;?>

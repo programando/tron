@@ -69,6 +69,7 @@
 			* MUESTRA ALETORIAMENTE   PRODUCTOS MARCADOS COMO DESTACADOS HOGAR (Id_Area_Consulta=2) INDUSTRIAL (Id_Area_Consulta=1) 	*/
             $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
             $Productos_Destacados = $this->Db->Ejecutar_Sp("productos_listado_destacados_index($Id_Area_Consulta)");
+             $this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 			return $Productos_Destacados;
 		}
 
@@ -77,14 +78,16 @@
 			   CONSULTA TODAS LAS OFERTAS DISPONIBLES EN LA PÁGINA 				*/
              $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
 			 $Productos_Ofertas = $this->Db->Ejecutar_Sp("productos_listado_ofertas_index($Id_Area_Consulta)");
+              $this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 			 return $Productos_Ofertas;
 		}
 
 		public function Novedades_Ofertas()	 {
 			/** DIC 30 DE 2014.
 				CONSULTA TODAS LAS NOVEDADES DISPONIBLES EN LA PÁGINA 				*/
-			$Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-            $Productos_Novedades = $this->Db->Ejecutar_Sp("productos_listado_novedades_index($Id_Area_Consulta)");
+            $Id_Area_Consulta         = Session::Get('Id_Area_Consulta');
+            $Productos_Novedades      = $this->Db->Ejecutar_Sp("productos_listado_novedades_index($Id_Area_Consulta)");
+            $this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 			return $Productos_Novedades;
 		}
 
