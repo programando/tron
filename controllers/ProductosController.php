@@ -321,6 +321,7 @@ class ProductosController extends Controller
       if ($pagina==false)  { $pagina = 1 ;     };
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
+      $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
 
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
@@ -333,7 +334,7 @@ class ProductosController extends Controller
         $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria($Id_Area_Consulta,$_idorden_nv_1 );
         $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-
+        $this->View->nom_categoria    = strtoupper( $nom_categoria );
         $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
     } // Fin Productos_por_Categoria
@@ -345,6 +346,7 @@ class ProductosController extends Controller
       */
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $pagina           =  General_Functions::Validar_Entrada('Pagina','NUM');
+      $nom_categoria           =  General_Functions::Validar_Entrada('nombre_categoria','TEXT');
       $IdOrden_nv_1     = Session::Get('IdCategoria_n1');
       $IdOrden_nv_2     = Session::Get('IdCategoria_n2');
       $IdMarca          = Session::Get('IdMarca');
@@ -368,7 +370,7 @@ class ProductosController extends Controller
 
         $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-
+        $this->View->nom_categoria    = strtoupper($nom_categoria);
         $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
     } // Fin Productos_por_Categoria
@@ -385,6 +387,7 @@ class ProductosController extends Controller
       if ($pagina==false) {   $pagina = 1 ;};
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $_idorden_nv_2    =  General_Functions::Validar_Entrada('idorden_nv_2','NUM');
+      $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
 
       Session::Set('IdCategoria_n1',0);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',$_idorden_nv_2);
@@ -396,7 +399,7 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Productos->Productos_por_Sub_Categoria($Id_Area_Consulta,$_idorden_nv_2);
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-
+      $this->View->nom_categoria    = strtoupper( $nom_categoria );
        $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Categoria
 
@@ -414,6 +417,7 @@ class ProductosController extends Controller
 
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $idmarca          =  General_Functions::Validar_Entrada('idmarca','NUM');
+      $nom_marca          =  General_Functions::Validar_Entrada('nom_marca','TEXT');
 
       Session::Set('IdCategoria_n1',0);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
@@ -425,6 +429,7 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Productos->Productos_por_Marca($Id_Area_Consulta,$idmarca);
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+       $this->View->nom_categoria    = strtoupper( $nom_marca );
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
     } // Fin Productos_por_Marca

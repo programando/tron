@@ -24,9 +24,10 @@ $("#menu-izq-otros-productos").on('click','.lista-marcas',function(){
 });
 
 
-var Paginacion = function(pagina)
+var Paginacion = function(pagina , nombre_categoria )
 	{
-			var Parametros = {"Pagina": pagina};
+
+			var Parametros = {"Pagina": pagina, "nombre_categoria":nombre_categoria};
 					$.ajax({
 						data:  Parametros,
 						dataType: 'html',
@@ -47,8 +48,10 @@ $("#contenido-productos").on('click','.pagina',function()
 {
 			var numero_pagina = $(this).attr('pagina');
 			var IdCategoria      = $(this).attr("id-categoria");
+			var  nombre_categoria = $(this).attr("nombre-categoria");
 
-			Paginacion(numero_pagina);
+
+			Paginacion(numero_pagina, nombre_categoria);
 
 });
 
@@ -58,7 +61,7 @@ $("#contenido-productos").on('click','.pagina',function()
 
 var Mostrar_Productos_Categorias = function(IdCategoria,Nombre_Categoria  )
 {
-	 var Parametros		    = {"idorden_nv_1" :IdCategoria };
+	 var Parametros		    = {"idorden_nv_1" :IdCategoria,"nom_categoria":Nombre_Categoria  };
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',
@@ -75,7 +78,8 @@ var Mostrar_Productos_Categorias = function(IdCategoria,Nombre_Categoria  )
 
 var Mostrar_Productos_Sub_Categorias = function(IdSubCategoria,NombreSubcategoria  )
 {
-	 var Parametros		    = {"idorden_nv_2" :IdSubCategoria };
+
+	 var Parametros		    = {"idorden_nv_2" :IdSubCategoria, "nom_categoria":NombreSubcategoria  };
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',
@@ -93,7 +97,7 @@ var Mostrar_Productos_Sub_Categorias = function(IdSubCategoria,NombreSubcategori
 
 var Mostrar_Productos_x_Marca = function(IdMarca,NomMarca  )
 {
-	 var Parametros		    = {"idmarca" :IdMarca };
+	 var Parametros		    = {"idmarca" :IdMarca, "nom_marca" :NomMarca  };
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',

@@ -75,7 +75,7 @@ class IndexController extends Controller
 
         $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //'tron_login'
+        $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
 
         $this->View->Mostrar_Vista('index');
 
@@ -102,30 +102,30 @@ class IndexController extends Controller
         //sleep(5);
         //$this->Redireccionar();
         echo '
-		
+
 			<!DOCTYPE html>
 			<html lang="es">
 			<head>
 			<meta charset="UTF-8">
-				<title>Cerrando Sesión</title>    
+				<title>Cerrando Sesión</title>
 				<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic" rel="stylesheet" type="text/css">
 				<!-- CSS de Bootstrap -->
 				<link type="text/css" rel="stylesheet" href="../public/css/bootstrap.min.css" media="screen" />
 				<link type="text/css" rel="stylesheet" href="../public/css/custom.css" media="screen" />
-				
+
 				<link type="text/css" rel="stylesheet" href="../public/css/super_css.css"  />
 				<link type="text/css" rel="stylesheet" href="../public/css/super_css_responsive.css"  />
-				
+
 				<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 				<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 				<script src ="../public/js/super_jquerion.js" type="text/javascript" ></script>
-				
+
 				<script language="JavaScript" type="text/javascript">
 					setTimeout(\'self.location=\"../\"\', 3000)
 				</script>
 			</head>
 			<body>
-			
+
 				<div class="closeSesssion">
 					<div class="tabAll">
 						<div class="tabIn taC">
@@ -135,13 +135,13 @@ class IndexController extends Controller
 						</div>
 					</div>
 				</div>
-			
+
 			</body>
 			</html>
-		
-		
-		
-		
+
+
+
+
 		';
     }
 

@@ -1,3 +1,4 @@
+
 <style>
 	.priceTRONProd							{ color:#F33; }
 </style>
@@ -8,19 +9,20 @@
 
 		<?php
 			include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
+
 			foreach ($this->Productos_Pagina as $Productos) {
 				$mostrar_imagen_varias_referencias=true;
-				include (APPLICATION_CODS . 'campos_productos.php');        
+				include (APPLICATION_CODS . 'campos_productos.php');
         ?>
-        
+
                 <div class="artOpt artPor4">
                 	<?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
                 </div>
-                
+
         <?php
 			} if(isset($this->Paginacion)) echo $this->Paginacion;
 		?>
-        
+
 	</div>
 </div>
 
