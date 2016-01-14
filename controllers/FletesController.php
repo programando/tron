@@ -250,8 +250,8 @@
 	      }
 
 	      // HALLO EL FLETE MÍNIMO
-	      if ( $this->valor_flete < $flete_minimo ){
-	      	$this->valor_flete  = $flete_minimo;
+	      if ( $this->valor_flete < ( $flete_minimo * $Numero_Unidades) ){
+	      	$this->valor_flete  = $flete_minimo * $Numero_Unidades;
 	      }
 
 	      //6. APLICAR TASA DE MANEJO Y COMPARAR CON EL VALOR DEL FLETE
@@ -415,7 +415,7 @@
 
       }
 
-      public function Redetrans_Courrier( $Peso_Pedido, $Valor_Declarado )      {
+      public function Redetrans_Courrier( $Peso_Pedido, $Valor_Declarado, $id_dpto = 0, $re_expedidion = 0 )      {
        /** MARZO 07 DE 2015
       	*					CALCULA EL VALOR DE FLETE QUE SE CORBRA POR COURRIER EN REDETRANS
       	*/
@@ -435,21 +435,26 @@
 									$this->tipo_tarifa               = 'REDETRANS - COURRIER';
 									$this->flete_calculado           = FALSE ;
 									$this->tipo_despacho													= 1;  // REDETRANS COURRIER
-								 $this->iddpto                    = Session::Get('iddpto');
-									$this->re_expedicion             = Session::Get('re_expedicion');
+									if ( $id_dpto == 0 ) {
+								 			$this->iddpto                    = Session::Get('iddpto');
+												$this->re_expedicion             = Session::Get('re_expedicion');
+											}else{
+											 $this->iddpto                    = $id_dpto;
+												$this->re_expedicion             = $re_expedidion ;
+											}
 
 									if ( $this->iddpto == 32  ){
-														$this->tipo_tarifa = 'REDETRANS - COURRIER - REGIONAL';
-														$Vr_Primer_Kilo           = $Parametros [0]['rdtrans_courrier_vr_kg_regional'];
-														$Vr_Kilo_Adicional = $Parametros[0]['rdtrans_courrier_vr_kg_regional_adic'];
+														$this->tipo_tarifa 			= 'REDETRANS - COURRIER - REGIONAL';
+														$Vr_Primer_Kilo       = $Parametros [0]['rdtrans_courrier_vr_kg_regional'];
+														$Vr_Kilo_Adicional 			= $Parametros[0]['rdtrans_courrier_vr_kg_regional_adic'];
 									}else{
-															$this->tipo_tarifa               = 'REDETRANS - COURRIER - NACIONAL';
-															$Vr_Primer_Kilo 			= $Parametros[0]['rdtrans_courrier_vr_kg_nacional'];
+															$this->tipo_tarifa    = 'REDETRANS - COURRIER - NACIONAL';
+															$Vr_Primer_Kilo 				  = $Parametros[0]['rdtrans_courrier_vr_kg_nacional'];
 															$Vr_Kilo_Adicional 			= $Parametros[0]['rdtrans_courrier_vr_kg_nacional_adic'];
 									}
 									if ( $this->re_expedicion == TRUE ){
-														$this->tipo_tarifa               = 'REDETRANS - COURRIER - REEXPEDICION';
-														$Vr_Primer_Kilo 			= $Parametros[0]['rdtrans_courrier_vr_kg_reexp'];
+														$this->tipo_tarifa    = 'REDETRANS - COURRIER - REEXPEDICION';
+														$Vr_Primer_Kilo 						= $Parametros[0]['rdtrans_courrier_vr_kg_reexp'];
 														$Vr_Kilo_Adicional 			= $Parametros[0]['rdtrans_courrier_vr_kg_reexp_adic'];
 									}
 
