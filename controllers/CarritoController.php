@@ -187,8 +187,7 @@ class CarritoController extends Controller{
      $IdDpto               =  General_Functions::Validar_Entrada('iddpto','NUM');
      $Re_Expedicion        =  General_Functions::Validar_Entrada('reexpedicion','BOL');
      $codigousuario        =  General_Functions::Validar_Entrada('codigousuario','TEXT');
-
-     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho );
+     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho,$IdMcipio  );
      Session::Set('codigousuario',  $codigousuario);
     }
 
@@ -752,7 +751,9 @@ public function Totalizar_Carrito(){
           $this->Fletes->Servientrega_Industrial ( $_Carga_Fija_Unidades    , $_Carga_Fija_Vr_Declarado , $_Carga_Fija_Peso_Pedido );
           $this->Fletes->Sevientrega_Premier     ( $_Carga_Fija_Peso_Pedido , $_Carga_Fija_Vr_Declarado );
      }
+
      $this->Fletes->Encontrar_Mejor_Flete();
+
      $Valor_Flete_Ocasional         = Session::Get('flete_real_calculado');
      if (  Session::Get('cumple_compras_tron') ==  FALSE ) {
           $Valor_Flete_Ocasional        = $Valor_Flete_Ocasional  +  $this->PayuLatam_Valor_Adicional ;

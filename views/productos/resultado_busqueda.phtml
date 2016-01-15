@@ -1,16 +1,16 @@
 <div class="ionix">
-    <div class="general">    
+    <div class="general">
     	<div class="contenido-index mb30 pAA30">
         	<div class="titleM1 colorBlue t24 mb30">
-			
+
             	<?php if( count($this->Productos) > 0 ) :?>
                 	PRODUCTOS ENCONTRADOS
                 <?php else :?>
                 	NO SE ENCONTRARON PRODUCTOS
                 <?php endif;?>
-            
+
             </div>
-        
+        <div id="contenido-productos">
             <div class="row">
                 <?php
                     foreach ($this->Productos as $Productos) {
@@ -20,10 +20,10 @@
                         <div class="artOpt artPor5">
                             <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
                         </div>
-                
+
                 <?php } ?>
             </div>
-
+        </div>
 		</div>
     </div>
 </div>

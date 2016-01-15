@@ -84,7 +84,7 @@
 														$precio_especial = $Precio_Lista_Total;
 											}
 
-											$precio_especial 			= $precio_especial  * ( 1 + $parametros[0]['iva'] / 100 ) + $Flete_Real ;
+											$precio_especial 				 = $precio_especial  * ( 1 + $parametros[0]['iva'] / 100 ) + $Flete_Real ;
 											$precio_especial_temp = $precio_especial ;
 											$Por100_Precio_Lista  = $Precio_Lista_Total  * ( 1-60/100);
 											$Res =0;

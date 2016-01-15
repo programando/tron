@@ -137,13 +137,15 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
     var $codigousuario         = $(this).attr('codigousuario');
 
 
+
     $(".direccion1").css('background','white');
     $(".direccion1").css('color','black');
 
     $Label.css('background','#003E90');
     $Label.css('color','white');
 
-    Parametros = {'iddirecciondespacho':$IdDireccion_Despacho , 'idmcipio':$IdMcipio ,'iddpto':$IdDpto ,'reexpedicion':$Re_Expedicion,'codigousuario':$codigousuario};
+    Parametros = {'iddirecciondespacho':$IdDireccion_Despacho ,
+                  'idmcipio':$IdMcipio ,'iddpto':$IdDpto ,'reexpedicion':$Re_Expedicion,'codigousuario':$codigousuario};
     $.ajax({
       data:  Parametros,
       dataType: 'json',

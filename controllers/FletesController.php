@@ -62,6 +62,7 @@
 
 						$i                               = 0;
 						$Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+							//	Debug::Mostrar($Fletes_Cobrados_Transportadoras  );
 
 						$Asignar_Flete                   = TRUE;
 						$this->valor_flete               = 0;
@@ -177,11 +178,15 @@
 										if ($seguro_flete < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
 										}
-
-										$this->valor_flete     =  $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  + $seguro_flete ;
+										$fletes = $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  ;
+										if ( $fletes > 0 ) {
+												$this->valor_flete     =  $fletes  + $seguro_flete ;
+											}else{
+													$this->valor_flete  = 0;
+											}
 										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE',$this->valor_flete);
 										$this->flete_calculado = TRUE ;
-          $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA');
+          $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA PREMIER');
       }
 
       public function Servientrega_Industrial( $Numero_Unidades, $Valor_Declarado, $Peso_Pedido ) {
@@ -194,6 +199,7 @@
 								$tasa_manejo           = 0;
 								$valor_minimo_manejo   = 0;
 								$seguro_fijo           = 0;
+								$vr_minimo_manejo 					= 0;
 								$seguro_variable       = 0;
 								$seguro_flete          = 0;
 								$this->valor_flete     = 0 ;
@@ -213,35 +219,41 @@
 	      	}
 
 	      	$this->valor_flete = $Peso_Pedido  * Session::Get('vr_kilo_idmcipio_servientrega');
-
-
 	      	if ($this->re_expedicion == 0)  	{
 	      			$descuento_comercial        = $this->valor_flete  * $this->Transportadoras[0]['sv_descuento_comercial']/100;
 	      	}
-
 	      	$this->valor_flete = $this->valor_flete - $descuento_comercial ;
+	      	$servientrega_tipo_despacho  = trim(Session::Get('servientrega_tipo_despacho'));
 
-	      if ($this->iddpto != 32) {
-									$flete_minimo      = $this->Transportadoras[0]['sv_carga_flete_minimo_nacional'];
-									$tasa_manejo       = $this->Transportadoras[0]['sv_carga_tasa_manejo_nacional'];
-									$vr_minimo_manejo  = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_nacional'];
-									$this->tipo_tarifa = 'SERVIENTREGA - INDUSTRIAL NACIONAL';
-	      }
+	      	switch ($servientrega_tipo_despacho) {
+		      		case 'NACION':
+		      									$flete_minimo      = $this->Transportadoras[0]['sv_carga_flete_minimo_nacional'];
+																	$tasa_manejo       = $this->Transportadoras[0]['sv_carga_tasa_manejo_nacional'];
+																 $vr_minimo_manejo  = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_nacional'];
+																 $this->tipo_tarifa = 'SERVIENTREGA - INDUSTRIAL NACIONAL';
+		      					break;
 
-	      if ($this->iddpto == 32 )  {// VALLE
-	      	 if ($this->idmcipio != 153)  {
-											$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_zonal'];
-											$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_zonal'];
-											$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_zonal'];
-												$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL DEPARTAMENTAL/ZONAL';
-										 } else			{
-											$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_reexpedicion'];// Aunque dice reexpedidion se trata de zonal/urbano
-											$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_reexpedicion'];
-											$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_urbano'];
-											$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL URBANO';
-									}
-							}
+		      		case 'ZONAL':
+																	$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_zonal'];
+																	$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_zonal'];
+																	$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_zonal'];
+																	$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL DEPARTAMENTAL/ZONAL';
+		      					break;
 
+		      		case 'URBANO':
+																$flete_minimo     = $this->Transportadoras[0]['sv_carga_flete_minimo_reexpedicion'];// Aunque dice reexpedidion se trata de zonal/urbano
+																$tasa_manejo      = $this->Transportadoras[0]['sv_carga_tasa_manejo_reexpedicion'];
+																$vr_minimo_manejo = $this->Transportadoras[0]['sv_carga_vr_manejo_minimo_urbano'];
+																$this->tipo_tarifa   = 'SERVIENTREGA - INDUSTRIAL URBANO';
+		      					break;
+		      		default:
+													$flete_minimo      = 0;
+													$tasa_manejo       = 0;
+													$vr_minimo_manejo  = 0;
+													$this->tipo_tarifa = '';
+													$this->valor_flete = 0;
+													break;
+	      	}
 
 	      if ($this->re_expedicion == 1){
 											$flete_minimo     = 0;
@@ -265,11 +277,14 @@
 	      }
 
 							$this->valor_flete     = $this->valor_flete + $costo_manejo ;
+							if ( Session::Get('vr_kilo_idmcipio_servientrega') == 0 ){
+									$this->valor_flete  = 0;
+							}
 
 
 							Session::Set('SERVIENTREGA_INDUSTRIAL_VR_FLETE',$this->valor_flete);
 							$this->flete_calculado = TRUE ;
-       $this->Adicionar_Cobro_Flete_Transportadora(2,'2030','SERVIENTREGA');
+       $this->Adicionar_Cobro_Flete_Transportadora(2,'2030','SERVIENTREGA INDUSTRIAL');
       }
 
 
@@ -353,13 +368,17 @@
 												}
 								}
 
-								$flete_minimo = $flete_minimo * $this->Cant_Unidades_Despacho ;
+
 
 								if ( $this->re_expedicion  == TRUE) {
-														$tipo_destino         ='RE-EXPEDICION';
-														$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_reexpedicion']  ;
-														$flete_minimo  					 = $vr_kilo_idmcipio_redetrans * $peso_minimo   * $this->Cant_Unidades_Despacho  ;
+														$tipo_destino               ='RE-EXPEDICION';
+														$peso_minimo                =	$this->Transportadoras[0]['rdtrans_peso_min_reexpedicion']  ;
+														$vr_kilo_idmcipio_redetrans = $vr_re_expedicion_redetrans;
+														$flete_minimo               = $vr_kilo_idmcipio_redetrans * $peso_minimo   * $this->Cant_Unidades_Despacho  ;
+										}else{
+											$flete_minimo = $flete_minimo * $this->Cant_Unidades_Despacho ;
 										}
+
 
 							// DETERMINO PESO REAL DEL PEDIDO
 							if ( $Peso_Pedido < $peso_minimo ){
@@ -405,12 +424,16 @@
 								if ($seguro_minimo > 	$seguro ){
 									$seguro_flete = $seguro_minimo ;
 								}
-
-								$this->valor_flete     = $this->valor_flete  + $seguro_flete;
+								if ( $this->valor_flete  > 0 ) {
+											$this->valor_flete     = $this->valor_flete  + $seguro_flete;
+											}else{
+											 	$this->valor_flete   = 0;
+											}
 								Session::Set('REDETRANS_CARGA_VR_FLETE',$this->valor_flete);
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
 		    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
+
 
 
       }
@@ -482,8 +505,11 @@
 										}else{
 												$this->seguro_redetrans_courrier = $MinimoSeguro *  $PorcientoSeguro;
 										}
-
-										$this->valor_flete = $Flete_Total + $this->seguro_redetrans_courrier;
+										if ( $Flete_Total > 0 ) {
+												$this->valor_flete = $Flete_Total + $this->seguro_redetrans_courrier;
+											}else{
+													$this->valor_flete = 0;
+											}
 
 		 							Session::Set('REDETRANS_COURRIER_VR_FLETE', $this->valor_flete );
 		 							Session::Set('REDETRANS_COURRIER_VR_SEGURO', $this->seguro_redetrans_courrier);
