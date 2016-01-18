@@ -46,10 +46,12 @@ $(document).ready(function() {
 		}
 		
 		setTimeout('calcularAlturas()', 100);	
+		setTimeout('calcularAlturas()', 2000);	
 		
 	});
 	
 	setTimeout('calcularAlturas()', 100);
+	setTimeout('calcularAlturas()', 2000);
 	
 	if(ancho<768) $('.oneX, .oneX2').trigger('click');
 });
