@@ -47,7 +47,7 @@
                                   <p class="text-label">Nombre de quien envia :</p>
                                 </label>
                                 <div class="col-lg-6" >
-                                  <input type="text" class="form-control input_recomendar" id="recomendar_nombre_envia" disabled="disabled"
+                                  <input type="text" class="form-control input_recomendar" id="recomendar_nombre_envia"
                                     value="<?= ucfirst(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>"/>
                                 </div>
                               </div>

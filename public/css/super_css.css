@@ -209,6 +209,7 @@ a, input, button						{ outline:none !important; }
 .tabAll									{ display:table; width:100%; height:100%; position:relative; }
 .tabIn									{ display:table-cell; width:auto; height:100%; position:relative; vertical-align:middle; }
 .tab30									{ display:table-cell; width:30%; height:100%; position:relative; vertical-align:middle; }
+.tab5									{ display:table-cell; width:5%; height:100%; position:relative; vertical-align:middle; }
 .tab70									{ display:table-cell; width:70%; height:100%; position:relative; vertical-align:middle; }
 
 /* MiniConfiguración General */
