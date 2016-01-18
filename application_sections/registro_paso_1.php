@@ -1,7 +1,7 @@
 <div class="t12">
 
     <table class="table table-condenced table-hover">
-    
+
         <thead><!--Emcabezado -->
             <tr>
                 <th class="t18">BENEFICIOS</th>
@@ -15,7 +15,7 @@
                         </span>
                     </a>
                 </th>
-                
+
                 <th class="text-center">
                     <a class="nuvv" title="
                     <img src='<?= BASE_IMG_EMPRESA ;?>img_tooltips2.png' style='float:left; margin:0 20px 10px 0' />
@@ -37,7 +37,7 @@
                 </th>
             </tr>
         </thead>
-    
+
         <tbody>
             <tr>
                 <td>
@@ -51,14 +51,14 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-    
+
             <tr>
                 <td>INVITACIÓN A CAPACITACIONES Y EVENTOS SOBRE EL MODELO DE NEGOCIO</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-            
+
             <tr>
                 <td>
                     <a class="nuvv cP" title="
@@ -70,14 +70,14 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-    
+
             <tr>
                 <td>CÓDIGO DE USUARIO INVITAR AMIGO A TU RED</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-            
+
             <tr>
                 <td>
                     <a class="nuvv cP" title="
@@ -88,11 +88,12 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-            </tr>        
-            
+            </tr>
+
             <tr>
                 <td>
-                    <a class="nuvv cP" title="Por amigos que se inscriban a la red con tu código de usuario y por los que inscriban tus amigos y los amigos de tus amigos hasta 6 niveles de profundidad.">
+                    <a class="nuvv cP" title="Por amigos que se inscriban a la red con tu código de usuario y por los que inscriban
+                    tus amigos y los amigos de tus amigos hasta 6 niveles de profundidad.">
                         <span class="aS colurAd">BONIFICACIONES</span>
                     </a>
                 </td>
@@ -100,7 +101,7 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-            
+
             <tr>
                 <td>
                     <a class="nuvv cP" title="Año tras año, los miembros de tu Red renovarán el Derecho de Permanencia y por ello recibirás una prima.">
@@ -111,21 +112,16 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-            
-            <tr>
-                <td>RECONOCIMIENTO Y ESTATUS POR LOGROS ALCANZADOS EN TU RED</td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-            </tr>
-            
+
+
+
             <tr>
                 <td>ACCESO A INFORMES ADMINISTRATIVOS SOBRE EL DESEMPEÑO A TU RED</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
-            
+
             <tr>
                 <td class="text-right">
                     Valor del kit de inicio <strong><small>(Calculado para Cali)</small></strong>:
@@ -145,14 +141,14 @@
                     $<?= number_format(Session::Get('cuota_1_inscripcion'),0) ;?>
                 </td>
             </tr>
-            
+
             <tr>
                 <td class="text-right"><strong>TOTAL A PAGAR <small> ( Calculado para Cali ) : </small></strong> </td>
                 <td class="text-center">.</td>
                 <td class="text-center">$ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> </td>
                 <td class="text-center">$ <?= number_format($this->Total_Kit_Inscripcion,0) ;?> </td>
             </tr>
-            
+
             <tr>
                 <td class="text-right" style="vertical-align:middle;"><strong>REGISTRARME EN EL PLAN:</strong></td>
                 <td class="text-center">
@@ -171,10 +167,10 @@
                     </button>
                 </td>
             </tr>
-            
+
         </tbody>
-    
+
     </table>
-      
+
 </div>
 

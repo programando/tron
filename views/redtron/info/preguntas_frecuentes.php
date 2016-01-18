@@ -15,7 +15,7 @@
 ?>
 
 <div class="pAA30">
-    
+
 
 <div class="contenedor-preguntas-frecuentes">
 <div class="panel-group" id="accordion">
@@ -50,7 +50,7 @@
                <li><!--¿Al precio de los productos debo sumarle un flete? -->
                   <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Al precio de los productos debo sumarle un flete?</p></div><!--Pregunta -->
                    <ul class="list-unstyled submenu"><!--Contenido -->
-                         <li>Sí, el valor del transporte es calculado basado en el peso del pedido y de la ciudad destino. Se agrega cuando el pedido se finaliza. Pero, vas a pagar menos de lo que cuesta normalmente porque adicional a los descuentos, se ha presupuestado un subsidio al transporte dependiendo del producto. De esta manera, pagarás menos por este concepto de lo que regularmente pagas. Mientras más grande sea tu pedido, más podrás notar este subsidio.</li>
+                         <li>Sí, el valor del transporte es calculado basado en el peso del pedido y de la ciudad destino. Se agrega cuando el pedido se finaliza. </li>
                      </ul><!--Contenido -->
                </li><!--¿Al precio de los productos debo sumarle un flete? -->
 
@@ -290,7 +290,10 @@
   <li><!--¿Cuál es la base para liquidación de mis comisiones? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span> ¿Cuál es la base para liquidación de mis comisiones?  </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li> Todas las compras de productos hechas en el mes por las personas que conforman tu red (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresario TRON hasta el nivel sexto (6º.) en tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de Usuario en el Plan Cliente TRON.   </li>
+             <li> Todas las compras de productos hechas en el mes por las personas que conforman tu red
+             (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresario TRON hasta el nivel sexto (6º.)
+             en tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de
+             Usuario en el Plan Cliente TRON y compradores ocasionales.   </li>
          </ul><!--Contenido -->
    </li><!--¿Cuál es la base para liquidación de mis comisiones? -->
 
@@ -631,7 +634,9 @@
     <li><!--¿Debo pagar el costo del flete a la transportadora? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Debo pagar el costo del flete a la transportadora?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>No, el costo de los fletes fue incluido en la liquidación del pedido bajo el concepto transporte, el cual ya pagó cuando pagas el pedido, pagas el transporte. Podrás observar que el transporte que se paga en los pedidos es bajo con relación a su valor real. Esto se debe a que todos los productos de la Tienda Virtual tienen un subsidio al transporte. En muchos casos, este subsidio alcanza para asumir todo el gasto, en otras, para disminuirlo considerablemente.</li>
+             <li>No, el costo de los fletes fue incluido en la liquidación del pedido bajo el concepto transporte.
+
+ </li>
          </ul><!--Contenido -->
      </li><!--¿Debo pagar el costo del flete a la transportadora? -->
 
@@ -681,6 +686,6 @@
 </div><!--Panel -->
 </div>
 </div>
-   
+
 </div>
 

@@ -17,15 +17,15 @@
         --><div class="col-sm-4 col-xs-12 vcenter taRC">
             <img src="<?= BASE_IMG_EMPRESA ;?>empresarioI.png" />
         </div>
-        <br><br>        
-        
+        <br><br>
+
 		Cada uno de los Empresarios TRON tendrá cuatro (4) frontales en el primer nivel inicialmente, el Empresario TRON recibirá
         bonificaciones por cada amigo registrado en el Plan Empresario TRON,
         <a href="<?= BASE_URL ;?>redtron/Bonificaciones">ir a la sección de bonificaciones</a>, el Empresario TRON también podrá
         inscribir amigos, que no deseen crear red, en el Plan Cliente TRON, formar un grupo con ellos aparte de la red y ganar comisión
         por las compras que ellos realicen.
 		<br><br>
-        
+
 
         <div class="lista-empresario">
         	En síntesis, el Empresario TRON contará con:
@@ -34,17 +34,15 @@
                 <!--Las listas estan horganisadas de la forma = li => span => img => a => text cada etiqueta tiene una clase. -->
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Precios Especiales para Amigos TRON.</li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Invitación a capacitaciones y eventos sobre el modelo de negocio.</li>
-                <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Pases de Cortesía.</a></li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Código de usuario para invitar amigos a tu red.</li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Comisiones.</a></li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Bonificaciones.</a></li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Primas Anuales.</li>
-                <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Reconocimiento y estatus por logros alcanzados en tu red.</li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Acceso a Informes administrativos sobre el desempeño de tu red.</li>
             </ul>
         </div>
 		<br><br>
-        
+
         <!--Boton-registrar-Empresario TRON -->
         <div>
         	<a href="<?= BASE_URL ;?>terceros/registro" type="button" class="btn btn-danger">Regístrate ahora!</a>
@@ -57,7 +55,7 @@
 <div class="pAA30">
 	<div class="titleM1 colorBlue t18">PLAN CLIENTE TRON</div>
     <div class="p20">
-           
+
         <div class="col-sm-4 col-xs-12 vcenter taLC">
         	<img src="<?= BASE_IMG_EMPRESA ;?>amigoI.png"/>
         </div><!--
@@ -70,28 +68,28 @@
             <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="60" />
         </div>
         <br><br>
-        
+
         En síntesis, el Cliente TRON contará con:
         <br><br>
-        
+
         <ul class="list-unstyled ulGen">
               <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></span>Precios Especiales para Amigos TRON.</li>
               <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></span>Invitación a capacitaciones y eventos sobre el modelo de negocio <small>(opcional)</small>.</li>
         </ul>
        	<br><br>
-        
+
         <div>
         	<a href="<?= BASE_URL ;?>terceros/registro" type="button" class="btn btn-danger">Regístrate ahora!</a>
         </div>
-        
+
 	</div>
 </div>
 <br /><br />
 
 <div class="pAA30">
 	<div class="titleM1 colorBlue t18">PLAN CLIENTE TRON</div>
-    <div class="p20">           
-        
+    <div class="p20">
+
         <div class="col-sm-8 col-xs-12 vcenter">
             En este plan se pueden registrar todas las personas que quieran comprar en nuestra tienda virtual y desean beneficiarse
             de los precios especiales, ofertas y concursos para ganar descuentos.
@@ -101,11 +99,11 @@
         </div>
         <br><br>
 
-        
+
         <div>
         	<a href="<?= BASE_URL ;?>terceros/registro" type="button" class="btn btn-danger">Regístrate ahora!</a>
         </div>
-        
+
 	</div>
 </div>
 <br /><br />
