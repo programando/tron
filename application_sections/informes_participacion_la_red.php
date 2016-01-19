@@ -15,7 +15,7 @@
     <tbody>
     <?php $I= 1 ;?>
     <?php foreach ($this->Terceros as $Tercero)  :?>
-		<?php        
+		<?php
 			$codigousuario                 = $Tercero['codigousuario'];
 			$nombre                        = substr($Tercero['nombre'],0,25);
 			$codigoterceropresenta_inicial = $Tercero['codigoterceropresenta_inicial'];

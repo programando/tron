@@ -77,6 +77,7 @@
 
     <style>
       th            { text-align: center;}
+	  td, tr		{ vertical-align:middle; }
     .actual         { color: #090; font-weight:700; }
     .anterior         { color: #F60; font-weight:700; }
     .dos_meses        { /*color: #F69;*/ color:#bfaa1d; font-weight:700; }
@@ -136,7 +137,7 @@
             <th scope="col" id=""><strong>Nivel 5</strong></th>
             <th scope="col" id=""><strong>Nivel 6</strong></th>
       </thead>
-        <tbody>
+        <tbody class="t12">
     
             <tr>
                 <th><?php  echo $total_amigos_nivel_1; ?> Amigos</th>

@@ -1,7 +1,17 @@
 <!--
        Estilos Css => Carpeta Css => tron_estilos_productos_tron.css
        Js          => Carpeta Js  =>
-     -->
+     
+<script type="text/javascript" src="<?=  BASE_JS ; ?>jquery.sticky-kit.js"></script> 
+<script>
+	$(document).ready(function() 
+		{ 
+			$("#resumasdasden-pedido-tron").stick_in_parent(); 
+		} 
+	);
+</script>
+-->
+
 
 <div class="ionix">
 	<div class="general mb30 pAA30">
@@ -9,115 +19,59 @@
         <div class="titleM1 colorBlue t24 mb30">PRODUCTOS TRON</div>
 		
         <div class="row">
+        	
+            <?php
+            	include (APPLICATION_SECTIONS .'productos_tron_ventana_modal.php');
+				$arrIon = array (
+					"Todos los Productos",
+					"productos_tron_ropa.php",
+					"productos_tron_ropa_fragancias.php",
+					"productos_tron_ropa_accesorios.php",
+					"productos_tron_banios.php",
+					"productos_tron_banios_fragancias.php",
+					"productos_tron_banios_accesorios.php",
+					"productos_tron_pisos.php",
+					"productos_tron_pisos_fragancias.php",
+					"productos_tron_pisos_accesorios.php",
+					"productos_tron_loza.php",
+					"productos_tron_loza_fragancias.php",
+					"productos_tron_loza_accesorios.php"
+				);
+			?>
+        
+            <div class="col-sm-9 col-xs-12 lationT1">
 
-            <div class="divicion_de_presentacion_producto">
-                <!--Contenedor = Presentacion Del Producto //   Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
-                    <div class="col-lg-9 col-md-9 col-sm-9">
-                      <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
-                       <?php include (APPLICATION_SECTIONS .'productos_tron_ropa.php'); ?>
-                       <!--Division2-Fragancia , Accesorios-->
-                       <div id="contenido-productos">
-                         <div class=" col-lg-9 col-md-9 col-sm-9 section-fragancias-accesorios"><!--Section = Fragancias , Accesorios-->
-                          <div class=" row"><!--Fragancias-->
-                            <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
-                            <?php include (APPLICATION_SECTIONS .'productos_tron_ropa_fragancias.php'); ?>
-                          </div><!--Fragancias-->
-                          <div class=" row">
-                            <?php include (APPLICATION_SECTIONS .'productos_tron_ropa_accesorios.php'); ?>
-                          </div>
-                        </div><!--Section = Fragancias , Accesorios-->
-                      </div>
-                      <!--Precio_varia_segun_la_cantidad -->
-                      </div>    
-                      <div><!-- Ventana Modal -->
-                        <?php include (APPLICATION_SECTIONS .'productos_tron_ventana_modal.php'); ?>
-                      </div>
+				<?php $t=0; for($tt=0; $tt<4; $tt++){ ?>
+                    <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
+                        <div class="col-sm-3 col-xs-12">
+							<?php include (APPLICATION_SECTIONS.$arrIon[1+$t]); ?>
+						</div>
+                        
+                        <div class="col-sm-9 col-xs-12">
+                            <div class="row mb20"><!--Fragancias-->
+                                <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
+                                <?php include (APPLICATION_SECTIONS.$arrIon[2+$t]); ?>
+                            </div>
+                            
+                            <div class="row">
+                                <?php include (APPLICATION_SECTIONS.$arrIon[3+$t]); ?>
+                            </div>
+                        </div>
+
+                        <br style="clear:both" />
                     </div>
-                <!--Fin-Contenedor = Presentacion Del Producto // Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
-            </div>
+				<?php $t = $t+3; } ?>
 
-  			<!--Resumen Pedido TRON-->
-            <div class="col-lg-3 col-md-3 col-sm-3" id="resumen-pedido-tron">
-            	<?php include (APPLICATION_SECTIONS .'productos_tron_resumen.php'); ?>
-            </div>
+			</div>
             
-
-            <div class="divicion_de_presentacion_producto" >
-                <!--Contenedor = Presentacion Del Producto //  Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
-                <div class="col-lg-9 col-md-9 col-sm-9">
-                  <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto    BAÑOS-->
-                   <?php include (APPLICATION_SECTIONS .'productos_tron_banios.php'); ?>
-                   <!--Division2-Fragancia , Accesorios-->
-                   <div id="contenido-productos">
-                     <div class=" col-lg-9 col-md-9 col-sm-9 section-fragancias-accesorios"><!--Section = Fragancias , Accesorios-->
-                      <div class=" row"><!--Fragancias-->
-                        <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
-                        <?php include (APPLICATION_SECTIONS .'productos_tron_banios_fragancias.php'); ?>
-                      </div><!--Fragancias-->
-                      <div class=" row">
-                        <?php include (APPLICATION_SECTIONS .'productos_tron_banios_accesorios.php'); ?>
-                      </div>
-                    </div><!--Section = Fragancias , Accesorios-->
-                  </div>
-                  <!--Precio_varia_segun_la_cantidad -->
-                </div>
-              </div><!--Fin-Contenedor = Presentacion Del Producto // Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
+            <div class="col-sm-3 col-xs-12" id="resumen-pedido-tron">
+                <div class="lationT2">
+                    <?php include (APPLICATION_SECTIONS .'productos_tron_resumen.php'); ?>
+                </div>            
             </div>
-
-			<br>
-
-            <div class="divicion_de_presentacion_producto">
-              <!--Contenedor = Presentacion Del Producto //  Se divide En Presentacion-Producto ,  Fragancias , Accesorios        ROPA  -->
-              <div class="col-lg-9 col-md-9 col-sm-9">
-                <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
-                 <?php include (APPLICATION_SECTIONS .'productos_tron_pisos.php'); ?>
-                 <!--Division2-Fragancia , Accesorios-->
-                 <div id="contenido-productos">
-                   <div class=" col-lg-9 col-md-9 col-sm-9 section-fragancias-accesorios"><!--Section = Fragancias , Accesorios-->
-                    <div class=" row"><!--Fragancias-->
-                      <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
-                      <?php include (APPLICATION_SECTIONS .'productos_tron_pisos_fragancias.php'); ?>
-                    </div><!--Fragancias-->
-                    <div class=" row">
-                      <?php include (APPLICATION_SECTIONS .'productos_tron_pisos_accesorios.php'); ?>
-                    </div>
-                  </div><!--Section = Fragancias , Accesorios-->
-                </div>
-                <!--Precio_varia_segun_la_cantidad -->
-              </div>
-            </div><!--Fin-Contenedor = Presentacion Del Producto // Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
-            </div>
-
-			<br>
-
-            <div class="divicion_de_presentacion_producto">
-              <!--Contenedor = Presentacion Del Producto //   Se divide En Presentacion-Producto ,  Fragancias , Accesorios        ROPA  -->
-              <div class="col-lg-9 col-md-9 col-sm-9">
-                <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
-                 <?php include (APPLICATION_SECTIONS .'productos_tron_loza.php'); ?>
-                 <!--Division2-Fragancia , Accesorios-->
-                 <div id="contenido-productos">
-                   <div class=" col-lg-9 col-md-9 col-sm-9 section-fragancias-accesorios"><!--Section = Fragancias , Accesorios-->
-                    <div class=" row"><!--Fragancias-->
-                      <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
-                      <?php include (APPLICATION_SECTIONS .'productos_tron_loza_fragancias.php'); ?>
-                    </div><!--Fragancias-->
-                    <div class=" row">
-                      <?php include (APPLICATION_SECTIONS .'productos_tron_loza_accesorios.php'); ?>
-                    </div>
-                  </div><!--Section = Fragancias , Accesorios-->
-                </div>
-                <!--Precio_varia_segun_la_cantidad -->
-              </div>
-            </div><!--Fin-Contenedor = Presentacion Del Producto // Se divide En Presentacion-Producto ,  Fragancias , Accesorios-->
-            </div>
-
-
-		</div>
- 
-	
-	<br /><br /><br />
+ 		</div>
 	</div>
 </div
+
 
 

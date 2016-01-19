@@ -192,11 +192,12 @@ a, input, button						{ outline:none !important; }
 .menuMiCuenta ul li a:hover						{ background-color:#85ABDD !important; }
 .menuMiCuenta ul li a span						{ display:table-cell; vertical-align:middle; padding:10px; text-align:center; color:#FFF; }
 
+th.headerSortUp 								{ background:#eee url(../images/tienda/arr1.png) right center no-repeat; cursor:pointer; } 
+th.headerSortDown 								{ background:#eee url(../images/tienda/arr2.png) right center no-repeat; cursor:pointer; } 
 
-
-
-
-
+.lationT2										{ overflow:hidden; position:relative; }
+.carrito-resumen-pedido							{ border:1px solid #ccc; width:100%; padding:10px; }
+.contenedor_del_producto_presentado				{ border:1px solid #ccc; padding:30px 5px; width:100%; margin-bottom: 40px; overflow:hidden; }
 
 
 

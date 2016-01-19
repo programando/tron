@@ -6,7 +6,7 @@ $(document).ready(function() {
 	
 	var alto = $(window).height();
 	var ancho = $(window).width();
-	
+		
 	$("#pedido-amigo").click(function(){
 		$(".contFormPedAmig").slideDown(400);
 	});
@@ -29,21 +29,14 @@ $(document).ready(function() {
 		$("#menuAppr").hide(400);
 	});
 	
+
+	
 	
 	
 	
 	$(window).resize(function() {
 		var alto = $(window).height();
 		var ancho = $(window).width();
-		
-		var blockques = $(".blockques-opciones").width();
-		if(ancho > 750){
-			$( ".blockques-opciones" ).hover(function() {
-				$(this).children("div").children(".blockques-opciones p").css('height', blockques+20);
-			}, function() {
-				$(this).children("div").children(".blockques-opciones p").css('height', 'auto');
-			});
-		}
 		
 		setTimeout('calcularAlturas()', 100);	
 		setTimeout('calcularAlturas()', 2000);	
@@ -69,11 +62,19 @@ function calcularAlturas(){
 	//$(".contenido-index, .contenido-industrial").css('padding-top', (hein1+hein2));
 	
 			
-	var mukSlide1 = $(".mukSlide1").height();
+	var mukSlide1	= $(".mukSlide1").height();
+	var lationT1	= $(".lationT1").height();
+	
 	if(ancho > 750){
 		$(".mukSlideIn").css('height', (mukSlide1/4-3));
 		$(".mukSlideIn img").css('max-height', (mukSlide1/4-3));
+		$(".lationT2").css('height', lationT1);
+		
+	}else{
+		$(".lationT2").css('height', 'auto');
 	}
+	
+	
 	
 	var columna_izquierdad = $("#columna_izquierdad").height();
 	if(ancho > 750){
@@ -111,6 +112,19 @@ function calcularAlturas(){
 			//$(this).children("div").children(".tion").stop().css('color', '#003e90');
 			$(this).children("div").children(".tion").stop().animate({'height': '30'},200).css('color', "#003e90");
 		});
+	}
+	
+	
+	if(ancho > 750){
+
+		$(window).scroll( function () {
+			var altuus = 200;
+			if(altuus < $(window).scrollTop()) 	var aaa = $(window).scrollTop() - altuus;
+			else								var aaa = 0;	
+
+			$('.carrito-resumen-pedido').stop().animate({'top': aaa});
+		});
+
 	}
 	
 	

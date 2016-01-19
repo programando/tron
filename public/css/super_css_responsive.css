@@ -20,6 +20,7 @@
 	body									{ font-size:12px; }
 	.onlySmart								{ }
 	.onlyPC, .onlyMax						{ display:none !important; }
+	.nothere								{ display:none; }
 								
 	.tab-hogar, .tab-industrial				{ height:30px; }
 	
@@ -72,6 +73,9 @@
 	
 	.taLC									{ text-align:left; }
 	.taRC									{ text-align:right; }
+	
+	.lationT2								{ overflow:hidden; position:relative; }
+	.carrito-resumen-pedido					{ border:1px solid #ccc; width:100%; padding:10px; position:absolute; top:0; }
 				
 	
 }
