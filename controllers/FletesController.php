@@ -438,10 +438,12 @@
 
       }
 
-      public function Redetrans_Courrier( $Peso_Pedido, $Valor_Declarado, $id_dpto = 0, $re_expedidion = 0 )      {
+      public function Redetrans_Courrier( $Peso_Pedido, $Costo_Total, $id_dpto = 0, $re_expedidion = 0 )      {
        /** MARZO 07 DE 2015
       	*					CALCULA EL VALOR DE FLETE QUE SE CORBRA POR COURRIER EN REDETRANS
       	*/
+
+
       	  Session::Set('REDETRANS_COURRIER_VR_FLETE',  0 );
 		 						Session::Set('REDETRANS_COURRIER_VR_SEGURO', 0 );
       	  $this->valor_flete               = 0;
@@ -470,6 +472,7 @@
 														$this->tipo_tarifa 			= 'REDETRANS - COURRIER - REGIONAL';
 														$Vr_Primer_Kilo       = $Parametros [0]['rdtrans_courrier_vr_kg_regional'];
 														$Vr_Kilo_Adicional 			= $Parametros[0]['rdtrans_courrier_vr_kg_regional_adic'];
+
 									}else{
 															$this->tipo_tarifa    = 'REDETRANS - COURRIER - NACIONAL';
 															$Vr_Primer_Kilo 				  = $Parametros[0]['rdtrans_courrier_vr_kg_nacional'];
@@ -481,10 +484,15 @@
 														$Vr_Kilo_Adicional 			= $Parametros[0]['rdtrans_courrier_vr_kg_reexp_adic'];
 									}
 
+
+
 									$Numero_Bolsas         = (int)( $Peso_Pedido/$Peso_Maximo);
 									$Flete_Bolsa_Completa  = $Vr_Primer_Kilo  + ( 3 * $Vr_Kilo_Adicional );
 									$Flete_Bolsa_Completa  = $Flete_Bolsa_Completa * $Numero_Bolsas ;
-									$Peso_Bolsa_Incompleta = $Peso_Pedido - ( (int)(( $Peso_Pedido /$Peso_Maximo )*$Peso_Maximo) );
+
+									$Peso_Bolsa_Incompleta = $Peso_Pedido - ( (int)($Peso_Pedido /$Peso_Maximo) * $Peso_Maximo );
+
+
 									if ( $Peso_Bolsa_Incompleta <= 1000 ){
 												$Flete_Bolsa_Incompleta = $Vr_Primer_Kilo;
 									}
@@ -500,8 +508,8 @@
 									$Flete_Total = $Flete_Bolsa_Completa + $Flete_Bolsa_Incompleta ;
 
 
-										if ($Valor_Declarado >  $Parametros[0]['rt_courrier_seguro'] )		{
-												$this->seguro_redetrans_courrier = $Valor_Declarado  * $PorcientoSeguro;
+										if ($Costo_Total >  $Parametros[0]['rt_courrier_seguro'] )		{
+												$this->seguro_redetrans_courrier = $Costo_Total  * $PorcientoSeguro;
 										}else{
 												$this->seguro_redetrans_courrier = $MinimoSeguro *  $PorcientoSeguro;
 										}

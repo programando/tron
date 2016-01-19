@@ -56,15 +56,16 @@
 											$Precio_Lista_Total = $Precio_Lista_Ropa  + $Precio_Lista_Banios 	+ $Precio_Lista_Pisos 	+ $Precio_Lista_Loza;
 
 
-										$this->Fletes->Redetrans_Courrier($Peso_Total,$iddpto , $Vr_Declarado_ProdTron  );
-										$Flete_Real           = Session::Get('REDETRANS_COURRIER_VR_FLETE') - Session::Get('REDETRANS_COURRIER_VR_SEGURO');
+										$this->Fletes->Redetrans_Courrier($Peso_Total, $Costo_Total, $iddpto );
+										// RESTO EL SEGURO PORQUE AQUI NO LO NECESITO
+										$Flete_Real           = Session::Get('REDETRANS_COURRIER_VR_FLETE')  - Session::Get('REDETRANS_COURRIER_VR_SEGURO');
 
-										// ENERO 14. 2016
+	 								// ENERO 14. 2016
 										// EL 32 Y EL CERO (0), EN LA LLAMADA AL MÉTODO, CORRESPONDEN A VALLE Y A NO REEXPEDIDION
-										$this->Fletes->Redetrans_Courrier($Peso_Total,$iddpto , $Vr_Declarado_ProdTron, 32, 0  );
+										$this->Fletes->Redetrans_Courrier($Peso_Total, $Costo_Total, 32, 0  );
 
-										//$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
-										$subsidio_flete_valle = Session::Get('REDETRANS_COURRIER_VR_FLETE');
+										$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
+										//$subsidio_flete_valle = Session::Get('REDETRANS_COURRIER_VR_FLETE');
 
 										$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional  + $Flete_Real + ($py_porciento_recaudo * $Flete_Real );
 										$formula_a = $formula_a / ( $correctorvariacion - ( $py_porciento_recaudo * ( 1 + $parametros[0]['iva'] / 100 )  ));

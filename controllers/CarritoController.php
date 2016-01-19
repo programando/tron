@@ -798,6 +798,7 @@ public function Totalizar_Carrito(){
         Session::Set('FLETE_VARIABLE_1_OCASIONAL', 0 );  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
         Session::Set('FLETE_VARIABLE_1_AMIGO',     0 );  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
 
+   // Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
         if ( Session::Get('Unidades_Adicionales') == TRUE){
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
