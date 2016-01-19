@@ -35,11 +35,4 @@
 </table>
 
 
-<script type="text/javascript" src="<?=  BASE_JS ; ?>jquery.tablesorter.js"></script> 
-<script>
-	$(document).ready(function() 
-		{ 
-			$(".table").tablesorter(); 
-		} 
-	);
-</script>
+

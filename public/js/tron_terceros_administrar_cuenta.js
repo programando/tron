@@ -9,6 +9,9 @@
 
 var $Usuario_Seleccionado = 0;
 var $Codigo_Seleccionado  = '';
+
+
+
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 					$('.tab_link_modif').css('background','transparent');
@@ -168,11 +171,11 @@ $('#mi-perfil').on('click',function(){
 	//$('.cabezera').css('display','none');
 	//$('#cabezera_perfil').css('display','block');
 	//$('.contenedor_cuenta').html('');
-	
+
 	$('#cabezera_perfil').slideDown(400);
 	$('#cabezera_informes').slideUp(400);
 	$('#cabezera_favoritos').slideUp(400);
-	
+
 	$('#plan_seleccionado').click();
 });
 
@@ -180,7 +183,7 @@ $('#mi-perfil').on('click',function(){
 $('#informes_pedidos').on('click',function(){
 	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
-	
+
 	$('#cabezera_perfil').slideUp(400);
 	$('#cabezera_informes').slideDown(400);
 	$('#cabezera_favoritos').slideUp(400);
@@ -191,7 +194,7 @@ $('#informes_pedidos').on('click',function(){
 $('#favoritos').on('click',function(){
 	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
-	
+
 	$('#cabezera_perfil').slideUp(400);
 	$('#cabezera_informes').slideUp(400);
 	$('#cabezera_favoritos').slideDown(400);

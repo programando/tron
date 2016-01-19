@@ -145,7 +145,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
                                   'tron_cuenta_pases_cortesia','tron_cuenta_info_partici_la_red','cuenta_informe_mi_red'));
 
         $this->View->SetJs(array('tron_terceros_administrar_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar',
-                                 'tron_dptos_mcipios','tron_pedidos_historial','tron_informes'));
+                                 'tron_dptos_mcipios','tron_pedidos_historial','tron_informes','jquery.tablesorter'));
 
         $this->View->idtipo_plan_compras            = Session::Get('idtipo_plan_compras');
         $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');

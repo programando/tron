@@ -1,6 +1,7 @@
 $(".usu-1" ).first().css('background','#003E90');
 $(".usu-1" ).first().css('color','white')
 
+$(".table").tablesorter();
 
 var Comisiones_x_IdTercero = function($idtercero)
 	{

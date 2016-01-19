@@ -2,22 +2,22 @@
 	<?php include (APPLICATION_SECTIONS . 'convenio_comercial_modal.php');?>
 <!--  / llamado de la ventana modal del convenio comercial -->
 
-       
+
 <div class="ionix">
     <div class="general pAA30 mb30">
 		<div class="row">
-        	
+
             <img src="../public/images/tienda/menu.png" id="menuAppr" class="cP" style="position:absolute; top:30px; left:-52px; z-index:100; display:none;" />
-    		
+
             <div id="columna_izquierdad" class="col-sm-2 col-xs-12 vcenter" style="vertical-align:top; position:relative;"><!-- Columna - Izquierdad -->
                 <!-- BTN = Mostrar TABs -->
                 <?php include (APPLICATION_SECTIONS . 'micuenta_lateral.php');?>
             </div><!--
-    
+
             --><div id="columan_derecha" class="col-sm-10 col-xs-12 vcenter"><!-- columna - derecha -->
-            
+
             	<article class="rgts_pasos">
-                
+
                     <div id="cabezera_perfil" class="menuMiCuenta"><!-- Menu -->
                         <ul>
                             <li><a class="perfil_menu_link" href="#" id="plan_seleccionado" style="background-color:#003e90;"><span>Plan Seleccionado</span></a></li>
@@ -32,12 +32,12 @@
                                         <li><a  href="#convenio_comercial_modal" data-toggle="modal" data-target="#convenio_comercial_modal" class="link_convenio"><span>Vista Previa</span></a></li>
                                         <li><a href="#" class="link_convenio" id="convenio_pdf"><span>Imprimir / Grabar</span></a></li>
                                     </ul>
-                                </li>                                
+                                </li>
                                 <li><a class="perfil_menu_link" href="#" id="tabla_comisiones"><span>Tabla Comisiones</span></a></li>
                             <?php endif ;?>
                         </ul>
                     </div>
-                    
+
                     <div id="cabezera_informes" class="cabezera menuMiCuenta">
                         <ul>
                             <li><a class="perfil_menu_link" href="#" id='informes-pedidos-realizados'><span>Pedidos Realizados</span></a></li>
@@ -54,22 +54,22 @@
                             <?php endif ;?>
                         </ul>
                     </div>
-                    
+
                     <div id="cabezera_favoritos" class="cabezera menuMiCuenta">
                         <ul>
                             <li><a class="perfil_menu_link" href="#" id="cuenta_favoritos"><span>Mis Favoritos</span></a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="contenedor_cuenta">
-                    
+
                     	<?php include 'views/terceros/plan_seleccionado.phtml'; ?>
-                    
+
                     </div>
 
                 </article>
-                
-				
+
+
 
 			</div>
 		</div>
