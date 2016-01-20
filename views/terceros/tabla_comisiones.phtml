@@ -1,15 +1,5 @@
 <div class="pAA30">
-	<!--
-    <div class="taba_tabla">
-        <div class="tabla_tab1">
-            COMISIONES POR COMPRAS AMIGOS DEL PLAN EMPRESARIO TRON  ( % sobre venta sin IVA ).
-        </div>
-        <div class="tabla_tab2"><br>
-            COMISIONES POR COMPRAS AMIGOS DEL PLAN CLIENTES TRON ( % sobre venta sin IVA).
-        </div>
-    </div>
-    <br /><br />
-    -->
+
 
     <style>
         td, th			{ vertical-align:middle !important; }
@@ -21,49 +11,50 @@
             <tr style="border-bottom: 3px solid #003E90;">
                 <th width="25%"  colspan="2" rowspan="2" class="taC"><img src="../public/images/empresa/logo.png" width="150" /></th>
                 <th width="25%" class="text-center" style="background:#d7f8fe;" >
-                	COMISIONES POR COMPRAS AMIGOS DEL PLAN EMPRESARIO TRON<br />
+                	COMISIONES  POR COMPRAS DE EMPRESARIOS TRON<br />
                     <small>(% sobre venta sin IVA)</small>
                 </th>
                 <th width="50%" colspan="2" class="taC"  style="background:#fadfdf;">
-                	COMISIONES POR COMPRAS AMIGOS DEL PLAN CLIENTES TRON<br />
+                	COMISIONES  POR COMPRAS DE CLIENTES TRON Y COMPRADORES OCASIONALES<br />
                     <small>(% sobre venta sin IVA)</small>
                 </th>
             </tr>
             <tr style="border-bottom: 3px solid #003E90;">
-                <th class="text-center" style="background:#d7f8fe;">COMISIONES PARA EL EMPRESARIO EN RED CON EL COMPRADOR</th>
-                <th class="text-center" style="background:#fadfdf;">COMISIONES PARA EL EMPRESARIO QUE LO PRESENTÓ</th>
-                <th class="text-center" style="background:#fadfdf;">COMISIONES PARA QUIEN PRESENTÓ AL EMPRESARIO</th>
+                <th class="text-center" style="background:#d7f8fe;">COMISIÓN PARA CADA UNO DE LOS EMPRESARIOS HASTA 6 NIVELES SOBRE EL COMPRADOR</th>
+                <th class="text-center" style="background:#fadfdf;">COMISIÓN PARA EL EMPRESARIO QUE HACE LA VENTA AL CLIENTE</th>
+                <th class="text-center" style="background:#fadfdf;">COMISIÓN PARA EL EMPRESARIO SUPERVISOR DE QUIEN HACE LA VENTA AL CLIENTE</th>
             </tr>
         </thead>
 
         <tbody>
             <?php $Primer_Registro  = TRUE ;?>
             <?php $Segundo_Registro = TRUE ;?>
+            <?php $Ultimo_Registro = FALSE ;?>
 		<?php
             $ggg = 1;
             foreach ($this->Comisiones_Grupos as $Comisiones)  :
 
                 $codigo_grupo          = $Comisiones['codigo_grupo'];
-                $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],3).'%';
-                $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],3).'%';
-                $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],3).'%';
-                $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],3).'%';
+                $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],3,',','.').'%';
+                $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],3,',','.').'%';
+                $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],3,',','.').'%';
+                $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],3,',','.').'%';
 
-                $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],3).'%';
-                $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],3).'%';
-                $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],3).'%';
-                $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],3).'%';
+                $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],3,',','.').'%';
+                $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],3,',','.').'%';
+                $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],3,',','.').'%';
+                $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],3,',','.').'%';
 
-                $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],3).'%';
-                $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],3).'%';
-                $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],3).'%';
-                $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],3).'%';
+                $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],3,',','.').'%';
+                $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],3,',','.').'%';
+                $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],3,',','.').'%';
+                $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],3,',','.').'%';
 
                 if ( $Primer_Registro == TRUE) :
         ?>
                 <!-- Grupo A -->
                 <tr>
-                    <td>Tron Hogar</td>
+                    <td>TRON Hogar</td>
                     <td class="text-center" > <?= $codigo_grupo  ;?> </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad ;?>  </td>
@@ -85,16 +76,26 @@
                 </tr>
 
             <?php else : ?>
-
+            <?php if ( $codigo_grupo != 'PP') :?>
                 <tr>
                     <?php if($ggg <2){ ?>
-                        <td rowspan="10">Otros productos</td>
+                        <td rowspan="6">Otros productos</td>
                     <?php } ?>
                     <td class="text-center"> <?= $codigo_grupo  ;?> </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?> </td>
                 </tr>
+            <?php else : ?>
+
+                <tr>
+                    <td>Productos Promocionales</td>
+                    <td class="text-center"> <?= $codigo_grupo  ;?> </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?> </td>
+                </tr>
+            <?php endif;?>
 
             <?php $ggg++; endif; ?>
 

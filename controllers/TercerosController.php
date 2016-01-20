@@ -110,7 +110,6 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
        */
         $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
-        //$this->View->SetCss(array("tabla_comisiones_tron"));
         $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
@@ -850,8 +849,10 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     public function Validar_Ingreso_Usuario_Asignar_Datos($Registro ){
       Session::Set('autenticado',                     TRUE);
       Session::Set('idtercero',                       $Registro[0]['idtercero']);
+      Session::Set('identificacion' ,                 $Registro[0]['identificacion']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
       Session::Set('idtpidentificacion',              $Registro[0]['idtpidentificacion']);
+      Session::Set('cod_tp_identificacion',             $Registro[0]['cod_tp_identificacion']);
       Session::Set('email',                           $Registro[0]['email']);
       Session::Set('codigousuario',                   $Registro[0]['codigousuario']);
       Session::Set('vr_cupon_descuento'   ,     0);
@@ -860,6 +861,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('kit_comprado',                    $Registro[0]["kit_comprado"]);
       Session::Set('inscripcion_pagada',              $Registro[0]["inscripcion_pagada"]);
       Session::Set('fecha_hora_acepta_convenio',      $Registro[0]["fecha_hora_acepta_convenio"]);
+
 
       // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
       Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);

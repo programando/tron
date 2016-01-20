@@ -16,7 +16,7 @@ a, input, button						{ outline:none !important; }
 .generalFull							{ width:100%; max-width:1600px; min-width:320px; height:auto; position:relative; margin:0 auto; }
 
 .bGray2									{ background-color:#333; }
-.priceTRONProd							{ color:#0C0; /* colorarranque:#608A17; */ }
+.priceTRONProd							{ color:#F33; /* colorarranque:#608A17; */ }
 
 /* HEADER */
 .header-tron							{ height:auto; }
@@ -130,7 +130,7 @@ a, input, button						{ outline:none !important; }
 .lateralion .panel-body	ul ul li				{ margin:0; padding:0; }
 .lateralion .panel-body	ul ul li a				{ padding:8px 5px; height:auto; background:none; }
 .lateralion .panel-body	ul ul li a:hover		{ background-color:#666; color:#FFF; }
-.lateralion .panel-body	ul li a .cantti			{ background-color:#ccc; padding:3px 8px; display:inline-block; float:right; color:#FFF; }
+.lateralion .panel-body	ul li a .cantti			{ background-color:#999; padding:3px 8px; display:inline-block; float:right; color:#FFF; }
 .lateralion .panel-body	ul li a:hover .cantti	{ background-color:#fff; color:#999; }
 
 

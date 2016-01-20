@@ -15,8 +15,10 @@ class PdfController extends Controller
 
     public function index(){}
 
+
     public function Convenio_Comercial()
     {
+
 
 
       // Debug::Mostrar($nombre_archivo );
@@ -32,9 +34,19 @@ class PdfController extends Controller
         $texto =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
 
         $fecha_hora_acepta_convenio = Session::Get('fecha_hora_acepta_convenio');
+
         if (isset($fecha_hora_acepta_convenio )){
+            $encabezado = '<div align="center">';
+            $encabezado = $encabezado.'Firmado digitalmente por ' . Session::Get('nombre_usuario_pedido')  ;
+            $encabezado = $encabezado . ' con ' . Session::Get('cod_tp_identificacion').  '. ' . Session::Get('identificacion');
+            $encabezado = $encabezado  . ' el ' . strtoupper($fecha_hora_acepta_convenio);
+            $encabezado = $encabezado  . '</div>';
+
             $this->Pdf->setHeaderFont(Array('helvetica', 'I', 8));
-            $this->Pdf->SetHeaderData('', 20, 'Fecha y Hora que se aceptó este convenio comercial : ' . $fecha_hora_acepta_convenio, '');
+            $this->Pdf->SetHeaderData('', 0, $encabezado, '');
+
+
+
         }
 
         $this->Pdf->Addpage();
