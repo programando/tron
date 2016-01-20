@@ -75,20 +75,20 @@
             <?php elseif ( $Segundo_Registro == TRUE) :?>
 
                 <tr>
-                    <td>Industrial &nbsp; <img src="<?= BASE_IMG_EMPRESA ;?>tecnologias.png">
+                    <td>Línea Industrial
                         <?php $Segundo_Registro = FALSE ;?>
                     </td>
                     <td class="text-center" >B</td>
-                    <td class="taC" style="background:#d7f8fe;">Industrial</td>
-                    <td class="taC" style="background:#fadfdf;">Industrial</td>
-                    <td class="taC" style="background:#fadfdf;">Industrial</td>
+                    <td class="taC" style="background:#d7f8fe;"><?= $comis_empre_1_unidad  ;?> </td>
+                    <td class="taC" style="background:#fadfdf;"><?= $comis_amg_n1_unidad ;?></td>
+                    <td class="taC" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?> </td>
                 </tr>
 
             <?php else : ?>
 
                 <tr>
                     <?php if($ggg <2){ ?>
-                        <td rowspan="9">Otros productos</td>
+                        <td rowspan="10">Otros productos</td>
                     <?php } ?>
                     <td class="text-center"> <?= $codigo_grupo  ;?> </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>

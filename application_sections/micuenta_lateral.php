@@ -25,7 +25,7 @@
     <div class="li_pasos_registro colorfff cP" id="informes_pedidos">
         <span class="ff2 mb5 dB t20">Pedidos</span>
         <span class="ff1 onlyPCBoo">
-            Pedidos realizados.
+        Pedidos realizados y estado de cuenta.
         </span>
     </div>
 <?php endif ;?>

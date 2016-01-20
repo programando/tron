@@ -2,7 +2,8 @@
 <?php $usuario_viene_del_registro = Session::Get('usuario_viene_del_registro'); ?>
 <?php if ( isset($usuario_viene_del_registro ) && $usuario_viene_del_registro == FALSE) :?>
 
-    <div class="modal fade" id="ventana_mensaje" data-backdrop="static" data-keyboard="false"tabindex="-1"  role="dialog" aria-labelledby="#ventana_mensaje" aria-hidden="true">
+    <div class="modal fade" id="ventana_mensaje" data-backdrop="static" data-keyboard="false"tabindex="-1"
+         role="dialog" aria-labelledby="#ventana_mensaje" aria-hidden="true">
     	   <div class="modal-dialog ventana-editar-direccion">
     	   	   <div class="modal-content "><!-- Contenido de la ventana -->
 
