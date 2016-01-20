@@ -36,14 +36,12 @@ class PdfController extends Controller
         $fecha_hora_acepta_convenio = Session::Get('fecha_hora_acepta_convenio');
 
         if (isset($fecha_hora_acepta_convenio )){
-            $encabezado = '<div align="center">';
-            $encabezado = $encabezado.'Firmado digitalmente por ' . Session::Get('nombre_usuario_pedido')  ;
+            $encabezado ='Firmado digitalmente por ' . Session::Get('nombre_usuario_pedido')  ;
             $encabezado = $encabezado . ' con ' . Session::Get('cod_tp_identificacion').  '. ' . Session::Get('identificacion');
             $encabezado = $encabezado  . ' el ' . strtoupper($fecha_hora_acepta_convenio);
-            $encabezado = $encabezado  . '</div>';
 
             $this->Pdf->setHeaderFont(Array('helvetica', 'I', 8));
-            $this->Pdf->SetHeaderData('', 0, $encabezado, '');
+            $this->Pdf->SetHeaderData('', 10, $encabezado, '');
 
 
 
