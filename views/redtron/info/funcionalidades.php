@@ -37,7 +37,6 @@
         página a través del link (enlace) que tú le envías, el sistema reconoce que eres tú quien lo presenta y si esta persona se registra
         en algún Plan y compra, se te reconocerán comisiones.
         <br><br>
-
         Podrás encontrar tu URL <em>en Mi Cuenta / Mi Perfil / Recomendar.</em>
 
     </div>
