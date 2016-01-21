@@ -19,9 +19,7 @@
         </div>
         <br><br>
 
-		Cada uno de los Empresarios TRON tendrá cuatro (4) frontales en el primer nivel inicialmente, el Empresario TRON recibirá
-        bonificaciones por cada amigo registrado en el Plan Empresario TRON,
-        <a href="<?= BASE_URL ;?>redtron/Bonificaciones">ir a la sección de bonificaciones</a>, el Empresario TRON también podrá
+		Cada uno de los Empresarios TRON tendrá cuatro (4) frontales en el primer nivel inicialmente. También podrá
         inscribir amigos, que no deseen crear red, en el Plan Cliente TRON, formar un grupo con ellos aparte de la red y ganar comisión
         por las compras que ellos realicen.
 		<br><br>
@@ -36,8 +34,6 @@
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Invitación a capacitaciones y eventos sobre el modelo de negocio.</li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Código de usuario para invitar amigos a tu red.</li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Comisiones.</a></li>
-                <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Bonificaciones.</a></li>
-                <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Primas Anuales.</li>
                 <li class="lista-empresario-tron"><span class="img-span"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>Acceso a Informes administrativos sobre el desempeño de tu red.</li>
             </ul>
         </div>

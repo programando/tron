@@ -29,7 +29,7 @@
                   <td class="text-center">4</td>
              </tr>
              <tr>
-                  <td>Tapa o valvula especializada para el envase</td>
+                  <td>Tapa o válvula especializada para el envase</td>
                   <td class="text-center">4</td>
              </tr>
              <tr>

@@ -111,11 +111,7 @@
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td>
                 </tr>
 
-                <tr>
-                    <td>Los productos pueden salir gratis después de un tiempo.	</td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png"/></td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td>
-                </tr>
+
             </tbody><!--Cuerpo -->
         </table>
 
@@ -170,19 +166,8 @@
                     </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>
-                <tr>
-                    <td>BONIFICACIONES <br>
-                        <small>Por amigos que se inscriban a la red con tu código de usuario y por los que inscriban tus amigos
-                        y los amigos de tus amigos hasta 6 niveles de profundidad.</small>
-                    </td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
-                </tr>
-                <tr>
-                    <td>PRIMAS ANUALES <br>
-                        <small>Año tras año, los miembros de tu Red renovarán el Derecho de Permanencia y por ello recibirás una prima.</small>
-                    </td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
-                </tr>
+
+
                 <tr>
                     <td>INFORMACIÓN CONTINUA SOBRE TU NEGOCIO <br>
                         <small>Contarás con reportes especializados sobre el desempeño de tu Red para que puedas administrar a tu gusto.</small>

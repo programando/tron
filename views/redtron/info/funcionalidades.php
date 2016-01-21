@@ -26,23 +26,7 @@
 </div>
 <br /><br />
 
-<div>
-	<div class="titleM1 colorBlue mb10 t18"><a name="pases"></a>Pases de Cortesía</div>
-    <div class="p20">
-    	<div class="col-sm-8 col-xs-12 vcenter mb20_onlySmart">
-            Los Pases de Cortesía es una herramienta creada para facilitar la difusión y promoción de la Tienda Virtual y el Modelo de Negocio TRON
-            Entre amigos alcanzamos.
-            <br><br>
-            Con ellos le otorgas a tus amigos potenciales los Precios Especiales a los que tú tienes derecho, incentivandolos de manera discreta a unirse a tu red.
-            <br><br>
-            <a type="button" href="<?= BASE_URL ;?>redtron/pases_de_cortesia" class="btn btn-danger">Aprender Más</a>
-        </div><!--
-        --><div class="col-sm-4 col-xs-12 vcenter taRC">
-        	<img src="<?= BASE_IMG_EMPRESA ;?>pases-version2.png" />
-        </div>
 
-    </div>
-</div>
 <br><br>
 
 <div>
@@ -51,7 +35,7 @@
 
         La URL es la dirección electrónica de la página web. En ella se encuentra inmerso tu código de usuario. Cuando alguien entra a la
         página a través del link (enlace) que tú le envías, el sistema reconoce que eres tú quien lo presenta y si esta persona se registra
-        en algún Plan y compra, se te reconocerán bonificaciones y/o comisiones.
+        en algún Plan y compra, se te reconocerán comisiones.
         <br><br>
 
         Podrás encontrar tu URL <em>en Mi Cuenta / Mi Perfil / Recomendar.</em>

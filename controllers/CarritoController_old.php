@@ -962,7 +962,7 @@ private function Totalizar_Carrito_Hallar_Valor_Declarado(){
 
 
 
-      // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP. Y PASES DE CORTESÍA
+      // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP.
       if ($idproducto != 10744 && $idproducto != 2071 && $idproducto != 14999 ){  // IF (1)
 
         $_precio_unitario_produc_pedido    = $precio_venta_antes_iva            *  $cantidad  ;

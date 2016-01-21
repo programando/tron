@@ -55,59 +55,9 @@
                </li><!--¿Al precio de los productos debo sumarle un flete? -->
 
 
-               <li>
-                  <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Qué son los Pases de Cortesía?</p></div>
-                   <ul class="list-unstyled submenu">
-                         <li>Los Pases de Cortesía son obsequios que la Tienda concede a los usuarios registrados en el Plan Empresario TRON con el fin de que estos beneficien a sus amigos de los mismos precios especiales a los que ellos tienen derecho. Cuando el beneficiario entra a la Tienda a través del link enviado con el pase, recibe inmediatamente los precios preferenciales. Si en esa oportunidad no realiza la compra, cuando se decida, dentro del término de la vigencia, puede volver a entrar, siempre a través del link enviado con el pase. <br>
-                         Cuando el pase es enviado por un usuario registrado en el Plan Empresario TRON, lleva implícito su código de usuario y si quien recibe el pase lo aprovecha y compra, puede suceder una de estas tres situaciones: <br><br>
-
-                        <table class="table table-condenced table-hover  tabla-cortesia">
-                             <thead class="emcabezado-tabla">
-                                 <tr>
-                                     <td class="text-center"><p class="tabla-titulo">SE REGISTRA EN EL PLAN</p></td>
-                                     <td class="text-center"><p class="tabla-titulo">EL EMPRESARIO TRON GANA</p></td>
-                                 </tr>
-                             </thead>
-
-                             <tbody>
-                                 <tr>
-                                    <td class="text-left">Comprador Ocasional</td>
-                                    <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un (1) Pase de Cortesía</td>
-                                 </tr>
-
-                                 <tr>
-                                    <td class="text-left">Cliente TRON</td>
-                                    <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comisiones sobre todas las compras que ese amigo haga en su vida + Un (1) Pase de Cortesía.</td>
-                                 </tr>
-
-                                 <tr>
-                                    <td class="text-left">Empresario TRON</td>
-                                    <td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Todo lo anterior + BONIFICACIÓN (ver tipos y tabla de bonificaciones más abajo)</td>
-                                 </tr>
-                             </tbody>
-                        </table>
-                         </li>
-                     </ul>
-               </li>
 
 
-               <li>
-                  <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cómo puedo obtener los Pases de Cortesía para que yo pueda invitar a mis amigos?</p></div>
-                   <ul class="list-unstyled submenu">
-                         <li>
-                             <p>Básicamente de dos (2) formas:</p><br>
-                             <ul class="list-unstyled">
-                                 <li>1. Te los puedes ganar cuando:
-                                      <ul>
-                                          <li>Te registras como Empresario TRON ganas 6 pases.</li>
-                                          <li>Envías el pase a un amigo y él lo utiliza comprando, el pase se te restituye vía e-mail y se te informa que fue exitoso.</li>
-                                      </ul><br>
-                                 </li>
-                                 <li>2. Puedes comprar un paquete x 20 pases en $10.000. Para hacerlo, inicia sesión e ingresa a <em>Mi Cuenta / Comprar o Enviar Pases de Cortesía.</em> El valor de los Pases será cargado a tu cuenta dinero sin importar si tienes o no saldo suficiente en el momento de la compra.</li>
-                             </ul>
-                         </li>
-                     </ul>
-               </li>
+
 
 
           </ul><!--menu-accordion -->
@@ -140,7 +90,14 @@
        <li><!--¿Cuántos tipos de registro hay? -->
           <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuántos tipos de registro hay?   </p></div><!--Pregunta -->
            <ul class="list-unstyled submenu"><!--Contenido -->
-                 <li>Hay tres (3) tipos de registro. El más sencillo es el denominado Comprador Ocasional. Es sobre todo para quienes aún no nos conocen bien. Recibes unos muy buenos precios siempre. Sugerimos a quienes escojan este plan que busquen los productos TRON, los compren y los evalúen. Si les gustan y desean implementar compras mensuales de ellos, los encontrarán en los otros dos (2) planes siguientes a precios muchísimo más bajos. El segundo plan se denomina Plan Cliente TRON, es para quien quiera consumir los productos fabricados por Balquimia S.A.S., en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> pesos mensuales ó los productos industriales fabricados por Balquimia S.A.S., en cuantía mínima de <?= $Pedido_Minimo_Indus ;?> pesos mensuales. Como beneficio por esta preferencia, ofrecemos un precio especial en toda la Tienda. El tercer plan se llama Plan Empresario TRON. Tiene todos los beneficios del plan anterior pero es para personas emprendedoras, que desean tener ingresos adicionales beneficiando a sus amigos y conocidos. Ellos obtendrán ganancias por el plan de compensación que ofrecemos el cual consta de comisiones, primas anuales y bonificaciones sobre las que puedes leer a continuación.    </li>
+                 <li>Hay tres (3) tipos de registro. El más sencillo es el denominado Comprador Ocasional. Es sobre todo para quienes aún no nos conocen bien. Recibes unos muy buenos precios siempre.
+                 Sugerimos a quienes escojan este plan que busquen los productos TRON, los compren y los evalúen. Si les gustan y desean implementar compras mensuales de ellos,
+                 los encontrarán en los otros dos (2) planes siguientes a precios muchísimo más bajos. El segundo plan se denomina Plan Cliente TRON,
+                 es para quien quiera consumir los productos fabricados por Balquimia S.A.S., en cuantía mínima de <?= $Pedido_Minimo_Tron ;?>
+                 pesos mensuales ó los productos industriales fabricados por Balquimia S.A.S., en cuantía mínima de <?= $Pedido_Minimo_Indus ;?> pesos mensuales.
+                 Como beneficio por esta preferencia, ofrecemos un precio especial en toda la Tienda. El tercer plan se llama Plan Empresario TRON.
+                 Tiene todos los beneficios del plan anterior pero es para personas emprendedoras, que desean tener ingresos adicionales beneficiando a sus amigos y conocidos.
+                 Ellos obtendrán ganancias por el plan de compensación que ofrecemos el cual consta de comisiones.   </li>
              </ul><!--Contenido -->
        </li><!--¿Cuántos tipos de registro hay? -->
      </ul><!--Menu accordion -->
@@ -149,13 +106,13 @@
 </div><!--Panel -->
 
 
-<!-- ///////////////////////////////////////////////////////-Panel-Pago de comisiones y bonificaciones-///////////////////////////////////////////////////////-->
+
 
 
 <div class="panel panel-default"><!--Panel -->
 <div class="  panel-heading">
   <h4 class="cont-titulos-panel  panel-title">
-       <a href="#pago-comisiones-bonificaciones"  class="panel-titulo"  data-toggle="collapse"   data-parent="#accordion">Pago de comisiones y bonificaciones</a>
+       <a href="#pago-comisiones-bonificaciones"  class="panel-titulo"  data-toggle="collapse"   data-parent="#accordion">Pago de comisiones </a>
   </h4>
 </div>
 
@@ -170,72 +127,23 @@
          </ul><!--Contenido -->
    </li><!--¿Quiénes tienen derecho a recibir comisiones? -->
 
-  <li><!--¿Quiénes tienen derecho a recibir bonificaciones?-->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Quiénes tienen derecho a recibir bonificaciones?   </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Todos aquellos registrados en el Plan Empresario TRON (pagaron el Derecho de Inscripción), que presentaron amigos a la red y estos se inscribieron con su código de usuario en el Plan Empresario TRON.    </li>
-         </ul><!--Contenido -->
-   </li><!--¿Quiénes tienen derecho a recibir bonificaciones? -->
 
-  <li><!--¿Cuando se liquidan las comisiones y las bonificaciones? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuando se liquidan las comisiones y las bonificaciones?   </p></div><!--Pregunta -->
+
+  <li>
+      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuando se liquidan las comisiones?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
              <li>Los primeros 3 días hábiles del mes siguiente al mes que se liquida.   </li>
          </ul><!--Contenido -->
-   </li><!--¿Cuando se liquidan las comisiones y las bonificaciones? -->
+   </li>
 
-  <li><!--¿Cuándo se pagan las comisiones y las bonificaciones? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuándo se pagan las comisiones y las bonificaciones?   </p></div><!--Pregunta -->
+  <li>
+      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuándo se pagan las comisiones  ?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li> El mismo día que se realiza la liquidación de comisiones y bonificaciones se realiza la transferencia a la cuenta bancaria indicada, es decir, en los tres (3) primeros días hábiles de cada mes.   </li>
+             <li> El mismo día que se realiza la liquidación de comisiones se realiza la transferencia a la cuenta bancaria indicada, es decir, en los tres (3) primeros días hábiles de cada mes.   </li>
          </ul><!--Contenido -->
-   </li><!--¿Cuándo se pagan las comisiones y las bonificaciones? -->
+   </li>
 
-  <li><!--¿Cuál es el porcentaje de comisión? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuál es el porcentaje de comisión?   </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li> Depende del Plan al que pertenezcan los amigos que realizaron compras en la Tienda Virtual y del tipo de productos que compraron: <br><br>
 
-                <table class="table table-condenced table-hover tabla-cortesia"><!-- Tabla-->
-                    <thead class="emcabezado-tabla"><!--Emcabezado -->
-                        <tr>
-                           <td class="text-center"><p class="tabla-titulo">TIPO DE PLAN</p></td>
-                           <td class="text-left"><p class="tabla-titulo">PRODUCTOS COMPRADOS</p></td>
-                           <td class="text-center"><p class="tabla-titulo">COMISIÓN</p></td>
-                        </tr>
-                    </thead><!--Emcabezado -->
-
-                    <tbody>
-                        <tr>
-                           <td class="text-left">Plan Empresario TRON:</td>
-                           <td class="text-left">Productos TRON (cojines)</td>
-                           <td class="text-center">5%</td>
-                        </tr>
-
-                        <tr>
-                           <td class="text-left"></td>
-                           <td class="text-left">Otros productos</td>
-                           <td class="text-center"> Variable</td>
-                        </tr>
-
-                        <tr>
-                           <td class="text-left">Plan Cliente TRON o comprador ocasional</td>
-                           <td class="text-left">Productos TRON (cojines)</td>
-                           <td class="text-center">25%</td>
-                        </tr>
-
-                        <tr>
-                           <td class="text-left"></td>
-                           <td class="text-left">Otros productos</td>
-                           <td class="text-center">Variable x 5</td>
-                        </tr>
-                    </tbody>
-                </table><!-- Tabla-->
-
-                <p><em>Comisión variable: Depende del grupo al que pertenezca el producto y pueden ser consultada por los integrantes del Plan Empresario TRON en el menú Mi Cuenta/Tabla de productos-comisiones.</em></p>
-             </li>
-         </ul><!--Contenido -->
-   </li><!-- ¿Cuál es el porcentaje de comisión?-->
 
 
   <li><!--¿Se pueden perder las comisiones?-->
@@ -245,12 +153,12 @@
          </ul><!--Contenido -->
    </li><!--¿Se pueden perder las comisiones?-->
 
-  <li><!--¿Cómo me pagan las comisiones y bonificaciones?  -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cómo me pagan las comisiones y bonificaciones?    </p></div><!--Pregunta -->
+  <li>
+      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cómo me pagan las comisiones?    </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Al registrarse en el Plan Empresario TRON, se crearán dos (2) cuentas virtuales a nombre del usuario. La cuenta Dinero y la cuenta Puntos. El 70% del valor total de comisiones serán consignadas en la cuenta Dinero y el 30% restante serán consignados en la cuenta Puntos y estos sólo se utilizaran para compras en la Tienda Virtual. Cada punto tendrá el valor de $1 M/cte. (un peso moneda colombiana corriente). En lo que respecta al pago de Bonificaciones, el 100% de ellas será consignado en la cuenta Dinero.    </li>
+             <li>Al registrarse en el Plan Empresario TRON, se crearán dos (2) cuentas virtuales a nombre del usuario. La cuenta Dinero y la cuenta Puntos. El 70% del valor total de comisiones serán consignadas en la cuenta Dinero y el 30% restante serán consignados en la cuenta Puntos y estos sólo se utilizaran para compras en la Tienda Virtual. Cada punto tendrá el valor de $1 M/cte. (un peso moneda colombiana corriente).     </li>
          </ul><!--Contenido -->
-   </li><!--¿Cómo me pagan las comisiones y bonificaciones?  -->
+   </li>
 
   <li><!--¿Por qué es importante ganar puntos?  -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span> ¿Por qué es importante ganar puntos?   </p></div><!--Pregunta -->
@@ -266,26 +174,7 @@
          </ul><!--Contenido -->
    </li><!--¿Tienen los puntos fecha de expiración? -->
 
-  <li><!--¿Cuánto es la bonificación? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuánto es la bonificación?   </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
 
-             <li>
-                Cuando un amigo se registra en el Plan Empresario TRON con tu Código de Usuario, tienes derecho a recibir una Bonificación. Esta Bonificación corresponde a un porcentaje de lo que tu amigo canceló por concepto de Derechos de Inscripción. Cuando tu amigo presente a la red con su Código de Usuario a otras personas, por cada una de ellas, volverás a recibir la Bonificación mencionada anteriormente. Y a su vez, cuando los nuevos presenten a sus amigos, sobre el valor cancelado por ellos por concepto de Derechos de Inscripción, tú vuelves a recibir la Bonificación. <br><br>
-
-                En otras palabras, cuando alguien ingrese a la red por tu invitación, recibes Bonificación, por él, por todos los que él invite y por todos los que los invitados inviten y así sucesivamente hasta por seis (6) niveles de profundidad. Esto quiere decir que si tu ingresas cuatro (4) amigos y estos a su vez hacen lo mismo y así sigue hasta completar tus seis (6) niveles, tendrás en tu red cinco mil cuatrocientos sesenta (5.460) amigos y por cada uno de ellos recibirás una Bonificación correspondiente a un porcentaje de lo que pagaron por Derechos de Inscripción. <br><br>
-
-                Otro punto interesante de recordar es que los Derechos de Inscripción se cancelan en tres (3) cuotas lo que te da derecho a que con cada pago de la cuota, tú recibas la bonificación. Los porcentajes sobre los Derechos de Inscripción varían dependiendo del número de cuota que tu amigo está pagando y de su relación contigo en la red. Esto lo comprenderás mejor observando la siguiente tabla:
-
-                <!-- application_sections : preguntas_bonificaciones_tabla.php  -->
-                   <?php include (APPLICATION_SECTIONS . 'preguntas_bonificaciones_tabla.php');?>
-                <!-- application_sections : preguntas_bonificaciones_tabla.php  -->
-
-                Tú estás en el nivel cero (0). Los cuatro (4) amigos que ingresaste están en el nivel 1 y así sucesivamente. Mientras más alejado esté el nivel de ti, más amigos habrán en ese nivel. Haz cuentas y te sorprenderás. Así bonificamos tu interés en hacer crecer esta red de solidaridad. Te invitamos a transformar esta promesa en algo real, simplemente Pasando la Voz y observando cómo cada que crece tu red, crecen tus ingresos por concepto de Bonificaciones. Los resultados de tu gestión podrás confirmarlos a principios de cada mes cuando se liquiden Bonificaciones y Comisiones, a través de los distintos Informes que hemos puesto a tu disposición. El 100% de lo ganado será depositado en tu Cuenta Dinero. Recuerda, TRON Entre amigos alcanzamos ha sido diseñado pensando en beneficiar a muchísimas personas, a todos los que se vinculen. Te invitamos a ser parte de esta visión.
-           </li>
-
-         </ul><!--Contenido -->
-   </li><!--¿Cuánto es la bonificación? -->
 
   <li><!--¿Cuál es la base para liquidación de mis comisiones? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span> ¿Cuál es la base para liquidación de mis comisiones?  </p></div><!--Pregunta -->
@@ -305,15 +194,15 @@
          </ul><!--Contenido -->
    </li><!--¿Sobre qué cuantías no se pagan comisiones? -->
 
-  <li><!--¿Existen cuantías pequeñas en comisiones y/o bonificaciones que quedan pendientes de pago? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Existen cuantías pequeñas en comisiones y/o bonificaciones que quedan pendientes de pago?  </p></div><!--Pregunta -->
+  <li>
+      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Existen cuantías pequeñas en comisiones que quedan pendientes de pago?  </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
           <li>
              Debido a que el costo de la transferencia electrónica entre nuestro banco y el que tú has registrado es de <?= $valor_transferencia_bancaria ;?>, valor que debes asumir, habrán cuantías que no se justifica pagar y que permanecerán en tu cuenta Dinero. Contarás con estos saldos a tu favor para ser restados en el próximo pedido del valor a pagar. El valor mínimo a pagar, por defecto, es de
              <?= $valor_minimo_transferencias ;?> pero tú puedes incrementarlo modificando esta cifra en: Mi Cuenta / Mi Perfil / Datos Personales.
            </li>
          </ul><!--Contenido -->
-   </li><!--¿Existen cuantías pequeñas en comisiones y/o bonificaciones que quedan pendientes de pago? -->
+   </li>
 
   <li><!-- ¿Dónde reclamar el pago?-->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Dónde reclamar el pago?   </p></div><!--Pregunta -->
@@ -420,7 +309,7 @@
     <li><!--¿Puedo comprar el kit de inicio sin incluir en el pago del Derecho de Inscripción?  -->
         <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Puedo comprar el kit de inicio sin incluir en el pago del Derecho de Inscripción?    </p></div><!--Pregunta -->
          <ul class="list-unstyled submenu"><!--Contenido -->
-               <li>Sí. En este caso te acoges al Plan Cliente TRON en el que se entiende que no estás interesado en crear red de amigos y ganar comisiones y bonificaciones sino sólo en ser usuario regular de los productos TRON. Conservando la opción de que en cualquier momento que decidas, puedas cambiar al Plan Empresario TRON cancelando los Derechos de Inscripción y beneficiándote del Modelo de Negocio por completo.    </li>
+               <li>Sí. En este caso te acoges al Plan Cliente TRON en el que se entiende que no estás interesado en crear red de amigos y ganar comisiones sino sólo en ser usuario regular de los productos TRON. Conservando la opción de que en cualquier momento que decidas, puedas cambiar al Plan Empresario TRON cancelando los Derechos de Inscripción y beneficiándote del Modelo de Negocio por completo.    </li>
            </ul><!--Contenido -->
      </li><!--¿Puedo comprar el kit de inicio sin incluir en el pago del Derecho de Inscripción?  -->
    </ul><!--Menu accordion -->
@@ -470,7 +359,7 @@
   <li><!--¿Se puede perder la inscripción?  -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Se puede perder la inscripción?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Sí, si te inactivas por 3 meses consecutivos (dejas de hacer la compra mínima reglamentaria de los productos TRON ó de los productos industriales fabricados por Balquimia S.A.S.), entendemos que no estás interesado en continuar perteneciendo al modelo de negocio y se dará por terminado unilateralmente el convenio comercial invocando la Cláusula 11 Parágrafo 1 Literal A) de éste.    </li>
+             <li>Sí, si te inactivas por 3 meses consecutivos (dejas de hacer la compra mínima reglamentaria de los productos TRON ó de los productos industriales fabricados por Balquimia S.A.S.), entendemos que no estás interesado en continuar perteneciendo al modelo de negocio y se dará por terminado unilateralmente el convenio comercial.    </li>
          </ul><!--Contenido -->
    </li><!--¿Se puede perder la inscripción?  -->
  </ul><!--Menu accordion -->
@@ -495,7 +384,7 @@
    <li><!--¿Qué es el Derecho de Permanencia, cuándo se paga y cuánto vale?  -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Qué es el Derecho de Permanencia, cuándo se paga y cuánto vale?    </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>El Derecho de Permanencia como su nombre lo indica, es el derecho de continuar disfrutando por un año más del Modelo de Negocio. Transcurrido un año (365 días) después de haberse inscrito en el Plan Empresario TRON Entre amigos alcanzamos, debes renovar tu deseo de seguir perteneciendo, cancelando tu Derecho de Permanencia por otro año más en la Red por cada código de usuario que poseas. Este valor que se cobra una (1) vez cada año, será cargado al pedido siguiente al cumplimiento del término y/o descontado de tus comisiones y/o bonificaciones. El valor del Derecho de Permanencia es el mismo que el del Derecho de Inscripción que esté vigente a la fecha del cobro, (hoy  <?= $Total_Derecho_Inscripcion ;?>). Sin embargo, este pago no se exigirá a quienes en el año no hayan ganado lo suficiente para justificarlo. El Derecho de Permanencia sólo deberán cancelarlo aquellos usuarios que han devengado entre comisiones y bonificaciones, el doble o más del valor a cobrar como Derecho de Permanencia.    </li>
+             <li>El Derecho de Permanencia como su nombre lo indica, es el derecho de continuar disfrutando por un año más del Modelo de Negocio. Transcurrido un año (365 días) después de haberse inscrito en el Plan Empresario TRON Entre amigos alcanzamos, debes renovar tu deseo de seguir perteneciendo, cancelando tu Derecho de Permanencia por otro año más en la Red por cada código de usuario que poseas. Este valor que se cobra una (1) vez cada año, será cargado al pedido siguiente al cumplimiento del término y/o descontado de tus comisiones. El valor del Derecho de Permanencia es el mismo que el del Derecho de Inscripción que esté vigente a la fecha del cobro, (hoy  <?= $Total_Derecho_Inscripcion ;?>).   </li>
          </ul><!--Contenido -->
    </li><!--¿Qué es el Derecho de Permanencia, cuándo se paga y cuánto vale?  -->
 
@@ -506,12 +395,7 @@
          </ul><!--Contenido -->
    </li><!--renuevo-deseo-perteneciendo -->
 
-  <li><!-- ¿Cuándo los usuarios inscritos con mi código pagan su Derecho de Permanencia, gano bonificación? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuándo los usuarios inscritos con mi código pagan su Derecho de Permanencia, gano bonificación?    </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Sí, cuando tus amigos Empresarios paguen cada año su derecho de permanencia en la Red Red tu recibirás lo que denominamos la Prima Anual. El valor de esta Prima será determinado por una calificación que como Empresario TRON recibes dependiendo de que tan activa sea tu participación en el crecimiento de tu red. Aplican condiciones.    </li>
-         </ul><!--Contenido -->
-   </li><!-- ¿Cuándo los usuarios inscritos con mi código pagan su Derecho de Permanencia, gano bonificación? -->
+
    </ul><!--Menu accordion -->
   </div><!--Contenedor de  Derecho de Permanencia-->
  </div>
@@ -544,12 +428,12 @@
                </ul><!--Contenido -->
          </li><!--¿Cómo y dónde pago mis pedidos? -->
 
-  <li><!--¿Si tengo comisiones o bonificaciones acumuladas puedo hacer cruce para pagar mis pedidos?  -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Si tengo comisiones o bonificaciones acumuladas puedo hacer cruce para pagar mis pedidos?    </p></div><!--Pregunta -->
+  <li>
+      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Si tengo comisiones acumuladas puedo hacer cruce para pagar mis pedidos?    </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
              <li>Sí, pero como se te pagará al principio del mes, para cuando hagas tu pedido no habrá que cruzar, excepto que lo ganado sea de menor valor y se retenga en tu cuenta a tu favor. Para poder hacer el cruce, en el menú Mi Cuenta/ Mi Perfil / Datos Personales / Datos de Cuenta , aparece: “Acepto que se retenga de mis comisiones de manera indefinida y mientras no modifique este registro, la suma de ... para el pago de mis pedidos.” Al colocar una cifra, autorizas que esta se retenga y se use para pagar tu próximo pedido. De esta forma evitas tener que hacer tu próximo pago.    </li>
          </ul><!--Contenido -->
-   </li><!--¿Si tengo comisiones o bonificaciones acumuladas puedo hacer cruce para pagar mis pedidos?  -->
+   </li>
 
   <li><!--¿Qué pasa si se me olvida hacer mi pedido mensual? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Qué pasa si se me olvida hacer mi pedido mensual?</p></div><!--Pregunta -->
@@ -558,12 +442,7 @@
          </ul><!--Contenido -->
    </li><!--¿Qué pasa si se me olvida hacer mi pedido mensual? -->
 
-  <li><!-- Se me olvidó comprar pero di mi código de usuario a unos amigos y se inscribieron. ¿Pierdo mi bonificación? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>Se me olvidó comprar pero di mi código de usuario a unos amigos y se inscribieron. ¿Pierdo mi bonificación?</p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Sí, las bonificaciones se pierden, recuerde que las compras de productos TRON son las que hacen posible éste modelo de negocio.</li>
-         </ul><!--Contenido -->
-   </li><!-- Se me olvidó comprar pero di mi código de usuario a unos amigos y se inscribieron. ¿Pierdo mi bonificación? -->
+
  </ul><!--Menu accordion -->
 </div><!--Contenedor de Pago de Pedidos -->
 </div>
@@ -643,7 +522,7 @@
     <li><!--¿Qué debo hacer si la bolsa de los productos viene abierta o evidencio averías?  -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Qué debo hacer si la bolsa de los productos viene abierta o evidencio averías?    </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>No la recibas. Deja constancia en la guía del transportador del motivo por el cual no la recibes y en la página web www.entreamigosalcanzamos.com, en el pié de página, sección Sobre TRON, Contáctanos, infórmanos citando los datos básicos, para hacerte el reenvío de tu pedido lo más pronto posible, incluso antes que la transportadora nos lo devuelva.    </li>
+             <li>No la recibas. Deja constancia en la guía del transportador del motivo por el cual no la recibes y en la sección Contáctanos, infórmanos citando los datos básicos, para hacerte el reenvío de tu pedido lo más pronto posible, incluso antes que la transportadora nos lo devuelva.    </li>
          </ul><!--Contenido -->
       </li><!--¿Qué debo hacer si la bolsa de los productos viene abierta o evidencio averías?  -->
    </ul><!--Menu accordion -->

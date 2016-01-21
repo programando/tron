@@ -13,21 +13,21 @@
             </ul>
         </nav>
     </div>
-    
+
     <div class="col-sm-9 col-xs-12"><!--Informacion-Contendo-Introduccion -->
         <div class="titleM1 dIB colorBlue mb10 t18">Introducción</div>
-        
+
         <div class="p20">
             BALQUIMIA S.A.S ha desarrollado 4 increibles productos de aseo para el hogar de máxima calidad, éstos son los productos TRON.
             <br><br>
             Productos creados para la limpieza, higiene y desinfección del hogar, orientados a entornos y objetos cotidianos como la ropa,
             los baños, pisos, loza y cocina.
-       		
+
             <a name="presentacion-produc"></a>
-            
+
             <br><br><br>
             <br><br><br>
-        
+
             <div class="row">
                 <p class="text-right consejo-rojo-right"> <em> Simplemente pruébalos,<br>
                 ¡Te sorprenderás! </em>
@@ -127,7 +127,7 @@
         reducimos la contaminación ambiental y lo más importante, no requerimos de menor calidad para competir con excelentes precios.
         <br><br>
         Bajo el menú PRODUCTOS TRON, encontrarás una zona especial donde podrás realizar tus compras, observa como los precios
-        disminuyen en la medida que aumentas la cantidad produtos.
+        disminuyen en la medida que aumentas la cantidad productos.
 	</div>
 </div>
 <br><br>

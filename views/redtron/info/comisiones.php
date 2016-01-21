@@ -16,12 +16,12 @@
             </ul>
         </nav>
     </div>
-    
+
     <div class="col-sm-9 col-xs-12"><!--Informacion-Contendo-Introduccion -->
         <div class="titleM1 dIB colorBlue mb10 t18">Introducción</div>
-        
+
         <div class="p20">
-            Las comisiones son uno de los pilares del plan de compensación para los usuarios registrados en el Plan Empresario TRON.
+            Las comisiones son el pilar del plan de compensación para los usuarios registrados en el Plan Empresario TRON.
         </div>
     </div><!--Informacion-Contendo-Introduccion -->
 </div>
@@ -37,7 +37,8 @@
         <ul class="list-unstyled ulGen">
            <li>1. Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras.</li>
            <li>2. Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.</li>
-           <li>3. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.</li>
+           <li>3. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON o Plan Compradores Ocasionales y estos hayan hecho compras.</li>
+           <li>4. QUe tengan amigos vinculados en el Plan Compradores Ocasionales.</li>
         </ul>
         <br>
 
@@ -55,12 +56,12 @@
         Las liquidaciones se basan en todas las compras de productos hechas en el mes por las personas que conforman tu red
         (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresarios TRON hasta el nivel sexto (6º.) en
         tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de Usuario
-        en el Plan Cliente TRON.
+        en el Plan Cliente TRON y Plan Compradores Ocasionales.
         <br><br>
         Hay algunas cuantías sobre las que no se pagan comisiones, estas son: el IVA, el valor del transporte, la compra de accesorios o
         de productos promocionales los cuales se encuentran identificados con el ícono <img src="<?= BASE_IMG_PRODUCTOS ;?>star2.png" width="32" />
         <a name="puntos"></a>
-          
+
 	</div>
 </div>
 <br><br>
@@ -76,7 +77,7 @@
                     <th  class="text-center">Comisiones</th>
                 </tr>
             </thead><!--Emcabezado -->
-        
+
             <tbody><!--Cuerpo-->
                 <tr>
                     <td>Empresario TRON:</td>
@@ -96,11 +97,17 @@
                 <tr>
                     <td></td>
                     <td class="text-left">Otros productos</td>
-                    <td class="text-center">Variable x 4  <small>(ver tabla en menú Mi Cuenta)</small></td>
+                    <td class="text-center">Variable x 5  <small>(ver tabla en menú Mi Cuenta)</small></td>
                 </tr>
+                <tr>
+                    <td> Comprador Ocasional</td>
+                    <td class="text-left">Por supervisar sus empresarios</td>
+                    <td class="text-center">Comisión según su rango</small></td>
+                </tr>
+
             </tbody><!--Cuerpo-->
         </table>
-          
+
 	</div>
 </div>
 <br><br>
@@ -127,7 +134,7 @@
 <div>
 	<div class="titleM1 colorBlue mb10 t18"><a name="medios"></a>Medios de Cobro</div>
     <div class="p20 taJ">
-        El pago de las Bonificaciones se hará los primeros tres (3) días hábiles de cada mes, directamente a la cuenta bancaria
+        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes, directamente a la cuenta bancaria
         que has registrado en el momento de la inscripción o posteriormente, en cualquier momento, en Mi Cuenta / Perfil / Datos de Cuenta.
         <br><br>
         Recuerda que el costo de la transferencia bancaria es de <?= Session::Get('valor_transferencia_bancaria') ;?> por lo que debes ajustar
