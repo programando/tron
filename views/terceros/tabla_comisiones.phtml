@@ -55,7 +55,13 @@
                 <!-- Grupo A -->
                 <tr>
                     <td>TRON Hogar</td>
-                    <td class="text-center" > <?= $codigo_grupo  ;?> </td>
+                    <td class="text-center" >
+                    	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                        	<div class="tabIn">
+                            	<strong><?= $codigo_grupo  ;?></strong>
+                        	</div>
+                        </div>
+                    </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad ;?>  </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?>  </td>
@@ -69,7 +75,13 @@
                     <td>Línea Industrial
                         <?php $Segundo_Registro = FALSE ;?>
                     </td>
-                    <td class="text-center" >B</td>
+                    <td class="text-center" >
+                    	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                        	<div class="tabIn">
+                            	<strong>B</strong>
+                        	</div>
+                        </div>
+                    </td>
                     <td class="taC" style="background:#d7f8fe;"><?= $comis_empre_1_unidad  ;?> </td>
                     <td class="taC" style="background:#fadfdf;"><?= $comis_amg_n1_unidad ;?></td>
                     <td class="taC" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?> </td>
@@ -79,9 +91,15 @@
             <?php if ( $codigo_grupo != 'PP') :?>
                 <tr>
                     <?php if($ggg <2){ ?>
-                        <td rowspan="6">Otros productos</td>
+                        <td rowspan="8">Otros productos</td>
                     <?php } ?>
-                    <td class="text-center"> <?= $codigo_grupo  ;?> </td>
+                    <td class="text-center">
+                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                        	<div class="tabIn">
+                            	<strong><?= $codigo_grupo  ;?></strong>
+                        	</div>
+                        </div>
+                    </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?> </td>
@@ -90,7 +108,13 @@
 
                 <tr>
                     <td>Productos Promocionales</td>
-                    <td class="text-center"> <?= $codigo_grupo  ;?> </td>
+                    <td class="text-center">
+                    	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                        	<div class="tabIn">
+                            	<strong><?= $codigo_grupo  ;?></strong>
+                        	</div>
+                        </div>
+                    </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?> </td>

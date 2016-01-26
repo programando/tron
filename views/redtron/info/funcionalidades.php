@@ -24,10 +24,8 @@
         </div>
     </div><!--Informacion-Contendo-Introduccion -->
 </div>
-<br /><br />
 
 
-<br><br>
 
 <div>
 	<div class="titleM1 colorBlue mb10 t18"><a name="envio"></a>Envío de URL</div>
