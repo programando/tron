@@ -31,6 +31,7 @@ class SessionesController extends Controller
         }
         Session::Destroy('carrito');
         Session::Destroy('CarritoTron');
+        Session::Set('Sobre_Precio_Prod_Tron', 0 );
 
         Session::Set('Comisiones_Utilizadas',0);
         Session::Set('compra_accesorios',0);

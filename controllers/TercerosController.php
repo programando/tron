@@ -138,7 +138,6 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
 
 
    public function administrar_cuenta(){
-
         $this->View->SetCss(array('tron_terceros_administrar_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion',
                                   'tron_carrito_confi_envio','tron_barra_usuarios','tron_mis_pedidos','tron_informe_mi_cuenta','tron_confi_perfil',
                                   'tron_cuenta_pases_cortesia','tron_cuenta_info_partici_la_red','cuenta_informe_mi_red'));
@@ -150,11 +149,9 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');
         $this->View->kit_comprado                   = Session::Get('kit_comprado');
         $this->View->inscripcion_pagada             = Session::Get('inscripcion_pagada');
-
-		$this->View->Mostrar_Vista('administrar_mi_cuenta');
-
-
+        $this->View->Mostrar_Vista('administrar_mi_cuenta');
    }
+
 
 
     public function Actualizar_Datos_Cuenta(){
@@ -201,7 +198,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
 
 
         if ($idmcipio  == 0){
-            $Texto = $Texto . 'Seleccione el departamento y ciudad en donde recide. <br>';
+            $Texto = $Texto . 'Seleccione el departamento y ciudad en donde reside. <br>';
         }
 
         if ( strlen($direccion ) == 0){
@@ -209,7 +206,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         }
 
         if ( strlen($barrio ) == 0){
-            $Texto = $Texto . 'Debe registrar el barrio en donde recide. <br>';
+            $Texto = $Texto . 'Debe registrar el barrio en donde reside. <br>';
         }
        if ( strlen($celular1  ) == 0) {
             $Texto = $Texto . 'Registre un número de celular. <br>';

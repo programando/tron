@@ -64,13 +64,12 @@
 
       <!--INLCUSIÓN DE ARCHIVOS SUPER CSS
       *******************************************************************************************************************-->
-
+<!--
       	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-
-
-
+		 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ -->
+  <script src="<?=  BASE_JS ; ?>jquery-1.11.3.min.js"                 type="text/javascript"></script>
+  <script src ="<?= BASE_JS ; ?>jquery-migrate-1.2.1.min.js"          type="text/javascript" ></script>
 
       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 Old IE gets 1.10 new IE gets 2.0 -->
       <!--[if lt IE 9]>
@@ -97,6 +96,8 @@
 <?= $ContenidoBody;?>
 
 <div class="alert alert-success mensaje-agregar_producto text-center"></div>
+
+
 
 <?php require_once ($RutaFooter);?>
 

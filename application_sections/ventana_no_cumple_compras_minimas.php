@@ -1,7 +1,6 @@
 
 <?php $usuario_viene_del_registro = Session::Get('usuario_viene_del_registro'); ?>
-<?php if ( isset($usuario_viene_del_registro ) && $usuario_viene_del_registro == FALSE) :?>
-
+    <?php if ( isset($usuario_viene_del_registro ) && $usuario_viene_del_registro == FALSE) :?>
     <div class="modal fade" id="ventana_mensaje" data-backdrop="static" data-keyboard="false"tabindex="-1"
          role="dialog" aria-labelledby="#ventana_mensaje" aria-hidden="true">
     	   <div class="modal-dialog ventana-editar-direccion">
@@ -21,10 +20,8 @@
                 en productos TRON para el Hogar ó <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_ta')) ?> en productos Industriales fabricados por Balquimia.
                 <br><br>
                 Si agregas en este pedido tu compra reglamentaria, obtendrás <strong>los precios especiales TRON</strong>.
-
                     </p>
                 	<p>
-
                 </div>
                 <br>
                <div class="modal-footer">

@@ -16,12 +16,7 @@ class PdfController extends Controller
     public function index(){}
 
 
-    public function Convenio_Comercial()
-    {
-
-
-
-      // Debug::Mostrar($nombre_archivo );
+    public function Convenio_Comercial() {
         $this->Pdf->setFooterData(array(0,64,0), array(0,64,128));
         $this->Pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $this->Pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
@@ -31,7 +26,7 @@ class PdfController extends Controller
         // set auto page breaks
         $this->Pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         # creamos una página en blanco
-        $texto =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
+        $texto_convenio_comercial =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
 
         $fecha_hora_acepta_convenio = Session::Get('fecha_hora_acepta_convenio');
 
@@ -39,19 +34,14 @@ class PdfController extends Controller
             $encabezado ='Firmado digitalmente por ' . Session::Get('nombre_usuario_pedido')  ;
             $encabezado = $encabezado . ' con ' . Session::Get('cod_tp_identificacion').  '. ' . Session::Get('identificacion');
             $encabezado = $encabezado  . ' el ' . strtoupper($fecha_hora_acepta_convenio);
-
             $this->Pdf->setHeaderFont(Array('helvetica', 'I', 8));
             $this->Pdf->SetHeaderData('', 10, $encabezado, '');
-
-
-
         }
 
         $this->Pdf->Addpage();
         $this->Pdf->Write(0,'CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON DE BALQUIMIA S.A.S.','',0,'C',1);
-
         # visualizamos el documento
-        $this->Pdf->WriteHTML($texto, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
+        $this->Pdf->WriteHTML($texto_convenio_comercial, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
         $this->Pdf->Output();
 
         /*$this->Pdf->Output($nombre_archivo,'I');

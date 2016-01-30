@@ -22,6 +22,8 @@ $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 });
 
 
+
+
 var Activar_Usuarios = function($Usuario_Seleccionado){
  $('.barra-usurarios li').each(function(indice, elemento) {
  		$(this).css('background','white');
@@ -147,30 +149,11 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 				  });
 }
 
-//  Menu deslizante  =
-/*
-$('.perfil_menu_link').on('click',function(){
-     $('#columna_izquierdad').animate({'margin-left':'-600px'},700);
-	 $('#btn_mostrar').fadeIn(600);
-     $('#columan_derecha').attr('class','col-lg-12');
-});
-*/
-// BTn = mostrar menu
-/*
-$('#btn_mostrar').on('click',function(){
-	$('.contenido-reporte').html('');
-	$('.contenedor_cuenta').html('');
-	$('#columna_izquierdad').animate({'margin-left':'0px'});
-	$('#btn_mostrar').fadeOut(400);
-	$('#columan_derecha').attr('class','col-lg-9' );
-});
-*/
+
 $('#mi-perfil').on('click',function(){
 	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
-	//$('.cabezera').css('display','none');
-	//$('#cabezera_perfil').css('display','block');
-	//$('.contenedor_cuenta').html('');
+
 
 	$('#cabezera_perfil').slideDown(400);
 	$('#cabezera_informes').slideUp(400);
@@ -183,6 +166,8 @@ $('#mi-perfil').on('click',function(){
 $('#informes_pedidos').on('click',function(){
 	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
+
+
 
 	$('#cabezera_perfil').slideUp(400);
 	$('#cabezera_informes').slideDown(400);
@@ -415,9 +400,10 @@ $('#tabla_comisiones').on('click',function(){
 
 $('#cuenta_favoritos').on('click',function(){
 	$Opciones_Seleccionada = 'CUENTA_FAVORITOS';
+
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/cuenta_favoritos/',
+         url:      '/tron/productos/Favoritos_Consulta_x_idTercero/',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');

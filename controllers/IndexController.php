@@ -142,20 +142,14 @@ class IndexController extends Controller
 				</div>
 
 			</body>
-			</html>
-
-
-
-
-		';
+			</html> '
+		;
     }
 
     public function industrial(){
         Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
         Session::Set('Cantidad_Destacados_Industrial', $this->Productos->Cantidad_Registros);
-        //$this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
-        //$this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
         $this->View->SetCss(array('tron_menu_footer','tron_index','tron_carrito',
                                   'tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron-vista-industrial','tron_estilos_slider',

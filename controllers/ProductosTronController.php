@@ -20,6 +20,8 @@
 		    	 * 				HALLAR EL PRECIO ESPECIAL DE PRODUCTOS TRON, DECUENTO Y EL PRECIO UNITARIO POR CADA UNA DE LAS CATEGORIAS
 		    	 */
 		    		Session::Set('REDETRANS_COURRIER_VR_FLETE', 0);
+		    		Session::Set('Sobre_Precio_Prod_Tron', 0 );
+		    		$parametros[0]['iva']  = 16 ;
 									$idmcipio                            = Session::Get('idmcipio');
 									$iddpto                              = Session::Get('iddpto');
 									$re_expedicion                       = Session::Get('re_expedicion');
@@ -60,18 +62,14 @@
 										// RESTO EL SEGURO PORQUE AQUI NO LO NECESITO
 										$Flete_Real           = Session::Get('REDETRANS_COURRIER_VR_FLETE')  - Session::Get('REDETRANS_COURRIER_VR_SEGURO');
 
-	 								// ENERO 14. 2016
-										// EL 32 Y EL CERO (0), EN LA LLAMADA AL MÉTODO, CORRESPONDEN A VALLE Y A NO REEXPEDIDION
-										$this->Fletes->Redetrans_Courrier($Peso_Total, $Costo_Total, 32, 0  );
-
-										$subsidio_flete_valle = Session::Get('subsisio_flete_valle');
+										$subsidio_flete_valle = 0;
 										//$subsidio_flete_valle = Session::Get('REDETRANS_COURRIER_VR_FLETE');
 
-										$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional  + $Flete_Real + ($py_porciento_recaudo * $Flete_Real );
+										$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional  +  ($py_porciento_recaudo * $Flete_Real );
 										$formula_a = $formula_a / ( $correctorvariacion - ( $py_porciento_recaudo * ( 1 + $parametros[0]['iva'] / 100 )  ));
 
 
-											$formula_b = $Costo_Total  +  $costofijo +  $py_vr_min_recaudo + $py_vr_adicional + $Flete_Real ;
+											$formula_b = $Costo_Total  +  $costofijo +  $py_vr_min_recaudo + $py_vr_adicional  ;
 											$formula_b =  $formula_b  / $correctorvariacion;
 
 											$precio_especial = $formula_a ;
@@ -81,11 +79,9 @@
 													  $formula_elegida = $formula_b ;
 											}
 
-											if (	$precio_especial >  $Precio_Lista_Total ){
-														$precio_especial = $Precio_Lista_Total;
-											}
 
-											$precio_especial 				 = $precio_especial  * ( 1 + $parametros[0]['iva'] / 100 ) + $Flete_Real ;
+											$precio_especial 				 = $precio_especial  * ( 1 + $parametros[0]['iva'] / 100 )   ;
+
 											$precio_especial_temp = $precio_especial ;
 											$Por100_Precio_Lista  = $Precio_Lista_Total  * ( 1-60/100);
 											$Res =0;
@@ -111,7 +107,9 @@
 											$descuento_negativo = 0 ;
 											if  ( $Precio_Lista_Total = $precio_especial){
 															$descuento_negativo = 	$precio_especial_temp - $Precio_Lista_Total;
+															Session::Set('Sobre_Precio_Prod_Tron',$descuento_negativo );
 											}
+
 											//*	11.	HALLAR EL VALOR DE TRANSPORTE
 											$transporte_tron = $Flete_Real - $subsidio_flete_valle + $descuento_negativo ;
 

@@ -184,6 +184,7 @@
 											}else{
 													$this->valor_flete  = 0;
 											}
+										$this->valor_seguro = $seguro_flete ;
 										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE',$this->valor_flete);
 										$this->flete_calculado = TRUE ;
           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA PREMIER');
@@ -281,7 +282,7 @@
 									$this->valor_flete  = 0;
 							}
 
-
+							$this->valor_seguro = $costo_manejo ;
 							Session::Set('SERVIENTREGA_INDUSTRIAL_VR_FLETE',$this->valor_flete);
 							$this->flete_calculado = TRUE ;
        $this->Adicionar_Cobro_Flete_Transportadora(2,'2030','SERVIENTREGA INDUSTRIAL');
@@ -429,6 +430,7 @@
 											}else{
 											 	$this->valor_flete   = 0;
 											}
+											$this->valor_seguro = $seguro_flete;
 								Session::Set('REDETRANS_CARGA_VR_FLETE',$this->valor_flete);
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
@@ -488,6 +490,7 @@
 
 									$Numero_Bolsas         = (int)( $Peso_Pedido/$Peso_Maximo);
 									$Flete_Bolsa_Completa  = $Vr_Primer_Kilo  + ( 3 * $Vr_Kilo_Adicional );
+
 									$Flete_Bolsa_Completa  = $Flete_Bolsa_Completa * $Numero_Bolsas ;
 
 									$Peso_Bolsa_Incompleta = $Peso_Pedido - ( (int)($Peso_Pedido /$Peso_Maximo) * $Peso_Maximo );
@@ -518,11 +521,12 @@
 											}else{
 													$this->valor_flete = 0;
 											}
-
+										$this->valor_seguro = $this->seguro_redetrans_courrier;
 		 							Session::Set('REDETRANS_COURRIER_VR_FLETE', $this->valor_flete );
 		 							Session::Set('REDETRANS_COURRIER_VR_SEGURO', $this->seguro_redetrans_courrier);
 										$this->flete_calculado = TRUE ;
-				    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
+				    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS COURRIER');
+
 
    		  }
 
@@ -535,6 +539,7 @@
 									$Fletes_Cobrados_Transportadoras                             = Session::Get('Fletes_Cobrados_Transportadoras');
 									$Fletes_Cobrados_Transportadoras[$posicion]['idtercero']     = $idtransportadora ;
 									$Fletes_Cobrados_Transportadoras[$posicion]['transportador'] = $nombre_transportadora;
+									$Fletes_Cobrados_Transportadoras[$posicion]['valor_seguro '] = $this->valor_seguro;
 									$Fletes_Cobrados_Transportadoras[$posicion]['valor_flete']   = round($this->valor_flete,0);
 									$Fletes_Cobrados_Transportadoras[$posicion]['tipo_tarifa']   = $this->tipo_tarifa;
 									$Fletes_Cobrados_Transportadoras[$posicion]['tipo_despacho']   = $this->tipo_despacho;
@@ -646,8 +651,7 @@
 							$_04_Litros_Galon_Vr_Compra_Ocasional         = 0;
 							$_04_Litros_Galon_Unidades                    = 0;
 
-							$_Otros_Productos_Presentaciones              = array(144, 85, 87, 90, 149, 192);
-							$_Otros_Productos_Cantidad                    = 0;
+							$_Otros_Productos_Presentaciones              = array(144, 85, 87, 90, 149, 192 ) ;
 							$_Otros_Productos_Vr_Declarado                = 0;
 							$_Otros_Productos_Vr_Declarado_ocasional      = 0;
 							$_Otros_Productos_Vr_Declarado_tron           = 0;
@@ -665,6 +669,7 @@
 
 							$Carga_Fija_Vr_Compra 																								= 0;
 							$Carga_Fija_Vr_Compra_Ocasional														 = 0;
+							$_Otros_Productos_Cantidad  																	 = 0;
 
 
 							$Espacio_Libre																		 = 0;
@@ -721,6 +726,7 @@
 
 			             }
 
+
 			          if ( $ID_categoria_producto != 6 || in_array($ID_Presentacion, $_Otros_Productos_Presentaciones )) {
 																			$_Otros_Productos_Cantidad                 = $_Otros_Productos_Cantidad  															+ $Productos['cantidad'];
 
@@ -741,6 +747,8 @@
 
 																			$_Otros_Productos_Vr_Compra                = $_Otros_Productos_Vr_Compra 															+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
 			             }
+
+
 
 			        }// end foreach
 
@@ -766,15 +774,11 @@
 											$Carga_Fija_Subsidio_Flete           = $_20_Litros_Garrafas_Subsidio_Flete 											+ $_04_Litros_Galon_Subsidio_Flete;
 											$Carga_Fija_Subsidio_Flete_Ocasional = $_20_Litros_Garrafas_Subsidio_Flete_Ocasional 	+ $_04_Litros_Galon_Subsidio_Flete_Ocasional;
 											$Carga_Fija_Subsidio_Flete_Tron      = $_20_Litros_Garrafas_Subsidio_Flete_Tron 						+ $_04_Litros_Galon_Subsidio_Flete_Tron;
-
 											$Carga_Fija_Recaudo                  = $_20_Litros_Garrafas_Recaudo  																	+ $_04_Litros_Galon_Recaudo  ;
 											$Carga_Fija_Recaudo_Ocasional        = $_20_Litros_Garrafas_Recaudo_Ocasional  							+ $_04_Litros_Galon_Recaudo_Ocasional ;
 											$Carga_Fija_Recaudo_Tron             = $_20_Litros_Garrafas_Recaudo_Tron  												+ $_04_Litros_Galon_Recaudo_Tron  ;
-
 											$Carga_Fija_Vr_Compra                = $_20_Litros_Garrafas_Vr_Compra  															+ $_04_Litros_Galon_Vr_Compra;
 											$Carga_Fija_Vr_Compra_Ocasional      = $_20_Litros_Garrafas_Vr_Compra_Ocasional  					+ $_04_Litros_Galon_Vr_Compra_Ocasional;
-
-
 											$Peso_Total_Kg_Otros_Productos       = $_Otros_Productos_Peso_Gramos  / 1000;
 
 
