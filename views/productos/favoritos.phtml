@@ -1,12 +1,25 @@
 
 <?php
 	//Debug::Mostrar( $this->Productos );
+     /*[0] => Array
+            (
+                [idproducto] => 16491
+                [0] => 16491
+                [idtercero] => 81239
+                [1] => 81239
+                [idfavorito] => 52
+                [2] => 52
+                [nom_producto] => Brasier Post Operatorio Color Beige Talla XXL
+                [3] => Brasier Post Operatorio Color Beige Talla XXL
+                [nombre_imagen] => tron_16491_8462397480.jpg
+                [4] => tron_16491_8462397480.jpg
+            )
+    */
 ?>
 
 <br><br>
 <table class="table table-bordered table-hover">
         <thead>
-
             <tr>
                 <th>Img</th>
                 <th>Producto</th>
@@ -14,20 +27,34 @@
             </tr>
         </thead>
 
+
         <tbody>
-            <tr>
-            	<td width="120"><img  src="../public/images/categorias_index/9.jpg" width="100" /></td>
-                <td style="vertical-align:middle">
-                	Gas pimienta super dummer<br>
+            <?php foreach ( $this->Productos as $Producto ) : ?>
+                <?php
+                    $idorden_nv_0          = $Producto['idorden_nv_0'];
+                    $idproducto            = $Producto['idproducto'];
+                    $nom_producto          = trim($Producto['nom_producto']) ;
+                    $nombre_imagen         = BASE_IMG_PRODUCTOS_50x50. $Producto['nombre_imagen'] ;
+                ?>
+
+                <tr>
+                	<td width="120"><img  src="<?= $nombre_imagen ;?>"  /></td>
+                    <td style="vertical-align:middle">  <?= $nom_producto  ; ?> </td>
+                    <td style="vertical-align:middle" class="taC">
+                    	<a href="<?= BASE_URL ;?>productos/vista_ampliada/<?= $idproducto ?>/<?=  $idorden_nv_0 ;?>" class="btn btn-info">Ver Producto</a>
+                    </td>
+                </tr>
+            <?php endforeach ;?>
+
+        </tbody>
+
+    </table>
+
+    <!--
                     <small>
-                    	<a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Catgoría</a> &nbsp;&nbsp;
+                        <a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Catgoría</a> &nbsp;&nbsp;
                         <a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Subcategoría</a>&nbsp;&nbsp;
                         <a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Marca</a>&nbsp;&nbsp;
                      </small>
-                </td>
-                <td style="vertical-align:middle" class="taC">
-                	<a href="#" class="btn btn-info">Ver Producto</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+   -->

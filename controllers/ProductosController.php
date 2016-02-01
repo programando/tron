@@ -220,6 +220,12 @@ class ProductosController extends Controller
 
       Session::Set('Id_Area_Consulta',$Id_Area_Consulta) ; // 2, Corresponde a productos de la linea hogar
       $idproducto                          = $Idproducto ;
+      $Producto_Favorito                   = $this->Productos->Favoritos_Consulta_x_IdTercero_IdProducto(Session::Get('idtercero'),  $Idproducto );
+      if ( empty(  $Producto_Favorito   )){
+         $this->View->Favorito = FALSE ;
+      }else{
+        $this->View->Favorito = TRUE ;
+      }
       $this->View->Producto                = $this->Productos->Buscar_por_IdProducto($idproducto);
       $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);
       $this->View->Cantidad_Registros      = $this->Productos->Cantidad_Registros;

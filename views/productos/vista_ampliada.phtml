@@ -66,9 +66,9 @@
     <div class="general pAA30">
         <div class="row"><!--IMAGEN PRODUCTO-->
             <div class="col-sm-6 col-xs-12 mb20_onlySmart taC">
-                
+
                 <img id="zoom_03" src="<?= BASE_IMG_PRODUCTOS_472x472.$nombre_imagen; ?>" data-zoom-image="<?= BASE_IMG_PRODUCTOS_944x944.$nombre_imagen  ;?>"  />
-                
+
                 <?php if ($Cantidad_Imagenes  >1) { ?>
                     <div id="gallery_01">
                         <?php
@@ -83,28 +83,28 @@
                         <?php } ?>
                     </div>
                 <?php } ?>
-                
+
             </div>
-    
+
             <!-- incluciones de docuementos -->
             <?php include (APPLICATION_SECTIONS . 'notificaciones_recomendar_producto.php');?>
             <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
             <!-- incluciones de docuementos -->
-    
+
             <div class="col-sm-6 col-xs-12 mb20_onlySmart" id="contenido-productos">
-          
+
                 <div class="t30 colorBlue ff2 mb20" id="<?= $idnomproducto  ;?>">
                     <?= $nom_producto_largo ;?>
                 </div>
-                
+
                 <div class="t16 mb20"><?= $nom_producto_descripcion;?></div>
-                              
+
                 <?php if (!empty( $fragancia )): ?>
                     <div class="t16 mb20 colorBlue"><?= $fragancia; ?></div>
-                <?php endif ;?>              
-                  
-                <div id ="<?= $idnompresentacion; ?>">            
-                    <div class="mb20"><strong>Presentación: </strong><?= $nompresentacion ;?></div>                
+                <?php endif ;?>
+
+                <div id ="<?= $idnompresentacion; ?>">
+                    <div class="mb20"><strong>Presentación: </strong><?= $nompresentacion ;?></div>
                     <?php if($id_agrupacion > 0): ?>
                         <!-- ver referencias -->
                         <div class="mb30">
@@ -115,9 +115,9 @@
                                 <?= $nom_producto_largo; ?>
                             </a>
                         </div>
-                    <?php endif; ?>                
+                    <?php endif; ?>
                 </div>
-    
+
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 mb20_onlySmart"><!--SUBINICIO DE HIJA-COLUMNA-->
                         <div class="taC mb10">
@@ -128,7 +128,7 @@
                             <img src="<?=BASE_IMG_TIENDA;?>17.png"  title="Plan Cliente TRON">
                             <img src="<?=BASE_IMG_TIENDA;?>16.png"  title="Plan Empresario TRON">
                         </div>
-    
+
                         <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
                         <div class="costos-cantidad">
                             <form class="form-horizontal" role="form">
@@ -166,14 +166,14 @@
                                         <!-- Fin Boton Mas-->
                                     </div>
                                 </div>
-    
+
                                 <input id="<?= $id_controles_escalas ;?>"  type="hidden" value="<?= $idescala ; ?>" />
                                 <input id="<?= $id_pv_tron_escala_a ;?>"   type="hidden" value="<?= $pv_tron_escala_a; ?>" />
                                 <input id="<?= $id_pv_tron_escala_b ;?>"   type="hidden" value="<?= $pv_tron_escala_b; ?>" />
                                 <input id="<?= $id_pv_tron_escala_c ;?>"   type="hidden" value="<?= $pv_tron_escala_c; ?>" />
                                 <input id="<?= $id_pv_tron ;?>"            type="hidden" value="<?= $pv_tron_previo; ?>" />
                             </form>
-    
+
                             <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
                             <div class="div-btn-">
                                 <button type="button" class="agregar  boton-agregar-carrito" id="<?=$id_controles ;?>" id-categoria-producto="<?= $id_categoria_producto ;?>">
@@ -184,10 +184,10 @@
                             </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
                         </div>  <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
                     </div>
-                    
+
                     <!-- contienedor ( row ) = compartir , recomendar amigo , grupo porducto , agregar a favorito -->
                     <div class="col-sm-8 col-xs-12">
-    
+
                         <!-- recomendar producto a un amigo -->
                         <div class="mb10">
                             <a class="cP" title="Si tu recomendación es efectiva y eres Empresario Tron... ganarás comisiones." id="notificaciones" data-toggle="modal" data-target="#recomendar">
@@ -195,9 +195,9 @@
                                 ¡Recomendar este Producto a un Amig@!
                             </a>
                         </div>
-                        
+
                         <!-- compartir en redes sociales -->
-                        <div class="mb10">                    
+                        <div class="mb10">
                             <span class="">Compartir: </span> &nbsp;
                             <a target="_blank" href="<?= $URL_COMPARTIR_FACEBOOK ;?>">
                                 <img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_en_facebook.png" width="28" />
@@ -207,25 +207,29 @@
                             </a> &nbsp;
                             <a target="_blank" href="<?= $URL_COMPARTIR_GOOGLE ;?>">
                                 <img src="<?= BASE_IMG_PRODUCTOS ;?>compartir_googleMas.png" width="28" />
-                            </a>                        
+                            </a>
                         </div>
-                        
+
                         <!-- agregar favorito -->
                         <div class="">
-                            <?php if ( Session::Get('autenticado')== TRUE ) :?>
+                            <?php if ( Session::Get('autenticado')== TRUE && $this->Favorito == FALSE )  :?>
+
                                 <a class="cP" id="agregar-producto-favoritos" idproducto ="<?= $idproducto ;?>" idtercero = "<?= Session::Get('idtercero_pedido') ;?>"
                                     herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
                                     <span><img src="<?= BASE_IMG_PRODUCTOS ;?>26.png" alt=""></span>
                                     Agregar a Favoritos
                                 </a>
+                             <?php else : ?>
+                                  <span><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" alt=""></span>
+                                    Este producto ya hace parte de tus Favoritos!
                             <?php endif ;?>
                         </div>
-                        
+
                         <hr />
-                        
+
                         <!-- grupo del prodcuto -->
                         <div class="mb10">
-                            
+
                             <?php if ($idgrupo>0) :?>
                                 <div class="imagen_tecnoaplicadas_producto t16 colorBlue dIB"
                                 title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡Contáctanos a: contactos@entreamigosalcanzamos.com!">
@@ -235,7 +239,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="imagen_grupo_producto dIB"
                                 title="Este producto genera a los empresarios de la red comisiones tipo <?= $codigo_grupo  ;?>.  ¿ Deseas mas información ?, ¡Contáctanos a: contactos@entreamigosalcanzamos.com!">
                                     <div class="tabAll">
@@ -245,18 +249,18 @@
                                     </div>
                                 </div>
                             <?php endif ;?>
-        
-        
+
+
                             <?php if ($fabricado_x_ta==1) :?>
                                 <div class="imagen_tecnoaplicadas_producto dIB" title="Producto fabricado por: Balquimia S.A.S.">
                                     <div class="tabAll">
                                         <div class="tabIn">
                                             <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" alt="">
                                         </div>
-                                    </div>                                
-                                </div>                        
+                                    </div>
+                                </div>
                             <?php endif ;?>
-                            
+
                             <?php if($en_oferta  == 1): ?>
                                 <div class="imagen_en_oferta dIB" title="Producto en Oferta !!!">
                                     <div class="tabAll">
@@ -266,12 +270,12 @@
                                     </div>
                                 </div>
                             <?php endif; ?>
-                                
+
                         </div>
-                        
+
                     </div>
                 </div>
-    
+
             </div>
         </div>
 	</div>
@@ -343,19 +347,19 @@
 							if ($Primer_Tab==true){
 								$Primer_Tab=false;
 					?>
-                    		
+
                             <li class="active"><a href="#<?= $IdTab ;?>"  data-toggle="tab"> <?= $Titulo_Tab ;?> </a></li><!--TITULO DEL TABS -->
-                  	
+
 							<?php } else { ?>
-                      
+
                       		<li><a href="#<?= $IdTab ;?>"  data-toggle="tab"> <?= $Titulo_Tab ;?> </a></li><!--TITULO DEL TABS -->
-                    
+
 					<?php
 							}
 						}
 					?>
                 </ul>
-                
+
                 <div class="tab-content depuraContForz taJ">
 					<?php
                     	$Primer_Tab = true; // BANDERA PARA QUE EN EL PRIMER TAB COLOQUE INFORMACIÓN ADICIONAL
@@ -365,21 +369,21 @@
                     		if ($Primer_Tab==true) {
 								$Primer_Tab=false;
 					?>
-                    		
+
                             <div class="tab-pane fade in active" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?> </div>
-                            
+
                     <?php  } else { ?>
-                    
+
                     		<div class="tab-pane fade" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?></div>
-                            
+
                     <?php
                     		}
 						}
 					?>
 				</div><!--FIN-CONTENIDO TABS -->
-            </div>		
+            </div>
 		<?php endif ;?><!-- FIN IF Cantidad_Tabs>-->
-        
+
 	</div>
 </div>
 
@@ -387,7 +391,7 @@
 <script>
 
 	$(document).ready(function() {
-	
+
 		$("#zoom_03").elevateZoom({
 			constrainType	   : "height",
 			zoomType		   : "inner",
@@ -397,14 +401,14 @@
 			galleryActiveClass : "active",
 			imageCrossfade 	   : false
 		});
-		
+
 		$("#zoom_03").on("click", function(e) {
 			var ez = $('#zoom_03').data('elevateZoom');
 			$.fancybox(ez.getGalleryList());
 			return false;
 		}); // FIN FUNCIONES ZOOM EN LA VISTA AMPLIADA.
-	
+
 	});
-	
+
 </script>
 
