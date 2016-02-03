@@ -1,23 +1,12 @@
 
-<?php
-	//Debug::Mostrar( $this->Productos );
-     /*[0] => Array
-            (
-                [idproducto] => 16491
-                [0] => 16491
-                [idtercero] => 81239
-                [1] => 81239
-                [idfavorito] => 52
-                [2] => 52
-                [nom_producto] => Brasier Post Operatorio Color Beige Talla XXL
-                [3] => Brasier Post Operatorio Color Beige Talla XXL
-                [nombre_imagen] => tron_16491_8462397480.jpg
-                [4] => tron_16491_8462397480.jpg
-            )
-    */
-?>
+<?php if ( empty($this->Productos ) ) :?>
 
-<br><br>
+    <div class='text-center'>
+        <br>
+        <h4>No has agregado productos a tu sección favoritos</h4>
+    </div>
+
+<?php else :?>
 <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -35,6 +24,7 @@
                     $idproducto            = $Producto['idproducto'];
                     $nom_producto          = trim($Producto['nom_producto']) ;
                     $nombre_imagen         = BASE_IMG_PRODUCTOS_50x50. $Producto['nombre_imagen'] ;
+                    $idtercero             = Session::Get('idtercero');
                 ?>
 
                 <tr>
@@ -42,6 +32,12 @@
                     <td style="vertical-align:middle">  <?= $nom_producto  ; ?> </td>
                     <td style="vertical-align:middle" class="taC">
                     	<a href="<?= BASE_URL ;?>productos/vista_ampliada/<?= $idproducto ?>/<?=  $idorden_nv_0 ;?>" class="btn btn-info">Ver Producto</a>
+                     <a href="#" class="btn btn-info" id='borrar_producto_favoritos'
+                        idtercero = <?= $idtercero ;?>
+                        idproducto = <?= $idproducto ;?>
+                        nomproducto ='<?= $nom_producto  ;?>'
+                     >
+                     Borrar Producto</a>
                     </td>
                 </tr>
             <?php endforeach ;?>
@@ -50,11 +46,5 @@
 
     </table>
 
-    <!--
-                    <small>
-                        <a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Catgoría</a> &nbsp;&nbsp;
-                        <a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Subcategoría</a>&nbsp;&nbsp;
-                        <a href="#" class="aS"><img src="../public/images/tienda/arr3.png"> Marca</a>&nbsp;&nbsp;
-                     </small>
+ <?php endif ;?>
 
-   -->

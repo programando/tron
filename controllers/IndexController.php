@@ -77,6 +77,10 @@ class IndexController extends Controller
 
         $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
         Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
+        // Elementos del footer
+        //------------------------
+        $this->View->Categorias_Hogar      = $this->Productos->Categorias_Consultar(2);
+        $this->View->Categorias_Industrial = $this->Productos->Categorias_Consultar(1);
 
         $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));

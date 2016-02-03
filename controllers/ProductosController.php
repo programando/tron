@@ -23,7 +23,12 @@ class ProductosController extends Controller
 
 
 
-
+    public function Favoritos_Borrar_x_IdTercero_IdProducto(){
+         $IdProducto         = General_Functions::Validar_Entrada('idproducto','NUM');
+         $IdTercero          = General_Functions::Validar_Entrada('idtercero','NUM');
+         $this->Productos->Favoritos_Borrar_x_IdTercero_IdProducto(   $IdTercero, $IdProducto    ) ;
+         $this->Favoritos_Consulta_x_idTercero();
+    }
 
     public function Favoritos_Consulta_x_idTercero(  ){
         $idtercero             = Session::Get('idtercero');
@@ -208,6 +213,8 @@ class ProductosController extends Controller
      /** DIC 31 DE 2014
      *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
      */
+
+
       if( $reasigna_valores == TRUE){
           Session::Set('idtercero_presenta',0);
           Session::Set('codigousuario','');
@@ -220,11 +227,14 @@ class ProductosController extends Controller
 
       Session::Set('Id_Area_Consulta',$Id_Area_Consulta) ; // 2, Corresponde a productos de la linea hogar
       $idproducto                          = $Idproducto ;
-      $Producto_Favorito                   = $this->Productos->Favoritos_Consulta_x_IdTercero_IdProducto(Session::Get('idtercero'),  $Idproducto );
-      if ( empty(  $Producto_Favorito   )){
-         $this->View->Favorito = FALSE ;
-      }else{
-        $this->View->Favorito = TRUE ;
+      $this->View->Favorito = FALSE ;
+      if ( Session::Get('autenticado') == TRUE ) {
+          $Producto_Favorito                   = $this->Productos->Favoritos_Consulta_x_IdTercero_IdProducto(Session::Get('idtercero'),  $Idproducto );
+          if ( empty(  $Producto_Favorito   )){
+             $this->View->Favorito = FALSE ;
+          }else{
+            $this->View->Favorito = TRUE ;
+          }
       }
       $this->View->Producto                = $this->Productos->Buscar_por_IdProducto($idproducto);
       $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);

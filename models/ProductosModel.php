@@ -8,6 +8,13 @@
         }
 
 
+        public function Favoritos_Borrar_x_IdTercero_IdProducto (  $idtercero, $idproducto ){
+            $Productos    = $this->Db->Ejecutar_Sp("productos_favoritos_borrar_x_idtercero_idproducto (  $idtercero, $idproducto  )");
+            return $Productos;
+        }
+
+
+
         public function Favoritos_Consulta_x_IdTercero_IdProducto (  $idtercero, $idproducto ){
             $Productos    = $this->Db->Ejecutar_Sp("productos_favoritos_consulta_x_idtercero_idproducto (  $idtercero, $idproducto  )");
             $this->Cantidad_Registros = $this->Db->Cantidad_Registros;

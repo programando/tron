@@ -6,11 +6,7 @@
             <li>
             	<img src="<?= BASE_IMG_SLIDER ; ?>1.jpg" alt="1" title="1" id="wows1_0"/>
             </li>
-            <li>
-            	<a href="<?= BASE_URL ;?>redtron/comisiones">
-	                <img src="<?= BASE_IMG_SLIDER ; ?>2.jpg" alt="2" title="2" id="wows1_1"/>
-                </a>
-            </li>
+
             <li>
                 <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron">
                 	<img src="<?= BASE_IMG_SLIDER ; ?>3.jpg" alt="3" title="3" id="wows1_2"/>
@@ -31,7 +27,7 @@
     <div class="ws_bullets">
         <div>
             <a href="#" title="1">1</a>
-            <a href="#" title="2">2</a>
+
             <a href="#" title="3">3</a>
             <a href="#" title="4">4</a>
             <a href="#" title="5">5</a>

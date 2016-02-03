@@ -1,38 +1,40 @@
+
 <div class="ionix bGray2">
     <div class="general pAA50">
-    
+
     	<div class="row">
-        
+
     		<div class="col-sm-6 col-xs-12">
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>HOGAR Y PERSONAL</strong></div>
                     <ul class="listEnd">
                         <li><a href="<?=BASE_URL;?>productos/productos_tron">Productos Tron</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/17/Aseo Del Hogar/2">Aseo Del Hogar</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/27/Cuidado Personal/2">Cuidado Personal</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/28/Droguería/2">Droguería</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/30/Fajas/2">Fajas</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/20/Maquillaje/2">Maquillaje</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/26/Mascotas/2">Mascotas</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/25/Otros/2">Otros</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/18/Productos Naturales/2">Productos Naturales</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/29/Ropa/2">Ropa</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/19/Tecnología/2">Tecnología</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/24/Especiales Tron/2">Especiales Tron</a></li>
+        <?php  foreach ($this->Categorias_Hogar  as $Categoria ) :?>
+                <?php
+                    $idorden_nv_1  = $Categoria['idorden_nv_1'];                 // Id
+                    $orden_nivel_1 = ucwords( strtolower($Categoria['orden_nivel_1']));       // Nombre
+                    $texto_url     = BASE_URL . 'productos/productos_por_categoria_individual/'.$idorden_nv_1.'/'.$orden_nivel_1 .'/'.'2';
+                ?>
+                <li><a href="<?= $texto_url ;?>"> <?= $orden_nivel_1 ;?> </a></li>
+        <?php endforeach;?>
+
                     </ul>
                 </div>
-    
+
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>INDUSTRIAL</strong></div>
                     <ul class="listEnd">
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/4/Línea Alimentaria/1">Línea Alimentaria</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/1/Línea Artes Gráficas/1">Línea Artes Gráficas</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/2/Línea Automotriz/1">Línea Automotriz</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/5/Línea Hotelera/1">Línea Hotelera</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/3/Línea Mantenimiento Industrial/1">Línea Mantenimiento Industrial</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/8/Línea Materias Primas/1">Línea Materias Primas</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/7/Línea Sanidad Portátil/1">Línea Sanidad Portátil</a></li>
-                        <li><a href="<?=BASE_URL;?>productos/productos_por_categoria_individual/6/Línea Textil/1">Línea Textil</a></li>
+        <?php  foreach ($this->Categorias_Industrial  as $Categoria ) :?>
+                <?php
+                    $idorden_nv_1  = $Categoria['idorden_nv_1'];                 // Id
+                    $orden_nivel_1 = ucwords( strtolower($Categoria['orden_nivel_1']));       // Nombre
+                    $texto_url     = BASE_URL . 'productos/productos_por_categoria_individual/'.$idorden_nv_1.'/'.$orden_nivel_1 .'/'.'1';
+                ?>
+                 <li><a href="<?= $texto_url ;?>"> <?= $orden_nivel_1 ;?> </a></li>
+        <?php endforeach;?>
+
+
+
                     </ul>
                 </div>
             </div>
@@ -43,20 +45,20 @@
                         <li><a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron">La Red de Amigos Tron</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/tron_productos">Productos Tron</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/kint_de_inicio">Kit de Inicio</a></li>
-                        <li><a href="<?= BASE_URL ;?>redtron/pases_de_cortesia">Pases de Cortesia</a></li>
+
                         <li><a href="<?= BASE_URL ;?>redtron/comisiones">Comisiones</a></li>
-                        <li><a href="<?= BASE_URL ;?>redtron/Bonificaciones">Bonificaciones</a></li>
+
                     </ul>
-                    
+
                     <div class="titleM2 colorfff mb10"><strong>TIENDA TRON</strong></div>
-                    <ul class="listEnd">    
+                    <ul class="listEnd">
                         <li><a href="<?= BASE_URL ;?>redtron/planes_de_registro">Planes de Registro</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/tron_medios_pago">Métodos de Pagos</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/funcionalidades_interesantes">Funciones Interesantes</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/tron_transporte">Transporte</a></li>
                     </ul>
                 </div>
-    
+
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>SOBRE TRON</strong></div>
                     <ul class="listEnd">
@@ -65,7 +67,7 @@
                         <li><a href="http://www.balquimia.com">BALQUIMIA S.A.S.</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/terminos_condiciones">Términos y Condiciones</a></li>
                     </ul>
-    
+
                     <div class="titleM2 colorfff mb10"><strong>MI CUENTA</strong></div>
                     <ul class="listEnd">
                         <li>
@@ -87,7 +89,7 @@
                 </div>
 			</div>
 		</div>
-        
+
 	</div>
 </div>
 
@@ -97,10 +99,10 @@
     	<br />
     	<strong>TRON® marca registrada de Balquimia S.A.S.</strong>
        	<br /><br />
-        
+
         Tienda virtual y modelo de negocio exclusivo para Colombia
         <br />
-        
+
         Todos los derechos reservados
         <br />
         <strong>2016</strong>

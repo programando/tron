@@ -59,15 +59,10 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
 
-            <tr>
 
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-            </tr>
 
             <tr>
-                <td>CÓDIGO DE USUARIO INVITAR AMIGO A TU RED</td>
+                <td>CÓDIGO DE USUARIO PARA INVITAR AMIGO A TU RED</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
@@ -85,23 +80,9 @@
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
             </tr>
 
-            <tr>
 
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-            </tr>
 
-            <tr>
-                <td>
-                    <a class="nuvv cP" title="Año tras año, los miembros de tu Red renovarán el Derecho de Permanencia y por ello recibirás una prima.">
-                        <span class="aS colurAd">PRIMAS ANUALES</span>
-                    </a>
-                </td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-            </tr>
+
 
 
 
@@ -122,11 +103,11 @@
                     .<br><br>.
                 </td>
                 <td class="text-center">
-                    $<?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?>
+                    $<?= number_format(Session::Get('valor_kit_inicio_ocasional'),0) ;?>
                     <br><br>.
                 </td>
                 <td class="text-center">
-                    $<?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?>
+                    $<?= number_format(Session::Get('valor_kit_inicio_empresario'),0) ;?>
                     <br><br>
                     $<?= number_format(Session::Get('cuota_1_inscripcion'),0) ;?>
                 </td>
@@ -135,7 +116,7 @@
             <tr>
                 <td class="text-right"><strong>TOTAL A PAGAR <small> ( Calculado para Cali ) : </small></strong> </td>
                 <td class="text-center">.</td>
-                <td class="text-center">$ <?= number_format(Session::Get('kit_vr_venta_valle'),0) ;?> </td>
+                <td class="text-center">$ <?= number_format(Session::Get('valor_kit_inicio_ocasional'),0) ;?> </td>
                 <td class="text-center">$ <?= number_format($this->Total_Kit_Inscripcion,0) ;?> </td>
             </tr>
 

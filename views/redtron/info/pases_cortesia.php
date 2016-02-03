@@ -11,10 +11,10 @@
             </ul>
         </nav>
     </div>
-    
+
     <div class="col-sm-9 col-xs-12"><!--Informacion-Contendo-Introduccion -->
         <div class="titleM1 dIB colorBlue mb10 t18">Introducción<a name="funciona"></a></div>
-        
+
         <div class="p20">
             Los Pases de Cortesía son una herramienta exclusiva de los Empresarios TRON, creada para facilitar la difusión y promoción de
             la Tienda Virtual y el Modelo de Negocio TRON Entre amigos alcanzamos, por lo tanto, son sujetos a recibirlos personas que
@@ -42,7 +42,7 @@
         --><div class="col-sm-4 col-xs-12 vcenter taRC">
         	<img src="<?= BASE_IMG_EMPRESA ;?>pases-version2.png" />
         </div>
-        
+
 	</div>
 </div>
 <br><br>
@@ -61,9 +61,9 @@
                    <th>El empresario TRON gana:</th>
                </tr>
             </thead><!--Emcabezado -->
-            
+
             <tbody><!--Cuerpo -->
-            
+
                <tr>
                   <td>Comprador Ocasional</td>
                   <td>Comisiones por la compra + un (1) Pase de Cortesía</td>
@@ -74,30 +74,30 @@
                </tr>
                <tr>
                   <td>Comprador Ocasional</td>
-                  <td>Todo lo anterior + BONIFICACIÓN  (ver tipos y tabla de <br> bonificaciones más abajo).</td>
+                  <td>Todo lo anterior </td>
                </tr>
-            
+
             </tbody><!--Cuerpo -->
         </table>
-        
+
 	</div>
 </div>
 <br><br>
-    
+
 <div>
 	<div class="titleM1 colorBlue mb10 t18">Beneficios para quien lo recibe</div>
     <div class="p20">
 
     	Los beneficios dependen del plan en el que se registre quien lo recibe:
         <br><br>
-        <table class="table table-condensed table-hover contenido-tablas tabla-pases-cortesia">        
+        <table class="table table-condensed table-hover contenido-tablas tabla-pases-cortesia">
             <thead><!--Emcabezado -->
                <tr>
                   <th>Se registra en el plan:</th>
                   <th>Quien lo recibe obtiene:</th>
                </tr>
             </thead><!--Emcabezado -->
-            
+
             <tbody><!--Cuerpo -->
                <tr>
                    <td>Comprador Ocasional</td>
@@ -111,9 +111,9 @@
                    <td>Empresario TRON</td>
                    <td>Precios Escala C sin importar la cantidad comprada.</td>
                </tr>
-            </tbody><!--Cuerpo -->        
+            </tbody><!--Cuerpo -->
         </table>
-        
+
 	</div>
 </div>
 <br><br>
@@ -130,7 +130,7 @@
             <li>Cuando un Empresario TRON compra más de $ 50.000 en productos TRON para el hogar, gana 2 pases.</li>
             <li>Comprando el paquete especial de Pases de Cortesía en el menú Mi Cuenta. Con cargo automático a tu cuenta dinero. Si no tienes saldo a favor, no importa, tienes crédito.</li>
         </ul>
-        
+
 	</div>
 </div>
 <br><br>

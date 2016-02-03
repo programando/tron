@@ -22,6 +22,28 @@ $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 });
 
 
+ var  Eliminar_Producto_Favorito = function( Parametros ){
+	  $.ajax({
+	      data:  Parametros,
+	      dataType: 'html',
+	      url:      '/tron/productos/Favoritos_Borrar_x_IdTercero_IdProducto/',
+	      type:     'post',
+	      success:  function (resultado) {
+				         $('.contenedor_cuenta').html('');
+				         $('.contenedor_cuenta').html(resultado);
+	      },
+	      complete: function(){
+							   new Messi('<h4>Producto eliminado con éxito !</h4><br>',
+							       {title: 'Mensaje del Sistema',titleClass: 'info',modal: true,
+							       buttons: [
+							                 {id: 0, label: 'Cerrar', val: 'Y',class: 'btn-success'}]
+	       });
+
+	      }
+	   });
+	}
+
+
 
 
 var Activar_Usuarios = function($Usuario_Seleccionado){
@@ -411,6 +433,37 @@ $('#cuenta_favoritos').on('click',function(){
 				      }
 				  });
 });
+
+
+
+
+$('.contenedor_cuenta').on('click','#borrar_producto_favoritos', function(){
+			var $idtercero    = $(this).attr('idtercero');
+			var $idproducto   = $(this).attr('idproducto');
+			var $nom_producto = $(this).attr('nomproducto');
+
+			var $Parametros = '';
+	  new Messi('<h4>Confirma que desea borrar el producto : <br><strong>' +  $nom_producto + '  </strong>  de su listado de favoritos ? </h4><br>',
+       {title: 'Confirmación del Usuario.',titleClass: 'info',modal: true,
+       buttons: [
+                 {id: 0, label: 'Si, Deseo eliminar el producto.', val: 'Y',class: 'btn-danger'},
+                 {id: 1, label: 'No, Espere. He presionado mal.', val: 'N', class: 'btn-success'}
+                 ],
+       callback: function(val) {
+         if (val=='Y') {
+         			$Parametros = {'idtercero':$idtercero ,'idproducto':$idproducto };
+         			Eliminar_Producto_Favorito($Parametros );
+         }
+       }});
+
+});
+
+
+
+
+
+
+
 
 $('#recomendar_amigo').on('click',function(){
     $.ajax({

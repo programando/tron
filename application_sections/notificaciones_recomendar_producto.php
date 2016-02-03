@@ -1,4 +1,9 @@
 <!-- Estrucutra de las notificaciones -->
+
+<div id="contenido"
+		idtipo-plan-compras = <?= Session::Get('idtipo_plan_compras') ;?>
+  autenticado    			  = <?= Session::Get('autenticado') ;?>
+		>
 <div>
 	 <div class="contenedor_notificaciones_cliente_ocasional">
 	 	  <div>
@@ -49,6 +54,6 @@
 	 </div>
 
 </div>
+</div>
 
 
- 
