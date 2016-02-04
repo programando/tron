@@ -20,7 +20,7 @@
         <br><br>
 
 		Cada uno de los Empresarios TRON tendrá cuatro (4) frontales en el primer nivel inicialmente. También podrá
-        inscribir amigos, que no deseen crear red, en el Plan Cliente TRON, formar un grupo con ellos aparte de la red y ganar comisión
+        inscribir amigos, que no deseen crear red, en el Plan Cliente TRON y como compradores ocasionales, formar un grupo con ellos aparte de la red y ganar comisión
         por las compras que ellos realicen.
 		<br><br>
 

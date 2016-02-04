@@ -97,7 +97,7 @@
                 <td class="text-right">
                     Valor del kit de inicio <strong><small>(Calculado para Cali)</small></strong>:
                     <br><br>
-                    Valor Derechos de inscripción <strong><small>(Primera de 3 cuotas)</small></strong>:
+                    Valor Derechos de inscripción <strong></strong>:
                 </td>
                 <td class="text-center">
                     .<br><br>.

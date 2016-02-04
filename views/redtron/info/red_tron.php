@@ -136,7 +136,7 @@
 
             <tbody><!--Cuerpo-->
                 <tr>
-                    <td>PRECIOS ESPECIALES, OFERTAS Y CONCURSOS PARA GANAR DESCUENTOS</td>
+                    <td>PRECIOS ESPECIALES, OFERTAS </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>
                 <tr>
@@ -149,12 +149,7 @@
                     <td>INVITACIÓN A CAPACITACIONES Y EVENTOS SOBRE EL MODELO DE NEGOCIO</td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>
-                <tr>
-                    <td>PASES DE CORTESÍA <br>
-                        <small>Para que le otorgue a tus amigos potenciales los Precios Especiales a los que tú tienes derecho, incentivandolos de manera discreta a unirse a tu red.</small>
-                    </td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td>
-                </tr>
+
                 <tr>
                     <td>ADQUISICIÓN DE CÓDIGO DE USUARIO PARA INVITAR AMIGOS A LA RED</td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
@@ -162,7 +157,7 @@
                 <tr>
                     <td>COMISIONES <br>
                         <small>Sobre las compras de las personas que ingreses a la red y las que ellos ingresen hasta por 6 niveles
-                        y comisiones aún más especiales sobre las compras de quienes quieren sólo consumir los productos TRON sin pertenecer a la Red.</small><a name="requisitos"></a>
+                        y comisiones aún más especiales sobre las compras de quienes quieren sólo consumir los productos TRON sin pertenecer a la Red siendo compradores ocasionales.</small><a name="requisitos"></a>
                     </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>

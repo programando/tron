@@ -123,7 +123,7 @@
    <li><!--¿Quiénes tienen derecho a recibir comisiones? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Quiénes tienen derecho a recibir comisiones?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Todos los usuarios registrados en el Plan Empresario TRON, que se encuentren activos en la red y que al último día del mes a liquidar cumplan con alguna de las siguientes condiciones: <br><br> 1) Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras. <br> 2) Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras. <br> 3) Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.    </li>
+             <li>Todos los usuarios registrados en el Plan Empresario TRON, que se encuentren activos en la red y que al último día del mes a liquidar cumplan con alguna de las siguientes condiciones: <br><br> 1) Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras. <br> 2) Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras. <br> 3) Que tengan vinculados compradores ocasionales y éstos hayan hecho compras <br> 4) Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON y éstos hayan hecho compras.    </li>
          </ul><!--Contenido -->
    </li><!--¿Quiénes tienen derecho a recibir comisiones? -->
 
@@ -149,7 +149,7 @@
   <li><!--¿Se pueden perder las comisiones?-->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Se pueden perder las comisiones?  </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Sí. Pierden las comisiones todos aquellos Empresarios TRON que por cualquier motivo incumplieron al no realizar la compra mínima mensual reglamentaria <?= $Pedido_Minimo_Tron ;?> de los productos TRON ó los productos fabricados por Balquimia S.A.S.    </li>
+             <li>Sí. Pierden las comisiones todos aquellos Empresarios TRON que por cualquier motivo incumplieron al no realizar la compra mínima mensual reglamentaria <?= $Pedido_Minimo_Tron ;?> de los productos TRON ó <?=$Pedido_Minimo_Indus ;?> de los productos fabricados por Balquimia S.A.S.    </li>
          </ul><!--Contenido -->
    </li><!--¿Se pueden perder las comisiones?-->
 

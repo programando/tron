@@ -37,8 +37,9 @@
         <ul class="list-unstyled ulGen">
            <li>1. Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras.</li>
            <li>2. Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.</li>
-           <li>3. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON o Plan Compradores Ocasionales y estos hayan hecho compras.</li>
-           <li>4. QUe tengan amigos vinculados en el Plan Compradores Ocasionales.</li>
+           <li>3. Que tengan amigos vinculados en el Plan Compradores Ocasionales y éstos hayan hecho compras</li>
+           <li>4. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON o Plan Compradores Ocasionales y estos hayan hecho compras.</li>
+
         </ul>
         <br>
 
