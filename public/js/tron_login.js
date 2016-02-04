@@ -59,10 +59,10 @@ var Iniciar_Sesion = function(Parametros){
       	 			}
       	 		  else{
       	 					Mostrar_Mensaje('Iniciando sesión en Red de Usuarios TRON... espere unos segundos...');
-      	 					if (resultado.Siguiente_Pago=='DIRECCION')		{
+      	 					if (resultado.Siguiente_Paso =='DIRECCION')		{
       	 								window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
       	 							}else {
-      	 									window.location.href = "/tron";
+      	 									window.location.href = "/tron/Index/";
       	 							}
 
       	 		}

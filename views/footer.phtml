@@ -9,10 +9,11 @@
                     <div class="titleM2 colorfff mb10"><strong>HOGAR Y PERSONAL</strong></div>
                     <ul class="listEnd">
                         <li><a href="<?=BASE_URL;?>productos/productos_tron">Productos Tron</a></li>
-        <?php  foreach ($this->Categorias_Hogar  as $Categoria ) :?>
+        <?php $Categorias_Hogar = Session::Get('Categorias_Hogar') ;?>
+        <?php  foreach ($Categorias_Hogar  as $Categoria ) :?>
                 <?php
                     $idorden_nv_1  = $Categoria['idorden_nv_1'];                 // Id
-                    $orden_nivel_1 = ucwords( strtolower($Categoria['orden_nivel_1']));       // Nombre
+                    $orden_nivel_1 = trim(ucwords( strtolower($Categoria['orden_nivel_1'])));       // Nombre
                     $texto_url     = BASE_URL . 'productos/productos_por_categoria_individual/'.$idorden_nv_1.'/'.$orden_nivel_1 .'/'.'2';
                 ?>
                 <li><a href="<?= $texto_url ;?>"> <?= $orden_nivel_1 ;?> </a></li>
@@ -24,10 +25,11 @@
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>INDUSTRIAL</strong></div>
                     <ul class="listEnd">
-        <?php  foreach ($this->Categorias_Industrial  as $Categoria ) :?>
+        <?php $Categorias_Industrial = Session::Get('Categorias_Industrial') ;?>
+        <?php  foreach ($Categorias_Industrial  as $Categoria ) :?>
                 <?php
                     $idorden_nv_1  = $Categoria['idorden_nv_1'];                 // Id
-                    $orden_nivel_1 = ucwords( strtolower($Categoria['orden_nivel_1']));       // Nombre
+                    $orden_nivel_1 = trim(ucwords( strtolower($Categoria['orden_nivel_1'])));       // Nombre
                     $texto_url     = BASE_URL . 'productos/productos_por_categoria_individual/'.$idorden_nv_1.'/'.$orden_nivel_1 .'/'.'1';
                 ?>
                  <li><a href="<?= $texto_url ;?>"> <?= $orden_nivel_1 ;?> </a></li>

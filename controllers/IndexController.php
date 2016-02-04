@@ -21,22 +21,64 @@ class IndexController extends Controller
         //$Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
 
+        $this->Parametros_Iniciales();
+
         $usuario_autenticado = Session::Get('autenticado');
         if ( !isset( $usuario_autenticado )){
             Session::Set('autenticado',FALSE);
             Session::Set('idtipo_plan_compras',1);
         }
-
-        Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
-
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
-        if (Session::Get('autenticado')== FALSE){
+        if ( $usuario_autenticado  == FALSE){
             $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
             Session::Set('usuario_viene_del_registro',     FALSE);
-        }
-        $this->Terceros->Compra_Productos_Tron_Mes_Actual();
-        $Parametros = $this->Parametros->Transportadoras();
+        }else{
+                $this->Terceros->Compra_Productos_Tron_Mes_Actual();
+            }
 
+        $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
+        Session::Set('Cantidad_Destacados',     $this->Productos->Cantidad_Registros );
+
+        $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
+        Session::Set('Cantidad_Ofertas',        $this->Productos->Cantidad_Registros );
+
+        $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
+        Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
+
+        // Categorias  del footer
+        //------------------------
+        $this->Footer_Categorias_Personal_Industrial();
+
+        $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
+                                  'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
+
+        $this->View->Mostrar_Vista('index');
+
+
+        //factor_seguro_flete_otros_productos :
+        //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
+        //porciento_seguro_flete_productos_industriales :
+        //                      Porcentaje que se aplica al costo del productos para efectos del cálculo del seguro en los fletes del producto...
+
+       /*if ( $Tipo_Navegador == 'IE' && $Version_Navegador <= 8){
+            $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
+            $this->View->Mostrar_Vista("mejor_experiencia_usuario");
+       }
+       */
+
+    }
+
+    private function Footer_Categorias_Personal_Industrial(){
+        $Categorias_Hogar      = $this->Productos->Categorias_Consultar(2);
+        $Categorias_Industrial = $this->Productos->Categorias_Consultar(1);
+        Session::Set('Categorias_Hogar',         $Categorias_Hogar);
+        Session::Set('Categorias_Industrial',    $Categorias_Industrial);
+    }
+
+private function Parametros_Iniciales(){
+        $Parametros = $this->Parametros->Transportadoras();
+        Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
         Session::Set('Parametros',$Parametros );
 
         Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);            // Precio de venta del kit de inicio
@@ -69,38 +111,8 @@ class IndexController extends Controller
         Session::Set('pago_minimo_payulatam',                  Numeric_Functions::Formato_Numero( $Parametros[0]['pago_minimo_payulatam'] ));
         Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
 
-        $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
-        Session::Set('Cantidad_Destacados',     $this->Productos->Cantidad_Registros );
+}
 
-        $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
-        Session::Set('Cantidad_Ofertas',        $this->Productos->Cantidad_Registros );
-
-        $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
-        Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
-        // Elementos del footer
-        //------------------------
-        $this->View->Categorias_Hogar      = $this->Productos->Categorias_Consultar(2);
-        $this->View->Categorias_Industrial = $this->Productos->Categorias_Consultar(1);
-
-        $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
-                                  'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
-
-        $this->View->Mostrar_Vista('index');
-
-
-        //factor_seguro_flete_otros_productos :
-        //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
-        //porciento_seguro_flete_productos_industriales :
-        //                      Porcentaje que se aplica al costo del productos para efectos del cálculo del seguro en los fletes del producto...
-
-       /*if ( $Tipo_Navegador == 'IE' && $Version_Navegador <= 8){
-            $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
-            $this->View->Mostrar_Vista("mejor_experiencia_usuario");
-       }
-       */
-
-    }
 
     public function Cerrar_Sesion() {
         Session::Set('autenticado', FALSE );

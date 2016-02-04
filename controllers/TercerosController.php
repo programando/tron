@@ -891,15 +891,12 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        }else {
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
-
          }
-         $Siguiente_Pago = Session::Get('finalizar_pedido_siguiente_paso');
-         if (!isset($Siguiente_Pago)){
-          $Siguiente_Pago='';
+         $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');
+         if (!isset( $Siguiente_Paso ) ) {
+          $Siguiente_Paso='';
          }
-
-
-         $Datos            = compact('Resultado_Logueo','Siguiente_Pago');
+         $Datos            = compact('Resultado_Logueo','Siguiente_Paso');
          echo json_encode($Datos,256);
       }
 
