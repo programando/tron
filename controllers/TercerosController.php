@@ -874,7 +874,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
       Session::Set('autenticado',                     TRUE);
-      Session::Set('MyVaraible',  'OkOK');
+
 
     }
 
@@ -889,6 +889,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        }else {
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
+            Session::Set('autenticado',                     TRUE);
          }
          $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');
          if (!isset( $Siguiente_Paso ) ) {

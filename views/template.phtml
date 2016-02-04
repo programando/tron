@@ -19,8 +19,8 @@
       <meta property='og:site_name'     content='Red Multinivel Entre Amigos Alcanzamos'/>
       <meta property="og:description"   content="<?= Session::Get('Pagina_Facebook_DESCRIPCION') ;?>" />
       <!-- 560px x 292px -->
-  <?php Session::Set('FACEBOOK', FALSE); ?>
-<?php endif;?>
+      <?php Session::Set('FACEBOOK', FALSE); ?>
+  <?php endif;?>
 
     <title> <?= APP_NAME ;?> </title>
 
@@ -44,9 +44,8 @@
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>validacion_contraseñas.css"/><!-- Validacion contraseñas -->
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>messi.min.css"/><!-- Validacion contraseñas -->
 
-      <?php  if(isset($this->Css) && !empty($this->Css))
-      {
-       foreach ($this->Css as $Archivo_Css) { ?>
+      <?php  if(isset($this->Css) && !empty($this->Css)) {
+          foreach ($this->Css as $Archivo_Css) { ?>
        <link type="text/css"  rel="stylesheet" href="<?= $Archivo_Css ;?>"   />
        <?php }} ?>
       <!-- FIN INLCUSIÓN DE ARCHIVOS CSS
