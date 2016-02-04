@@ -23,23 +23,8 @@
 <?php endif;?>
 
 
-<!--    <title> <?= APP_NAME ;?> </title>    -->
+    <title> <?= APP_NAME ;?> </title>
 
-<?php
-    $Autenticado = Session::Get('autenticado') ;
-    $MyVaraible    = Session::Get('MyVaraible');
-    if ( isset($Autenticado ) && $Autenticado == TRUE){
-        $Autenticado = 'Autentica';
-    }else{
-      $Autenticado = 'Nooo...Autentica';
-    }
-    if ( isset($MyVaraible ) ){
-        $MyVaraible = 'Ok..OK';
-    }else{
-      $MyVaraible = 'Nooo...OK';
-    }
-    $Autenticado = $Autenticado . '-' . $MyVaraible ;
- ?>
 
 
 
