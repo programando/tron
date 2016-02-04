@@ -844,7 +844,6 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
 
 
     public function Validar_Ingreso_Usuario_Asignar_Datos($Registro ){
-      Session::Set('autenticado',                     TRUE);
       Session::Set('idtercero',                       $Registro[0]['idtercero']);
       Session::Set('identificacion' ,                 $Registro[0]['identificacion']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
@@ -858,8 +857,6 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('kit_comprado',                    $Registro[0]["kit_comprado"]);
       Session::Set('inscripcion_pagada',              $Registro[0]["inscripcion_pagada"]);
       Session::Set('fecha_hora_acepta_convenio',      $Registro[0]["fecha_hora_acepta_convenio"]);
-
-
       // DATOS PARA ENTREGA DEL PEDIDO Y CALCULO DE FLETES
       Session::Set('idtercero_pedido',                $Registro[0]['idtercero']);
       Session::Set('pagado_online',                   0);
@@ -872,11 +869,12 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
 
-
-       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
+      $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
+      Session::Set('autenticado',                     TRUE);
+      Session::Set('MyVaraible',  'OkOK');
 
     }
 

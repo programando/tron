@@ -1,4 +1,4 @@
-<?php if (Session::Get('autenticado')==false ) :?>
+<?php if (Session::Get('autenticado')== FALSE ) :?>
 
   <div class="modal fade" id="myModal"
       tabindex="-1" role="dialog"
@@ -42,7 +42,7 @@
                       </span> <!--INPUT = CONTRASEÑA -->
                       <input id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña">
                     </div>
-                    
+
                     <br />
                     <div class="olvide_contraseña taC"><!-- INICIO RECORDAR CONTRASEÑA -->
                       <small>

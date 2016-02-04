@@ -27,11 +27,18 @@
 
 <?php
     $Autenticado = Session::Get('autenticado') ;
+    $MyVaraible    = Session::Get('MyVaraible');
     if ( isset($Autenticado ) && $Autenticado == TRUE){
-        $Autenticado = 'Autenticado';
+        $Autenticado = 'Autentica';
     }else{
-      $Autenticado = 'Nooo...Autenticado';
+      $Autenticado = 'Nooo...Autentica';
     }
+    if ( isset($MyVaraible ) ){
+        $MyVaraible = 'Ok..OK';
+    }else{
+      $MyVaraible = 'Nooo...OK';
+    }
+    $Autenticado = $Autenticado . '-' . $MyVaraible ;
  ?>
 
 

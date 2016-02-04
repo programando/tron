@@ -1294,7 +1294,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $Vr_Usado_Cupon_Descuento = 0;
           $Puntos_Utilizados        = 0;
           $Comisiones_Utilizadas    = 0;
-          $autenticado              = false;
+          $autenticado              = FALSE;
           $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
           //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
           $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');
