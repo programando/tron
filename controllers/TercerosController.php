@@ -17,6 +17,15 @@ class TercerosController extends Controller
     public function Index() { }
 
 
+    public function referidos( $idterero = 0, $codigousuario = '' ){
+        Session::Set('idtercero_presenta',0);
+        Session::Set('codigousuario','');
+
+        Session::Set('idtercero_presenta' , $idterero);
+        Session::Set('codigousuario'     , $codigousuario);   // Código del usario que presenta en en la red
+        header('Location: ' . BASE_URL );
+    }
+
     public function modificacion_datos_registro(){
         $this->View->SetCss(array("modificacion_datos_registro"));
         $this->View->SetJs(array('modificacion_datos_registro'));
@@ -40,7 +49,6 @@ class TercerosController extends Controller
            CONSULTA DATOS DEL USUARIO CON  LA IDENTIFICACION Y EL CÓDIGO      */
        Session::Set('Generando_Pedido_Amigo', FALSE);
        $identificacion = strtoupper( General_Functions::Validar_Entrada('identificacion','TEXT') );
-      // $codigousuario  = strtoupper( General_Functions::Validar_Entrada('codigousuario','TEXT') );
        $Respuesta      ='';
        if ( strlen( trim( $identificacion ) ) == 0 ) { //|| strlen( trim( $codigousuario) ) == 0
           $Respuesta ='NO VACIOS';
@@ -983,7 +991,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     }
 
 
-    public function registro($presentado_por_amigo = 0)  {
+    public function registro( $presentado_por_amigo = 0 )  {
         if ( $presentado_por_amigo == 0 ) {
             $this->Registro_Re_Establecer_Tercero_Presenta();
           }
@@ -995,6 +1003,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos          = $this->Departamentos->Consultar();
         $this->View->Total_Kit_Inscripcion  = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
+
         if ( Session::Get('codigousuario') == 'JUANBAUTISTA'){
           $codigo = substr(Session::Get('codigousuario') ,0,4);
           $codigo_2 = substr(Session::Get('codigousuario') ,4,8);
