@@ -71,8 +71,8 @@ a, input, button						{ outline:none !important; }
 .headIndustrial .menGion .navbar-nav li	a:hover			{ background-color:#BA070D; }
 .headIndustrial .menGion .navbar-nav li.active			{ background-color:#BA070D; }
 
-.menGion .navbar-nav li	a.infoSpecial					{ background-color:#fc8e01; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#0469ED; }
-.menGion .navbar-nav li	a.infoSpecial:hover				{ background-color:#fff; color:#0469ED; }
+.menGion .navbar-nav li	a.infoSpecial					{ background-color:#fc8e01; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#fff; }
+.menGion .navbar-nav li	a.infoSpecial:hover				{ background-color:#333; color:#fff; }
 
 
 /* INDEX */

@@ -74,7 +74,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" title="Información" class="t12 infoSpecial rr20" >
-                                    <img src="<?= BASE_IMG_CATEGORIAS_INDEX ;?>info.png" style="padding-bottom:2px" /> &nbsp; INFO
+                                    <img src="<?= BASE_IMG_CATEGORIAS_INDEX ;?>info2.png" style="padding-bottom:2px" /> &nbsp; <strong>INFO</strong>
                                 </a>
                             </li>
                             <li class="onlyMax">

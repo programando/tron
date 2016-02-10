@@ -32,12 +32,12 @@
                     <td style="vertical-align:middle">  <?= $nom_producto  ; ?> </td>
                     <td style="vertical-align:middle" class="taC">
                     	<a href="<?= BASE_URL ;?>productos/vista_ampliada/<?= $idproducto ?>/<?=  $idorden_nv_0 ;?>" class="btn btn-info">Ver Producto</a>
-                     <a href="#" class="btn btn-info" id='borrar_producto_favoritos'
+                     <a href="#" class="btn btn-danger" id='borrar_producto_favoritos'
                         idtercero = <?= $idtercero ;?>
                         idproducto = <?= $idproducto ;?>
                         nomproducto ='<?= $nom_producto  ;?>'
                      >
-                     Borrar Producto</a>
+                     Borrar</a>
                     </td>
                 </tr>
             <?php endforeach ;?>
