@@ -16,6 +16,7 @@
       $id_pv_tron_escala_a      = 'pv_tron_escala_a'.$Producto[0]['idproducto'];
       $id_pv_tron_escala_b      = 'pv_tron_escala_b'.$Producto[0]['idproducto'];
       $id_pv_tron_escala_c      = 'pv_tron_escala_c'.$Producto[0]['idproducto'];
+      $id_categoria_producto    = $Producto[0]['id_categoria_producto'];
       $idescala                 = $Producto[0]['idescala'];
       $idgrupo                  = $Producto[0]['idgrupo'];
       $idproducto               = $Producto[0]["idproducto"];
@@ -57,10 +58,7 @@
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
 
 <!-- INICA LA PRESENTACION DEL ARTICULO:IMG, PRECIO , TABLA-->
-<div  id				   = ""
-      autenticado          = "<?= $autenticado; ?>"
-      idtipo-plan-compras  = "<?= $idtipo_plan_compras; ?>">
-</div>
+
 
 <div class="ionix">
     <div class="general pAA30">
@@ -256,7 +254,7 @@
                                 <div class="imagen_tecnoaplicadas_producto dIB" title="Producto fabricado por: Balquimia S.A.S.">
                                     <div class="tabAll">
                                         <div class="tabIn">
-                                            <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" alt="">
+                                            <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="50" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -283,55 +281,6 @@
 </div>
 
 
-<?php if ( $idescala > 0 ) : ?>
-<!-- TABLA-->
-   <div class="row">
-       <div class="col-lg-12">
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Escala</th>
-                  <th>A</th>
-                  <th>B</th>
-                  <th>C</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Cantidad</td>
-                  <?php
-                      foreach ($this->Producto_Escalas_Rangos as $Escalas)
-                        {
-                            $inicio = $Escalas["inicio"] ;
-                            $final  = $Escalas["final"];
-                   ?>
-                    <td>
-                    <?= $inicio ?>
-                    <?php
-                       if($inicio!= $final)
-                          {
-                              if( $final!= 0)
-                                   { echo "- ". $final; }
-                              else { echo "ó +";        }
-                          }
-                      ?>
-                      </td>
-                  <?php }?>
-                </tr>
-                <tr>
-                  <td>Precio Unit.</td>
-                  <td> <?= Numeric_Functions::Formato_Numero($pv_tron_escala_a,'DEC') ;?> </td>
-                  <td> <?= Numeric_Functions::Formato_Numero($pv_tron_escala_b,'DEC');?> </td>
-                  <td> <?= Numeric_Functions::Formato_Numero($pv_tron_escala_c,'DEC');?> </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-       </div>
-   </div><!-- FIN DE LA TABLA-->
-<?php endif ;?>
 
 <div class="ionix">
     <div class="general pAA30">

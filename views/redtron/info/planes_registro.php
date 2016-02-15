@@ -88,7 +88,7 @@
 
         <div class="col-sm-8 col-xs-12 vcenter">
             En este plan se pueden registrar todas las personas que quieran comprar en nuestra tienda virtual y desean beneficiarse
-            de los precios especiales, ofertas y concursos para ganar descuentos.
+            de los precios especiales.
         </div><!--
         --><div class="col-sm-4 col-xs-12 vcenter taLC">
         	<img src="<?= BASE_IMG_EMPRESA ;?>visitanteI.png"/>
