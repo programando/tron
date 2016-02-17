@@ -654,6 +654,34 @@ $('#informes-red-usuarios').on('click',function(){
 
 
 
+$('.contenedor_cuenta').on('click','.btnUsuarioRed', function(){
+  var idtercero = $(this).attr('id');
+      $.ajax({
+         dataType: 'json',
+         url:      '/tron/terceros/Consulta_Datos_Usuario/'+idtercero,
+         type:     'post',
+				    success:  function (datos){
+				    		$Texto = 'Nombre      : ' + datos.nombre+'<br>' ;
+				    		$Texto = $Texto + 'Código      : ' + datos.codigousuario +'<br>' ;
+				    		$Texto = $Texto + 'Email       : ' + datos.email +'<br>' ;
+				    		$Texto = $Texto + 'Nro.Celular : ' + datos.celular +'<br><br>' ;
+				    	new Messi($Texto,
+         									{
+         										title: 'Información del Usuario',modal: true, titleClass: 'info',
+          								 buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
+         });
+
+
+				      }
+				     });
+				  });
+
+
+
+
+
+
+
 $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
 		 var $idtercero             = $(this).attr('idtercero');
 			var $idpedido              = $(this).attr('idpedido');

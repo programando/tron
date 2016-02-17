@@ -6,7 +6,7 @@
     $cuota_3_valor                = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_valor'] );
     $cuota_2_tope_ganancias       = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_2_tope_ganancias'] );
     $cuota_3_tope_gananacias      = Numeric_Functions::Formato_Numero($this->Bonificacion_Cuotas[0]['cuota_3_tope_gananacias'] );
-    $Total_Derecho_Inscripcion    = $this->Bonificacion_Cuotas[0]['cuota_1_valor'] + $this->Bonificacion_Cuotas[0]['cuota_2_valor'] + $this->Bonificacion_Cuotas[0]['cuota_3_valor'] ;
+    $Total_Derecho_Inscripcion    = $this->Bonificacion_Cuotas[0]['cuota_1_valor']  ;
     $Total_Derecho_Inscripcion    = Numeric_Functions::Formato_Numero($Total_Derecho_Inscripcion);
     $valor_transferencia_bancaria =  Session::Get('valor_transferencia_bancaria');
     $valor_minimo_transferencias  =  Session::Get('valor_minimo_transferencias');
@@ -123,7 +123,7 @@
    <li><!--¿Quiénes tienen derecho a recibir comisiones? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Quiénes tienen derecho a recibir comisiones?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Todos los usuarios registrados en el Plan Empresario TRON, que se encuentren activos en la red y que al último día del mes a liquidar cumplan con alguna de las siguientes condiciones: <br><br> 1) Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras. <br> 2) Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras. <br> 3) Que tengan vinculados compradores ocasionales y éstos hayan hecho compras <br> 4) Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON y éstos hayan hecho compras.    </li>
+             <li>Todos los usuarios registrados en el Plan Empresario TRON, que se encuentren activos en la red y que al último día del mes a liquidar cumplan con alguna de las siguientes condiciones: <br><br> 1) Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras. <br> 2) Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras. <br> 3) Que tengan vinculados compradores ocasionales y éstos hayan hecho compras <br> 4) Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON o en el plan Compradores Ocasionales y éstos hayan hecho compras.    </li>
          </ul><!--Contenido -->
    </li><!--¿Quiénes tienen derecho a recibir comisiones? -->
 
@@ -336,9 +336,7 @@
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuánto vale el Derecho de Inscripción y cuándo se paga?    </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
              <li>
-             Cien mil pesos ( <?= $Total_Derecho_Inscripcion ;?> ) que se cancelarán así: <br /><br />
-             <?= $cuota_1_valor ;?> al ingreso. <br /> <?= $cuota_2_valor ;?>  , cuando tus ganancias en comisiones sean mayores a : <?= $cuota_2_tope_ganancias ;?> <br />
-             <?= $cuota_3_valor ;?> , cuando tus ganancias en comisiones sean mayores a : <?= $cuota_3_tope_gananacias ;?> <br /></li>
+                El derecho de inscripción tiene un costo de : <?= $cuota_1_valor ;?> que se paga en el momento del registro como empresario TRON.
          </ul><!--Contenido -->
    </li><!--¿Cuánto vale el Derecho de Inscripción y cuándo se paga?  -->
 
@@ -557,6 +555,14 @@
                        <li>Utilízalo de acuerdo a las instrucciones de uso que se encuentran en el envase.</li>
                    </ul>
                </li>
+               <br>
+        <div class="videoWrapper">
+          <iframe width="854" height="480" src="https://www.youtube.com/embed/IM87aby0DNQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+
+
+
            </ul><!--Contenido -->
      </li><!--¿Cómo debo de preparar los productos?  -->
    </ul><!--Menu accordion -->

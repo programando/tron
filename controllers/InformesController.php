@@ -133,7 +133,7 @@
             if ( $idtercero == FALSE ){
               $idtercero = Session::Get('idtercero');
             }
-            $this->View->Anios    = $this->Informes->Anios_Disponibles_Consultas();
+
             $this->View->Terceros = $this->Informes->Participacion_En_La_Red($idtercero,$anio);
             $this->View->Cantidad_Registros = $this->Informes->Cantidad_Registros;
             $this->View->Mostrar_Vista_Parcial("participacion_la_red");

@@ -41,6 +41,13 @@
 							return $Registro;
 
 				}
+				public function Consulta_Datos_Usuario ($idtercero ){
+						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_idtercero ( $idtercero )");
+							return $Registro;
+
+				}
+
+
 
 
 				public function Consultar_Saldos_Comisiones_Puntos_x_Idtercero(){

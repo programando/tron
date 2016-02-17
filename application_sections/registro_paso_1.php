@@ -121,7 +121,7 @@
             </tr>
 
             <tr>
-                <td class="text-right" style="vertical-align:middle;"><strong>REGISTRARME EN EL PLAN:</strong></td>
+                <td class="text-right" style='vertical-align:middle;'><strong>REGISTRARME EN EL PLAN:</strong></td>
                 <td class="text-center">
                     <button type="button" id="btn_plan1"  idplan ="1" class="btn-registrar-en-plan btn btn-danger t16">
                         COMPRADOR<br />OCASIONAL

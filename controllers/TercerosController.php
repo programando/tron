@@ -16,6 +16,22 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+    public function Consulta_Datos_Usuario( $idtercero ){
+       $tercero       = $this->Terceros->Consulta_Datos_Usuario ( $idtercero);
+       $nombre        = String_Functions::Formato_Texto( $tercero[0]['pnombre']);
+       $apellido      = String_Functions::Formato_Texto( $tercero[0]['papellido']);
+       $empresa       = String_Functions::Formato_Texto( $tercero[0]['razonsocial']);
+       $nombre        = trim ( $nombre . ' ' .$apellido .' '.$empresa);
+       $codigousuario = $tercero[0]['codigousuario'];
+       $email         = $tercero[0]['email'];
+       $celular       = $tercero[0]['celular1'];
+       if ( $tercero[0]['mis_datos_son_privados'] == TRUE ){
+          $email   = 'Dato Privado';
+          $celular = 'Dato Privado' ;
+       }
+       $datos    = compact('nombre','codigousuario','email','celular' );
+        echo json_encode($datos );
+    }
 
     public function referidos( $idterero = 0, $codigousuario = '' ){
         Session::Set('idtercero_presenta',0);

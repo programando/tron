@@ -24,13 +24,13 @@
 								return 			$Registro   ;
 						}
 
-						public function Participacion_En_La_Red($idtercero,$anio){
+						public function Participacion_En_La_Red($idtercero, $anio){
 								$Registro                = $this->Db->Ejecutar_Sp("terceros_informes_red_total_y_amigos_presentados_mes_a_mes($idtercero,$anio)");
 								$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 								return 			$Registro   ;
 						}
 
-						public function Amigos_Presentados($idtercero,$anio){
+						public function Amigos_Presentados($idtercero, $anio){
 								$Registro                = $this->Db->Ejecutar_Sp("terceros_informes_red_total_y_amigos_presentados_mes_a_mes($idtercero,$anio)");
 								$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 								return 			$Registro   ;

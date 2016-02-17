@@ -35,3 +35,8 @@ $('.usu-1').on('click',function()
   Comisiones_x_IdTercero($Usuario_Seleccionado);
 
 })
+
+
+
+
+

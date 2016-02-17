@@ -85,7 +85,7 @@
             </div>
 
             <!-- incluciones de docuementos -->
-            <?php include (APPLICATION_SECTIONS . 'notificaciones_recomendar_producto.php');?>
+
             <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
             <!-- incluciones de docuementos -->
 
@@ -106,7 +106,8 @@
                     <?php if($id_agrupacion > 0): ?>
                         <!-- ver referencias -->
                         <div class="mb30">
-                            <a href="#" class="nuvv" title="Productos semejantes con el mismo precio cuyas compras suman para alcanzar una misma escala" style="text-decoration:none;">
+                            <a href="#" class="nuvv" title="Productos semejantes con el mismo precio cuyas compras suman para alcanzar una misma escala"
+                                style="text-decoration:none;">
                                 <strong class="aS colurAd" style="color: #333;">Ver otras referencias:</strong>
                             </a>
                             <a href="<?=BASE_URL ;?>productos/varias_referencias/<?= $id_agrupacion; ?>" class="aS colorBlue">
@@ -211,7 +212,7 @@
 
                         <!-- agregar favorito -->
                         <div class="">
-                            <?php if ( Session::Get('autenticado')== TRUE && $this->Favorito == FALSE )  :?>
+                            <?php if (   $this->Favorito == FALSE )  :?>
 
                                 <a class="cP" id="agregar-producto-favoritos" idproducto ="<?= $idproducto ;?>" idtercero = "<?= Session::Get('idtercero_pedido') ;?>"
                                     herf="#" title="Los productos que compras con frecuencia agrégalos a Favoritos para acceder a ellos fácilmente desde Mi Cuenta.">
@@ -279,8 +280,6 @@
         </div>
 	</div>
 </div>
-
-
 
 <div class="ionix">
     <div class="general pAA30">
