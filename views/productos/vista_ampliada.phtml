@@ -319,11 +319,15 @@
 								$Primer_Tab=false;
 					?>
 
-                            <div class="tab-pane fade in active" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?> </div>
+                            <div class="tab-pane fade in active contenido-tab" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?>
+          <br style="clear:both;">
+                            </div>
 
                     <?php  } else { ?>
 
-                    		<div class="tab-pane fade" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?></div>
+                    		<div class="tab-pane fade contenido-tab" id="<?= $IdTab ;?>"> <br> <?= $Información_Tab ; ?>
+ <br style="clear:both;">
+                        </div>
 
                     <?php
                     		}
