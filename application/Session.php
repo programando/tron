@@ -9,6 +9,7 @@
 	{
 		public static function Init( ){
 			session_start();
+            session_regenerate_id();
 		}
 
         /**
@@ -29,9 +30,12 @@
                     }
                 }
               } else {
+                foreach($_SESSION as $key => $value) {
+                        $_SESSION[$key] = NULL;
+                        unset( $_SESSION[$key] );
+                }
 
-
-                 $_SESSION           = array();
+                $_SESSION           = array();
                 session_unset();
                 session_unset( $_SESSION );
                 session_destroy();
