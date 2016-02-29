@@ -77,8 +77,8 @@ $.ajax({
 	      	 			if (Siguiente_Paso =='DIRECCION' ){
 	      	 						window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
 	      	 			}else{
-	      	 				window.location.href = "/tron/productos/categorias_marcas/";
 	      	 				Iniciar_Sesion_Segura (Parametros );
+	      	 				//window.location.href = "/tron/productos/categorias_marcas/";
 	      	 			}
 	      	 }
 
