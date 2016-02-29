@@ -63,7 +63,7 @@ $.ajax({
 	      	 			if (Siguiente_Paso =='DIRECCION' ){
 	      	 						window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
 	      	 			}else{
-	      	 				window.location.href = "/tron/Index/industrial";
+	      	 				window.location.href = "/tron/productos/categorias_marcas/";
 	      	 			}
 	      	 }
 
