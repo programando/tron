@@ -247,7 +247,7 @@ class CarritoController extends Controller{
       $this->View->Departamentos = $this->Departamentos->Consultar();
       Session::Set('iddireccion_despacho',   0 );
       Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
-      if (Session::Get('autenticado')== FALSE ) {
+      if (Session::Get('logueado')== FALSE ) {
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
       }else      {
         $this->View->Direcciones = $this->Terceros->Direcciones_Despacho();
@@ -446,10 +446,10 @@ class CarritoController extends Controller{
      */
     Session::Set('kit_combos_eliminados', FALSE);
 
-    if ( Session::Get('autenticado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
+    if ( Session::Get('logueado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
       return;
     }
-    if (Session::Get('autenticado')== TRUE && Session::Get('kit_comprado') == FALSE){
+    if (Session::Get('logueado')== TRUE && Session::Get('kit_comprado') == FALSE){
       return;
     }
 
@@ -838,7 +838,7 @@ public function Totalizar_Carrito(){
           $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron      + 0;
         }
 
-        if ( Session::Get('autenticado') == FALSE ){
+        if ( Session::Get('logueado') == FALSE ){
             if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     {
                   $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Ocasional ;
                   $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;
@@ -1192,7 +1192,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
         $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
         $aplica_pago_adicional_payu_latam     = FALSE;
         $cumple_compras_tron                  = FALSE;
-        if ( Session::Get('autenticado') == TRUE ) {
+        if ( Session::Get('logueado') == TRUE ) {
           if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
                  ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
                  ($usuario_viene_del_registro == TRUE && $kit_comprado  == FALSE)){
@@ -1201,7 +1201,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
                   $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
               }
         }
-      if ( Session::Get('autenticado') == FALSE ) {
+      if ( Session::Get('logueado') == FALSE ) {
             if ( ($compras_totales_tron >= $compra_minima_productos_tron)  || ($compras_totales_industrial >= $compra_minima_productos_industriales ) ) {
                $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
               }else{
@@ -1294,7 +1294,6 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $Vr_Usado_Cupon_Descuento = 0;
           $Puntos_Utilizados        = 0;
           $Comisiones_Utilizadas    = 0;
-          $autenticado              = FALSE;
           $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
           //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
           $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');

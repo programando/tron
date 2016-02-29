@@ -13,7 +13,7 @@
             </a>
         </li>
 
-        <?php if ( Session::Get('autenticado')== FALSE) : ; ?>
+        <?php if ( Session::Get('logueado')== FALSE) : ; ?>
           <li class  ="list-line" >
                 <a class="link"  id='link2'   href="<?=BASE_URL ;?>carrito/finalizar_pedido_identificacion/">
                         Identificación

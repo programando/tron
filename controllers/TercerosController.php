@@ -16,6 +16,7 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+
     public function Consulta_Datos_Usuario( $idtercero ){
        $tercero       = $this->Terceros->Consulta_Datos_Usuario ( $idtercero);
        $nombre        = String_Functions::Formato_Texto( $tercero[0]['pnombre']);
@@ -118,7 +119,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     public function Comprobar_Tipo_Usuario(){
       //    JUNIO 25 2015
       //  COMPRUEBA QUE EL USUARIO NO SEA CLIENTE O EMPRESARIO PARA COMPRAR EL KIT DE INICIO
-      if ( Session::Get('autenticado') == TRUE ){
+      if ( Session::Get('logueado') == TRUE ){
           $idtipo_plan_compras =  Session::Get('idtipo_plan_compras');
           $kit_comprado                   = Session::Get('kit_comprado');
       }else{
@@ -897,7 +898,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('codigos_usuario',                 $Usuarios);
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
-      Session::Set('autenticado',                     TRUE);
+      Session::Set('logueado',   TRUE);
 
 
     }
@@ -907,13 +908,13 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
+       Session::Set('logueado',   FALSE);
 
        if (!$Registro ) {
          $Resultado_Logueo = "NO-Logueo_OK";
        }else {
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
-            Session::Set('autenticado',                     TRUE);
          }
          $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');
          if (!isset( $Siguiente_Paso ) ) {
@@ -922,6 +923,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
          $Datos            = compact('Resultado_Logueo','Siguiente_Paso');
          echo json_encode($Datos,256);
       }
+
 
     public function Verificar_Activacion_Usuario(){
       /** JUNIO 13 DE 2015

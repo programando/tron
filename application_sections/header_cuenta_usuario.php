@@ -1,24 +1,26 @@
-<?php if (Session::Get('autenticado') == FALSE ) :?>
+<?php if (Session::Get('logueado') == FALSE ) :?>
 
 	<!-- INFORMACION SOBRE CUENTAS-->
 	<div class="taRC">
+
         <a href="#myModal" class="aS p10 colorRed dIB" data-toggle="modal" data-target="#myModal">
-            <span class="glyphicon glyphicon-user arro rr50"></span> Iniciar Sesión 
+            <span class="glyphicon glyphicon-user arro rr50"></span> Iniciar Sesión
         </a>
+
         <a href="<?=BASE_URL ;?>terceros/registro" class="aS p10 colorRed dIB">
-            <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme 
+            <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
         </a>
 	</div>
-    <div class="onlyPCBoo"><br /><br /><br /></div>	
-    
+    <div class="onlyPCBoo"><br /><br /><br /></div>
+
 <?php endif ;?>
 
 
 
-<!-- INFORMACIÓN PARA USUARIOS AUTENTICADOS -->
-<?php if (Session::Get('autenticado') == TRUE ) :?>
- 
-    <div class="dropCuenta taRC">     
+<!-- INFORMACIÓN PARA USUARIOS LOGUEADOS -->
+<?php if (Session::Get('logueado') == TRUE ) :?>
+
+    <div class="dropCuenta taRC">
     <!-- Bienvenido: -->
         <div class="dropdown dIB">
             <button class="btn dropdown-toggle aS colorRed" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -26,7 +28,7 @@
                 <?= ucwords(strtolower(( Session::Get('nombre_usuario_pedido')))) ;?>
                 <span class="caret"></span>
             </button>
-            
+
             <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
                 <?php if ( Session::Get('Generando_Pedido_Amigo')== FALSE) :?>
                     <li role="presentation">
@@ -48,8 +50,8 @@
                 </li>
             </ul>
         </div>
-     
+
     </div>
-    <div class="onlyPCBoo"><br /><br /><br /></div>	 
- 
+    <div class="onlyPCBoo"><br /><br /><br /></div>
+
 <?php endif ;?>

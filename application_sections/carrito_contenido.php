@@ -109,7 +109,7 @@
 
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-  $logueado                              = Session::Get('autenticado');
+  $logueado                              = Session::Get('logueado');
 ?>
 
  <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) || $logueado == FALSE ) :?>

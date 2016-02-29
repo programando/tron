@@ -107,7 +107,7 @@
           $this->Configurar_Cuenta('Recomendación de ' .$Nombre_Quien_Envia );
           $this->Email->AddAddress($Email_Amigo );
           $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-          if ( Session::Get('autenticado') == TRUE ) {
+          if ( Session::Get('logueado') == TRUE ) {
             $idtercero_presenta     = Session::Get('idtercero');
             $codigousuario_presenta = Session::Get('codigousuario');
             $Url_Imagen        = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/1/$idtercero_presenta/$codigousuario_presenta/";

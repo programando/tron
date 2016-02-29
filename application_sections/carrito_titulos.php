@@ -1,6 +1,6 @@
 <?php
 	$cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-	$logueado                              = Session::Get('autenticado');
+	$logueado                              = Session::Get('logueado');
 ?>
 
 <?php if ( $logueado == TRUE ){?>
@@ -20,7 +20,7 @@
         <th class="text-center  titulos-tabla"><strong>Producto</strong> </th><!--Nombre del producto -->
         <th class="text-center  titulos-tabla"><strong>Presentación</strong></th>
         <th class="text-center  titulos-tabla"><strong>Cantidad</strong> </th><!--Cantidad -->
-        
+
         <?php if ($cumple_condicion_cpras_tron_industial == FALSE ||  $logueado == FALSE ) :?>
             <th class="text-right   titulos-tabla"><strong>Precio Unit.</strong> </th><!--Precio UNIT. -->
             <th class="text-right   titulos-tabla"><strong>Total</strong> </th><!--Total -->

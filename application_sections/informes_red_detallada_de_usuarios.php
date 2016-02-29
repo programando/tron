@@ -1,3 +1,13 @@
+
+<?php if (empty ( $this->row )) :?>
+      <br>
+      <br>
+      <h3 class="text-center">NO EXISTEN USUARIOS EN RED PARA EL USUARIO SELECCIONADO</h3>
+ <?php exit;?>
+
+<?php endif ;?>
+
+
 <div class="contenedor-datos-informe">
 
 <?php

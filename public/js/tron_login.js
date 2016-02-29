@@ -46,31 +46,30 @@ var Mensaje_Resultado_Cambio_Password_Correo_No_Existe = function()
 
 
 var Iniciar_Sesion = function(Parametros){
-			$.ajax({
+$.ajax({
 							data:  Parametros,
 							dataType: 'json',
 							url:      '/tron/terceros/Validar_Ingreso_Usuario',
 							type:     'post',
 							async:    false,
-       success:  function (resultado)
-      	 {
-      	 	if (resultado.Resultado_Logueo!='Logueo_OK')	{
-      	 				Mostrar_Mensaje('Los datos registrados no pudieron ser validados. Inténtelo nuevamente....');
-      	 			}
-      	 		  else{
-      	 					Mostrar_Mensaje('Iniciando sesión en Red de Usuarios TRON... espere unos segundos...');
-      	 					if (resultado.Siguiente_Paso =='DIRECCION')		{
-      	 								window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
-      	 							}else {
-      	 									window.location.href = "/tron/Index/";
-      	 							}
+       success:  function (resultado) {
+       	Resultado_Logueo = resultado.Resultado_Logueo;
+       	Siguiente_Paso   =  resultado.Siguiente_Paso;
+								if (Resultado_Logueo !='Logueo_OK')	{
+	      	 				Mostrar_Mensaje('Los datos registrados no pudieron ser validados. Inténtelo nuevamente....');
+	      	 				return ;
+	      	 				}
+	      	 if ( 	Resultado_Logueo == 'Logueo_OK'){
+	      	 			if (Siguiente_Paso =='DIRECCION' ){
+	      	 						window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
+	      	 			}else{
+	      	 				window.location.href = "/tron/Index/";
+	      	 			}
+	      	 }
 
-      	 		}
       	 }
 				});
-}
-
-
+	}
 
 
 function Recuperar_Password(Parametros)
@@ -173,6 +172,7 @@ $('#login-username').on('focus',function(){
 $('.email-usuario').on('focusout',function(){
 		var $email = $('.email-usuario').val();
 		var $Parametros = {'email':$email};
+
 		Verificar_Activacion_Usuario($Parametros);
 });
 
@@ -185,6 +185,8 @@ $('#login-password').on('keypress',function(e){
 });
 
 
+
+
 //BOTON PARA INICIAR SESION. ENERO 30 DE 2015
 $('.btn-login').on('click', function(){
 	var email    =  $('.email-usuario').val();
@@ -193,18 +195,20 @@ $('.btn-login').on('click', function(){
  $("#msgbox").removeClass().addClass('messagebox').text('Iniciando sesión, por favor espere....').fadeIn(1000);
 	if (email.length==0 || password.length==0)
 		 {
-		 			Mostrar_Mensaje('Debe registrar los datos de Email y Contraseña.');
+		 		Mostrar_Mensaje('Debe registrar los datos de Email y Contraseña.');
 		 	  return false;
 		 }
 	 var Parametros = {"Password":password, "email":email };
 	 // JUNIO 26 DE 2015. EN EL MOMENTO DE LOGUEASE VERIFICAR QUE SI ES EMPRESARIO O CLIENTE
-	 // NO TENGA EN EL CARRITO E KIT DE INICIO Y LOS PRODUCTOS PROMOCIONALES
+	  //NO TENGA EN EL CARRITO E KIT DE INICIO Y LOS PRODUCTOS PROMOCIONALES
 
-	 Iniciar_Sesion(Parametros);
+	  Iniciar_Sesion(Parametros);
 	 /*alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
 	 Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales();*/
 	return false;
 });
+
+
 
 // BOTON PARA RECUPERAR CONTRASEÑA $("#btn-recupera-pass").on('click',function(){
 $("#btn-recupera-pass").on('click',function(){

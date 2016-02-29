@@ -34,10 +34,10 @@
       $idnomproducto            = 'nomproducto'.$Producto[0]['idproducto'];
       $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
       $id_agrupacion            = $Producto[0]['id_agrupacion'];
-      $autenticado              = Session::Get('autenticado');
+      $logueado              = Session::Get('logueado');
       $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
 
-      if ( $autenticado  == TRUE ){
+      if ( $logueado  == TRUE ){
            $Pagina_Actual = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/1/';
            $Pagina_Actual = $Pagina_Actual . Session::Get('idtercero').'/'.Session::Get('codigousuario').'/';
       }else{

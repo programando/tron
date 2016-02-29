@@ -15,6 +15,20 @@ class IndexController extends Controller
 
     }
 
+    public function industrial(){
+        Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
+        $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
+        Session::Set('Cantidad_Destacados_Industrial', $this->Productos->Cantidad_Registros);
+        $this->View->SetCss(array('tron_menu_footer','tron_index','tron_carrito',
+                                  'tron_varias_referencias-ofertas-tecnologias_SA',
+                                  'tron-vista-industrial','tron_estilos_slider',
+                                  'tron_estilos-titulos_destacados_novedades_ofertas'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //,'tron_login'
+        $this->View->Mostrar_Vista('industrial');
+    }
+
+
+
     public function Index() {
         //$info               = General_Functions::Datos_Navegador();
         //$Tipo_Navegador     = $info['browser'];
@@ -23,13 +37,13 @@ class IndexController extends Controller
 
         $this->Parametros_Iniciales();
 
-        $usuario_autenticado = Session::Get('autenticado');
-        if ( !isset( $usuario_autenticado )){
-            Session::Set('autenticado',FALSE);
+        $usuario_logueado = Session::Get('logueado');
+        if ( !isset( $usuario_logueado )){
+            Session::Set('logueado',FALSE);
             Session::Set('idtipo_plan_compras',1);
         }
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
-        if ( $usuario_autenticado  == FALSE){
+        if ( $usuario_logueado == FALSE){
             $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
@@ -115,8 +129,8 @@ private function Parametros_Iniciales(){
 
 
     public function Cerrar_Sesion() {
-        Session::Set('autenticado', FALSE );
-        session_unset($_SESSION['autenticado']);
+        Session::Set('logueado', FALSE );
+        session_unset($_SESSION['logueado']);
         Session::Destroy();
         //header('location:' . BASE_URL .'cerrar.php');
         //header('location:' . BASE_URL .'redtron/contactanos');
@@ -142,7 +156,7 @@ private function Parametros_Iniciales(){
 				<script src ="../public/js/super_jquerion.js" type="text/javascript" ></script>
 
 				<script language="JavaScript" type="text/javascript">
-					setTimeout(\'self.location=\"../\"\', 3000)
+					setTimeout(\'self.location=\"../\"\', 500)
 				</script>
 			</head>
 			<body>
@@ -162,17 +176,6 @@ private function Parametros_Iniciales(){
 		;
     }
 
-    public function industrial(){
-        Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
-        $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
-        Session::Set('Cantidad_Destacados_Industrial', $this->Productos->Cantidad_Registros);
-        $this->View->SetCss(array('tron_menu_footer','tron_index','tron_carrito',
-                                  'tron_varias_referencias-ofertas-tecnologias_SA',
-                                  'tron-vista-industrial','tron_estilos_slider',
-                                  'tron_estilos-titulos_destacados_novedades_ofertas'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //,'tron_login'
-        $this->View->Mostrar_Vista('industrial');
-    }
 
 
 }

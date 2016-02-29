@@ -3,7 +3,7 @@
   <td colspan="6" class="text-right">
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
-        <?php if (Session::Get('autenticado') == FALSE): ; ?>
+        <?php if (Session::Get('logueado') == FALSE): ; ?>
           <div class="col-resumen-pedido"><strong>Transporte <small>( Calculado para Cali ):</small></strong></div>
         <?php else : ?>
            <div class="col-resumen-pedido"><strong>( + ) Transporte <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
@@ -29,7 +29,7 @@
 
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-  $logueado                              = Session::Get('autenticado');
+  $logueado                              = Session::Get('logueado');
 ?>
 
  <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) || $logueado == FALSE) :?>

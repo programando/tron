@@ -201,6 +201,7 @@
           }
           $this->View->SetCss(array("cuenta_informe_mi_red"));
           $this->View->row =   $this->Informes->Total_Amigos_Detallado_Por_Nivel ( $idtercero);
+
           $this->View->Mostrar_Vista_Parcial("mi_red_de_usuarios");
         }
 

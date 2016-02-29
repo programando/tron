@@ -7,9 +7,9 @@ var $kit_comprado            = false;
 var $Respuesta_Servidor      ='';
 // Eventos ::: Notificaicones
   $('#notificaciones').on('click', function(){
-  	 $autenticado 							  = $('#contenido').attr('autenticado');
+  	 $logueado 							  = $('#contenido').attr('logueado');
   	 $id_tipo_plan_compras = $('#contenido').attr('idtipo-plan-compras');
-  	 if ($autenticado == false){
+  	 if ($logueado == false){
       $('.contenedor_notificaciones_no_logueado').fadeIn(1000);
       setTimeout(function() {
         $(".contenedor_notificaciones_no_logueado").fadeOut(6500);

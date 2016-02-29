@@ -232,7 +232,7 @@ class CarritoController extends Controller{
       $this->View->Departamentos = $this->Departamentos->Consultar();
       Session::Set('iddireccion_despacho',   0 );
       Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
-      if (Session::Get('autenticado')== FALSE ) {
+      if (Session::Get('logueado')== FALSE ) {
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
       }else      {
         $this->View->Direcciones = $this->Terceros->Direcciones_Despacho();
@@ -428,10 +428,10 @@ class CarritoController extends Controller{
      */
     Session::Set('kit_combos_eliminados', FALSE);
 
-    if ( Session::Get('autenticado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
+    if ( Session::Get('logueado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
       return;
     }
-    if (Session::Get('autenticado')== TRUE && Session::Get('kit_comprado') == FALSE){
+    if (Session::Get('logueado')== TRUE && Session::Get('kit_comprado') == FALSE){
       return;
     }
 
@@ -1180,7 +1180,7 @@ private function Determinar_Cumple_Condiciones_Precio_Especial(){
     $this->Terceros->Compra_Productos_Tron_Mes_Actual( $this->compras_tron  , $this->compras_industrial  );
     $Cumple_Condic_Cpras_Tron_Industial = FALSE;
 
-    if ( Session::Get('autenticado') == TRUE ) {
+    if ( Session::Get('logueado') == TRUE ) {
       $Cumple_Condic_Cpras_Tron_Industial   = Session::Get('cumple_condicion_cpras_tron_industial');
       $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
       $compra_minima_productos_industriales = Session::Get('minimo_compras_productos_ta');
@@ -1290,7 +1290,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $Vr_Usado_Cupon_Descuento = 0;
           $Puntos_Utilizados        = 0;
           $Comisiones_Utilizadas    = 0;
-          $autenticado              = FALSE;
+
           $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
           //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
           $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');

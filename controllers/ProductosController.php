@@ -228,7 +228,7 @@ class ProductosController extends Controller
       Session::Set('Id_Area_Consulta',$Id_Area_Consulta) ; // 2, Corresponde a productos de la linea hogar
       $idproducto                          = $Idproducto ;
       $this->View->Favorito = FALSE ;
-      if ( Session::Get('autenticado') == TRUE ) {
+      if ( Session::Get('logueado') == TRUE ) {
           $Producto_Favorito                   = $this->Productos->Favoritos_Consulta_x_IdTercero_IdProducto(Session::Get('idtercero'),  $Idproducto );
           if ( empty(  $Producto_Favorito   )){
              $this->View->Favorito = FALSE ;
