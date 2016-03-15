@@ -374,7 +374,6 @@ class CarritoController extends Controller{
         }
       }
      if ($this->Cantidad_Filas_Carrito > 0)  {
-        //$this->Hallar_Valor_Escalas_Productos();
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
         $this->Totalizar_Carrito();
         $this->Totalizar_Carrito();
@@ -1289,7 +1288,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
         $this->Depurar_Carrito();
         $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
-        $this->Hallar_Valor_Escalas_Productos();
+
         $this->Totalizar_Carrito();
         $this->Retornar_Totales_Carro_Json();
     }
@@ -1369,7 +1368,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
             if ($Cantidad>0)   {
                 $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto($IdProducto );
-                Debug::Mostrar( $IdProducto   );
+
                 $CarroTemporal['idproducto']            = $IdProducto;
                 $CarroTemporal['cantidad']              = $Cantidad ;
 
