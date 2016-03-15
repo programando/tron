@@ -25,16 +25,7 @@
                         </span>
                     </a>
                 </th>
-                <th class="text-center">
-                    <a class="nuvv" title="
-                    <img src='<?= BASE_IMG_EMPRESA ;?>img_tooltips3.png' style='float:left; margin:0 20px 10px 0' />
-                    Para aquellas personas que quieren beneficiarse de TODO lo que brinda TRON y desea compartirlo con sus familiares y amigos.
-                    <br style='clear:both;' /> ">
-                        <span class="aS colurAd">
-                            PLAN EMPRESARIO<br />TRON
-                        </span>
-                    </a>
-                </th>
+
             </tr>
         </thead>
 
@@ -49,14 +40,14 @@
                 </td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
+
             </tr>
 
             <tr>
                 <td>INVITACIÓN A CAPACITACIONES Y EVENTOS SOBRE EL MODELO DE NEGOCIO</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
+
             </tr>
 
 
@@ -64,8 +55,8 @@
             <tr>
                 <td>CÓDIGO DE USUARIO PARA INVITAR AMIGO A TU RED</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
+
             </tr>
 
             <tr>
@@ -77,7 +68,7 @@
                 </td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
+
             </tr>
 
 
@@ -90,34 +81,30 @@
                 <td>ACCESO A INFORMES ADMINISTRATIVOS SOBRE EL DESEMPEÑO A TU RED</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>
-                <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png "></td>
+
             </tr>
 
             <tr>
                 <td class="text-right">
                     Valor del kit de inicio <strong><small>(Calculado para Cali)</small></strong>:
-                    <br><br>
-                    Valor Derechos de inscripción <strong></strong>:
+
                 </td>
                 <td class="text-center">
-                    .<br><br>.
+ .
                 </td>
                 <td class="text-center">
                     $<?= number_format(Session::Get('valor_kit_inicio_ocasional'),0) ;?>
-                    <br><br>.
+
                 </td>
-                <td class="text-center">
-                    $<?= number_format(Session::Get('valor_kit_inicio_empresario'),0) ;?>
-                    <br><br>
-                    $<?= number_format(Session::Get('cuota_1_inscripcion'),0) ;?>
-                </td>
+
+
             </tr>
 
             <tr>
                 <td class="text-right"><strong>TOTAL A PAGAR <small> ( Calculado para Cali ) : </small></strong> </td>
                 <td class="text-center">.</td>
                 <td class="text-center">$ <?= number_format(Session::Get('valor_kit_inicio_ocasional'),0) ;?> </td>
-                <td class="text-center">$ <?= number_format($this->Total_Kit_Inscripcion,0) ;?> </td>
+
             </tr>
 
             <tr>
@@ -132,11 +119,7 @@
                         CLIENTE<br>TRON
                     </button>
                 </td>
-                <td class="text-center">
-                    <button type="button" id="btn_plan3"  idplan ="3"  class="btn-registrar-en-plan btn btn-danger t16">
-                        EMPRESARIO<br>TRON
-                    </button>
-                </td>
+
             </tr>
 
         </tbody>

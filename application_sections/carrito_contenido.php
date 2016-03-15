@@ -13,9 +13,9 @@
           $id_controles            = 'cantidad'.$ProductosCarro['idproducto'];
           $id_precio_final_tron    = 'precio_final_tron'.$ProductosCarro['idproducto'];
           $idescala                = $ProductosCarro['idescala'];
-          $pv_tron_escala_a        = $ProductosCarro['pv_tron_escala_a'];
-          $pv_tron_escala_b        = $ProductosCarro['pv_tron_escala_b'];
-          $pv_tron_escala_c        = $ProductosCarro['pv_tron_escala_c'];
+          $pv_tron_escala_a        = 0;
+          $pv_tron_escala_b        = 0;
+          $pv_tron_escala_c        = 0;
           $id_pv_tron              = $ProductosCarro['pv_tron'];
           $Id_Area_Consulta        = Session::Get('Id_Area_Consulta');
 
