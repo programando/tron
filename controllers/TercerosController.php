@@ -984,12 +984,16 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         *       ESTABLECE UN PARAMETRO idmcipio = 153 ( CALI ), PARA CONSULTAR DESDE EL INDEX CONTROLLER Y CARGAR CIERTAS VARIABLES
         */
 
-        if ( empty($idmcipio )){ $idmcipio = 153 ;}
+        if ( empty( $idmcipio) || $IdDireccion_Despacho == 0 ){
+            $idmcipio = 153 ;
+          }
+
         if ($IdDireccion_Despacho > 0) {
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho );
         }else  {
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_IdMcipio( $idmcipio );
         }
+
         Session::Set('iddireccion_despacho',            $IdDireccion_Despacho);
         Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
         Session::Set('iddpto',                          $Registro[0]["iddpto"]);

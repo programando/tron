@@ -734,9 +734,7 @@
 																			$_Otros_Productos_Vr_Declarado_ocasional   = $_Otros_Productos_Vr_Declarado_ocasional 		+ $Productos['valor_declarado_ocasional'];
 																			$_Otros_Productos_Vr_Declarado_tron        = $_Otros_Productos_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
 
-
 																			$_Otros_Productos_Peso_Gramos              = $_Otros_Productos_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
-
 																			$_Otros_Productos_Subsidio_Flete           = $_Otros_Productos_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
 																			$_Otros_Productos_Subsidio_Flete_Ocasional = $_Otros_Productos_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
 																			$_Otros_Productos_Subsidio_Flete_Tron      = $_Otros_Productos_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
@@ -751,6 +749,7 @@
 
 
 			        }// end foreach
+
 
 			        if ( $_04_Litros_Galon_Cantidad > 0 ){ 				// IF - 1						//// CALCULAR EL ESPECIO LIBRE
 			        			$_04_Litros_Galon_Unidades  = $_04_Litros_Galon_Cantidad /6;
@@ -826,6 +825,8 @@
 			        	  Session::Set('Carga_Variable_Unidades',   				$_Carga_Variable_Unidades);
 			        	  Session::Set('Otros_Productos_Vr_Declarado',  $_Otros_Productos_Vr_Declarado_tron);
 			        	  Session::Set('Otros_Productos_Vr_Declarado_Ocasional',  $_Otros_Productos_Vr_Declarado_ocasional);
+
+
 
 
 			        	  Session::Set('Otros_Productos_Peso_Gramos',   $_Otros_Productos_Peso_Gramos);
