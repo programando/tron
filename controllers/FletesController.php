@@ -514,7 +514,7 @@
 										if ($Costo_Total >  $Parametros[0]['rt_courrier_seguro'] )		{
 												$this->seguro_redetrans_courrier = $Costo_Total  * $PorcientoSeguro;
 										}else{
-												$this->seguro_redetrans_courrier = $MinimoSeguro *  $PorcientoSeguro;
+												$this->seguro_redetrans_courrier = 0 ; //$MinimoSeguro *  $PorcientoSeguro;
 										}
 										if ( $Flete_Total > 0 ) {
 												$this->valor_flete = $Flete_Total + $this->seguro_redetrans_courrier;
