@@ -875,7 +875,9 @@ public function Totalizar_Carrito(){
                 $Vr_Diferencia_Min_Ocasional = 0;
               }
 
-
+            if ( $Compras_Productos_Tron  > 0 ){
+              $Vr_Diferencia_Min_Ocasional = 0;
+            }
 
 
           $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
