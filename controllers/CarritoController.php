@@ -791,6 +791,7 @@ public function Totalizar_Carrito(){
 
         if ( Session::Get('Unidades_Adicionales') == TRUE){
 
+
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
@@ -867,10 +868,16 @@ public function Totalizar_Carrito(){
            if ( $Pedido_Ocasional   < 0 ) {
               $Pedido_Ocasional = 0;
            }
-          $Vr_Recaudo_Ocasional  = $Pedido_Ocasional  * $this->PayuLatam_Recaudo;
-          if ( $Vr_Recaudo_Ocasional  < $this->PayuLatam_Valor_Minimo  ) {
-            $Vr_Diferencia_Min_Ocasional   = $this->PayuLatam_Valor_Minimo  - $Vr_Recaudo_Ocasional;
-          }
+           if ( $Pedido_Ocasional < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo ) ){
+              $Vr_Diferencia_Min_Ocasional = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Ocasional) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
+            }
+              else{
+                $Vr_Diferencia_Min_Ocasional = 0;
+              }
+
+
+
+
           $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
           $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional + $Vr_Diferencia_Min_Ocasional ;
 
@@ -879,14 +886,20 @@ public function Totalizar_Carrito(){
           if  ( $Pedido_Tron < 0 ) {
               $Pedido_Tron = 0;
           }
-          $Vr_Recaudo_Tron  =  $Pedido_Tron  * $this->PayuLatam_Recaudo;
-          if ( $Vr_Recaudo_Tron <  $this->PayuLatam_Valor_Minimo   ){
-            $Vr_Diferencia_Min_Tron  = $this->PayuLatam_Valor_Minimo  - $Vr_Recaudo_Tron  ;
-          }
+           if ( $Pedido_Tron < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo ) ){
+              $Vr_Diferencia_Min_Tron = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Tron) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
+            }
+              else{
+                $Vr_Diferencia_Min_Tron = 0;
+              }
           $Vr_Recaudo_Tron =  ( $this->Vr_Transporte_Tron  * $this->PayuLatam_Recaudo ) / ( 1 - $this->PayuLatam_Recaudo);
           $Vr_Recaudo_Tron  = $Vr_Recaudo_Tron  +  $Vr_Diferencia_Min_Tron ;
 
-          $Valor_Fijo_Recaudo  = $this->PayuLatam_Valor_Adicional / ( 1 - $this->PayuLatam_Recaudo);
+          if ( $Compras_Productos_Tron <= 0  ){
+            $Valor_Fijo_Recaudo  = $this->PayuLatam_Valor_Adicional / ( 1 - $this->PayuLatam_Recaudo);
+          }else{
+            $Valor_Fijo_Recaudo  = 0 ;
+          }
 
 
            $Vr_Recaudo_Tron      = $Vr_Recaudo_Tron      +  $Valor_Fijo_Recaudo;
