@@ -37,6 +37,11 @@
             /**ENERO 22 DE 2015
             * REALIZA BÚSQUEDA DE PRODUCTOS DE ACUERDO A UN CRITERIO DEL USUARIO EN EL CUADRO BUSCAR    */
             $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+            if ( empty( $Id_Area_Consulta ) ) {
+                 Session::Set('Id_Area_Consulta', 2);
+                }
+
+            $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
 
             $Productos        = $this->Db->Ejecutar_Sp("productos_busqueda_general($Id_Area_Consulta,'$texto_a_buscar')");
             return $Productos;

@@ -75,9 +75,7 @@ class ProductosController extends Controller
       /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
       */
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-      if ( empty( $Id_Area_Consulta ) ) {
-          $Id_Area_Consulta = 2;
-      }
+
       $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
       $Tipo_Busqueda    = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
       $pagina           = General_Functions::Validar_Entrada('Pagina','NUM');
