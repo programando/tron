@@ -779,6 +779,9 @@ public function Totalizar_Carrito(){
         $Anticipo_Recaudo_Tron                   = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
 
 
+
+
+
         if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ) {
             $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado');
         }else{
@@ -878,6 +881,8 @@ public function Totalizar_Carrito(){
             if ( $Compras_Productos_Tron  > 0 ){
               $Vr_Diferencia_Min_Ocasional = 0;
             }
+
+
 
 
           $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
