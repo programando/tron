@@ -15,6 +15,8 @@
 						private $Transportadoras 		           = '';
 						private $Cant_Unidades_Despacho 						= 0;
 						private $Datos_Carro  																= array();
+						private $valor_seguro																	= 0;
+						private $transportador 															= '';
 
       public function __construct() {
           parent::__construct();
