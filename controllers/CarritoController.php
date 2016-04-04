@@ -754,9 +754,9 @@ public function Totalizar_Carrito(){
         }
 
        if ( $Valor_Flete_Ocasional > 0 ){
-         $this->Vr_Transporte_Ocasional = $Valor_Flete_Ocasional - $Subsidio_Flete_Ocasional + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional  ;
+         $this->Vr_Transporte_Ocasional = $Valor_Flete_Ocasional  ; //- $Subsidio_Flete_Ocasional + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional  ;
          $Valor_Flete_Tron              = $Valor_Flete_Ocasional ;
-         $this->Vr_Transporte_Tron      = $Valor_Flete_Tron  - $Subsidio_Flete_Tron + $Recaudo_Pedido_Tron - $Anticipo_Recaudo_Tron  ;
+         $this->Vr_Transporte_Tron      = $Valor_Flete_Tron   ; //- $Subsidio_Flete_Tron + $Recaudo_Pedido_Tron - $Anticipo_Recaudo_Tron  ;
 
          Session::Set('tipo_despacho_carga',         Session::Get('tipo_despacho_pedido' ) );
          Session::Set('id_transportadora_carga',     Session::Get('id_transportadora'));
@@ -764,6 +764,8 @@ public function Totalizar_Carrito(){
          Session::Set('valor_declarado_carga',       $_Carga_Fija_Vr_Declarado) ;
          Session::Set('Peso_Pedido_Carga',           $_Carga_Fija_Peso_Pedido );
       }
+
+
     }
 
 
