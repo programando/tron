@@ -45,7 +45,6 @@ class IndexController extends Controller
         }
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
         if ( $usuario_logueado == FALSE){
-            //$this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
