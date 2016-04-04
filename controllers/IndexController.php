@@ -12,6 +12,7 @@ class IndexController extends Controller
         $this->Productos  =  $this->Load_Model('Productos');
         $this->Terceros   =  $this->Load_Controller('Terceros');
         $this->Parametros =  $this->Load_Model('Parametros');
+        $this->Sessiones   = $this->Load_Controller('Sessiones');
 
     }
 
@@ -44,7 +45,7 @@ class IndexController extends Controller
         }
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
         if ( $usuario_logueado == FALSE){
-            $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
+            //$this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,153);
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
@@ -130,7 +131,9 @@ private function Parametros_Iniciales(){
     public function Cerrar_Sesion() {
         Session::Set('logueado', FALSE );
         session_unset($_SESSION['logueado']);
+        $this->Sessiones->Pedidos_Reiniciar_Variables();
         Session::Destroy();
+
         //header('location:' . BASE_URL .'cerrar.php');
         //header('location:' . BASE_URL .'redtron/contactanos');
         //sleep(5);

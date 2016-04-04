@@ -248,6 +248,7 @@ class CarritoController extends Controller{
       $this->View->Departamentos = $this->Departamentos->Consultar();
       Session::Set('iddireccion_despacho',   0 );
       Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
+
       if (Session::Get('logueado')== FALSE ) {
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
       }else      {
@@ -354,6 +355,7 @@ class CarritoController extends Controller{
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
       //Debug::Mostrar( Session::Get('iddireccion_despacho') );
+     // Debug::Mostrar( Session::Get('logueado') );
       $this->Borrar_Productos_Carro_Plan_2_3();
       //----------------------------------------------------------------------------------------------------------------------------
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
@@ -608,9 +610,9 @@ public function Totalizar_Carrito(){
         return ;
       }
 
-      //Debug::Mostrar( Session::Get('iddireccion_despacho') );
-      //$this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( Session::Get('iddireccion_despacho'), 0 );
-      // INICIALIZA VARIABLES
+     //Debug::Mostrar( Session::Get('iddireccion_despacho') );
+     //$this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( Session::Get('iddireccion_despacho'), 0 );
+     // INICIALIZA VARIABLES
      $this->Totalizar_Carrito_Inicializar_Propiedades();
      $i                                  = 0 ;
      $kit_inicio_peso_total              = 0;

@@ -25,10 +25,12 @@ class SessionesController extends Controller
 
         //COLOCAR EN CERO LA CANTIDAD DE PRODUCTOS TRON
         $carro = Session::Get('carrito');
-        foreach ($carro as $Productos) {
-                $NombreArray      = 'TRON'.$Productos['idproducto'] ;
-                Session::Destroy($NombreArray );
-        }
+        if ( isset( $carro )){
+                foreach ($carro as $Productos) {
+                        $NombreArray      = 'TRON'.$Productos['idproducto'] ;
+                        Session::Destroy($NombreArray );
+                }
+            }
         Session::Destroy('carrito');
         Session::Destroy('CarritoTron');
         Session::Set('Sobre_Precio_Prod_Tron', 0 );
