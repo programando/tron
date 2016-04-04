@@ -782,6 +782,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       if (strlen($Respuesta) ==0 || $Respuesta =='' )  {
         $params = compact('iddireccion_despacho','idtercero','idmcipio','direccion','telefono','barrio','destinatario');
         $this->Terceros->Direcciones_Despacho_Grabar_Actualizar($params);
+        $cantidad_direcciones = Session::Get('cantidad_direcciones') + 1 ;
+        Session::Set('cantidad_direcciones', $cantidad_direcciones);
         $Respuesta = 'OK';
       }
       $Datos = compact('Respuesta');
@@ -984,7 +986,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         *       ESTABLECE UN PARAMETRO idmcipio = 153 ( CALI ), PARA CONSULTAR DESDE EL INDEX CONTROLLER Y CARGAR CIERTAS VARIABLES
         */
 
-        if ( empty( $idmcipio) || $IdDireccion_Despacho == 0 ){
+        if ( empty( $idmcipio)  ){
             $idmcipio = 153 ;
           }
 
@@ -994,18 +996,31 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_IdMcipio( $idmcipio );
         }
 
-        Session::Set('iddireccion_despacho',            $IdDireccion_Despacho);
+        Session::Set('iddireccion_despacho',            $Registro[0]["iddireccion_despacho"]);
         Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
         Session::Set('iddpto',                          $Registro[0]["iddpto"]);
+        Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
+        //REDETRANS
         Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
         Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
         Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
+        Session::Set('redetrans_tipo_despacho',         '');
+        //SERVIENTREGA
         Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
         Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
         Session::Set('servientrega_tipo_despacho',      $Registro[0]["servientrega_tipo_despacho"]);
-        Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
 
-      }
+        if ( Session::Get('vr_kilo_idmcipio_redetrans') > 0 || Session::Get('vr_re_expedicion_redetrans') > 0 ){
+          Session::Set('redetrans_tipo_despacho',         'aplica_redetrans');
+        }
+        //Debug::Mostrar(Session::Get('logueado') );
+
+     }
+
+
+
+
+
 
     public function registrarse() {
         $this->View->SetCss(array("tron_registrarse"));

@@ -181,10 +181,7 @@ class PedidosController extends Controller
 
 				/// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
-
-
-
-    echo "OK";
+        echo "OK";
 
 
     }

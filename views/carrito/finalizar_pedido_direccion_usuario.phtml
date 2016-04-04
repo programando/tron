@@ -3,11 +3,11 @@ CONTENIDO DINÁMICO VIA AJAX DEL USUARIO SELECCIONADO -->
 
 <div class="fila-direcciones" style="width:100%;"><!-- Direccion -->
 
-    <span>Seleccione la dirección a donde será enviado el pedido: </span>    
-    
+    <span>Seleccione la dirección a donde será enviado el pedido. </span>
+
     <?php if (Session::Get('cantidad_direcciones') < 3)  :;?>
         <span>
-            <a href="#venta_editar" class="btn-editar-direccion" iddirecciondespacho="0"> o cree una nueva dirección</a>
+            <a href="#venta_editar" class="btn-editar-direccion" iddirecciondespacho="0">... o cree una nueva dirección</a>
         </span>
     <?php
         endif;

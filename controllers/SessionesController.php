@@ -71,6 +71,12 @@ class SessionesController extends Controller
         Session::Set('re_expedicion',FALSE);
         Session::Set('nommcipio_despacho', 'CALI');
         Session::Set('idmcipio', 153);
+        Session::Destroy('iddireccion_despacho');
+
+        Session::Destroy('servientrega_tipo_despacho');
+        Session::Destroy('redetrans_tipo_despacho');
+
+
     }
 
  }

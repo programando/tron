@@ -129,6 +129,7 @@ class CarritoController extends Controller{
          *      MUESTRA VISTA PARA ELEGIR LA FORMA DE PAGO DEL PEDIDO
          *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
          */
+
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
 
         if ( $idpedido > 0 ){
@@ -158,6 +159,7 @@ class CarritoController extends Controller{
       /** MARZO 04 DE 2015
       *     VALIDA QUE SE HAYA ELEGIDO UN USUARIO PARA EL PEDIDO
       */
+
       Session::Set('imagen_resumen_pedido',TRUE);
       $iddireccion_despacho                   = Session::Get('iddireccion_despacho');
       $idtercero_pedido                       = Session::Get('idtercero_pedido');
@@ -168,7 +170,7 @@ class CarritoController extends Controller{
       $Texto_Error                            = 'Debes seleccionar uno de los usuarios y la dirección a donde enviarás el pedido para poder continuar...';
 
 
-      $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($iddireccion_despacho);
+      $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $iddireccion_despacho );
       if (!isset($iddireccion_despacho) || ($iddireccion_despacho==0) || ($iddireccion_despacho== NULL)) {
           $Texto_Resultado =$Texto_Error;
       }
@@ -201,10 +203,9 @@ class CarritoController extends Controller{
      $Re_Expedicion        =  General_Functions::Validar_Entrada('reexpedicion','BOL');
      $codigousuario        =  General_Functions::Validar_Entrada('codigousuario','TEXT');
 
-     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho );
+     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho,$IdMcipio  );
+
      Session::Set('codigousuario',  $codigousuario);
-
-
     }
 
     public function Finalizar_Pedido_Direccion_Envio() {
@@ -354,12 +355,9 @@ class CarritoController extends Controller{
 
       $this->Borrar_Productos_Carro_Plan_2_3();
       //----------------------------------------------------------------------------------------------------------------------------
-
-
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-
 
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
@@ -373,6 +371,7 @@ class CarritoController extends Controller{
           $this->View->Mostrar_Vista_Parcial('carrito_vacio');
         }
       }
+
      if ($this->Cantidad_Filas_Carrito > 0)  {
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
         $this->Totalizar_Carrito();
@@ -423,7 +422,7 @@ class CarritoController extends Controller{
 
 
     public function Verificar_Valor_Minimo_A_Pagar(){
-        if (Session::Get('cumple_valor_minimo_pedido') == TRUE ){
+        if ( Session::Get('cumple_valor_minimo_pedido') == TRUE ){
           $Respuesta ='CUMPLE';
         }else{
           $Respuesta ='NO-CUMPLE';
@@ -608,7 +607,8 @@ public function Totalizar_Carrito(){
         return ;
       }
 
-      $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho(0,Session::Get('idmcipio') );
+
+      $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( Session::Get('iddireccion_despacho'), Session::Get('idmcipio') );
       // INICIALIZA VARIABLES
      $this->Totalizar_Carrito_Inicializar_Propiedades();
      $i                                  = 0 ;
@@ -697,7 +697,7 @@ public function Totalizar_Carrito(){
 
         /// CALCULO DE FLETES
         //----------------------------------------------------
-        $this->Fletes_Carga_Fija();
+        //$this->Fletes_Carga_Fija();
         $this->Fletes_Courrier_Carga_Variable();
 
 
@@ -778,10 +778,6 @@ public function Totalizar_Carrito(){
         $Recaudo_Pedido_Tron                     = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
         $Anticipo_Recaudo_Tron                   = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
 
-
-
-
-
         if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ) {
             $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado');
         }else{
@@ -793,8 +789,6 @@ public function Totalizar_Carrito(){
 
 
         if ( Session::Get('Unidades_Adicionales') == TRUE){
-
-
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
@@ -830,6 +824,7 @@ public function Totalizar_Carrito(){
         $this->Calcular_Valor_Recaudo();
         $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional  + Session::Get('Recaudo_Pedido_Ocasional');
         $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron       +  Session::Get('Recaudo_Pedido_Tron');
+
 
         if ( Session::Get('logueado') == FALSE ){
             if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     {
@@ -881,12 +876,10 @@ public function Totalizar_Carrito(){
             if ( $Compras_Productos_Tron  > 0 ){
               $Vr_Diferencia_Min_Ocasional = 0;
             }
+            $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
+            $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional + $Vr_Diferencia_Min_Ocasional ;
 
 
-
-
-          $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
-          $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional + $Vr_Diferencia_Min_Ocasional ;
 
           // OPERACIONES PEDIDO CLIENTE EMPRESARIO TRON
           $Pedido_Tron = $Pedido_Tron - $Compras_Productos_Tron  ;

@@ -69,7 +69,6 @@ class Request
     public function ResolveParams(&$segmentos_url)
         {
             $this->Argumentos = $segmentos_url;
-            //debug::Mostrar($this->Argumentos);
         }
     public function getControlador() {  return $this->Controlador;    }
     public function getMetodo()      {  return $this->Metodo;         }

@@ -21,7 +21,6 @@
             $this->Argumentos  = $peticion->getArgs();
             $this->Css         = array();
             $this->Js          = array();
-            //Debug::Mostrar($this->Argumentos);
         }
 
 
@@ -38,8 +37,6 @@
          $RutaTemplate = ROOT .  'views' . DS . 'template.phtml';
          $RutaFooter   = ROOT .  'views' . DS . 'footer.phtml';
 
-         //Debug::Mostrar($RutaView );
-
              if(is_readable($RutaView))  {
                extract($View_Vars);
                ob_start();
@@ -50,7 +47,6 @@
             }
             else {
                 throw new Exception(header('Location: ' . BASE_URL .'error/error_404.php'));
-              //Debug::Mostrar($RutaView );
             }
 
           }
@@ -70,7 +66,6 @@
             }
             else {
                 throw new Exception(header('Location: ' . BASE_URL .'error/error_404.php'));
-              //Debug::Mostrar($RutaView );
             }
           }
 

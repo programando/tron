@@ -72,7 +72,7 @@ $('.btn-continuar').on('click',function()
           $('.modal-body #texto').html(resultado);
           $('#ventana_error').modal('show');
         }else   {
-            window.location.href = "/tron/carrito/mostrar_carrito/1";
+           window.location.href = "/tron/carrito/mostrar_carrito/1";
         }
       }
    });
