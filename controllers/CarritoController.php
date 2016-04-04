@@ -907,14 +907,15 @@ public function Totalizar_Carrito(){
             $Valor_Fijo_Recaudo  = 0 ;
           }
 
+          if ( $Compras_Productos_Tron > 0 ) {
+              $Vr_Recaudo_Tron      = 0;
+              $Vr_Recaudo_Ocasional = 0;
+          }
 
            $Vr_Recaudo_Tron      = $Vr_Recaudo_Tron      +  $Valor_Fijo_Recaudo;
            $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional +  $Valor_Fijo_Recaudo;
 
-          if ( $Compras_Productos_Tron > 0 ) {
-              $Vr_Recaudo_Tron  = 0;
-              $Vr_Recaudo_Ocasional = 0;
-          }
+
 
           Session::Set('Recaudo_Pedido_Tron',      $Vr_Recaudo_Tron     );
           Session::Set('Recaudo_Pedido_Ocasional', $Vr_Recaudo_Ocasional);
