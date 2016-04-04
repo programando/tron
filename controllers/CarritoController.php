@@ -816,10 +816,10 @@ public function Totalizar_Carrito(){
         $Flete_Amigo     = $Flete_Ocasional ;
 
         if ( $Flete_Ocasional > 0 ) {
-          $Flete_Ocasional               = $Flete_Ocasional - $Subsidio_Flete_Ocasional  + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional ;
+          $Flete_Ocasional               = $Flete_Ocasional  ; //- $Subsidio_Flete_Ocasional  + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional ;
           $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional                + $Flete_Ocasional;
           //--------------------------------------------------------------------------------------------------------
-          $Flete_Amigo                   = $Flete_Amigo     - $Subsidio_Flete_Tron       + $Recaudo_Pedido_Tron      - $Anticipo_Recaudo_Tron      ;
+          $Flete_Amigo                   = $Flete_Amigo    ; // - $Subsidio_Flete_Tron       + $Recaudo_Pedido_Tron      - $Anticipo_Recaudo_Tron      ;
           $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron  + $Flete_Amigo ;
         }
         // CALCULO DEL RECAUDO
