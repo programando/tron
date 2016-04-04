@@ -1,22 +1,22 @@
 <?php
 
   class FletesController extends Controller {
-						public  $valor_flete                  = 0;
-						public 	$valor_dscto_flete_kit_inicio = 0;
-						public 	$valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
+						private $Cant_Unidades_Despacho 						= 0;
+						private $cantidad_unidades_despacho   = 0;		// CANTIDAD DE BOLSAS ( UNIDADES DE DESPACHO ) QUE SE ENTREGAN A LA TRANSPORTADORA
+						private $Datos_Carro  																= array();
+						private $flete_calculado              = FALSE ;
 						private $iddpto                       = 0;
 						private $idmcipio                     = 0;
 						private $re_expedicion                = 0;
-						private $cantidad_unidades_despacho   = 0;		// CANTIDAD DE BOLSAS ( UNIDADES DE DESPACHO ) QUE SE ENTREGAN A LA TRANSPORTADORA
 						private $seguro_redetrans_courrier    = 0;
-						private $tipo_tarifa                  = '';
 						private $tipo_despacho  														=	0;
-						private $flete_calculado              = FALSE ;
-						private $Transportadoras 		           = '';
-						private $Cant_Unidades_Despacho 						= 0;
-						private $Datos_Carro  																= array();
-						private $valor_seguro																	= 0;
+						private $tipo_tarifa                  = '';
 						private $transportador 															= '';
+						private $Transportadoras 		           = '';
+						private $valor_seguro																	= 0;
+						public 	$valor_dscto_flete_kit_inicio = 0;
+						public 	$valor_flete_kit_inicio       = 0;		// VALOR QUE FINALMENTE SE COBRARÁ EN EL KIT DE INICIO POR CONCEPTO DE FLETE.
+						public  $valor_flete                  = 0;
 
       public function __construct() {
           parent::__construct();
