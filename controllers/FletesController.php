@@ -79,7 +79,7 @@
 						$Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
 						$Asignar_Flete                   = TRUE;
 						$this->valor_flete               = 0;
-					 $Mejor_Flete   = $Fletes_Cobrados_Transportadoras[0];
+					 $Mejor_Flete   																		= current($Fletes_Cobrados_Transportadoras) ;//[0];
 
       foreach ($Fletes_Cobrados_Transportadoras as $Fletes)   {
 	      	if (  array_key_exists($i,$Fletes_Cobrados_Transportadoras ) && ( $Asignar_Flete  == TRUE &&  $Fletes['valor_flete'] > 0 )	)  {
