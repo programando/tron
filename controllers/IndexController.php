@@ -91,6 +91,14 @@ class IndexController extends Controller
     }
 
 private function Parametros_Iniciales(){
+
+        // VALORES PARA CALCULO DE TRANSPORTE
+        $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
+        if ( !isset( $redetrans_tipo_despacho )) {
+             $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( 0, 153);
+        }
+
+
         $Parametros = $this->Parametros->Transportadoras();
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
         Session::Set('Parametros',$Parametros );
@@ -124,6 +132,8 @@ private function Parametros_Iniciales(){
         Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero( $Parametros[0]['pedido_minimo_productos_fabricados_ta']));
         Session::Set('pago_minimo_payulatam',                  Numeric_Functions::Formato_Numero( $Parametros[0]['pago_minimo_payulatam'] ));
         Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
+
+
 }
 
 

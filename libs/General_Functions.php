@@ -6,7 +6,7 @@
 public static function Menor_Entre_2_Numeros ( $numero1 , $numero2){
 
 			$Menor = $numero1;
-			if ( $numero2 < $Menor){
+			if ( $numero2 < $Menor && $numero2 > 0 ){
 					$Menor = $numero2;
 			}
 			return $Menor ;

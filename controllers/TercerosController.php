@@ -996,7 +996,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
           $Registro = $this->Terceros->Consultar_Datos_Mcipio_x_IdMcipio( $idmcipio );
         }
 
-        Session::Set('iddireccion_despacho',            $Registro[0]["iddireccion_despacho"]);
+
         Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
         Session::Set('iddpto',                          $Registro[0]["iddpto"]);
         Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));

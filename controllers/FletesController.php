@@ -337,31 +337,28 @@
       	*/
       Session::Set('REDETRANS_CARGA_VR_FLETE'        ,0);
 
-      $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
+						$seguro_fijo                  = 0;
+						$seguro_reexpedicion          = 0;
+						$seguro_flete                 = 0;
+						$descuento_comercial          = 0;
+						$this->valor_flete            = 0;
+						$Peso_Pedido                  = $Peso_Pedido / 1000;
 
+						$this->Transportadoras        = $this->Parametros->Transportadoras();
+						$this->re_expedicion          = Session::Get('re_expedicion');
+						$vr_kilo_idmcipio_redetrans   = Session::Get('vr_kilo_idmcipio_redetrans');
+						$vr_re_expedicion_redetrans   = Session::Get('vr_re_expedicion_redetrans');
+						$porcentaje_seguro            = $this->Transportadoras[0]['rt_carga_porciento_seguro']/100;
+						$porcentaje_seg_reexp         = $this->Transportadoras[0]['rt_carga_porciento_reexpedicion']/100;
+						$porciento_dscto_ccial        = $this->Transportadoras[0]['rt_carga_descuento_comercial']/100;
+						$this->idmcipio               = Session::Get('idmcipio');
+						$this->iddpto                 = Session::Get('iddpto');
 
+						$this->tipo_despacho          = 2;  // CARGA REDETRANS
+						$this->Cant_Unidades_Despacho = $Numero_Unidades;
 
-						$seguro_fijo                = 0;
-						$seguro_reexpedicion        = 0;
-						$seguro_flete               = 0;
-						$descuento_comercial        = 0;
-						$this->valor_flete          = 0;
-						$Peso_Pedido 															= $Peso_Pedido / 1000;
-
-      $this->Transportadoras      = $this->Parametros->Transportadoras();
-						$this->re_expedicion        = Session::Get('re_expedicion');
-						$vr_kilo_idmcipio_redetrans = Session::Get('vr_kilo_idmcipio_redetrans');
-						$vr_re_expedicion_redetrans = Session::Get('vr_re_expedicion_redetrans');
-						$porcentaje_seguro 								 = $this->Transportadoras[0]['rt_carga_porciento_seguro']/100;
-						$porcentaje_seg_reexp       = $this->Transportadoras[0]['rt_carga_porciento_reexpedicion']/100;
-						$porciento_dscto_ccial      = $this->Transportadoras[0]['rt_carga_descuento_comercial']/100;
-						$this->idmcipio             = Session::Get('idmcipio');
-						$this->iddpto               = Session::Get('iddpto');
-
-						$this->tipo_despacho								= 2;  // CARGA REDETRANS
-						$this->Cant_Unidades_Despacho  = $Numero_Unidades;
-
-      if (  empty($redetrans_tipo_despacho) ){
+						$redetrans_tipo_despacho      =  Session::Get('redetrans_tipo_despacho');
+      if (  empty( $redetrans_tipo_despacho ) ){
       	$this->Adicionar_Cobro_Flete_Transportadora(1,'0','REDETRANS - CARGA -> NO APLICA');
       	return ;
       }
@@ -372,7 +369,6 @@
 											if ($this->iddpto == 32 ){		// VALLE
 																if ( $this->idmcipio == 153 ){
 																				$tipo_destino         ='URBANO';
-
 																				if ( $this->Cant_Unidades_Despacho <= 1 ){
 																					$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_urbano']  ;
 																				}else{
@@ -493,7 +489,7 @@
 									$this->seguro_redetrans_courrier = 0;
 										$this->tipo_tarifa     = 'REDETRANS-COURRIER';
 
-		      $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
+		      $redetrans_tipo_despacho = '250'; //Session::Get('redetrans_tipo_despacho');
 
 
 		      if (  empty($redetrans_tipo_despacho) ){
