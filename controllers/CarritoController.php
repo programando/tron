@@ -874,7 +874,7 @@ public function Totalizar_Carrito(){
            if ( $Pedido_Ocasional   < 0 ) {
               $Pedido_Ocasional = 0;
            }
-           if ( $Pedido_Ocasional < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo ) ){
+           if ( ( $Pedido_Ocasional < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo )) && $this->PayuLatam_Recaudo > 0 ){
               $Vr_Diferencia_Min_Ocasional = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Ocasional) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
             }
               else{
@@ -895,7 +895,7 @@ public function Totalizar_Carrito(){
           if  ( $Pedido_Tron < 0 ) {
               $Pedido_Tron = 0;
           }
-           if ( $Pedido_Tron < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo ) ){
+           if ( ($Pedido_Tron < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo )) && $this->PayuLatam_Recaudo > 0 ){
               $Vr_Diferencia_Min_Tron = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Tron) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
             }else
             {
