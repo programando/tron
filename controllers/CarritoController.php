@@ -243,7 +243,7 @@ class CarritoController extends Controller{
           DETERMINA EL SIGUIENTE PASO EN LA FINALIZACIÓN DEL PEDIDO.
           IDENTIFICACION O CONFIRMACIÓN DE ENVÍO
       */
-      $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
+      $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios','tron_productos.jquery'));
       $this->View->SetCss(array('tron_carrito','tron_carrito_identificacion','tron_carrito_confi_envio','tron_barra_usuarios','tron_estilos_linea_tiempo'));
 
       $this->View->Departamentos = $this->Departamentos->Consultar();
