@@ -38,8 +38,8 @@ class Bootstrap
             }
 
         } else {
-            Debug::Mostrar( $_SESSION );
-            //throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+
+            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
 
 
         }
