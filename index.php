@@ -2,7 +2,7 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set('display_errors', '0');
-session_start();
+//session_start();
 
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
