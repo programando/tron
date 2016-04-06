@@ -105,8 +105,8 @@ private function Parametros_Iniciales(){
 
         Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);            // Precio de venta del kit de inicio
 
-        Session::Set('valor_kit_inicio_ocasional', $Parametros[0]['valor_kit_inicio_ocasional']);
-        Session::Set('valor_kit_inicio_empresario', $Parametros[0]['valor_kit_inicio_empresario']);
+        Session::Set('valor_kit_inicio_ocasional',        $Parametros[0]['valor_kit_inicio_ocasional']);
+        Session::Set('valor_kit_inicio_empresario',       $Parametros[0]['valor_kit_inicio_empresario']);
 
         Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
                 // valor de la 1 cuota de inscripcion
@@ -117,6 +117,8 @@ private function Parametros_Iniciales(){
         Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
         Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
         Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
+
+        Session::Set('py_vr_min_recaudo_', $Parametros[0]['py_vr_min_recaudo']);
 
         Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
         Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_transferencias'] ));
