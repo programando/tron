@@ -23,7 +23,9 @@
  						  							1.			El nombre del archivo debe iniciar con mayúscula. 											 Ejemplo : Session
  						  							2.		 El nombre de la clase debe ser igual a la del archivo físico. Ejemplo class Session
  						  */
- 						 require_once APP_PATH . 'Autoload.php';
+ 						 //require_once APP_PATH . 'Autoload.php';
+
+ 						  		foreach (glob(APP_PATH  .    '*.php') as $file) {  	require_once $file;     } //librerias/funciones de la aplicacion
  						 //Carga de las librerías externas, como por ejemplo la librería para PDF.
  						 //-----------------------------------------------------------------------
  						 foreach (glob(LIBS .    '*.php') as $file) {  	require_once $file;     } //librerias/funciones de la aplicacion
