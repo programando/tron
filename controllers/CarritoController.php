@@ -1345,18 +1345,21 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
          if ($Existe_Id_Producto == FALSE)  {
             array_push($Carrito_Actual, $Ultima_Compra);
           }
-          Debug::Mostrar( 'ULTIMA COMPRA ' . $Ultima_Compra );
-          Debug::Mostrar( 'Carrtito Actual ' . $Carrito_Actual );
+          Debug::Mostrar( 'ULTIMA COMPRA ' );
+          Debug::Mostrar(  $Ultima_Compra  );
+          Debug::Mostrar( 'Carrtito Actual ' );
+          Debug::Mostrar( $Carrito_Actual  );
 
           $_SESSION['carrito'] = $Carrito_Actual;
-          Debug::Mostrar( 'Session.Carrito ' . $_SESSION['carrito']  );
+          Debug::Mostrar( 'Session.Carrito '  );
+          Debug::Mostrar(  $_SESSION['carrito']  );
 
           $this->Depurar_Carrito();
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
 
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
-        Debug::Mostrar( 'Session.Carrito ' . $_SESSION['carrito']  );
+        Debug::Mostrar( 'Session.Carrito - Fin Metodo ' . $_SESSION['carrito']  );
     }
 
 
