@@ -903,6 +903,9 @@ public function Totalizar_Carrito(){
               {
                  $Vr_Diferencia_Min_Tron = 0;
               }
+              else{
+                Debug::Mostrar('VALOR MINIMO RECAUDO ' . Session::Get('py_vr_min_recaudo'));
+              }
           }
 
             if ( $Compras_Productos_Tron  > 0 ){
