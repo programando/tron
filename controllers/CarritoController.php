@@ -1343,14 +1343,15 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           {
             array_push($Carrito_Actual, $Ultima_Compra);
           }
+      Debug::Mostrar( $Carrito_Actual );
+          $_SESSION['carrito'] = $Carrito_Actual;
 
-        $_SESSION['carrito'] = $Carrito_Actual;
+          $this->Depurar_Carrito();
+          $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
 
-        $this->Depurar_Carrito();
-        $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
-
-        $this->Totalizar_Carrito();
-        $this->Retornar_Totales_Carro_Json();
+          $this->Totalizar_Carrito();
+          $this->Retornar_Totales_Carro_Json();
+       Debug::Mostrar( $_SESSION );
     }
 
 
