@@ -362,7 +362,6 @@ class CarritoController extends Controller{
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
-      Debug::Mostrar( $this->Cantidad_Filas_Carrito );
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
@@ -1306,17 +1305,11 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
 
 
-
-
-
-
-
-
   public function Agregar_Producto()  {
       /** ENERO 06 DE 2014
       *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
       */
-
+      Debug::Mostrar( $_SESSION );
         $IdProducto       = General_Functions::Validar_Entrada('IdProducto','NUM');
         $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
         $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
