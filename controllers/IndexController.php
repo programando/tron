@@ -99,7 +99,7 @@ private function Parametros_Iniciales(){
         }
 
         $Parametros = $this->Parametros->Transportadoras();
-        Debug::Mostrar($Parametros  );
+
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
         Session::Set('Parametros',$Parametros );
 
@@ -117,6 +117,7 @@ private function Parametros_Iniciales(){
         Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
         Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
         Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
+
         Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
         Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_transferencias'] ));
         Session::Set('factor_seguro_flete_otros_productos',             $Parametros[0]['factor_seguro_flete_otros_productos']);
