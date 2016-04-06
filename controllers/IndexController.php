@@ -146,10 +146,7 @@ private function Parametros_Iniciales(){
         $this->Sessiones->Pedidos_Reiniciar_Variables();
         Session::Destroy();
 
-        //header('location:' . BASE_URL .'cerrar.php');
-        //header('location:' . BASE_URL .'redtron/contactanos');
-        //sleep(5);
-        //$this->Redireccionar();
+
         echo '
 
 			<!DOCTYPE html>
