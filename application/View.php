@@ -46,7 +46,7 @@
 
             }
             else {
-                throw new Exception(header('Location: ' . BASE_URL .'error/error_404.php'));
+                throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
             }
 
           }
@@ -65,7 +65,7 @@
                require_once ($RutaView);
             }
             else {
-                throw new Exception(header('Location: ' . BASE_URL .'error/error_404.php'));
+                throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
             }
           }
 
