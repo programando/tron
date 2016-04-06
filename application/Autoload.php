@@ -6,7 +6,6 @@ function Autoload_Core_Aplication( $class ){
 
     if(file_exists( $Archivo_Clase  )){
         include_once $Archivo_Clase ;
-        echo 'include_once ' . $Archivo_Clase  .'<br>';
     }
 }
 
