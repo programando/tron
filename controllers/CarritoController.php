@@ -816,22 +816,22 @@ public function Totalizar_Carrito(){
 
         $Flete_Ocasional = General_Functions::Menor_Entre_2_Numeros( Session::Get('FLETE_VARIABLE_1_OCASIONAL'),Session::Get('FLETE_VARIABLE_1_AMIGO') );
 
-        $Flete_Ocasional = $Flete_Ocasional + Session::Get('Sobre_Precio_Prod_Tron' );
+        $Flete_Ocasional = $Flete_Ocasional ;
         $Flete_Amigo     = $Flete_Ocasional ;
 
         if ( $Flete_Ocasional > 0 ) {
-          $Flete_Ocasional               = $Flete_Ocasional  ; //- $Subsidio_Flete_Ocasional  + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional ;
+          $Flete_Ocasional               = $Flete_Ocasional  ;
           $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional                + $Flete_Ocasional;
           //--------------------------------------------------------------------------------------------------------
-          $Flete_Amigo                   = $Flete_Amigo    ; // - $Subsidio_Flete_Tron       + $Recaudo_Pedido_Tron      - $Anticipo_Recaudo_Tron      ;
           $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron  + $Flete_Amigo ;
         }
         // CALCULO DEL RECAUDO
 
 
         $this->Calcular_Valor_Recaudo();
-        $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional  + Session::Get('Recaudo_Pedido_Ocasional');
-        $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron       +  Session::Get('Recaudo_Pedido_Tron');
+
+        $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional  + Session::Get('Recaudo_Pedido_Ocasional') + Session::Get('Sobre_Precio_Prod_Tron' );
+        $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron       +  Session::Get('Recaudo_Pedido_Tron')     + Session::Get('Sobre_Precio_Prod_Tron' );
 
 
         if ( Session::Get('logueado') == FALSE ){
@@ -884,10 +884,10 @@ public function Totalizar_Carrito(){
             if ( $Compras_Productos_Tron  > 0 ){
               $Vr_Diferencia_Min_Ocasional = 0;
             }
-
-            $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
-            $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional + $Vr_Diferencia_Min_Ocasional ;
-
+            if ( $Pedido_Ocasional  > 0 ){
+                $Vr_Recaudo_Ocasional = ( $this->Vr_Transporte_Ocasional * $this->PayuLatam_Recaudo) / ( 1 - $this->PayuLatam_Recaudo);
+                $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional + $Vr_Diferencia_Min_Ocasional ;
+              }
 
 
           // OPERACIONES PEDIDO CLIENTE EMPRESARIO TRON
@@ -906,9 +906,10 @@ public function Totalizar_Carrito(){
               $Vr_Diferencia_Min_Tron = 0;
             }
 
-
-          $Vr_Recaudo_Tron =  ( $this->Vr_Transporte_Tron  * $this->PayuLatam_Recaudo ) / ( 1 - $this->PayuLatam_Recaudo);
-          $Vr_Recaudo_Tron  = $Vr_Recaudo_Tron  +  $Vr_Diferencia_Min_Tron ;
+          if ( $Pedido_Tron > 0 ){
+              $Vr_Recaudo_Tron =  ( $this->Vr_Transporte_Tron  * $this->PayuLatam_Recaudo ) / ( 1 - $this->PayuLatam_Recaudo);
+              $Vr_Recaudo_Tron  = $Vr_Recaudo_Tron  +  $Vr_Diferencia_Min_Tron ;
+            }
 
 
           if ( $Compras_Productos_Tron > 0  ){
@@ -917,16 +918,12 @@ public function Totalizar_Carrito(){
             $Valor_Fijo_Recaudo  = $this->PayuLatam_Valor_Adicional / ( 1 - $this->PayuLatam_Recaudo);
           }
 
-
-
-
           $Vr_Recaudo_Tron      = $Vr_Recaudo_Tron      +  $Valor_Fijo_Recaudo;
           $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional +  $Valor_Fijo_Recaudo;
 
           Session::Set('Recaudo_Pedido_Tron',      $Vr_Recaudo_Tron     );
           Session::Set('Recaudo_Pedido_Ocasional', $Vr_Recaudo_Ocasional);
           Session::Set('Courrier_Recaudo',   0 );
-
 
 
       }

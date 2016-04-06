@@ -566,11 +566,14 @@
 										}else{
 												$this->seguro_redetrans_courrier = 0 ;//$MinimoSeguro *  $PorcientoSeguro;
 										}
+
+
 										if ( $Flete_Total > 0 ) {
 												$this->valor_flete = $Flete_Total + $this->seguro_redetrans_courrier;
 											}else{
 													$this->valor_flete = 0;
 											}
+
 										$this->valor_seguro = $this->seguro_redetrans_courrier;
 		 							Session::Set('REDETRANS_COURRIER_VR_FLETE', $this->valor_flete );
 		 							Session::Set('REDETRANS_COURRIER_VR_SEGURO', $this->seguro_redetrans_courrier);
