@@ -896,12 +896,14 @@ public function Totalizar_Carrito(){
           if  ( $Pedido_Tron < 0 ) {
               $Pedido_Tron = 0;
           }
-           if ( ($Pedido_Tron < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo )) && $this->PayuLatam_Recaudo > 0 ){
-              $Vr_Diferencia_Min_Tron = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Tron) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
-            }else
-            {
-               $Vr_Diferencia_Min_Tron = 0;
-            }
+          if ( $this->PayuLatam_Recaudo > 0 ){
+             if ( ($Pedido_Tron < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo ))  ){
+                $Vr_Diferencia_Min_Tron = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Tron) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
+              }else
+              {
+                 $Vr_Diferencia_Min_Tron = 0;
+              }
+          }
 
             if ( $Compras_Productos_Tron  > 0 ){
               $Vr_Diferencia_Min_Tron = 0;
