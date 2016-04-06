@@ -53,7 +53,7 @@ $("#agregar-producto-favoritos").on('click',function(){
 
 
 
-$('#ventana_mensaje').modal('show');
+//$('#ventana_mensaje').modal('show');
 
 /** MUESTRA MENSAJE PARA LA LÍNEA UNDUSTRIAL, SI NO ESTA LOGUEADO **/
 $('#modal-industrial').on('click', function(){
