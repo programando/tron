@@ -18,6 +18,7 @@ session_start();
 						  // Archivo de configuración de la base de datos
 						  //------------------------------------------------
 						  require_once APP_PATH . 'Database_config.php';
+						  require_once APP_PATH . 'Error_Config.php';
  						 /** OCTUBRE 11 DE 2015
  						  * 	 Archivo que se encarga de realizar la auto carga de las clases que tengo definicas
  						  				Condiciones :

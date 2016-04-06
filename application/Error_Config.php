@@ -7,7 +7,7 @@
 	//error_reporting(E_ALL);
 
 
-		if (DEVELOPMENT_ENVIRONMENT == true) {
+		if (DEVELOPMENT_ENVIRONMENT == TRUE) {
 		    error_reporting(E_ALL);
 		    ini_set('display_errors','On');
 		} else {
