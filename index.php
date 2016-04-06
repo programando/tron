@@ -1,5 +1,6 @@
 
 <?php
+		//header('content-type: application/json; charset=utf-8');
 
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
