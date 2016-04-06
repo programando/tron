@@ -74,6 +74,7 @@ class ProductosController extends Controller
     public function Busqueda_General(){
       /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
       */
+      Debug::Mostrar( $_SESSION );
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
 
       $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
@@ -88,6 +89,8 @@ class ProductosController extends Controller
 
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+      Debug::Mostrar( 'INICIO MUESTRA PAAGINA' );
+      Debug::Mostrar( $_SESSION );
       $this->View->Mostrar_Vista('resultado_busqueda');
       }
 
