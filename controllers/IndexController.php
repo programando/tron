@@ -98,8 +98,8 @@ private function Parametros_Iniciales(){
              $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( 0, 153);
         }
 
-
         $Parametros = $this->Parametros->Transportadoras();
+        Debug::Mostrar($Parametros  );
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
         Session::Set('Parametros',$Parametros );
 
