@@ -1309,7 +1309,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
       /** ENERO 06 DE 2014
       *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
       */
-      Debug::Mostrar( $_SESSION );
+
         $IdProducto       = General_Functions::Validar_Entrada('IdProducto','NUM');
         $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
         $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
@@ -1327,6 +1327,9 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         $Pos                = 0;
         $Cantidad_Filas     = count($Carrito_Actual);
         $i                  = 0;
+
+        Debug::Mostrar( 'Cantidad de Elementos ' . $Cantidad_Filas  );
+
         for ($i=0; $i<$Cantidad_Filas; $i++)  {
             $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
 
@@ -1339,19 +1342,21 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
             }
           }
 
-         if ($Existe_Id_Producto==false)
-          {
+         if ($Existe_Id_Producto == FALSE)  {
             array_push($Carrito_Actual, $Ultima_Compra);
           }
-      Debug::Mostrar( $Carrito_Actual );
+          Debug::Mostrar( 'ULTIMA COMPRA ' . $Ultima_Compra );
+          Debug::Mostrar( 'Carrtito Actual ' . $Carrito_Actual );
+
           $_SESSION['carrito'] = $Carrito_Actual;
+          Debug::Mostrar( 'Session.Carrito ' . $_SESSION['carrito']  );
 
           $this->Depurar_Carrito();
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
 
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
-       Debug::Mostrar( $_SESSION );
+        Debug::Mostrar( 'Session.Carrito ' . $_SESSION['carrito']  );
     }
 
 
