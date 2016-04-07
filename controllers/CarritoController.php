@@ -359,11 +359,11 @@ class CarritoController extends Controller{
 
       //----------------------------------------------------------------------------------------------------------------------------
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
-      //Debug::Mostrar( $_SESSION['carrito'] );
+      Debug::Mostrar( $_SESSION['carrito'] );
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
-     // Debug::Mostrar( $Tipo_Vista );
+      Debug::Mostrar( $Tipo_Vista );
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
