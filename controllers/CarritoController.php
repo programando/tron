@@ -110,6 +110,8 @@ class CarritoController extends Controller{
 
 
     public function __construct()  {
+
+      Debug::Mostrar( $_SESSION['carrito'] );
         parent::__construct();
        $this->Escalas        = $this->Load_Controller('ProductosEscalas');
        $this->Parametros     = $this->Load_Controller('Parametros');
@@ -354,7 +356,7 @@ class CarritoController extends Controller{
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
-      Debug::Mostrar( Session::Get('MixVariable') );
+
       $this->Borrar_Productos_Carro_Plan_2_3();
 
       //----------------------------------------------------------------------------------------------------------------------------
