@@ -8,7 +8,9 @@
 	class Session
 	{
 		public static function Init( ){
-			session_start();
+
+			 session_start();
+             $_SESSION['Prueba'] = 'VALOR DE PRUEBA 123' ;
 
 		}
 
