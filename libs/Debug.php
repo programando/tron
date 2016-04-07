@@ -7,7 +7,7 @@ Class Debug
 		echo '<pre>';
 		print_r($var);
 		echo '</pre>';
-		echo ' <br>------';
+		echo '------'.'<br>';
 
 	}
 
