@@ -1348,12 +1348,13 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
          if ($Existe_Id_Producto == FALSE)  {
             array_push($Carrito_Actual, $Ultima_Compra);
           }
-          Session::Set('MixVariable','123');
+
           $_SESSION['carrito'] = $Carrito_Actual;
           $this->Depurar_Carrito();
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
+          Session::Set('Prueba', 'HE CAMBIADO EN AGREGAR PRODUCTO')
 
     }
 
