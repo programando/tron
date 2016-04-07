@@ -71,6 +71,7 @@ class IndexController extends Controller
 
          $this->View->Mostrar_Vista('index');
 
+
         //factor_seguro_flete_otros_productos :
         //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
         //porciento_seguro_flete_productos_industriales :
