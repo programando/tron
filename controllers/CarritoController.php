@@ -354,12 +354,12 @@ class CarritoController extends Controller{
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
-
+      Debug::Mostrar(  $_SESSION['carrito'] );
       $this->Borrar_Productos_Carro_Plan_2_3();
 
       //----------------------------------------------------------------------------------------------------------------------------
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
-      Debug::Mostrar(  $_SESSION['carrito'] );
+
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
