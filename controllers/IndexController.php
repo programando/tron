@@ -69,11 +69,7 @@ class IndexController extends Controller
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
         $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
 
-
-         $this->View->Mostrar_Vista('industrial');
          $this->View->Mostrar_Vista('index');
-
-
 
         //factor_seguro_flete_otros_productos :
         //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
