@@ -27,7 +27,8 @@
  						 //Carga de las librerías externas, como por ejemplo la librería para PDF.
  						 //-----------------------------------------------------------------------
  						 foreach ( glob(LIBS .    '*.php') as $file ) {  	require_once $file;     } //librerias/funciones de la aplicacion
-					    Session::Init();
+ 			    	Session::Init();
+
 					    $url_requerida = new Request();
 					    Bootstrap::Run( $url_requerida );
 					}

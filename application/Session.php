@@ -9,7 +9,8 @@
 	{
 		public static function Init( ){
            if ( !isset( $_SESSION ) ) {
-                session_id('3wxo23f2fpmjti2oqsadddd3gqnj8k5bx3w');
+                $CodSession = General_Functions::Generar_Codigo_Unico(64);
+                session_id( 'EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
                 session_start();
             }
 		}
@@ -39,7 +40,7 @@
 
                 $_SESSION           = array();
                 session_unset();
-                //session_unset( $_SESSION );
+                session_unset( $_SESSION );
                 session_destroy();
             }
         }
