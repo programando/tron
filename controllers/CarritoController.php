@@ -1328,7 +1328,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         $Cantidad_Filas     = count($Carrito_Actual);
         $i                  = 0;
 
-        Debug::Mostrar( 'Cantidad de Elementos ' . $Cantidad_Filas  );
+
 
         for ($i=0; $i<$Cantidad_Filas; $i++)  {
             $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
@@ -1351,7 +1351,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $this->Depurar_Carrito();
           var_dump( $_SESSION['carrito'] ) ;
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
-
+          var_dump( $_SESSION['carrito'] ) ;
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
 
