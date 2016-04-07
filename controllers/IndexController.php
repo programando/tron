@@ -10,8 +10,9 @@ class IndexController extends Controller
     {
         parent::__construct();
         $this->Productos  =  $this->Load_Model('Productos');
-        $this->Terceros   =  $this->Load_Controller('Terceros');
         $this->Parametros =  $this->Load_Model('Parametros');
+
+        $this->Terceros   =  $this->Load_Controller('Terceros');
         $this->Sessiones   = $this->Load_Controller('Sessiones');
 
     }
@@ -35,6 +36,7 @@ class IndexController extends Controller
         //$Tipo_Navegador     = $info['browser'];
         //$Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
+
 
         $this->Parametros_Iniciales();
 

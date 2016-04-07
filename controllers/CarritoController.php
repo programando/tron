@@ -1321,10 +1321,10 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
 
 
-        /*if ( !isset( $_SESSION['carrito'])) {
+        if ( !isset( $_SESSION['carrito'])) {
           $_SESSION['carrito'] = array();
         }
-*/
+
         $Carrito_Actual     = $_SESSION['carrito'];
         $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada);
         $Existe_Id_Producto = false;

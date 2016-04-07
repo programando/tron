@@ -8,12 +8,7 @@
 	class Session
 	{
 		public static function Init( ){
-
 			 session_start();
-             if ( !isset( $_SESSION['carrito'] )) {
-                    $_SESSION['carrito'] = array() ;
-                }
-
 		}
 
         /**
