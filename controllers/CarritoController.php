@@ -355,7 +355,7 @@ class CarritoController extends Controller{
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
-Debug::Mostrar( Session::Get('Cantidad_Novedades') );
+
       $this->Borrar_Productos_Carro_Plan_2_3();
 
       //----------------------------------------------------------------------------------------------------------------------------
@@ -902,9 +902,10 @@ public function Totalizar_Carrito(){
               {
                  $Vr_Diferencia_Min_Tron = 0;
               }
-          } else{
+          } /*else{
               Debug::Mostrar('VALOR MINIMO RECAUDO ' . Session::Get('py_vr_min_recaudo_') . $this->PayuLatam_Recaudo );
             }
+            */
 
             if ( $Compras_Productos_Tron  > 0 ){
               $Vr_Diferencia_Min_Tron = 0;
