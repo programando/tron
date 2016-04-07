@@ -10,7 +10,9 @@
 		public static function Init( ){
 
 			 session_start();
-             $_SESSION['Prueba'] = 'VALOR DE PRUEBA 123' ;
+             if ( !isset( $_SESSION['carrito'] )) {
+                    $_SESSION['carrito'] = array() ;
+                }
 
 		}
 
