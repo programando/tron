@@ -355,7 +355,7 @@ class CarritoController extends Controller{
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
-      Debug::Mostrar( $_SESSION['Prueba'] );
+
       $this->Borrar_Productos_Carro_Plan_2_3();
 
       //----------------------------------------------------------------------------------------------------------------------------
@@ -363,8 +363,6 @@ class CarritoController extends Controller{
 
       $this->Iniciar_Procesos_Carro();
       $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-
-
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
@@ -1354,7 +1352,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
-          Session::Set('Prueba', 'HE CAMBIADO EN AGREGAR PRODUCTO');
+
 
     }
 
