@@ -70,9 +70,10 @@ class IndexController extends Controller
         $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
 
 
-$this->View->Mostrar_Vista('industrial');
-         //$this->View->Mostrar_Vista('index');
-//header('Location: ' . BASE_URL .'redtron/contactanos');
+         $this->View->Mostrar_Vista('industrial');
+         $this->View->Mostrar_Vista('index');
+
+
 
         //factor_seguro_flete_otros_productos :
         //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
