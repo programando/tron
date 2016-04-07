@@ -51,16 +51,17 @@ class IndexController extends Controller
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
             }
+        $Cantidad_Destacados = Session::Get('Cantidad_Destacados');
+        if ( !isset( $Cantidad_Destacados ) ) {
+            $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
+            Session::Set('Cantidad_Destacados',     $this->Productos->Cantidad_Registros );
 
-        $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
-        Session::Set('Cantidad_Destacados',     $this->Productos->Cantidad_Registros );
+            $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
+            Session::Set('Cantidad_Ofertas',        $this->Productos->Cantidad_Registros );
 
-        $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
-        Session::Set('Cantidad_Ofertas',        $this->Productos->Cantidad_Registros );
-
-        $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
-        Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
-
+            $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
+            Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
+        }
         // Categorias  del footer
         //------------------------
         $this->Footer_Categorias_Personal_Industrial();
@@ -69,11 +70,8 @@ class IndexController extends Controller
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
         $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
 
+        $this->View->Mostrar_Vista('index');
 
-
-         $this->View->Mostrar_Vista('index');
-
- Debug::Mostrar( $_SESSION );
 
         //factor_seguro_flete_otros_productos :
         //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
@@ -89,10 +87,13 @@ class IndexController extends Controller
     }
 
     private function Footer_Categorias_Personal_Industrial(){
-        $Categorias_Hogar      = $this->Productos->Categorias_Consultar(2);
-        $Categorias_Industrial = $this->Productos->Categorias_Consultar(1);
-        Session::Set('Categorias_Hogar',         $Categorias_Hogar);
-        Session::Set('Categorias_Industrial',    $Categorias_Industrial);
+        $Categorias_Hogar = Session::Get('Categorias_Hogar');
+        if ( !isset( $Categorias_Hogar )) {
+            $Categorias_Hogar      = $this->Productos->Categorias_Consultar(2);
+            $Categorias_Industrial = $this->Productos->Categorias_Consultar(1);
+            Session::Set('Categorias_Hogar',         $Categorias_Hogar);
+            Session::Set('Categorias_Industrial',    $Categorias_Industrial);
+        }
     }
 
 private function Parametros_Iniciales(){
