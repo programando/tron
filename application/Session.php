@@ -8,7 +8,7 @@
 	class Session
 	{
 		public static function Init( ){
-			 session_start();
+session_start();
 		}
 
         /**
@@ -36,7 +36,7 @@
 
                 $_SESSION           = array();
                 session_unset();
-                session_unset( $_SESSION );
+                //session_unset( $_SESSION );
                 session_destroy();
             }
         }
