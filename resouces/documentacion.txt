@@ -34,7 +34,6 @@ echo "Fecha actual: " . $dias[date(w)] . " " . date(d) . " del mes de " . $meses
 
 
 <?php
-session_start();
 unset($_SESSION["idUsuario"]);
 unset($_SESSION["nombre"]);
 unset($_SESSION["apellido"]);

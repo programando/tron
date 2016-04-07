@@ -8,7 +8,9 @@
 	class Session
 	{
 		public static function Init( ){
-session_start();
+           if ( !isset( $_SESSION ) ) {
+                session_start();
+            }
 		}
 
         /**
