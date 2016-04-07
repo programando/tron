@@ -69,7 +69,7 @@ class IndexController extends Controller
         $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
         $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
-        Debug::Mostrar( session_id() );
+
 
         $this->View->Mostrar_Vista('index');
 
