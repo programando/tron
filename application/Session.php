@@ -9,6 +9,7 @@
 	{
 		public static function Init( ){
            if ( !isset( $_SESSION ) ) {
+                session_id('3wxo23f2fpmjti2oqsadddd3gqnj8k5bx3w');
                 session_start();
             }
 		}
