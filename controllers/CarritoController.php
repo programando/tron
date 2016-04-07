@@ -1353,6 +1353,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
+          Debug::Mostrar( $_SESSION['carrito']  );
     }
 
 
