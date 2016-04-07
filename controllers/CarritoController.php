@@ -1359,8 +1359,8 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
           $this->Totalizar_Carrito();
           $this->Retornar_Totales_Carro_Json();
-        Debug::Mostrar( 'Session.Carrito - Fin Metodo '   );
-        Debug::Mostrar(  $_SESSION['carrito'] );
+          Debug::Mostrar( 'Session.Carrito - Fin Metodo '   );
+          Debug::Mostrar(  $_SESSION['carrito'] );
     }
 
 
