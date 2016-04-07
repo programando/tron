@@ -354,7 +354,7 @@ class CarritoController extends Controller{
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
-
+Debug::Mostrar( $Tipo_Vista );
       $this->Borrar_Productos_Carro_Plan_2_3();
 
       //----------------------------------------------------------------------------------------------------------------------------
@@ -1315,20 +1315,20 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
         $ProdTronAcc      = General_Functions::Validar_Entrada('es_tron_acc','BOL');
         $NombreArray      = 'TRON'.$IdProducto ;
-        Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
-        //
 
-        if (!isset($_SESSION['carrito'])) {
+        Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
+
+        $Carrito_Compras = $_SESSION['carrito'];
+        if ( !isset( $Carrito_Compras )) {
           $_SESSION['carrito'] = array();
         }
+
         $Carrito_Actual     = $_SESSION['carrito'];
         $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada);
         $Existe_Id_Producto = false;
         $Pos                = 0;
         $Cantidad_Filas     = count($Carrito_Actual);
         $i                  = 0;
-
-
 
         for ($i=0; $i<$Cantidad_Filas; $i++)  {
             $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
@@ -1355,7 +1355,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $this->Totalizar_Carrito();
 
           $this->Retornar_Totales_Carro_Json();
-          var_dump( $_SESSION['carrito'] ) ;
+
 
     }
 

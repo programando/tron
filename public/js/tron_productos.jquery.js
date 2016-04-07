@@ -131,7 +131,7 @@ function Agregar_Producto_a_Carrito(NomProducto,Parametros){
 					url:      '/tron/carrito/Agregar_Producto/',
 					type:     'post',
      success:  function (resultado) {
-    	 		Imprimir_Totales_Carrito_Header( resultado.SubTotal_Pedido_Ocasional, resultado.SubTotal_Pedido_Amigos );
+    	 		//Imprimir_Totales_Carrito_Header( resultado.SubTotal_Pedido_Ocasional, resultado.SubTotal_Pedido_Amigos );
     	 }
 
 					});
@@ -565,6 +565,7 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
   	  }
 
   }
+
   Agregar_Producto_a_Carrito(NomProducto,Parametros);
   Mostrar_Mensaje_Producto_Agregado(NomProducto);
   return false;
