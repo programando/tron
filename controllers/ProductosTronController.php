@@ -8,8 +8,6 @@
 		    {
 		        parent::__construct();
 		        $this->Fletes         = $this->Load_Controller('Fletes');
-
-
 		    }
 
 		    public function index(){}
@@ -58,6 +56,7 @@
 											$Precio_Lista_Total = $Precio_Lista_Ropa  + $Precio_Lista_Banios 	+ $Precio_Lista_Pisos 	+ $Precio_Lista_Loza;
 
 
+
 										$this->Fletes->Redetrans_Courrier($Peso_Total, $Costo_Total, $iddpto );
 										// RESTO EL SEGURO PORQUE AQUI NO LO NECESITO
 										$Flete_Real           = Session::Get('REDETRANS_COURRIER_VR_FLETE')  - Session::Get('REDETRANS_COURRIER_VR_SEGURO');
@@ -99,110 +98,159 @@
 											$descuento_especial = $Precio_Lista_Total  - $precio_especial ;
 											if ( $descuento_especial < 0 ) { $descuento_especial = $descuento_especial * -1 ;}
 
+											$descuento_especial 										= round($descuento_especial,0);
 											$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
 											$descuento_especial_porciento = round($descuento_especial_porciento,2);
+											/*CAMBIOS IMPLEMENTADOS EL 19 DE ABRIL DE 2016*/
+
+											// ESTE PEDIDO A PRECIO DE LISTA
+											$Pedido_Precio_Lista = $Precio_Lista_Ropa + $Precio_Lista_Banios + $Precio_Lista_Pisos + $Precio_Lista_Loza;
+
+											//	PROPORCION ESTE PEDIDO
+											$Proporcion_Ropa   = $Precio_Lista_Ropa 		/ $Pedido_Precio_Lista ;
+											$Proporcion_Banios = $Precio_Lista_Banios / $Pedido_Precio_Lista;
+											$Proporcion_Pisos  = $Precio_Lista_Pisos 	/ $Pedido_Precio_Lista;
+											$Proporcion_Loza   = $Precio_Lista_Loza 		/ $Pedido_Precio_Lista;
 
 
-											// *	10. HALLAR DESCUENTO NEGATIVO PARA ENCONTRAR EL TRANSPORTE
-											$descuento_negativo = 0 ;
-											if  ( $Precio_Lista_Total = $precio_especial){
-															$descuento_negativo = 	$precio_especial_temp - $Precio_Lista_Total;
-															Session::Set('Sobre_Precio_Prod_Tron',$descuento_negativo );
-											}
 
-											//*	11.	HALLAR EL VALOR DE TRANSPORTE
-											$transporte_tron = $Flete_Real - $subsidio_flete_valle + $descuento_negativo ;
-
-
-											//12.	VALOR TOTAL A PAGAR POR EL PEDIDO
-											$valor_pedido_tron = $precio_especial + 	$transporte_tron  ;
-
-											// *	13.	DESCUENTO PARA PRECIO MERCADO POR CATEGORIA
-											$vr_descuento_precio_mercado_ropa   = $Precio_Lista_Ropa 	 * ( 1 - $dscto_precio_mercado_1_ropa    );
-											$vr_descuento_precio_mercado_banios = $Precio_Lista_Banios * ( 1 - $dscto_precio_mercado_2_banios ) ;
-											$vr_descuento_precio_mercado_pisos  = $Precio_Lista_Pisos 	* ( 1 - $dscto_precio_mercado_3_pisos  ) ;
-											$vr_descuento_precio_mercado_loza   = $Precio_Lista_Loza 		* ( 1 - $dscto_precio_mercado_4_loza   ) ;
-
-											// *	14.	TOTAL DEL VALOR DE DESCUENTO PARA PRECIO DE MERCADO
-											$total_vr_descuento_precio_mercado = $vr_descuento_precio_mercado_ropa + 	$vr_descuento_precio_mercado_banios + $vr_descuento_precio_mercado_pisos + $vr_descuento_precio_mercado_loza;
-
-											//*	15.	PORCENTAJE DE DESCUENTO ESPECIAL SOBRE PRECIO DE MARCADO
-											if ( $descuento_especial > 0 ){
-														$descuento_especial_porcentaje = $total_vr_descuento_precio_mercado / $descuento_especial;
-												}else{
-														$descuento_especial_porcentaje = 0 ;
-												}
-
-											//	*	16.	PORCENTAJES PROPORCIONALES DE CADA CATEGORIA
-											if ( $total_vr_descuento_precio_mercado > 0 ) {
-															$descuento_mercado_porcentaje_ropa   = $vr_descuento_precio_mercado_ropa 	  / $total_vr_descuento_precio_mercado ;
-															$descuento_mercado_porcentaje_banios = $vr_descuento_precio_mercado_banios  / $total_vr_descuento_precio_mercado ;
-															$descuento_mercado_porcentaje_pisos  = $vr_descuento_precio_mercado_pisos   / $total_vr_descuento_precio_mercado ;
-															$descuento_mercado_porcentaje_loza   = $vr_descuento_precio_mercado_loza    / $total_vr_descuento_precio_mercado ;
+											//	PRECIOS UNITARIOS DE MARCADO
+											$Precio_Unit_Mcdo_Ropa   =	0 ;
+											$Precio_Unit_Mcdo_Banios =	0 ;
+											$Precio_Unit_Mcdo_Pisos  = 0 ;
+											$Precio_Unit_Mcdo_Loza   =	0 ;
+											if ( $Cantidad_Ropa  > 0 ){
+														$Precio_Unit_Mcdo_Ropa   =	$Precio_Lista_Ropa 		/ $Cantidad_Ropa 		* ( 1 - $dscto_precio_mercado_1_ropa ) ;
+													}
+											if ( $Cantidad_Banios  > 0 )	{
+														$Precio_Unit_Mcdo_Banios =	$Precio_Lista_Banios / $Cantidad_Banios * ( 1 - $dscto_precio_mercado_2_banios ) ;
+													}
+												if ( $Cantidad_Pisos > 0 ){
+																$Precio_Unit_Mcdo_Pisos  =	$Precio_Lista_Pisos		/ $Cantidad_Pisos 	* ( 1 - $dscto_precio_mercado_3_pisos ) ;
+															}
+												if ( $Cantidad_Loza > 0 ){
+															$Precio_Unit_Mcdo_Loza   =	$Precio_Lista_Loza		 / $Cantidad_Loza 		* ( 1 - $dscto_precio_mercado_4_loza ) ;
 														}
 
-											//*	17.	DESCUENTO ESPECIAL PROPORCIONADO POR CADA CATEGORIA
-															$descuento_unitario_ropa   = $descuento_mercado_porcentaje_ropa    * $precio_especial ;
-															$descuento_unitario_banios = $descuento_mercado_porcentaje_banios  * $precio_especial ;
-															$descuento_unitario_pisos  = $descuento_mercado_porcentaje_pisos   * $precio_especial  ;
-															$descuento_unitario_loza   = $descuento_mercado_porcentaje_loza    * $precio_especial  ;
 
-										//*	18.	PRECIO ESPECIAL UNITARIO
-															$precio_especial_unitario_ropa   = $descuento_unitario_ropa ;
-															$precio_especial_unitario_banios = $descuento_unitario_banios ;
-															$precio_especial_unitario_pisos  = $descuento_unitario_pisos ;
-															$precio_especial_unitario_loza   = $descuento_unitario_loza;
 
-															if ( $precio_especial_unitario_ropa < 0)		{			$precio_especial_unitario_ropa 		= 0 ;						}
-															if ( $precio_especial_unitario_banios < 0){		 $precio_especial_unitario_banios = 0 ;						}
-															if ( $precio_especial_unitario_pisos < 0) {			$precio_especial_unitario_pisos 	= 0 ;				 	}
-															if ( $precio_especial_unitario_loza < 0)		{		 $precio_especial_unitario_loza 		= 0 ;					 }
+											/*-----------------------------------------------------*-----------------------------------------------------
+											*ESTE PEDIDO A PRECIO DE MERCADO... VALORES TOTALES. YA CALCULADO EN LAS LINEAS ANTERIORES
+											*-----------------------------------------------------*-----------------------------------------------------*/
 
-															$Descuento_Unitario_Total 		=	$descuento_especial ;
-											// *	19. VERIFICAR EL PRECIO ESPECIAL CON RESPECTO A LA SUMA DE DESCUENTOS .. PENDIENTE....
+											//		DTO1. PARA IGUALAR PRECIO MERCADO
+											$Dcto_1_Igualar_Precio_Mcado_Ropa   =	 $Precio_Lista_Ropa 			* $dscto_precio_mercado_1_ropa ;
+											$Dcto_1_Igualar_Precio_Mcado_Banios =	 $Precio_Lista_Banios 	* $dscto_precio_mercado_2_banios ;
+											$Dcto_1_Igualar_Precio_Mcado_Pisos  =	 $Precio_Lista_Pisos 		* $dscto_precio_mercado_3_pisos ;
+											$Dcto_1_Igualar_Precio_Mcado_Loza   =	 $Precio_Lista_Loza 			* $dscto_precio_mercado_4_loza ;
+											$Dcto_1_Igualar_Precio_Mcado_Total  =  $Dcto_1_Igualar_Precio_Mcado_Ropa  + $Dcto_1_Igualar_Precio_Mcado_Banios + $Dcto_1_Igualar_Precio_Mcado_Pisos + $Dcto_1_Igualar_Precio_Mcado_Loza;
 
-											// *	20.	UNITARIO ESPECIAL
-															$vr_unitario_ropa   = 0 ;
-															$vr_unitario_banios = 0 ;
-															$vr_unitario_pisos  = 0 ;
-															$vr_unitario_loza   = 0 ;
 
-															if ( $Cantidad_Ropa   > 0 )   {  					 $vr_unitario_ropa 		= $precio_especial_unitario_ropa 		 / $Cantidad_Ropa 		; 											}
-															if ( $Cantidad_Banios > 0 ) 	 {							 $vr_unitario_banios = $precio_especial_unitario_banios  / $Cantidad_Banios ;												}
-															if ( $Cantidad_Pisos  > 0 ) 		{								$vr_unitario_pisos  = $precio_especial_unitario_pisos   / $Cantidad_Pisos  ;												}
-															if ( $Cantidad_Loza   > 0 )   {								$vr_unitario_loza   = $precio_especial_unitario_loza    / $Cantidad_Loza   ;												}
 
-											// * 21		DIFERENCIA A REPARTIR
-															$Diferencia = $Descuento_Unitario_Total - $precio_especial ;
-											// * 21  SI LA DIFERENCIA EN MAYOR A CERO SE PROPORCIONA
-																$Vr_Diferencia_Ropa   = 0 ;
-																$Vr_Diferencia_Banios = 0 ;
-																$Vr_Diferencia_Pisos  = 0 ;
-																$Vr_Diferencia_Loza   = 0 ;
-																if ( $Diferencia > 0 ){
-																				$Vr_Diferencia_Ropa   = ( $precio_especial_unitario_ropa   / ( $precio_especial  + $Diferencia )) * $Diferencia ;
-																				$Vr_Diferencia_Banios = ( $precio_especial_unitario_banios / ( $precio_especial  + $Diferencia )) * $Diferencia ;
-																				$Vr_Diferencia_Pisos  = ( $precio_especial_unitario_pisos  / ( $precio_especial  + $Diferencia )) * $Diferencia ;
-																				$Vr_Diferencia_Loza   = ( $precio_especial_unitario_loza   / ( $precio_especial  + $Diferencia )) * $Diferencia ;
+											//		FALTANTE=DIF.DTO1 VS. DTO.ESPECIAL
+											$descuento_especial_2 = abs( $descuento_especial );
+											if ( $Dcto_1_Igualar_Precio_Mcado_Total < $descuento_especial_2 ){
+												$Faltante = $descuento_especial  * -1 + $Dcto_1_Igualar_Precio_Mcado_Total ;
+												}else{
+														$Faltante = $Dcto_1_Igualar_Precio_Mcado_Total * -1 + $descuento_especial ;
+												}
+												$Faltante_Inicial = $Faltante;
+												$Faltante = abs( $Faltante );
+
+												// DTO2. PARA IGUALAR PRECIO ESPECIAL
+												if ( $Proporcion_Ropa  * $Faltante > $Dcto_1_Igualar_Precio_Mcado_Ropa ){
+															$Dcto_2_Igualar_Precio_Mcado_Ropa = $Dcto_1_Igualar_Precio_Mcado_Ropa * -1 ;
+													}else{
+														$Dcto_2_Igualar_Precio_Mcado_Ropa = $Proporcion_Ropa  * $Faltante_Inicial;
+													}
+
+													if ( $Proporcion_Banios  * $Faltante > $Dcto_1_Igualar_Precio_Mcado_Banios ){
+																	$Dcto_2_Igualar_Precio_Mcado_Banios = $Dcto_1_Igualar_Precio_Mcado_Banios  * -1;
+															}else{
+																$Dcto_2_Igualar_Precio_Mcado_Banios = $Proporcion_Banios  * $Faltante_Inicial;
+															}
+												if ( $Proporcion_Pisos  * $Faltante > $Dcto_1_Igualar_Precio_Mcado_Pisos ){
+																	$Dcto_2_Igualar_Precio_Mcado_Pisos = $Dcto_1_Igualar_Precio_Mcado_Pisos  * -1;
+															}else{
+																$Dcto_2_Igualar_Precio_Mcado_Pisos = $Proporcion_Pisos  * $Faltante_Inicial;
+															}
+												if ( $Proporcion_Loza  * $Faltante > $Dcto_1_Igualar_Precio_Mcado_Loza ){
+																	$Dcto_2_Igualar_Precio_Mcado_Loza = $Dcto_1_Igualar_Precio_Mcado_Loza  * -1;
+															}else{
+																$Dcto_2_Igualar_Precio_Mcado_Loza = $Proporcion_Loza  * $Faltante_Inicial;
+															}
+												$Dcto_2_Igualar_Precio_Mcado_Total = 	$Dcto_2_Igualar_Precio_Mcado_Ropa + 			$Dcto_2_Igualar_Precio_Mcado_Banios + $Dcto_2_Igualar_Precio_Mcado_Pisos + $Dcto_2_Igualar_Precio_Mcado_Loza;
+
+
+												//		DESCUENTO 1 + DESCUENTO 2
+													$Dcto_1_Mas_Dcto_2_Ropa   = $Dcto_1_Igualar_Precio_Mcado_Ropa  		+ $Dcto_2_Igualar_Precio_Mcado_Ropa;
+													$Dcto_1_Mas_Dcto_2_Banios = $Dcto_1_Igualar_Precio_Mcado_Banios  + $Dcto_2_Igualar_Precio_Mcado_Banios;
+													$Dcto_1_Mas_Dcto_2_Pisos  = $Dcto_1_Igualar_Precio_Mcado_Pisos  	+ $Dcto_2_Igualar_Precio_Mcado_Pisos;
+													$Dcto_1_Mas_Dcto_2_Loza   = $Dcto_1_Igualar_Precio_Mcado_Loza  		+ $Dcto_2_Igualar_Precio_Mcado_Loza;
+													$Dcto_1_Mas_Dcto_2_Total  = $Dcto_1_Mas_Dcto_2_Ropa + $Dcto_1_Mas_Dcto_2_Banios + $Dcto_1_Mas_Dcto_2_Pisos + $Dcto_1_Mas_Dcto_2_Loza ;
+
+
+
+													//		DIF. DTO2 VS FALTANTE
+														$Dif_Dcto_2_Faltante = $Faltante_Inicial - $Dcto_2_Igualar_Precio_Mcado_Total ;
+
+
+
+													//  DTO.3 PARA IGUALAR PRECIO ESPECIAL
+														$Dcto_3_Igualar_Precio_Mcado_Ropa = 0;
+														if ( $Dcto_1_Mas_Dcto_2_Total <> 0 ){
+																		$Dcto_3_Igualar_Precio_Mcado_Ropa = ( $Dcto_1_Mas_Dcto_2_Ropa / $Dcto_1_Mas_Dcto_2_Total) * $Dif_Dcto_2_Faltante;
+																}
+														$Dcto_3_Igualar_Precio_Mcado_Banios = 0;
+														if ( $Dcto_1_Mas_Dcto_2_Total <> 0 ){
+																		$Dcto_3_Igualar_Precio_Mcado_Banios = ( $Dcto_1_Mas_Dcto_2_Banios / $Dcto_1_Mas_Dcto_2_Total) * $Dif_Dcto_2_Faltante;
+																}
+														$Dcto_3_Igualar_Precio_Mcado_Pisos = 0;
+														if ( $Dcto_1_Mas_Dcto_2_Total <> 0 ){
+																		$Dcto_3_Igualar_Precio_Mcado_Pisos = ( $Dcto_1_Mas_Dcto_2_Pisos / $Dcto_1_Mas_Dcto_2_Total) * $Dif_Dcto_2_Faltante;
+																}
+														$Dcto_3_Igualar_Precio_Mcado_Loza = 0;
+														if ( $Dcto_1_Mas_Dcto_2_Total <> 0 ){
+																		$Dcto_3_Igualar_Precio_Mcado_Loza = ( $Dcto_1_Mas_Dcto_2_Loza / $Dcto_1_Mas_Dcto_2_Total) * $Dif_Dcto_2_Faltante;
 																}
 
-															if ( $Cantidad_Ropa   > 0 )   { $vr_unitario_ropa   =  ( $precio_especial_unitario_ropa    -  $Vr_Diferencia_Ropa   ) / $Cantidad_Ropa    ;	}
-															if ( $Cantidad_Banios > 0 ) 	 { $vr_unitario_banios =  ( $precio_especial_unitario_banios  -  $Vr_Diferencia_Banios ) / $Cantidad_Banios  ;	}
-															if ( $Cantidad_Pisos  > 0 ) 		{ $vr_unitario_pisos  =  ( $precio_especial_unitario_pisos   -  $Vr_Diferencia_Pisos  ) / $Cantidad_Pisos   ;	}
-															if ( $Cantidad_Loza   > 0 )   { $vr_unitario_loza   =  ( $precio_especial_unitario_loza    -  $Vr_Diferencia_Loza   ) / $Cantidad_Loza    ;	}
+												//		TOTAL DESCUENTO
+																$Total_Descuento_Ropa   =	 $Dcto_1_Mas_Dcto_2_Ropa + $Dcto_3_Igualar_Precio_Mcado_Ropa;
+																$Total_Descuento_Banios =	 $Dcto_1_Mas_Dcto_2_Banios + $Dcto_3_Igualar_Precio_Mcado_Banios;
+																$Total_Descuento_Pisos  =	 $Dcto_1_Mas_Dcto_2_Pisos + $Dcto_3_Igualar_Precio_Mcado_Pisos;
+																$Total_Descuento_Loza   =	 $Dcto_1_Mas_Dcto_2_Loza + $Dcto_3_Igualar_Precio_Mcado_Loza;
+
+												// 	PRECIOS UNITARIOS
+																$Precio_Unitario_Ropa  = 0;
+																if ( $Cantidad_Ropa  > 0 ){
+																			$Precio_Unitario_Ropa   = ( $Precio_Lista_Ropa - $Total_Descuento_Ropa ) / $Cantidad_Ropa;
+																	}
+																$Precio_Unitario_Banios  = 0;
+																if ( $Cantidad_Banios  > 0 ){
+																			$Precio_Unitario_Banios   = ( $Precio_Lista_Banios - $Total_Descuento_Banios) / $Cantidad_Banios;
+																	}
+																$Precio_Unitario_Pisos  = 0;
+																if ( $Cantidad_Pisos  > 0 ){
+																			$Precio_Unitario_Pisos   = ( $Precio_Lista_Pisos - $Total_Descuento_Pisos) / $Cantidad_Pisos;
+																	}
+																$Precio_Unitario_Loza  = 0;
+																if ( $Cantidad_Loza  > 0 ){
+																			$Precio_Unitario_Loza   = ( $Precio_Lista_Loza - $Total_Descuento_Loza) / $Cantidad_Loza;
+																	}
 
 
-																// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
-
-																Session::Set('precio_especial',$precio_especial);
-																Session::Set('transporte_tron',0);
-																Session::Set('descuento_especial',$descuento_especial);
+ 															// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
+																Session::Set('precio_especial'              , $precio_especial   );
+																Session::Set('transporte_tron'              , 0                  );
+																Session::Set('descuento_especial'           , $descuento_especial);
 																Session::Set('descuento_especial_porcentaje', $descuento_especial_porciento);
 
-																Session::Set('vr_unitario_ropa',$vr_unitario_ropa);
-																Session::Set('vr_unitario_banios',$vr_unitario_banios);
-																Session::Set('vr_unitario_pisos',$vr_unitario_pisos);
-																Session::Set('vr_unitario_loza',$vr_unitario_loza);
+																Session::Set('vr_unitario_ropa',     $Precio_Unitario_Ropa);
+																Session::Set('vr_unitario_banios',   $Precio_Unitario_Banios);
+																Session::Set('vr_unitario_pisos',    $Precio_Unitario_Pisos);
+																Session::Set('vr_unitario_loza',     $Precio_Unitario_Loza);
+
+
 		    }
 
 		 }

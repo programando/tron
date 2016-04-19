@@ -1,9 +1,7 @@
 
 
-
 var Mostrar_Mensaje = function(mensaje)
 {
-
 	 $('.messagebox').text(mensaje).fadeIn(2000);
   $('.messagebox').fadeOut(4000);
 }

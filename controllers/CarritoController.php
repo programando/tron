@@ -818,6 +818,8 @@ public function Totalizar_Carrito(){
         $Flete_Ocasional = $Flete_Ocasional ;
         $Flete_Amigo     = $Flete_Ocasional ;
 
+
+
         if ( $Flete_Ocasional > 0 ) {
           $Flete_Ocasional               = $Flete_Ocasional  ;
           $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional                + $Flete_Ocasional;
@@ -902,10 +904,7 @@ public function Totalizar_Carrito(){
               {
                  $Vr_Diferencia_Min_Tron = 0;
               }
-          } /*else{
-              Debug::Mostrar('VALOR MINIMO RECAUDO ' . Session::Get('py_vr_min_recaudo_') . $this->PayuLatam_Recaudo );
-            }
-            */
+          }
 
             if ( $Compras_Productos_Tron  > 0 ){
               $Vr_Diferencia_Min_Tron = 0;
@@ -922,6 +921,7 @@ public function Totalizar_Carrito(){
           }else{
             $Valor_Fijo_Recaudo  = $this->PayuLatam_Valor_Adicional / ( 1 - $this->PayuLatam_Recaudo);
           }
+
 
           $Vr_Recaudo_Tron      = $Vr_Recaudo_Tron      +  $Valor_Fijo_Recaudo;
           $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional +  $Valor_Fijo_Recaudo;
@@ -1063,7 +1063,10 @@ private function Hallar_Asignar_Precio_Especial_Productos_Tron(){
                    'Cantidad_Banios','Peso_Banios','Cmv_Banios','Precio_Lista_Banios',
                    'Cantidad_Pisos','Peso_Pisos','Cmv_Pisos','Precio_Lista_Pisos',
                    'Cantidad_Loza','Peso_Loza','Cmv_Loza','Precio_Lista_Loza','Vr_Declarado_ProdTron');
+
     $this->Productos_Tron->Hallar_Precio_Especial( $this->Parametros->Transportadoras(), $datos);
+
+
 
     $this->Depurar_Carrito();
     $this->Iniciar_Procesos_Carro();
@@ -1374,6 +1377,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
       $pv_tron_resumen               =  "$ ".number_format(Session::Get('pv_tron_resumen'),0,"",".");
       $pv_ocas_resumen               =  "$ ".number_format(Session::Get('pv_ocas_resumen'),0,"",".");
+
 
       $Datos    = compact('SubTotal_Pedido_Amigos','SubTotal_Pedido_Ocasional','descuento_especial','descuento_especial_porcentaje',
                           'vr_unitario_ropa','vr_unitario_banios','vr_unitario_pisos','vr_unitario_loza',

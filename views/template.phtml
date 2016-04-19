@@ -66,6 +66,8 @@
   <script src ="<?= BASE_JS ; ?>jquery-migrate-1.2.1.min.js"          type="text/javascript" ></script>
 
 
+
+
       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 Old IE gets 1.10 new IE gets 2.0 -->
       <!--[if lt IE 9]>
           <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -110,19 +112,16 @@
     <!-- OCTUBRE 09 DE 2014 -> INCLUSIÓN DE ARCHIVOS JS - REALACIONADOS CON LA VISTA EN PARTUCULAR QUE ESTOY CARGANDO
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
     <?php
-		if(isset($this->Js) && !empty($this->Js)){
-    		foreach ($this->Js as $Archivo_Js){
-	?>
-
-		<script src="<?= $Archivo_Js ;?>" type="text/javascript"></script>
-
-	<?php
+		    if(isset($this->Js) && !empty($this->Js)){
+    		    foreach ($this->Js as $Archivo_Js){
+	       ?>
+            <script src="<?= $Archivo_Js ;?>" type="text/javascript"></script>
+	       <?php
     		}
 		}
 	?>
     <!-- FIN INLCUSIÓN DE ARCHIVOS JS
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-
 
 
 </body>
