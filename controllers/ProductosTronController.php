@@ -148,14 +148,20 @@
 
 
 											//		FALTANTE=DIF.DTO1 VS. DTO.ESPECIAL
+											$descuento_especial_negativo = $descuento_especial  * -1;
+
 											$descuento_especial_2 = abs( $descuento_especial );
+
 											if ( $Dcto_1_Igualar_Precio_Mcado_Total < $descuento_especial_2 ){
-												$Faltante = $descuento_especial  * -1 + $Dcto_1_Igualar_Precio_Mcado_Total ;
+														$Faltante = ( $descuento_especial_negativo * -1 ) - ( $Dcto_1_Igualar_Precio_Mcado_Total );
 												}else{
-														$Faltante = $Dcto_1_Igualar_Precio_Mcado_Total * -1 + $descuento_especial ;
+														$Faltante = ( $Dcto_1_Igualar_Precio_Mcado_Total  * - 1 ) - ( $descuento_especial_negativo   );
 												}
 												$Faltante_Inicial = $Faltante;
 												$Faltante = abs( $Faltante );
+
+ 									//	Debug::Mostrar( $Faltante_Inicial );
+
 
 												// DTO2. PARA IGUALAR PRECIO ESPECIAL
 												if ( $Proporcion_Ropa  * $Faltante > $Dcto_1_Igualar_Precio_Mcado_Ropa ){
