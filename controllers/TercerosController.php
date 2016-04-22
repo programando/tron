@@ -727,7 +727,6 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('compras_productos_fabricados_ta',       $Registro[0]['compras_productos_fabricados_ta']);
 
 
-      Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
 
       // ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
       if ($compras_este_mes_tron  >= $compra_minima_productos_tron ||  $compras_este_mes_industiales >= $compra_minima_productos_industriales){

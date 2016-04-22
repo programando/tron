@@ -10,7 +10,7 @@
 		public static function Init( ){
            if ( !isset( $_SESSION ) ) {
                 //$CodSession = General_Functions::Generar_Codigo_Unico(64);
-                session_id( 'EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
+                session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
                 session_start();
             }
 		}

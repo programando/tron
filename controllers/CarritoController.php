@@ -362,7 +362,6 @@ class CarritoController extends Controller{
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
 
       $this->Iniciar_Procesos_Carro();
-      $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
@@ -378,11 +377,12 @@ class CarritoController extends Controller{
 
      if ($this->Cantidad_Filas_Carrito > 0)  {
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
-        $this->Totalizar_Carrito();
+         $this->Totalizar_Carrito();
         Session::Set('iddireccion_despacho',$iddireccion_despacho );
-        $this->View->Datos_Carro                = $_SESSION['carrito'];
-        $this->View->Puntos_Utilizados          = Session::Get('Puntos_Utilizados');
-        $this->View->Comisiones_Utilizadas      = Session::Get('Comisiones_Utilizadas');
+        $this->View->Datos_Carro                           = $_SESSION['carrito'];
+        $this->View->Puntos_Utilizados                     = Session::Get('Puntos_Utilizados');
+        $this->View->Comisiones_Utilizadas                 = Session::Get('Comisiones_Utilizadas');
+        $this->View->cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
 
         //DATOS RELACIONADOS CON EL VALOR MÍNIMO DEL PEDIDO Y CONDICION PARA REALIZAR EL PAGO.
         if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE){
@@ -391,7 +391,7 @@ class CarritoController extends Controller{
              Session::Set('valor_real_pedido', $this->Vr_Total_Pedido_Ocasional );
             }
 
-        Session::Set('cumple_valor_minimo_pedido', TRUE);
+
         if ( Session::Get('pago_minimo_payulatam') > Session::Get('valor_real_pedido' ) ){
           Session::Set('cumple_valor_minimo_pedido', FALSE);
         }
@@ -621,6 +621,7 @@ public function Totalizar_Carrito(){
 
       $this->Totalizar_Pedido_x_Categoria_Producto();              // TOTALIZAR CARRITO POR CADA TIPO DE PRODUCTO
       $cumple_condicion_cpras_tron_industial = $this->Determinar_Cumple_Condicion_Cpras_Tron_Industial();   // EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
+
       $this->Verificar_Compra_Derecho_Inscripcion( $this->Datos_Carro);                               // VERIFICAR SI EN EL CARRITO EXISTE EL DERECHO DE INSCRIPCIÓN
 
 
@@ -680,6 +681,7 @@ public function Totalizar_Carrito(){
 
        }// Fin recorrido foreach carrito
        $this->Cerrar_Procesos_Carro();
+
 
 
 
@@ -1155,7 +1157,8 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
   /** JULIO 24 DE 2015
    *      DETERMINA SI CUMPLE LAS CONDICIONES PARA APLICAR EL PRECIO ESPECIAL EN LA COMPRA
    */
-        $this->Terceros->Compra_Productos_Tron_Mes_Actual( $this->compras_tron  , $this->compras_industrial  );
+       // $this->Terceros->Compra_Productos_Tron_Mes_Actual( $this->compras_tron  , $this->compras_industrial  );
+
         $Cumple_Condic_Cpras_Tron_Industial = FALSE;
 
         $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
@@ -1168,6 +1171,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
         $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
         $aplica_pago_adicional_payu_latam     = FALSE;
         $cumple_compras_tron                  = FALSE;
+
 
         if ( Session::Get('logueado') == TRUE ) {
           if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
@@ -1189,9 +1193,12 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
           $aplica_pago_adicional_payu_latam  = TRUE ;
           $cumple_compras_tron               = TRUE ;
       }
+
       Session::Set('cumple_condicion_cpras_tron_industial'   , $Cumple_Condic_Cpras_Tron_Industial );
       Session::Set('aplica_pago_adicional_payu_latam'        , $aplica_pago_adicional_payu_latam );
       Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
+
+      //
       return $Cumple_Condic_Cpras_Tron_Industial;
 
     } // fin Determinar_cumple_condicion_cpras_tron_industial
@@ -1219,9 +1226,10 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       $this->Iniciar_Procesos_Carro();
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)  {
           $id_categoria_producto = $this->Datos_Carro[$i]['id_categoria_producto'] ;
-          $precio_unitario       = $this->Datos_Carro[$i]['precio_unitario_produc_pedido'] ;
+          $precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
           $total_item            = $precio_unitario *  $cantidad ;
+
 
           if ($id_categoria_producto  <= 4) {
                $this->compras_tron                 = $this->compras_tron            + $total_item  ;
@@ -1248,6 +1256,7 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       Session::Set('compra_accesorios'                , $this->compras_accesorios );
 
       $this->Cerrar_Procesos_Carro();
+
 
     }
 
