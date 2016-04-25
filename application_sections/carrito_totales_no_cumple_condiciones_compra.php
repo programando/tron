@@ -1,4 +1,5 @@
-
+VISTA
+<?=$this->Vr_Total_Pedido_Ocasional ;?>
 
     <td coslpan="3" class="text-right">
             <div><strong><?= Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Ocasional)  ; ?></strong></div>
