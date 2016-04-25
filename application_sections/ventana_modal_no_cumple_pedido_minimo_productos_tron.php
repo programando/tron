@@ -16,8 +16,8 @@
                   	   <p>
                           La compra mínima de productos TRON es de : <strong><?=   "$ ".number_format(Session::Get('minimo_compras_productos_tron'),0,"",".") ;?></strong><br><br>
                           Has incluido un total de : <strong><?=   "$ ".number_format(Session::Get('compra_productos_tron'),0,"",".") ;?></strong> de estos productos, valor con el cual
-                          no podrá finalizar el pedido. <br><br>
-                          Elimine los productos del pedido o agregue otros productos para completar la compra mímina.
+                          no podrás finalizar el pedido. <br><br>
+                          Agregue productos TRON hasta completar la compra mínima.
                           <br><br>
 
 
