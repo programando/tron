@@ -110,7 +110,8 @@ private function Parametros_Iniciales(){
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
         Session::Set('Parametros',$Parametros );
 
-        Session::Set('kit_vr_venta_valle',                $Parametros[0]['kit_vr_venta_valle']);            // Precio de venta del kit de inicio
+        Session::Set('kit_vr_venta_valle',                $Parametros[0]['valor_kit_inicio_ocasional']);            // Precio de venta del kit de inicio
+
 
         Session::Set('valor_kit_inicio_ocasional',        $Parametros[0]['valor_kit_inicio_ocasional']);
         Session::Set('valor_kit_inicio_empresario',       $Parametros[0]['valor_kit_inicio_empresario']);

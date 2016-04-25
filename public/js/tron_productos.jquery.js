@@ -199,10 +199,7 @@ function Borrar_Producto(Parametros){
 							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas el Kit de Incio no podrás finalizar tu registro y quedarás registrado como: <h4> Comprador Ocasional. </h4>. <br> Deseas continuar ?";
 							nuevo_idtipo_plan_compas  = 1;
 			}
-			if ( idtipo_plan_compras == 3 && $idproducto == 2071 ){
-							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas los derechos de inscricpión quedarás registrado como: <h4> Cliente de productos TRON. </h4>. <br> Deseas continuar ?";
-							nuevo_idtipo_plan_compas  = 2;
-			}
+
 						new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
 		                buttons: [
 		                          {id: 0, label: 'Si, eliminaré el Producto', val: 'Y',class: 'btn-danger' },

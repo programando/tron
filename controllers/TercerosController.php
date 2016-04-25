@@ -1038,7 +1038,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
 
         $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
         $this->View->Departamentos          = $this->Departamentos->Consultar();
-        $this->View->Total_Kit_Inscripcion  = Session::Get('kit_vr_venta_valle') + Session::Get('cuota_1_inscripcion');
+        $this->View->Total_Kit_Inscripcion  = Session::Get('kit_vr_venta_valle') ;
 
         if ( Session::Get('codigousuario') == 'JUANBAUTISTA'){
           $codigo = substr(Session::Get('codigousuario') ,0,4);

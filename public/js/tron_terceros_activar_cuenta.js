@@ -55,10 +55,6 @@ var Paso_Final_Registro_Plan_3 = function( nombre_usuario, idtpidentificacion,pe
      $Parametros  = {"IdProducto" :10744, "CantidadComprada": 1, "es_tron": false , "es_tron_acc": false };
      Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
 
-     $Parametros  = {"IdProducto" :2071, "CantidadComprada": 1, "es_tron": false , "es_tron_acc": false };
-     Agregar_Producto_a_Carrito('Derechos de Inscripción',$Parametros);
-
-
      new Messi("<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como empresario debes pagar ahora o seguir comprando...<br>",
       {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
         buttons: [{id: 0, label: 'Seguir Comprando', val: 'S', class: 'btn-success'},
