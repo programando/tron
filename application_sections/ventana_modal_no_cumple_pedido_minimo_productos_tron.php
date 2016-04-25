@@ -14,10 +14,9 @@
        	   	   <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
                   	   <p>
-                          La compra mínima de productos TRON es de : <strong><?=   "$ ".number_format(Session::Get('minimo_compras_productos_tron'),0,"",".") ;?></strong><br><br>
-                          Has incluido un total de : <strong><?=   "$ ".number_format(Session::Get('compra_productos_tron'),0,"",".") ;?></strong> de estos productos, valor con el cual
-                          no podrás finalizar el pedido. <br><br>
-                          Agregue productos TRON hasta completar la compra mínima.
+                          La compra mínima de productos TRON es de : <strong><?=   "$ ".number_format(Session::Get('minimo_compras_productos_tron'),0,"",".") ;?></strong><br>
+                          Hasta el momento has incluido un total de : <strong><?=   "$ ".number_format(Session::Get('compra_productos_tron'),0,"",".") ;?></strong> <br>
+                          Agrega más productos <strong>TRON</strong> para facturar el pedido.
                           <br><br>
 
 
