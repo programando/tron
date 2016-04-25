@@ -379,7 +379,8 @@ class CarritoController extends Controller{
 
      if ($this->Cantidad_Filas_Carrito > 0)  {
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
-         $this->Totalizar_Carrito();
+        Debug::Mostrar( 'MOSTRAR ' . $this->Vr_Total_Pedido_Ocasional );
+        $this->Totalizar_Carrito();
 
 
         Session::Set('iddireccion_despacho',$iddireccion_despacho );
@@ -730,7 +731,7 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Ocasional =  100 ;//$this->SubTotal_Pedido_Ocasional + $this->Vr_Transporte_Ocasional;
        $this->Vr_Total_Pedido_Amigos    =  $this->SubTotal_Pedido_Amigos    + $this->Vr_Transporte_Tron;
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
-       $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
+       //$this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
 
 
 
@@ -1296,6 +1297,8 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
       Session::Set('Vr_Usado_Cupon_Descuento',    0);
       Session::Set('Puntos_Utilizados',           0 );
       Session::Set('Comisiones_Utilizadas',       0 );
+
+      //Debug::Mostrar( 'Comisiones_punto ' . $this->Vr_Total_Pedido_Ocasional  );
 
      $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
      $Aplicacion_Puntos_Comisiones = Session::Get('Aplicacion_Puntos_Comisiones');
