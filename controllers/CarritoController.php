@@ -727,9 +727,10 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
 
-Debug::Mostrar( $this->SubTotal_Pedido_Ocasional  );
-Debug::Mostrar( $this->Vr_Transporte_Ocasional );
+Debug::Mostrar( $this->SubTotal_Pedido_Real  );
+Debug::Mostrar( $this->Vr_Transporte_Real );
 Debug::Mostrar( $this->SubTotal_Pedido_Ocasional +  $this->Vr_Transporte_Ocasional);
+
        Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
        Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
        Session::Set('SubTotal_Pedido_Amigos',    $this->SubTotal_Pedido_Amigos );
