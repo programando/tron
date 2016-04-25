@@ -1314,6 +1314,9 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $this->Saldo_Puntos_Cantidad      = Session::Get('saldo_puntos_cantidad');
           $this->Saldo_Comisiones           = Session::Get('saldo_comisiones');
           $this->Vr_Cupon_Descuento         = Session::Get('vr_cupon_descuento');
+          Debug::Mostrar('Saldo_Puntos_Cantidad ' . $this->Saldo_Puntos_Cantidad );
+          Debug::Mostrar('Saldo_Comisiones ' .  $this->Saldo_Comisiones  );
+
           if ( $this->Vr_Total_Pedido_Real > 0 ){
               if ( $this->Saldo_Puntos_Cantidad >= $this->Vr_Total_Pedido_Real ){
                  $Puntos_Utilizados               =  $this->Vr_Total_Pedido_Real;
