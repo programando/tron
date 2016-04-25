@@ -380,7 +380,7 @@ class CarritoController extends Controller{
      if ($this->Cantidad_Filas_Carrito > 0)  {
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
          $this->Totalizar_Carrito();
-
+         Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional );
 
         Session::Set('iddireccion_despacho',$iddireccion_despacho );
         $this->View->Datos_Carro                           = $_SESSION['carrito'];
@@ -746,7 +746,7 @@ public function Totalizar_Carrito(){
 
 Debug::Mostrar('SubTotal_Pedido_Ocasional ' . $this->SubTotal_Pedido_Ocasional );
 Debug::Mostrar('Vr_Transporte_Ocasional' . $this->Vr_Transporte_Ocasional );
-Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional   +   $this->Vr_Transporte_Ocasional );
+Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional    );
 
 } // Fin Tootalizar carrito tem
 
