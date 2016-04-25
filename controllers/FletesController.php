@@ -197,6 +197,7 @@
 										// HALLO EL SEGURO
 										$seguro_flete = $Valor_Declarado  * $this->Transportadoras[0]['sv_premier_porciento_seguro']/100;
 
+
 										if ($seguro_flete < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
 										}
@@ -489,7 +490,7 @@
 									$this->seguro_redetrans_courrier = 0;
 										$this->tipo_tarifa     = 'REDETRANS-COURRIER';
 
-		      $redetrans_tipo_despacho = '250'; //Session::Get('redetrans_tipo_despacho');
+		      $redetrans_tipo_despacho =  Session::Get('redetrans_tipo_despacho');
 
 
 		      if (  empty($redetrans_tipo_despacho) ){

@@ -323,10 +323,40 @@ var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
 					async: false,
      success:  function (Respuesta)    	 {
      		 $Respuesta_Servidor = $.trim(Respuesta);
-
     	 }
 					});
 }
+
+var Pedidos_Verficiar_Compra_Minima_Productos_Tron = function(){
+				$.ajax({
+					dataType: 'text',
+					url:      '/tron/carrito/Verificar_Compra_Minima_Productos_Tron/',
+					type:     'post',
+					async: false,
+     success:  function (Respuesta)    	 {
+     		 $Respuesta_Servidor = $.trim(Respuesta);
+    	 }
+					});
+}
+
+
+
+
+
+
+var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
+				$.ajax({
+					dataType: 'text',
+					url:      '/tron/carrito/Verificar_Valor_Minimo_A_Pagar/',
+					type:     'post',
+					async: false,
+     success:  function (Respuesta)    	 {
+     		 $Respuesta_Servidor = $.trim(Respuesta);
+    	 }
+					});
+}
+
+
 var Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario = function( $Seguir_Comprando, $Usar_Comis_Puntos ){
 				$.ajax({
 					dataType: 'text',
@@ -356,20 +386,36 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 	$('#contenido-productos').on('click','.btn-forma-pago-pedido',function(){
 			// Octubre 12 de 2015
 		 // Verificar si el pedido tiene un valor mínimo para pagarse por medio de payu-latam
+		 var Respuesta_Pedido_Min_PayuLatam;
+		 var Respuesta_Copra_Minima_Productos_Tron;
+
 	   Pedidos_Verificar_Valor_Minimo_A_Pagar();
-	   if ( $Respuesta_Servidor == 'NO-CUMPLE'){
+	   		Respuesta_Pedido_Min_PayuLatam = $Respuesta_Servidor ;
+
+	   Pedidos_Verficiar_Compra_Minima_Productos_Tron();
+	   		Respuesta_Copra_Minima_Productos_Tron = $Respuesta_Servidor ;
+
+
+	   if ( Respuesta_Pedido_Min_PayuLatam == 'NO-CUMPLE'){
 	   	 $('#modal_no_cumple_pedido_minimo').modal('show');
-	   }else{
+	   	 return ;
+	   	}
+
+	   if ( Respuesta_Copra_Minima_Productos_Tron == 'NO-CUMPLE-COMPRAS-TRON'){
+	   		 $('#modal_no_cumple_pedido_minimo_productos_tron').modal('show');
+	   		 return ;
+	    }
+
+	     // PASAR A LA FORMA DE PAGAR PARA EL PEDIDO
 							$.ajax({
 									dataType: 'text',
 									url:      '/tron/pedidos/Grabar/',
 									type:     'post',
 				     success:  function (resultado)	 {
 				 							window.location.href = "/tron/carrito/Finalizar_Pedido_Forma_Pago";
-				 							Imprimir_Totales_Carrito_Header( 0, 0);
 				    	 }
-									});
- 		}
+							});
+
 });
 
 

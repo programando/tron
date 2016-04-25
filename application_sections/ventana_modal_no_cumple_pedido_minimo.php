@@ -5,7 +5,7 @@
        <!-- header -->
        <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-          <h4>Apreciado usuario..!</h4>
+          <h4>Apreciado usuario...!</h4>
        </div>
 
        <!-- body -->
@@ -16,7 +16,7 @@
                   	   <p>El valor mínimo a pagar por un pedido es de <strong> <?= Session::Get('pago_minimo_payulatam') ;?> </strong><br><br>
                   	      El valor total de tu pedido es de
                   	      <span id="valor_tu_pedido"><strong><?= Numeric_Functions::Formato_Numero( Session::Get('valor_real_pedido')) ;?> </strong></span>
-                  	      con el cual no podas realizar el pago, pero tienes estas opciones: <br>
+                  	      con el cual no podrás realizar el pago, pero tienes estas opciones: <br>
                          <!-- opciones -->
                          <div>
                            <!-- seguri comprando -->

@@ -38,7 +38,15 @@
                 <?php include (APPLICATION_SECTIONS . 'ventana_no_cumple_compras_minimas.php');?>
             <?php endif ;?>
 
-            <?php include (APPLICATION_SECTIONS . 'ventana_modal_no_cumple_pedido_minimo.php');?>
+            <?php if ( Session::Get('cumple_valor_minimo_pedido') == FALSE ) :?>
+                <?php include (APPLICATION_SECTIONS . 'ventana_modal_no_cumple_pedido_minimo.php');?>
+            <?php endif ;?>
+
+
+            <?php if ( Session::Get('Cumple_Minimo_Compras_Productos_Tron') == FALSE ) :?>
+                <?php include (APPLICATION_SECTIONS . 'ventana_modal_no_cumple_pedido_minimo_productos_tron.php');?>
+            <?php endif ;?>
+
 
 		</div>
 		<br /><br /><br />

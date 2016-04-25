@@ -392,11 +392,23 @@ class CarritoController extends Controller{
             }
 
 
+        // VERIFICACIÓN DE SI CUMPLE CON EL VALOR MÍNIMO DE PEDIDO PARA PAGO EN PAYU LATAM
         if ( Session::Get('pago_minimo_payulatam') > Session::Get('valor_real_pedido' ) ){
           Session::Set('cumple_valor_minimo_pedido', FALSE);
+        }else{
+           Session::Set('cumple_valor_minimo_pedido', TRUE);
         }
 
-        //Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
+        // VERIFICACIÓN DE SI CUMPLE O NO CON LAS COMPRAS MÍNIMAS DE PRODUCTOS TRON
+        Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
+        if ( $this->Tengo_Productos_Tron == TRUE ){
+            if ( $this->compras_tron < Session::Get('minimo_compras_productos_tron') ){
+                Session::Set('Cumple_Minimo_Compras_Productos_Tron', FALSE);
+            }else{
+              Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
+             }
+        }
+
 
         $this->View->SubTotal_Pedido_Ocasional  = $this->SubTotal_Pedido_Ocasional;
         $this->View->SubTotal_Pedido_Amigos     = $this->SubTotal_Pedido_Amigos;
@@ -433,12 +445,23 @@ class CarritoController extends Controller{
         echo trim($Respuesta);
     }
 
+    public function Verificar_Compra_Minima_Productos_Tron(){
+        if ( Session::Get('Cumple_Minimo_Compras_Productos_Tron') == TRUE ){
+          $Respuesta ='CUMPLE-COMPRAS-TRON';
+        }else{
+          $Respuesta ='NO-CUMPLE-COMPRAS-TRON';
+        }
+
+        echo trim($Respuesta);
+    }
+
+
     public function Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario( $Segir_Comprando, $No_Usar_Comis_Puntos ){
         if ( $Segir_Comprando == TRUE ){
             Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
           }
         if ( $No_Usar_Comis_Puntos  == TRUE ){
-          Session::Set('Aplicacion_Puntos_Comisiones', FALSE);
+           Session::Set('Aplicacion_Puntos_Comisiones', FALSE);
         }
     }
 
@@ -677,22 +700,14 @@ public function Totalizar_Carrito(){
 
           // TOTALIZAR PRODUCTOS TRON POR CATEGORIAS
           $this->Totalizar_Carrito_Productos_Tron_Por_Categoria($id_categoria_producto, $cantidad, $_sub_total_pv_tron , $pv_ocasional, $peso_gramos , $cmv  );
-
-
        }// Fin recorrido foreach carrito
        $this->Cerrar_Procesos_Carro();
 
-
-
-
-     //$this->Totalizar_Pedido_x_Categoria_Producto();              // TOTALIZAR CARRITO POR CADA TIPO DE PRODUCTO
 
        Session::Set('kit_inicio_peso_total',     $kit_inicio_peso_total);
        Session::Set('kit_cantidad',              $kit_cantidad);
 
        $this->Totalizar_Carrito_Valor_Declarado();
-
-
 
        if ( $this->Tengo_Productos_Tron == TRUE) {
            $this->Hallar_Asignar_Precio_Especial_Productos_Tron();
@@ -704,8 +719,6 @@ public function Totalizar_Carrito(){
         //----------------------------------------------------
         $this->Fletes_Carga_Fija();
         $this->Fletes_Courrier_Carga_Variable();
-
-
 
        $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
        $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte_Real;
@@ -804,7 +817,7 @@ public function Totalizar_Carrito(){
             $this->Fletes->Encontrar_Mejor_Flete();
             Session::Set('FLETE_VARIABLE_1_OCASIONAL', Session::Get('flete_real_calculado') );
 
-
+//Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $Valor_Declarado , $_Otros_Productos_Peso_Gramos );

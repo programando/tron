@@ -28,7 +28,6 @@
  						 //-----------------------------------------------------------------------
  						 foreach ( glob(LIBS .    '*.php') as $file ) {  	require_once $file;     } //librerias/funciones de la aplicacion
  			    	Session::Init();
-
 					    $url_requerida = new Request();
 					    Bootstrap::Run( $url_requerida );
 					}
