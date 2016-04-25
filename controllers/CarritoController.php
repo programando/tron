@@ -727,6 +727,8 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
 
+Debug::Mostrar( $this->SubTotal_Pedido_Ocasional  );
+Debug::Mostrar( $this->Vr_Transporte_Ocasional );
 
        Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
        Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
@@ -817,7 +819,7 @@ public function Totalizar_Carrito(){
             $this->Fletes->Encontrar_Mejor_Flete();
             Session::Set('FLETE_VARIABLE_1_OCASIONAL', Session::Get('flete_real_calculado') );
 
-//Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
+
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $Valor_Declarado , $_Otros_Productos_Peso_Gramos );
@@ -915,8 +917,7 @@ public function Totalizar_Carrito(){
           if ( $this->PayuLatam_Recaudo > 0 ){
              if ( ($Pedido_Tron < ( $this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo ))  ){
                 $Vr_Diferencia_Min_Tron = ((($this->PayuLatam_Valor_Minimo / $this->PayuLatam_Recaudo) - $Pedido_Tron) * $this->PayuLatam_Recaudo)/ ( 1 - $this->PayuLatam_Recaudo);
-              }else
-              {
+              }else {
                  $Vr_Diferencia_Min_Tron = 0;
               }
           }
@@ -940,6 +941,7 @@ public function Totalizar_Carrito(){
 
           $Vr_Recaudo_Tron      = $Vr_Recaudo_Tron      +  $Valor_Fijo_Recaudo;
           $Vr_Recaudo_Ocasional = $Vr_Recaudo_Ocasional +  $Valor_Fijo_Recaudo;
+
 
           Session::Set('Recaudo_Pedido_Tron',      $Vr_Recaudo_Tron     );
           Session::Set('Recaudo_Pedido_Ocasional', $Vr_Recaudo_Ocasional);
