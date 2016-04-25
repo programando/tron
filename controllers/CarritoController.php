@@ -1298,6 +1298,8 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
       Session::Set('Puntos_Utilizados',           0 );
       Session::Set('Comisiones_Utilizadas',       0 );
 
+
+
       //Debug::Mostrar( 'Comisiones_punto ' . $this->Vr_Total_Pedido_Ocasional  );
 
      $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
@@ -1338,10 +1340,11 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                 $Comisiones_Utilizadas           =  $this->Saldo_Comisiones;
               }
             }
-            Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
-            Session::Set('Puntos_Utilizados',           $Puntos_Utilizados );
-            Session::Set('Comisiones_Utilizadas',       $Comisiones_Utilizadas );
-        }
+          }
+       Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
+       Session::Set('Puntos_Utilizados',           $Puntos_Utilizados );
+       Session::Set('Comisiones_Utilizadas',       $Comisiones_Utilizadas );
+Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional );
     }
 
 
