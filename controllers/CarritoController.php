@@ -727,6 +727,7 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
 
+Debug::Mostrar( 'ld' );
 Debug::Mostrar( $this->SubTotal_Pedido_Real  );
 Debug::Mostrar( $this->Vr_Transporte_Real );
 Debug::Mostrar(  $this->SubTotal_Pedido_Real +   $this->Vr_Transporte_Real );
