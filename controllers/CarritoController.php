@@ -745,9 +745,6 @@ public function Totalizar_Carrito(){
        Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
 
 
-//Debug::Mostrar('SubTotal_Pedido_Ocasional ' . $this->SubTotal_Pedido_Ocasional );
-//Debug::Mostrar('Vr_Transporte_Ocasional' . $this->Vr_Transporte_Ocasional );
-//Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional    );
 
 } // Fin Tootalizar carrito tem
 
@@ -785,9 +782,9 @@ public function Totalizar_Carrito(){
         }
 
        if ( $Valor_Flete_Ocasional > 0 ){
-         $this->Vr_Transporte_Ocasional = $Valor_Flete_Ocasional  ; //- $Subsidio_Flete_Ocasional + $Recaudo_Pedido_Ocasional - $Anticipo_Recaudo_Ocasional  ;
+         $this->Vr_Transporte_Ocasional = $Valor_Flete_Ocasional  ;
          $Valor_Flete_Tron              = $Valor_Flete_Ocasional ;
-         $this->Vr_Transporte_Tron      = $Valor_Flete_Tron   ; //- $Subsidio_Flete_Tron + $Recaudo_Pedido_Tron - $Anticipo_Recaudo_Tron  ;
+         $this->Vr_Transporte_Tron      = $Valor_Flete_Tron   ;
 
          Session::Set('tipo_despacho_carga',         Session::Get('tipo_despacho_pedido' ) );
          Session::Set('id_transportadora_carga',     Session::Get('id_transportadora'));
@@ -812,6 +809,7 @@ public function Totalizar_Carrito(){
         $Recaudo_Pedido_Tron                     = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
         $Anticipo_Recaudo_Tron                   = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
 
+
         if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ) {
             $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado');
         }else{
@@ -825,12 +823,13 @@ public function Totalizar_Carrito(){
         if ( Session::Get('Unidades_Adicionales') == TRUE){
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
+
             $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
             $this->Fletes->Sevientrega_Premier    ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
             $this->Fletes->Encontrar_Mejor_Flete();
             Session::Set('FLETE_VARIABLE_1_OCASIONAL', Session::Get('flete_real_calculado') );
 
-
+  //Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $Valor_Declarado , $_Otros_Productos_Peso_Gramos );
@@ -1023,6 +1022,7 @@ private function Totalizar_Carrito_Valor_Declarado(){
           $Productos['valor_declarado']                =  0;
           $Productos['valor_declarado_ocasional']      =  0 ;
           $Productos['valor_declarado_tron']           =  0 ;
+
 
 
           if ( $idproducto != 2071 && $idproducto != 14999 ){                // IF (1) // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP. Y PASES DE CORTESÍA
@@ -1255,11 +1255,12 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
           $precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
           $total_item            = $precio_unitario *  $cantidad ;
+          $total_item_tron       = $this->Datos_Carro[$i]['pv_tron'] ;
 
 
           if ($id_categoria_producto  <= 4) {
                $this->compras_tron                 = $this->compras_tron            + $total_item  ;
-               $this->compras_tron_sin_iva         = $this->compras_tron_sin_iva    + $total_item / ( 1 +  $this->Datos_Carro[$i]['iva']/100 ) ;
+               $this->compras_tron_sin_iva         = $this->compras_tron_sin_iva    +  $total_item_tron / ( 1 +  $this->Datos_Carro[$i]['iva']/100 ) ;
                $this->Cantidad_Productos_Tron      = $this->Cantidad_Productos_Tron + $cantidad    ;
                $this->Cantidad_Registros_Prod_Tron = $this->Cantidad_Registros_Prod_Tron + 1; // Cantidad de Registros-  Productos tron
                $this->Tengo_Productos_Tron         = TRUE;

@@ -334,6 +334,7 @@ class ProductosController extends Controller
       $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
       $this->View->nom_categoria             = $nom_categoria ;
       $this->View->idorden_nv_1              = $_idorden_nv_1;
+      $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
 
       $this->View->Mostrar_Vista('marcas_y_categorias_individual');
 

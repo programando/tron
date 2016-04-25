@@ -42,10 +42,13 @@
         </a>
     </div>
 
-    <div class="taC mb10"><!-- Precio Clientes Ocasional -->
-        <strong><?=$pv_ocasional;?></strong>
-        <span><img src="<?=BASE_IMG_TIENDA;?>18.png" title="Precio Público / Comprador Ocasional" ></span>
-    </div>
+    <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
+    <?php if (Session::Get('Id_Area_Consulta') == 2) :?>
+      <div class="taC mb10"><!-- Precio Clientes Ocasional -->
+          <strong><?=$pv_ocasional;?></strong>
+          <span><img src="<?=BASE_IMG_TIENDA;?>18.png" title="Precio Público / Comprador Ocasional" ></span>
+      </div>
+    <?php endif ;?>
 
     <!--PRECIO AMIGO TRON-->
     <div class="priceTRONProd taC mb20" >

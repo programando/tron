@@ -562,11 +562,12 @@
 									$Flete_Total = $Flete_Bolsa_Completa + $Flete_Bolsa_Incompleta ;
 
 
-										if ($Costo_Total >  $Parametros[0]['rt_courrier_seguro'] )		{
+										if ( $Costo_Total >  $Parametros[0]['rt_courrier_seguro'] )		{
 												$this->seguro_redetrans_courrier = $Costo_Total  * $PorcientoSeguro;
 										}else{
 												$this->seguro_redetrans_courrier = 0 ;//$MinimoSeguro *  $PorcientoSeguro;
 										}
+
 
 
 										if ( $Flete_Total > 0 ) {
@@ -574,6 +575,7 @@
 											}else{
 													$this->valor_flete = 0;
 											}
+
 
 										$this->valor_seguro = $this->seguro_redetrans_courrier;
 		 							Session::Set('REDETRANS_COURRIER_VR_FLETE', $this->valor_flete );
@@ -736,6 +738,8 @@
 			       foreach ($this->Datos_Carro as $Productos){
 													$ID_Presentacion       = $Productos['idpresentacion'] ;
 													$ID_categoria_producto = $Productos['id_categoria_producto'];
+
+
 
 			          if ( in_array($ID_Presentacion, $_20_Litros_Garrafas_Presentaciones )) {
 																			$_20_Litros_Garrafas_Cantidad                 = $_20_Litros_Garrafas_Cantidad  														 + $Productos['cantidad'];
