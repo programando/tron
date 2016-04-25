@@ -375,9 +375,13 @@ class CarritoController extends Controller{
         }
       }
 
+ Debug::Mostrar( 'MOSTRAR CARRITO '. $this->Vr_Total_Pedido_Ocasional );
+
      if ($this->Cantidad_Filas_Carrito > 0)  {
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
          $this->Totalizar_Carrito();
+         Debug::Mostrar( 'MOSTRAR CARRITO 2 '. $this->Vr_Total_Pedido_Ocasional );
+
         Session::Set('iddireccion_despacho',$iddireccion_despacho );
         $this->View->Datos_Carro                           = $_SESSION['carrito'];
         $this->View->Puntos_Utilizados                     = Session::Get('Puntos_Utilizados');
@@ -409,7 +413,7 @@ class CarritoController extends Controller{
              }
         }
 
-        Debug::Mostrar( 'MOSTRAR CARRITO '. $this->Vr_Total_Pedido_Ocasional );
+
 
         $this->View->SubTotal_Pedido_Ocasional  = $this->SubTotal_Pedido_Ocasional;
         $this->View->SubTotal_Pedido_Amigos     = $this->SubTotal_Pedido_Amigos;
@@ -728,10 +732,7 @@ public function Totalizar_Carrito(){
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
 
-Debug::Mostrar( 'ld' );
-Debug::Mostrar( $this->SubTotal_Pedido_Real  );
-Debug::Mostrar( $this->Vr_Transporte_Real );
-Debug::Mostrar(  $this->SubTotal_Pedido_Real +   $this->Vr_Transporte_Real );
+
 
        Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
        Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
@@ -741,6 +742,12 @@ Debug::Mostrar(  $this->SubTotal_Pedido_Real +   $this->Vr_Transporte_Real );
        Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
        Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
        Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
+
+       Debug::Mostrar( 'TOTALIZAR ' );
+Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional  );
+Debug::Mostrar( $this->Vr_Transporte_Ocasional );
+Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional   +   $this->Vr_Transporte_Ocasional );
+
 } // Fin Tootalizar carrito tem
 
 
