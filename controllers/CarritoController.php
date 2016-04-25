@@ -1283,7 +1283,6 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
 
       $this->Cerrar_Procesos_Carro();
 
-
     }
 
 
@@ -1334,20 +1333,20 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           }
 
           if ( $this->Saldo_Comisiones > 0) {
-          if ( $this->Vr_Total_Pedido_Real > 0 ){
-              if ( $this->Saldo_Comisiones >= $this->Vr_Total_Pedido_Real ){
-                 $Comisiones_Utilizadas           =  $this->Vr_Total_Pedido_Real;
-                 $this->Vr_Total_Pedido_Real      = 0;
-                 $this->Vr_Total_Pedido_Ocasional = 0;
-                 $this->Vr_Total_Pedido_Amigos    = 0;
-              }else{
-                $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
-                $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Comisiones;
-                $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Comisiones;
-                $Comisiones_Utilizadas           =  $this->Saldo_Comisiones;
+            if ( $this->Vr_Total_Pedido_Real > 0 ){
+                if ( $this->Saldo_Comisiones >= $this->Vr_Total_Pedido_Real ){
+                   $Comisiones_Utilizadas           =  $this->Vr_Total_Pedido_Real;
+                   $this->Vr_Total_Pedido_Real      = 0;
+                   $this->Vr_Total_Pedido_Ocasional = 0;
+                   $this->Vr_Total_Pedido_Amigos    = 0;
+                }else{
+                  $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
+                  $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Comisiones;
+                  $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Comisiones;
+                  $Comisiones_Utilizadas           =  $this->Saldo_Comisiones;
+                }
               }
             }
-          }
         }
 
        Session::Set('Vr_Usado_Cupon_Descuento',    $Vr_Usado_Cupon_Descuento );
