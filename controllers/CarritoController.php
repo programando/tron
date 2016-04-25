@@ -409,6 +409,7 @@ class CarritoController extends Controller{
              }
         }
 
+        Debug::Mostrar( 'MOSTRAR CARRITO '. $this->Vr_Total_Pedido_Ocasional );
 
         $this->View->SubTotal_Pedido_Ocasional  = $this->SubTotal_Pedido_Ocasional;
         $this->View->SubTotal_Pedido_Amigos     = $this->SubTotal_Pedido_Amigos;
