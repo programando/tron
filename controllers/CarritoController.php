@@ -727,7 +727,7 @@ public function Totalizar_Carrito(){
 
        $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
        $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte_Real;
-       $this->Vr_Total_Pedido_Ocasional =  $this->SubTotal_Pedido_Ocasional + $this->Vr_Transporte_Ocasional;
+       $this->Vr_Total_Pedido_Ocasional =  100 ;//$this->SubTotal_Pedido_Ocasional + $this->Vr_Transporte_Ocasional;
        $this->Vr_Total_Pedido_Amigos    =  $this->SubTotal_Pedido_Amigos    + $this->Vr_Transporte_Tron;
        $this->Vr_Total_Pedido_Real      =  $this->SubTotal_Pedido_Real      + $this->Vr_Transporte_Real;
        $this->Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon();
