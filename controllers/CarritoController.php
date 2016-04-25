@@ -380,7 +380,7 @@ class CarritoController extends Controller{
      if ($this->Cantidad_Filas_Carrito > 0)  {
         $iddireccion_despacho  = Session::Get('iddireccion_despacho') ;
          $this->Totalizar_Carrito();
-         Debug::Mostrar( $this->Vr_Total_Pedido_Ocasional );
+
 
         Session::Set('iddireccion_despacho',$iddireccion_despacho );
         $this->View->Datos_Carro                           = $_SESSION['carrito'];
