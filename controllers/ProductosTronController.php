@@ -58,18 +58,26 @@
 
 
 										$this->Fletes->Redetrans_Courrier($Peso_Total, $Costo_Total, $iddpto );
-										// RESTO EL SEGURO PORQUE AQUI NO LO NECESITO
-										$Flete_Real           = Session::Get('REDETRANS_COURRIER_VR_FLETE')  - Session::Get('REDETRANS_COURRIER_VR_SEGURO');
+										$Flete_Real     = Session::Get('REDETRANS_COURRIER_VR_FLETE_TRON')  - Session::Get('REDETRANS_COURRIER_VR_SEGURO_TRON');
+
+
+										$this->Fletes->Sevientrega_Premier ( $Peso_Total, $Costo_Total );
+										$Flete_Premier  =Session::Get('SERVIENTREGA_PREMIER_VR_FLETE')  - Session::Get('SERVIENTREGA_PREMIER_VR_SEGURO');
+
+ 							 if (( $Flete_Premier <  	$Flete_Real && 	$Flete_Real > 0 ) || ( $Flete_Premier >0 && $Flete_Real==0) ){
+ 							 		$Flete_Real = $Flete_Premier;
+ 							 }
+
+
 
 										$subsidio_flete_valle = 0;
 										//$subsidio_flete_valle = Session::Get('REDETRANS_COURRIER_VR_FLETE');
-
-										$formula_a =  $Costo_Total  +  $costofijo  + $py_vr_adicional  +  ($py_porciento_recaudo * $Flete_Real );
-										$formula_a = $formula_a / ( $correctorvariacion - ( $py_porciento_recaudo * ( 1 + $parametros[0]['iva'] / 100 )  ));
-
+										$Por100Iva =  1 + $parametros[0]['iva'] / 100   ;
+										$formula_a =  ($Costo_Total  +  $costofijo  + $py_vr_adicional  +  ($py_porciento_recaudo * $Flete_Real )) / ( $correctorvariacion - ( $Por100Iva * $py_porciento_recaudo   ));
 
 											$formula_b = $Costo_Total  +  $costofijo +  $py_vr_min_recaudo + $py_vr_adicional  ;
 											$formula_b =  $formula_b  / $correctorvariacion;
+
 
 											$precio_especial = $formula_a ;
 											$formula_elegida = $formula_a ;

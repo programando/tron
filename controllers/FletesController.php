@@ -26,19 +26,6 @@
 
     public function Index() {  }
 
-					public function Consultar_Vr_Kilo_Destino(){
-							  	$this->idmcipio = Session::Get('idmcipio');
-										$Registro       = $this->Parametros->Transportadoras_Vr_Kilo_Destino($this->idmcipio );
-				      Session::Set('nommcipio_despacho',              ucfirst ($Registro[0]["nommcipio_despacho"]));
-				      Session::Set('nomdpto_despacho',                ucfirst ($Registro[0]["nomdpto_despacho"]));
-				      Session::Set('idmcipio',                        $Registro[0]["idmcipio"]);
-				      Session::Set('iddpto',                          $Registro[0]["iddpto"]);
-				      Session::Set('re_expedicion',                   $Registro[0]["re_expedicion"]);
-				      Session::Set('vr_kilo_idmcipio_redetrans',      $Registro[0]["vr_kilo"]);
-				      Session::Set('vr_re_expedicion_redetrans',      $Registro[0]["vr_re_expedicion"]);
-				      Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
-				      Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
-					}
 
 				public function Calcular_Valor_Fletes_Inicializacion_Variables(){
 					    $this->Cant_Unidades_Despacho 			= 0;
@@ -138,7 +125,7 @@
       	*				CALCULA VALOR DE FLETE SE COBRARÁ POR SERVIENTREGA PREMIER
       	*/
 
-									Session::Set('SERVIENTREGA_PREMIER_VR_FLETE', 0 );
+								Session::Set('SERVIENTREGA_PREMIER_VR_FLETE', 0 );
 								$servientrega_tipo_despacho = trim(Session::Get('servientrega_tipo_despacho'));
 
 
@@ -201,6 +188,7 @@
 										if ($seguro_flete < $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'])	{
 												$seguro_flete         = $this->Transportadoras[0]['sv_premier_vr_seguro_minimo'];
 										}
+
 										$fletes = $valor_flete_hasta_3_kilos  	 +  $valor_flete_kilos_adiconales  ;
 										if ( $fletes > 0 ) {
 												$this->valor_flete     =  $fletes  + $seguro_flete ;
@@ -209,7 +197,8 @@
 											}
 
 										$this->valor_seguro = $seguro_flete ;
-										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE',$this->valor_flete);
+										Session::Set('SERVIENTREGA_PREMIER_VR_FLETE',  $this->valor_flete);
+										Session::Set('SERVIENTREGA_PREMIER_VR_SEGURO', $this->valor_seguro) ;
 										$this->flete_calculado = TRUE ;
           $this->Adicionar_Cobro_Flete_Transportadora(3,'2030','SERVIENTREGA PREMIER');
       }
@@ -483,7 +472,7 @@
        /** MARZO 07 DE 2015
       	*					CALCULA EL VALOR DE FLETE QUE SE CORBRA POR COURRIER EN REDETRANS
       	*/
-
+      	$re_expedidion = Session::Get('re_expedicion');
       	  Session::Set('REDETRANS_COURRIER_VR_FLETE',  0 );
 		 						Session::Set('REDETRANS_COURRIER_VR_SEGURO', 0 );
       	  $this->valor_flete               = 0;
@@ -584,6 +573,7 @@
 				    		$this->Adicionar_Cobro_Flete_Transportadora(0,'1572','REDETRANS COURRIER');
 
    		  }
+
 
 
 
@@ -786,6 +776,7 @@
 
 
 			          if ( $ID_categoria_producto != 6 || in_array($ID_Presentacion, $_Otros_Productos_Presentaciones )) {
+
 																			$_Otros_Productos_Cantidad                 = $_Otros_Productos_Cantidad  															+ $Productos['cantidad'];
 
 																			$_Otros_Productos_Vr_Declarado             = $_Otros_Productos_Vr_Declarado 												+ $Productos['valor_declarado'];

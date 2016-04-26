@@ -1012,7 +1012,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         if ( Session::Get('vr_kilo_idmcipio_redetrans') > 0 || Session::Get('vr_re_expedicion_redetrans') > 0 ){
           Session::Set('redetrans_tipo_despacho',         'aplica_redetrans');
         }
-        //Debug::Mostrar(Session::Get('logueado') );
+
 
      }
 

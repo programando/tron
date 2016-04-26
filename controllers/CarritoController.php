@@ -715,12 +715,12 @@ public function Totalizar_Carrito(){
 
        $this->Totalizar_Carrito_Valor_Declarado();
 
+
        if ( $this->Tengo_Productos_Tron == TRUE) {
            $this->Hallar_Asignar_Precio_Especial_Productos_Tron();
         }
+
         $this->Fletes->Numero_Unidades_Despacho();
-
-
         /// CALCULO DE FLETES
         //----------------------------------------------------
         $this->Fletes_Carga_Fija();
@@ -812,6 +812,7 @@ public function Totalizar_Carrito(){
 
         if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ) {
             $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado');
+
         }else{
              $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado_Ocasional');
         }
@@ -1024,7 +1025,6 @@ private function Totalizar_Carrito_Valor_Declarado(){
           $Productos['valor_declarado_tron']           =  0 ;
 
 
-
           if ( $idproducto != 2071 && $idproducto != 14999 ){                // IF (1) // VALOR DECLARADO EXCEPTO KIT DE INICIO, DERECHOS DE INSCRIP. Y PASES DE CORTESÍA
             $_precio_unitario_produc_pedido    = $precio_venta_antes_iva            *  $cantidad  ; // PRECIO REAL QUE SE DAR{A AL CLIENTE
             $_precio_venta_antes_iva_tron      = $precio_venta_antes_iva_tron       *  $cantidad  ;
@@ -1056,6 +1056,7 @@ private function Totalizar_Carrito_Valor_Declarado(){
           } // FIN (1)
 
         } // fin foreach
+
 
         $this->Cerrar_Procesos_Carro();
     } // fin functio Totalizar_Carrito_Hallar_Valor_Declarado
@@ -1243,6 +1244,7 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       $this->compras_tron                 = 0;
       $this->compras_tron_sin_iva         = 0;
       $this->Tengo_Productos_Tron         = FALSE;
+
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0 );
       Session::Set('compra_otros_productos',0);
@@ -1260,7 +1262,8 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
 
           if ($id_categoria_producto  <= 4) {
                $this->compras_tron                 = $this->compras_tron            + $total_item  ;
-               $this->compras_tron_sin_iva         = $this->compras_tron_sin_iva    +  $total_item_tron / ( 1 +  $this->Datos_Carro[$i]['iva']/100 ) ;
+               $this->compras_tron_sin_iva         = $this->compras_tron_sin_iva    +  ( $total_item_tron *  $cantidad )  / ( 1 +  $this->Datos_Carro[$i]['iva']/100 ) ;
+
                $this->Cantidad_Productos_Tron      = $this->Cantidad_Productos_Tron + $cantidad    ;
                $this->Cantidad_Registros_Prod_Tron = $this->Cantidad_Registros_Prod_Tron + 1; // Cantidad de Registros-  Productos tron
                $this->Tengo_Productos_Tron         = TRUE;
