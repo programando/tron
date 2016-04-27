@@ -6,7 +6,7 @@ var $idtipo_plan_compras_kit =0;
 var $kit_comprado            = false;
 var $Respuesta_Servidor      ='';
 // Eventos ::: Notificaicones
-  $('#notificaciones').on('click', function(){
+  /*$('#notificaciones').on('click', function(){
   	 $logueado 							  = $('#contenido').attr('logueado');
   	 $id_tipo_plan_compras = $('#contenido').attr('idtipo-plan-compras');
   	 if ($logueado == false){
@@ -22,15 +22,16 @@ var $Respuesta_Servidor      ='';
 	      },5500);
      }else{
      		     $('.contenedor_notificaciones_cliente_ocasional').fadeIn(1000);
-
      }
     }
   });
+*/
 
+/*
   $('#cerrar_moda_recomendar').on('click',function(){
   	  $('.contenedor_notificaciones').fadeOut();
   });
-
+*/
 
 
 $("#agregar-producto-favoritos").on('click',function(){

@@ -3,8 +3,7 @@
 <div>
 	<div class="titleM1 colorBlue mb10 t18">Medios de Cobro</div>
     <div class="p20 taJ">
-        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes, directamente a la cuenta bancaria que has
-        registrado en el momento de la inscripción o posteriormente, en cualquier momento, en Mi Cuenta / Perfil / Datos de Cuenta.
+        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes. El saldo de tu ceunta dinero podrá ser trasladado a tu cuenta bancaria cuando lo solicites.
         <br><br>
         Recuerda que el costo de la transferencia bancaria es de <?= Session::Get('valor_transferencia_bancaria') ;?> por lo que debes
         ajustar la cifra Valor Mínimo a Transferir a la cuantía que te convenga. Esta cifra viene por defecto en

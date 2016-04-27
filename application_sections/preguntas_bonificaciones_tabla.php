@@ -51,34 +51,7 @@
          <!-- Contenedor principal -->
          <div>
          	  <!-- Derechos de Inscripcion -->
-         	  <div class="derechos_inscripcion">
-         	  	   <h4 style="color: #003E90; text-align: center; font-size: 14px;"><strong>DERECHOS DE INSCRIPCIÓN</strong></h4><br>
-         	  	   <nav style="">
-         	  	   	   <ul>
-         	  	   	   	   <li>
-         	  	   	   	       <label for="cuota_1">Valor de la cuota 1 : </label>
-         	  	   	   	       <input type="text" class="caja_text" disabled="disabled"  id="cuota_1" value=" <?= $cuota_1_valor ;?> ">
-         	  	   	   	   </li>
-
-         	  	   	   	   <li>
-         	  	   	   	       <label for="cuota_2">Valor de la cuota 2 : </label>
-         	  	   	   	       <input type="text" class="caja_text"disabled="disabled"  id="cuota_2" value=" <?= $cuota_2_valor ;?> "> Cuando las ganancias sean mayores a :  <input type="text" class="caja_text"  disabled="disabled"value=" <?= $cuota_2_tope_ganancias ;?> " >
-         	  	   	   	   </li>
-
-         	  	   	   	   <li>
-         	  	   	   	       <label for="cuota_3">Valor de la cuota 3 : </label>
-         	  	   	   	       <input type="text" class="caja_text" disabled="disabled" id="cuota_3" value=" <?= $cuota_3_valor ;?> "> Cuando las ganancias sean mayores a : <input type="text" class="caja_text" disabled="disabled" value=" <?= $cuota_3_tope_gananacias ;?> ">
-         	  	   	   	   </li>
-
-                           <li>
-                                <label for="total">Total : </label>
-                                <input type="text" class="caja_text" disabled="disabled" id="total" style="margin-left: 92px;" value=" <?=$Total_Derecho_Inscripcion;?> ">
-                           </li>
-
-         	  	   	   </ul>
-         	  	   </nav>
-
-         	  </div><br>
+         	  <br>
               <!-- Tabla = distribucion de las bonificaciones -->
               <div class="cont_tabla_bonificacines">
               	 <h4 style="color: #003E90; text-align: center; font-size: 14px;"><strong>DISTRIBUCIÓN DE LAS BONIFICACIONES/ PRIMAS EN LA RED</strong> </h4><br>

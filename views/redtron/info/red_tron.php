@@ -185,7 +185,7 @@
         <p>Para pertenecer a la Red TRON se debe cumplir los siguientes requisitos:</p>
        	<br />
         <ul class="ulGen">
-            <li>Registrarse como Empresario TRON y para ello se debe comprar el Kit de Inicio y pagar los Derechos de Inscripción.</li>
+            <li>Registrarse como Empresario TRON y para ello se debe comprar el Kit de Inicio.</li>
             <li>Comprometerse con ingresar como mínimo 4 amigos que se registren en el plan Empresarios TRON.</li>
             <li>Asesorar y motivar a los amigos ingresados para que estos a su vez puedan ingresar también los cuatro (4) amigos que les corresponde.</li>
             <li>Comprar como mínimo <?= $Pedido_Minimo_Tron ;?> pesos mensuales en productos  TRON que se encuentran en la zona HOGAR Y PERSONAL ó si eres comprador de productos industriales, comprar como mínimo <?= $Pedido_Minimo_Indus ;?>  pesos mensuales en productos de la zona INDUSTRIAL fabricados por Balquimia S.A.S. y marcados en la Tienda Virtual con el símbolo :
@@ -243,11 +243,7 @@
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" /></td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" /></td>
                 </tr>
-                <tr>
-                    <td>Hay respaldo de empresas legalmente constituidas y con reconocida trayectoria.</td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" /></td>
-                    <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png" /></td>
-                </tr>
+
                 <tr>
                     <td>Se cuenta con registro en Cámara de Comercio, Capacidad de Producción, Registros Sanitarios, Marcas registradas, Revisoría Fiscal, Procesos normalizados.</td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png" /></td>

@@ -139,7 +139,7 @@
   <li>
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuándo se pagan las comisiones  ?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li> El mismo día que se realiza la liquidación de comisiones se realiza la transferencia a la cuenta bancaria indicada, es decir, en los tres (3) primeros días hábiles de cada mes.   </li>
+             <li> El mismo día que se realiza la liquidación de comisiones quedan abonadas a tu cuenta dinero. Cuando lo desees podrás solicitar que te las transfieran a tu cuenta bancaria.   </li>
          </ul><!--Contenido -->
    </li>
 
@@ -198,8 +198,7 @@
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Existen cuantías pequeñas en comisiones que quedan pendientes de pago?  </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
           <li>
-             Debido a que el costo de la transferencia electrónica entre nuestro banco y el que tú has registrado es de <?= $valor_transferencia_bancaria ;?>, valor que debes asumir, habrán cuantías que no se justifica pagar y que permanecerán en tu cuenta Dinero. Contarás con estos saldos a tu favor para ser restados en el próximo pedido del valor a pagar. El valor mínimo a pagar, por defecto, es de
-             <?= $valor_minimo_transferencias ;?> pero tú puedes incrementarlo modificando esta cifra en: Mi Cuenta / Mi Perfil / Datos Personales.
+             No. Cuando solicites el traslado de comisiones de tu cuenta dinero a tu cuenta bancaria será transfereido tu saldo y sólo se descontará el valor de la transferencia.
            </li>
          </ul><!--Contenido -->
    </li>
@@ -302,55 +301,38 @@
     <li><!--¿Cuánto cuesta el kit de inicio?  -->
         <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuánto cuesta el kit de inicio?    </p></div><!--Pregunta -->
          <ul class="list-unstyled submenu"><!--Contenido -->
-               <li>El kit de Inicio cuesta <?=$valor_kit_inicio_ocasional ;?> pero si es adquirido junto con el pago de los Derechos de Inscripción, tiene un precio especial de <?=$valor_kit_inicio_empresario ;?> . En él encontrarás 4 productos TRON en cojines, sus envases vacíos correspondientes, tapas, pistola y válvulas especiales para utilizarlos y además unos obsequios de bienvenida.”    </li>
+               <li>El kit de Inicio cuesta <?=$valor_kit_inicio_ocasional ;?>. En él encontrarás 4 productos TRON en cojines, sus envases vacíos correspondientes, tapas, pistola y válvulas especiales para utilizarlos y además unos obsequios de bienvenida.”    </li>
            </ul><!--Contenido -->
      </li><!--¿Cuánto cuesta el kit de inicio?  -->
 
-    <li><!--¿Puedo comprar el kit de inicio sin incluir en el pago del Derecho de Inscripción?  -->
-        <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Puedo comprar el kit de inicio sin incluir en el pago del Derecho de Inscripción?    </p></div><!--Pregunta -->
-         <ul class="list-unstyled submenu"><!--Contenido -->
-               <li>Sí. En este caso te acoges al Plan Cliente TRON en el que se entiende que no estás interesado en crear red de amigos y ganar comisiones sino sólo en ser usuario regular de los productos TRON. Conservando la opción de que en cualquier momento que decidas, puedas cambiar al Plan Empresario TRON cancelando los Derechos de Inscripción y beneficiándote del Modelo de Negocio por completo.    </li>
-           </ul><!--Contenido -->
-     </li><!--¿Puedo comprar el kit de inicio sin incluir en el pago del Derecho de Inscripción?  -->
+
    </ul><!--Menu accordion -->
 </div><!--Contenedor de Kit de Inicio -->
 </div>
 </div><!--Panel -->
 
 
-<!-- ///////////////////////////////////////////////////////-Panel-Derecho de Inscripción-///////////////////////////////////////////////////////-->
 
 
 <div class="panel panel-default"><!--Panel -->
 <div class="  panel-heading">
 <h4 class="cont-titulos-panel  panel-title">
-     <a href="#derecho-inscripcion"  class="panel-titulo"  data-toggle="collapse"   data-parent="#accordion">Derecho de Inscripción</a>
+     <a href="#derecho-inscripcion"  class="panel-titulo"  data-toggle="collapse"   data-parent="#accordion">Inscripción de Nuevos Códigos</a>
 </h4>
 </div>
 
 <div id="derecho-inscripcion" class="panel-collapse collapse">
-<div class="panel-body"><!--Contenedor de  Derecho de Inscripción-->
+<div class="panel-body">
 
  <ul class="list-unstyled accordion" id="accordion"><!-- Menu accordion-->
-   <li><!--¿Cuánto vale el Derecho de Inscripción y cuándo se paga?  -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuánto vale el Derecho de Inscripción y cuándo se paga?    </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>
-                El derecho de inscripción tiene un costo de : <?= $cuota_1_valor ;?> que se paga en el momento del registro como empresario TRON.
-         </ul><!--Contenido -->
-   </li><!--¿Cuánto vale el Derecho de Inscripción y cuándo se paga?  -->
 
-  <li><!--¿Por qué debo pagar un derecho de inscripción? -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Por qué debo pagar un derecho de inscripción?  </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Porque te da el derecho a pertenecer al Plan Empresario TRON de este modelo de negocio que te brinda oportunidades de beneficiarte y beneficiar a tus amigos con un mínimo esfuerzo. Recuerda que el mercado de los productos de aseo para el hogar, es un mercado de consumo masivo tan grande que millones de personas invierten miles de millones de pesos al año en él. Además también ganaras comisiones por los Otros productos de la Tienda Virtual que compren tus amigos y los amigos de tus amigos. Tendremos miles de productos siempre con los mejores precios del mercado. Imagínate lo interesante que se puede volver para ti cuando de manera natural y con tu ayuda, tu Red crezca a cientos y luego a miles de amigos. Además de todo lo anterior, un importante porcentaje de este pago es destinado para bonificar a la persona que te presentó a la red y los miembros de su red. De esta misma manera, tu te beneciarás económicamente cuando presentes amigos a la red o los presenten amigos que están en tu red.    </li>
-         </ul><!--Contenido -->
-   </li><!--¿Por qué debo pagar un derecho de inscripción? -->
 
-  <li><!--¿Puedo registrarme en la Red más de una vez, y si lo hago debo volver a pagar el Derecho de Inscripción?  -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Puedo registrarme en la Red más de una vez, y si lo hago debo volver a pagar el Derecho de Inscripción? </p></div><!--Pregunta -->
+
+
+  <li>
+      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Puedo registrarme en la Red más de una vez? </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Si puedes regístrate más de una vez y pagar los derechos de inscripción por ese código, para ello debes cumplir con lo estipulado en Estructura de la Red de usuarios / apertura nuevos Códigos de Usuario.    </li>
+             <li>Si puedes regístrate más de una vez , para ello debes cumplir con lo estipulado en Estructura de la Red de usuarios / apertura nuevos Códigos de Usuario.    </li>
          </ul><!--Contenido -->
    </li><!--¿Puedo registrarme en la Red más de una vez, y si lo hago debo volver a pagar el Derecho de Inscripción?  -->
 
@@ -361,43 +343,14 @@
          </ul><!--Contenido -->
    </li><!--¿Se puede perder la inscripción?  -->
  </ul><!--Menu accordion -->
-</div><!--Contenedor de  Derecho de Inscripción-->
+</div>
 </div>
 </div><!--Panel -->
 
 <!-- ///////////////////////////////////////////////////////-Panel-Derecho de Permanencia-///////////////////////////////////////////////////////-->
 
 
-<div class="panel panel-default"><!--Panel -->
-<div class="  panel-heading">
-<h4 class="cont-titulos-panel  panel-title">
-     <a href="#derecho-permanencia"  class="panel-titulo"  data-toggle="collapse"   data-parent="#accordion">Derecho de Permanencia</a>
-</h4>
-</div>
 
-<div id="derecho-permanencia" class="panel-collapse collapse">
-<div class="panel-body"><!--Contenedor de Derecho de Permanencia -->
-
- <ul class="list-unstyled accordion" id="accordion"><!-- Menu accordion-->
-   <li><!--¿Qué es el Derecho de Permanencia, cuándo se paga y cuánto vale?  -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Qué es el Derecho de Permanencia, cuándo se paga y cuánto vale?    </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>El Derecho de Permanencia como su nombre lo indica, es el derecho de continuar disfrutando por un año más del Modelo de Negocio. Transcurrido un año (365 días) después de haberse inscrito en el Plan Empresario TRON Entre amigos alcanzamos, debes renovar tu deseo de seguir perteneciendo, cancelando tu Derecho de Permanencia por otro año más en la Red por cada código de usuario que poseas. Este valor que se cobra una (1) vez cada año, será cargado al pedido siguiente al cumplimiento del término y/o descontado de tus comisiones. El valor del Derecho de Permanencia es el mismo que el del Derecho de Inscripción que esté vigente a la fecha del cobro, (hoy  <?= $Total_Derecho_Inscripcion ;?>).   </li>
-         </ul><!--Contenido -->
-   </li><!--¿Qué es el Derecho de Permanencia, cuándo se paga y cuánto vale?  -->
-
-  <li><!--renuevo-deseo-perteneciendo -->
-      <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span> ¿Qué sucede si renuevo mi deseo de seguir perteneciendo pagando el Derecho de Permanencia e inmediatamente me inactivo y dejo de comprar por 3 meses? ¿Me devuelven el dinero?  </p></div><!--Pregunta -->
-       <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>No, en el momento del pago había intención de continuar y en ese momento se habilitaron todos los derechos a los beneficios que brinda el modelo de negocio. Si después cambias de opinión y te inactivas por 3 meses, incurres en las causales para dar por terminada nuestra relación comercial y demuestras de hecho, incumplimiento de la normatividad y desinterés por el negocio.    </li>
-         </ul><!--Contenido -->
-   </li><!--renuevo-deseo-perteneciendo -->
-
-
-   </ul><!--Menu accordion -->
-  </div><!--Contenedor de  Derecho de Permanencia-->
- </div>
-</div><!--Panel -->
 
 <!-- ///////////////////////////////////////////////////////-Panel-Pago de Pedidos-///////////////////////////////////////////////////////-->
 
@@ -429,7 +382,7 @@
   <li>
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Si tengo comisiones acumuladas puedo hacer cruce para pagar mis pedidos?    </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Sí, pero como se te pagará al principio del mes, para cuando hagas tu pedido no habrá que cruzar, excepto que lo ganado sea de menor valor y se retenga en tu cuenta a tu favor. Para poder hacer el cruce, en el menú Mi Cuenta/ Mi Perfil / Datos Personales / Datos de Cuenta , aparece: “Acepto que se retenga de mis comisiones de manera indefinida y mientras no modifique este registro, la suma de ... para el pago de mis pedidos.” Al colocar una cifra, autorizas que esta se retenga y se use para pagar tu próximo pedido. De esta forma evitas tener que hacer tu próximo pago.    </li>
+             <li>Si. Si tienes comisiones acumuladas en tu cuenta dinero podrás usarlas para pagar tus pedidos.   </li>
          </ul><!--Contenido -->
    </li>
 

@@ -15,7 +15,7 @@
                     <p id="texto">
 
                 Esta compra será liquidada a <strong>precios normales</strong>
-                por que no realizaste en el mes la compra mínima reglamentaria
+                porque no has realizado compra mínima reglamentaria en este mes
                 <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_tron')) ?>
                 en productos TRON para el Hogar ó <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_ta')) ?> en productos Industriales fabricados por Balquimia.
                 <br><br>
