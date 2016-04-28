@@ -17,6 +17,8 @@ class PdfController extends Controller
 
 
     public function Convenio_Comercial() {
+
+        set_time_limit(300);
         $this->Pdf->setFooterData(array(0,64,0), array(0,64,128));
         $this->Pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $this->Pdf->SetHeaderMargin(PDF_MARGIN_HEADER);

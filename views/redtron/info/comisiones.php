@@ -83,23 +83,30 @@
                 <tr>
                     <td>Empresario TRON:</td>
                     <td class="text-left">Productos TRON (cojines)</td>
-                    <td class="text-center">Entre el 5% y 6% según su rango</td>
+                    <td class="text-left">Entre el 5% y 6% según su rango</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td class="text-left">Otros productos</td>
-                    <td class="text-center">Variable<small>( ver tabla en menú Mi Cuenta )</small></td>
+                    <td class="text-left">Variable<small>( ver tabla en menú Mi Cuenta )</small></td>
                 </tr>
                 <tr>
                     <td>Cliente TRON</td>
                     <td class="text-left">Productos TRON (cojines)</td>
-                    <td class="text-center">entre el 25% y el 30% según su rango</td>
+                    <td class="text-left">entre el 25% y el 30% según su rango</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td class="text-left">Otros productos</td>
-                    <td class="text-center">Variable x 5  <small>(ver tabla en menú Mi Cuenta)</small></td>
+                    <td class="text-left">Variable x 5  <small>(ver tabla en menú Mi Cuenta)</small></td>
                 </tr>
+
+                <tr>
+                    <td>Comprador Ocasional</td>
+                    <td class="text-left">Otros Productos</td>
+                    <td class="text-left">Variable x 5  <small>(ver tabla en menú Mi Cuenta)</small></td>
+                </tr>
+
 
             </tbody><!--Cuerpo-->
         </table>
@@ -130,7 +137,7 @@
 <div>
 	<div class="titleM1 colorBlue mb10 t18"><a name="medios"></a>Medios de Cobro</div>
     <div class="p20 taJ">
-        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes. El saldo de tu ceunta dinero podrá ser trasladado a tu cuenta bancaria cuando lo solicites.
+        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes y serán abonadas en tu cuenta dinero. El saldo de tu ceunta dinero podrá ser trasladado a tu cuenta bancaria cuando lo solicites.
         <br><br>
         Recuerda que el costo de la transferencia bancaria es de <?= Session::Get('valor_transferencia_bancaria') ;?> por lo que debes ajustar
         la cifra Valor Mínimo a Transferir a la cuantía que te convenga. Esta cifra viene por defecto en <?= Session::Get('valor_minimo_transferencias') ;?>

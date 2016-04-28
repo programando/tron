@@ -138,6 +138,15 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
+    public function plan_compensacion(){
+      /** AGOSTO 30 DE 2015
+       *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
+       */
+        $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
+        $this->View->Mostrar_Vista("tabla_comisiones");
+    }
+
+
     public function transferencioa_comisiones_puntos()  {
         $this->View->SetCss(array("transferencia_comisiones"));
         $this->View->Mostrar_Vista("transferencia_comisiones");
