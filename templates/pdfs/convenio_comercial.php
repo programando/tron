@@ -1,22 +1,15 @@
-<style>
 
- /* Emlace de tron */
-  .link_entre_amigos
-  {
-    color: #0000FF;
-    font-weight: bold;
-    font-size: 14px;
-    text-decoration: underline;
-  }
 
-  /* Resaltados cursiva */
-  .resaltados
-  {
-      color: #0070C0;
-      font-weight: bold;
-  }
+<html lang='es'>
+  <head>
+      <meta charset='UTF-8' />
+  </head>
 
-</style>
+
+  <body>
+
+
+
 
               <!-- Contenido -->
                <div>
@@ -25,3 +18,7 @@
 
                  </p>
                </div>
+
+          </body>
+
+</html>

@@ -18,17 +18,19 @@ class PdfController extends Controller
 
     public function Convenio_Comercial() {
 
-        set_time_limit(300);
+        //set_time_limit(300);
         $this->Pdf->setFooterData(array(0,64,0), array(0,64,128));
         $this->Pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $this->Pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
         $this->Pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
         $this->Pdf->setFontSubsetting(true);
-        $this->Pdf->SetFont('helvetica', '', 12, '', false);
+        //$this->Pdf->SetFont('helvetica', '', 12, '', false);
         // set auto page breaks
         $this->Pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         # creamos una página en blanco
         $texto_convenio_comercial =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
+
+
 
         $fecha_hora_acepta_convenio = Session::Get('fecha_hora_acepta_convenio');
 
@@ -45,6 +47,7 @@ class PdfController extends Controller
         # visualizamos el documento
         $this->Pdf->WriteHTML($texto_convenio_comercial, $ln=true, $fondo=false, $reseth=false, $cell=false, $alineacion='J');
         $this->Pdf->Output();
+
 
         /*$this->Pdf->Output($nombre_archivo,'I');
         <a href="algunarchivo" target="_blank">Link</a>
