@@ -5,6 +5,8 @@
 var $idtipo_plan_compras_kit =0;
 var $kit_comprado            = false;
 var $Respuesta_Servidor      ='';
+
+
 // Eventos ::: Notificaicones
   /*$('#notificaciones').on('click', function(){
   	 $logueado 							  = $('#contenido').attr('logueado');

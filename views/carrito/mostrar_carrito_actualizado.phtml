@@ -15,7 +15,13 @@
                 <br />
 
 			<?php else : ?>
-                <h3 class="colorBlue ff2 t30 titleM1">Carrito de Compras</h3>
+
+              <h3 class="colorBlue ff2 t30 titleM1">Carrito de Compras</h3>
+              <?php if (  Session::Get('logueado') == FALSE ) :?>
+                <a href=""><small>¿ Por qué mi carrito de compras tiene dos columnas de precio ?</small></a>
+              <?php endif;?>
+
+
             <?php endif;?>
 
 			<?php if ( Session::Get('kit_combos_eliminados') == TRUE) : ?>
@@ -45,6 +51,10 @@
 
             <?php if ( Session::Get('Cumple_Minimo_Compras_Productos_Tron') == FALSE ) :?>
                 <?php include (APPLICATION_SECTIONS . 'ventana_modal_no_cumple_pedido_minimo_productos_tron.php');?>
+            <?php endif ;?>
+
+            <?php if ( Session::Get('logueado') == FALSE ) :?>
+                <?php include (APPLICATION_SECTIONS . 'ventana_modal_explica_columnas_pedido.php');?>
             <?php endif ;?>
 
 

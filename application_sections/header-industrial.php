@@ -70,7 +70,7 @@
                                 </a>
                             </li>
                             <li class="onlyMax">
-                                <a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1" title="Ir al carrito" class="t12" >
+                                <a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1" title="Ir al carrito" class="t12 explicacion-columnas" >
                                     <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; VER CARRITO
                                 </a>
                             </li>
