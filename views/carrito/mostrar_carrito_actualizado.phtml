@@ -16,7 +16,15 @@
 
 			<?php else : ?>
 
-              <h3 class="colorBlue ff2 t30 titleM1">Carrito de Compras</h3>
+              <h3 class="colorBlue ff2 t30 titleM1">
+              	<?php if (  Session::Get('logueado') == FALSE ) :?>
+                    <a href="" class="t8" style="float:right; padding-top:10px;">
+                    	<small>¿Por qué mi carrito de compras tiene dos columnas de precio?</small>
+                    </a>
+                <?php endif;?>
+                
+                Carrito de Compras              	
+              </h3>
               
 
 
@@ -55,10 +63,6 @@
                 <?php include (APPLICATION_SECTIONS . 'ventana_modal_explica_columnas_pedido.php');?>
             <?php endif ;?>
             
-            <br><br><br>
-            <?php if (  Session::Get('logueado') == FALSE ) :?>
-                <center><a href=""><small>¿ Por qué mi carrito de compras tiene dos columnas de precio ?</small></a></center>
-            <?php endif;?>
 
 
 		</div>
