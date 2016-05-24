@@ -67,6 +67,10 @@ function calcularAlturas(){
 
 	$(".closeSesssion").css('height',alto);
 	$(".closeSesssion").css('width',ancho);
+	
+	var iififi = $(".artOpt").width();
+	$(".counttis").css('width', iififi+56);
+	
 
 	//var hein1 = $(".hein1").height();
 	//var hein2 = $(".hein2").height();
