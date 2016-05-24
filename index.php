@@ -15,7 +15,7 @@
 						  //------------------------------------------------
 						  require_once APP_PATH . 'Database_config.php';
 
- 						 /** OCTUBRE 11 DE 2015
+ 						  /** OCTUBRE 11 DE 2015
  						  * 	 Archivo que se encarga de realizar la auto carga de las clases que tengo definicas
  						  				Condiciones :
  						  							1.			El nombre del archivo debe iniciar con mayúscula. 											 Ejemplo : Session
