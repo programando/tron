@@ -5,7 +5,7 @@
 
 							public function __construct()
 							{
-								parent::__construct();
+								 parent::__construct();
 							}
 
 			 		public function Actualizar_Comisiones($idtercero,$tipo_registro,$numero_pedido,$valor){
