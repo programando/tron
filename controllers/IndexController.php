@@ -112,7 +112,6 @@ private function Parametros_Iniciales(){
 
         Session::Set('kit_vr_venta_valle',                $Parametros[0]['valor_kit_inicio_ocasional']);            // Precio de venta del kit de inicio
 
-
         Session::Set('valor_kit_inicio_ocasional',        $Parametros[0]['valor_kit_inicio_ocasional']);
         Session::Set('valor_kit_inicio_empresario',       $Parametros[0]['valor_kit_inicio_empresario']);
 
@@ -120,6 +119,7 @@ private function Parametros_Iniciales(){
                 // valor de la 1 cuota de inscripcion
         Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
         Session::Set('kit_vr_transporte'                  ,0);
+        Session::Set('vr_minimo_para_recaudo',             $Parametros[0]['vr_minimo_para_recaudo']);
 
         // VALORES PAYU LATAM
         Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);

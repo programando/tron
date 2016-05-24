@@ -1,3 +1,7 @@
+
+<?php
+   $valor_minimo_pedido_productos =  Session::Get('valor_minimo_pedido_productos')  ;
+?>
 <!-- ventana modal :: ! atencion ¡ las compras deben ser mayor a 20.000 pesos -->
 <div class="modal  fade" id="modal_explica_columnas_pedido"   tabindex="-1" role="dialog" aria-labelledby="ver_modalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -13,10 +17,12 @@
        	   <div class="container-fluid">
        	   	   <div class="row">
                   <div class=" text-justify col-lg-12 col-md-12 col-sm-12">
-                        Te has registrado como comprador ocasional y al momento de pagar te han salido 2 columnas con valores diferentes.
-Estas 2 columnas son para mostrarte los valores especiales (columna azul) que obtienen nuestros consumidores de productos TRON
-Los consumidores de productos TRON línea Hogar o Industrial que hayan realizado compras de estas líneas por valor de $30.000 en este mes podrán obtener todos los productos de la tienda a precios especiales.
-¿Te animas a echarles un vistazo? Sólo debes consumir $30.000 en alguna de estas 2 líneas y obtendrás los mejores precios.
+                        En este momento tu carrito cuenta con 2 columnas que tienen diferentes precios.
+Estas 2 columnas son para mostrarte los precios especiales que obtienen nuestros consumidores de productos TRON de las líneas Hogar o Industrial. Esta columna la identificarás con color azul.<br><br>
+Los usuarios que obtienen estos precios especiales son aquellos cuyas compras sumen <strong><?= $valor_minimo_pedido_productos ;?> </strong>o más en alguna de estas líneas.<br><br>
+
+<p class="text-center"> ¿ Te animas a echarles un vistazo ? </p>
+ <br>Sólo debes consumir <strong><?= $valor_minimo_pedido_productos ;?> </strong> en alguna de estas 2 líneas y obtendrás los mejores precios.
 
                   	   </p>
                   </div>

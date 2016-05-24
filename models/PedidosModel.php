@@ -44,7 +44,7 @@
 					$Sql = $Sql . $id_pase_cortesia .',' . $idtercero_envia_pase . ',' . $pase_es_premium . ',' . $idtercero_recibe_comisiones.',';
 					$Sql = $Sql . $peso_gramos_pedido .',' . $email_confirma_factura . ',' . $pagado_online. ',' . $pago_recibido . ',' . $valor_declarado .',';
 					$Sql = $Sql . $vr_flete .','.$tipo_despacho_carga . ',' .$peso_gramos_pedido_carga .','.$id_transportadora_carga .',' ;
-					$Sql = $Sql . $vr_flete_transportadora_carga . ',' .$vr_declarado_carga ;
+					$Sql = $Sql . $vr_flete_transportadora_carga . ',' .$vr_declarado_carga . ',' . $vr_payu_latam  ;
  				$Registro = $this->Db->Ejecutar_Sp("pedidos_crear_modificar($Sql);");
  				return $Registro;
 

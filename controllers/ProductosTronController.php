@@ -57,58 +57,34 @@
 
 
 
-										$this->Fletes->Redetrans_Courrier($Peso_Total, $Costo_Total, $iddpto );
-										$Flete_Real     = Session::Get('REDETRANS_COURRIER_VR_FLETE_TRON')  - Session::Get('REDETRANS_COURRIER_VR_SEGURO_TRON');
-
-
-										$this->Fletes->Sevientrega_Premier ( $Peso_Total, $Costo_Total );
-										$Flete_Premier  =Session::Get('SERVIENTREGA_PREMIER_VR_FLETE')  - Session::Get('SERVIENTREGA_PREMIER_VR_SEGURO');
-
- 							 if (( $Flete_Premier <  	$Flete_Real && 	$Flete_Real > 0 ) || ( $Flete_Premier >0 && $Flete_Real==0) ){
- 							 		$Flete_Real = $Flete_Premier;
- 							 }
-
-
-
-										$subsidio_flete_valle = 0;
-										//$subsidio_flete_valle = Session::Get('REDETRANS_COURRIER_VR_FLETE');
 										$Por100Iva =  1 + $parametros[0]['iva'] / 100   ;
-										$formula_a =  ($Costo_Total  +  $costofijo  + $py_vr_adicional  +  ($py_porciento_recaudo * $Flete_Real )) / ( $correctorvariacion - ( $Por100Iva * $py_porciento_recaudo   ));
+											//$correctorvariacion
 
-											$formula_b = $Costo_Total  +  $costofijo +  $py_vr_min_recaudo + $py_vr_adicional  ;
-											$formula_b =  $formula_b  / $correctorvariacion;
+										$formula_a  = ( $Costo_Total  +  $costofijo ) / ( $correctorvariacion  - ( $py_porciento_recaudo * $Por100Iva ) ) ;
 
 
 											$precio_especial = $formula_a ;
 											$formula_elegida = $formula_a ;
-											if ( $formula_b > 	$formula_a){
-															$precio_especial = $formula_b ;
-													  $formula_elegida = $formula_b ;
-											}
 
-
-											$precio_especial 				 = $precio_especial  * ( 1 + $parametros[0]['iva'] / 100 )   ;
-
+											$precio_especial 				 = $precio_especial  * $Por100Iva    ;
 											$precio_especial_temp = $precio_especial ;
-											$Por100_Precio_Lista  = $Precio_Lista_Total  * ( 1-60/100);
-											$Res =0;
-											if ($Por100_Precio_Lista > $precio_especial  ){
-													$Res = $Por100_Precio_Lista;
-											}else{
-													$Res = $precio_especial ;
-											}
-											if (  $precio_especial  < $Precio_Lista_Total ){
-														$precio_especial  = $Res;
-											}else{
-													$precio_especial  = $Precio_Lista_Total;
-											}
-
 											$descuento_especial = $Precio_Lista_Total  - $precio_especial ;
+
 											if ( $descuento_especial < 0 ) { $descuento_especial = $descuento_especial * -1 ;}
 
 											$descuento_especial 										= round($descuento_especial,0);
 											$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
 											$descuento_especial_porciento = round($descuento_especial_porciento,2);
+
+											/// CALCULO DEL DESCUENTO NEGATIVO
+											if (  $precio_especial  > $Precio_Lista_Total ){
+													$Descuento_Negativo = $precio_especial -  $Precio_Lista_Total ;
+												}else{
+													$Descuento_Negativo = 0;
+												}
+
+
+
 											/*CAMBIOS IMPLEMENTADOS EL 19 DE ABRIL DE 2016*/
 
 											// ESTE PEDIDO A PRECIO DE LISTA
@@ -168,7 +144,7 @@
 												$Faltante_Inicial = $Faltante;
 												$Faltante = abs( $Faltante );
 
- 									//	Debug::Mostrar( $Faltante_Inicial );
+
 
 
 												// DTO2. PARA IGUALAR PRECIO ESPECIAL
@@ -258,6 +234,7 @@
 																Session::Set('transporte_tron'              , 0                  );
 																Session::Set('descuento_especial'           , $descuento_especial);
 																Session::Set('descuento_especial_porcentaje', $descuento_especial_porciento);
+																Session::Set('Sobre_Precio_Prod_Tron'       , $Descuento_Negativo );
 
 																Session::Set('vr_unitario_ropa',     $Precio_Unitario_Ropa);
 																Session::Set('vr_unitario_banios',   $Precio_Unitario_Banios);

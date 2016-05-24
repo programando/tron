@@ -77,6 +77,7 @@ class SessionesController extends Controller
 
         Session::Destroy('servientrega_tipo_despacho');
         Session::Destroy('redetrans_tipo_despacho');
+        Session::Set('vr_payu_latam'            , 0 );
 
 
     }

@@ -325,7 +325,7 @@ class ProductosController extends Controller
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
       $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
 
-      $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);
+      $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar( $Id_Area_Consulta );
       $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
       $this->View->Productos_Marcas          = $this->Marcas->Marcas_Consultar($Id_Area_Consulta);
 

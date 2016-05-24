@@ -74,10 +74,12 @@ class PedidosController extends Controller
 					$id_forma_pago               = 0;
 					$idtercero                   = Session::Get('idtercero_pedido');
 					$iddireccion_despacho        = Session::Get('iddireccion_despacho');
-					$vr_compra_tron              = Session::Get('compra_productos_tron');
+
+					$vr_compra_tron              = Session::Get('precio_especial');
 					$vr_compra_ta                = Session::Get('compra_productos_industriales');
 					$vr_compra_acc               = Session::Get('compra_accesorios');
 					$vr_compra_otros             = Session::Get('compra_otros_productos');
+
 					$vr_comis_pago_pedidos       = Session::Get('Comisiones_Utilizadas') ;
 					$vr_puntos_redimidos         = Session::Get('Puntos_Utilizados') ;
 					$vr_inscripcion_red          = Session::Get('vr_inscripcion_red') ;
@@ -122,7 +124,9 @@ class PedidosController extends Controller
           $vr_flete_transportadora_carga     = Session::Get('vr_flete_carga');
           $vr_declarado_carga                = Session::Get('valor_declarado_carga');
           $peso_gramos_pedido_carga          = Session::Get('Peso_Pedido_Carga');
-
+          $vr_payu_latam                     = Session::Get('vr_payu_latam');
+          if ( !isset($id_transportadora_carga))    { $id_transportadora_carga   = 0 ;     }
+          if ( !isset($tipo_despacho_carga))        { $tipo_despacho_carga   = 0 ;     }
 
 
 
@@ -130,7 +134,7 @@ class PedidosController extends Controller
           'vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo',
           'vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
         'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado',
-        'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga');
+        'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga','vr_payu_latam');
 
 
       $Pedido            = $this->Pedidos->Grabar($Datos );
