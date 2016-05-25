@@ -28,6 +28,8 @@
           $Vr_Total_Real_Producto = Numeric_Functions::Formato_Numero($ProductosCarro['precio_total_produc_pedido']);
           $NombreArray            = 'TRON'.$idproducto;
           $Cantidad_Comprada      = Session::Get($NombreArray );
+          $tipo_despacho_final    = $ProductosCarro['tipo_despacho_final'];
+          $id_transportadora      = $ProductosCarro['id_transportadora'];
       ?>
 
       <tr class="fila">
@@ -53,7 +55,7 @@
        </td><!--Nombre del producto -->
 
        <td><!-- Presentacon -->
-             <p class="text-center info-tabla"> <?= $nompresentacion ;?> </p>
+             <p class="text-center info-tabla"> <?= $id_transportadora. ' ' .substr($tipo_despacho_final,0,3) . ' '. $nompresentacion ;?> </p>
        </td> <!-- Presentacon -->
 
        <td class="col-tabla-cantidad" ><!--Botones => Cantidad -->

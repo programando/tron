@@ -8,7 +8,7 @@
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-9 col-xs-9 colorT2 t40 ff2 vcenter">
                     $18.550
-                </div><!--            
+                </div><!--
                 --><div class="col-sm-3 col-xs-3 vcenter taC">
                     <span class="dB t12 color999 mb3"><em>exclusivo</em></span>
                     <span class=""><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
@@ -16,37 +16,37 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Opción CUENTA REGRESIVA -->
         <div class="p510 bb333 taC colorfff ff0">
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-3 col-xs-3 vcenter taC">
                     <em>solo<br>por</em>
-                </div><!--            
+                </div><!--
                 --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">12</div>
                     <div class="t10">horas</div>
-                </div><!--            
+                </div><!--
                 --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">48</div>
                     <div class="t10">minutos</div>
-                </div><!--            
+                </div><!--
                 --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">26</div>
                     <div class="t10">segundos</div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Opción CANTIDAD -->
         <div class="p510 bb333 taC colorfff ff0">
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-7 col-xs-7 vcenter taC">
                     <em>Cantidad limitada</em>
-                </div><!--            
+                </div><!--
                 --><div class="col-sm-2 col-xs-2 vcenter taC">
                 	<div class="t24">13</div>
-                </div><!--            
+                </div><!--
                 --><div class="col-sm-3 col-xs-3 vcenter taC t12">
                 	<em>unidades<br>restantes</em>
                 </div>
@@ -82,12 +82,12 @@
 
     </div>
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
-    
+
     <div class="taC mb10">
         <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> ">
 
-            <!--<img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />-->
-            <img src="../../public/images/tienda/empty.png" class="mb10" />
+            <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
+           <!-- <img src="../../public/images/tienda/empty.png" class="mb10" />-->
 
             <div class="nomproducto taC t14" id ="<?= $idnomproducto ;?>"><?=$nom_producto ;?></div>
 
@@ -115,7 +115,7 @@
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
-        
+
           <div class=" col-xs-4" id="cont-menos">
             <div class="form-group"><!--Inicio  Boton Menos-->
               <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carrito"
@@ -123,7 +123,7 @@
               </button><!-- Fin Boton Menos-->
             </div>
           </div>
-        
+
            <div class="col-xs-4" id="cont-digitos">
               <div class="form-group"><!--Inicio Input-->
                  <input type        = "text"  value="1"
@@ -137,7 +137,7 @@
                   >
               </div><!--Fin Input-->
            </div>
-        
+
            <div class=" col-xs-4" id="cont-mas">
               <div class="form-group"><!-- Inicio Boton Mas-->
                 <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carrito"
@@ -146,7 +146,7 @@
               </div>
            </div>
         </form>
-        
+
         <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
         <div class="div-btn-">
              <button type="button" class="agregar boton-agregar-carrito" id="<?=$id_controles ;?>"
@@ -161,5 +161,5 @@
         </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
     </div>
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
-      
+
 </div>

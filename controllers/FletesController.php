@@ -472,7 +472,7 @@
 		 						Session::Set('REDETRANS_COURRIER_VR_SEGURO', 0 );
       	  $this->valor_flete               = 0;
 									$this->seguro_redetrans_courrier = 0;
-										$this->tipo_tarifa     = 'REDETRANS-COURRIER';
+									$this->tipo_tarifa     									 = 'REDETRANS-COURRIER';
 
 		      $redetrans_tipo_despacho =  Session::Get('redetrans_tipo_despacho');
 
@@ -720,7 +720,7 @@
 
 			      $this->Datos_Carro = Session::Get('carrito');
 
-			       foreach ($this->Datos_Carro as $Productos){
+			       foreach ($this->Datos_Carro as &$Productos){
 													$ID_Presentacion       = $Productos['idpresentacion'] ;
 													$ID_categoria_producto = $Productos['id_categoria_producto'];
 
@@ -745,6 +745,7 @@
 
 																			$_20_Litros_Garrafas_Vr_Compra                = $_20_Litros_Garrafas_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
 																			$_20_Litros_Garrafas_Vr_Compra_Ocasional      = $_20_Litros_Garrafas_Vr_Compra_Ocasional  				+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
+																			$Productos['tipo_despacho_final']='CARGA' ; // Carga
 			             }
 
 			          if ( in_array($ID_Presentacion, $_04_Litros_Galon_Presentaciones  )) {
@@ -766,6 +767,7 @@
 
 																			$_04_Litros_Galon_Vr_Compra                = $_04_Litros_Galon_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
 																			$_04_Litros_Galon_Vr_Compra_Ocasional      = $_04_Litros_Galon_Vr_Compra_Ocasional  														+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
+																			$Productos['tipo_despacho_final']='CARGA' ; // Carga
 
 			             }
 
@@ -788,12 +790,13 @@
 																			$_Otros_Productos_Recaudo_Tron             = $_Otros_Productos_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
 
 																			$_Otros_Productos_Vr_Compra                = $_Otros_Productos_Vr_Compra 															+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
+																			$Productos['tipo_despacho_final']='COURRIER' ; // COURRIER
 			             }
-
-
 
 			        }// end foreach
 
+			        	// REASIGNAR CARRITO A LA VARIABLE DE SESSION. CONTIENE UN NUEVO DATO DE ACUERDO A SU PRESENTACIÓN. tipo_despacho_final ( CARGA, CURRIER)
+			        	Session::Set('carrito', $this->Datos_Carro)    ;
 
 			        if ( $_04_Litros_Galon_Cantidad > 0 ){ 				// IF - 1						//// CALCULAR EL ESPECIO LIBRE
 			        			$_04_Litros_Galon_Unidades  = $_04_Litros_Galon_Cantidad /6;

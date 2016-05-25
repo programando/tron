@@ -9,8 +9,9 @@ class PedidosController extends Controller
     public function __construct()
     {
       parent::__construct();
-      $this->Pedidos     = $this->Load_Model('Pedidos');
       $this->Sessiones   = $this->Load_Controller('Sessiones');
+      $this->Index       = $this->Load_Controller('Index');
+      $this->Pedidos     = $this->Load_Model('Pedidos');
       $this->ComisPuntos = $this->Load_Model('ComisionesPuntos');
     }
     public function index() {}
@@ -157,24 +158,21 @@ class PedidosController extends Controller
      $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt,id_transportadora) VALUES ";
 
     	foreach ($this->Datos_Carro as $Productos)	{
-          $idpedido      = $IdPedido_Generado;
-          $idproducto    = $Productos['idproducto'];
-          $cantidad      = $Productos['cantidad'];
-          $vrunitario    = $Productos['precio_unitario_produc_pedido'];   ;
-          $vr_total      = $Productos['precio_total_produc_pedido'];
-          $idescala_dt   = $Productos['idescala_dt'];
-          $tipo_despacho =  $Productos['tipo_despacho'];
-          if ( $tipo_despacho == 1 ){
-            $_idtransportadora = $id_transportadora;
-          }else{
-            $_idtransportadora = $id_transportadora_carga ;
-          }
-					$Valores     = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
-          $Valores     = $Valores  .',' . $_idtransportadora ;
-					$Valores     = '( ' . $Valores . ' ),';
-					$Datos 		    = $Datos . $Valores ;
+          $idpedido          = $IdPedido_Generado;
+          $idproducto        = $Productos['idproducto'];
+          $cantidad          = $Productos['cantidad'];
+          $vrunitario        = $Productos['precio_unitario_produc_pedido'];   ;
+          $vr_total          = $Productos['precio_total_produc_pedido'];
+          $idescala_dt       = $Productos['idescala_dt'];
+          $tipo_despacho     = $Productos['tipo_despacho'];
+          $id_transportadora = $Productos['id_transportadora'];
 
+          $Valores           = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
+          $Valores           = $Valores  .',' . $id_transportadora ;
+          $Valores           = '( ' . $Valores . ' ),';
+          $Datos             = $Datos . $Valores ;
     	}
+
 				$Texto_SQL = $Texto_SQL . $Datos;
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
 				$Pedido_Dt = $this->Pedidos->Grabar_Detalle($Texto_SQL );
@@ -185,10 +183,11 @@ class PedidosController extends Controller
 
 				/// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
+        $this->Index->Consultar_Datos_Transportadoras();
         echo "OK";
 
-
     }
+
 
 
     public function Comisiones_Puntos_Actualizar($idtercero,$numero_pedido , $Puntos_Utilizados, $Comisiones_Utilizadas){

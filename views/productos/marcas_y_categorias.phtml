@@ -1,9 +1,9 @@
 <div class="ionix">
-    <div class="general">    
+    <div class="general">
     	<div class="contenido-index mb30 pAA30">
-                
+
 			<div class="row">
-            
+
  				<!-- CATEGORIAS MARCAS -->
                 <div id="menu-izq-otros-productos" class="col-sm-3 col-xs-12 colCatMar">
                     <div class="panel-group" id="accordion">
@@ -14,19 +14,23 @@
                 </div>
 
 
-        		<!-- INICIA PRESENTACIÓN DE PRODUCTOS -->				
+        		<!-- INICIA PRESENTACIÓN DE PRODUCTOS -->
                 <div id="contenido-productos" class="col-sm-9 col-xs-12">
                     <?php
                     	include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
-											
+
                         foreach ($this->Productos_Pagina as $Productos){
                             $mostrar_imagen_varias_referencias=true;
                             include (APPLICATION_CODS . 'campos_productos.php');
                     ?>
-                            <div class="artOpt <?php $kkk = rand(1,5); if($kkk == 3) echo "oferta"; ?> artPor4">
+                         <?php if ( $en_oferta == 1 ) : ?> <div class="artOpt artPor4 oferta">
+                            <?php else :?>                 <div class="artOpt artPor4">
+                         <?php endif ;?>
+                           <!-- <div class="artOpt artPor4 <?php $kkk = rand(1,5); if($kkk == 3) echo "oferta"; ?> ">-->
+                            <!--  <div class="artOpt artPor4 oferta "> -->
                                 <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
                             </div>
-                            
+
                     <?php } ?>
                     <br style="clear:both;" /><br /><br />
                     <?php if(isset($this->Paginacion)) echo $this->Paginacion; ?>

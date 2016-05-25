@@ -97,14 +97,19 @@ class IndexController extends Controller
         }
     }
 
-private function Parametros_Iniciales(){
-
-        // VALORES PARA CALCULO DE TRANSPORTE
+public function Consultar_Datos_Transportadoras(){
+          // VALORES PARA CALCULO DE TRANSPORTE
         $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
-        if ( !isset( $redetrans_tipo_despacho )) {
+        if ( !isset( $redetrans_tipo_despacho ) || empty( $redetrans_tipo_despacho )) {
              $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( 0, 153);
         }
 
+}
+
+
+private function Parametros_Iniciales(){
+
+        $this->Consultar_Datos_Transportadoras();
         $Parametros = $this->Parametros->Transportadoras();
 
         Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
