@@ -15,7 +15,7 @@
                 }
 
            if ( !isset( $_SESSION ) ) {
-                session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0'.Session::Get('CodSession_Aletatorio'));
+                session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
                 session_start();
             }
 
