@@ -15,9 +15,16 @@
                     Session::Set('CodSession_Aletatorio', $CodSession);
                     }
              */
+       /* ini_set("session.use_cookies", 0);
+        ini_set("session.use_trans_sid", 1);
+        session_start();
+        */
 
+        //Debug::Mostrar( session_id() );
            if ( !isset( $_SESSION ) ) {
-                session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
+                //session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
+            ini_set("session.use_cookies", 0);
+            ini_set("session.use_trans_sid", 1);
                 session_start();
             }
 
@@ -48,11 +55,9 @@
                 }
 
                 $_SESSION           = array();
-                Session::Set('CodSession_Aletatorio','');
                 session_unset();
                 session_unset( $_SESSION );
                 session_destroy();
-
             }
         }
 

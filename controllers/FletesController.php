@@ -123,7 +123,8 @@
 								Session::Set('SERVIENTREGA_PREMIER_VR_FLETE', 0 );
 								$servientrega_tipo_despacho = trim(Session::Get('servientrega_tipo_despacho'));
 
-
+								//Debug::Mostrar(  $Peso_Pedido );
+								//Debug::Mostrar(  $Valor_Declarado );
 
 										$kilos_adicionales            = 0;
 										$valor_flete_hasta_3_kilos    = 0;

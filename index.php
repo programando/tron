@@ -1,5 +1,9 @@
 
 <?php
+	     //       ini_set("session.use_cookies", 0);
+        //    ini_set("session.use_trans_sid", 1);
+     session_start();
+
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
 					define('LIBS',                 ROOT . 'libs'                 . DS );
@@ -27,7 +31,7 @@
  						 //Carga de las librerías externas, como por ejemplo la librería para PDF.
  						 //-----------------------------------------------------------------------
  						 foreach ( glob(LIBS .    '*.php') as $file ) {  	require_once $file;     } //librerias/funciones de la aplicacion
- 			    	Session::Init();
+ 			    	//Session::Init();
 					    $url_requerida = new Request();
 					    Bootstrap::Run( $url_requerida );
 					}

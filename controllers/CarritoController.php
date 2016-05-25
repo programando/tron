@@ -879,13 +879,14 @@ public function Totalizar_Carrito(){
 
             $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
             $this->Fletes->Sevientrega_Premier    ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
+            //Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
             $this->Fletes->Encontrar_Mejor_Flete();
 
             $Mejor_Flete_Elejido_1 = Session::Get('flete_real_calculado')  ;
             $Tipo_Despacho_1       = Session::Get('tipo_despacho_pedido') ;
             $IdTransportador_1     = Session::Get('id_transportadora');
 
-
+      //Debug::Mostrar( $Mejor_Flete_Elejido_1 );
             //--------------------------------------------------------------------------------------------------------------------
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
             $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $Valor_Declarado , $_Otros_Productos_Peso_Gramos );
@@ -967,6 +968,7 @@ public function Totalizar_Carrito(){
          Session::Set('Recaudo_Fijo'                , 0 ) ;
          Session::Set('Recaudo_Fijo_Adicional'      , 0) ;
          Session::Set('Recaudo_Diferen_Rcdo_Real'   , 0) ; /// Diferencia sobre el recaudo real
+
 
          $Flete_Real                   = $this->Vr_Transporte_Ocasional ;
          $Compras_Tron_Otros_Productos = Session::Get('precio_especial') + $this->compras_otros_productos;
