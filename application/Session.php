@@ -8,12 +8,19 @@
 	class Session
 	{
 		public static function Init( ){
+
+            if ( empty( Session::Get('CodSession_Aletatorio') )){
+                $CodSession = General_Functions::Generar_Codigo_Unico(64);
+                Session::Set('CodSession_Aletatorio', $CodSession);
+                }
+
            if ( !isset( $_SESSION ) ) {
-                //$CodSession = General_Functions::Generar_Codigo_Unico(64);
-                session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
+                session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0'.Session::Get('CodSession_Aletatorio'));
                 session_start();
             }
+
 		}
+
 
         /**
          * SEP 27 DE 2014
@@ -39,9 +46,11 @@
                 }
 
                 $_SESSION           = array();
+                Session::Set('CodSession_Aletatorio','');
                 session_unset();
                 session_unset( $_SESSION );
                 session_destroy();
+
             }
         }
 
