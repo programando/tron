@@ -1,6 +1,5 @@
 
 <?php
-				session_start();
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
 					define('LIBS',                 ROOT . 'libs'                 . DS );
@@ -31,7 +30,6 @@
  			    	Session::Init();
 					    $url_requerida = new Request();
 					    Bootstrap::Run( $url_requerida );
-
 					}
 					catch(Exception $e){
 					    echo $e->getMessage();
