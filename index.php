@@ -1,11 +1,9 @@
 
 <?php
-				if (session_id() === "") {
-							session_start();
-							//echo session_status();
-						}else{
-							//echo "ya iniciada";
-						}
+
+				if (	session_status() !== PHP_SESSION_ACTIVE ) {
+								session_start();
+							}
 
 
 					define('DS', DIRECTORY_SEPARATOR);
@@ -37,6 +35,7 @@
  						 foreach ( glob(LIBS .    '*.php') as $file ) {  	require_once $file;     } //librerias/funciones de la aplicacion
  			    	//Session::Init();
 					    $url_requerida = new Request();
+
 					    Bootstrap::Run( $url_requerida );
 					}
 					catch(Exception $e){
