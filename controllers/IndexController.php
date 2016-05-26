@@ -37,6 +37,7 @@ class IndexController extends Controller
         //$Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
 
+       // Debug::Mostrar( session_name() . ' ' . session_id() );
 
         $this->Parametros_Iniciales();
 

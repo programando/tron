@@ -1,5 +1,6 @@
 
 <?php
+					session_name('temp');
      session_start();
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
