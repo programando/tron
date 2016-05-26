@@ -30,7 +30,7 @@
         </div>
     </div>
 
-<?php Debug::Mostrar( session_name() . ' ' . session_id()  ); ?>
+
     <!-- Menu -->
          <!-- Tabs hogar , industrial -->
 

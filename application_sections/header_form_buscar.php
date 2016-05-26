@@ -1,9 +1,9 @@
 <div class="contenido-input-buscar rr10">
 
     <div class="columan-input rr10">
-        <input type="text" class="form-control input-buscar rr10 taL t14" placeholder="Buscar en Red TRON" id="texto-busqueda" />
+        <input type="text" class="form-control input-buscar rr10 taL t14" placeholder="<?=  session_id() ; ?>"  id="texto-busqueda" />
     </div>
-    
+
     <div class="cont-btn-buscar">
     	<button type="button" class="btn-buscar">
         	<div class="tabAll">

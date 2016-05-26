@@ -1,7 +1,13 @@
 
 <?php
-					session_name('temp');
-     session_start();
+				if (session_id() === "") {
+							session_start();
+							//echo session_status();
+						}else{
+							//echo "ya iniciada";
+						}
+
+
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
 					define('LIBS',                 ROOT . 'libs'                 . DS );
