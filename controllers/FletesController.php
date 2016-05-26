@@ -41,15 +41,16 @@
       */
        	$Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
 
-       	$i = 0;
-	       foreach ($Fletes_Cobrados_Transportadoras as $Fletes) {
-	           if  ( $Fletes['valor_flete'] == 0 )  {
-	                array_splice($Fletes_Cobrados_Transportadoras, $i, 1);
-	             }
-	             $i++;
-	       }
-       Session::Set('Fletes_Cobrados_Transportadoras', $Fletes_Cobrados_Transportadoras );
+       	foreach( $Fletes_Cobrados_Transportadoras as $Indice => $Elemento){
+       		 $Valor_Flete  = $Elemento['valor_flete'] ;
 
+										if( empty(  $Valor_Flete ) || $Valor_Flete == 0) {
+														unset( $Fletes_Cobrados_Transportadoras [$Indice] ); // BORRAR EL ELEMENTO POR CLAVE
+										}
+								}
+								//REGENERAR LOS INDICES DEL ARRAY
+								$Fletes_Cobrados_Transportadoras = array_merge($Fletes_Cobrados_Transportadoras);
+        Session::Set('Fletes_Cobrados_Transportadoras', $Fletes_Cobrados_Transportadoras );
     }
 
 

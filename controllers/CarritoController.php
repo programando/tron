@@ -818,7 +818,7 @@ public function Totalizar_Carrito(){
      $this->Fletes->Encontrar_Mejor_Flete();
      $Valor_Flete_Ocasional         = Session::Get('flete_real_calculado');
      $this->Id_Transportador_Carga  = Session::Get('id_transportadora');
-
+//Debug::Mostrar( Session::Get('flete_real_calculado') );
      if (  Session::Get('cumple_compras_tron') ==  FALSE ) {
           $Valor_Flete_Ocasional        = $Valor_Flete_Ocasional  ;
         }
