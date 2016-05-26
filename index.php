@@ -1,10 +1,9 @@
 
 <?php
 
-				if (	session_status() !== PHP_SESSION_ACTIVE ) {
+				if ( session_status() !== PHP_SESSION_ACTIVE	 ) {
 								session_start();
 							}
-
 
 					define('DS', DIRECTORY_SEPARATOR);
 					define('ROOT', realpath(dirname(__FILE__))                   . DS );
