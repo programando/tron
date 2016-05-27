@@ -3,12 +3,12 @@
 //Incluimos la clase de PHPMailer
 require_once('libs_external/class.phpmailer.php');
 
-	$email  = 'contactos@entreamigosalcanzamos.com';
-	$pass 	 = '*TECN0TR0N*';
+	$email  = 'jj94mg@gmail.com';
+	$pass 	 = 'lacasallena';
 	$correo = new PHPMailer();
 
 	 $correo->IsSMTP();
-	 $correo->SMTPDebug     = 0;
+	 $correo->SMTPDebug     = 2;
 	 $correo->SMTPAuth      = true;
 	 $correo->IsHTML        = true;              				 // enable SMTP authentication
 	 $correo->ContentType   = "text/html";
