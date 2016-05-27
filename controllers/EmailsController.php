@@ -91,7 +91,7 @@
               if ($Respuesta == 'correo_OK'){
                 $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
                 }else{
-                  $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>' ;
+                  $Respuesta = 'El correo no pudo ser enviado. Puede deberse a un fallo en el servidor. Inténtelo más tarde. <br> <br>Gracias.<br><br>' ;
                 }
               $Respuesta = compact('Respuesta' );
           }
