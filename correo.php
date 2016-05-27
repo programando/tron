@@ -29,9 +29,11 @@ $correo = new PHPMailer();
  $correo->Body 			='mensaje de prueba' . rand(1,150);
 
 if(!$correo->Send()) {
+		echo rand(1,150);
   echo "Hubo un error: " . $correo->ErrorInfo;
 } else {
-  echo "Mensaje enviado con exito." . rand(1,150);
+	 echo rand(1,150);
+  echo "Mensaje enviado con exito." ;
 }
 
 ?>
