@@ -8,7 +8,7 @@ $pass = 'lacasallena';
 $correo = new PHPMailer();
 
  $correo->IsSMTP();
- $correo->SMTPDebug     = 4;
+ $correo->SMTPDebug     = 2;
  $correo->SMTPAuth      = true;
  $correo->IsHTML        = true;              				 // enable SMTP authentication
  $correo->ContentType   = "text/html";
