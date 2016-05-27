@@ -85,7 +85,7 @@
               $Texto_Correo     = $Texto_Correo . "Número de teléfono : " . $telefono. '<br>';
               $Texto_Correo     = $Texto_Correo . "Comentario enviado : <br> " . $comentarios. '<br>';
               $this->Configurar_Cuenta('Correo de usuario red TRON' ). '<br>';
-              $this->Email->AddAddress(CORREO_01). '<br>';
+              $this->Email->AddAddress(CORREO_CONTACTOS). '<br>';
               $this->Email->Body = $Texto_Correo;
               $Respuesta = $this->Enviar_Correo();
               if ($Respuesta == 'correo_OK'){
@@ -215,17 +215,17 @@
                   $this->Email->IsSMTP();
                   $this->Email->SMTPDebug     = 0;
                   $this->Email->SMTPAuth      = true;
-                  $this->Email->IsHTML        = true;              								// enable SMTP authentication
+                  $this->Email->IsHTML        = true;              				 // enable SMTP authentication
                   $this->Email->ContentType   = "text/html";
                   $this->Email->CharSet       = "utf-8";
-                  $this->Email->SMTPSecure    = 'ssl';                            // sets the prefix to the servier
-                  $this->Email->Host          = 'smtp.gmail.com';      				 		// sets GMAIL as the SMTP server
+                  $this->Email->SMTPSecure    = 'ssl';                     // sets the prefix to the servier
+                  $this->Email->Host          = 'smtp.gmail.com';      		// sets GMAIL as the SMTP server
                   $this->Email->Port          = 465;
                   $this->Email->SMTPKeepAlive = true;
                   $this->Email->Mailer        = "smtp";                   // set the SMTP port
-                  $this->Email->Username      = 'contactos@entreamigosalcanzamos.com';								// GMAIL username
-                  $this->Email->Password      = "*TECN0TR0N*";            	 					// GMAIL password
-                  $this->Email->From          = CORREO_01;
+                  $this->Email->Username      = CORREO_CONTACTOS;					// GMAIL username
+                  $this->Email->Password      = PASS_CORREO_CONTACTOS;    // GMAIL password
+                  $this->Email->From          = CORREO_CONTACTOS;
                   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
                   $this->Email->Subject       = $asunto;
                   $this->Email->AltBody       = ""; //Text Body
