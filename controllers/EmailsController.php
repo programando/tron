@@ -213,7 +213,7 @@
       		*		 ESTABLECE LA CONFIGURACIÓN PARA EL ENVÍO DE CORREOS ELECTRÓNICOS
       		*/
                   $this->Email->IsSMTP();
-                  $this->Email->SMTPDebug     = 0;
+                  $this->Email->SMTPDebug     = 3;
                   $this->Email->SMTPAuth      = true;
                   $this->Email->IsHTML        = true;              				 // enable SMTP authentication
                   $this->Email->ContentType   = "text/html";
@@ -240,6 +240,8 @@
             return "correo_OK";
         }else {
           echo "Error: " . $this->Email->ErrorInfo;
+          Debug::Mostrar( CORREO_CONTACTOS );
+          Debug::Mostrar( PASS_CORREO_CONTACTOS );
          return "correo_No_OK";
         }
      }
