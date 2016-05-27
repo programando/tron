@@ -12,13 +12,13 @@
 
         Ante cualquier situación que se le presente, no dude en contactarnos:
         <br><br>
-        <strong>Horarios de Atención:</strong> Lunes a Viernes de 7:30 am a 12:00 m y 1:30 pm a 6:00 pm.
+        <strong>Horarios de Atención:</strong> Lunes a Viernes de 7:30 am a 12:00 m y 1:00 pm a 5:00 pm.
         <br>
-        <strong>PBX:</strong> (2) 488 1616
+        <strong>PBX:</strong> (2) 488 16 16
         <br>
         <strong>Línea gratuita al cliente:</strong> 01 8000 18 TRON <small>(8766)</small>
         <br>
-        <strong>Dirección:</strong> Cll 35 N° 4-31, Cali - Colombia.
+        <strong>Dirección:</strong> Cll 35 N° 4 - 31, Cali - Colombia.
 
 	</div>
 </div>

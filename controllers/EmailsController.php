@@ -209,42 +209,8 @@
       }
 
 
-      private function Configurar_Cuenta2($asunto) {
-      		/** ENERO 30 DE 2015
-      		*		 ESTABLECE LA CONFIGURACIÓN PARA EL ENVÍO DE CORREOS ELECTRÓNICOS
-      		*/
-                  $this->Email->IsSMTP();
-                  $this->Email->SMTPDebug     = 3;
-                  $this->Email->SMTPAuth      = true;
-                  $this->Email->IsHTML        = true;              				 // enable SMTP authentication
-                  $this->Email->ContentType   = "text/html";
-                  $this->Email->CharSet       = "utf-8";
-                  $this->Email->SMTPSecure    = 'ssl';                     // sets the prefix to the servier
-                  $this->Email->Host          = 'smtp.gmail.com';      		// sets GMAIL as the SMTP server
-                  $this->Email->Port          = 465;
-                  $this->Email->SMTPKeepAlive = true;
-                  $this->Email->Mailer        = "smtp";                   // set the SMTP port
-                  $this->Email->Username      = 'j94mg@gmail.com';					// GMAIL username
-                  $this->Email->Password      = 'lacasallena';    // GMAIL password
-                  $this->Email->From          = 'j94mg@gmail.com';
-                  $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
-                  $this->Email->Subject       = $asunto;
-                  $this->Email->AltBody       = ""; //Text Body
-                  $this->Email->WordWrap      = 50; // set word wrap																// send as HTML
-      }
-
-
-
-
 
     public function Configurar_Cuenta( $asunto ) {
-
-      //$miemail  = CORREO_CONTACTOS; // 'jj94mg@gmail.com';
-      //$pass    = PASS_CORREO_CONTACTOS  ; //'lacasallena';
-
-      //CORREO_CONTACTOS . ' ' . PASS_CORREO_CONTACTOS;
-
-      //$correo = new PHPMailer();
 
        $this->Email->IsSMTP();
        $this->Email->SMTPDebug     =0;
@@ -264,11 +230,6 @@
        $this->Email->Subject       = $asunto;
        $this->Email->AltBody       = ""; //Text Body
        $this->Email->WordWrap      = 50; // set word wrap                                // send as HTML
-       //$this->Email->AddAddress('jhonjamesmg@hotmail.com');
-       $this->Email->Body      ='mensaje de prueba' . rand(1,150);
-
-       // $Respuesta = $this->Enviar_Correo();
-        //echo $Respuesta;
     }
 
 
