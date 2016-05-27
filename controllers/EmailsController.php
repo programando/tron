@@ -248,7 +248,7 @@ public function correo(){
   $correo = new PHPMailer();
 
    $correo->IsSMTP();
-   $correo->SMTPDebug     = 2;
+   $correo->SMTPDebug     =0;
    $correo->SMTPAuth      = true;
    $correo->IsHTML        = true;                      // enable SMTP authentication
    $correo->ContentType   = "text/html";
