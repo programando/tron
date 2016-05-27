@@ -6,7 +6,7 @@ require_once('libs_external/class.phpmailer.php');
 $correo = new PHPMailer();
 
  $correo->IsSMTP();
- $correo->SMTPDebug     = 0;
+ $correo->SMTPDebug     = 1;
  $correo->SMTPAuth      = true;
  $correo->IsHTML        = true;              				 // enable SMTP authentication
  $correo->ContentType   = "text/html";
