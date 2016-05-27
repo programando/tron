@@ -91,7 +91,7 @@
               if ($Respuesta == 'correo_OK'){
                 $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
               }
-              $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>' . CORREO_CONTACTOS . ' ' . PASS_CORREO_CONTACTOS;
+              $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>' ;
               $Respuesta = compact('Respuesta' );
           }
             echo json_encode($Respuesta,256);
@@ -208,7 +208,7 @@
       }
 
 
-      private function Configurar_Cuenta($asunto) {
+      private function Configurar_Cuenta2($asunto) {
       		/** ENERO 30 DE 2015
       		*		 ESTABLECE LA CONFIGURACIÓN PARA EL ENVÍO DE CORREOS ELECTRÓNICOS
       		*/
@@ -236,7 +236,7 @@
 
 
 
-public function correo(){
+public function Configurar_Cuenta( $asunto ) {
   //Incluimos la clase de PHPMailer
 //require_once('../libs_external/class.phpmailer.php')
 
@@ -245,36 +245,31 @@ public function correo(){
 
      //CORREO_CONTACTOS . ' ' . PASS_CORREO_CONTACTOS;
 
-  $correo = new PHPMailer();
+  //$correo = new PHPMailer();
 
-   $correo->IsSMTP();
-   $correo->SMTPDebug     =0;
-   $correo->SMTPAuth      = true;
-   $correo->IsHTML        = true;                      // enable SMTP authentication
-   $correo->ContentType   = "text/html";
-   $correo->CharSet       = "utf-8";
-   $correo->SMTPSecure    = 'ssl';                     // sets the prefix to the servier
-   $correo->Host          = 'smtp.gmail.com';         // sets GMAIL as the SMTP server
-   $correo->Port          = 465;
-   $correo->SMTPKeepAlive = true;
-   $correo->Mailer        = "smtp";                   // set the SMTP port
-   $correo->Username      = $miemail;         // GMAIL username
-   $correo->Password      = $pass;    // GMAIL password
-   $correo->From          = $miemail;
-   $correo->FromName      = 'TRON Entre amigos alcanzamos';
-   $correo->Subject       = 'Prueba de Correo' ;
-   $correo->AltBody       = ""; //Text Body
-   $correo->WordWrap      = 50; // set word wrap                                // send as HTML
-   $correo->AddAddress('jhonjamesmg@hotmail.com');
-   $correo->Body      ='mensaje de prueba' . rand(1,150);
+   $this->Email->IsSMTP();
+   $this->Email->SMTPDebug     =0;
+   $this->Email->SMTPAuth      = true;
+   $this->Email->IsHTML        = true;                      // enable SMTP authentication
+   $this->Email->ContentType   = "text/html";
+   $this->Email->CharSet       = "utf-8";
+   $this->Email->SMTPSecure    = 'ssl';                     // sets the prefix to the servier
+   $this->Email->Host          = 'smtp.gmail.com';         // sets GMAIL as the SMTP server
+   $this->Email->Port          = 465;
+   $this->Email->SMTPKeepAlive = true;
+   $this->Email->Mailer        = "smtp";                   // set the SMTP port
+   $this->Email->Username      = CORREO_CONTACTOS;         // GMAIL username
+   $this->Email->Password      = PASS_CORREO_CONTACTOS;    // GMAIL password
+   $this->Email->From          = CORREO_CONTACTOS;
+   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
+   $this->Email->Subject       = $asunto;
+   $this->Email->AltBody       = ""; //Text Body
+   $this->Email->WordWrap      = 50; // set word wrap                                // send as HTML
+   $this->Email->AddAddress('jhonjamesmg@hotmail.com');
+   $this->Email->Body      ='mensaje de prueba' . rand(1,150);
 
-  if(!$correo->Send()) {
-      echo rand(1,150);
-    echo "Hubo un error: " . $correo->ErrorInfo;
-  } else {
-     echo rand(1,150);
-    echo "Mensaje enviado con exito." ;
-  }
+   // $Respuesta = $this->Enviar_Correo();
+    //echo $Respuesta;
 
 
 }
