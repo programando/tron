@@ -85,20 +85,21 @@
               $Texto_Correo     = $Texto_Correo . "Número de teléfono : " . $telefono. '<br>';
               $Texto_Correo     = $Texto_Correo . "Comentario enviado : <br> " . $comentarios. '<br>';
               $this->Configurar_Cuenta('Correo de usuario red TRON' ). '<br>';
-              $this->Email->AddAddress($email ). '<br>';
+              $this->Email->AddAddress($email );
               $this->Email->Body = $Texto_Correo;
               $Respuesta = $this->Enviar_Correo();
               if ($Respuesta == 'correo_OK'){
                 $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
-              }
-              $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>' ;
+                }else{
+                  $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>' ;
+                }
               $Respuesta = compact('Respuesta' );
           }
             echo json_encode($Respuesta,256);
         }
 
 
-      public function Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo    ){
+      public function Recomendar_Producto_a_Amigo( $Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo    ){
        /** ENERO 31 DE 2015
         **  PROCEDIMEINTO POR MEDIO DEL CUAL SE RECOMIENDA PRODUCTOS A AMIGOS
         */
@@ -236,43 +237,40 @@
 
 
 
-public function Configurar_Cuenta( $asunto ) {
-  //Incluimos la clase de PHPMailer
-//require_once('../libs_external/class.phpmailer.php')
+    public function Configurar_Cuenta( $asunto ) {
 
-  $miemail  = CORREO_CONTACTOS; // 'jj94mg@gmail.com';
-  $pass    = PASS_CORREO_CONTACTOS  ; //'lacasallena';
+      //$miemail  = CORREO_CONTACTOS; // 'jj94mg@gmail.com';
+      //$pass    = PASS_CORREO_CONTACTOS  ; //'lacasallena';
 
-     //CORREO_CONTACTOS . ' ' . PASS_CORREO_CONTACTOS;
+      //CORREO_CONTACTOS . ' ' . PASS_CORREO_CONTACTOS;
 
-  //$correo = new PHPMailer();
+      //$correo = new PHPMailer();
 
-   $this->Email->IsSMTP();
-   $this->Email->SMTPDebug     =0;
-   $this->Email->SMTPAuth      = true;
-   $this->Email->IsHTML        = true;                      // enable SMTP authentication
-   $this->Email->ContentType   = "text/html";
-   $this->Email->CharSet       = "utf-8";
-   $this->Email->SMTPSecure    = 'ssl';                     // sets the prefix to the servier
-   $this->Email->Host          = 'smtp.gmail.com';         // sets GMAIL as the SMTP server
-   $this->Email->Port          = 465;
-   $this->Email->SMTPKeepAlive = true;
-   $this->Email->Mailer        = "smtp";                   // set the SMTP port
-   $this->Email->Username      = CORREO_CONTACTOS;         // GMAIL username
-   $this->Email->Password      = PASS_CORREO_CONTACTOS;    // GMAIL password
-   $this->Email->From          = CORREO_CONTACTOS;
-   $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
-   $this->Email->Subject       = $asunto;
-   $this->Email->AltBody       = ""; //Text Body
-   $this->Email->WordWrap      = 50; // set word wrap                                // send as HTML
-   $this->Email->AddAddress('jhonjamesmg@hotmail.com');
-   $this->Email->Body      ='mensaje de prueba' . rand(1,150);
+       $this->Email->IsSMTP();
+       $this->Email->SMTPDebug     =0;
+       $this->Email->SMTPAuth      = true;
+       $this->Email->IsHTML        = true;                      // enable SMTP authentication
+       $this->Email->ContentType   = "text/html";
+       $this->Email->CharSet       = "utf-8";
+       $this->Email->SMTPSecure    = 'ssl';                     // sets the prefix to the servier
+       $this->Email->Host          = 'smtp.gmail.com';         // sets GMAIL as the SMTP server
+       $this->Email->Port          = 465;
+       $this->Email->SMTPKeepAlive = true;
+       $this->Email->Mailer        = "smtp";                   // set the SMTP port
+       $this->Email->Username      = CORREO_CONTACTOS;         // GMAIL username
+       $this->Email->Password      = PASS_CORREO_CONTACTOS;    // GMAIL password
+       $this->Email->From          = CORREO_CONTACTOS;
+       $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
+       $this->Email->Subject       = $asunto;
+       $this->Email->AltBody       = ""; //Text Body
+       $this->Email->WordWrap      = 50; // set word wrap                                // send as HTML
+       //$this->Email->AddAddress('jhonjamesmg@hotmail.com');
+       $this->Email->Body      ='mensaje de prueba' . rand(1,150);
 
-   // $Respuesta = $this->Enviar_Correo();
-    //echo $Respuesta;
+       // $Respuesta = $this->Enviar_Correo();
+        //echo $Respuesta;
+    }
 
-
-}
 
     public function Enviar_Correo(){
         if ( $this->Email->Send()){
