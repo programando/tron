@@ -85,13 +85,13 @@
               $Texto_Correo     = $Texto_Correo . "Número de teléfono : " . $telefono. '<br>';
               $Texto_Correo     = $Texto_Correo . "Comentario enviado : <br> " . $comentarios. '<br>';
               $this->Configurar_Cuenta('Correo de usuario red TRON' ). '<br>';
-              $this->Email->AddAddress(CORREO_CONTACTOS). '<br>';
+              $this->Email->AddAddress($email ). '<br>';
               $this->Email->Body = $Texto_Correo;
               $Respuesta = $this->Enviar_Correo();
               if ($Respuesta == 'correo_OK'){
                 $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
               }
-              $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>';
+              $Respuesta = 'El correo no ha podido ser enviado. Puede deberse a un fallo en el envío del mensaje. Inténtelo más tarde. <br> <br>Gracias.<br><br>' . CORREO_CONTACTOS;
               $Respuesta = compact('Respuesta' );
           }
             echo json_encode($Respuesta,256);
@@ -234,14 +234,17 @@
 
 
 
+
+
+
+
+
     public function Enviar_Correo(){
         if ( $this->Email->Send()){
           $this->Email->clearAddresses();
             return "correo_OK";
         }else {
           echo "Error: " . $this->Email->ErrorInfo;
-          Debug::Mostrar( CORREO_CONTACTOS );
-          Debug::Mostrar( PASS_CORREO_CONTACTOS );
          return "correo_No_OK";
         }
      }
