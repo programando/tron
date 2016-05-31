@@ -1,8 +1,8 @@
 <div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis">
-    	<img src="../../public/images/tienda/lad1.png" class="lad1">
-        <img src="../../public/images/tienda/lad2.png" class="lad2">
+    	<img src="../../tron/public/images/tienda/lad1.png" class="lad1">
+        <img src="../../tron/public/images/tienda/lad2.png" class="lad2">
         <div class="p510">
             <div class="colorT1 ff3">Precio especial</div>
             <div class="row" style="margin:0; padding:0;">
@@ -106,7 +106,7 @@
 
     <!--PRECIO AMIGO TRON-->
     <div class="priceTRONProd taC mb20" style="position:relative;" >
-    	<img src="../../public/images/tienda/tach.png" class="tach">
+    	<img src="../../tron/public/images/tienda/tach.png" class="tach">
         <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
         <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
         <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
