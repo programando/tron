@@ -10,30 +10,26 @@
 	{
 		public static function Init( ){
 
-           $IpVisitante   = $_SERVER['REMOTE_ADDR'];
+           /*$IpVisitante   = $_SERVER['REMOTE_ADDR'];
            $Navegador     = $_SERVER['HTTP_USER_AGENT'];
            $NombrePC      = gethostname() ;
            $Usuario       = get_current_user();
-
-            /*
-                $ok = @session_start();
-                if(!$ok){
-                    Debug::Mostrar(  "no iniciada" . rand(0,15));
-                }else{
-                    Debug::Mostrar( session_id() );
-                }
-            */
-
-
            $IpVisitante   = preg_replace('/[^A-Za-z0-9_]/', '', $IpVisitante);
            $Navegador     = preg_replace('/[^A-Za-z0-9_]/', '', $Navegador);
            $Usuario       = preg_replace('/[^A-Za-z0-9_]/', '', $Usuario );
            $NombrePC      = preg_replace('/[^A-Za-z0-9_]/', '', $NombrePC );
 
            $Identificador = $Usuario.$NombrePC.$IpVisitante.$Navegador;
-           $Identificador = substr($Identificador,0,50);
+           $Identificador = substr($Identificador,0,80);
 
-           session_start();
+*/
+
+
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+
+
 		}
 
 
