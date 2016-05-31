@@ -33,12 +33,7 @@
            $Identificador = $Usuario.$NombrePC.$IpVisitante.$Navegador;
            $Identificador = substr($Identificador,0,50);
 
-           //session_id(  $Identificador );
            session_start();
-           //Debug::Mostrar( $Identificador );
-           //Debug::Mostrar( 'SESION ID -> ' . session_id());
-
-
 		}
 
 
