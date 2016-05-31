@@ -41,6 +41,7 @@ class IndexController extends Controller
 
         $this->Parametros_Iniciales();
 
+
         $usuario_logueado = Session::Get('logueado');
         if ( !isset( $usuario_logueado )){
             Session::Set('logueado',FALSE);
@@ -103,6 +104,7 @@ class IndexController extends Controller
 public function Consultar_Datos_Transportadoras(){
           // VALORES PARA CALCULO DE TRANSPORTE
         $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
+
         if ( !isset( $redetrans_tipo_despacho ) || empty( $redetrans_tipo_despacho )) {
              $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( 0, 153);
         }

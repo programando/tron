@@ -54,8 +54,8 @@
           </p>
        </td><!--Nombre del producto -->
 
-       <td><!-- Presentacon -->
-             <p class="text-center info-tabla"> <?= $id_transportadora. ' ' .substr($tipo_despacho_final,0,3) . ' '. $nompresentacion ;?> </p>
+       <td><!-- Presentacon $id_transportadora. ' ' .substr($tipo_despacho_final,0,3) . ' '.-->
+             <p class="text-center info-tabla"> <?=  $nompresentacion ;?> </p>
        </td> <!-- Presentacon -->
 
        <td class="col-tabla-cantidad" ><!--Botones => Cantidad -->
