@@ -4,29 +4,38 @@
  * CLASE ENCARGADA DEL MANEJO DE LAS SESSIONES DEL APLICATIVO
  * ESTABLECE Y RECUPERA DATOS DE LAS VARIABLES DE SESSION
  * CONTROLA EL TIEMPO QUE DURA  LA SESIÓN DE UN USUARIO UNA VEZ QUE SE HA LOGUEADO
+ *Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36
  */
 	class Session
 	{
 		public static function Init( ){
 
-            /*
-                if ( empty( Session::Get('CodSession_Aletatorio') )){
-                    $CodSession = General_Functions::Generar_Codigo_Unico(64);
-                    Session::Set('CodSession_Aletatorio', $CodSession);
-                    }
-             */
-       /* ini_set("session.use_cookies", 0);
-        ini_set("session.use_trans_sid", 1);
-        session_start();
-        */
+           $IpVisitante   = $_SERVER['REMOTE_ADDR'];
+           $Navegador     = $_SERVER['HTTP_USER_AGENT'];
+           $NombrePC      = gethostname() ;
+           $Usuario       = get_current_user();
 
-        //Debug::Mostrar( session_id() );
-           if ( !isset( $_SESSION ) ) {
-                //session_id('EOEAM36C7S3IR787RUWFXEUUOIAUAK6F8UR8VWAU97HA7PAK62MFH2K3L0IUGJF0');
-            ini_set("session.use_cookies", 0);
-            ini_set("session.use_trans_sid", 1);
-                session_start();
-            }
+            /*
+                $ok = @session_start();
+                if(!$ok){
+                    Debug::Mostrar(  "no iniciada" . rand(0,15));
+                }else{
+                    Debug::Mostrar( session_id() );
+                }
+            */
+
+
+           $IpVisitante   = preg_replace('/[^A-Za-z0-9_]/', '', $IpVisitante);
+           $Navegador     = preg_replace('/[^A-Za-z0-9_]/', '', $Navegador);
+           $Usuario       = preg_replace('/[^A-Za-z0-9_]/', '', $Usuario );
+           $NombrePC      = preg_replace('/[^A-Za-z0-9_]/', '', $NombrePC );
+
+           $Identificador = $Usuario.$NombrePC.$IpVisitante.$Navegador;
+           $Identificador = substr($Identificador,0,100);
+
+           session_id(  $Identificador );
+           session_start();
+
 
 		}
 
