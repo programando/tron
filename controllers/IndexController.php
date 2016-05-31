@@ -62,6 +62,7 @@ class IndexController extends Controller
 
             $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
             Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
+
         }
         // Categorias  del footer
         //------------------------
