@@ -49,7 +49,7 @@ $.ajax({
 							type:     'post',
 							async:    false,
        success:  function (resultado) {
-       	 	window.location.href = "/tron/Index";
+       	 	//window.location.href = "/tron/Index";
 	      	 }
 				});
 	}
