@@ -36,6 +36,7 @@
            session_id(  $Identificador );
            session_start();
            Debug::Mostrar( $Identificador );
+           Debug::Mostrar( 'SESION ID -> ' . session_id());
 
 
 		}
