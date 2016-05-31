@@ -53,7 +53,7 @@ class IndexController extends Controller
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
             }
         $Cantidad_Destacados = Session::Get('Cantidad_Destacados');
-        Debug::Mostrar( 'destacados ' . $Cantidad_Destacados  );
+
         if ( !isset( $Cantidad_Destacados ) ) {
             $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
             Session::Set('Cantidad_Destacados',     $this->Productos->Cantidad_Registros );

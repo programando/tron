@@ -31,7 +31,7 @@
            $NombrePC      = preg_replace('/[^A-Za-z0-9_]/', '', $NombrePC );
 
            $Identificador = $Usuario.$NombrePC.$IpVisitante.$Navegador;
-           $Identificador = substr($Identificador,0,100);
+           $Identificador = substr($Identificador,0,50);
 
            session_id(  $Identificador );
            session_start();
