@@ -1,7 +1,6 @@
 <div class="contenido-input-buscar rr10">
-
     <div class="columan-input rr10">
-        <input type="text" class="form-control input-buscar rr10 taL t14" placeholder="<?=  session_id() ; ?>"  id="texto-busqueda" />
+        <input type="text" class="form-control input-buscar rr10 taL t14" placeholder='Buscar Producto'  id="texto-busqueda" />
     </div>
 
     <div class="cont-btn-buscar">
@@ -11,6 +10,5 @@
             </div>
         </button>
     </div>
-
 </div>
 
