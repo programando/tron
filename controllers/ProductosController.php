@@ -377,7 +377,7 @@ class ProductosController extends Controller
       */
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $pagina           =  General_Functions::Validar_Entrada('Pagina','NUM');
-      $nom_categoria           =  General_Functions::Validar_Entrada('nombre_categoria','TEXT');
+      $nom_categoria    =  General_Functions::Validar_Entrada('nombre_categoria','TEXT');
       $IdOrden_nv_1     = Session::Get('IdCategoria_n1');
       $IdOrden_nv_2     = Session::Get('IdCategoria_n2');
       $IdMarca          = Session::Get('IdMarca');
