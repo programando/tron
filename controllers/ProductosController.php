@@ -307,13 +307,14 @@ class ProductosController extends Controller
 
       $_idorden_nv_1    = $this->View->Argumentos[0];
       $nom_categoria    = $this->View->Argumentos[1];
-      $Id_Area_Consulta = $this->View->Argumentos[2];
+      $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+
 
       if ( empty($Id_Area_Consulta)){
           $Id_Area_Consulta = 2 ;
       }
 
-      Session::Set('Id_Area_Consulta', $Id_Area_Consulta);      // Reasiga el area de consulta
+      //Session::Set('Id_Area_Consulta', $Id_Area_Consulta);      // Reasiga el area de consulta
       $nom_categoria    = String_Functions::Mayusculas($nom_categoria);
 
       // Datos usados para la paginación ajax. Determina el nivel de profundidad en el que se encuenta el menú.
@@ -352,6 +353,7 @@ class ProductosController extends Controller
       $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
       $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
 
+
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
       Session::Set('IdMarca',0);
@@ -360,7 +362,7 @@ class ProductosController extends Controller
         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
         $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
 
-        $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria($Id_Area_Consulta,$_idorden_nv_1 );
+        $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria( $Id_Area_Consulta, $_idorden_nv_1 );
         $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
         $this->View->nom_categoria    = strtoupper( $nom_categoria );

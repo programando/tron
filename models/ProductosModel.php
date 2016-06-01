@@ -166,6 +166,7 @@
             *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
             *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
             */
+
             $Productos = $this->Db->Ejecutar_Sp("productos_buscar_por_idcategoria( $id_area_consulta,$_idorden_nv_1)");
             return $Productos  ;
         }

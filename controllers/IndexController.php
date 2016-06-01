@@ -18,14 +18,18 @@ class IndexController extends Controller
     }
 
     public function industrial(){
-        Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
+
+
+
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
+         Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
         Session::Set('Cantidad_Destacados_Industrial', $this->Productos->Cantidad_Registros);
         $this->View->SetCss(array('tron_menu_footer','tron_index','tron_carrito',
                                   'tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron-vista-industrial','tron_estilos_slider',
                                   'tron_estilos-titulos_destacados_novedades_ofertas'));
         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias')); //,'tron_login'
+
         $this->View->Mostrar_Vista('industrial');
     }
 
