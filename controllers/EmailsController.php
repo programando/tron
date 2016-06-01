@@ -85,7 +85,7 @@
               $Texto_Correo     = $Texto_Correo . "Número de teléfono : " . $telefono. '<br>';
               $Texto_Correo     = $Texto_Correo . "Comentario enviado : <br> " . $comentarios. '<br>';
               $this->Configurar_Cuenta('Correo de usuario red TRON' ). '<br>';
-              $this->Email->AddAddress($email );
+              $this->Email->AddAddress( CORREO_CONTACTOS );
               $this->Email->Body = $Texto_Correo;
               $Respuesta = $this->Enviar_Correo();
               if ($Respuesta == 'correo_OK'){
