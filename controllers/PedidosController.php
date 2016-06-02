@@ -181,11 +181,16 @@ class PedidosController extends Controller
 				$this->ComisPuntos->Establercer_Comsiones_Por_Pedido($IdPedido_Generado); // Directo con el modelo
         $this->Comisiones_Puntos_Actualizar($idtercero ,$numero_pedido , $vr_puntos_redimidos,$vr_comis_pago_pedidos);
 
-				/// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
+				// VERIFICAR SI ESTOY GENERADON PEDIDO PARA UN AMIGO
+        $Generando_Pedido_Amigo = Session::Get('Generando_Pedido_Amigo');
+        //Debug::Mostrar( $Generando_Pedido_Amigo  );
+        /// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
+        //Debug::Mostrar( Session::Get('Generando_Pedido_Amigo') );
         $this->Index->Consultar_Datos_Transportadoras();
+        Session::Set('Generando_Pedido_Amigo', $Generando_Pedido_Amigo);
+        //Debug::Mostrar( Session::Get('Generando_Pedido_Amigo') );
         echo "OK";
-
     }
 
 
