@@ -183,15 +183,14 @@ class PedidosController extends Controller
 
 				// VERIFICAR SI ESTOY GENERADON PEDIDO PARA UN AMIGO
         $Generando_Pedido_Amigo = Session::Get('Generando_Pedido_Amigo');
-        //Debug::Mostrar( $Generando_Pedido_Amigo  );
+
         /// REINICIAR TODAS LAS VARIABLES DE SESSIONES RELACIONADAS CON PEDIDOS
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
-        //Debug::Mostrar( Session::Get('Generando_Pedido_Amigo') );
         $this->Index->Consultar_Datos_Transportadoras();
-        Session::Set('Generando_Pedido_Amigo', $Generando_Pedido_Amigo);
-        //Debug::Mostrar( Session::Get('Generando_Pedido_Amigo') );
+        Session::Set('Generando_Pedido_Amigo', $Generando_Pedido_Amigo); // Restablecer valor de esta variable
         echo "OK";
     }
+
 
 
 
