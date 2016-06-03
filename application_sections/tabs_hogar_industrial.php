@@ -26,6 +26,7 @@
             </div>
         </a>
         <?php else :?>
+          <?php Session::Set('Id_Area_Consulta','1') ;?>
         <a href="#" class="tab-industrial" id ="modal-industrial">
         <div class="tabAll">
             <div class="tabIn t14">
