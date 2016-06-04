@@ -73,13 +73,12 @@
             <!--IMG-ofertas -->
             <div class="img-ofertas" title="Producto en Oferta"> </div>
         <?php endif ?>
-
+  <!--
         <?php if ($fabricado_x_ta ==1): ?>
-            <!--IMG-tecnologias -->
             <img src="<?=BASE_IMG_PRODUCTOS;?>22.png" width="67" title="Producto Fabricado por Balquimia S.A.S." >
-            <!--<div class="img-tecno" title="Producto Fabricado por Balquimia S.A.S."></div>-->
-        <?php endif ?>
 
+        <?php endif ?>
+-->
     </div>
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
 

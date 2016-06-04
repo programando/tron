@@ -19,7 +19,7 @@ class IndexController extends Controller
 
     public function industrial(){
 
-
+        Session::Set('Id_Area_Consulta','1')  ;
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
          Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
@@ -42,7 +42,7 @@ class IndexController extends Controller
         //$Version_Navegador  = (int)$info['version'];
 
 
-
+        Session::Set('Id_Area_Consulta','2')  ;
         $this->Parametros_Iniciales();
 
 
