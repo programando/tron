@@ -357,16 +357,21 @@ class ProductosController extends Controller
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
       Session::Set('IdMarca',0);
+      Session::Set('IdCategoria_n1_', $_idorden_nv_1);
+      Session::Set('nom_categoria_', $nom_categoria);
 
 
         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
         $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
 
         $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria( $Id_Area_Consulta, $_idorden_nv_1 );
-        $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
-        $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        if ( $this->Productos->Cantidad_Registros > 12 ){
+            $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
+            $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        }
         $this->View->nom_categoria    = strtoupper( $nom_categoria );
         $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
+
 
     } // Fin Productos_por_Categoria
 
@@ -375,33 +380,34 @@ class ProductosController extends Controller
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
       */
+
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
       $pagina           =  General_Functions::Validar_Entrada('Pagina','NUM');
-      $nom_categoria    =  General_Functions::Validar_Entrada('nombre_categoria','TEXT');
-      $IdOrden_nv_1     = Session::Get('IdCategoria_n1');
+
+      $nom_categoria    =  Session::Get('nom_categoria_');
+
+      $IdOrden_nv_1     = Session::Get('IdCategoria_n1_');
       $IdOrden_nv_2     = Session::Get('IdCategoria_n2');
       $IdMarca          = Session::Get('IdMarca');
 
 
-        $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
-        $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
-
-        if ($IdOrden_nv_1 > 0)
-        {
+        if ($IdOrden_nv_1 > 0) {
           $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria($Id_Area_Consulta,$IdOrden_nv_1 );
         }
-        if ($IdOrden_nv_2 > 0)
-        {
+        if ($IdOrden_nv_2 > 0) {
           $this->View->Productos_Pagina = $this->Productos->Productos_por_Sub_Categoria($Id_Area_Consulta,$IdOrden_nv_2 );
         }
-        if ($IdMarca > 0)
-        {
+        if ($IdMarca > 0)     {
           $this->View->Productos_Pagina = $this->Productos->Productos_por_Marca($Id_Area_Consulta,$IdMarca );
         }
-
-        $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
-        $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+         if ( $this->Productos->Cantidad_Registros > 12 ){
+          $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
+          $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        }
         $this->View->nom_categoria    = strtoupper($nom_categoria);
+
+        $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
+        $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
         $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
     } // Fin Productos_por_Categoria
@@ -428,8 +434,10 @@ class ProductosController extends Controller
       $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
 
       $this->View->Productos_Pagina = $this->Productos->Productos_por_Sub_Categoria($Id_Area_Consulta,$_idorden_nv_2);
-      $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
-      $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+       if ( $this->Productos->Cantidad_Registros > 12 ){
+           $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
+          $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        }
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
        $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Categoria
