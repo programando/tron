@@ -307,7 +307,7 @@ class ProductosController extends Controller
 
       $_idorden_nv_1    = $this->View->Argumentos[0];
       $nom_categoria    = $this->View->Argumentos[1];
-      $Id_Area_Consulta =  $this->View->Argumentos[2];;
+      $Id_Area_Consulta =  $this->View->Argumentos[2];
 
 
       if ( empty($Id_Area_Consulta)){
