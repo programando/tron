@@ -57,12 +57,13 @@
             <p>
                 Por su concentración y características, pueden requerir asistencia técnica para su uso. Consulte su caso y/o solicite asesoría
                 personalizada en contactos@balquimia.com
+
             </p>
             <br>
             <br>
       </div>
       <div class="modal-footer">
-         <a href="<?=BASE_URL ;?>index/industrial" > Cerrar
+         <a href="<?=BASE_URL ;?>index/industrial" > Cerrar <?php Session::Get('Id_Area_Consulta') ;?>
 
          </a>
       </div>
