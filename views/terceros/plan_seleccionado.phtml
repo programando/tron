@@ -2,15 +2,17 @@
 <div class="taC pAA30">
 
 	<?php if ( $this->idtipo_plan_compras == 3 ) :?>
-        <?php if ($this->kit_comprado == TRUE && $this->inscripcion_pagada == TRUE && $this->idtipo_plan_compras_confirmado == TRUE ) :?>
+        <?php if ( $this->idtipo_plan_compras_confirmado == TRUE ) :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" /><!-- IMG = Empresario tron -->
             <p class="text-perteneces-A"> Perteneces al <br> <strong>PLAN EMPRESARIO TRON</strong></p><!-- Perteneces -->
+            <p class="text-perteneces-A"> Código de Usuario : <strong> <?= Session::Get('codigousuario') ;?> </strong></p><!-- Perteneces -->
         <?php else :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>empresario_por_confirmar.png" /><!-- IMG = Empresario tron -->
             <p class="text-perteneces-A"> Tu vinculación al <br> <strong>PLAN EMPRESARIO TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
         <?php endif ;?>
     <?php endif ;?>
-    
+
+
     <?php if ( $this->idtipo_plan_compras == 2 ) :?>
         <?php if ($this->kit_comprado == TRUE ) :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>amigoI.png" /><!-- IMG = Empresario tron -->
@@ -20,11 +22,12 @@
             <p class="text-perteneces-A"> Tu vinculación al  <br> <strong>PLAN CLIENTE TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
         <?php endif ;?>
     <?php endif ;?>
-    
+
     <?php if ( $this->idtipo_plan_compras == 1 ) :?>
         <img src="<?= BASE_IMG_EMPRESA ; ?>visitanteI.png"  /><!-- IMG = Empresario tron -->
         <p class="text-perteneces-A"> Perteneces al <br> PLAN COMPRADOR OCASIONAL</p><!-- Perteneces -->
     <?php endif ;?>
+
 
 </div>
 

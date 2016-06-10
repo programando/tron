@@ -75,6 +75,7 @@
        <div class="form-group">
          <label for="Tipo_cuenta" class="col-lg-4 control-label"> <p class="text-left text-label"> Tipo de cuenta: </p></label>
          <div class="col-lg-8">
+
            <select class="form-control" id="param_tipo_cuenta_transferencias" name="param_tipo_cuenta_transferencias">
            		   <?php $Tipo_Cuenta = $this->param_tipo_cuenta_transferencias ;?>
 
@@ -87,10 +88,8 @@
            		   		<option  value="<?= $this->param_tipo_cuenta_transferencias ;?>"><?= $this->nom_tipo_cuenta_transferencia ;?></option>
 																		<option  value="AH" >AHORROS</option>
 																<?php endif ;?>
-
-
-
            </select>
+
          </div>
        </div>
   </form>

@@ -302,11 +302,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
 
        }
 
-       //Debug::Mostrar(  $param_tipo_cuenta_transferencias  );
        $Datos = compact('Texto');
        echo json_encode($Datos ,256);
-
-
     }
 
      private function modificacion_datos_asigna_datos_vista($Registro){
