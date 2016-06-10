@@ -33,9 +33,7 @@ var $Parametros_Actualizar_Registro ='';
    var $recibo_promociones_email                       = $('#recibo_promociones_email');
    var $recibo_promociones_celular                     = $('#recibo_promociones_celular');
    var $param_idbanco_transferencias                   = $('#param_idbanco_transferencias');
-   var $param_idbanco_transferencias                   = $('#param_idbanco_transferencias');
    var $param_nro_cuenta_transferencias                = $('#param_nro_cuenta_transferencias');
-   var $param_tipo_cuenta_transferencias               = $('#param_tipo_cuenta_transferencias');
    var $param_idmcipio_transferencias                  = $('#param_idmcipio_transferencias');
    var $nommcipio_transferencia                        = $('#nommcipio_transferencia');
    var $iddpto_transferencia                           = $('#iddpto_transferencia');
@@ -43,6 +41,13 @@ var $Parametros_Actualizar_Registro ='';
    var $pago_por_transferencia                         = false;
    var $password                                       = $('#password');
    var $confirmar_password                             = $('#confirmar-password');
+   var $param_nombre_titular_cuenta                    = $('#param_nombre_titular_cuenta');
+   var $param_idtpidentificacion_titular_cuenta        = $("input:radio[name='param_idtpidentificacion_titular_cuenta']:checked").val();
+   var $param_identificacion_titular_cuenta            = $("#param_identificacion_titular_cuenta");
+   var $param_tipo_cuenta_transferencias               = $("select[name='param_tipo_cuenta_transferencias']").val();
+
+
+
 
 
 		 if ( (idtpidentificacion	!= '31')){
@@ -107,8 +112,9 @@ var $Parametros_Actualizar_Registro ='';
       $pago_comisiones_efecty                         = $pago_comisiones_efecty.is(':checked');
   		$Parametros_Actualizar_Registro  = {'pnombre':$pnombre.val(),'papellido':$papellido.val(),'razonsocial':$razonsocial.val(), 'idmcipio':$idmcipio.val(),
   					   														 'direccion':$direccion.val(),'barrio':$direccion.val(), 'celular1':$celular1.val(),'email':$email.val(),
-  					   														 'pago_comisiones_transferencia':$pago_por_transferencia,'param_idbanco_transferencias':$param_nro_cuenta_transferencias.val(),
-  					   														 'param_tipo_cuenta_transferencias':$param_tipo_cuenta_transferencias.val(), 'param_idmcipio_transferencias':$param_idmcipio_transferencias.val(),
+  					   														 'pago_comisiones_transferencia':$pago_por_transferencia,'param_idbanco_transferencias':$param_idbanco_transferencias.val(),
+  					   														 'param_tipo_cuenta_transferencias':$param_tipo_cuenta_transferencias, 'param_idmcipio_transferencias':$param_idmcipio_transferencias.val(),
+                                            'param_nro_cuenta_transferencias':$param_nro_cuenta_transferencias.val(),
   					   														 'recibo_promociones_celular': $recibo_promociones_celular,
   					   														 'recibo_promociones_email': $recibo_promociones_email,
   					   														 'param_confirmar_nuevos_amigos_x_email': $param_confirmar_nuevos_amigos_x_email,
@@ -117,7 +123,13 @@ var $Parametros_Actualizar_Registro ='';
   					   														 'param_acepto_retencion_comis_para_pago_pedidos':$param_acepto_retencion_comis_para_pago_pedidos,
   					   														 'pago_comisiones_efecty':$pago_comisiones_efecty,
   					   														 'param_valor_comisiones_para_pago_pedidos':$param_valor_comisiones_para_pago_pedidos.val(),
-  					   														 'idtpidentificacion':idtpidentificacion, 'idtercero':idtercero, 'password':$password.val(), 'confirmar_password': $confirmar_password.val() };
+  					   														 'idtpidentificacion':idtpidentificacion, 'idtercero':idtercero, 'password':$password.val(), 'confirmar_password': $confirmar_password.val(), 'param_nombre_titular_cuenta':
+                                           $param_nombre_titular_cuenta.val(),
+                                           'param_idtpidentificacion_titular_cuenta':$param_idtpidentificacion_titular_cuenta,
+                                           'param_identificacion_titular_cuenta':$param_identificacion_titular_cuenta.val()
+                                         };
+
+
     return true;
   }
 

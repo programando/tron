@@ -1,6 +1,8 @@
 application/Database_config.php
 application/Config.php
-public/c
+public/images/all
+public/images/bank-images
+public/images/banners
 public/images/productos/50x50
 public/images/productos/70x70
 public/images/productos/150x150

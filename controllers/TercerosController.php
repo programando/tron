@@ -205,7 +205,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $pago_comisiones_transferencia                  = General_Functions::Validar_Entrada('pago_comisiones_transferencia','BOL') ;
         $param_idbanco_transferencias                   = General_Functions::Validar_Entrada('param_idbanco_transferencias','NUM') ;
         $param_nro_cuenta_transferencias                = General_Functions::Validar_Entrada('param_nro_cuenta_transferencias','TEXT') ;
-        $param_tipo_cuenta_transferencias               = General_Functions::Validar_Entrada('param_tipo_cuenta_transferencias','NUM') ;
+        $param_tipo_cuenta_transferencias               = strtoupper(General_Functions::Validar_Entrada('param_tipo_cuenta_transferencias','TEXT')) ;
         $param_idmcipio_transferencias                  = General_Functions::Validar_Entrada('param_idmcipio_transferencias','NUM') ;
 
         $recibo_promociones_celular                     = General_Functions::Validar_Entrada('recibo_promociones_celular','BOL') ;
@@ -218,6 +218,11 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $pago_comisiones_efecty                         = General_Functions::Validar_Entrada('pago_comisiones_efecty','BOL') ;
         $password                                       = General_Functions::Validar_Entrada('password','TEXT') ;
         $confirmar_password                             = General_Functions::Validar_Entrada('confirmar_password','TEXT') ;
+        $param_nombre_titular_cuenta                    = General_Functions::Validar_Entrada('param_nombre_titular_cuenta','TEXT') ;
+        $param_nombre_titular_cuenta                    = strtoupper($param_nombre_titular_cuenta );
+
+        $param_idtpidentificacion_titular_cuenta        = General_Functions::Validar_Entrada('param_idtpidentificacion_titular_cuenta','TEXT') ;
+        $param_identificacion_titular_cuenta            =  General_Functions::Validar_Entrada('param_identificacion_titular_cuenta','TEXT') ;
 
         $Texto = 'OK';
 
@@ -257,7 +262,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
             if ( strlen($param_nro_cuenta_transferencias) == 0){
                 $Texto = $Texto . 'Registre el número de cuenta. <br>';
             }
-            if ( $param_tipo_cuenta_transferencias == 0){
+            if ( empty($param_tipo_cuenta_transferencias) ){
                 $Texto = $Texto . 'Seleccione el tipo de cuenta en donde se le harán transferencias. <br>';
             }
             if ( $param_idmcipio_transferencias  == 0 ){
@@ -291,10 +296,13 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
                               'param_tipo_cuenta_transferencias','param_idmcipio_transferencias', 'recibo_promociones_celular',
                               'recibo_promociones_email', 'param_confirmar_nuevos_amigos_x_email', 'mis_datos_son_privados',
                               'declaro_renta', 'param_acepto_retencion_comis_para_pago_pedidos', 'param_valor_comisiones_para_pago_pedidos',
-                              'pago_comisiones_efecty','password');
+                              'pago_comisiones_efecty','password','param_nombre_titular_cuenta','param_identificacion_titular_cuenta',
+                              'param_idtpidentificacion_titular_cuenta');
         $this->Terceros->Actualizar_Datos_Usuario($parametros);
 
        }
+
+       //Debug::Mostrar(  $param_tipo_cuenta_transferencias  );
        $Datos = compact('Texto');
        echo json_encode($Datos ,256);
 
@@ -302,7 +310,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     }
 
      private function modificacion_datos_asigna_datos_vista($Registro){
-              $this->View->Departamentos       = $this->Departamentos->Consultar();
+              $this->View->Departamentos = $this->Departamentos->Consultar();
               $this->View->Bancos        = $this->Parametros->Bancos_Para_Transferencias();
               $this->View->Direcciones   = $this->Terceros->Direcciones_Despacho( $Registro [0]['idtercero'] );
 
@@ -337,20 +345,30 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
               $this->View->recibo_promociones_celular                     = $Registro [0]['recibo_promociones_celular'];
               $this->View->param_idbanco_transferencias                   = $Registro [0]['param_idbanco_transferencias'];
 
-
               $this->View->nombre_banco_transferencias                    = $Registro [0]['nombre_banco_transferencias'];
+              $this->View->param_nombre_titular_cuenta                    = $Registro [0]['param_nombre_titular_cuenta'];
               $this->View->param_nro_cuenta_transferencias                = $Registro [0]['param_nro_cuenta_transferencias'];
               $this->View->param_tipo_cuenta_transferencias               = $Registro [0]['param_tipo_cuenta_transferencias'];
+              $this->View->nom_tipo_cuenta_transferencia                  = '';
+              if ( $this->View->param_tipo_cuenta_transferencias  =='AH' ){
+                $this->View->nom_tipo_cuenta_transferencia      ='AHORROS';
+              }
+              if ( $this->View->param_tipo_cuenta_transferencias  =='CO' ){
+                $this->View->nom_tipo_cuenta_transferencia      ='CORRIENTE';
+              }
               $this->View->param_idmcipio_transferencias                  = $Registro [0]['param_idmcipio_transferencias'];
               $this->View->nommcipio_transferencia                        = $Registro [0]['nommcipio_transferencia'];
               $this->View->iddpto_transferencia                           = $Registro [0]['iddpto_transferencia'];
               $this->View->nomdpto_transferencia                          = $Registro [0]['nomdpto_transferencia'];
               $this->View->idtipo_plan_compras                            = $Registro [0]['idtipo_plan_compras'];
+              $this->View->param_idtpidentificacion_titular_cuenta        = $Registro [0]['param_idtpidentificacion_titular_cuenta'];
+              $this->View->param_identificacion_titular_cuenta            = $Registro [0]['param_identificacion_titular_cuenta'];
       }
 
     public function modificacion_datos()  {
         $idtercero                 = Session::Get('idtercero');
         $Registro                  = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
+
         $this->modificacion_datos_asigna_datos_vista($Registro);
         $this->View->Mostrar_Vista_Parcial("modificacion_datos");
       }
