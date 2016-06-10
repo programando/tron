@@ -97,7 +97,6 @@ $("#contenido-productos").on('click','.pagina',function(){
 			var numero_pagina     = $(this).attr('pagina');
 			var  nombre_categoria = $(this).attr("nombre-categoria");
 			Paginacion(numero_pagina, nombre_categoria);
-
 });
 
 
