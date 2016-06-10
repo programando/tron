@@ -1,5 +1,4 @@
 
-
 <?php if(isset($this->_paginacion)): ?>
 
     <div class="row">

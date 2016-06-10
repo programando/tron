@@ -234,9 +234,17 @@ class ProductosController extends Controller
       */
       if (!isset($pagina)) { $pagina=false;}
       if ($pagina==false) {   $pagina = 1 ;};
+
       $_idorden_nv_1    = $this->View->Argumentos[0];
       $nom_categoria    = $this->View->Argumentos[1];
+
+      //if ($_idorden_nv_1 ='tron' ) {
+          //Debug::Mostrar($this->View->Argumentos  );
+      //}
+
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+
+
       if ( empty($Id_Area_Consulta)){
           $Id_Area_Consulta = 2 ;
       }
@@ -291,7 +299,6 @@ class ProductosController extends Controller
       $IdOrden_nv_1     = Session::Get('IdCategoria_n1');
       $IdOrden_nv_2     = Session::Get('IdCategoria_n2');
       $IdMarca          = Session::Get('IdMarca');
-
 
 
 
