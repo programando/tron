@@ -3,17 +3,21 @@
 	<div class="counttis">
     	<img src="<?=BASE_IMG_TIENDA;?>lad1.png" class="lad1">
         <img src="<?=BASE_IMG_TIENDA;?>lad2.png" class="lad2">
-        <div class="p510">
-            <div class="colorT1 ff3">Precio especial</div>
+        <div class="p510 bb333">
+            <div class="colorT1 ff3 text-center" style="color:black;"><small><strong>OFERTA POR TIEMPO LIMITADO</strong> </small></div>
             <div class="row" style="margin:0; padding:0;">
-                <div class="col-sm-9 col-xs-9 colorT2 t40 ff2 vcenter">
-                    $18.550
-                </div><!--
-                --><div class="col-sm-3 col-xs-3 vcenter taC">
-                    <span class="dB t12 color999 mb3"><em>exclusivo</em></span>
-                    <span class=""><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
+                <div class="col-sm-12 col-xs-12 colorT2 t40 ff2 vcenter text-center">
+                   <?=$pv_tron;?>
                 </div>
+
+        <div class="text-center">
+
+
+                            <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
+                            <span class=""><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+                            <span class=""><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
+
+        </div>
             </div>
         </div>
 
@@ -41,7 +45,7 @@
         </div>
 
         <!-- Opción CANTIDAD -->
-        <div class="p510 bb333 taC colorfff ff0">
+        <div class="p510 bb333 taC colorfff ff0" style="color:black">
             <!--
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-7 col-xs-7 vcenter taC">
@@ -55,7 +59,8 @@
                 </div>
             </div>
              -->
-            PRODUCTO<br>EN<br>OFERTA
+
+
         </div>
     </div>
 
@@ -89,14 +94,10 @@
 
     <div class="taC mb10">
         <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> ">
-
             <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
            <!-- <img src="../../public/images/tienda/empty.png" class="mb10" />-->
-
             <div class="nomproducto taC t14" id ="<?= $idnomproducto ;?>"><?=$nom_producto ;?></div>
-
             <div class="nompresentacion taC" id ="<?= $idnompresentacion ;?>"><small><?=$nompresentacion ;?></small></div>
-
         </a>
     </div>
 
@@ -109,12 +110,16 @@
     <?php endif ;?>
 
     <!--PRECIO AMIGO TRON-->
-    <div class="priceTRONProd taC mb20" style="position:relative;" >
-    	 <!-- <img src="<?=BASE_IMG_TIENDA;?>tach.png" class="tach">-->
-        <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
-        <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
-        <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
-    </div>
+     <?php if ($en_oferta == 0): ?>
+        <div class="priceTRONProd taC mb20" style="position:relative;" >
+        	 <!-- <img src="<?=BASE_IMG_TIENDA;?>tach.png" class="tach">-->
+            <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
+            <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+            <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
+        </div>
+      <?php else :?>
+         <div class="priceTRONProd taC mb20" style="position:relative;" >  </div>
+      <?php endif ;?>
 
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
     <div class="costos-cantidad">
