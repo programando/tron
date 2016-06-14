@@ -150,8 +150,8 @@ class CarritoController extends Controller{
         if ( $Vr_Total_Pedido_Real > 0 ){
                 $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
                 $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
-                $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
                 Session::Set('imagen_resumen_pedido',FALSE);
+                $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
             }else{
               echo "Mostrar mensaje de pago pedido cero";
             }

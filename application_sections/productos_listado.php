@@ -1,8 +1,8 @@
 <div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis">
-    	<img src="../../tron/public/images/tienda/lad1.png" class="lad1">
-        <img src="../../tron/public/images/tienda/lad2.png" class="lad2">
+    	<img src="<?=BASE_IMG_TIENDA;?>lad1.png" class="lad1">
+        <img src="<?=BASE_IMG_TIENDA;?>lad2.png" class="lad2">
         <div class="p510">
             <div class="colorT1 ff3">Precio especial</div>
             <div class="row" style="margin:0; padding:0;">
@@ -17,40 +17,45 @@
             </div>
         </div>
 
-        <!-- Opción CUENTA REGRESIVA -->
+        <!-- Opción CUENTA REGRESIVA OFERTAS -->
         <div class="p510 bb333 taC colorfff ff0">
+           <!--
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-3 col-xs-3 vcenter taC">
                     <em>solo<br>por</em>
-                </div><!--
-                --><div class="col-sm-3 col-xs-3 vcenter taC">
+                </div>
+                 <div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">12</div>
                     <div class="t10">horas</div>
-                </div><!--
-                --><div class="col-sm-3 col-xs-3 vcenter taC">
+                </div>
+                <div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">48</div>
                     <div class="t10">minutos</div>
-                </div><!--
-                --><div class="col-sm-3 col-xs-3 vcenter taC">
+                </div>
+                 <div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">26</div>
                     <div class="t10">segundos</div>
                 </div>
             </div>
+          -->
         </div>
 
         <!-- Opción CANTIDAD -->
         <div class="p510 bb333 taC colorfff ff0">
+            <!--
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-7 col-xs-7 vcenter taC">
                     <em>Cantidad limitada</em>
-                </div><!--
-                --><div class="col-sm-2 col-xs-2 vcenter taC">
+                </div>
+                <div class="col-sm-2 col-xs-2 vcenter taC">
                 	<div class="t24">13</div>
-                </div><!--
-                --><div class="col-sm-3 col-xs-3 vcenter taC t12">
+                </div>
+                 ><div class="col-sm-3 col-xs-3 vcenter taC t12">
                 	<em>unidades<br>restantes</em>
                 </div>
             </div>
+             -->
+            PRODUCTO<br>EN<br>OFERTA
         </div>
     </div>
 
@@ -105,7 +110,7 @@
 
     <!--PRECIO AMIGO TRON-->
     <div class="priceTRONProd taC mb20" style="position:relative;" >
-    	<img src="../../tron/public/images/tienda/tach.png" class="tach">
+    	 <!-- <img src="<?=BASE_IMG_TIENDA;?>tach.png" class="tach">-->
         <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
         <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
         <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
