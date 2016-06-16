@@ -228,6 +228,10 @@
 																			$Precio_Unitario_Loza   = ( $Precio_Lista_Loza - $Total_Descuento_Loza) / $Cantidad_Loza;
 																	}
 
+																	$Precio_Unitario_Ropa 		= round($Precio_Unitario_Ropa,0) ;
+																	$Precio_Unitario_Banios = round($Precio_Unitario_Banios,0) ;
+																	$Precio_Unitario_Pisos 	= round($Precio_Unitario_Pisos,0) ;
+																	$Precio_Unitario_Loza 		= round($Precio_Unitario_Loza,0) ;
 
  															// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
 																Session::Set('precio_especial'              , $precio_especial   );
