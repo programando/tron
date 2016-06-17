@@ -680,15 +680,6 @@ public function Totalizar_Carrito(){
           $pv_tron               = $Productos['pv_tron'] ;
 
 
-          if ( $this->Existe_Derecho_Inscripcion == TRUE && $idproducto == 10744 ){                  //Precio Diferencial del Kit de inicio según se compren o no los derechos de inscripción.
-            $Productos['pv_ocasional']        = $Productos['precio_kit_tron'];
-            $Productos['pv_tron']             = $Productos['precio_kit_tron'];
-          }
-          if ( $this->Existe_Derecho_Inscripcion == FALSE && $idproducto == 10744 ){
-           $Productos['pv_tron']             =  $Productos['precio_kit_ocasional'] ;
-           $Productos['pv_ocasional']        =  $Productos['precio_kit_ocasional'];
-          }
-
           if ($idproducto == 10744){
               $kit_inicio_peso_total       = $kit_inicio_peso_total + $peso_gramos ;
               $kit_cantidad                = $kit_cantidad          + $cantidad;
@@ -1450,9 +1441,12 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           }
 
           $_SESSION['carrito'] = $Carrito_Actual;
+
           $this->Depurar_Carrito();
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
+
           $this->Totalizar_Carrito();
+
           $this->Retornar_Totales_Carro_Json();
 
 
