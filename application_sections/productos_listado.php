@@ -94,8 +94,12 @@
 
     <div class="taC mb10">
         <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> ">
-            <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
-           <!-- <img src="../../public/images/tienda/empty.png" class="mb10" />-->
+            <?php if ( !empty( $nombre_imagen )) :;?>
+              <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
+            <?php else :?>
+              <img src="<?=BASE_IMG_PRODUCTOS_472x472. 'sin-foto.jpg';?>" class="mb10" />
+            <?php endif ;?>
+
             <div class="nomproducto taC t14" id ="<?= $idnomproducto ;?>"><?=$nom_producto ;?></div>
             <div class="nompresentacion taC" id ="<?= $idnompresentacion ;?>"><small><?=$nompresentacion ;?></small></div>
         </a>
