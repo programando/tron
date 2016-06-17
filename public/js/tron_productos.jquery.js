@@ -193,15 +193,17 @@ function Borrar_Producto(Parametros){
   var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras, Parametros){
 		var $Texto      = '';
 		var $idproducto = Parametros.IdProducto;
-		 if ( $idproducto != 10744 && $idproducto != 2071 ){
+		 //if ( $idproducto != 10744 && $idproducto != 2071 ){
 		 		Borrar_Producto(Parametros);
-		 	return ;
-		 }
+		 //	return ;
+		 //}
 
+/*
 			if ( (idtipo_plan_compras == 2) || ( idtipo_plan_compras == 3 && $idproducto == 10744) ) {
-							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>Si eliminas el Kit de Incio no podrás finalizar tu registro y quedarás registrado como: <h4> Comprador Ocasional. </h4>. <br> Deseas continuar ?";
-							nuevo_idtipo_plan_compas  = 1;
+							$Texto = "<h4>¡¡¡ Opsss !!!</h4> <br>No es posible borrar el Kit de Inicio para mantenerte en el plan elegido.<br> Deseas borrarlo de todas fr ";
+							//nuevo_idtipo_plan_compas  = 1;
 			}
+
 
 						new Messi($Texto,{title: 'Mensaje del sistema.',titleClass: 'info',modal: true,
 		                buttons: [
@@ -214,6 +216,8 @@ function Borrar_Producto(Parametros){
 		                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(nuevo_idtipo_plan_compas);
 		                			}
 						          }});
+						          */
+
 }
 
 // CONFIRMACIÓN DEL CAMBIO DE PLAN PARA EL REGISTRO DE EMPRESAS.....
