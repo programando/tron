@@ -8,11 +8,67 @@
       {
           parent::__construct();
           $this->Terceros = $this->Load_Model('Terceros');
+          $this->Mensajes = $this->Load_Model('Emails');
           $this->Email    = $this->Load_External_Library('class.phpmailer');
           $this->Email    = new PHPMailer();
       }
 
       public function Index() { }
+
+
+      public function Usuarios_Cumplean_Anios(){
+        /** JUNIO 18 2016
+         *    GENERA CORREO ELECTRONICO PARA INFORMAR A LOS USUARIOS SOBRE UN NUEVO INGRESO A SU RED
+         */
+        $nuevos_usuarios = $this->Mensajes->Usuarios_Cumplen_Anios();
+        /*$Texto_Correo    = file_get_contents(BASE_EMAILS.'nuevos_usuarios.phtml','r');
+
+        $this->Configurar_Cuenta('Nuevo usuario registrado en tu Red' );
+
+        foreach ( $nuevos_usuarios as $usuario ) {
+            $idregistro        = $usuario['idregistro'];
+            $email             = $usuario['email'];
+            $nombre_usuario    = $usuario['nuevo_usuario'];
+            $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
+            $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
+
+            $this->Email->AddAddress($email );
+            $Respuesta              = $this->Enviar_Correo();
+
+        }
+        */
+        $this->View->Mostrar_Vista('usuarios_cumplen_anios');
+
+      }
+
+
+
+      public function Nuevos_Usuarios_Registrados(){
+        /** JUNIO 18 2016
+         *    GENERA CORREO ELECTRONICO PARA INFORMAR A LOS USUARIOS SOBRE UN NUEVO INGRESO A SU RED
+         */
+        $nuevos_usuarios = $this->Mensajes->Nuevos_Usuarios_Registrados();
+        $Texto_Correo    = file_get_contents(BASE_EMAILS.'usuarios_nuevos_en_red.phtml','r');
+
+        $this->Configurar_Cuenta('Nuevo usuario registrado en tu Red' );
+
+        foreach ( $nuevos_usuarios as $usuario ) {
+            $idregistro        = $usuario['idregistro'];
+            $email             = $usuario['email'];
+            $nombre_usuario    = $usuario['nuevo_usuario'];
+            $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
+            $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
+
+            $this->Email->AddAddress($email );
+            $Respuesta              = $this->Enviar_Correo();
+            if (  $Respuesta  == 'correo_OK' ){
+              // SI EL CORREO ES ENVIADO SE BORRA EL REGISTRO.
+              $nuevos_usuarios = $this->Mensajes->Nuevos_Usuarios_Registrados_Borrar_Registro( $idregistro  );
+            }
+
+        }
+      }
+
 
 
 
@@ -51,7 +107,7 @@
               $Texto_Correo           = str_replace("#_MENSAJE_OPCIONAL_#"                 , $recomendar_mnsj_personal,$Texto_Correo);
               $Texto_Correo           = str_replace("#_LOGO_#"                             , $logo ,$Texto_Correo);
 
-              $this->Email->Body      = $Texto_Correo;
+              $this->Email->Body      = $this->Unir_Partes_Correo ($Texto_Correo  );
               $Respuesta              = $this->Enviar_Correo();
           }
           $Respuesta = compact('Respuesta');
@@ -86,7 +142,7 @@
               $Texto_Correo     = $Texto_Correo . "Comentario enviado : <br> " . $comentarios. '<br>';
               $this->Configurar_Cuenta('Correo de usuario red TRON' ). '<br>';
               $this->Email->AddAddress( CORREO_CONTACTOS );
-              $this->Email->Body = $Texto_Correo;
+              $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
               $Respuesta = $this->Enviar_Correo();
               if ($Respuesta == 'correo_OK'){
                 $Respuesta = 'El correo ha sido enviado satisfactoriamente. Pronto nos pondremos en contacto con usted. <br> <br>Gracias.<br><br>';
@@ -137,7 +193,7 @@
             $Pie_Pagina = $Pie_Pagina . '<div class="campo-escrit"> ' . $Mensaje_Enviado .'</div></div>';
           }
           $Texto_Correo     = str_replace(" #Pie_Pagina#"    , $Pie_Pagina  ,$Texto_Correo);
-          $this->Email->Body = $Texto_Correo;
+          $this->Email->Body = $Texto_Correo  ;
           // GRABAR RECOMENDACION
           $this->Terceros->Recomendacion_Amigo_Producto_Grabar ( $Nombre_Amigo ,$Email_Amigo,$IdProducto,$codigo_confirmacion );
           //-------------------
@@ -160,7 +216,7 @@
           $Pagina_Correo       = str_replace("#_LOGO_#"                       , $logo ,$Pagina_Correo);
           $Pagina_Correo       = str_replace("#_ENLACE_RECUPERA_PASSWORD_#"   , $enlace  ,$Pagina_Correo);
 
-          $this->Email->Body   = $Pagina_Correo ;
+          $this->Email->Body   = $this->Unir_Partes_Correo ($Pagina_Correo );
 
           if ( $this->Email->Send()) {
               $this->Email->clearAddresses();
@@ -201,7 +257,7 @@
          $Texto_Correo      = str_replace("#_ENLACE_ACTIVA_CUENTA_#"    , $enlace            ,$Texto_Correo);
          $Texto_Correo      = str_replace("#_LOGO_#"                    , $logo              ,$Texto_Correo);
          $Texto_Correo      = str_replace("#_CODIGO_GENERADO_#"         , $codigo_generado   ,$Texto_Correo);
-         $this->Email->Body = $Texto_Correo  ;
+         $this->Email->Body =  $this->Unir_Partes_Correo ($Texto_Correo);
 
          $Respuesta         = $this->Enviar_Correo();
          Session::Set('codigo_confirmacion',$codigo_confirmacion);
@@ -238,17 +294,28 @@
           $this->Email->clearAddresses();
             return "correo_OK";
         }else {
+          $this->Email->clearAddresses();
           echo "Error: " . $this->Email->ErrorInfo;
          return "correo_No_OK";
         }
      }
+
+   private function Unir_Partes_Correo (   $Body ){
+       $Logo_Empresa       = BASE_IMG_EMPRESA .'logo.png';
+       $Header             = file_get_contents(APPLICATION_SECTIONS . 'emails/header.php','r');
+       $Header             = str_replace("#_LOGO_EMPRESA_#"       , $Logo_Empresa ,$Header);
+       $Footer             = file_get_contents(APPLICATION_SECTIONS . 'emails/footer.php','r');
+       $Texto_Final_Correo = $Header.$Body.$Footer;
+       return $Texto_Final_Correo ;
     }
+
+
 /* PAGINAS QUE HABILITAN EL EVÍO DE CORREOS EN CUENTAS
     https://www.google.com/settings/u/1/security/lesssecureapps
     https://accounts.google.com/b/0/DisplayUnlockCaptcha
     https://security.google.com/settings/security/activity?hl=en&pli=1
 */
-
+ }
 ?>
 
 
