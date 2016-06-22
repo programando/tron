@@ -9,6 +9,6 @@
 	<div style="width: 85%; margin: 0px auto; text-align: justify; display: block;font-family: arial;font-size: 14px; ">
 		<!-- Logo -->
 		<div>
-			<img src="  #_LOGO_EMPRESA_# " ><!--Logo tron -->
+			<img src="http://www.entreamigosalcanzamos.com/tron/public/images/empresa/logo.png" ><!--Logo tron -->
 		</div>
 		<br>

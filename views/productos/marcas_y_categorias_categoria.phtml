@@ -13,14 +13,17 @@
 				include (APPLICATION_CODS . 'campos_productos.php');
         ?>
 
-                <div class="artOpt artPor4">
-                	<?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
-                </div>
+         <?php if ( $en_oferta == 1 ) : ?> <div class="artOpt artPor4 oferta">
+            <?php else :?>                 <div class="artOpt artPor4">
+         <?php endif ;?>
+         <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
+          </div>
 
         <?php
-			} if(isset($this->Paginacion)) echo $this->Paginacion;
+			} if( isset($this->Paginacion)) echo $this->Paginacion;
 		?>
 
 	</div>
+</div>
 </div>
 

@@ -199,6 +199,8 @@ class ProductosController extends Controller
       $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));
       $this->View->Mostrar_Vista('vista_ampliada');
     }
+
+
     public function Categorias_Marcas ($pagina=false){
      /** DIC 31 DE 2014
      *  MUSTRA EL MENU LATERAL DE DATOS RELACIONADOS CON CATEGORÍAS Y MARCAS
@@ -211,22 +213,19 @@ class ProductosController extends Controller
       }
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
       $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
+
       $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);
       $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
       $this->View->Productos_Marcas          = $this->Marcas->Marcas_Consultar($Id_Area_Consulta);
+
       $this->View->Productos_Pagina          = $this->Productos->Listar_Poductos_Paginador($Id_Area_Consulta );
       $this->View->Productos_Pagina          = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
       $this->View->Mostrar_Vista('marcas_y_categorias');
     }
-    public function new_productos_categorias() {
-     /** DIC 31 DE 2014
-     *  MUSTRA EL MENU LATERAL DE DATOS RELACIONADOS CON CATEGORÍAS Y MARCAS
-    */
-      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA'));
-      $this->View->SetJs(array('menu-accordion'));
-      $this->View->Mostrar_Vista('new_productos_categorias');
-    }
+
+
+
     public function Productos_por_Categoria_Individual( ) {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
@@ -267,6 +266,7 @@ class ProductosController extends Controller
       $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
       $this->View->Mostrar_Vista('marcas_y_categorias_individual');
     } // Fin Productos_por_Categoria
+
     public function Productos_por_Categoria() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
@@ -288,6 +288,8 @@ class ProductosController extends Controller
         $this->View->nom_categoria    = strtoupper( $nom_categoria );
         $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Categoria
+
+
     public function Productos_Mostrar_Via_Ajax() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
