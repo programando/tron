@@ -153,7 +153,7 @@ class CarritoController extends Controller{
                 Session::Set('imagen_resumen_pedido',FALSE);
                 $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
             }else{
-              echo "Mostrar mensaje de pago pedido cero";
+                    $this->View->Mostrar_Vista('pedido_pago_cero');
             }
         }
 
