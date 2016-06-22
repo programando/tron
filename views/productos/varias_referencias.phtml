@@ -1,18 +1,21 @@
 <div class="ionix">
-    <div class="general">    
+    <div class="general">
     	<div class="contenido-index mb30 pAA30">
         	<div class="titleM1 colorBlue t24 mb30"><?= $this->Nombre_Agrupacion  ;?></div>
-        
+
             <div class="row">
                 <?php
                     foreach ($this->Productos_Varias_Referencias as $Productos) {
                     $mostrar_imagen_varias_referencias=false;
                     include (APPLICATION_CODS . 'campos_productos.php');
                 ?>
-                        <div class="artOpt artPor5">
+                    <?php if ( $en_oferta == 1 ) : ?> <div class="artOpt artPor5 oferta">
+                         <?php else :?>                 <div class="artOpt artPor5">
+                    <?php endif ;?>
+
                             <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
                         </div>
-                
+
                 <?php } ?>
             </div>
 

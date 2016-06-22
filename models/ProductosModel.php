@@ -111,6 +111,15 @@
 			return $Productos_Novedades;
 		}
 
+        public function Productos_Ofertas()  {
+            /** DIC 30 DE 2014.
+                CONSULTA TODAS LAS NOVEDADES DISPONIBLES EN LA PÁGINA               */
+            $Id_Area_Consulta         = Session::Get('Id_Area_Consulta');
+            $Productos_Novedades      = $this->Db->Ejecutar_Sp("productos_listado_ofertas_todos ( $Id_Area_Consulta )");
+            $this->Cantidad_Registros = $this->Db->Cantidad_Registros;
+            return $Productos_Novedades;
+        }
+
 
         public function Buscar_por_IdProducto($idproducto)   {
         	/** DIC 30 DE 2014.

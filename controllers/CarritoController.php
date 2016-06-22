@@ -475,6 +475,8 @@ class CarritoController extends Controller{
         }
     }
 
+
+
    public function Borrar_Productos_Carro_Plan_2_3(){
     /** JULIO 07 DE 2015
      *    VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON

@@ -8,6 +8,9 @@ class ProductosController extends Controller
  {
     private $_Productos_Tron ;
     private $_Accesorios_Tron;
+
+
+
     public function __construct() {
         parent::__construct();
         $this->Productos          = $this->Load_Model('Productos');
@@ -17,25 +20,40 @@ class ProductosController extends Controller
         $this->Paginador          = $this->Load_External_Library('paginador');
         $this->Paginador          = new Paginador();
     }
+
     public function Index() {}
+
+
     public function Favoritos_Borrar_x_IdTercero_IdProducto(){
          $IdProducto         = General_Functions::Validar_Entrada('idproducto','NUM');
          $IdTercero          = General_Functions::Validar_Entrada('idtercero','NUM');
          $this->Productos->Favoritos_Borrar_x_IdTercero_IdProducto(   $IdTercero, $IdProducto    ) ;
          $this->Favoritos_Consulta_x_idTercero();
     }
+
+
+
     public function Favoritos_Consulta_x_idTercero(  ){
         $idtercero             = Session::Get('idtercero');
         $this->View->Productos =  $this->Productos->Favoritos_Consulta_x_idTercero(   $idtercero ) ;
         $this->View->Mostrar_Vista_Parcial('favoritos');
     }
+
+
+
     public function Favoritos_Grabar( $idproducto, $idtercero ){
       $this->Productos->Favoritos_Grabar( $idproducto, $idtercero ) ;
       echo "FAVORITO-OK";
     }
+
+
+
     public function mostrar_resumen_producto() {
         $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
     }
+
+
+
     public function Recomendar_Producto_a_Amigo() { /** ENERO 31 DE 2015
       **  PROCEDIMEINTO POR MEDIO DEL CUAL SE RECOMIENDA PRODUCTOS A AMIGOS
       */
@@ -55,6 +73,9 @@ class ProductosController extends Controller
       }
       echo $Texto_Respuesta ;
     }
+
+
+
     public function Busqueda_General(){
       /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
       */
@@ -71,6 +92,9 @@ class ProductosController extends Controller
       $this->View->Mostrar_Vista('resultado_busqueda');
       }
     }
+
+
+
     public function Varias_Referencias($Id_Agrupacion) {
       /**  ENERO 22 DE 2015   MUESTRA PRODUCTOS AGRUPADOS EN VARIOS REFERENCIAS
       */
@@ -80,24 +104,36 @@ class ProductosController extends Controller
        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
        $this->View->Mostrar_Vista('varias_referencias');
     }
+
+
     public function Destacados_Index() {
         $this->View->Productos_Desatacados = $this->Productos->Destacados_Index();
     }
+
+
+
     public function Destacados() {
          $this->View->Productos_Destacados = $this->Productos->Destacados_Index();
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_3'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('destacados');
     }
+
+
     public function Ofertas_Index() {
          $this->View->Productos_Ofertas     = $this->Productos->Ofertas_Index();
     }
+
+
     public function Ofertas() {
-         $this->View->Productos_Ofertas = $this->Productos->Ofertas_Index();
+         $this->View->Productos_Ofertas = $this->Productos->Productos_Ofertas();
+
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_4'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('ofertas');
     }
+
+
      public function Productos_Tron() {
          Session::Set('Id_Area_Consulta','2');
          $this->View->SetCss(array('tron_carrito','tron_estilos_productos_tron','tron_productos_tron_active','tron_campo_1'));
@@ -120,15 +156,24 @@ class ProductosController extends Controller
          $this->View->Productos_Tron_Loza  = $this->_Productos_Tron;
          $this->View->Mostrar_Vista('productos_tron');
     }
+
+
+
     public function Productos_Tron_Consultar($Id_Categoria) {
       $this->_Productos_Tron  = $this->Productos->Productos_Tron_x_Id_Categoria_Producto($Id_Categoria);
       $this->_Accesorios_Tron = $this->Productos->Productos_Tron_Accesorios_x_Id_Categoria_Producto($Id_Categoria);
     }
+
+
+
     public function Novedades_Index() {
          $this->View->Productos_Novedades    = $this->Productos->Novedades_Ofertas();
          $this->View->Cantidad_Registros     = $this->Productos->Cantidad_Registros;
          Session::Set('Cantidad_Novedades' , $this->View->Cantidad_Registros );
     }
+
+
+
     public function Novedades() {
          $this->View->Productos_Novedades = $this->Productos->Novedades_Ofertas();
          $this->View->Cantidad_Registros     = $this->Productos->Cantidad_Registros;
@@ -137,6 +182,9 @@ class ProductosController extends Controller
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('novedades');
     }
+
+
+
     public function Hallar_Valor_Escala() {
         /** DIC 29 DE 2014
         * RECIBE COMO PARAMETROS DATOS DEL PRODUCTO Y OBTIENE EL VALOR FINAL DE COMPRA DE ACUERDO
@@ -158,6 +206,8 @@ class ProductosController extends Controller
          $Datos            = compact('Precio_Final_Tron');
          echo json_encode($Datos,256);
     }
+
+
     public function Vista_Ampliada($Idproducto , $Id_Area_Consulta,$reasigna_valores = 0, $idterceropresenta=0, $codigousuario_presenta='') {
      /** DIC 31 DE 2014
      *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
@@ -280,13 +330,16 @@ class ProductosController extends Controller
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
       Session::Set('IdMarca',0);
-        $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
-        $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
-        $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria( $Id_Area_Consulta, $_idorden_nv_1 );
-        $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
-        $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-        $this->View->nom_categoria    = strtoupper( $nom_categoria );
-        $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
+
+      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
+      $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
+
+      $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria( $Id_Area_Consulta, $_idorden_nv_1 );
+      $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
+      $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+
+      $this->View->nom_categoria    = strtoupper( $nom_categoria );
+      $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Categoria
 
 
@@ -354,6 +407,9 @@ class ProductosController extends Controller
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
        $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Categoria
+
+
+
     public function Productos_por_Marca() {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
@@ -375,5 +431,8 @@ class ProductosController extends Controller
        $this->View->nom_categoria    = strtoupper( $nom_marca );
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Marca
+
+
+
  }
 ?>
