@@ -664,7 +664,7 @@ public function Totalizar_Carrito(){
       $this->Totalizar_Pedido_x_Categoria_Producto();              // TOTALIZAR CARRITO POR CADA TIPO DE PRODUCTO
       $cumple_condicion_cpras_tron_industial = $this->Determinar_Cumple_Condicion_Cpras_Tron_Industial();   // EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
 
-      $this->Verificar_Compra_Derecho_Inscripcion( $this->Datos_Carro);                               // VERIFICAR SI EN EL CARRITO EXISTE EL DERECHO DE INSCRIPCIÓN
+      //$this->Verificar_Compra_Derecho_Inscripcion( $this->Datos_Carro);                               // VERIFICAR SI EN EL CARRITO EXISTE EL DERECHO DE INSCRIPCIÓN
 
 
       foreach ($this->Datos_Carro as &$Productos){                                                    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO
@@ -707,10 +707,17 @@ public function Totalizar_Carrito(){
           $this->SubTotal_Pedido_Ocasional      = $this->SubTotal_Pedido_Ocasional      + $Productos['sub_total_pv_ocasional'] ;
           $this->SubTotal_Pedido_Amigos         = $this->SubTotal_Pedido_Amigos         + $Productos['sub_total_pv_tron'] ;
           $this->SubTotal_Pedido_Real           = $this->SubTotal_Pedido_Real           + ( $precio_unitario_producto * $cantidad );
+          //***
+          $this->Vr_Base_Iva                    = round( $this->Vr_Base_Iva               , 0 );
+          $this->SubTotal_Pedido_Ocasional      = rount( $this->SubTotal_Pedido_Ocasional , 0 );
+          $this->SubTotal_Pedido_Amigos         = round( $this->SubTotal_Pedido_Amigos    , 0 );
+          $this->SubTotal_Pedido_Real           = round( $this->SubTotal_Pedido_Real      , 0 );
 
           // TOTALIZAR PRODUCTOS TRON POR CATEGORIAS
           $this->Totalizar_Carrito_Productos_Tron_Por_Categoria($id_categoria_producto, $cantidad, $_sub_total_pv_tron , $pv_ocasional, $peso_gramos , $cmv  );
        }// Fin recorrido foreach carrito
+
+
 
        $this->Cerrar_Procesos_Carro();
 
@@ -732,6 +739,11 @@ public function Totalizar_Carrito(){
 
        $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
 
+       //***
+       $this->Vr_Transporte_Real      = round ( $this->Vr_Transporte_Real       , 0 );
+       $this->Vr_Transporte_Ocasional = round ( $this->Vr_Transporte_Ocasional  , 0 );
+       $this->Vr_Transporte_Tron      = round ( $this->Vr_Transporte_Tron       , 0 );
+       $this->Vr_Transporte_Real      = round ( $this->Vr_Transporte_Real       , 0 );
 
 
        $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte_Real;
@@ -1084,8 +1096,8 @@ private function Totalizar_Carrito_Valor_Declarado(){
                      $_valor_declarado_item  = $rt_courrier_seguro /  $this->Cantidad_Registros_Prod_Tron ;
                }
 
-               $Productos['valor_declarado']         = $_valor_declarado_item ;
-               $Productos['valor_declarado_tron']  = $_valor_declarado_item ;
+               $Productos['valor_declarado']        = round ( $_valor_declarado_item,0) ;
+               $Productos['valor_declarado_tron']  =  round($_valor_declarado_item, 0) ;
                $this->Valor_Declarado_Productos_Tron = $this->Valor_Declarado_Productos_Tron + $_valor_declarado_item ;
              }// FIN (2)
           } // FIN (1)
@@ -1370,7 +1382,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                   $this->Vr_Total_Pedido_Real      = $this->Vr_Total_Pedido_Real      - $this->Saldo_Puntos_Cantidad;
                   $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Puntos_Cantidad;
                   $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Puntos_Cantidad;
-                  $Puntos_Utilizados          =  $this->Saldo_Puntos_Cantidad ;
+                  $Puntos_Utilizados               =  $this->Saldo_Puntos_Cantidad ;
                 }
             }
           }

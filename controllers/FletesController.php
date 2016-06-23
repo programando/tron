@@ -454,6 +454,7 @@
 											 	$this->valor_flete   = 0;
 											}
 											$this->valor_seguro = $seguro_flete;
+
 								Session::Set('REDETRANS_CARGA_VR_FLETE',$this->valor_flete);
 								$this->flete_calculado = TRUE ;
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
@@ -576,14 +577,15 @@
 						{/** MARZO 11 DE 2015
 							*						ADICIONA VALORES A VARIABLE DE SESIÓN CON LOS CALCULOS DE CADA UNO DE LOS FLETES QUE SE HAN CALCULADO CON LAS TRANSPORTADORAS
 							*/
+
 									$Fletes_Cobrados_Transportadoras                             = Session::Get('Fletes_Cobrados_Transportadoras');
 									$Fletes_Cobrados_Transportadoras[$posicion]['idtercero']     = $idtransportadora ;
 									$Fletes_Cobrados_Transportadoras[$posicion]['transportador'] = $nombre_transportadora;
-									$Fletes_Cobrados_Transportadoras[$posicion]['valor_seguro '] = $this->valor_seguro;
+									$Fletes_Cobrados_Transportadoras[$posicion]['valor_seguro '] = round($this->valor_seguro,0);
 									$Fletes_Cobrados_Transportadoras[$posicion]['valor_flete']   = round($this->valor_flete,0);
 									$Fletes_Cobrados_Transportadoras[$posicion]['tipo_tarifa']   = $this->tipo_tarifa;
 									$Fletes_Cobrados_Transportadoras[$posicion]['tipo_despacho'] = $this->tipo_despacho;
-									$Fletes_Cobrados_Transportadoras[$posicion]['aplica']        = $this->flete_calculado;
+									$Fletes_Cobrados_Transportadoras[$posicion]['aplica']        = round($this->flete_calculado,0);
 								 Session::Set('Fletes_Cobrados_Transportadoras',$Fletes_Cobrados_Transportadoras);
 
 						}

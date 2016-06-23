@@ -999,8 +999,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
          Session::Set('saldo_puntos_cantidad',           0);
          $Registro = $this->Terceros->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
          if (!$Registro ) { return ; }
-         Session::Set('saldo_comisiones',                $Registro[0]["saldo_comisiones"]);
-         Session::Set('saldo_puntos_cantidad',           $Registro[0]["saldo_puntos_cantidad"]);
+         Session::Set('saldo_comisiones',               round( $Registro[0]["saldo_comisiones"]     , 0) );
+         Session::Set('saldo_puntos_cantidad',          round( $Registro[0]["saldo_puntos_cantidad"], 0) );
       }
 
       public function Consultar_Datos_Mcipio_x_Id_Direccion_Despacho($IdDireccion_Despacho, $idmcipio=153 )   {
