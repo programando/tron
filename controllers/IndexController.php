@@ -155,7 +155,7 @@ private function Parametros_Iniciales(){
         Session::Set('py_vr_adicional'                                      ,   $Parametros[0]['py_vr_adicional']);
         Session::Set('valor_minimo_pedido_productos',          Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_pedido_productos'] ));
         Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero( $Parametros[0]['pedido_minimo_productos_fabricados_ta']));
-        Session::Set('pago_minimo_payulatam',                  Numeric_Functions::Formato_Numero( $Parametros[0]['pago_minimo_payulatam'] ));
+        Session::Set('pago_minimo_payulatam',                    $Parametros[0]['pago_minimo_payulatam'] );
         Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
 
 

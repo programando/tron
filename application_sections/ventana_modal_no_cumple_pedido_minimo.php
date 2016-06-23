@@ -13,7 +13,7 @@
        	   <div class="container-fluid">
        	   	   <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
-                  	   <p>El valor mínimo a pagar por un pedido es de <strong> <?= Session::Get('pago_minimo_payulatam') ;?> </strong><br><br>
+                  	   <p>El valor mínimo a pagar por un pedido es de <strong> <?= Numeric_Functions::Formato_Numero( Session::Get('pago_minimo_payulatam') ) ;?> </strong><br><br>
                   	      El valor total de tu pedido es de
                   	      <span id="valor_tu_pedido"><strong><?= Numeric_Functions::Formato_Numero( Session::Get('valor_real_pedido')) ;?> </strong></span>
                   	      con el cual no podrás realizar el pago, pero tienes estas opciones: <br>
