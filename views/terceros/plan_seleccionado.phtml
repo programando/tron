@@ -5,7 +5,7 @@
         <?php if ( $this->idtipo_plan_compras_confirmado == TRUE ) :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" /><!-- IMG = Empresario tron -->
             <p class="text-perteneces-A"> Perteneces al <br> <strong>PLAN EMPRESARIO TRON</strong></p><!-- Perteneces -->
-            <p class="text-perteneces-A"> Código de Usuario : <strong> <?= Session::Get('codigousuario') ;?> </strong></p><!-- Perteneces -->
+            <p class="text-perteneces-A"> Código de Usuario : <strong> <?= mb_strtoupper(Session::Get('codigousuario'),'UTF-8') ;?> </strong></p><!-- Perteneces -->
         <?php else :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>empresario_por_confirmar.png" /><!-- IMG = Empresario tron -->
             <p class="text-perteneces-A"> Tu vinculación al <br> <strong>PLAN EMPRESARIO TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
