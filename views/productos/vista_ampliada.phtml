@@ -83,7 +83,9 @@
                 <?php } ?>
 
             </div>
-
+			
+            
+            
             <!-- incluciones de docuementos -->
 
             <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
@@ -100,6 +102,8 @@
                 <?php if (!empty( $fragancia )): ?>
                     <div class="t16 mb20 colorBlue"><?= $fragancia; ?></div>
                 <?php endif ;?>
+                
+                
 
                 <div id ="<?= $idnompresentacion; ?>">
                     <div class="mb20"><strong>Presentación: </strong><?= $nompresentacion ;?></div>
@@ -115,6 +119,44 @@
                             </a>
                         </div>
                     <?php endif; ?>
+                </div>
+                
+                <div class="colorfff ff3 t16 mb5" style="color:#f63d27; background-color:#;">
+                	<strong>- OFERTA -</strong> Por tiempo limitado -
+                	<span class="dIB  color666 mb3">Exclusivo para</span>
+                    <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
+                    <a href="" class="t10"> - <em class="aS cP" style="text-decoration:underline;">Más info</em></a>
+                </div>
+                <div class=" bb333 taC color666 ff0 p10 mb20" style="color:#fff; background-color:#f63d27;">
+          
+                    <div class="row p0 m0">
+                        <div class="col-sm-5 col-xs-12 vcenter taL">
+                                	
+									<div class="t50 ff2"><?= $pv_tron; ?></div>
+
+                        </div><!--
+                        --><div class="col-sm-7 col-xs-12 vcenter taC">
+                            <div class="row p0 m0 t20">
+                            	<div class="col-sm-3 col-xs-3 vcenter taC">
+                                    <div class="t12 taR">el tiempo<br>se agota</div>
+                                </div><!--
+                                --><div class="col-sm-3 col-xs-3 vcenter taC">
+                                    <div class="t24">12</div>
+                                    <div class="t10">horas</div>
+                                </div><!--
+                                --><div class="col-sm-3 col-xs-3 vcenter taC">
+                                    <div class="t24">48</div>
+                                    <div class="t10">minutos</div>
+                                </div><!--
+                                --><div class="col-sm-3 col-xs-3 vcenter taC">
+                                    <div class="t24">26</div>
+                                    <div class="t10">segundos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+           
                 </div>
 
                 <div class="row">

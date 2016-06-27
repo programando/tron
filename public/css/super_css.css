@@ -244,8 +244,10 @@ th.headerSortDown 								{ background:#003e90 url(../images/tienda/arr2.png) ri
 .p5									{ padding:5px;}
 .pR20								{ padding-right:20px; }
 .pLR20								{ padding:0 20px; }
-.p10								{ padding:10px;}
+.p10								{ padding:10px; }
 .p510								{ padding:5px 10px;}
+.p3010								{ padding:30px 10px;}
+.p2010								{ padding:15px 10px;}
 .p20								{ padding:20px; }
 .p30								{ padding:30px; }
 .p40								{ padding:40px; }
@@ -269,6 +271,8 @@ th.headerSortDown 								{ background:#003e90 url(../images/tienda/arr2.png) ri
 .bb333								{ background-color:#FFF400; }
 
 
+.p0									{ padding:0; }
+.m0									{ margin:0; }
 .mb3								{ margin-bottom:3px; }
 .mb5								{ margin-bottom:5px; }
 .mb10								{ margin-bottom:10px; }
@@ -312,6 +316,7 @@ th.headerSortDown 								{ background:#003e90 url(../images/tienda/arr2.png) ri
 .t20								{ font-size:1.429em; line-height:1em; }
 .t24								{ font-size:1.714em; line-height:1em; }
 .t30								{ font-size:2.143em; line-height:1em; }
+.t35								{ font-size:2.4em; line-height:1em; }
 .t40								{ font-size:2.71em; line-height:1em; }
 .t50								{ font-size:3.571em; line-height:1em; }
 .t60								{ font-size:4.286em; line-height:1em; }

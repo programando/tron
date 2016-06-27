@@ -3,66 +3,90 @@
 	<div class="counttis">
     	<img src="<?=BASE_IMG_TIENDA;?>lad1.png" class="lad1">
         <img src="<?=BASE_IMG_TIENDA;?>lad2.png" class="lad2">
-        <div class="p510 bb333">
+        
+        <div class="p10">        
+            <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - Por tiempo limitado</div>
+            
+            <div class="row p0 m0">
+                <div class="col-sm-12 col-xs-12 colorT2 t30 ff2 vcenter taC">
+                   <?php
+                   		
+						//$partt = explode
+						echo $pv_tron;
+				   
+				   ?>
+                </div><!--
+                --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
+                   <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
+                    <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
+                </div>            
+            </div>
+        
+        </div>        
+        
+        <!--
+        <div class="p510 bb333 ">
             <div class="colorT1 ff3 text-center" style="color:black;"><small><strong>OFERTA POR TIEMPO LIMITADO</strong> </small></div>
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-12 col-xs-12 colorT2 t40 ff2 vcenter text-center">
-                   <?=$pv_tron;?>
+                   <?= $pv_tron; ?>
                 </div>
-
-        <div class="text-center">
-
-
-                            <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                            <span class=""><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
-                            <span class=""><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
-
-        </div>
+        		<div class="text-center">
+                    <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
+                    <span class=""><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
+        		</div>
             </div>
         </div>
+        -->
 
         <!-- Opción CUENTA REGRESIVA OFERTAS -->
-        <div class="p510 bb333 taC colorfff ff0">
-           <!--
-            <div class="row" style="margin:0; padding:0;">
+        <div class="p510 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:;">
+          
+            <div class="row p0 m0">
                 <div class="col-sm-3 col-xs-3 vcenter taC">
                     <em>solo<br>por</em>
-                </div>
-                 <div class="col-sm-3 col-xs-3 vcenter taC">
+                </div><!--
+                --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">12</div>
                     <div class="t10">horas</div>
-                </div>
-                <div class="col-sm-3 col-xs-3 vcenter taC">
+                </div><!--
+                --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">48</div>
                     <div class="t10">minutos</div>
-                </div>
-                 <div class="col-sm-3 col-xs-3 vcenter taC">
+                </div><!--
+                --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">26</div>
                     <div class="t10">segundos</div>
                 </div>
             </div>
-          -->
+   
         </div>
 
         <!-- Opción CANTIDAD -->
-        <div class="p510 bb333 taC colorfff ff0" style="color:black">
-            <!--
+     
+        <div class="p10 bb333 taC colorfff ff0" style="color:#fff; background-color:#f63d27; display:none;">
+    		
             <div class="row" style="margin:0; padding:0;">
                 <div class="col-sm-7 col-xs-7 vcenter taC">
                     <em>Cantidad limitada</em>
-                </div>
-                <div class="col-sm-2 col-xs-2 vcenter taC">
+                </div><!--
+                --><div class="col-sm-2 col-xs-2 vcenter taC">
                 	<div class="t24">13</div>
-                </div>
-                 ><div class="col-sm-3 col-xs-3 vcenter taC t12">
+                </div><!--
+                --><div class="col-sm-3 col-xs-3 vcenter taC t12">
                 	<em>unidades<br>restantes</em>
                 </div>
             </div>
-             -->
-
-
+  			
         </div>
+       
     </div>
+    
+    
+    
+    
 
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
     <div class="imgRefTec">
