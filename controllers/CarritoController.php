@@ -721,10 +721,10 @@ public function Totalizar_Carrito(){
           $this->SubTotal_Pedido_Amigos         = $this->SubTotal_Pedido_Amigos         + $Productos['sub_total_pv_tron'] ;
           $this->SubTotal_Pedido_Real           = $this->SubTotal_Pedido_Real           + ( $precio_unitario_producto * $cantidad );
           //***
-          $this->Vr_Base_Iva                    = round( $this->Vr_Base_Iva               , 0 );
-          $this->SubTotal_Pedido_Ocasional      = round( $this->SubTotal_Pedido_Ocasional , 0 );
-          $this->SubTotal_Pedido_Amigos         = round( $this->SubTotal_Pedido_Amigos    , 0 );
-          $this->SubTotal_Pedido_Real           = round( $this->SubTotal_Pedido_Real      , 0 );
+          $this->Vr_Base_Iva                    =   $this->Vr_Base_Iva                ;
+          $this->SubTotal_Pedido_Ocasional      =   $this->SubTotal_Pedido_Ocasional  ;
+          $this->SubTotal_Pedido_Amigos         =   $this->SubTotal_Pedido_Amigos     ;
+          $this->SubTotal_Pedido_Real           =  $this->SubTotal_Pedido_Real       ;
 
           // TOTALIZAR PRODUCTOS TRON POR CATEGORIAS
           $this->Totalizar_Carrito_Productos_Tron_Por_Categoria($id_categoria_producto, $cantidad, $_sub_total_pv_tron , $pv_ocasional, $peso_gramos , $cmv  );
@@ -753,10 +753,10 @@ public function Totalizar_Carrito(){
        $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
 
        //***
-       $this->Vr_Transporte_Real      = round ( $this->Vr_Transporte_Real       , 0 );
-       $this->Vr_Transporte_Ocasional = round ( $this->Vr_Transporte_Ocasional  , 0 );
-       $this->Vr_Transporte_Tron      = round ( $this->Vr_Transporte_Tron       , 0 );
-       $this->Vr_Transporte_Real      = round ( $this->Vr_Transporte_Real       , 0 );
+       $this->Vr_Transporte_Real      =   $this->Vr_Transporte_Real        ;
+       $this->Vr_Transporte_Ocasional =   $this->Vr_Transporte_Ocasional   ;
+       $this->Vr_Transporte_Tron      =   $this->Vr_Transporte_Tron        ;
+       $this->Vr_Transporte_Real      =   $this->Vr_Transporte_Real        ;
 
 
        $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte_Real;
@@ -812,16 +812,16 @@ public function Totalizar_Carrito(){
 
     private function Fletes_Carga_Fija(){
       $_Carga_Fija_Unidades       = Session::Get('Carga_Fija_Unidades');
-      $_Carga_Fija_Vr_Declarado   = round ( Session::Get('Carga_Fija_Vr_Declarado') , 0 );
+      $_Carga_Fija_Vr_Declarado   =   Session::Get('Carga_Fija_Vr_Declarado')  ;
       $_Carga_Fija_Peso_Pedido    = Session::Get('Carga_Fija_Peso_Pedido') ;
 
-      $Subsidio_Flete_Ocasional   = round ( Session::Get('Carga_Fija_Subsidio_Flete_Ocasional') , 0 );
-      $Anticipo_Recaudo_Ocasional = round ( Session::Get('Carga_Fija_Recaudo_Ocasional'), 0 );
-      $Recaudo_Pedido_Ocasional   = round ( Session::Get('Recaudo_Pedido_Tron'), 0 );
+      $Subsidio_Flete_Ocasional   =   Session::Get('Carga_Fija_Subsidio_Flete_Ocasional')  ;
+      $Anticipo_Recaudo_Ocasional =   Session::Get('Carga_Fija_Recaudo_Ocasional') ;
+      $Recaudo_Pedido_Ocasional   =  Session::Get('Recaudo_Pedido_Tron') ;
 
-      $Subsidio_Flete_Tron        = round ( Session::Get('Carga_Fija_Subsidio_Flete_Tron'), 0 );
-      $Anticipo_Recaudo_Tron      = round ( Session::Get('Carga_Fija_Recaudo_Tron'), 0 );
-      $Recaudo_Pedido_Tron        = round ( Session::Get('Recaudo_Pedido_Tron'), 0 );
+      $Subsidio_Flete_Tron        =  Session::Get('Carga_Fija_Subsidio_Flete_Tron') ;
+      $Anticipo_Recaudo_Tron      =   Session::Get('Carga_Fija_Recaudo_Tron') ;
+      $Recaudo_Pedido_Tron        =  Session::Get('Recaudo_Pedido_Tron') ;
 
 
 
@@ -841,7 +841,7 @@ public function Totalizar_Carrito(){
 
   //Debug::Mostrar( Session::Get('flete_real_calculado') );
 
-     $Valor_Flete_Ocasional  = round ($Valor_Flete_Ocasional  ,  0 ) ;
+     $Valor_Flete_Ocasional  =  $Valor_Flete_Ocasional    ;
      if (  Session::Get('cumple_compras_tron') ==  FALSE ) {
           $Valor_Flete_Ocasional        = $Valor_Flete_Ocasional  ;
         }
@@ -891,7 +891,7 @@ public function Totalizar_Carrito(){
         }else{
              $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado_Ocasional');
         }
-        $Valor_Declarado = round ( $Valor_Declarado, 0 );
+        $Valor_Declarado =   $Valor_Declarado ;
 
         Session::Set('FLETE_VARIABLE_1_OCASIONAL', 0 );  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
         Session::Set('FLETE_VARIABLE_1_AMIGO',     0 );  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
@@ -953,7 +953,7 @@ public function Totalizar_Carrito(){
         $Vrs_Adicionales_Fletes        = Session::Get('Recaudo_Flete') + Session::Get('Recaudo_Fijo') + Session::Get('Recaudo_Fijo_Adicional');
         $Vrs_Adicionales_Fletes        = $Vrs_Adicionales_Fletes +  Session::Get('Recaudo_Diferen_Rcdo_Real') + Session::Get('Sobre_Precio_Prod_Tron');
         $Vrs_Payu_Latam                = $Vrs_Adicionales_Fletes - Session::Get('Sobre_Precio_Prod_Tron') ;
-        $Vrs_Payu_Latam                = round( $Vrs_Payu_Latam , 0 );
+        $Vrs_Payu_Latam                =   $Vrs_Payu_Latam  ;
 
         $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional  +  $Vrs_Adicionales_Fletes ;
         $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron       +  $Vrs_Adicionales_Fletes ;
@@ -979,7 +979,7 @@ public function Totalizar_Carrito(){
         Session::Set('Vr_Transporte',  $this->Vr_Transporte_Real  );
 
         Session::Set('tipo_despacho'            , $Tipo_Despacho_Final);
-        Session::Set('vr_flete'                 , round( $this->Vr_Transporte_Real -  $Vrs_Adicionales_Fletes, 0 ));
+        Session::Set('vr_flete'                 ,  $this->Vr_Transporte_Real -  $Vrs_Adicionales_Fletes );
         Session::Set('valor_declarado'          , $Valor_Declarado );
         Session::Set('Peso_Pedido_Courrier'     , $_Otros_Productos_Peso_Gramos );
         Session::Set('vr_payu_latam'            , $Vrs_Payu_Latam );
@@ -1013,10 +1013,10 @@ public function Totalizar_Carrito(){
               $Recaudo_Diferen_Rcdo_Real = $this->PayuLatam_Valor_Minimo - ( $Compras_Tron_Otros_Productos * $this->PayuLatam_Recaudo ) ;
           }
 
-         Session::Set('Recaudo_Flete'               , round( $Recaudo_Flete             ,0)   ) ;
-         Session::Set('Recaudo_Fijo'                , round( $Recaudo_Fijo              ,0)   ) ;
-         Session::Set('Recaudo_Fijo_Adicional'      , round( $Recaudo_Fijo_Adicional    ,0)   ) ;
-         Session::Set('Recaudo_Diferen_Rcdo_Real'   , round( $Recaudo_Diferen_Rcdo_Real ,0)   ) ;
+         Session::Set('Recaudo_Flete'               ,  $Recaudo_Flete                 ) ;
+         Session::Set('Recaudo_Fijo'                ,  $Recaudo_Fijo                  ) ;
+         Session::Set('Recaudo_Fijo_Adicional'      ,  $Recaudo_Fijo_Adicional        ) ;
+         Session::Set('Recaudo_Diferen_Rcdo_Real'   ,  $Recaudo_Diferen_Rcdo_Real    ) ;
 
 
       }
@@ -1110,8 +1110,8 @@ private function Totalizar_Carrito_Valor_Declarado(){
                      $_valor_declarado_item  = $rt_courrier_seguro /  $this->Cantidad_Registros_Prod_Tron ;
                }
 
-               $Productos['valor_declarado']        = round ( $_valor_declarado_item,0) ;
-               $Productos['valor_declarado_tron']  =  round($_valor_declarado_item, 0) ;
+               $Productos['valor_declarado']        =   $_valor_declarado_item  ;
+               $Productos['valor_declarado_tron']  =   $_valor_declarado_item  ;
                $this->Valor_Declarado_Productos_Tron = $this->Valor_Declarado_Productos_Tron + $_valor_declarado_item ;
              }// FIN (2)
           } // FIN (1)
