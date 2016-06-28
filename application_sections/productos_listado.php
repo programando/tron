@@ -5,7 +5,7 @@
         <img src="<?=BASE_IMG_TIENDA;?>lad2.png" class="lad2">
         
         <div class="p10">        
-            <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - Por tiempo limitado</div>
+            <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - </div>
             
             <div class="row p0 m0">
                 <div class="col-sm-12 col-xs-12 colorT2 t30 ff2 vcenter taC">
@@ -42,7 +42,7 @@
         -->
 
         <!-- Opción CUENTA REGRESIVA OFERTAS -->
-        <div class="p510 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:;">
+        <div class="p510 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:none;">
           
             <div class="row p0 m0">
                 <div class="col-sm-3 col-xs-3 vcenter taC">
@@ -59,6 +59,17 @@
                 --><div class="col-sm-3 col-xs-3 vcenter taC">
                 	<div class="t24">26</div>
                     <div class="t10">segundos</div>
+                </div>
+            </div>
+   
+        </div>
+        
+        <!-- Opción OFERTA BÁSICA -->
+        <div class="p10 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:;">
+          
+            <div class="row p0 m0">
+                <div class="col-sm-12 col-xs-12 vcenter taC t18">
+                    <em>Por tiempo limitado</em>
                 </div>
             </div>
    
