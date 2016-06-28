@@ -83,9 +83,9 @@
                 <?php } ?>
 
             </div>
-			
-            
-            
+
+
+
             <!-- incluciones de docuementos -->
 
             <?php include (APPLICATION_SECTIONS . 'productos_recomendar.php');?>
@@ -102,8 +102,8 @@
                 <?php if (!empty( $fragancia )): ?>
                     <div class="t16 mb20 colorBlue"><?= $fragancia; ?></div>
                 <?php endif ;?>
-                
-                
+
+
 
                 <div id ="<?= $idnompresentacion; ?>">
                     <div class="mb20"><strong>Presentación: </strong><?= $nompresentacion ;?></div>
@@ -120,7 +120,8 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                
+
+                <?php if ( $en_oferta == TRUE) :?>
                 <div class="colorfff ff3 t16 mb5" style="color:#f63d27; background-color:#;">
                 	<strong>- OFERTA -</strong>
                 	<span class="dIB  color666 mb3">Exclusivo para</span>
@@ -129,15 +130,15 @@
                     <a href="redtron/planes_de_registro" class="t10"> - <em class="aS cP" style="text-decoration:underline;">Más info</em></a>
                 </div>
                 <div class=" bb333 taC color666 ff0 p10 mb20" style="color:#fff; background-color:#f63d27;">
-          
+
                     <div class="row p0 m0">
                         <div class="col-sm-5 col-xs-12 vcenter taL">
-                                	
+
 									<div class="t50 ff2"><?= $pv_tron; ?></div>
 
                         </div><!--
                         --><div class="col-sm-7 col-xs-12 vcenter taC t30">
-                        
+
                         	 <em>Por tiempo limitado</em>
                             <div class="row p0 m0 t20" style="display:none;">
                             	<div class="col-sm-3 col-xs-3 vcenter taC">
@@ -158,14 +159,18 @@
                             </div>
                         </div>
                     </div>
-           
+
                 </div>
+              <?php endif ;?>
 
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 mb20_onlySmart"><!--SUBINICIO DE HIJA-COLUMNA-->
-                        <div class="taC mb10">
-                            <strong><?= $pv_ocasional ?> <img src="<?= BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional "></strong>
-                        </div>
+                        <?php if ( $id_categoria_producto <> 6 ) :?>
+                            <div class=" well taC mb10">
+                                <strong><?= $pv_ocasional ?> <img src="<?= BASE_IMG_PRODUCTOS ;?>18.png"  title="Precio Público / Comprador Ocasional "></strong>
+                            </div>
+                        <?php endif;?>
+
                         <div class="taC mb20 priceTRONProd t18" id="<?= $id_precio_final_tron ;?>">
                             <?= $pv_tron; ?>
                             <img src="<?=BASE_IMG_TIENDA;?>17.png"  title="Plan Cliente TRON">
