@@ -4,7 +4,6 @@
             <h5 class="t18">ÍNDICE</h5>
             <ul class="list-unstyled">
                 <li><a href="#intro">Introdución</a></li>
-                <li><a href="#pases">Pases de Cortesia</a></li>
                 <li><a href="#envio">Envío de URL</a></li>
                 <li><a href="#recomendar">Recomendar Productos</a></li>
                 <li><a href="#registrar">Registrar Amigos</a></li>
