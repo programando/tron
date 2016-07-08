@@ -10,6 +10,7 @@
 
      $vr_devolucion         = $vr_total_pedido - $baseIva;
      $iva                   = $vr_total_pedido  - $baseIva;
+
      if (($vr_total_pedido -  $baseIva )==0 ){
         $baseIva       = 0;
         $vr_devolucion = 0 ;

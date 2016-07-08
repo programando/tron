@@ -12,12 +12,9 @@ var Mostrar_Productos_Categorias = function(IdCategoria,Nombre_Categoria  )
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
      	 			$('.titulo-productos').html(Nombre_Categoria );
-     	 			var iififi = $(".artOpt").width();
-											$(".counttis").css('width', iififi+56);
      	 }
 			});
 }
-
 
 
 var Paginacion = function(pagina , nombre_categoria ) 	{
@@ -31,8 +28,6 @@ var Paginacion = function(pagina , nombre_categoria ) 	{
      	 {
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
-     	 				var iififi = $(".artOpt").width();
-											$(".counttis").css('width', iififi+56);
      	 }
 			});
 
@@ -52,8 +47,6 @@ var Mostrar_Productos_Sub_Categorias = function(IdSubCategoria,NombreSubcategori
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
      	 			$('.titulo-productos').html(NombreSubcategoria );
-     	 				var iififi = $(".artOpt").width();
-											$(".counttis").css('width', iififi+56);
      	 }
 			});
 }
@@ -72,8 +65,6 @@ var Mostrar_Productos_x_Marca = function(IdMarca,NomMarca  )
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
      	 			$('.titulo-productos').html(NomMarca );
-     	 			var iififi = $(".artOpt").width();
-											$(".counttis").css('width', iififi+56);
      	 }
 			});
 }

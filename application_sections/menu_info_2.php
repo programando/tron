@@ -2,7 +2,7 @@
     <div class="panel"><!--aqui va el panel-default = el color del panel -->
         <div class="panel-heading">
             <div class="panel-title colorBlue">
-               <a class="t16" data-toggle="collapse" data-parent="#accordion" href="#fiveMen">Tienda Tron</a>
+               <a class="t16" data-toggle="collapse" data-parent="#accordion" href="#fiveMen">Tienda TRON</a>
             </div>
         </div>
 
@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <nav>
                     <ul class="nav">
-                    
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/planes_de_registro" class="cP t14">
                                 <div class="tab">
@@ -19,7 +19,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/tron_medios_pago" class="cP t14">
                                 <div class="tab">
@@ -28,7 +28,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/funcionalidades_interesantes" class="cP t14">
                                 <div class="tab">
@@ -37,7 +37,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/tron_transporte" class="cP t14">
                                 <div class="tab">
@@ -46,7 +46,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </nav>
             </div>
