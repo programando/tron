@@ -15,6 +15,15 @@ class PdfController extends Controller
     public function index(){}
 
 
+    public function abrir_archivo( $nombre_archivo ){
+
+        $mi_pdf = BASE_STATIC_FILES .  $nombre_archivo;
+        header('Content-type: application/pdf');
+        header('Content-Disposition: attachment; filename="'.$mi_pdf.'"');
+        readfile($mi_pdf);
+
+    }
+
     public function Convenio_Comercial() {
 
         set_time_limit(300);
