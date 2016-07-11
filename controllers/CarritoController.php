@@ -400,6 +400,7 @@ class CarritoController extends Controller{
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
 
       $this->Iniciar_Procesos_Carro();
+     // Debug::Mostrar(  $this->Datos_Carro  );
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
@@ -643,17 +644,7 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
 
 }
 
-private function Verificar_Compra_Derecho_Inscripcion($Array_Producto=array()){
 
-  $this->Existe_Derecho_Inscripcion =  FALSE ;
-
-  foreach ($Array_Producto as $Producto  ) {
-    if ( $Producto['idproducto'] == 2071){
-      $this->Existe_Derecho_Inscripcion = TRUE;
-
-    }
-  }
-}
 
 public function Totalizar_Carrito(){
   /** JULIO 24 DE 2015
@@ -677,7 +668,7 @@ public function Totalizar_Carrito(){
       $this->Totalizar_Pedido_x_Categoria_Producto();              // TOTALIZAR CARRITO POR CADA TIPO DE PRODUCTO
       $cumple_condicion_cpras_tron_industial = $this->Determinar_Cumple_Condicion_Cpras_Tron_Industial();   // EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
 
-      //$this->Verificar_Compra_Derecho_Inscripcion( $this->Datos_Carro);                               // VERIFICAR SI EN EL CARRITO EXISTE EL DERECHO DE INSCRIPCIÓN
+
 
 
       foreach ($this->Datos_Carro as &$Productos){                                                    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO

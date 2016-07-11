@@ -193,7 +193,7 @@ function Borrar_Producto(Parametros){
   var Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Confirma_Cambio_Plan = function(idtipo_plan_compras, Parametros){
 		var $Texto      = '';
 		var $idproducto = Parametros.IdProducto;
-		 if ( $idproducto != 10744 && $idproducto != 2071 ){
+		 if ( $idproducto != 10744  ){
 		 		Borrar_Producto(Parametros);
 		 	return ;
 		 }
@@ -239,9 +239,7 @@ function Borrar_Producto(Parametros){
 				                			if ( val =='Y'){
 				                				Borrar_Producto(Parametros);
 				                				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Plan_Degradar(nuevo_idtipo_plan_compas);
-				                				// Borrar los derechos de inscripción
-				                				var OtroProducto = {"IdProducto" :2071, "Cantidad": 1 };
-				                				Borrar_Producto(OtroProducto);
+
 				                			}
 							      }});
 				 			}else{  	Borrar_Producto(Parametros); }}}
