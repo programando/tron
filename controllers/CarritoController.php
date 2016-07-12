@@ -373,9 +373,10 @@ class CarritoController extends Controller{
 
 
         // VERIFICACIÓN DE SI CUMPLE O NO CON LAS COMPRAS MÍNIMAS DE PRODUCTOS TRON
+        //Session::Get('minimo_compras_productos_tron')
         Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
         if ( $this->Tengo_Productos_Tron == TRUE ){
-            if ( $this->compras_tron < Session::Get('minimo_compras_productos_tron') ){
+            if ( $this->compras_tron <  30000  ){
                 Session::Set('Cumple_Minimo_Compras_Productos_Tron', FALSE);
             }else{
               Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
