@@ -22,7 +22,9 @@ class Request
         if(!isset($_GET['url']))    { $this->url="";                }
         else                        { $this->url = $_GET['url'];    }
 
-
+        //VARIABLES PARA EL TEMA DE CEO
+        //------------------------------
+        Session::Set('CEO_URL',BASE_URL .$this->url  );
 
         $segmentos_url = explode('/',$this->url);
 
