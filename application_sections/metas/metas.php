@@ -76,13 +76,15 @@
 
 <!--
   ZONAS
-- Home
-- Industrial
+-             Home
+-             Industrial
+-             El producto
+
 - Info
 - Productos Tron
 - Productos todos /categorias_marcas/
 - Productos por categoría /productos_por_categoria_individual/
-- El producto
+
 
    <meta name="title" content="" />
     <meta property="og:title" content="" />
