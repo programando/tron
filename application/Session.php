@@ -65,6 +65,7 @@
 
 
         public static function Set( $clave, $valor )        {
+
             $clave = trim($clave);
             if(!empty($clave))
             $_SESSION[$clave] = $valor;

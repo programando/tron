@@ -1027,9 +1027,10 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
       $i_tron          = 0;
 
 
+
      foreach ($this->Datos_Carro as $Productos){
         $id_categoria_producto = $Productos['id_categoria_producto'];
-        if ( $id_categoria_producto >=1 && $id_categoria_producto  <= 5 ){
+        if ( $id_categoria_producto >=1 && $id_categoria_producto  <= 4 ){
            $CarritoTron[$i_tron]['cantidad']     = $Productos['cantidad'] ;
            $CarritoTron[$i_tron]['pv_tron']      = $Productos['pv_tron'] ;
            $CarritoTron[$i_tron]['pv_ocasional'] = $Productos['pv_ocasional'] ;
