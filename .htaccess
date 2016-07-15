@@ -1,5 +1,6 @@
 RewriteEngine on
 
+
  <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
@@ -19,5 +20,6 @@ RewriteEngine on
        Header set Access-Control-Allow-Origin "*"
      </IfModule>
  </FilesMatch>
+ ErrorDocument 404 http://www.entreamigosalcanzamos.com
 
 
