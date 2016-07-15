@@ -37,7 +37,8 @@
          $RutaTemplate = ROOT .  'views' . DS . 'template.phtml';
          $RutaFooter   = ROOT .  'views' . DS . 'footer.phtml';
 
-             if(is_readable($RutaView))  {
+
+             if(is_readable( $RutaView ) )  {
                extract($View_Vars);
                ob_start();
                require_once ($RutaView);
@@ -46,6 +47,7 @@
 
             }
             else {
+
                 throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
             }
 
