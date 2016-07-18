@@ -15,7 +15,6 @@ class Bootstrap
         $Metodo          = $peticion->getMetodo();
         $args            = $peticion->getArgs();
 
-//Debug::Mostrar( $args );
 
         if(is_readable($RutaControlador))
         {
@@ -39,9 +38,9 @@ class Bootstrap
 
         } else {
 
-            throw new Exception(header('Location: ' . BASE_URL  ));
+            //throw new Exception(header('Location: ' . BASE_URL  ));
 
-//throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
         }
     }
 }
