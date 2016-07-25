@@ -31,7 +31,7 @@
 
 		public static function Formato_Texto($Variable)
 			{
-					$Variable = trim(utf8_encode(htmlentities($Variable)));
+					$Variable = trim( htmlentities($Variable) );
 					return 	$Variable ;
 			}
 
