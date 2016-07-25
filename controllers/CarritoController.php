@@ -1043,10 +1043,10 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
            $pv_ocas_resumen     = $pv_ocas_resumen + ( $CarritoTron[$i_tron]['pv_ocasional'] * $CarritoTron[$i_tron]['cantidad'] );
 
             // ACCESORIOS
-           if ( $id_categoria_producto == 5 ){
-             $pv_tron_acc     = $pv_tron_acc + ( $CarritoTron[$i_tron]['pv_tron']      * $CarritoTron[$i_tron]['cantidad'] );
-             $pv_ocas_acc     = $pv_ocas_acc + ( $CarritoTron[$i_tron]['pv_ocasional'] * $CarritoTron[$i_tron]['cantidad'] );
-           }
+           //if ( $id_categoria_producto == 5 ){
+             //$pv_tron_acc     = $pv_tron_acc + ( $CarritoTron[$i_tron]['pv_tron']      * $CarritoTron[$i_tron]['cantidad'] );
+             //$pv_ocas_acc     = $pv_ocas_acc + ( $CarritoTron[$i_tron]['pv_ocasional'] * $CarritoTron[$i_tron]['cantidad'] );
+          // }
            $i_tron ++;
         }
 
