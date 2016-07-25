@@ -1026,11 +1026,13 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
       $CarritoTron     = array();
       $i_tron          = 0;
 
+      $pv_tron_acc = 0;
+      $pv_ocas_acc = 0;
 
 
      foreach ($this->Datos_Carro as $Productos){
         $id_categoria_producto = $Productos['id_categoria_producto'];
-        if ( $id_categoria_producto >=1 && $id_categoria_producto  <= 4 ){
+        if ( $id_categoria_producto >=1 && $id_categoria_producto  <= 5 ){
            $CarritoTron[$i_tron]['cantidad']     = $Productos['cantidad'] ;
            $CarritoTron[$i_tron]['pv_tron']      = $Productos['pv_tron'] ;
            $CarritoTron[$i_tron]['pv_ocasional'] = $Productos['pv_ocasional'] ;
@@ -1039,11 +1041,20 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
            //
            $pv_tron_resumen     = $pv_tron_resumen + ( $CarritoTron[$i_tron]['pv_tron']      * $CarritoTron[$i_tron]['cantidad'] );
            $pv_ocas_resumen     = $pv_ocas_resumen + ( $CarritoTron[$i_tron]['pv_ocasional'] * $CarritoTron[$i_tron]['cantidad'] );
+
+            // Accesarios
+           if ( $id_categoria_producto == 5 ){
+             $pv_tron_acc     = $pv_tron_acc + ( $CarritoTron[$i_tron]['pv_tron']      * $CarritoTron[$i_tron]['cantidad'] );
+             $pv_ocas_acc     = $pv_ocas_acc + ( $CarritoTron[$i_tron]['pv_ocasional'] * $CarritoTron[$i_tron]['cantidad'] );
+           }
            $i_tron ++;
         }
 
      }// endforach
      $this->Cerrar_Procesos_Carro();
+
+     $pv_tron_resumen = $pv_tron_resumen - $pv_tron_acc ;
+     $pv_ocas_resumen = $pv_ocas_resumen - $pv_ocas_acc ;
 
      Session::Set('CarritoTron',$CarritoTron);
      Session::Set('pv_tron_resumen',$pv_tron_resumen);
