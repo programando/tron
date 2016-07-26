@@ -483,6 +483,7 @@ $('#btn-recomendar-producto').on('click',function(){
 			var $nombre_quien_envia = $('#nombre-quien-envia').val();
 			var $nombre_amigo       = $('#nombre_amigo').val();
 			var $Datos_Valiados     = Recomendar_Producto_a_Mi_Amigo_Validaciones();
+
 			if ($Datos_Valiados==false)	{
 						return false;
 					}

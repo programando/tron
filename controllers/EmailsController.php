@@ -177,6 +177,7 @@
           $Borrar_Registro  = BASE_URL."terceros/Borrar_Lista_Suscripcion/".$codigo_confirmacion;
 
           $Texto_Correo     = file_get_contents(BASE_EMAILS.'productos_recomendar.html','r');
+          $Texto_Correo     = str_replace("#Nombre_Amigo#"          , ucfirst($Nombre_Amigo) ,$Texto_Correo);
           $Texto_Correo     = str_replace("#Nombre_Quien_Envia#"    , $Nombre_Quien_Envia ,$Texto_Correo);
           $Texto_Correo     = str_replace("#Nombre_Imagen#"         , $imagen,$Texto_Correo);
           $Texto_Correo     = str_replace("#logo#"                  , $logo ,$Texto_Correo);
