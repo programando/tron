@@ -999,7 +999,7 @@ public function Totalizar_Carrito(){
          $Recaudo_Fijo           = $this->PayuLatam_Valor_Adicional ;
          $Recaudo_Fijo_Adicional = ( $Recaudo_Fijo *  $this->PayuLatam_Recaudo)/ ( 1 -  $this->PayuLatam_Recaudo );
 
-         if ( $Compras_Tron_Otros_Productos > Session::Get('vr_minimo_para_recaudo')){
+         if ( $Compras_Tron_Otros_Productos > Session::Get('vr_minimo_para_recaudo') || ( $Compras_Tron_Otros_Productos == 0 ) ){
             $Recaudo_Diferen_Rcdo_Real = 0 ;
           }else{
               $Recaudo_Diferen_Rcdo_Real = $this->PayuLatam_Valor_Minimo - ( $Compras_Tron_Otros_Productos * $this->PayuLatam_Recaudo ) ;
