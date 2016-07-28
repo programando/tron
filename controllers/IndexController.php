@@ -166,7 +166,7 @@ private function Parametros_Iniciales(){
         Session::Set('logueado', FALSE );
         session_unset($_SESSION['logueado']);
         $this->Sessiones->Pedidos_Reiniciar_Variables();
-        Session::Destroy();
+        Session::LogOut();
 
 
         echo '

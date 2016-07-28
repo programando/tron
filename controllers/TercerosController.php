@@ -938,6 +938,13 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        if (!$Registro ) {
          $Resultado_Logueo = "NO-Logueo_OK";
        }else {
+            $nombre_sesion    = $Password.'1';
+             /*session_destroy();
+             session_name( $nombre_sesion );
+             session_id ( $nombre_sesion );
+             session_start();
+             */
+
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
          }
@@ -946,6 +953,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
           $Siguiente_Paso='';
          }
          $Datos            = compact('Resultado_Logueo','Siguiente_Paso');
+         //header('Location: ' . BASE_URL);
          echo json_encode($Datos,256);
       }
 
