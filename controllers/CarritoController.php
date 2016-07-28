@@ -462,6 +462,7 @@ class CarritoController extends Controller{
 
 
     public function Verificar_Valor_Minimo_A_Pagar(){
+
         if ( Session::Get('cumple_valor_minimo_pedido') == TRUE ){
           $Respuesta ='CUMPLE';
         }else{
@@ -668,9 +669,7 @@ public function Totalizar_Carrito(){
 
       $this->Totalizar_Pedido_x_Categoria_Producto();              // TOTALIZAR CARRITO POR CADA TIPO DE PRODUCTO
       $cumple_condicion_cpras_tron_industial = $this->Determinar_Cumple_Condicion_Cpras_Tron_Industial();   // EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
-
-
-
+      //Debug::Mostrar('CUMPLE ' . $cumple_condicion_cpras_tron_industial );
 
       foreach ($this->Datos_Carro as &$Productos){                                                    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO
 
@@ -687,6 +686,7 @@ public function Totalizar_Carrito(){
           $pv_tron               = $Productos['pv_tron'] ;
 
 
+
           if ($idproducto == 10744){
               $kit_inicio_peso_total       = $kit_inicio_peso_total + $peso_gramos ;
               $kit_cantidad                = $kit_cantidad          + $cantidad;
@@ -700,9 +700,11 @@ public function Totalizar_Carrito(){
 
           if ( $cumple_condicion_cpras_tron_industial == TRUE ){
             $Productos['precio_unitario_produc_pedido'] = $pv_tron;
+
           }
 
           $precio_unitario_producto                      = $Productos['precio_unitario_produc_pedido'];
+
           $Productos['precio_total_produc_pedido']       = $precio_unitario_producto  * $cantidad;
           $Productos['precio_venta_antes_iva']           = $precio_unitario_producto / $porciento_iva ;
           $Productos['precio_venta_antes_iva_tron']      = $pv_tron                  / $porciento_iva ;
@@ -729,6 +731,7 @@ public function Totalizar_Carrito(){
        Session::Set('kit_inicio_peso_total',     $kit_inicio_peso_total);
        Session::Set('kit_cantidad',              $kit_cantidad);
 
+       $this->Totalizar_Pedido_x_Categoria_Producto();
        $this->Totalizar_Carrito_Valor_Declarado();
 
 
@@ -1315,11 +1318,23 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       Session::Set('compra_otros_productos',0);
       Session::Set('compra_accesorios',0);
 
+
+
       $this->Depurar_Carrito();
       $this->Iniciar_Procesos_Carro();
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)  {
           $id_categoria_producto = $this->Datos_Carro[$i]['id_categoria_producto'] ;
-          $precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
+
+          if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ){
+            $precio_unitario       = $this->Datos_Carro[$i]['pv_tron'] ;
+          }
+            else {
+              $precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
+            }
+
+
+
+          //$precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
           $total_item            = $precio_unitario *  $cantidad ;
           $total_item_tron       = $this->Datos_Carro[$i]['pv_tron'] * $cantidad  ;
@@ -1351,6 +1366,7 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       Session::Set('compra_productos_industriales'    , $this->compras_industrial );
       Session::Set('compra_otros_productos'           , $this->compras_otros_productos);
       Session::Set('compra_accesorios'                , $this->compras_accesorios );
+
 
       $this->Cerrar_Procesos_Carro();
 
