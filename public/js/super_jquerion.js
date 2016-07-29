@@ -67,14 +67,10 @@ function calcularAlturas(){
 
 	$(".closeSesssion").css('height',alto);
 	$(".closeSesssion").css('width',ancho);
-	
+
 	var iififi = $(".artOpt").width();
 	$(".counttis").css('width', iififi+56);
-	
 
-	//var hein1 = $(".hein1").height();
-	//var hein2 = $(".hein2").height();
-	//$(".contenido-index, .contenido-industrial").css('padding-top', (hein1+hein2));
 
 
 	var mukSlide1	= $(".mukSlide1").height();

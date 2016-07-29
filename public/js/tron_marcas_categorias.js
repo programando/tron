@@ -12,6 +12,8 @@ var Mostrar_Productos_Categorias = function(IdCategoria,Nombre_Categoria  )
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
      	 			$('.titulo-productos').html(Nombre_Categoria );
+											// CODIGO PARA UNIFICAR MARCO DE OFERTAS
+											var iififi = $(".artOpt").width(); 	$(".counttis").css('width', iififi+56);
      	 }
 			});
 }
@@ -28,6 +30,8 @@ var Paginacion = function(pagina , nombre_categoria ) 	{
      	 {
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
+											// CODIGO PARA UNIFICAR MARCO DE OFERTAS
+											var iififi = $(".artOpt").width(); 	$(".counttis").css('width', iififi+56);
      	 }
 			});
 
@@ -47,6 +51,8 @@ var Mostrar_Productos_Sub_Categorias = function(IdSubCategoria,NombreSubcategori
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
      	 			$('.titulo-productos').html(NombreSubcategoria );
+											// CODIGO PARA UNIFICAR MARCO DE OFERTAS
+											var iififi = $(".artOpt").width(); 	$(".counttis").css('width', iififi+56);
      	 }
 			});
 }
@@ -65,6 +71,8 @@ var Mostrar_Productos_x_Marca = function(IdMarca,NomMarca  )
      	 			$("#contenido-productos").html('');
      	 			$("#contenido-productos").html(resultado);
      	 			$('.titulo-productos').html(NomMarca );
+											// CODIGO PARA UNIFICAR MARCO DE OFERTAS
+											var iififi = $(".artOpt").width(); 	$(".counttis").css('width', iififi+56);
      	 }
 			});
 }
@@ -76,6 +84,7 @@ $('#menu-izq-otros-productos').on('click','.lista-productos',function(){
 	var IdCategoria      = $(this).attr("id-categoria");
 	var Nombre_Categoria = $(this).attr("nombre-categoria");
 					Mostrar_Productos_Categorias(IdCategoria,Nombre_Categoria );
+
 });
 
 // SUB CATEGORIAS  ( NIVEL 2)
