@@ -365,7 +365,7 @@ class CarritoController extends Controller{
 
 
         // VERIFICACIÓN DE SI CUMPLE CON EL VALOR MÍNIMO DE PEDIDO PARA PAGO EN PAYU LATAM
-        if ( Session::Get('pago_minimo_payulatam') > Session::Get('valor_real_pedido' ) ){
+        if ( Session::Get('pago_minimo_payulatam') > Session::Get('valor_real_pedido' ) && Session::Get('valor_real_pedido' ) > 0 ){
           Session::Set('cumple_valor_minimo_pedido', FALSE);
         }else{
            Session::Set('cumple_valor_minimo_pedido', TRUE);
