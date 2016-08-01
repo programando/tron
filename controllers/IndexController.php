@@ -158,7 +158,10 @@ private function Parametros_Iniciales(){
         Session::Set('pago_minimo_payulatam',                    $Parametros[0]['pago_minimo_payulatam'] );
         Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
 
-
+        $cobrar_fletes = Session::Get('cobrar_fletes');
+        if ( !isset($cobrar_fletes )) {
+            Session::Set('cobrar_fletes', TRUE);
+        }
 }
 
 

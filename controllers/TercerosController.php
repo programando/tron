@@ -918,6 +918,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('nommcipio_despacho',              $Registro[0]["nommcipio_despacho"]);
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
+      Session::Set('cobrar_fletes'      ,              $Registro[0]["cobrar_fletes"]);
 
       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
@@ -933,6 +934,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
+
        Session::Set('logueado',   FALSE);
 
        if (!$Registro ) {

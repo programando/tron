@@ -950,8 +950,13 @@ public function Totalizar_Carrito(){
         $Vrs_Payu_Latam                = $Vrs_Adicionales_Fletes - Session::Get('Sobre_Precio_Prod_Tron') ;
         $Vrs_Payu_Latam                =   $Vrs_Payu_Latam  ;
 
+        if ( Session::Get('cobrar_fletes') == FALSE ){
+            $this->Vr_Transporte_Ocasional  = 0;
+            $this->Vr_Transporte_Tron       = 0;
+        }
         $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional  +  $Vrs_Adicionales_Fletes ;
         $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron       +  $Vrs_Adicionales_Fletes ;
+
 
 
         if ( Session::Get('logueado') == FALSE ){
