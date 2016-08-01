@@ -15,7 +15,7 @@ function autoloadLibs ( $class ){
     }
 }
 
-spl_autoload_register("Autoload_Core_Aplication");
+//spl_autoload_register("Autoload_Core_Aplication");
 //spl_autoload_register("autoloadLibs");
 
 ?>

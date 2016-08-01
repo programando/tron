@@ -10,27 +10,6 @@
 	{
 		public static function Init( ){
 
-           /*$IpVisitante   = $_SERVER['REMOTE_ADDR'];
-           $Navegador     = $_SERVER['HTTP_USER_AGENT'];
-           $NombrePC      = gethostname() ;
-           $Usuario       = get_current_user();
-           $IpVisitante   = preg_replace('/[^A-Za-z0-9_]/', '', $IpVisitante);
-           $Navegador     = preg_replace('/[^A-Za-z0-9_]/', '', $Navegador);
-           $Usuario       = preg_replace('/[^A-Za-z0-9_]/', '', $Usuario );
-           $NombrePC      = preg_replace('/[^A-Za-z0-9_]/', '', $NombrePC );
-
-           $Identificador = $Usuario.$NombrePC.$IpVisitante.$Navegador;
-           $Identificador = substr($Identificador,0,80);
-
-*/
-
-
-
-            /*if (session_status() == PHP_SESSION_NONE) {
-                session_set_cookie_params(0,"/");
-                session_start();
-            }
-                */
 
             session_start();
             /* Establecemos que las paginas no pueden ser cacheadas */
@@ -48,7 +27,7 @@
          * DESTRE UNA VARIABLE(S) DE SESSION
          * @param boolean $clave [Nombre de la clave que se va a destruir]
          */
-        public static function Destroy($clave = false){
+        public static function Destroy( $clave = false){
             if($clave) {
                 if(is_array($clave)) {
                     for($i = 0; $i < count($clave); $i++) {
@@ -80,10 +59,11 @@
             session_start();
             session_regenerate_id(true);
 
-            $_SESSION['userAgent']       = $_SERVER['HTTP_USER_AGENT'];
+           /* $_SESSION['userAgent']       = $_SERVER['HTTP_USER_AGENT'];
             $_SESSION['SKey']            = uniqid(mt_rand(), true);
             $_SESSION['IPaddress']       = $_SERVER['REMOTE_ADDR'];
             $_SESSION['LastActivity']    = $_SERVER['REQUEST_TIME'];
+*/
 
         }
 
@@ -125,7 +105,25 @@
     }
 
 
+           /*$IpVisitante   = $_SERVER['REMOTE_ADDR'];
+           $Navegador     = $_SERVER['HTTP_USER_AGENT'];
+           $NombrePC      = gethostname() ;
+           $Usuario       = get_current_user();
+           $IpVisitante   = preg_replace('/[^A-Za-z0-9_]/', '', $IpVisitante);
+           $Navegador     = preg_replace('/[^A-Za-z0-9_]/', '', $Navegador);
+           $Usuario       = preg_replace('/[^A-Za-z0-9_]/', '', $Usuario );
+           $NombrePC      = preg_replace('/[^A-Za-z0-9_]/', '', $NombrePC );
 
+           $Identificador = $Usuario.$NombrePC.$IpVisitante.$Navegador;
+           $Identificador = substr($Identificador,0,80);
+
+*/
+
+            /*if (session_status() == PHP_SESSION_NONE) {
+                session_set_cookie_params(0,"/");
+                session_start();
+            }
+                */
 
 }
 ?>
