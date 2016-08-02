@@ -217,8 +217,7 @@ $('.btn-login').on('click', function(){
 
 	  Iniciar_Sesion 							(Parametros);
 
-	 /*alert('Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales' );
-	 Verficar_Plan_Compras_Kit_Inicio_Productos_Promocionales();*/
+
 	return false;
 });
 

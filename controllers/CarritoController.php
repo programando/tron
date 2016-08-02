@@ -254,7 +254,7 @@ class CarritoController extends Controller{
       Session::Set('iddireccion_despacho',   0 );
       Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
 
-      if (Session::Get('logueado')== FALSE ) {
+      if (Session::Get('logueado') == FALSE ) {
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
       }else      {
         $this->View->Direcciones = $this->Terceros->Direcciones_Despacho();
@@ -1399,7 +1399,9 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
      $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
      $Aplicacion_Puntos_Comisiones = Session::Get('Aplicacion_Puntos_Comisiones');
 
-     if ( (isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = FALSE ) || ( isset($Aplicacion_Puntos_Comisiones ) && $Aplicacion_Puntos_Comisiones == TRUE ) ){
+    // (isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = FALSE ) ||
+
+     if ( ( isset($Aplicacion_Puntos_Comisiones ) && $Aplicacion_Puntos_Comisiones == TRUE ) ){
           $Vr_Usado_Cupon_Descuento = 0;
           $Puntos_Utilizados        = 0;
           $Comisiones_Utilizadas    = 0;

@@ -32,7 +32,7 @@
             $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
             */
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
-            $this->Email->AddAddress('jhonjamesmg@gmail.com' );
+            $this->Email->AddAddress('organizacionsmart@gmail.com' );
             $Respuesta              = $this->Enviar_Correo();
         //}
 

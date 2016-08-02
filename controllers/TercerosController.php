@@ -918,44 +918,44 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('nommcipio_despacho',              $Registro[0]["nommcipio_despacho"]);
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
-      Session::Set('cobrar_fletes'      ,              $Registro[0]["cobrar_fletes"]);
+      Session::Set('cobrar_fletes'      ,             $Registro[0]["cobrar_fletes"]);
 
       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
+
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
-      Session::Set('logueado',   TRUE);
-
-
+      $this->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
     }
 
     public function Validar_Ingreso_Usuario(){
+       Session::Set('logueado',   FALSE);
        $Email                = General_Functions::Validar_Entrada('email','TEXT');
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
 
-       Session::Set('logueado',   FALSE);
-
        if (!$Registro ) {
          $Resultado_Logueo = "NO-Logueo_OK";
        }else {
-            $nombre_sesion    = $Password.'1';
-             /*session_destroy();
-             session_name( $nombre_sesion );
-             session_id ( $nombre_sesion );
-             session_start();
+
+            /* $nombre_sesion    = $Password.'1';
+                session_destroy();
+                session_name( $nombre_sesion );
+                session_id ( $nombre_sesion );
+                session_start();
              */
 
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
+            Session::Set('logueado',   TRUE);
          }
+
          $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');
          if (!isset( $Siguiente_Paso ) ) {
           $Siguiente_Paso='';
          }
          $Datos            = compact('Resultado_Logueo','Siguiente_Paso');
-         //header('Location: ' . BASE_URL);
          echo json_encode($Datos,256);
       }
 
