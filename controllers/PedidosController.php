@@ -19,10 +19,8 @@ class PedidosController extends Controller
 
     public function Genera_Consecutivo( $numero_pedido_anterior = 0 ){
 
-
         $Registro               = $this->Pedidos->Genera_Consecutivo();
         $numero_pedido          = $Registro[0]['numero_pedido'];
-
         Session::Set('numero_pedido', $numero_pedido);
         $this->Cambiar_Numero_Pedido ( $numero_pedido_anterior ,$numero_pedido  );
 

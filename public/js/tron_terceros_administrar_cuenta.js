@@ -721,8 +721,10 @@ $('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago', function(){
          url:      '/tron/pedidos/Genera_Consecutivo/'+$numero_pedido,
          type:     'post',
 				    success:  function (datos){
-				    		 Pedidos_Realizados();
+
+				    		Pedidos_Realizados();
 				    			window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
+
 				      }
 				     });
 });

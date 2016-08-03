@@ -66,7 +66,8 @@
 
  		public function Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido ){
 
-
+				$Registro = $this->Db->Ejecutar_Sp("pedidos_consulta_datos_cambio_forma_pago ( $idpedido );");
+ 			return $Registro;
  		}
 
  		public function Genera_Consecutivo(){
