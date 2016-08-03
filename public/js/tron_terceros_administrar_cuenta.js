@@ -712,22 +712,20 @@ $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
 
 
 
-$('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago', function(){
-			var $idpedido              = $(this).attr('idpedido');
-			var $numero_pedido         = $(this).attr('numero-pedido');
+	$('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago', function(){
+				var $idpedido              = $(this).attr('idpedido');
+				var $numero_pedido         = $(this).attr('numero-pedido');
 
-      $.ajax({
-         dataType: 'json',
-         url:      '/tron/pedidos/Genera_Consecutivo/'+$numero_pedido,
-         type:     'post',
-				    success:  function (datos){
-
+	     $.ajax({
+	        dataType: 'json',
+	        url:      '/tron/pedidos/Genera_Consecutivo/'+$numero_pedido,
+	        type:     'post',
+				    	success:  function (datos){
 				    		Pedidos_Realizados();
-				    			window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
-
+				    		window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
 				      }
 				     });
-});
+	});
 
 
 
