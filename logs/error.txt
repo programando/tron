@@ -53,3 +53,8 @@
 [01-Aug-2016 23:38:47 Europe/Berlin] PHP Notice:  Undefined index: userAgent in C:\xampp\htdocs\tron\application\Session.php on line 22
 [01-Aug-2016 23:38:47 Europe/Berlin] PHP Notice:  Undefined index: userAgent in C:\xampp\htdocs\tron\application\Session.php on line 22
 [01-Aug-2016 23:38:47 Europe/Berlin] PHP Notice:  Undefined index: userAgent in C:\xampp\htdocs\tron\application\Session.php on line 22
+[03-Aug-2016 14:58:09 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[03-Aug-2016 14:58:11 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[03-Aug-2016 14:59:42 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[03-Aug-2016 15:00:18 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[03-Aug-2016 16:02:58 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in C:\xampp\htdocs\tron\application_cods\pedidos_historial.php on line 38

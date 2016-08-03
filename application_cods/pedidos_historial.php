@@ -17,17 +17,22 @@
 
 				if ( $facturado == TRUE ){
 						$Estado ='Facturado';
-				}else{
-									if ( $Pedido['vr_a_pagar'] == 0 ){
-										$Estado ='Pagado con puntos/comisiones';
-									}else{
-										$Estado ='Pendiente por facturar';
-										$Permite_Eliminacion      = TRUE;
-										$Permite_Cambio_FormaPago = TRUE ;
-									}
 				}
 
+				if ( $facturado == FALSE )	{
 
+								if ( $Pedido['vr_a_pagar'] == 0 ){
+										$Estado 														='Pagado con puntos/comisiones';
+										$Permite_Eliminacion  = TRUE;
+								}
+
+				if ( $Pedido['vr_a_pagar'] > 0 ){
+								$Estado ='Pendiente por facturar';
+							 $Permite_Eliminacion      = TRUE;
+							 $Permite_Cambio_FormaPago = TRUE ;
+							}
+
+				}
 
 
 ?>

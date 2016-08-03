@@ -16,6 +16,24 @@ class PedidosController extends Controller
     }
     public function index() {}
 
+
+    public function Genera_Consecutivo( $numero_pedido_anterior = 0 ){
+
+
+        $Registro               = $this->Pedidos->Genera_Consecutivo();
+        $numero_pedido          = $Registro[0]['numero_pedido'];
+
+        Session::Set('numero_pedido', $numero_pedido);
+        $this->Cambiar_Numero_Pedido ( $numero_pedido_anterior ,$numero_pedido  );
+
+        $Datos = compact('numero_pedido');
+        echo json_encode($Datos,256);
+    }
+
+    private function Cambiar_Numero_Pedido( $numero_pedido_anterior = 0, $numero_pedido_nuevo = 0 ){
+      $this->Pedidos->Cambiar_Numero_Pedido( $numero_pedido_anterior, $numero_pedido_nuevo ) ;
+    }
+
     public function historial_mis_pedidos()  {
         $idtercero = Session::Get('idtercero');
         $this->View->Pedidos            = $this->Pedidos->Historial_x_Idtercero($idtercero);
@@ -224,7 +242,7 @@ class PedidosController extends Controller
       $this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
     }
 
-    public function Forma_Pago_Pedido_Payu_Latam_Confirmacion() {
+    public function ConfirmacionPayuLatam() {
       $this->View->Mostrar_Vista('finalizar_pedido_pago_payu_confirmacion');
     }
 

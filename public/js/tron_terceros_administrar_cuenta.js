@@ -513,8 +513,8 @@ $('#convenio_pdf').on('click',function(){
 
 
 
-$('#informes-pedidos-realizados').on('click',function(){
-				$Opciones_Seleccionada ='PEDIDOS_REALIZADOS';
+ var  Pedidos_Realizados = function(  ){
+ 		$Opciones_Seleccionada ='PEDIDOS_REALIZADOS';
     $.ajax({
          dataType: 'html',
          url:      '/tron/pedidos/historial_mis_pedidos/',
@@ -524,6 +524,12 @@ $('#informes-pedidos-realizados').on('click',function(){
 				         $('.contenedor_cuenta').html(respuesta);
 				      }
 				  });
+	}
+
+
+
+$('#informes-pedidos-realizados').on('click',function(){
+				Pedidos_Realizados();
 });
 
 
@@ -702,16 +708,23 @@ $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
          			Eliminar_Pedido($Parametros);
          }
        }});
-
 });
 
+
+
 $('.contenedor_cuenta').on('click','.historial-cambiar-forma-pago', function(){
-		 var $idtercero             = $(this).attr('idtercero');
 			var $idpedido              = $(this).attr('idpedido');
-			var $comisiones_utilizadas = $(this).attr('comisiones-utilizadas');
-			var $puntos_utilizados     = $(this).attr('puntos-utilizados');
 			var $numero_pedido         = $(this).attr('numero-pedido');
-   window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
+
+      $.ajax({
+         dataType: 'json',
+         url:      '/tron/pedidos/Genera_Consecutivo/'+$numero_pedido,
+         type:     'post',
+				    success:  function (datos){
+				    		 Pedidos_Realizados();
+				    			window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
+				      }
+				     });
 });
 
 
