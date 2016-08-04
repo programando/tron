@@ -72,3 +72,31 @@
 [03-Aug-2016 17:06:22 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [03-Aug-2016 17:07:33 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [03-Aug-2016 18:30:28 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[04-Aug-2016 03:49:51 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 03:49:51 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 03:49:59 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 03:49:59 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 03:50:38 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 03:50:38 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 03:51:47 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 03:51:47 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 03:52:33 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 03:52:33 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:02:10 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:02:10 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:02:24 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:02:24 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:03:50 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:03:50 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:04:09 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:04:09 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:11:11 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:11:11 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:11:48 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:11:48 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:15:54 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:15:54 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 11:17:05 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 11:17:05 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
+[04-Aug-2016 14:35:06 Europe/Berlin] PHP Warning:  Unknown: MySQL server has gone away in Unknown on line 0
+[04-Aug-2016 14:35:06 Europe/Berlin] PHP Warning:  Unknown: Error reading result set's header in Unknown on line 0
