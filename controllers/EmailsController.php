@@ -21,6 +21,7 @@
          *    GENERA CORREO ELECTRONICO PARA INFORMAR A LOS USUARIOS SOBRE UN NUEVO INGRESO A SU RED
          */
         $nuevos_usuarios = $this->Mensajes->Usuarios_Cumplen_Anios();
+
         $Texto_Correo    = file_get_contents(BASE_EMAILS.'usuarios_cumplen_anios.phtml','r');
 
         $this->Configurar_Cuenta('¡ Felicidades en tu día !' );
@@ -32,7 +33,7 @@
             $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
             */
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
-            $this->Email->AddAddress('organizacionsmart@gmail.com' );
+            $this->Email->AddAddress('jhonjamesmg@hotmail.com' );
             $Respuesta              = $this->Enviar_Correo();
         //}
 
@@ -302,10 +303,9 @@
 
    private function Unir_Partes_Correo (   $Body ){
        $Logo_Empresa       = BASE_IMG_EMPRESA .'logo.png';
-       $Header             = file_get_contents(APPLICATION_SECTIONS . 'emails/header.php','r');
-       $Header             = str_replace("#_LOGO_EMPRESA_#"       , $Logo_Empresa ,$Header);
        $Footer             = file_get_contents(APPLICATION_SECTIONS . 'emails/footer.php','r');
-       $Texto_Final_Correo = $Header.$Body.$Footer;
+       $Texto_Final_Correo = $Body.$Footer;
+
        return $Texto_Final_Correo ;
     }
 

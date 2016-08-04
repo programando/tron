@@ -286,18 +286,17 @@ class ProductosController extends Controller
 
       $_idorden_nv_1    = $this->View->Argumentos[0];
       $nom_categoria    = $this->View->Argumentos[1];
+       $Id_Area_Consulta =  $this->View->Argumentos[2]; //Session::Get('Id_Area_Consulta');
 
       //if ($_idorden_nv_1 ='tron' ) {
-          //Debug::Mostrar($this->View->Argumentos  );
+        // Debug::Mostrar($this->View->Argumentos  );
       //}
-
-      $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-
 
       if ( empty($Id_Area_Consulta)){
           $Id_Area_Consulta = 2 ;
       }
-      //Session::Set('Id_Area_Consulta', $Id_Area_Consulta);      // Reasiga el area de consulta
+      Session::Set('Id_Area_Consulta', $Id_Area_Consulta);      // Reasiga el area de consulta
+
       $nom_categoria    = String_Functions::Mayusculas($nom_categoria);
       // Datos usados para la paginación ajax. Determina el nivel de profundidad en el que se encuenta el menú.
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo

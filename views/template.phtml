@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<?php include (APPLICATION_SECTIONS .'metas'. DS .'metas.php');?>
+<!--
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
@@ -19,9 +21,11 @@
       <meta property="og:image"         content="<?= Session::Get('Pagina_Facebook_IMAGEN') ;?>" />
       <meta property='og:site_name'     content='Red Multinivel Entre Amigos Alcanzamos'/>
       <meta property="og:description"   content="<?= Session::Get('Pagina_Facebook_DESCRIPCION') ;?>" />
-      <!-- 560px x 292px -->
+
       <?php Session::Set('FACEBOOK', FALSE); ?>
   <?php endif;?>
+  -->
+
 
     <title> <?= APP_NAME ;?> </title>
 
@@ -34,8 +38,6 @@
       <!--
         <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>custom.css" media="screen" />
       -->
-
-
 
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>tron_menu_footer.css"  />
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>tron_login.css"  />
