@@ -35,6 +35,7 @@ class Request
         Session::Set('CEO_URL',BASE_URL .$this->url  );
         Session::Set('CEO_CONTROLLER', $this->Controlador );
 
+
     }
 
     /**

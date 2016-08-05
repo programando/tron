@@ -41,20 +41,6 @@ var Mensaje_Resultado_Cambio_Password_Correo_No_Existe = function()
 }
 
 
-var Iniciar_Sesion_Segura = function(Parametros){
-$.ajax({
-							data:  Parametros,
-							dataType: 'json',
-							url:      '/tron/terceros/Validar_Ingreso_Usuario',
-							type:     'post',
-							async:    false,
-       success:  function (resultado) {
-       	 	//window.location.href = "/tron/Index";
-	      	 }
-				});
-	}
-
-
 
 
 var Iniciar_Sesion = function(Parametros){
@@ -71,6 +57,7 @@ $.ajax({
 	      	 				Mostrar_Mensaje('Los datos registrados no pudieron ser validados. Inténtelo nuevamente....');
 	      	 				return ;
 	      	 				}
+
 	      	 if ( 	Resultado_Logueo == 'Logueo_OK'){
 	      	 			if (Siguiente_Paso =='DIRECCION' ){
 	      	 						window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";

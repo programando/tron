@@ -53,6 +53,15 @@
         }
 
 
+    public static function Iniciar_Variable($Variable, $Valor)
+    {
+         if( !isset($_SESSION[ $Variable ]) ) {
+            $_SESSION[$Variable] = $Valor;
+         }
+
+
+    }
+
         public static function LogOut(){
             session_unset();
             session_destroy();

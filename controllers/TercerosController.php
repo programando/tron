@@ -926,6 +926,13 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
       $this->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
+
+      // DETERMINAR SI ESTE ES SU DÍA DE CUMPLEAÑOS
+      $FechaNace = $Registro[0]["dianacimiento"] + $Registro[0]["mesnacimiento"];
+      $FechaHoy  = $Registro[0]["mes"] + $Registro[0]["dia"];;
+      if ( $FechaNace == $FechaHoy ){
+        Session::Set('cumple_anios',TRUE);
+      }
     }
 
     public function Validar_Ingreso_Usuario(){
@@ -934,18 +941,11 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
+       //Debug::Mostrar( $Registro );
 
        if (!$Registro ) {
          $Resultado_Logueo = "NO-Logueo_OK";
        }else {
-
-            /* $nombre_sesion    = $Password.'1';
-                session_destroy();
-                session_name( $nombre_sesion );
-                session_id ( $nombre_sesion );
-                session_start();
-             */
-
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
             Session::Set('logueado',   TRUE);

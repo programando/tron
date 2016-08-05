@@ -27,8 +27,7 @@
        $text_pv_comprador_ocasional = Numeric_Functions::Formato_Numero($Productos['pv_ocasional']);
        $text_pv_tron                = Numeric_Functions::Formato_Numero($Productos['pv_tron']);
 
-       if (!isset($Id_Area_Consulta))
-       {
+       if (!isset($Id_Area_Consulta))  {
               $Id_Area_Consulta = 2;
               Session::Set('Id_Area_Consulta',$Id_Area_Consulta);
        }
@@ -37,6 +36,16 @@
        $Cantidad_Comprada      = Session::Get($NombreArray );
        if ( empty($Cantidad_Comprada))  {  $Cantidad_Comprada = 0;  }
 
+       /*     AGOSTO 05 2016
+              CONFIGURACIÓN PARA QUE TODOS LOS PRODUCTOS ESTÉN EN OFERTA
+              PARA QUIEN CUMPLE AÑOS
+       */
+       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+       $Cumple_Anios     = Session::Get('cumple_anios');
+
+       if ( $Id_Area_Consulta == 2  && $Cumple_Anios == TRUE ){
+              $en_oferta = TRUE ;
+       }
 
 ?>
 

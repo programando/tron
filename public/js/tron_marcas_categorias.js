@@ -32,6 +32,11 @@ var Paginacion = function(pagina , nombre_categoria ) 	{
      	 			$("#contenido-productos").html(resultado);
 											// CODIGO PARA UNIFICAR MARCO DE OFERTAS
 											var iififi = $(".artOpt").width(); 	$(".counttis").css('width', iififi+56);
+
+											//MUEVE LA PAGINA AL PRINCIPIO LUEGO DE QUE SE PRESIONA EN EL PAGINADOR
+											$('html,body').animate({
+        				scrollTop: $("#scrollToHere").offset().top
+    							}, 1500);
      	 }
 			});
 

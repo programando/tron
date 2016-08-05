@@ -5,13 +5,16 @@
 					define('ROOT', realpath(dirname( __FILE__ ))                 . DS );
 					define('LIBS',                 ROOT . 'libs'                 . DS );
 					define('APP_PATH',             ROOT . 'application'          . DS );
-					define('APPLICATION_SECTIONS', ROOT . 'application_sections' . DS );
-					define('APPLICATION_CODS',     ROOT . 'application_cods'     . DS );
 
+					define('APPLICATION_SECTIONS', 							ROOT . 'application_sections'          . DS );
+				 define('APPLICATION_CODS',     							ROOT . 'application_cods'          . DS );
+					define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'modales' . DS );
 
 								// Archivo de configuración, variables generales
 							 //------------------------------------------------
 						  require_once APP_PATH . 'Config.php';
+
+
 						  // Archivo de configuración de la base de datos
 						  //------------------------------------------------
 						  require_once APP_PATH . 'Database_config.php';
@@ -31,11 +34,11 @@
 
  			    Session::Init();
 
- 			   // Debug::Mostrar( get_required_files() );
 
  		try
  		  {
 					    $url_requerida = new Request();
+
 					    Bootstrap::Run( $url_requerida );
 					}
 					catch(Exception $e){

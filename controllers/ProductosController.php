@@ -286,7 +286,7 @@ class ProductosController extends Controller
 
       $_idorden_nv_1    = $this->View->Argumentos[0];
       $nom_categoria    = $this->View->Argumentos[1];
-       $Id_Area_Consulta =  $this->View->Argumentos[2]; //Session::Get('Id_Area_Consulta');
+      $Id_Area_Consulta =  $this->View->Argumentos[2]; //Session::Get('Id_Area_Consulta');
 
       //if ($_idorden_nv_1 ='tron' ) {
         // Debug::Mostrar($this->View->Argumentos  );

@@ -59,12 +59,7 @@
             <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>super_css.css"  />
             <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>super_css_responsive.css"  />
 
-      <!--INLCUSIÓN DE ARCHIVOS SUPER CSS
-      *******************************************************************************************************************-->
-<!--
-      	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
- -->
+
   <script src="<?=  BASE_JS ; ?>jquery-1.11.3.min.js"                 type="text/javascript"></script>
   <script src ="<?= BASE_JS ; ?>jquery-migrate-1.2.1.min.js"          type="text/javascript" ></script>
 
@@ -77,34 +72,39 @@
         <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
       <![endif]-->
 
-         </head>
+     </head>
          <body >
 
-<!--///////////////////////////////-Los documentos llamados se Encuentrar en (application_sections)-/////////////////////////////////////-->
             <!--Llamado del Header tanto el de hogar como el industrial-->
             <?php if (Session::Get('Id_Area_Consulta')==1) :?>
                <?php include (APPLICATION_SECTIONS .'header-industrial.php');?><!--Llamado Al Menu-Industrial -->
             <?php else :?>
                <?php include (APPLICATION_SECTIONS .'header-hogar.php');?>
             <?php endif ;?>
-            <!--Llamado del Header tanto el de hogar como el industrial-->
-            <!--///////////////////////////////-Los documentos llamados se Encuentrar en (application_sections)-/////////////////////////////////////-->
-
-<?= $ContenidoBody;?>
-
-<div class="alert alert-success mensaje-agregar_producto text-center"></div>
 
 
+            <?php   $Cumple_Anios       = Session::Get('cumple_anios'); ?>
+            <?php   $Mostrar_Msj_Cumple = Session::Get('mostrar_modal_cumple_anios'); ?>
+            <?php if ( $Cumple_Anios == TRUE && $Mostrar_Msj_Cumple == TRUE)  :?>
+               <?php include (VENTANAS_MODALES . 'mensaje_cumpleanios.php');?>
+            <?php endif ;?>
 
-<?php require_once ($RutaFooter);?>
 
-<script src="<?=  BASE_JS ; ?>prefixfree.min.js"                 type="text/javascript"></script>
-<script src ="<?= BASE_JS ; ?>bootstrap.js"                      type="text/javascript" ></script>
-<script src ="<?= BASE_JS ; ?>tron_login.js"                     type="text/javascript" ></script>
-<script src ="<?= BASE_JS ; ?>tron_menu_fijo.js"                 type="text/javascript" ></script>
-<script src ="<?= BASE_JS ; ?>messi.min.js"                 	   type="text/javascript" ></script>
-<script src ="<?= BASE_JS ; ?>super_jquerion.js" 				         type="text/javascript" ></script>
-<script src ="<?= BASE_JS ; ?>tron_notificaciones.js"            type="text/javascript" ></script>
+      <?= $ContenidoBody;?>
+
+      <div class="alert alert-success mensaje-agregar_producto text-center"></div>
+      <div id="scrollToHere"> </div> <!--  scrollToHere = ES UN ANCLA PARA MOVER EL PUNTO DESDE EL PAGINADOR     -->
+
+
+      <?php require_once ($RutaFooter);?>
+
+      <script src="<?=  BASE_JS ; ?>prefixfree.min.js"                 type="text/javascript"></script>
+      <script src ="<?= BASE_JS ; ?>bootstrap.js"                      type="text/javascript" ></script>
+      <script src ="<?= BASE_JS ; ?>tron_login.js"                     type="text/javascript" ></script>
+      <script src ="<?= BASE_JS ; ?>tron_menu_fijo.js"                 type="text/javascript" ></script>
+      <script src ="<?= BASE_JS ; ?>messi.min.js"                 	   type="text/javascript" ></script>
+      <script src ="<?= BASE_JS ; ?>super_jquerion.js" 				         type="text/javascript" ></script>
+      <script src ="<?= BASE_JS ; ?>tron_notificaciones.js"            type="text/javascript" ></script>
 <!--
 <script type="text/javascript">
   //alert(navigator.userAgent);
