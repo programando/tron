@@ -19,7 +19,7 @@ $('.cerrar_cumpleanios').on('click', function(){
        url: '/tron/index/ocular_mjs_cumpleanios/',
        type: 'post',
          success:  function (resultado) {
-													window.location.href = "/tron/index/";
+						window.location.href = "/tron/productos/categorias_marcas";
           }
        });
 		});
