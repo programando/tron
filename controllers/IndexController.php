@@ -9,11 +9,11 @@ class IndexController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->Productos  =  $this->Load_Model('Productos');
-        $this->Parametros =  $this->Load_Model('Parametros');
+        $this->Productos        =  $this->Load_Model('Productos');
+        $this->Parametros       =  $this->Load_Model('Parametros');
 
-        $this->Terceros   =  $this->Load_Controller('Terceros');
-        $this->Sessiones   = $this->Load_Controller('Sessiones');
+        $this->Terceros         =  $this->Load_Controller('Terceros');
+        $this->ProductosListado = $this->Load_Controller('Productos');
 
     }
 
@@ -173,16 +173,14 @@ private function Parametros_Iniciales(){
 
     public function ocular_mjs_cumpleanios(){
             Session::Set('mostrar_modal_cumple_anios', FALSE ) ;
-            $this->View->Mostrar_Vista('index');
+            //$this->View->Mostrar_Vista('index');
+            //$this->ProductosListado->Categorias_Marcas();
     }
 
     public function Cerrar_Sesion() {
         Session::Set('logueado', FALSE );
         session_unset($_SESSION['logueado']);
-        $this->Sessiones->Pedidos_Reiniciar_Variables();
         Session::LogOut();
-
-
         echo '
 
 			<!DOCTYPE html>

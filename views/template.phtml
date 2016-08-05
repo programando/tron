@@ -74,7 +74,7 @@
 
      </head>
          <body >
-
+            <div id="scrollToHere"> </div> <!--  scrollToHere = ES UN ANCLA PARA MOVER EL PUNTO DESDE EL PAGINADOR     -->
             <!--Llamado del Header tanto el de hogar como el industrial-->
             <?php if (Session::Get('Id_Area_Consulta')==1) :?>
                <?php include (APPLICATION_SECTIONS .'header-industrial.php');?><!--Llamado Al Menu-Industrial -->
@@ -93,7 +93,7 @@
       <?= $ContenidoBody;?>
 
       <div class="alert alert-success mensaje-agregar_producto text-center"></div>
-      <div id="scrollToHere"> </div> <!--  scrollToHere = ES UN ANCLA PARA MOVER EL PUNTO DESDE EL PAGINADOR     -->
+
 
 
       <?php require_once ($RutaFooter);?>
