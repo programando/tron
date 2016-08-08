@@ -158,11 +158,6 @@ private function Parametros_Iniciales(){
         Session::Set('pago_minimo_payulatam',                    $Parametros[0]['pago_minimo_payulatam'] );
         Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
 
-      /*  $cobrar_fletes = Session::Get('cobrar_fletes');
-        if ( !isset($cobrar_fletes )) {
-            Session::Set('cobrar_fletes', TRUE);
-        }
-        */
 
         Session::Iniciar_Variable('cobrar_fletes'           , TRUE );   // A todos se cobra fletes por defecto excepto a los terceros marcados
         Session::Iniciar_Variable('cumple_anios'            , FALSE );   // Nadie cumple años por defecto. Esto puede cambiar cuando se loguea.
@@ -171,10 +166,8 @@ private function Parametros_Iniciales(){
 
 }
 
-    public function ocular_mjs_cumpleanios(){
+    public function ocultar_mjs_cumpleanios(){
             Session::Set('mostrar_modal_cumple_anios', FALSE ) ;
-            //$this->View->Mostrar_Vista('index');
-            //$this->ProductosListado->Categorias_Marcas();
     }
 
     public function Cerrar_Sesion() {

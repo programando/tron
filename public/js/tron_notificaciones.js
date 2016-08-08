@@ -16,7 +16,7 @@ $('.cerrar_cumpleanios').on('click', function(){
 		 $.ajax({
        data:'',
        dataType: '',
-       url: '/tron/index/ocular_mjs_cumpleanios/',
+       url: '/tron/index/ocultar_mjs_cumpleanios/',
        type: 'post',
          success:  function (resultado) {
 						window.location.href = "/tron/productos/categorias_marcas";
