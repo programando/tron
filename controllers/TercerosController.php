@@ -941,7 +941,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
        $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
-       //Debug::Mostrar( $Registro );
+
 
        if (!$Registro ) {
          $Resultado_Logueo = "NO-Logueo_OK";
