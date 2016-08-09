@@ -18,6 +18,7 @@ class Request
     public function __construct()
     {
         $this->url='';
+        Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
         if(!isset($_GET['url']))    { $this->url="";                }
         else                        { $this->url = $_GET['url'];    }
@@ -32,9 +33,13 @@ class Request
 
                 //VARIABLES PARA EL TEMA DE CEO
         //------------------------------
-        Session::Set('CEO_URL',BASE_URL .$this->url  );
-        Session::Set('CEO_CONTROLLER', $this->Controlador );
+        Session::Set('CEO_URL'                      ,BASE_URL .$this->url  );
+        Session::Set('CEO_CONTROLLER'               , $this->Controlador );
+        Session::Set('CEO_METODO'                   , $this->Metodo);
 
+        if ( $this->Metodo == 'productos_por_categoria_individual'){
+           Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , $this->Argumentos[0]  );
+        }
 
     }
 
