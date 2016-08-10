@@ -1,5 +1,5 @@
 
-
+<br style="clear: both;">
 <br>
 <br>
 				<footer>

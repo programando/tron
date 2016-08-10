@@ -31,7 +31,7 @@
             $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
 
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
-            $this->Email->AddAddress($email );
+            $this->Email->AddAddress( $email );
             $Respuesta              = $this->Enviar_Correo();
         }
       }
@@ -54,10 +54,10 @@
             $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
 
-            $this->Email->AddAddress($email );
+            $this->Email->AddAddress( $email  );
             $Respuesta              = $this->Enviar_Correo();
+            // SI EL CORREO ES ENVIADO SE BORRA EL REGISTRO.
             if (  $Respuesta  == 'correo_OK' ){
-              // SI EL CORREO ES ENVIADO SE BORRA EL REGISTRO.
               $nuevos_usuarios = $this->Mensajes->Nuevos_Usuarios_Registrados_Borrar_Registro( $idregistro  );
             }
 
@@ -298,8 +298,9 @@
 
    private function Unir_Partes_Correo (   $Body ){
        $Logo_Empresa       = BASE_IMG_EMPRESA .'logo.png';
+       $Header             = file_get_contents(APPLICATION_SECTIONS . 'emails/header.php','r');
        $Footer             = file_get_contents(APPLICATION_SECTIONS . 'emails/footer.php','r');
-       $Texto_Final_Correo = $Body.$Footer;
+       $Texto_Final_Correo = $Header.$Body.$Footer;
 
        return $Texto_Final_Correo ;
     }

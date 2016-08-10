@@ -411,3 +411,11 @@
 [09-Aug-2016 17:21:24 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\application\Request.php on line 41
 [09-Aug-2016 17:21:24 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\application\Request.php on line 41
 [09-Aug-2016 17:21:24 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\application\Request.php on line 41
+[10-Aug-2016 16:27:14 Europe/Berlin] PHP Notice:  Undefined index: idregistro in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 28
+[10-Aug-2016 16:27:14 Europe/Berlin] PHP Notice:  Undefined index: nuevo_usuario in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 30
+[10-Aug-2016 16:27:16 Europe/Berlin] PHP Notice:  Undefined index: idregistro in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 28
+[10-Aug-2016 16:27:16 Europe/Berlin] PHP Notice:  Undefined index: nuevo_usuario in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 30
+[10-Aug-2016 16:27:17 Europe/Berlin] PHP Notice:  Undefined index: idregistro in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 28
+[10-Aug-2016 16:27:17 Europe/Berlin] PHP Notice:  Undefined index: nuevo_usuario in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 30
+[10-Aug-2016 16:27:18 Europe/Berlin] PHP Notice:  Undefined index: idregistro in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 28
+[10-Aug-2016 16:27:18 Europe/Berlin] PHP Notice:  Undefined index: nuevo_usuario in C:\xampp\htdocs\tron\controllers\EmailsController.php on line 30
