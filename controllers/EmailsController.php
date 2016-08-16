@@ -23,7 +23,7 @@
          */
         $nuevos_usuarios = $this->Mensajes->Usuarios_Proximos_a_Comprimirse();
 
-        $this->Configurar_Cuenta('¡ AVISO ! Red de Usuarios TRON' );
+        $this->Configurar_Cuenta('¡ AVISO Red de Usuarios TRON !' );
 
         foreach ( $nuevos_usuarios as $usuario ) {
             $email              = $usuario['email'];
@@ -317,7 +317,7 @@
 
     public function Enviar_Correo(){
         if ( $this->Email->Send()){
-          $this->Email->clearAddresses();
+            $this->Email->clearAddresses();
             return "correo_OK";
         }else {
           $this->Email->clearAddresses();

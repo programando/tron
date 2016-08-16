@@ -35,11 +35,9 @@
 				{
 						/** JUNIO 18 2016
 						*		 CONSULTA LAS PERSONAS/USUARIOS A QUIENES SE INFORMA	SOBRE EL INGRESO DE UN NUEVO MIEMBRO A SU RED		*/
-						$Usuarios                 = $this->Db->Ejecutar_Sp("terceros_compresion_preventtiva_email () ");
+						$Usuarios                 = $this->Db->Ejecutar_Sp("terceros_compresion_preventiva_email () ");
 						return $Usuarios ;
 				}
-
-
 
   }
 ?>
