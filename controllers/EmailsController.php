@@ -16,6 +16,36 @@
       public function Index() { }
 
 
+
+      public function Compresion_Dinamica_Preventiva(){
+        /** JUNIO 18 2016
+         *    GENERA CORREO ELECTRONICO PARA INFORMAR A LOS USUARIOS SOBRE UN NUEVO INGRESO A SU RED
+         */
+        $nuevos_usuarios = $this->Mensajes->Usuarios_Proximos_a_Comprimirse();
+
+        $this->Configurar_Cuenta('¡ AVISO ! Red de Usuarios TRON' );
+
+        foreach ( $nuevos_usuarios as $usuario ) {
+            $email              = $usuario['email'];
+            $cant_usuarios_nv_1 = $usuario['cant_usuarios_nv_1'];
+
+            if ( $cant_usuarios_nv_1 == 0 ) {
+                 $Texto_Correo    = file_get_contents(BASE_EMAILS.'compresion_preventiva_sin_red.phtml','r');
+            }else{
+                $Texto_Correo    = file_get_contents(BASE_EMAILS.'compresion_preventiva_con_red.phtml','r');
+                $Texto_Correo    = str_replace("#_CANT_USUARIOS_#"       , $cant_usuarios_nv_1 ,$Texto_Correo);
+            }
+
+            $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
+            $this->Email->AddAddress( $email  );
+            $Respuesta              = $this->Enviar_Correo();
+        }
+      }
+
+
+
+
+
       public function Usuarios_Cumplen_Anios(){
         /** JUNIO 18 2016
          *    GENERA CORREO ELECTRONICO PARA INFORMAR A LOS USUARIOS SOBRE UN NUEVO INGRESO A SU RED
