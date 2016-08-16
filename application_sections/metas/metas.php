@@ -126,40 +126,80 @@
 
    <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 1) :?>
      <?php
-       $Pagina_Metas_Keys          = 'desechos plásticos, cuidado del planeta, impacto ambiental, plástico, producto de aseo, hogar, concentrados, concentrados para el hogar, biodegradables';
-       $Pagina_Metas_title         = "Productos TRON";
-       $Pagina_Metas_description   = "productos especializados, la Línea hogar cuida el medio ambiente por ser biodegradables y por reducir el impacto ambiental que producen los desechos plásticos";
+       $Pagina_Metas_Keys          = 'artes gráficas, impresión offset, maquinas planas, rotativas, lavadores, despercudidor, relavador, moletones, leche de burra, planchas, mantillas';
+       $Pagina_Metas_title         = "Lito-Tron – Artes gráficas";
+       $Pagina_Metas_description   = "La Línea Lito-Tron cuenta con productos altamente especializados para la Industria de Artes Gráficas y gracias a ellos En este importante sector hemos logrado optimizar sus alistamientos y reducir sus tiempos muertos";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/productos/tron_1.jpg" />
+    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/liena_artes_graficas.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
+  
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 4) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Inocuidad, seguridad alimentaria, bioseguridad, bioseguridad alimentaria, limpieza, desinfección, limpieza y desinfección, BPM, HACCP, prácticas higiénicas';
+       $Pagina_Metas_title         = "La Línea Alimentaria de Balquimia";
+       $Pagina_Metas_description   = "Su enfoque es la bioseguridad alimentaria, Cuenta con productos especializados para la limpieza y desifección en todos los sectores de una planta de producción de alimentos, sus  productos son elaborados con altos estándares de calidad y cumplen con todos  los requisitos exigidos por los organismos de control";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_alimentaria.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
+  
+   <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 2) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Químicos, baños, baños móviles, baños portátiles, orinales, popo, pipi, obras de construcción, carreteras, eventos, conciertos, matrimonios, cumpleaños, limpieza, desinfección, desodorizar, aromatizar, malos olores, materia fecal, biodegradable, asfalto, grafitis, superficies brillantes';
+       $Pagina_Metas_title         = "La Línea sanidad portátil de Balquimia";
+       $Pagina_Metas_description   = "Productos químicos especializados, enfocados para la limpieza y desinfección de baños móviles o portátiles utilizados en obras de construcción, eventos públicos o privados";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_sanidad.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
+  
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 8) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Formulaciones, aseo, limpieza, cera, ceras, carnauba, autoemulsificables, alto brillo, pisos, baldosas, silicona, Agente desmoldante, anti-adherente, moldes, muebles, madera, cuero, detergente, concentrados, pH';
+       $Pagina_Metas_title         = "La línea de Materias Primas de Balquimia";
+       $Pagina_Metas_description   = "Productos químicos que agilizan sus procesos a bajos costos";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_materias_primas.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
 
 
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 5) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Vehículos, carros, camiones, mixer, camionetas, buses, busetas, motos, tractores, tractomulas, carpas, contenedores,lanchas, shampoo, detergente, desengrasante, biodegradable, medio ambiente, pH neutro, espuma, espumosidad, ceras, lavar, limpieza, motor';
+       $Pagina_Metas_title         = "Línea Automotríz de Balquimia";
+       $Pagina_Metas_description   = "Productos químicos especialmente diseñados para el cuidado cualquier tipo de vehículo sin contaminar el medio ambiente";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_automotriz.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
 
 
-<!--
-  ZONAS
--             Home
--             Industrial
--             El producto
-
-- Info
-- Productos Tron
-- Productos todos /categorias_marcas/
-- Productos por categoría /productos_por_categoria_individual/
-
-
-   <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta name="description" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="http://.jpg" />
-    <meta name="keywords" content="" />
- -->
 
