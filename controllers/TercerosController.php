@@ -1151,8 +1151,17 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
      echo json_encode($Datos ,256);
     }
 
-   }
 
+    public function Compresion_Dinamica (){
+       $this->Terceros->Compresion_Dinamica ();
+    }
+
+
+
+
+
+
+   }
 ?>
 
 

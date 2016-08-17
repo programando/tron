@@ -226,8 +226,7 @@
 						return $Terceros;
 				}
 
-				public function Consulta_Datos_Por_Email($email)
-				{
+				public function Consulta_Datos_Por_Email($email)	{
 						/** ENERO 31DE 2014
 								 CONSULTA DATOS DEL USUARIO CON  EMAIL. DESDE EL LOGIN				*/
 						$Terceros                 = $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_email('$email')");
@@ -246,6 +245,11 @@
 				}
 
 
+				public function Compresion_Dinamica ()	{
+						/** AGOSTO 16 DE 2016
+								 REALIZA LA COMPRESIÓN DINÁMICA DE LOS USUARIOS QUE DEJARON DE COMPRAR POR MÁS DE TRES MESES		*/
+						$Terceros                 = $this->Db->Ejecutar_Sp("terceros_compresion_dinamica()");
+				}
 
 
 

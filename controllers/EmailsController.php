@@ -40,11 +40,7 @@
             $this->Email->AddAddress( $email  );
             $Respuesta              = $this->Enviar_Correo();
         }
-            $this->Configurar_Cuenta('COMPROBACIÓN TRON' );
-            $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
-            $this->Email->AddAddress( 'jhonjamesmg@hotmail.com' );
-            $Respuesta              = $this->Enviar_Correo();
-            //
+
 
       }
 
