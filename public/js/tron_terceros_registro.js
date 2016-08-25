@@ -283,12 +283,14 @@ $('#identificacion_nat').on('blur',function(){
 
           if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados == 0){
                window.location.href = "/tron/terceros/modificacion_datos/" + respuesta.idtercero;
-            }else{
+            }
+           if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados > 0){
                 Mensaje_Identificacion_Ya_Existe();
             }
           }
        });
 });
+
 
 
 $('#identificacion_nat').on('focusout',function(){
