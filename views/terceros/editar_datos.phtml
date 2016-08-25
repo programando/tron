@@ -1,0 +1,64 @@
+<br>
+<div class="container ">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tabbable" id="tabs-edicion-datos">
+
+				<ul class="nav nav-tabs">
+
+					<li class="active">
+						<a href="#panel1" data-toggle="tab">1. Datos Personales</a>
+					</li>
+
+					<li >
+						<a href="#panel2" data-toggle="tab">2 . Datos de Cuenta</a>
+					</li>
+
+					<li >
+						<a href="#panel3" data-toggle="tab">3 . Direcciones para despacho</a>
+					</li>
+
+				</ul>
+
+				<div class="tab-content">
+
+					<div class="tab-pane active" id="panel1">
+								<?php include (APPLICATION_SECTIONS . 'terceros_modificacion_paso_1.php');?>
+						</div> <!-- Fin Contenido pagina 1      -->
+
+
+					<div class="tab-pane" id="panel2">
+						<p>
+							 <?php include (APPLICATION_SECTIONS . 'terceros_modificacion_paso_2.php');?>
+						</p>
+					</div>
+
+
+
+
+					<div class="tab-pane" id="panel3">
+						<p>
+							I'm in Section 3.
+						</p>
+					</div>
+
+
+
+			</div> <!-- Fin Contenido      -->
+
+
+              <!-- BTN = Atualizar datos -->
+              <div class="text-center">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                      <button type="button" id="btn_atualizar_datos" class="btn_atualizar_datos btn btn-success"
+                      idtercero           = "<?= $this->idtercero ;?>"
+                      idtpidentificacion  = "<?= $this->idtpidentificacion ;?>">Actualizar Datos</button>
+                  </div>
+              </div>
+
+			</div>
+		</div>
+
+	</div>
+</div>

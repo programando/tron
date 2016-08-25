@@ -182,7 +182,6 @@ $('.contenedor_cuenta').on('click', '#btn_atualizar_datos', function(){
               });
       }else{
       	Actualizar_Datos_Cuenta_Usuario ($Parametros_Actualizar_Registro );
-
       }
 });
 
@@ -284,8 +283,8 @@ $('.contenedor_cuenta').on('click','#direcciones',function(){
 });
 
 //$Codigos = $("ul");
-$('.usu-1').on('click',function()
-{
+$('.usu-1').on('click',function() {
+
   $Usuario_Seleccionado = $(this).attr('id');
   $Cantidad_Direcciones = $(this).attr('cantidad-direcciones');
   $('.barra-usurarios li').each(function(indice, elemento) {
@@ -296,6 +295,40 @@ $('.usu-1').on('click',function()
   $('#'+$Usuario_Seleccionado).css('color','white');
   $Parametros = {'idtercero':$Usuario_Seleccionado,'json':0};
   Mostrar_Direcciones_x_IdTercero($Parametros);
+
 })
 
 
+$('.contenedor_cuenta').on('click','#btn-actualizar-direccion',function(){
+
+      var $NumSelectDpto  = $(this).attr('idselectdpto');
+
+  if ( $NumSelectDpto == 'undefined'){
+      var $Municipio = '#new_idmcipio';
+    }else{
+      var $Municipio = '#new_idmcipio'+$NumSelectDpto ;
+    }
+
+      id = $(this).parents("tr").find("td").eq(0).html();
+
+      idmcipio =$(this).parents("tr").find($Municipio).val();
+      alert(idmcipio);
+
+});
+
+
+
+
+/*
+function Actualizar_Direcciones(editableObj,column,id) {
+  $(editableObj).css("background","#FFF url('/tron/public/images/empresa/loaderIcon.gif') no-repeat right");
+  $.ajax({
+    url: '/tron/terceros/direcciones_actualizar/',
+    type: "POST",
+    data:'column='+column+'&editval='+editableObj.innerHTML+'&id='+id,
+    success: function(data){
+      $(editableObj).css("background","#FDFDFD");
+    }
+   });
+}
+*/

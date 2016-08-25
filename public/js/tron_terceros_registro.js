@@ -270,7 +270,7 @@ var Mensaje_Identificacion_Ya_Existe = function(){
 
 
 
-/// IDENTIFICACION
+/// IDENTIFICACION  modificacion_datos
 $('#identificacion_nat').on('blur',function(){
     var $identificacion = $('#identificacion_nat').val();
      if ($identificacion.length==0){ return ;}
@@ -280,8 +280,11 @@ $('#identificacion_nat').on('blur',function(){
           url:      '/tron/terceros/Buscar_Por_Identificacion/',
           type:     'post',
      success:  function (respuesta)     {
-          if (respuesta.Respuesta == 'SI_EXISTE'){
-              Mensaje_Identificacion_Ya_Existe();
+
+          if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados == 0){
+               window.location.href = "/tron/terceros/modificacion_datos/" + respuesta.idtercero;
+            }else{
+                Mensaje_Identificacion_Ya_Existe();
             }
           }
        });

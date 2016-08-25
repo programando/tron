@@ -252,6 +252,13 @@
 				}
 
 
+				public function Ejecutar_SQL( $SQL ) {
+						  $this->Db->Ejecutar_SQL( $SQL );
+				}
+
+
+
+
 
   }
 ?>

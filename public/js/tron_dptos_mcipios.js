@@ -94,6 +94,40 @@ $('.contenedor_cuenta').on('change','#iddpto',function(){
    }
 })
 
+$('.contenedor_cuenta').on('change','#iddpto',function(){
+  //undefined
+  var $NumSelectDpto  = $(this).attr('idselectdpto');
+  var $IdDpto     = $(this).val();
+
+  if ( $NumSelectDpto == 'undefined'){
+      var $Municipios_Transf = $('#new_idmcipio');
+    }else{
+      var $Municipios_Transf = $('#'+'new_idmcipio'+$NumSelectDpto );
+    }
+
+ if ($IdDpto==0)  {
+    $Municipios_Transf.empty();
+    $Municipios_Transf.append("<option>Seleccione un departamento</option>");
+   }else  {
+    $.ajax({
+          data:  {'iddpto':$IdDpto},
+          dataType: 'json',
+          url:      '/tron/municipios/Consultar/',
+          type:     'post',
+     success:  function (municipios)
+       {
+        $Municipios_Transf.empty();
+        $Municipios_Transf.append('<option value="0">CIUDAD O MUNICIPIO...</option>');
+          for(var i = 0; i < municipios.length; i++)
+          {
+              $Municipios_Transf.append('<option value="' + municipios[i].idmcipio + '">' + municipios[i].nommcipio + '</option>');
+         }
+       }
+       });
+   }
+})
+
+
 
 
 $('.contenedor_cuenta').on('change','#new_iddpto',function(){

@@ -35,9 +35,9 @@
                                             telefono             = "<?= $telefono ;?>"
                                             barrio               = "<?= $barrio ;?>"
                                             idtercero            = "<?= $idtercero ;?>"
-            
+
                                 >
-            
+
                                 <strong><?= $destinatario  ;?></strong>
             <br> <?= $direccion  . " / " . $nommcipio_despacho  . " / " . $nomdpto  ;?>
                                 </a>
@@ -52,10 +52,10 @@
             <br>
             <?php endif ;?>
             </div>
-            
-            
-            
-            
+
+
+
+
             </div>
 
          	<!-- Formulario -->
@@ -67,27 +67,27 @@
                                                 <label for="new_destinario"  class="col-lg-3  control-label"><p class="text-label">Destinario:</p></label>
                                                 <div class="col-lg-9" >
                                                    <input type="text" class="form-control" id="new_destinario"
-            
+
                                                    />
                                                 </div>
                                               </div>
-            
+
                  <!-- Departamento -->
                                               <div class="form-group">
                                                 <label for="new_iddpto"  class="col-lg-3  control-label "><p class="text-label">Departamento:</p></label>
                                                 <div class="col-lg-9" >
-                                                                                                    <select class="form-control" id="new_iddpto">
-                                                                                                        <option value="0">Seleccione un Departamento</option>
-                                                                                                        <?php
-                                                                                                        foreach ($this->Departamentos as $Departamento) {
-                                                                                                            echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
-                                                                                                        }
-                                                                                                        ?>
-                                                                                                    </select>
-                                                                                                     <div id='dpto_actual' class="departamento_municipio_actual"></div>
+                                                <select class="form-control" id="new_iddpto">
+                                                    <option value="0">Seleccione un Departamento</option>
+                                                        <?php
+                                                              foreach ($this->Departamentos as $Departamento) {
+                                                                  echo '<option value="'.$Departamento['iddpto'].'">'.$Departamento['nomdpto'].'</option>';
+                                                                }
+                                                        ?>
+                                                </select>
+                                                <div id='dpto_actual' class="departamento_municipio_actual"></div>
                                                 </div>
                                               </div>
-            
+
                  <!-- Municipio -->
                                               <div class="form-group">
                                                 <label for="new_idmcipio"  class=" col-lg-3  control-label "><p class="text-label">Municipio: </p></label>
@@ -98,7 +98,7 @@
                                                    <div id='mcipio_actual' class="departamento_municipio_actual"></div>
                                                 </div>
                                               </div>
-            
+
                  <!-- Direccion -->
                                               <div class="form-group">
                                                 <label for="new_direccion"  class="col-lg-3  control-label "><p class="text-label">Dirección: </p></label>
@@ -106,7 +106,7 @@
                                                    <input type="text" class="form-control" id="new_direccion" />
                                                 </div>
                                               </div>
-            
+
                  <!-- Barrio -->
                                               <div class="form-group">
                                                 <label for="new_barrio"  class="col-lg-3  control-label "><p class="text-label">Barrio: </p></label>
@@ -114,7 +114,7 @@
                                                    <input type="text" class="form-control" id="new_barrio" />
                                                 </div>
                                               </div>
-            
+
                  <!-- Telefono -->
                                               <div class="form-group">
                                                 <label for="new_celular1"  class="col-lg-3  control-label "><p class="text-label">Celular: </p></label>
@@ -122,7 +122,7 @@
                                                    <input type="text" class="form-control" id="new_celular1" />
                                                 </div>
                                               </div>
-            
+
                  <!-- Btn = crear / actualizar direccion -->
                    <div class="col-lg-12 col-md-12 col-sm-12">
                        <div class="text-center">

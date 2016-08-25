@@ -1,6 +1,6 @@
 <div class="contenedor_from_1">
 	   <div class="row">
-
+<br>
       <!-- Campo NIT -->
        <?php if ( $this->idtpidentificacion == 31 ) :?>
         <div class=" well col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; display: " id="campos_nit">

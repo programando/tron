@@ -16,6 +16,9 @@ class TercerosController extends Controller
 
     public function Index() { }
 
+    public function editar() {
+      $this->View->Mostrar_Vista("modificacion_datos");
+    }
 
     public function Consulta_Datos_Usuario( $idtercero ){
        $tercero       = $this->Terceros->Consulta_Datos_Usuario ( $idtercero);
@@ -67,16 +70,17 @@ class TercerosController extends Controller
        Session::Set('Generando_Pedido_Amigo', FALSE);
        $identificacion = strtoupper( General_Functions::Validar_Entrada('identificacion','TEXT') );
        $Respuesta      ='';
-       if ( strlen( trim( $identificacion ) ) == 0 ) { //|| strlen( trim( $codigousuario) ) == 0
+       if ( strlen( trim( $identificacion ) ) == 0 ) {
           $Respuesta ='NO VACIOS';
        }
-       if ( strlen( trim( $identificacion ) ) > 0 ) { //&& strlen( trim( $codigousuario) ) > 0
+       if ( strlen( trim( $identificacion ) ) > 0 ) {
         $Registro = $this->Terceros->Terceros_Consultar_Datos_Identificacion_Codigo_Usuario($identificacion );
         if ( !$Registro ){
           $Respuesta ='NO EXISTE';
         }else{
           $this->Validar_Ingreso_Usuario_Asignar_Datos( $Registro );
           Session::Set('Generando_Pedido_Amigo', TRUE);
+          Session::Set('logueado', TRUE );
           $Respuesta ='SI EXISTE';
         }
        }
@@ -362,12 +366,40 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
               $this->View->param_identificacion_titular_cuenta            = $Registro [0]['param_identificacion_titular_cuenta'];
       }
 
-    public function modificacion_datos()  {
-        $idtercero                 = Session::Get('idtercero');
+    public function modificacion_datos( $idtercero = 0 )  {
+        //POR FDEFECTO CARGO LA VISTA PARCIAL PARA LA MODIFICACIÓN DE DATOS
+        $Vista_Parcial = TRUE;
+        if ( $idtercero > 0 ){
+          $Vista_Parcial = FALSE;
+        }
+
+        if ( $idtercero == 0 ){
+            $idtercero                 = Session::Get('idtercero');
+          }
+
         $Registro                  = $this->Terceros->Consulta_Datos_x_Idtercero($idtercero);
 
         $this->modificacion_datos_asigna_datos_vista($Registro);
-        $this->View->Mostrar_Vista_Parcial("modificacion_datos");
+
+        $this->View->SetCss(array('tron_terceros_administrar_cuenta',"tron_modificacion_datos","password",'tron_carrito_identificacion',
+                                  'tron_carrito_confi_envio','tron_barra_usuarios','tron_mis_pedidos','tron_informe_mi_cuenta','tron_confi_perfil',
+                                  'tron_cuenta_pases_cortesia','tron_cuenta_info_partici_la_red','cuenta_informe_mi_red'));
+
+        $this->View->SetJs(array('tron_terceros_administrar_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar',
+                                 'tron_dptos_mcipios','tron_pedidos_historial','tron_informes','jquery.tablesorter'));
+
+        $this->View->idtipo_plan_compras            = Session::Get('idtipo_plan_compras');
+        $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');
+        $this->View->kit_comprado                   = Session::Get('kit_comprado');
+        $this->View->inscripcion_pagada             = Session::Get('inscripcion_pagada');
+
+
+        if ( $Vista_Parcial  == TRUE ){
+            $this->View->Mostrar_Vista_Parcial("modificacion_datos");
+          } else{
+            $this->View->Mostrar_Vista("modificacion_datos");
+          }
+
       }
 
 
@@ -487,6 +519,9 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $this->View->SetCss(array('tron_activacion_mi_cuenta','password'));
         $this->View->SetJs(array('tron_terceros_activar_cuenta','password'));
         $this->View->Mostrar_Vista("activar_cuenta_usuario");
+
+
+
     }
 
     public function Registro_Datos_Usuario() {
@@ -1138,16 +1173,19 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
      /** MAYO 05 DE 2015
      *   CONSULTA DATOS BÁSICO DE UN TERCERO POR IDENTIFICACION
      */
-     $identificacion = General_Functions::Validar_Entrada('identificacion','TEXT');
-     $Tercero        = $this->Terceros->Buscar_Por_Identificacion($identificacion);
-
+     $identificacion        = General_Functions::Validar_Entrada('identificacion','TEXT');
+     $Tercero               = $this->Terceros->Buscar_Por_Identificacion($identificacion);
+     $cant_pedidos_facturados = 0 ;
+     $idtercero             = 0;
 
      if (!$Tercero){
           $Respuesta ='NO_EXISTE';
      }else{
         $Respuesta ='SI_EXISTE';
+        $cant_pedidos_facturados = $Tercero[0]['cant_pedidos_facturados'];
+        $idtercero             = $Tercero[0]['idtercero'];
      }
-     $Datos = compact('Respuesta' );
+     $Datos = compact('Respuesta','cant_pedidos_facturados','idtercero' );
      echo json_encode($Datos ,256);
     }
 
