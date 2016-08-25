@@ -8,14 +8,14 @@
             <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
                 <div class="col-resumen-pedido"><strong>Transporte + Recaudo <small>( Calculado para Cali ):</small></strong></div>
                 <?php else : ?>
-                  <div class="col-resumen-pedido"><strong>Recaudo <small>( Calculado para Cali ):</small></strong></div>
+                  <div class="col-resumen-pedido"><strong> Recaudo <small>( Calculado para Cali ):</small></strong></div>
             <?php endif ;?>
 
         <?php else : ?>
              <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
                 <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
                 <?php else : ?>
-                  <div class="col-resumen-pedido"><strong>( + )Recaudo <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
+                  <div class="col-resumen-pedido"><strong>( + ) Recaudo <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
              <?php endif ;?>
         <?php endif ;?>
 
