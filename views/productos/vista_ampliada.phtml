@@ -55,6 +55,8 @@
       Session::Set('Pagina_Facebook_IMAGEN',BASE_IMG_PRODUCTOS_472x472.$nombre_imagen );
 ?>
 
+<?php include (APPLICATION_SECTIONS . 'productos/valida_oferta_cumpleanios.php');?>
+
 <!-- MIGAS DE PAN QUE QUEDAN PENDIENTES LINK: HOGAR Y PERSONAL-->
 
 <!-- INICA LA PRESENTACION DEL ARTICULO:IMG, PRECIO , TABLA-->
@@ -227,8 +229,7 @@
                                 <button type="button" class="agregar  boton-agregar-carrito"
                                     id                    ="<?=$id_controles ;?>"
                                     id-categoria-producto ="<?= $id_categoria_producto ;?>"
-                                    en-oferta               = "<?= $en_oferta ;?>"
-                                    >
+                                    en-oferta               = "<?= $en_oferta ;?>" >
                                     <div class="btn-agregar-carrito">
                                         Agregar <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
                                     </div>

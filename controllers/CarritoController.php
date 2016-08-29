@@ -1499,7 +1499,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         }
 
         $Carrito_Actual     = $_SESSION['carrito'];
-        $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada );
+        $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada,'en_oferta'=>$ProdEnOferta );
         $Existe_Id_Producto = false;
         $Pos                = 0;
         $Cantidad_Filas     = count($Carrito_Actual);
@@ -1525,9 +1525,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
           $this->Depurar_Carrito();
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $IdProducto,  $ProdEnOferta  );
-
           $this->Totalizar_Carrito(   );
-
           $this->Retornar_Totales_Carro_Json();
 
 
@@ -1542,8 +1540,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
       * COMPLEMENTA LOS DATOS NECESARIOS DE PRODUCTOS EN EL CARRO DE COMPRAS PARA REALIZAR TODAS LAS OPERACIONES CORRESPONDIENTES
       * Y POSTERIORMENTE FINALIZAR EL PEDIDO
       */
-        if (!isset($_SESSION['carrito']))
-        {
+        if (!isset($_SESSION['carrito']))  {
           $this->View->Carrito_Vacio = true;
           return ;
         }
@@ -1572,7 +1569,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                                         'vr_anticipo_recaudo'=>0,'precio_venta_antes_iva_tron'=>0, 'precio_venta_antes_iva_ocasional'=>0,
                                         'vr_ppto_fletes_tron'=>0, 'vr_ppto_fletes_ocas'=>0, 'vr_anticipo_recaudo_tron'=>0,
                                         'vr_anticipo_recaudo_ocas'=>0, 'precio_kit_ocasional'=>0, 'precio_kit_tron'=>0,
-                                        'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=>0);
+                                        'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=> 0 );
 
         if (!isset( $Parametros)) {
           $Parametros = $this->Parametros->Consultar();
@@ -1584,14 +1581,18 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
         foreach ( $Datos_Carro as $ProductosCarro ) {
             $Cantidad     = $ProductosCarro['cantidad'] ;
             $IdProducto   = $ProductosCarro['idproducto'];
+            $en_oferta    = $ProductosCarro['en_oferta'];
 
             if ( $Cantidad > 0 )   {
                 $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto( $IdProducto );
 
                 if ( $IdProductoAgregado === $IdProducto  &&  $ProdEnOferta == 1 ){
-                  Debug::Mostrar( "Oferta " . $IdProductoAgregado );
                   $CarroTemporal['en_oferta'] = 1;
+                }else{
+                  $CarroTemporal['en_oferta'] = $en_oferta;
                 }
+
+
 
                 $CarroTemporal['idproducto']            = $IdProducto;
                 $CarroTemporal['cantidad']              = $Cantidad ;

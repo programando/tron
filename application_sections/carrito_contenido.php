@@ -2,7 +2,7 @@
       <!--Cuerpo = Tabla -->
     <?php
 
-        foreach ($this->Datos_Carro as $ProductosCarro)   {
+        foreach ( $this->Datos_Carro as $ProductosCarro )   {
           $idproducto              = $ProductosCarro['idproducto'];
           $nom_producto            = $ProductosCarro['nom_producto'];
           $nompresentacion         = $ProductosCarro['nompresentacion'];
@@ -30,9 +30,11 @@
           $Cantidad_Comprada      = Session::Get($NombreArray );
           $tipo_despacho_final    = $ProductosCarro['tipo_despacho_final'];
           $id_transportadora      = $ProductosCarro['id_transportadora'];
-          $oferta                 = $ProductosCarro['en_oferta'];
+          $en_oferta              = $ProductosCarro['en_oferta'];
 
       ?>
+
+
 
       <tr class="fila">
        <td class="col-tabla-eliminar" >
@@ -69,10 +71,11 @@
                 <!--Inicio  Boton Menos-->
                 <button
                 id="<?=$idproducto ;?>"
-                type="button"
-                class="btn btn-default btn-menos btns-carrito carrito-resumen-menos"
+                type  = "button"
+                class ="btn btn-default btn-menos btns-carrito carrito-resumen-menos"
                 onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"
                 idproducto  = "<?=$idproducto ;?>"
+
                 NomProducto ="<?= $nom_producto ;?>" >-
               </button><!-- Fin Boton Menos-->
 
@@ -102,6 +105,7 @@
             class       ="btn btn-default btn-menos btns-carrito carrito-resumen-mas"
             onclick     ="javascript: Carrito_Sumar('<?=$id_controles ;?>')"
             idproducto  = "<?=$idproducto ;?>"
+            en-oferta   = "<?= $en_oferta ;?>"
             NomProducto ="<?= $nom_producto ;?>" >+
           </button> <!-- Fin Boton Mas-->
         </div>

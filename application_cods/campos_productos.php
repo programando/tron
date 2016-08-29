@@ -40,13 +40,9 @@
               CONFIGURACIÓN PARA QUE TODOS LOS PRODUCTOS ESTÉN EN OFERTA
               PARA QUIEN CUMPLE AÑOS
        */
-       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-       $Cumple_Anios     = Session::Get('cumple_anios');
+        include (APPLICATION_SECTIONS . 'productos/valida_oferta_cumpleanios.php')
 
-       /*if ( $Id_Area_Consulta == 2  && $Cumple_Anios == TRUE ){
-              $en_oferta = TRUE ;
-       }
-       */
+
 
 ?>
 

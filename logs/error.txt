@@ -2366,3 +2366,14 @@
 [29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
 [29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
 [29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
+[29-Aug-2016 23:16:22 Europe/Berlin] PHP Warning:  Missing argument 8 for TercerosController::Registro_Datos_Usuario_Envio_Correo_Activacion() in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 709
+[29-Aug-2016 23:16:22 Europe/Berlin] PHP Notice:  Undefined variable: codigousuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 713
+[29-Aug-2016 23:24:29 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\views\productos\vista_ampliada.phtml on line 124
+[29-Aug-2016 23:24:29 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\views\productos\vista_ampliada.phtml on line 230
+[29-Aug-2016 23:24:29 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\views\productos\vista_ampliada.phtml on line 317
+[30-Aug-2016 00:16:28 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\application_sections\carrito_contenido.php on line 94
+[30-Aug-2016 00:16:28 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\application_sections\carrito_contenido.php on line 94
+[30-Aug-2016 00:16:38 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\application_sections\carrito_contenido.php on line 94
+[30-Aug-2016 00:17:21 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\application_sections\carrito_contenido.php on line 107
+[30-Aug-2016 00:17:41 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\application_sections\carrito_contenido.php on line 107
+[30-Aug-2016 00:17:41 Europe/Berlin] PHP Notice:  Undefined variable: en_oferta in C:\xampp\htdocs\tron\application_sections\carrito_contenido.php on line 107

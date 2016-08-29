@@ -50,8 +50,7 @@
 
  		}
 
- 		public function Grabar_Detalle($texto_sql)
- 		{
+ 		public function Grabar_Detalle($texto_sql)		{
  				$Registro = $this->Db->Ejecutar_SQL($texto_sql);
  		}
 

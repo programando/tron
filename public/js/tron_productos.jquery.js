@@ -517,7 +517,8 @@ $('#contenido-productos').on('keyup','.CantProdCompraTron',function(){
 $('#contenido-productos').on('click','.carrito-resumen-mas',function(){
 			$IdProducto    = $(this).attr("idproducto");
 			$NomProducto   = $(this).attr("NomProducto");
-			var Parametros = {"IdProducto" :$IdProducto, "CantidadComprada": 1};
+			$en_oferta   = $(this).attr("en-oferta");
+			var Parametros = {"IdProducto" :$IdProducto, "CantidadComprada": 1, "en_oferta":$en_oferta };
    Agregar_Producto_a_Carrito($NomProducto,Parametros);
    Actualizar_Vista_Carrito();
 

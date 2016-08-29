@@ -171,7 +171,7 @@ class PedidosController extends Controller
 
      $Valores           = '';
      $Datos             = '';
-     $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt,id_transportadora) VALUES ";
+     $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt,id_transportadora,en_oferta) VALUES ";
 
     	foreach ($this->Datos_Carro as $Productos)	{
           $idpedido          = $IdPedido_Generado;
@@ -182,9 +182,10 @@ class PedidosController extends Controller
           $idescala_dt       = $Productos['idescala_dt'];
           $tipo_despacho     = $Productos['tipo_despacho'];
           $id_transportadora = $Productos['id_transportadora'];
+          $en_oferta         = $Productos['en_oferta'];
 
           $Valores           = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
-          $Valores           = $Valores  .',' . $id_transportadora ;
+          $Valores           = $Valores  .',' . $id_transportadora .',' . $en_oferta  ;
           $Valores           = '( ' . $Valores . ' ),';
           $Datos             = $Datos . $Valores ;
     	}
