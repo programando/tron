@@ -124,7 +124,7 @@
         public function Buscar_por_IdProducto($idproducto)   {
         	/** DIC 30 DE 2014.
         	* CONSULTA INFORMACIÓN DETALLADA DEL PRODUCTO 	*/
-        	$Producto = $this->Db->Ejecutar_Sp("productos_buscar_por_idproducto($idproducto)");
+        	$Producto = $this->Db->Ejecutar_Sp("productos_buscar_por_idproducto ( $idproducto )");
         	return $Producto;
         }
 

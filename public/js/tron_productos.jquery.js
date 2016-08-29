@@ -589,16 +589,19 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
 	$('#contenido-productos').on('click','.boton-agregar-carrito',function()
 {
-		var NombreBoton      	= $(this).attr("id");
-		var IdInputCantidad 		= NombreBoton.split("cantidad");
-  var IdProducto 					  = IdInputCantidad[1];
-  var CantidadComprada 	= $("#cantidad"+IdProducto).val();
-  var NomProducto       = $("#nomproducto"+IdProducto).text();
-  var NomPresentacion   = $("#nompresentacion"+IdProducto).text();
-  var es_tron 										= false;
-  var es_tron_acc							= false;
-  var  id_categoria_producto = $(this).attr('id-categoria-producto');
-  var Parametros 						 = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,"es_tron": es_tron , "es_tron_acc": es_tron_acc	 };
+		var NombreBoton           = $(this).attr("id");
+		var IdInputCantidad       = NombreBoton.split("cantidad");
+		var IdProducto            = IdInputCantidad[1];
+		var CantidadComprada      = $("#cantidad"+IdProducto).val();
+		var NomProducto           = $("#nomproducto"+IdProducto).text();
+		var NomPresentacion       = $("#nompresentacion"+IdProducto).text();
+		var es_tron               = false;
+		var es_tron_acc           = false;
+		var id_categoria_producto = $(this).attr('id-categoria-producto');
+		var en_oferta             = $(this).attr('en-oferta');
+
+  var Parametros 						 		  = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,
+  																									"es_tron": es_tron , "es_tron_acc": es_tron_acc, "en_oferta":en_oferta 	 };
   // SI ES KIT DE INICIO O PRODUCTO PROMOCIONAL Y ES EMPRESARIO O CLIENTE TRON NO SE LE PERMITE COMPRAR.
   if ( IdProducto == 10744 ||  id_categoria_producto == 8){
   	  Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio();

@@ -30,6 +30,8 @@
           $Cantidad_Comprada      = Session::Get($NombreArray );
           $tipo_despacho_final    = $ProductosCarro['tipo_despacho_final'];
           $id_transportadora      = $ProductosCarro['id_transportadora'];
+          $oferta                 = $ProductosCarro['en_oferta'];
+
       ?>
 
       <tr class="fila">
@@ -55,7 +57,7 @@
        </td><!--Nombre del producto -->
 
        <td><!-- Presentacon $id_transportadora. ' ' .substr($tipo_despacho_final,0,3) . ' '.-->
-             <p class="text-center info-tabla"> <?=  $nompresentacion ;?> </p>
+             <p class="text-center info-tabla"> <?= $oferta. '-'. $nompresentacion ;?> </p>
        </td> <!-- Presentacon -->
 
        <td class="col-tabla-cantidad" ><!--Botones => Cantidad -->

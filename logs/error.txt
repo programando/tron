@@ -1731,3 +1731,638 @@
 [25-Aug-2016 16:40:20 Europe/Berlin] PHP Notice:  Undefined variable: k in C:\xampp\htdocs\tron\application_sections\terceros_modificacion_paso_3_direcciones.php on line 85
 [25-Aug-2016 16:40:20 Europe/Berlin] PHP Notice:  Undefined variable: faq in C:\xampp\htdocs\tron\application_sections\terceros_modificacion_paso_3_direcciones.php on line 85
 [25-Aug-2016 16:40:20 Europe/Berlin] PHP Notice:  Undefined variable: k in C:\xampp\htdocs\tron\application_sections\terceros_modificacion_paso_3_direcciones.php on line 85
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cmv' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'id_categoria_producto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'idpresentacion' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'idproducto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'iva' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_ocasional' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_tron' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'cmv' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'id_categoria_producto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'idpresentacion' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'idproducto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'iva' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_ocasional' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_tron' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1091
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: id_categoria_producto in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1092
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: idproducto in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1093
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Notice:  Undefined index: iva in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1094
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:46 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 94
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 95
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 96
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 97
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
+[29-Aug-2016 17:55:47 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1508
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1508
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1508
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 7 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 8 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 9 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 10 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 11 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 12 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 13 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 14 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cmv' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'id_categoria_producto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'idpresentacion' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'idproducto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'iva' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_ocasional' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_tron' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 697
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 698
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 699
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 700
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 704
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 710
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 711
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 712
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 713
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cantidad' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 678
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'cmv' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 679
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'id_categoria_producto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 680
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'idpresentacion' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 681
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'idproducto' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 682
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 683
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'peso_gramos' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 684
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'iva' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 685
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_ocasional' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 687
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Illegal string offset 'pv_tron' in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Uninitialized string offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 688
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 3 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 4 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 5 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1333
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1336
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1345
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1347
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined offset: 6 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1353
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1091
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: id_categoria_producto in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1092
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: idproducto in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1093
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: iva in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1094
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1098
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1099
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1100
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 94
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 95
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 96
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 97
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Notice:  Undefined index: cantidad in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 348
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795
+[29-Aug-2016 17:55:52 Europe/Berlin] PHP Warning:  Cannot use a scalar value as an array in C:\xampp\htdocs\tron\controllers\FletesController.php on line 795

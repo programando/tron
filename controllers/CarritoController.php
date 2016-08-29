@@ -1453,64 +1453,6 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
     }
 
-
-
-
-  public function Agregar_Producto()  {
-      /** ENERO 06 DE 2014
-      *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
-      */
-
-        $IdProducto       = General_Functions::Validar_Entrada('IdProducto','NUM');
-        $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
-        $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
-        $ProdTronAcc      = General_Functions::Validar_Entrada('es_tron_acc','BOL');
-        $NombreArray      = 'TRON'.$IdProducto ;
-
-        Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
-
-
-        if ( !isset( $_SESSION['carrito'])) {
-          $_SESSION['carrito'] = array();
-        }
-
-        $Carrito_Actual     = $_SESSION['carrito'];
-        $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada);
-        $Existe_Id_Producto = false;
-        $Pos                = 0;
-        $Cantidad_Filas     = count($Carrito_Actual);
-        $i                  = 0;
-
-        for ($i=0; $i<$Cantidad_Filas; $i++)  {
-            $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
-
-          if ($IdProducto_Carro==$IdProducto )      {
-              $Carrito_Actual[$i]['cantidad'] = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
-              $Cantidad_Total                 = $Carrito_Actual[$i]['cantidad'] ;
-              $i                              = $Cantidad_Filas+1;
-              $Existe_Id_Producto             = true;
-              Session::Set($NombreArray,$Cantidad_Total); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
-            }
-          }
-
-         if ($Existe_Id_Producto == FALSE)  {
-            array_push($Carrito_Actual, $Ultima_Compra);
-          }
-
-          $_SESSION['carrito'] = $Carrito_Actual;
-
-          $this->Depurar_Carrito();
-          $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc );
-
-          $this->Totalizar_Carrito();
-
-          $this->Retornar_Totales_Carro_Json();
-
-
-    }
-
-
-
     public function Retornar_Totales_Carro_Json()  {
       $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
       $SubTotal_Pedido_Ocasional     =  "$ ".number_format($this->SubTotal_Pedido_Ocasional ,0,"",".");
@@ -1535,7 +1477,66 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
     }
 
 
-    public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false) {
+  public function Agregar_Producto()  {
+      /** ENERO 06 DE 2014
+      *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
+      */
+
+        $IdProducto       = General_Functions::Validar_Entrada('IdProducto','NUM');
+        $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
+        $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
+        $ProdTronAcc      = General_Functions::Validar_Entrada('es_tron_acc','BOL');
+        $ProdEnOferta     = General_Functions::Validar_Entrada('en_oferta','BOL');
+        $NombreArray      = 'TRON'.$IdProducto ;
+
+
+        Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
+
+
+        if ( !isset( $_SESSION['carrito'])) {
+          $_SESSION['carrito'] = array();
+        }
+
+        $Carrito_Actual     = $_SESSION['carrito'];
+        $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada );
+        $Existe_Id_Producto = false;
+        $Pos                = 0;
+        $Cantidad_Filas     = count($Carrito_Actual);
+        $i                  = 0;
+
+        for ($i=0; $i < $Cantidad_Filas;  $i++)  {
+            $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
+
+          if ( $IdProducto_Carro == $IdProducto )      {
+                $Carrito_Actual[$i]['cantidad']  = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
+                $Cantidad_Total                  = $Carrito_Actual[$i]['cantidad'] ;
+                $i                               = $Cantidad_Filas+1;
+                $Existe_Id_Producto              = true;
+                Session::Set($NombreArray,$Cantidad_Total); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
+            }
+          }
+
+         if ($Existe_Id_Producto == FALSE)  {
+            array_push($Carrito_Actual, $Ultima_Compra);
+          }
+
+          $_SESSION['carrito'] = $Carrito_Actual;
+
+          $this->Depurar_Carrito();
+          $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $ProdEnOferta, $IdProducto  );
+
+          $this->Totalizar_Carrito();
+
+          $this->Retornar_Totales_Carro_Json();
+
+
+    }
+
+
+
+
+
+    public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $ProdEnOferta, $IdProductoComprado   ) {
       /** ENERO 07 DE 2015
       * COMPLEMENTA LOS DATOS NECESARIOS DE PRODUCTOS EN EL CARRO DE COMPRAS PARA REALIZAR TODAS LAS OPERACIONES CORRESPONDIENTES
       * Y POSTERIORMENTE FINALIZAR EL PEDIDO
@@ -1570,22 +1571,26 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                                         'vr_anticipo_recaudo'=>0,'precio_venta_antes_iva_tron'=>0, 'precio_venta_antes_iva_ocasional'=>0,
                                         'vr_ppto_fletes_tron'=>0, 'vr_ppto_fletes_ocas'=>0, 'vr_anticipo_recaudo_tron'=>0,
                                         'vr_anticipo_recaudo_ocas'=>0, 'precio_kit_ocasional'=>0, 'precio_kit_tron'=>0,
-                                        'tipo_despacho_final'=>'', 'id_transportadora'=>0);
+                                        'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=>0);
 
         if (!isset( $Parametros)) {
           $Parametros = $this->Parametros->Consultar();
         }
 
-
-
         $CarroFinalCompleto = array();
         $Datos_Carro        = $_SESSION['carrito'];
-        foreach ($Datos_Carro as $ProductosCarro) {
+        //Debug::Mostrar( $Datos_Carro);
+        foreach ( $Datos_Carro as $ProductosCarro ) {
             $Cantidad     = $ProductosCarro['cantidad'] ;
             $IdProducto   = $ProductosCarro['idproducto'];
 
-            if ($Cantidad>0)   {
-                $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto($IdProducto );
+            if ( $Cantidad > 0 )   {
+                $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto( $IdProducto );
+
+                if ( $IdProductoComprado === $IdProducto  ){
+                    $CarroTemporal['en_oferta'] = $ProdEnOferta;
+
+                }
 
                 $CarroTemporal['idproducto']            = $IdProducto;
                 $CarroTemporal['cantidad']              = $Cantidad ;
@@ -1595,7 +1600,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                 $CarroTemporal['fabricado_x_ta']         = $ProductoComprado[0]['fabricado_x_ta'];
 
                 $CarroTemporal['idgrupo']                = $ProductoComprado[0]['idgrupo'];
-                $CarroTemporal['codigo_grupo']                = $ProductoComprado[0]['codigo_grupo'];
+                $CarroTemporal['codigo_grupo']           = $ProductoComprado[0]['codigo_grupo'];
                 $CarroTemporal['idtipo_producto']        = $ProductoComprado[0]['idtipo_producto'];
                 $CarroTemporal['id_categoria_producto']  = $ProductoComprado[0]['id_categoria_producto'];
                 $CarroTemporal['idpresentacion']         = $ProductoComprado[0]['idpresentacion'];
@@ -1614,6 +1619,8 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
                 $CarroTemporal['tipo_despacho']          = $ProductoComprado[0]['tipo_despacho'];
                 $CarroTemporal['margen_bruta_inicial']   = $ProductoComprado[0]['margen_bruta_inicial'] / 100 ;
+
+
 
                 $CarroTemporal['sub_total_pv_ocasional'] = 0;
                 $CarroTemporal['sub_total_pv_tron']      = 0;
