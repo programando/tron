@@ -650,7 +650,7 @@ private function Totalizar_Carrito_Inicializar_Propiedades(){
 
 
 
-public function Totalizar_Carrito(){
+public function Totalizar_Carrito (  ){
   /** JULIO 24 DE 2015
    *      REALIA LOS CALCULOS NECESARIOS PARA HALLAR LOS TOTALES EN EL CARRITO
    */
@@ -673,7 +673,7 @@ public function Totalizar_Carrito(){
       $cumple_condicion_cpras_tron_industial = $this->Determinar_Cumple_Condicion_Cpras_Tron_Industial();   // EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
       //Debug::Mostrar('CUMPLE ' . $cumple_condicion_cpras_tron_industial );
 
-      foreach ($this->Datos_Carro as &$Productos){                                                    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO
+      foreach ( $this->Datos_Carro as &$Productos ){                                                    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO
 
           $cantidad              = $Productos['cantidad'];
           $cmv                   = $Productos['cmv'];
@@ -686,6 +686,7 @@ public function Totalizar_Carrito(){
           $porciento_ppto_fletes = 0;
           $pv_ocasional          = $Productos['pv_ocasional'];
           $pv_tron               = $Productos['pv_tron'] ;
+
 
 
 
@@ -1477,7 +1478,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
     }
 
 
-  public function Agregar_Producto()  {
+  public function Agregar_Producto ()  {
       /** ENERO 06 DE 2014
       *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
       */
@@ -1523,9 +1524,9 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           $_SESSION['carrito'] = $Carrito_Actual;
 
           $this->Depurar_Carrito();
-          $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $ProdEnOferta, $IdProducto  );
+          $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $IdProducto,  $ProdEnOferta  );
 
-          $this->Totalizar_Carrito();
+          $this->Totalizar_Carrito(   );
 
           $this->Retornar_Totales_Carro_Json();
 
@@ -1536,7 +1537,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
 
 
-    public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $ProdEnOferta, $IdProductoComprado   ) {
+    public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $IdProductoAgregado,  $ProdEnOferta   ) {
       /** ENERO 07 DE 2015
       * COMPLEMENTA LOS DATOS NECESARIOS DE PRODUCTOS EN EL CARRO DE COMPRAS PARA REALIZAR TODAS LAS OPERACIONES CORRESPONDIENTES
       * Y POSTERIORMENTE FINALIZAR EL PEDIDO
@@ -1587,9 +1588,9 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
             if ( $Cantidad > 0 )   {
                 $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto( $IdProducto );
 
-                if ( $IdProductoComprado === $IdProducto  ){
-                    $CarroTemporal['en_oferta'] = $ProdEnOferta;
-
+                if ( $IdProductoAgregado === $IdProducto  &&  $ProdEnOferta == 1 ){
+                  Debug::Mostrar( "Oferta " . $IdProductoAgregado );
+                  $CarroTemporal['en_oferta'] = 1;
                 }
 
                 $CarroTemporal['idproducto']            = $IdProducto;
@@ -1640,8 +1641,6 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                 $CarroTemporal['dscto_precio_mercado_2_banos'] = $Parametros[0]['dscto_precio_mercado_2_banos']/100;
                 $CarroTemporal['dscto_precio_mercado_3_pisos'] = $Parametros[0]['dscto_precio_mercado_3_pisos']/100;
                 $CarroTemporal['dscto_precio_mercado_4_loza']  = $Parametros[0]['dscto_precio_mercado_4_loza']/100;
-
-
 
                 array_push( $CarroFinalCompleto, $CarroTemporal);
 
