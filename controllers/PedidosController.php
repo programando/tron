@@ -173,6 +173,7 @@ class PedidosController extends Controller
      $Datos             = '';
      $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt,id_transportadora,en_oferta) VALUES ";
 
+
     	foreach ($this->Datos_Carro as $Productos)	{
           $idpedido          = $IdPedido_Generado;
           $idproducto        = $Productos['idproducto'];
@@ -183,7 +184,7 @@ class PedidosController extends Controller
           $tipo_despacho     = $Productos['tipo_despacho'];
           $id_transportadora = $Productos['id_transportadora'];
           $en_oferta         = $Productos['en_oferta'];
-
+          if ( !isset($en_oferta ) || empty($en_oferta)) { $en_oferta = 0 ;}
           $Valores           = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
           $Valores           = $Valores  .',' . $id_transportadora .',' . $en_oferta  ;
           $Valores           = '( ' . $Valores . ' ),';
@@ -192,9 +193,12 @@ class PedidosController extends Controller
 
 				$Texto_SQL = $Texto_SQL . $Datos;
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
-				$Pedido_Dt = $this->Pedidos->Grabar_Detalle($Texto_SQL );
+				$Pedido_Dt = $this->Pedidos->Grabar_Detalle( $Texto_SQL );
 
-				// ESTABLECER COMISIONES POR PEDIDO
+
+
+
+        // ESTABLECER COMISIONES POR PEDIDO
 				$this->ComisPuntos->Establercer_Comsiones_Por_Pedido($IdPedido_Generado); // Directo con el modelo
         $this->Comisiones_Puntos_Actualizar($idtercero ,$numero_pedido , $vr_puntos_redimidos,$vr_comis_pago_pedidos);
 
@@ -206,6 +210,7 @@ class PedidosController extends Controller
         $this->Index->Consultar_Datos_Transportadoras();
         Session::Set('Generando_Pedido_Amigo', $Generando_Pedido_Amigo); // Restablecer valor de esta variable
         echo "OK";
+
     }
 
 
