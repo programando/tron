@@ -928,7 +928,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     }
 
 
-    public function Validar_Ingreso_Usuario_Asignar_Datos($Registro ){
+    public function Validar_Ingreso_Usuario_Asignar_Datos( $Registro ){
       Session::Set('idtercero',                       $Registro[0]['idtercero']);
       Session::Set('identificacion' ,                 $Registro[0]['identificacion']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);

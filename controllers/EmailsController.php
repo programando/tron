@@ -46,25 +46,20 @@
 
 
 
-
-
       public function Usuarios_Cumplen_Anios(){
         /** JUNIO 18 2016
-         *    GENERA CORREO ELECTRONICO PARA INFORMAR A LOS USUARIOS SOBRE UN NUEVO INGRESO A SU RED
+         *    GENERA CORREO ELECTRONICO PARA SALUDAR A LOS USUARIOS QUE COMPLEN ANIOS
          */
         $nuevos_usuarios = $this->Mensajes->Usuarios_Cumplen_Anios();
         $Texto_Correo    = file_get_contents(BASE_EMAILS.'usuarios_cumplen_anios.phtml','r');
-        $this->Configurar_Cuenta('¡ Felicidades en tu día !' );
 
         foreach ( $nuevos_usuarios as $usuario ) {
-            $idregistro        = $usuario['idregistro'];
             $email             = $usuario['email'];
-            $nombre_usuario    = $usuario['nuevo_usuario'];
-            $Texto_Correo      = str_replace("#_NOMBRE_NUEVO_USUARIO_#"       , $nombre_usuario ,$Texto_Correo);
-
+            $nombre_usuario    = $usuario['pnombre'];
+            $this->Configurar_Cuenta($nombre_usuario . '... ¡ Felicidades en tu día !' );
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
-            $this->Email->AddAddress( $email );
-            $Respuesta              = $this->Enviar_Correo();
+            $this->Email->AddAddress( $email  );
+            $Respuesta         = $this->Enviar_Correo();
         }
       }
 
