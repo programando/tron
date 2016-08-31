@@ -184,7 +184,11 @@ class PedidosController extends Controller
           $tipo_despacho     = $Productos['tipo_despacho'];
           $id_transportadora = $Productos['id_transportadora'];
           $en_oferta         = $Productos['en_oferta'];
-          if ( !isset($en_oferta ) || empty($en_oferta)) { $en_oferta = 0 ;}
+
+          if ( !isset($en_oferta ) || empty($en_oferta)) {
+            $en_oferta = 0 ;
+          }
+
           $Valores           = $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
           $Valores           = $Valores  .',' . $id_transportadora .',' . $en_oferta  ;
           $Valores           = '( ' . $Valores . ' ),';
