@@ -232,14 +232,12 @@ class ProductosController extends Controller
           }
       }
       $this->View->Producto                = $this->Productos->Buscar_por_IdProducto($idproducto);
+
       $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);
       $this->View->Cantidad_Registros      = $this->Productos->Cantidad_Registros;
-      if ($this->View->Cantidad_Registros>0) {
-            $this->View->Producto_Escalas_Rangos = $this->Escalas->Escalas_Consultar_Rangos($this->View->Producto[0]["idescala"]);
-          }else {
-            $this->View->Error ="No ha sido posible encontrar el producto indicado.";
-          }
+
       $this->View->Productos_Tabs          = $this->Productos->Tabs_Consultar($idproducto);
+
       $this->View->Cantidad_Tabs           = $this->Productos->Cantidad_Registros;
       if ($Id_Area_Consulta ==2)   {// HOGAR
           $this->View->SetCss(array('tron_carrito','tron_productos_vista_ampliada','font_styles','tron_ventana_modal'));

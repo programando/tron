@@ -51,13 +51,14 @@ class IndexController extends Controller
             Session::Set('logueado',FALSE);
             Session::Set('idtipo_plan_compras',1);
         }
+
         // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
         if ( $usuario_logueado == FALSE){
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
             }
-        $Cantidad_Destacados = Session::Get('Cantidad_Destacados');
+       $Cantidad_Destacados = Session::Get('Cantidad_Destacados');
 
         if ( !isset( $Cantidad_Destacados ) ) {
             $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
@@ -70,17 +71,16 @@ class IndexController extends Controller
             Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
 
         }
+
+
+
         // Categorias  del footer
         //------------------------
         $this->Footer_Categorias_Personal_Industrial();
-
         $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
         $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
-
-
         $this->View->Mostrar_Vista('index');
-
 
         //factor_seguro_flete_otros_productos :
         //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...

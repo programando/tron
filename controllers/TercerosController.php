@@ -963,11 +963,12 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       $this->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
 
       // DETERMINAR SI ESTE ES SU DÍA DE CUMPLEAÑOS
-      $FechaNace = $Registro[0]["dianacimiento"] + $Registro[0]["mesnacimiento"];
-      $FechaHoy  = $Registro[0]["mes"] + $Registro[0]["dia"];;
+      $FechaNace = trim($Registro[0]["dianacimiento"]) . trim($Registro[0]["mesnacimiento"]);
+      $FechaHoy  = trim($Registro[0]["mes"])           . trim($Registro[0]["dia"]);
       if ( $FechaNace == $FechaHoy ){
         Session::Set('cumple_anios',TRUE);
       }
+
     }
 
     public function Validar_Ingreso_Usuario(){

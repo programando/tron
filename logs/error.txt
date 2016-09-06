@@ -1,2 +1,45 @@
 
 
+[05-Sep-2016 16:20:40 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:20:48 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:20:55 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:20:56 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:00 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:03 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:12 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:13 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:15 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:28 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:56 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:57 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:23:59 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:24:39 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:25:01 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:25:23 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:25:42 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:26:00 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:26:22 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:26:51 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:27:20 Europe/Berlin] PHP Notice:  Undefined variable: usuario_logueado in C:\xampp\htdocs\tron\controllers\IndexController.php on line 44
+[05-Sep-2016 16:27:20 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:27:50 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[05-Sep-2016 16:27:50 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[05-Sep-2016 16:28:18 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:28:29 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:28:53 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[05-Sep-2016 16:28:53 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[05-Sep-2016 16:29:09 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[05-Sep-2016 16:29:09 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[05-Sep-2016 16:29:18 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[05-Sep-2016 16:29:18 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[05-Sep-2016 16:29:27 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[05-Sep-2016 16:29:27 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[05-Sep-2016 16:29:44 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 16:48:37 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 17:22:29 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\views\terceros\plan_seleccionado.phtml on line 31
+[05-Sep-2016 17:22:31 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\views\terceros\plan_seleccionado.phtml on line 31
+[05-Sep-2016 17:22:54 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\views\terceros\plan_seleccionado.phtml on line 31
+[05-Sep-2016 22:40:32 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 22:44:14 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 22:44:27 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[05-Sep-2016 22:44:51 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32

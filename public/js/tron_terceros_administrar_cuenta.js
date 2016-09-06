@@ -11,6 +11,12 @@ var $Usuario_Seleccionado = 0;
 var $Codigo_Seleccionado  = '';
 
 
+$('.contenedor_cuenta').on('click','#btn-cambiar-plan2', function(){
+
+		$('#modal_ventajas_cliente').modal('show');
+});
+
+
 
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){

@@ -42,8 +42,6 @@
        */
         include (APPLICATION_SECTIONS . 'productos/valida_oferta_cumpleanios.php')
 
-
-
 ?>
 
 
