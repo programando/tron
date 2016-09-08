@@ -1,9 +1,8 @@
-//EXPLICACION DE LAS DOS COLUMNAS DENTRO DEL PEDIDO
-$('.explicacion-columnas').on('click', function(){
-	$logueado 							  = $('#contenido').attr('logueado');
-	 $('#modal_explica_columnas_pedido').modal('show');
-})
 
+//EXPLICACION DE LAS DOS COLUMNAS DENTRO DEL PEDIDO
+$('.explica-precio-especial').on('click', function(){
+   $('#carrito-explica-precio-especial').modal('show');
+})
 
 //	AGOSTO 05 2016
 // MOSTRAR VENTANA DE CUMPLEAÑOS.

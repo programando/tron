@@ -1,4 +1,4 @@
-<tbody>
+<tbody >
       <!--Cuerpo = Tabla -->
     <?php
 
@@ -117,19 +117,17 @@
 
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-  $logueado                              = Session::Get('logueado');
 ?>
 
- <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) || $logueado == FALSE ) :?>
+ <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) ) :?>
     <!--TOTAL -->
-    <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $pv_ocasional ;?> </p></td><!--Precio UNIT. -->
-    <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Item_Ocasional ;?> </p></td><!--Total -->
-    <td class="col-tabla-preci2" title="Precio unitario para clientes/empresarios TRON" >
-          <p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_tron ;?> </p>
+    <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $pv_tron  ;?> </p></td><!--Precio UNIT. -->
+    <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Item_Tron ;?> </p></td><!--Total -->
+    <td class="col-tabla-preci2" ><p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_ocasional ;?> </p>
     </td>
 
     <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
-        <p class="info-tabla"> <?=    $Vr_Total_Item_Tron  ;?>   </p>
+        <p class="info-tabla"> <?=    $Vr_Total_Item_Ocasional  ;?>   </p>
     </td>
 
 

@@ -780,8 +780,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       $compras_este_mes_tron                = $compras_este_mes_tron  + $compras_tron_pedido_actual;
       $compras_este_mes_industiales         = $compras_este_mes_industiales + $compras_industrial_pedido_actual ;
 
-      Session::Set('minimo_compras_productos_tron',         $Registro[0]['minimo_compras_productos_tron']);
-      Session::Set('minimo_compras_productos_ta',           $Registro[0]['minimo_compras_productos_ta']);
+      //Session::Set('minimo_compras_productos_tron',         $Registro[0]['minimo_compras_productos_tron']);
+      //Session::Set('minimo_compras_productos_ta',           $Registro[0]['minimo_compras_productos_ta']);
       Session::Set('compras_realizadas_tron',               $Registro[0]['compras_productos_tron']);
       Session::Set('compras_productos_fabricados_ta',       $Registro[0]['compras_productos_fabricados_ta']);
 

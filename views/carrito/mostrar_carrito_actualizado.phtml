@@ -1,11 +1,10 @@
 
 <div class="ionix">
-	<div class="general pAA30">
+	<div class="general">
 
-		<div class="row"><!--- Contenido-Principal Pagina-->
+		<div class="row"><!--- Contenido-Principal Pagina   pAA30  -->
 		<!-- Llamado a :: ventana_modal_atencion.php -->
 			<?php if ( Session::Get('imagen_resumen_pedido')== TRUE ) : ; ?>
-
                 <div class="taC">
                     <?php if (Session::Get('Id_Area_Consulta') ==  2) : ;?>
                         <img src="<?=  BASE_IMG_TIENDA ;?>line_resumen_pedido.png" class="">
@@ -14,22 +13,12 @@
                     <?php endif ;?>
                 </div>
                 <br />
-
 			<?php else : ?>
-
               <h3 class="colorBlue ff2 t30 titleM1">
-              	<?php if (  Session::Get('logueado') == FALSE ) :?>
-                    <a href="#" class="t8 explicacion-columnas" style="float:right; padding-top:10px;">
-                    	<small>¿Por qué mi carrito de compras tiene dos columnas de precio?</small>
-                    </a>
-                <?php endif;?>
-
                 Carrito de Compras
               </h3>
-
-
-
             <?php endif;?>
+
 
 			<?php if ( Session::Get('kit_combos_eliminados') == TRUE) : ?>
                 <h4 class="t16 p20">Los Combos y el kit de inicio, son productos exclusivos para los compradores ocasionales por lo tanto serán eliminados de tu carrito, pero como tienes el privilegio de ser cliente o empresario TRON puedes armar estos paquetes en la sección productos TRON.</h4>
@@ -37,14 +26,15 @@
 
             <!--Tabla Cliente TRON -->
             <table class="table">
-                <?php include (APPLICATION_SECTIONS . 'carrito_titulos.php');?>
-                <?php include (APPLICATION_SECTIONS . 'carrito_contenido.php');?>
-                <?php include (APPLICATION_SECTIONS . 'carrito_totales.php');?>
+
+                <?php include (APPLICATION_SECTIONS . 'carrito/carrito_titulos.php');?>
+                <?php include (APPLICATION_SECTIONS . 'carrito/carrito_contenido.php');?>
+                <?php include (APPLICATION_SECTIONS . 'carrito/carrito_totales.php');?>
             </table>
             <!--Tabla Cliente TRON -->
 
             <!--Botones => Seguir Comprando , Pagar-->
-                <?php include (APPLICATION_SECTIONS . 'carrito_botones.php');?>
+                <?php include (APPLICATION_SECTIONS . 'carrito/carrito_botones.php');?>
             <!--Botones => Seguir Comprando , Pagar-->
 
             <?php if ( Session::Get('cumple_condicion_cpras_tron_industial') == FALSE and Session::Get('imagen_resumen_pedido')== TRUE) : ;?>
@@ -60,10 +50,9 @@
                 <?php include (APPLICATION_SECTIONS . 'ventana_modal_no_cumple_pedido_minimo_productos_tron.php');?>
             <?php endif ;?>
 
-            <?php if ( Session::Get('logueado') == FALSE ) :?>
-                <?php include (APPLICATION_SECTIONS . 'ventana_modal_explica_columnas_pedido.php');?>
+            <?php if ( Session::Get('cumple_condicion_cpras_tron_industial') == FALSE ) : ;?>
+                <?php include (VENTANAS_MODALES . 'carrito_explica_precio_especial.php');?>
             <?php endif ;?>
-
 
 
 		</div>

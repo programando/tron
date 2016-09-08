@@ -43,12 +43,12 @@
   $logueado                              = Session::Get('logueado');
 ?>
 
- <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) || $logueado == FALSE) :?>
+ <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) ) :?>
         <!-- SUBTOTAL -->
-        <?php include (APPLICATION_SECTIONS . 'carrito_totales_no_cumple_condiciones_compra.php');?>
+        <?php include (APPLICATION_SECTIONS . 'carrito/carrito_totales_no_cumple_condiciones_compra.php');?>
       <?php else :?>
   <td></td>
-      <?php include (APPLICATION_SECTIONS . 'carrito_totales_cumple_condiciones_compra.php');?>
+      <?php include (APPLICATION_SECTIONS . 'carrito/carrito_totales_cumple_condiciones_compra.php');?>
   <?php endif ;?>
 
 

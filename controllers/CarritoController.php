@@ -378,7 +378,7 @@ class CarritoController extends Controller{
         //Session::Get('minimo_compras_productos_tron')
         Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
         if ( $this->Tengo_Productos_Tron == TRUE ){
-            if ( $this->compras_tron <  30000  ){
+            if ( $this->compras_tron <  Session::Get('minimo_compras_productos_tron')  ){
                 Session::Set('Cumple_Minimo_Compras_Productos_Tron', FALSE);
             }else{
               Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
@@ -1285,6 +1285,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
                   $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
               }
         }
+
       if ( Session::Get('logueado') == FALSE ) {
             if ( ($compras_totales_tron >= $compra_minima_productos_tron)  || ($compras_totales_industrial >= $compra_minima_productos_industriales ) ) {
                $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
