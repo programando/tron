@@ -126,7 +126,7 @@
     <td class="col-tabla-preci2" ><p class="info-tabla" id="<?= $id_precio_final_tron ;?>"><?= $pv_ocasional ;?> </p>
     </td>
 
-    <td class="col-tabla-preci2" title="Valores calculados para cliente/empresarios TRON">
+    <td class="col-tabla-preci2" >
         <p class="info-tabla"> <?=    $Vr_Total_Item_Ocasional  ;?>   </p>
     </td>
 
@@ -134,8 +134,8 @@
 <?php else : ;?>
       <td></td>
       <td></td>
-      <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Unit_Real_Producto ;?> </p></td><!--Precio UNIT. -->
-      <td class="col-tabla-preci1" ><p class="info-tabla"> <?= $Vr_Total_Real_Producto ;?> </p></td><!--Total -->
+      <td class="col-tabla-preci1 titulo-tron" ><p class="info-tabla"> <?= $Vr_Unit_Real_Producto ;?> </p></td><!--Precio UNIT. -->
+      <td class="col-tabla-preci1 titulo-tron" ><p class="info-tabla"> <?= $Vr_Total_Real_Producto ;?> </p></td><!--Total -->
  <?php endif ;?>
 
 
