@@ -21,7 +21,7 @@
             <?php else :?>
                 <th colspan="2" class="text-center "></th> <!-- Precio Unitario 1      -->
             <?php endif ;?>
-            <th colspan="2" class="text-center "> TU PRECIO ACTUAL</th>  <!-- Precio Unitario 2      -->
+            <th colspan="2" class="text-center titulo-tron"> TU PRECIO ACTUAL</th>  <!-- Precio Unitario 2      -->
         </tr>
 
     <tr>
