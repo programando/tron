@@ -34,6 +34,7 @@ var Paginacion = function(pagina , nombre_categoria ) 	{
 											var iififi = $(".artOpt").width(); 	$(".counttis").css('width', iififi+56);
 
 											//MUEVE LA PAGINA AL PRINCIPIO LUEGO DE QUE SE PRESIONA EN EL PAGINADOR
+											//Kak
 											$('html,body').animate({
         				scrollTop: $("#scrollToHere").offset().top
     							}, 1500);
