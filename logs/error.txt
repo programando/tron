@@ -29,3 +29,5 @@
 [19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 96
 [19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 97
 >>>>>>> origin/master
+[19-Sep-2016 22:44:38 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\xampp\htdocs\tron\views\terceros\plan_seleccionado.phtml on line 30
+[19-Sep-2016 22:44:58 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\xampp\htdocs\tron\views\terceros\plan_seleccionado.phtml on line 30
