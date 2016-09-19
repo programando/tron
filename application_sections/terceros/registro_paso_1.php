@@ -112,8 +112,8 @@
             <tr>
                 <td class="text-right"><strong>TOTAL A PAGAR <small> ( Calculado para Cali ) : </small></strong> </td>
                 <td class="text-center">.</td>
-                <td class="text-center">$ <?= number_format(Session::Get('valor_kit_inicio_ocasional'),0) ;?> </td>
-                <td class="text-center">$ <?= number_format($this->Total_Kit_Inscripcion,0) ;?> </td>
+                <td class="text-center">$ <?= number_format( Session::Get('valor_kit_inicio_ocasional'),0) ;?> </td>
+                <td class="text-center">$ <?= number_format( Session::Get('valor_kit_inicio_empresario'),0) ;?> </td>
             </tr>
 
             <tr>
