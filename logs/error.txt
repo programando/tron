@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+=======
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1601
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1602
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1603
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1605
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1606
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1607
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1608
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1609
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1612
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1613
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1614
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1615
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1616
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1618
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1619
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1620
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1623
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 1624
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 94
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 95
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 96
+[19-Sep-2016 15:43:06 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 97
+[19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 94
+[19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 95
+[19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 96
+[19-Sep-2016 15:43:21 Europe/Berlin] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 97
+>>>>>>> origin/master

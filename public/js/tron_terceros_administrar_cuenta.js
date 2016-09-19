@@ -16,6 +16,7 @@ $('.contenedor_cuenta').on('click','#btn-cambiar-plan2', function(){
 });
 
 $('.contenedor_cuenta').on('click','#btn-cambiar-plan3', function(){
+
 		$('#modal_ventajas_empresarios').modal('show');
 });
 

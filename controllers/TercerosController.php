@@ -1128,7 +1128,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
             $this->Registro_Buscar_Por_Codigo($this->View->codigousuario, FALSE );
             $this->View->Modifica_Codigo_Presenta = FALSE;
         }
-        Debug::Mostrar( "Reg" );
+        //Debug::Mostrar( "Reg" );
         $this->View->Mostrar_Vista('registro');
     }
 

@@ -20,10 +20,18 @@
             <button type="button" id="btn-cambiar-plan3"  idplan ="3"  class="btn btn-success t13">
                 Beneficios de pasar a <strong>EMPRESARIO TRON </strong>
             </button>
+            <?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_empresario.php') ;?>
 
         <?php else :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>amigo_por_confirmar.png" /><!-- IMG = Empresario tron -->
             <p class="text-perteneces-A"> Tu vinculación al  plan: <br> <strong>  CLIENTE TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
+
+
+        <?php else :?>
+            <img src="<?= BASE_IMG_EMPRESA ; ?>amigo_por_confirmar.png" /><!-- IMG = Empresario tron -->
+            <p class="text-perteneces-A"> Tu vinculación al  plan: <br> <strong>  CLIENTE TRON</strong> está en proceso de validación.</p>
+            <!-- Perteneces -->
+
         <?php endif ;?>
 
     <?php endif ;?>
@@ -43,6 +51,7 @@
               </button>
 
         </div>
+
 
             <?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_cliente.php') ;?>
             <?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_empresario.php') ;?>
