@@ -1,6 +1,4 @@
-<div class="ventana_modal_codigo">
-	<?php include (APPLICATION_SECTIONS . 'registro_tooltip_codigo.php');?>
-</div>
+
 
 <div>
 	<div class="row formulario">
@@ -91,45 +89,11 @@
                     <input type="text" class="form-control input_campo_datos" id="identificacion_nat_confirm">
                 </div>
             </div>
-            
-            <div class="">
-            	<br><br>
-            	<label for="identificacion_nat" class="col-sm-3 col-xs-12 vcenter">
-                    <div class="pR20 ff1">Mes:</div>
-                </label><!--
-                --><div class="col-sm-3 col-xs-12 vcenter">
-                    <select  class="form-control " id="mes" tabindex="4">
-                        <option value="0">SELECCIONE...</option>
-                        <option value="1">ENERO</option>
-                        <option value="2">FEBRERO</option>
-                        <option value="3">MARZO</option>
-                        <option value="4">ABRIL</option>
-                        <option value="5">MAYO</option>
-                        <option value="6">JUNIO</option>
-                        <option value="7">JULIO</option>
-                        <option value="8">AGOSTO</option>
-                        <option value="9">SEPTIEMBRE</option>
-                        <option value="10">OCTUBRE</option>
-                        <option value="11">NOVIEMBRE</option>
-                        <option value="12">DICIEMBRE</option>
-                    </select>
-                </div><!--
-                --><label for="identificacion_nat_confirm" class="col-sm-3 col-xs-12 vcenter">
-                    <div class="pLR20 ff1">Día:</div>
-                </label><!--
-                --><div class="col-sm-3 col-xs-12 vcenter">
-                    <select  class="form-control" id="dia">
-                        <option value="0">SELECCIONE...</option>
-                        <?php for($i=1;$i<=31;$i++) : ;?>
-                              <option value="<?= $i ;?>"><?= $i ;?></option>
-                        <?php endfor ;?>
-                    </select>
-                </div>
-            </div>
+
+
 
 			<div>
-                <br /><br />
-
+                <br />
                 <label for="pnombre" class="col-sm-2 col-xs-12 vcenter campos-cedu-ciudadana">
                     <div class="pR20 ff1">Nombres:</div>
                 </label><!--
@@ -153,6 +117,41 @@
                     </select>
                 </div>
 
+            </div>
+
+            <div class="campos-mes-dia">
+                <br><br>
+                <label for="identificacion_nat" class="col-sm-3 col-xs-12 vcenter">
+                    <div class="pR20 ff1">Mes de nacimiento:</div>
+                </label><!--
+                --><div class="col-sm-3 col-xs-12 vcenter">
+                    <select  class="form-control " id="mes" tabindex="4" value="0">
+                        <option value="0">SELECCIONE...</option>
+                        <option value="1">ENERO</option>
+                        <option value="2">FEBRERO</option>
+                        <option value="3">MARZO</option>
+                        <option value="4">ABRIL</option>
+                        <option value="5">MAYO</option>
+                        <option value="6">JUNIO</option>
+                        <option value="7">JULIO</option>
+                        <option value="8">AGOSTO</option>
+                        <option value="9">SEPTIEMBRE</option>
+                        <option value="10">OCTUBRE</option>
+                        <option value="11">NOVIEMBRE</option>
+                        <option value="12">DICIEMBRE</option>
+                    </select>
+                </div><!--
+                --><label for="identificacion_nat_confirm" class="col-sm-3 col-xs-12 vcenter">
+                    <div class="pLR20 ff1">Día de nacimiento:</div>
+                </label><!--
+                --><div class="col-sm-3 col-xs-12 vcenter">
+                    <select  class="form-control" id="dia" value="0">
+                        <option value="0">SELECCIONE...</option>
+                        <?php for($i=1;$i<=31;$i++) : ;?>
+                              <option value="<?= $i ;?>"><?= $i ;?></option>
+                        <?php endfor ;?>
+                    </select>
+                </div>
             </div>
 
             <hr />

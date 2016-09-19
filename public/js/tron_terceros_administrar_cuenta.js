@@ -12,8 +12,11 @@ var $Codigo_Seleccionado  = '';
 
 
 $('.contenedor_cuenta').on('click','#btn-cambiar-plan2', function(){
-
 		$('#modal_ventajas_cliente').modal('show');
+});
+
+$('.contenedor_cuenta').on('click','#btn-cambiar-plan3', function(){
+		$('#modal_ventajas_empresarios').modal('show');
 });
 
 

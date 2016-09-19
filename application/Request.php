@@ -15,14 +15,14 @@ class Request
     protected $Argumentos = Array();
     protected $url;
 
-    public function __construct()
-    {
+    public function __construct()  {
+
         $this->url='';
+
         Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
         if(!isset($_GET['url']))    { $this->url="";                }
         else                        { $this->url = $_GET['url'];    }
-
 
 
         $segmentos_url = explode('/',$this->url);
@@ -31,7 +31,7 @@ class Request
         $this->ResolveMethod    ($segmentos_url);
         $this->ResolveParams    ($segmentos_url);
 
-                //VARIABLES PARA EL TEMA DE CEO
+         //VARIABLES PARA EL TEMA DE CEO
         //------------------------------
         Session::Set('CEO_URL'                      ,BASE_URL .$this->url  );
         Session::Set('CEO_CONTROLLER'               , $this->Controlador );
@@ -57,7 +57,7 @@ class Request
             {
                 $this->Controlador  = DEFAULT_CONTROLLER;
             }
-            //$this->Controlador      =   String_Functions::Camel($this->Controlador);
+
 
         }
 
