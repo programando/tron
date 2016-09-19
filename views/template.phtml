@@ -69,11 +69,22 @@
                <?php include (APPLICATION_SECTIONS .'header-hogar.php');?>
             <?php endif ;?>
 
-
+            <!-- SEPTIEMBRE 14 2016
+                CONDICIONES PARA MOSTRAR LA VENTANA MENSAJE DE CUMPLEAÑOS
+            -->
             <?php   $Cumple_Anios       = Session::Get('cumple_anios'); ?>
             <?php   $Mostrar_Msj_Cumple = Session::Get('mostrar_modal_cumple_anios'); ?>
             <?php if ( $Cumple_Anios == TRUE && $Mostrar_Msj_Cumple == TRUE)  :?>
                <?php include (VENTANAS_MODALES . 'mensaje_cumpleanios.php');?>
+            <?php endif ;?>
+
+            <!-- SEPTIEMBRE 14 2016
+                CONDICIONES PARA MOSTRAR LA VENTANA CUANDO SE CAMBIA DE STATUS A EMPRESARIO TRON
+            -->
+            <?php   $Oferta_Cambio_Status       = Session::Get('ofertas_x_cambio_status_empresario'); ?>
+            <?php   $Mostrar_Msj_Cambio_Status  = Session::Get('mostrar_modal_ofertas_x_cambio_status'); ?>
+            <?php if ( $Oferta_Cambio_Status  == TRUE &&  $Mostrar_Msj_Cambio_Status == TRUE)  :?>
+               <?php include (VENTANAS_MODALES . 'tienda_oferta_x_cambio_status.php');?>
             <?php endif ;?>
 
 

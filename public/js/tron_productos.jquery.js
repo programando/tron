@@ -7,34 +7,6 @@ var $kit_comprado            = false;
 var $Respuesta_Servidor      ='';
 
 
-// Eventos ::: Notificaicones
-  /*$('#notificaciones').on('click', function(){
-  	 $logueado 							  = $('#contenido').attr('logueado');
-  	 $id_tipo_plan_compras = $('#contenido').attr('idtipo-plan-compras');
-  	 if ($logueado == false){
-      $('.contenedor_notificaciones_no_logueado').fadeIn(1000);
-      setTimeout(function() {
-        $(".contenedor_notificaciones_no_logueado").fadeOut(6500);
-      },5500);
-  	 }else{
-  	 	if ($id_tipo_plan_compras == 3){
-	     $('.contenedor_notificaciones_empresario').fadeIn(1000);
-	      setTimeout(function() {
-	        $(".contenedor_notificaciones_empresario").fadeOut(5500);
-	      },5500);
-     }else{
-     		     $('.contenedor_notificaciones_cliente_ocasional').fadeIn(1000);
-     }
-    }
-  });
-*/
-
-/*
-  $('#cerrar_moda_recomendar').on('click',function(){
-  	  $('.contenedor_notificaciones').fadeOut();
-  });
-*/
-
 
 $("#agregar-producto-favoritos").on('click',function(){
 	$idproducto = $(this).attr('idproducto');
@@ -134,7 +106,6 @@ function Agregar_Producto_a_Carrito(NomProducto,Parametros){
 					url:      '/tron/carrito/Agregar_Producto/',
 					type:     'post',
      success:  function (resultado) {
-    	 		//Imprimir_Totales_Carrito_Header( resultado.SubTotal_Pedido_Ocasional, resultado.SubTotal_Pedido_Amigos );
     	 }
 
 					});
@@ -633,18 +604,33 @@ $('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function()
 	});
 
 
+$('#btn-agregar-kit-ocasional').on('click',function(){
+     $Parametros  = {"IdProducto" :10744, "CantidadComprada": 1, "es_tron": true , "es_tron_acc": false };
+     Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
+     Mostrar_Mensaje_Producto_Agregado('Kit de Inicio clientes');
+     window.location.href = "/tron/carrito/mostrar_Carrito/1";
+});
+
+$('#btn-agregar-kit-empresario').on('click',function(){
+     $Parametros  = {"IdProducto" :17038, "CantidadComprada": 1, "es_tron": true , "es_tron_acc": false };
+     Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
+     Mostrar_Mensaje_Producto_Agregado('Kit de Inicio clientes');
+     $.ajax({
+           data:  '',
+           dataType: 'text',
+           url:      '/tron/terceros/Cambio_Status/',
+           type:     'post',
+           async:    false,
+          success:  function (resultado)     {
+           		window.location.href = "/tron/index/";
+           }
+        });
+
+});
 
 
 
 
-
-// FIN FUNCIONALIDAD BOTONES + y -
-
-
-// ENE 01 DE 2014
-// FUNCIONALIDAD PARA EL ZOOM DE LAS IMAGENES EN LA VISTA AMPLIADA
-
-// Will se las llevó xD
 
 
 

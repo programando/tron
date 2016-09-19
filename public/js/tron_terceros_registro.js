@@ -251,11 +251,12 @@ $('#idtpidentificacion').on('change',function(){
   if ( $tipo_documento == 13 || $tipo_documento == 42 || $tipo_documento == 0)
     {
       $('.campos-nit').fadeOut();
+      $('.campos-mes-dia').fadeIn();
       $('.campos-cedu-ciudadana').fadeIn();
     }
-    if ( $tipo_documento == 31)
-    {
+    if ( $tipo_documento == 31) {
       $('.campos-nit').fadeIn();
+      $('.campos-mes-dia').fadeOut();
       $('.campos-cedu-ciudadana').fadeOut();
     }
 });

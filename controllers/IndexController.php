@@ -6,8 +6,7 @@
 	 */
 class IndexController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct()    {
         parent::__construct();
         $this->Productos        =  $this->Load_Model('Productos');
         $this->Parametros       =  $this->Load_Model('Parametros');
@@ -162,14 +161,18 @@ private function Parametros_Iniciales(){
 
 
         Session::Iniciar_Variable('cobrar_fletes'                           , TRUE );   // A todos se cobra fletes por defecto excepto a los terceros marcados
-        Session::Iniciar_Variable('cumple_anios'                             , FALSE );// Nadie cumple años por defecto. Esto puede cambiar cuando se loguea.
+        Session::Iniciar_Variable('cumple_anios'                            , FALSE );  // Nadie cumple años por defecto. Esto puede cambiar cuando se loguea.
         Session::Iniciar_Variable('mostrar_modal_cumple_anios'              , TRUE) ;
         Session::Iniciar_Variable('cumple_condicion_cpras_tron_industial'   , FALSE ) ; // Cumple condiciones para precio especial
+        Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
+        Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
+
 
 }
 
     public function ocultar_mjs_cumpleanios(){
-            Session::Set('mostrar_modal_cumple_anios', FALSE ) ;
+        Session::Set('mostrar_modal_cumple_anios', FALSE ) ;
+        Session::Set('mostrar_modal_ofertas_x_cambio_status', FALSE);
     }
 
     public function Cerrar_Sesion() {
@@ -218,9 +221,5 @@ private function Parametros_Iniciales(){
 
 
 
-}
-
-
-
-?>
+}?>
 

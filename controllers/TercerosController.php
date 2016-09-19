@@ -20,6 +20,11 @@ class TercerosController extends Controller
       $this->View->Mostrar_Vista("modificacion_datos");
     }
 
+    public function Cambio_Status(){
+        Session::Set('ofertas_x_cambio_status_empresario', TRUE) ;
+        echo "ok";
+    }
+
     public function Consulta_Datos_Usuario( $idtercero ){
        $tercero       = $this->Terceros->Consulta_Datos_Usuario ( $idtercero);
        $nombre        = String_Functions::Formato_Texto( $tercero[0]['pnombre']);
@@ -181,7 +186,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
                                   'tron_cuenta_pases_cortesia','tron_cuenta_info_partici_la_red','cuenta_informe_mi_red'));
 
         $this->View->SetJs(array('tron_terceros_administrar_cuenta',"password",'tron_terceros_edicion','tron_pasos_pagar',
-                                 'tron_dptos_mcipios','tron_pedidos_historial','tron_informes','jquery.tablesorter'));
+                                 'tron_dptos_mcipios','tron_pedidos_historial','tron_informes','jquery.tablesorter',
+                                 'tron_productos.jquery'));
 
         $this->View->idtipo_plan_compras            = Session::Get('idtipo_plan_compras');
         $this->View->idtipo_plan_compras_confirmado = Session::Get('idtipo_plan_compras_confirmado');

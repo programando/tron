@@ -9,6 +9,12 @@ $('.explica-precio-especial').on('click', function(){
 //======================================
 $('#modal_cumpleanios').modal('show');
 
+
+//  SEPTIEMBRE 14 2016
+//  VENTANA QUE MUESTRA MENSAJE CUANDO ALGUIEN HA CAMBIADO A EMPRESARIO.
+//========================================================================
+$('#tienda_oferta_x_cambio_status').modal('show');
+
 //CIERRE DE LA VENTANA DE CUMPLEAÑOS
 //======================================
 $('.cerrar_cumpleanios').on('click', function(){

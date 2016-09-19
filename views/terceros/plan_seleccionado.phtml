@@ -4,7 +4,7 @@
         <?php if ( $this->idtipo_plan_compras_confirmado == TRUE ) :?>
             <p class="text-perteneces-A"> Código de Usuario : <strong> <?= mb_strtoupper(Session::Get('codigousuario'),'UTF-8') ;?> </strong></p>
             <img src="<?= BASE_IMG_EMPRESA ; ?>empresarioI.png" /><!-- IMG = Empresario tron -->
-            <p class="text-perteneces-A"> Perteneces al <br> <strong>PLAN EMPRESARIO TRON</strong></p><!-- Perteneces -->
+            <p class="text-perteneces-A"> Perteneces al plan :<br> <strong> EMPRESARIO TRON</strong></p><!-- Perteneces -->
         <?php else :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>empresario_por_confirmar.png" /><!-- IMG = Empresario tron -->
             <p class="text-perteneces-A"> Tu vinculación al <br> <strong>PLAN EMPRESARIO TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
@@ -15,15 +15,15 @@
     <?php if ( $this->idtipo_plan_compras == 2 ) :?>
         <?php if ($this->kit_comprado == TRUE ) :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>amigoI.png" /><!-- IMG = Empresario tron -->
-            <p class="text-perteneces-A"> Perteneces al <br><strong> PLAN CLIENTE TRON</strong> </p><!-- Perteneces -->
+            <p class="text-perteneces-A"> Perteneces al plan : <br><strong>  CLIENTE TRON</strong> </p><!-- Perteneces -->
 
-          <!--          <button type="button" id="btn-cambiar-plan3"  idplan ="3"  class="btn btn-danger t13">
-                       Ventajas de pasar a <strong>EMPRESARIO TRON </strong>
+            <button type="button" id="btn-cambiar-plan3"  idplan ="3"  class="btn btn-success t13">
+                Beneficios de pasar a <strong>EMPRESARIO TRON </strong>
             </button>
- -->
+            <?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_empresario.php') ;?>
         <?php else :?>
             <img src="<?= BASE_IMG_EMPRESA ; ?>amigo_por_confirmar.png" /><!-- IMG = Empresario tron -->
-            <p class="text-perteneces-A"> Tu vinculación al  <br> <strong>PLAN CLIENTE TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
+            <p class="text-perteneces-A"> Tu vinculación al  plan: <br> <strong>  CLIENTE TRON</strong> está en proceso de validación.</p><!-- Perteneces -->
         <?php endif ;?>
 
     <?php endif ;?>
@@ -31,20 +31,22 @@
 
     <?php if ( $this->idtipo_plan_compras == 1 ) :?>
         <img src="<?= BASE_IMG_EMPRESA ; ?>visitanteI.png"  /><!-- IMG = Empresario tron -->
-        <p class="text-perteneces-A"> Perteneces al <br> <strong> PLAN COMPRADOR OCASIONAL</strong> </p><!-- Perteneces -->
+        <p class="text-perteneces-A"> Perteneces al plan: <br> <strong> COMPRADOR OCASIONAL</strong> </p><!-- Perteneces -->
         <div class="">
-        <!--
-              <button type="button" id="btn-cambiar-plan2"  idplan ="2"  class=" btn btn-danger t13">
-                    Ventajas de pasar a <strong> CLIENTE TRON </strong>
+
+              <button type="button" id="btn-cambiar-plan2"  idplan ="2"  class=" btn btn-success t13">
+                    Beneficios de pasar a <strong> CLIENTE TRON </strong>
               </button>
 
-              <button type="button" id="btn-cambiar-plan3"  idplan ="3"  class="btn btn-danger t13">
-                       Ventajas de pasar a <strong>EMPRESARIO TRON </strong>
+              <button type="button" id="btn-cambiar-plan3"  idplan ="3"  class="btn btn-success t13">
+                       Beneficios de pasar a <strong>EMPRESARIO TRON </strong>
               </button>
-              -->
+
         </div>
 
+
             <?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_cliente.php') ;?>
+            <?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_empresario.php') ;?>
     <?php endif ;?>
 
 
