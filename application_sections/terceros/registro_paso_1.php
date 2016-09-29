@@ -83,7 +83,10 @@
 
 
 
-
+<?php
+    Session::Set('valor_kit_inicio_ocasional', 30000);
+    Session::Set('valor_kit_inicio_empresario',119000);
+?>
 
 
 

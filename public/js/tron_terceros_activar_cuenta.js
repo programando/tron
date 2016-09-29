@@ -52,7 +52,7 @@ var Paso_Final_Registro_Plan_2 = function( nombre_usuario,idtpidentificacion,ped
 
 var Paso_Final_Registro_Plan_3 = function( nombre_usuario, idtpidentificacion,pedido_minimo_productos_fabricados_ta){
     // AGREGO KIT DE INICIO AL PEDIDO
-     $Parametros  = {"IdProducto" :10744, "CantidadComprada": 1, "es_tron": true , "es_tron_acc": false };
+     $Parametros  = {"IdProducto" :17038, "CantidadComprada": 1, "es_tron": true , "es_tron_acc": false };
      Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
 
      new Messi("<stron><h4>" + nombre_usuario + "</h4></stron><br>Bienvenido(a) a la red TRON.<br>Para finalizar tu registro como empresario debes pagar ahora o seguir comprando...<br>",
