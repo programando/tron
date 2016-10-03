@@ -37,7 +37,9 @@
 
  		try
  		  {
+
  		  			$Url_Solicitada = new Request();
+
 				    Bootstrap::Run( $Url_Solicitada );
 					}
 					catch(Exception $e){

@@ -27,7 +27,7 @@ class Bootstrap
             require_once $RutaControlador;
             $Controller = new $Controller;
 
-            if(is_callable(array($Controller, $Metodo))){
+            if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
             }
             else{
@@ -37,7 +37,7 @@ class Bootstrap
             /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
                OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
             */
-            call_user_func(array( $IndexController, $IndexMetodo));
+
 
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
