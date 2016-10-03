@@ -1,3 +1,5 @@
+
+
 <!--HEADER INDUSTRIAL // -->
 <!--ESTE ES EL HEADER PRINCIPAL DEL PROYECTO TRON -->
 <div class="headion headIndustrial">
@@ -61,8 +63,12 @@
                             <li><a href="<?=BASE_URL ;?>productos/destacados/" id="indus_destacados">DESTACADOS</a></li>
                         <?php endif ;?>
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS</a></li>
-                            <li><a href="<?=BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf">
+
+
+
+           <li><a href="<?=BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf">
                             CATÁLOGO MANTENIMIENTO INDUSTRIAL</a></li>
+
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">

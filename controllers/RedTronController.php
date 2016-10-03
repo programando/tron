@@ -10,7 +10,6 @@ class RedtronController extends Controller
     {
         parent::__construct();
         $this->RedTron = $this->Load_Model('RedTron');
-
     }
 
     public function index(){}

@@ -951,7 +951,7 @@ public function Totalizar_Carrito (  ){
         $Vrs_Adicionales_Fletes        = Session::Get('Recaudo_Flete') + Session::Get('Recaudo_Fijo') + Session::Get('Recaudo_Fijo_Adicional');
         $Vrs_Adicionales_Fletes        = $Vrs_Adicionales_Fletes +  Session::Get('Recaudo_Diferen_Rcdo_Real') + Session::Get('Sobre_Precio_Prod_Tron');
         $Vrs_Payu_Latam                = $Vrs_Adicionales_Fletes - Session::Get('Sobre_Precio_Prod_Tron') ;
-        $Vrs_Payu_Latam                =   $Vrs_Payu_Latam  ;
+        $Vrs_Payu_Latam                = $Vrs_Payu_Latam  ;
 
         if ( Session::Get('cobrar_fletes') == FALSE ){
             $this->Vr_Transporte_Ocasional  = 0;
@@ -1312,20 +1312,22 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       /** MARZO 19 DE 2015
       *       TOTALIZA LOS VALORES DEL PEDIDO POR CATEGORIA DE PRODUCTO. TRON, INDUSTRIALES, ACCESORIOS, OTROS
       */
-      $i                                  = 0;
-      $this->Cantidad_Productos_Tron      = 0;
-      $this->Cantidad_Registros_Prod_Tron = 0;
-      $this->compras_accesorios           = 0 ;
-      $this->compras_industrial           = 0 ;
-      $this->compras_otros_productos      = 0 ;
-      $this->compras_tron                 = 0;
-      $this->compras_tron_sin_iva         = 0;
-      $this->Tengo_Productos_Tron         = FALSE;
+      $i                                    = 0;
+
+      $this->Cantidad_Productos_Tron        = 0;
+      $this->Cantidad_Registros_Prod_Tron   = 0;
+      $this->compras_accesorios             = 0 ;
+      $this->compras_industrial             = 0 ;
+      $this->compras_otros_productos        = 0 ;
+      $this->compras_tron                   = 0;
+      $this->compras_tron_sin_iva           = 0;
+      $this->Tengo_Productos_Tron           = FALSE;
 
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0 );
       Session::Set('compra_otros_productos',0);
       Session::Set('compra_accesorios',0);
+
 
 
 
@@ -1342,21 +1344,20 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
             }
 
 
-
-          //$precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
           $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
           $total_item            = $precio_unitario *  $cantidad ;
           $total_item_tron       = $this->Datos_Carro[$i]['pv_tron'] * $cantidad  ;
 
 
-
           if ($id_categoria_producto  <= 4) {
-               $this->compras_tron                 = $this->compras_tron            + $total_item_tron ;//$total_item  ;
+               $this->compras_tron                 = $this->compras_tron            + $total_item_tron;//$total_item  ;
                $this->compras_tron_sin_iva         = $this->compras_tron_sin_iva    +  ( $total_item_tron )  / ( 1 +  $this->Datos_Carro[$i]['iva']/100 ) ;
 
                $this->Cantidad_Productos_Tron      = $this->Cantidad_Productos_Tron + $cantidad    ;
                $this->Cantidad_Registros_Prod_Tron = $this->Cantidad_Registros_Prod_Tron + 1; // Cantidad de Registros-  Productos tron
                $this->Tengo_Productos_Tron         = TRUE;
+
+
           }
 
           if ($id_categoria_producto == 6) {
@@ -1375,6 +1376,7 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
       Session::Set('compra_productos_industriales'    , $this->compras_industrial );
       Session::Set('compra_otros_productos'           , $this->compras_otros_productos);
       Session::Set('compra_accesorios'                , $this->compras_accesorios );
+
 
 
       $this->Cerrar_Procesos_Carro();

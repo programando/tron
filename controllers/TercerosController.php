@@ -770,34 +770,33 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         echo json_encode($Datos,256);
     }
 
-    public function Compra_Productos_Tron_Mes_Actual( $compras_tron_pedido_actual = 0, $compras_industrial_pedido_actual = 0)
-    {/**  MARZO 17 DE 2015
+    public function Compra_Productos_Tron_Mes_Actual( $compras_tron_pedido_actual = 0, $compras_industrial_pedido_actual = 0)  {
+    /**  MARZO 17 DE 2015
       *       CONSULTA LAS COMPRAS QUE SE HAN REALIZADO DE PRODUCTOS TRON EN EL MES ACTUAL, CONDICIÓN NECESARIA PARA
       *       CONCEDER PRECIOS ESPECIALES
       */
+      Session::Iniciar_Variable('Consulto_Cpras_Tron_Mes_Actual'    , TRUE );
+      if (  Session::Get('Consulto_Cpras_Tron_Mes_Actual') == TRUE ){
+          $Registro                             = $this->Terceros->Compra_Productos_Tron_Mes_Actual();
+          $compra_minima_productos_tron         = $Registro[0]['minimo_compras_productos_tron'];
+          $compra_minima_productos_industriales = $Registro[0]['minimo_compras_productos_ta'];
 
-      $Registro                             = $this->Terceros->Compra_Productos_Tron_Mes_Actual();
-      $compra_minima_productos_tron         = $Registro[0]['minimo_compras_productos_tron'];
-      $compra_minima_productos_industriales = $Registro[0]['minimo_compras_productos_ta'];
+          $compras_este_mes_tron                = $Registro[0]['compras_productos_tron'];
+          $compras_este_mes_industiales         = $Registro[0]['compras_productos_fabricados_ta'];
 
-      $compras_este_mes_tron                = $Registro[0]['compras_productos_tron'];
-      $compras_este_mes_industiales         = $Registro[0]['compras_productos_fabricados_ta'];
-
-      $compras_este_mes_tron                = $compras_este_mes_tron  + $compras_tron_pedido_actual;
-      $compras_este_mes_industiales         = $compras_este_mes_industiales + $compras_industrial_pedido_actual ;
-
-      //Session::Set('minimo_compras_productos_tron',         $Registro[0]['minimo_compras_productos_tron']);
-      //Session::Set('minimo_compras_productos_ta',           $Registro[0]['minimo_compras_productos_ta']);
-      Session::Set('compras_realizadas_tron',               $Registro[0]['compras_productos_tron']);
-      Session::Set('compras_productos_fabricados_ta',       $Registro[0]['compras_productos_fabricados_ta']);
+          $compras_este_mes_tron                = $compras_este_mes_tron  + $compras_tron_pedido_actual;
+          $compras_este_mes_industiales         = $compras_este_mes_industiales + $compras_industrial_pedido_actual ;
 
 
+          Session::Set('compras_realizadas_tron',               $Registro[0]['compras_productos_tron']);
+          Session::Set('compras_productos_fabricados_ta',       $Registro[0]['compras_productos_fabricados_ta']);
 
-      // ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
-      if ($compras_este_mes_tron  >= $compra_minima_productos_tron ||  $compras_este_mes_industiales >= $compra_minima_productos_industriales){
-        Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
-      }
-
+          // ESTABLECER SI CUMPLE CONDICIONES DE COMPRAS MINIMAS
+          if ($compras_este_mes_tron  >= $compra_minima_productos_tron ||  $compras_este_mes_industiales >= $compra_minima_productos_industriales){
+            Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
+          }
+          Session::Set('Consulto_Cpras_Tron_Mes_Actual', FALSE ) ; // PASA A FALSE PARA NO VOLVER A CONSULTAR ESTOS DATOS.
+      }// Fin Condicion
 
     }
 

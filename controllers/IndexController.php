@@ -18,10 +18,10 @@ class IndexController extends Controller
 
     public function industrial(){
 
-        Session::Set('Id_Area_Consulta','1')  ;
+        Session::Set('Id_Area_Consulta','1')  ;// 1, Corresponde a la linea de productos industriales
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
-         Session::Set('Id_Area_Consulta','1') ; // 1, Corresponde a la linea de productos industriales
+
         Session::Set('Cantidad_Destacados_Industrial', $this->Productos->Cantidad_Registros);
         $this->View->SetCss(array('tron_menu_footer','tron_index','tron_carrito',
                                   'tron_varias_referencias-ofertas-tecnologias_SA',
@@ -42,8 +42,11 @@ class IndexController extends Controller
 
 
         Session::Set('Id_Area_Consulta','2')  ;
-        $this->Parametros_Iniciales();
 
+        //$this->Consultar_Datos_Transportadoras();
+        $this->Parametros_Iniciales();                  // Parámetros Iniciales
+        $this->Index_Secciones_Barra_Menu();            // Secciones de la barra de menus
+        $this->Footer_Categorias_Personal_Industrial(); // Categorías del Footer
 
         $usuario_logueado = Session::Get('logueado');
         if ( !isset( $usuario_logueado )){
@@ -51,16 +54,33 @@ class IndexController extends Controller
             Session::Set('idtipo_plan_compras',1);
         }
 
-        // SE LLAMA EL MÉTODO EN EL CONTROLADOR PARA QUE CARGUE INFORMACIÓN DE LA CIUDAD DE CALI kit_vr_venta_valle
+
         if ( $usuario_logueado == FALSE){
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
             }
-       $Cantidad_Destacados = Session::Get('Cantidad_Destacados');
 
-        if ( !isset( $Cantidad_Destacados ) ) {
+
+
+
+        $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
+                                  'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
+
+        $this->View->Mostrar_Vista('index');
+
+    }
+
+
+
+    public function Index_Secciones_Barra_Menu () {
+
+         Session::Iniciar_Variable('Consultar_Producctos_Secciones'    , TRUE );
+
+        if (  Session::Get('Consultar_Producctos_Secciones') == TRUE ) {
             $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
+
             Session::Set('Cantidad_Destacados',     $this->Productos->Cantidad_Registros );
 
             $this->View->Productos_Ofertas_Index    = $this->Productos->Ofertas_Index();
@@ -69,28 +89,8 @@ class IndexController extends Controller
             $this->View->Productos_Novedades_Index  = $this->Productos->Novedades_Ofertas();
             Session::Set('Cantidad_Novedades' ,     $this->Productos->Cantidad_Registros );
 
+            Session::Set('Consultar_Producctos_Secciones', FALSE ) ;
         }
-
-
-
-        // Categorias  del footer
-        //------------------------
-        $this->Footer_Categorias_Personal_Industrial();
-        $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
-                                  'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
-        $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
-        $this->View->Mostrar_Vista('index');
-
-        //factor_seguro_flete_otros_productos :
-        //                      Factor que reduce el valor declarado en otros productos para efectos del cálculo del seguro...
-        //porciento_seguro_flete_productos_industriales :
-        //                      Porcentaje que se aplica al costo del productos para efectos del cálculo del seguro en los fletes del producto...
-
-       /*if ( $Tipo_Navegador == 'IE' && $Version_Navegador <= 8){
-            $this->View->SetCss(array("tron_mejor_experiencia_usuario"));
-            $this->View->Mostrar_Vista("mejor_experiencia_usuario");
-       }
-       */
 
     }
 
@@ -115,57 +115,64 @@ public function Consultar_Datos_Transportadoras(){
 }
 
 
-private function Parametros_Iniciales(){
 
-        $this->Consultar_Datos_Transportadoras();
-        $Parametros = $this->Parametros->Transportadoras();
+public function Parametros_Iniciales(){
 
-        Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
-        Session::Set('Parametros',$Parametros );
+        Session::Iniciar_Variable('Consultar_Parametros_Iniciales'   , TRUE ) ; //
 
-        Session::Set('kit_vr_venta_valle',                $Parametros[0]['valor_kit_inicio_ocasional']);            // Precio de venta del kit de inicio
+        if ( Session::Get('Consultar_Parametros_Iniciales') == TRUE ){
+                $Parametros = $this->Parametros->Transportadoras();
 
-        Session::Set('valor_kit_inicio_ocasional',        $Parametros[0]['valor_kit_inicio_ocasional']);
-        Session::Set('valor_kit_inicio_empresario',       $Parametros[0]['valor_kit_inicio_empresario']);
+                Session::Set('Id_Area_Consulta','2') ; // 2, Corresponde a productos de la linea hogar
+                Session::Set('Parametros',$Parametros );
 
-        Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
-                // valor de la 1 cuota de inscripcion
-        Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
-        Session::Set('kit_vr_transporte'                  ,0);
-        Session::Set('vr_minimo_para_recaudo',             $Parametros[0]['vr_minimo_para_recaudo']);
+                Session::Set('kit_vr_venta_valle',                $Parametros[0]['valor_kit_inicio_ocasional']);            // Precio de venta del kit de inicio
 
-        // VALORES PAYU LATAM
-        Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
-        Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
-        Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
+                Session::Set('valor_kit_inicio_ocasional',        $Parametros[0]['valor_kit_inicio_ocasional']);
+                Session::Set('valor_kit_inicio_empresario',       $Parametros[0]['valor_kit_inicio_empresario']);
 
-        Session::Set('py_vr_min_recaudo_', $Parametros[0]['py_vr_min_recaudo']);
+                Session::Set('cuota_1_inscripcion',               $Parametros[0]['cuota_1_inscripcion']);
+                        // valor de la 1 cuota de inscripcion
+                Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
+                Session::Set('kit_vr_transporte'                  ,0);
+                Session::Set('vr_minimo_para_recaudo',             $Parametros[0]['vr_minimo_para_recaudo']);
 
-        Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
-        Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_transferencias'] ));
-        Session::Set('factor_seguro_flete_otros_productos',             $Parametros[0]['factor_seguro_flete_otros_productos']);
-        Session::Set('porciento_seguro_flete_productos_industriales',   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
+                // VALORES PAYU LATAM
+                Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
+                Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
+                Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
 
-        Session::Set('rt_courrier_seguro'                  ,  $Parametros[0]['rt_courrier_seguro']);          // Valor seguro mínimo para couurier. Aplica para productos TRON
+                Session::Set('py_vr_min_recaudo_', $Parametros[0]['py_vr_min_recaudo']);
 
-        // VALORES PAYU LATAM
-        Session::Set('py_porciento_recaudo'                                 ,   $Parametros[0]['py_porciento_recaudo']/100);
-        Session::Set('py_vr_min_recaudo'                                    ,   $Parametros[0]['py_vr_min_recaudo']);
-        Session::Set('py_vr_adicional'                                      ,   $Parametros[0]['py_vr_adicional']);
-        Session::Set('valor_minimo_pedido_productos',          Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_pedido_productos'] ));
-        Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero( $Parametros[0]['pedido_minimo_productos_fabricados_ta']));
-        Session::Set('pago_minimo_payulatam',                    $Parametros[0]['pago_minimo_payulatam'] );
-        Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
-        Session::Set('minimo_compras_productos_tron',         $Parametros[0]['valor_minimo_pedido_productos']);
-        Session::Set('minimo_compras_productos_ta',           $Parametros[0]['pedido_minimo_productos_fabricados_ta']);
+                Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
+                Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_transferencias'] ));
+                Session::Set('factor_seguro_flete_otros_productos',             $Parametros[0]['factor_seguro_flete_otros_productos']);
+                Session::Set('porciento_seguro_flete_productos_industriales',   $Parametros[0]['porciento_seguro_flete_productos_industriales']);
+
+                Session::Set('rt_courrier_seguro'                  ,  $Parametros[0]['rt_courrier_seguro']);          // Valor seguro mínimo para couurier. Aplica para productos TRON
+
+                // VALORES PAYU LATAM
+                Session::Set('py_porciento_recaudo'                                 ,   $Parametros[0]['py_porciento_recaudo']/100);
+                Session::Set('py_vr_min_recaudo'                                    ,   $Parametros[0]['py_vr_min_recaudo']);
+                Session::Set('py_vr_adicional'                                      ,   $Parametros[0]['py_vr_adicional']);
+                Session::Set('valor_minimo_pedido_productos',          Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_pedido_productos'] ));
+                Session::Set('pedido_minimo_productos_fabricados_ta',  Numeric_Functions::Formato_Numero( $Parametros[0]['pedido_minimo_productos_fabricados_ta']));
+                Session::Set('pago_minimo_payulatam',                    $Parametros[0]['pago_minimo_payulatam'] );
+                Session::Set('Aplicacion_Puntos_Comisiones', TRUE);
+                Session::Set('minimo_compras_productos_tron',         $Parametros[0]['valor_minimo_pedido_productos']);
+                Session::Set('minimo_compras_productos_ta',           $Parametros[0]['pedido_minimo_productos_fabricados_ta']);
 
 
-        Session::Iniciar_Variable('cobrar_fletes'                           , TRUE );   // A todos se cobra fletes por defecto excepto a los terceros marcados
-        Session::Iniciar_Variable('cumple_anios'                            , FALSE );  // Nadie cumple años por defecto. Esto puede cambiar cuando se loguea.
-        Session::Iniciar_Variable('mostrar_modal_cumple_anios'              , TRUE) ;
-        Session::Iniciar_Variable('cumple_condicion_cpras_tron_industial'   , FALSE ) ; // Cumple condiciones para precio especial
-        Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
-        Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
+                Session::Iniciar_Variable('cobrar_fletes'                           , TRUE );   // A todos se cobra fletes por defecto excepto a los terceros marcados
+                Session::Iniciar_Variable('cumple_anios'                            , FALSE );  // Nadie cumple años por defecto. Esto puede cambiar cuando se loguea.
+                Session::Iniciar_Variable('mostrar_modal_cumple_anios'              , TRUE) ;
+                Session::Iniciar_Variable('cumple_condicion_cpras_tron_industial'   , FALSE ) ; // Cumple condiciones para precio especial
+                Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
+                Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
+
+                 Session::Set('Consultar_Parametros_Iniciales', FALSE ) ;
+            }
+
 
 
 }

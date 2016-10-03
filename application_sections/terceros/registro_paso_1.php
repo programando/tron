@@ -82,14 +82,6 @@
             </tr>
 
 
-
-<?php
-    Session::Set('valor_kit_inicio_ocasional', 30000);
-    Session::Set('valor_kit_inicio_empresario',119000);
-?>
-
-
-
             <tr>
                 <td>ACCESO A INFORMES ADMINISTRATIVOS SOBRE EL DESEMPEÑO A TU RED</td>
                 <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>negativo-rojo.png "></td>

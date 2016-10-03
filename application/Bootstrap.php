@@ -6,7 +6,8 @@
  */
 class Bootstrap
 {
-    public static function Run(Request $peticion)
+
+    public static function Run( Request $peticion )
     {
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
@@ -14,10 +15,14 @@ class Bootstrap
         $Metodo          = $peticion->getMetodo();
         $args            = $peticion->getArgs();
 
+        /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
+           OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
+        */
+        $IndexController = 'IndexController';
+        $IndexMetodo     = 'Parametros_Iniciales';
 
 
-        if( is_readable( $RutaControlador ) )
-        {
+        if( is_readable( $RutaControlador ) )    {
 
             require_once $RutaControlador;
             $Controller = new $Controller;
@@ -28,6 +33,12 @@ class Bootstrap
             else{
                 $Metodo = DEFAULT_CONTROLLER;
             }
+
+            /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
+               OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
+            */
+            call_user_func(array( $IndexController, $IndexMetodo));
+
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
                 call_user_func_array(array( $Controller, $Metodo ), $args);

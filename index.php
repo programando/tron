@@ -37,11 +37,8 @@
 
  		try
  		  {
-
-					    $url_requerida = new Request();
-
-					    Bootstrap::Run( $url_requerida );
-
+ 		  			$Url_Solicitada = new Request();
+				    Bootstrap::Run( $Url_Solicitada );
 					}
 					catch(Exception $e){
 					    echo $e->getMessage();
