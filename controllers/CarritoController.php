@@ -28,7 +28,7 @@ class CarritoController extends Controller{
 
 
      private $Carrito_Habilitado              = false;
-     // VARIABLES PARA PRODUCTOS TRON
+     // VARIABLES PARA PRODUCTOS TRON.LSJS
      private $Tron_Peso_Total_Gramos          =   0;
      private $Tron_Cmv_Total                  = 0;
      private $Tron_Precio_Lista_Total         = 0;
