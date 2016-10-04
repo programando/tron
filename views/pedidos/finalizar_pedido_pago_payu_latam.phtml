@@ -12,7 +12,6 @@
      $vr_devolucion         = $baseIva;
      $iva                   = $compra_con_iva - $baseIva;
 
-
     /* if (($vr_total_pedido -  $baseIva )==0 ){
         $baseIva       = 0;
         $vr_devolucion = 0 ;
@@ -28,7 +27,9 @@
 
 fclose($file);
 */
-
+Debug::Mostrar( ' vr_total_pedido ' .  $vr_total_pedido );
+Debug::Mostrar( ' baseIva ' . $baseIva  );
+Debug::Mostrar( 'iva  ' . $iva  );
 
 
 
