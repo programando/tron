@@ -2,16 +2,17 @@
 <?php
      $numero_pedido         = Session::Get('numero_pedido');
      $vr_total_pedido       = round(Session::Get('vr_total_pedido'),2);
+     $compra_con_iva        = round(Session::Get('compra_con_iva'));
      $baseIva               = round(Session::Get('Vr_Base_Iva'),2);
      $pnombre               = utf8_encode(Session::Get('nombre_cliente'));
      $email                 = utf8_encode(Session::Get('email'));
      $identificacion        = Session::Get('identificacion');
      $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
 
-     $vr_devolucion         = $vr_total_pedido - $baseIva;
-     $iva                   = $vr_total_pedido  - $baseIva;
+     $vr_devolucion         = $baseIva;
+     $iva                   = $compra_con_iva - $baseIva;
 
-     if (($vr_total_pedido -  $baseIva )==0 ){
+    /* if (($vr_total_pedido -  $baseIva )==0 ){
         $baseIva       = 0;
         $vr_devolucion = 0 ;
      }
@@ -19,13 +20,14 @@
         $iva  = 0;
         $vr_devolucion = 0;
      }
-
+*/
 //Debug::Mostrar( $numero_pedido  );
  /*$file = fopen("c:/archivo.txt", "w");
     fwrite($file, $numero_pedido. ' NUMERO PEDIDO'. PHP_EOL);
 
 fclose($file);
 */
+
 
 
 

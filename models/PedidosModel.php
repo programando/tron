@@ -57,7 +57,7 @@
  		public function Actualizar_Forma_Pago($idpedido,$idformapago,$pagado_online)
  		{
  		/** MAYO 06 DE 2016
-	 	* 	ACTUALIZA LA FORMA DE PAGO DEL PEDIDO UNA VEZ SE HA CONFIRMADO LA FORMA
+	 	* 	ACTUALIZA LA FORMA DE PAGO DEL PEDIDO UNA VEZ SE HA CONFIRMADO EL PAGO
 	 	*/
 
  			$Registro = $this->Db->Ejecutar_Sp("pedidos_actualizar_forma_de_pago($idpedido,$idformapago,$pagado_online);");
