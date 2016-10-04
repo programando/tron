@@ -19,10 +19,11 @@ class IndexController extends Controller
     public function industrial(){
 
         Session::Set('Id_Area_Consulta','1')  ;// 1, Corresponde a la linea de productos industriales
+        $this->Parametros_Iniciales();
 
         $this->View->Productos_Destacados_Index = $this->Productos->Destacados_Index();
-
         Session::Set('Cantidad_Destacados_Industrial', $this->Productos->Cantidad_Registros);
+
         $this->View->SetCss(array('tron_menu_footer','tron_index','tron_carrito',
                                   'tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron-vista-industrial','tron_estilos_slider',
@@ -55,11 +56,12 @@ class IndexController extends Controller
         }
 
 
-        if ( $usuario_logueado == FALSE){
+         if ( $usuario_logueado == FALSE){
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
             }
+
 
 
 
@@ -104,22 +106,20 @@ class IndexController extends Controller
         }
     }
 
-public function Consultar_Datos_Transportadoras(){
-          // VALORES PARA CALCULO DE TRANSPORTE
-        $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
+    public function Consultar_Datos_Transportadoras(){
+            $redetrans_tipo_despacho = Session::Get('redetrans_tipo_despacho');
 
-        if ( !isset( $redetrans_tipo_despacho ) || empty( $redetrans_tipo_despacho )) {
-             $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( 0, 153);
-        }
+            if ( !isset( $redetrans_tipo_despacho ) || empty( $redetrans_tipo_despacho )) {
+                 $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( 0, 153);
+            }
+    }
 
-}
 
 
 
 public function Parametros_Iniciales(){
 
-        Session::Iniciar_Variable('Consultar_Parametros_Iniciales'   , TRUE ) ; //
-
+         Session::Iniciar_Variable('Consultar_Parametros_Iniciales'   , TRUE ) ; //
         if ( Session::Get('Consultar_Parametros_Iniciales') == TRUE ){
                 $Parametros = $this->Parametros->Transportadoras();
 

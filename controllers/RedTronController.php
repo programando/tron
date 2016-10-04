@@ -6,10 +6,11 @@ class RedtronController extends Controller
 {
 
     private $Cantidad_Registros;
-    public function __construct()
-    {
+    public function __construct()  {
         parent::__construct();
         $this->RedTron = $this->Load_Model('RedTron');
+        $this->Index             = $this->Load_Controller('Index');
+        $this->Index->Parametros_Iniciales();
     }
 
     public function index(){}

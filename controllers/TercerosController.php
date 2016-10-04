@@ -1,10 +1,9 @@
 <?php
 
-class TercerosController extends Controller
-{
+class TercerosController extends Controller {
     private $Cantidad_Registros;
-    public function __construct()
-    {
+
+    public function __construct() {
         parent::__construct();
         $this->Terceros            = $this->Load_Model('Terceros');
         $this->Departamentos       = $this->Load_Model('Departamentos');
@@ -12,6 +11,7 @@ class TercerosController extends Controller
         $this->Parametros          = $this->Load_Model('Parametros');
         $this->Comisiones_Grupos   = $this->Load_Model('ComisionesPuntos');
         $this->Correos             = $this->Load_Controller('Emails');
+
     }
 
     public function Index() { }
@@ -938,7 +938,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
       Session::Set('identificacion' ,                 $Registro[0]['identificacion']);
       Session::Set('nombre_usuario',                  $Registro[0]["pnombre"]);
       Session::Set('idtpidentificacion',              $Registro[0]['idtpidentificacion']);
-      Session::Set('cod_tp_identificacion',             $Registro[0]['cod_tp_identificacion']);
+      Session::Set('cod_tp_identificacion',           $Registro[0]['cod_tp_identificacion']);
       Session::Set('email',                           $Registro[0]['email']);
       Session::Set('codigousuario',                   $Registro[0]['codigousuario']);
       Session::Set('vr_cupon_descuento'   ,     0);

@@ -123,6 +123,7 @@ class CarritoController extends Controller{
        $this->Fletes         = $this->Load_Controller('Fletes');
        $this->Departamentos  = $this->Load_Model('Departamentos');
        $this->Productos      = $this->Load_Model('Productos');
+
     }
 
     public function index() {}

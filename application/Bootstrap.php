@@ -18,8 +18,12 @@ class Bootstrap
         /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
            OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
         */
-        $IndexController = 'IndexController';
-        $IndexMetodo     = 'Parametros_Iniciales';
+        $IndexController        = 'IndexController';
+        $IndexRuta              = ROOT . 'controllers'       . DS . $IndexController. '.php';
+        require_once $IndexRuta ;
+        $ControllerIndex        = new $IndexController;
+        $ControllerIndex->Parametros_Iniciales();
+
 
 
         if( is_readable( $RutaControlador ) )    {
