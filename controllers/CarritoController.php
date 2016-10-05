@@ -141,15 +141,7 @@ class CarritoController extends Controller{
         if ( $idpedido > 0 ){
            $Vr_Total_Pedido_Real = 1;
            Session::Set('idpedido_temporal', $idpedido);
-           $Registro = $this->Pedidos->Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido );
-
-           Session::Set('numero_pedido',      $Registro[0]['numero_pedido']);
-           Session::Set('vr_total_pedido',    $Registro[0]['vr_total_pedido']);
-           Session::Set('Vr_Base_Iva',        $Registro[0]['Vr_Base_Iva']);
-           Session::Set('compra_con_iva'  ,   $Registro[0]['compra_con_iva']);
-           Session::Set('nombre_cliente',     $Registro[0]['nombre_cliente']);
-           Session::Set('email',              $Registro[0]['email']);
-           Session::Set('identificacion',     $Registro[0]['identificacion']);
+           $this->Pedidos->Datos_Cambio_Forma_Pago ( $idpedido );
         }
 
         if ( $Vr_Total_Pedido_Real > 0 ){

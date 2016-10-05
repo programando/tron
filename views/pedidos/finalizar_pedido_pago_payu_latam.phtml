@@ -1,12 +1,16 @@
 
 <?php
      $numero_pedido         = Session::Get('numero_pedido');
-     $vr_total_pedido       = round(Session::Get('vr_total_pedido'),2);
-     $compra_con_iva        = round(Session::Get('compra_con_iva'));
-     $baseIva               = round(Session::Get('Vr_Base_Iva'),2);
      $pnombre               = utf8_encode(Session::Get('nombre_cliente'));
      $email                 = utf8_encode(Session::Get('email'));
      $identificacion        = Session::Get('identificacion');
+
+     $vr_total_pedido       = round(Session::Get('vr_total_pedido'),2);
+     $compra_con_iva        = round(Session::Get('compra_con_iva'));
+     $baseIva               = round(Session::Get('Vr_Base_Iva'),2);
+
+
+
      $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
 
      $vr_devolucion         = $baseIva;
@@ -24,11 +28,13 @@
     //men
 
 fclose($file);
-*/
+
+Debug::Mostrar( $numero_pedido   );
 Debug::Mostrar( ' vr_total_pedido ' .  $vr_total_pedido );
+Debug::Mostrar( ' compra_con_iva ' .  $compra_con_iva );
 Debug::Mostrar( ' baseIva ' . $baseIva  );
 Debug::Mostrar( 'iva  ' . $iva  );
-
+*/
 
 
 ?>
@@ -41,14 +47,14 @@ Debug::Mostrar( 'iva  ' . $iva  );
      <br>
          Procesando información..
       <br>
-         <img src="<?=BASE_IMG_EMPRESA;?>cargando.gif" style="display: block;  width: 30%; margin : 0px auto ;">
+         <img src="<?=BASE_IMG_EMPRESA;?>cargando.gif" style="margin : 0px auto ;">
       <br>
          &nbsp;&nbsp;Espere unos segundos......
 </div>
 
 
 <br /> <br /> <br /> <br /> <br />
-<!--
+
         <form name="formPaypal" action="https://gateway.payulatam.com/ppp-web-gateway" method="post" id="">
 
             <input type="hidden" name="description"         id="description"            value = "<?= "Pedido No. ".$numero_pedido ; ?>" />
@@ -70,7 +76,7 @@ Debug::Mostrar( 'iva  ' . $iva  );
 
         </form>
 
- -->
+
 
 <!--
     <input type="hidden" name="baseDevolucionIva"   id="baseDevolucionIva"      value = "<?= $vr_devolucion ; ?>" />

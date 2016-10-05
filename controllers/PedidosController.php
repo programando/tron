@@ -263,12 +263,23 @@ class PedidosController extends Controller
       $IdPedido      = Session::Get('idpedido_temporal');
       $Pagado_Online = 1;
       Session::Set('idformapago',$IdFormaPago);
-      $this->Pedidos->Actualizar_Forma_Pago($IdPedido ,$IdFormaPago,$Pagado_Online);
+      $this->Pedidos->Actualizar_Forma_Pago( $IdPedido ,$IdFormaPago,$Pagado_Online);
+      $this->Datos_Cambio_Forma_Pago ( $IdPedido  );
+
       $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
     }
 
-    public function Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido ){
-      return $this->Pedidos->Pedido_Consulta_Datos_Cambio_Forma_Pago($idpedido );
+    public function Datos_Cambio_Forma_Pago ( $idpedido ){
+
+      $Registro= $this->Pedidos->Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido );
+
+       Session::Set('numero_pedido',      $Registro[0]['numero_pedido']);
+       Session::Set('vr_total_pedido',    $Registro[0]['vr_total_pedido']);
+       Session::Set('Vr_Base_Iva',        $Registro[0]['Vr_Base_Iva']);
+       Session::Set('compra_con_iva'  ,   $Registro[0]['compra_con_iva']);
+       Session::Set('nombre_cliente',     $Registro[0]['nombre_cliente']);
+       Session::Set('email',              $Registro[0]['email']);
+       Session::Set('identificacion',     $Registro[0]['identificacion']);
     }
 
 }
