@@ -24,11 +24,11 @@
     //men
 
 fclose($file);
-
+*/
 Debug::Mostrar( ' vr_total_pedido ' .  $vr_total_pedido );
 Debug::Mostrar( ' baseIva ' . $baseIva  );
 Debug::Mostrar( 'iva  ' . $iva  );
-*/
+
 
 
 ?>
@@ -48,31 +48,33 @@ Debug::Mostrar( 'iva  ' . $iva  );
 
 
 <br /> <br /> <br /> <br /> <br />
-<form name="formPaypal" action="https://gateway.payulatam.com/ppp-web-gateway" method="post" id="">
+<!--
+        <form name="formPaypal" action="https://gateway.payulatam.com/ppp-web-gateway" method="post" id="">
 
-    <input type="hidden" name="description"         id="description"            value = "<?= "Pedido No. ".$numero_pedido ; ?>" />
-    <input type="hidden" name="amount"              id="amount"                 value = "<?= $vr_total_pedido; ?>" />
-    <input type="hidden" name="tax"                 id="tax"                    value = "<?= $iva;?>" />
-    <input type="hidden" name="taxReturnBase"       id="taxReturnBase"          value = "<?= $baseIva ; ?>" />
+            <input type="hidden" name="description"         id="description"            value = "<?= "Pedido No. ".$numero_pedido ; ?>" />
+            <input type="hidden" name="amount"              id="amount"                 value = "<?= $vr_total_pedido; ?>" />
+            <input type="hidden" name="tax"                 id="tax"                    value = "<?= $iva;?>" />
+            <input type="hidden" name="taxReturnBase"       id="taxReturnBase"          value = "<?= $baseIva ; ?>" />
 
-    <input type="hidden" name="accountId"           id="accountId"              value="512832">
+            <input type="hidden" name="accountId"           id="accountId"              value="512832">
 
-    <input type="hidden" name="currency"            id="currency"               value = "COP">
-    <input type="hidden" name="payerFullName"       id="payerFullName"             value = "<?= $pnombre ;?>">
-    <input type="hidden" name="buyerEmail"          id="buyerEmail"             value = "<?=  $email ; ?>">
-    <input type="hidden" name="payerDocument"       id="payerDocument"          value = "<?= $identificacion ; ?>">
+            <input type="hidden" name="currency"            id="currency"               value = "COP">
+            <input type="hidden" name="payerFullName"       id="payerFullName"             value = "<?= $pnombre ;?>">
+            <input type="hidden" name="buyerEmail"          id="buyerEmail"             value = "<?=  $email ; ?>">
+            <input type="hidden" name="payerDocument"       id="payerDocument"          value = "<?= $identificacion ; ?>">
+
+
+           <input type="hidden" name="merchantId"           id="merchantId"         value="511623" />
+           <input type="hidden" name="referenceCode"        id="referenceCode"       value = "<?= $numero_pedido ; ?>" />
+           <input type="hidden" name="signature"            id="signature"          value="<?= $signature?>">
+
+        </form>
+
+ -->
+
 <!--
     <input type="hidden" name="baseDevolucionIva"   id="baseDevolucionIva"      value = "<?= $vr_devolucion ; ?>" />
      <input name="confirmationUrl"                   type="hidden"         value = " <?= BASE_URL ;?>pedidos/ConfirmacionPayuLatam/" >
-	 <input name="responseUrl"                   	type="hidden"           value = "" >
+     <input name="responseUrl"                      type="hidden"           value = "" >
      responseUrl <?= BASE_URL ;?>pedidos/ConfirmacionPayuLatam/
  -->
-
-   <input type="hidden" name="merchantId"           id="merchantId"         value="511623" />
-   <input type="hidden" name="referenceCode"        id="referenceCode"       value = "<?= $numero_pedido ; ?>" />
-   <input type="hidden" name="signature"            id="signature"          value="<?= $signature?>">
-
-</form>
-
-
-
