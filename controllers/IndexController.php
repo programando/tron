@@ -49,14 +49,14 @@ class IndexController extends Controller
         $this->Index_Secciones_Barra_Menu();            // Secciones de la barra de menus
         $this->Footer_Categorias_Personal_Industrial(); // Categorías del Footer
 
-        $usuario_logueado = $_SESSION['logueado'];
-        if ( !isset( $usuario_logueado )){
+        //$usuario_logueado = $_SESSION['logueado'];
+        if ( !isset( $_SESSION['logueado'] )){
             $_SESSION['logueado'] = FALSE;
             Session::Set('idtipo_plan_compras',1);
         }
 
 
-         if ( $usuario_logueado == FALSE){
+         if ( $_SESSION['logueado']  == FALSE){
             Session::Set('usuario_viene_del_registro',     FALSE);
         }else{
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
