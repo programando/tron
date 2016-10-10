@@ -2,7 +2,7 @@
 
 <?php
 	$cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-	$logueado                              = Session::Get('logueado');
+	$logueado                              =  $_SESSION['logueado']; //Session::Get('logueado');
 ?>
 
 <?php if ( $logueado == TRUE ) :?>

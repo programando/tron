@@ -34,7 +34,7 @@
       $idnomproducto            = 'nomproducto'.$Producto[0]['idproducto'];
       $idnompresentacion        = 'nompresentacion'.$Producto[0]['idproducto'];
       $id_agrupacion            = $Producto[0]['id_agrupacion'];
-      $logueado              = Session::Get('logueado');
+      $logueado                 = $_SESSION['logueado'];
       $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
 
       if ( $logueado  == TRUE ){

@@ -16,7 +16,7 @@
         </div>
     </a>
 
-    <?php if ( Session::Get('logueado') == TRUE ) :?>
+    <?php if ( $_SESSION['logueado'] == TRUE ) :?>
        <a href="<?=BASE_URL ;?>index/industrial" class="tab-industrial">
         	<div class="tabAll">
                 <div class="tabIn t14">

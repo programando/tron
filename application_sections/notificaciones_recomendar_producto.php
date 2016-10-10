@@ -2,7 +2,7 @@
 
 <div id="contenido"
 		idtipo-plan-compras = "<?= Session::Get('idtipo_plan_compras') ;?>"
-  logueado    			  = "<?= Session::Get('logueado') ;?>"
+  logueado    			  = "<?= $_SESSION['logueado'] ;?>"
 		>
 <div>
 	 <div class="contenedor_notificaciones_cliente_ocasional">

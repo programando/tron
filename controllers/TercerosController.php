@@ -85,7 +85,7 @@ class TercerosController extends Controller {
         }else{
           $this->Validar_Ingreso_Usuario_Asignar_Datos( $Registro );
           Session::Set('Generando_Pedido_Amigo', TRUE);
-          Session::Set('logueado', TRUE );
+          $_SESSION['logueado'] = TRUE;
           $Respuesta ='SI EXISTE';
         }
        }
@@ -128,7 +128,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     public function Comprobar_Tipo_Usuario(){
       //    JUNIO 25 2015
       //  COMPRUEBA QUE EL USUARIO NO SEA CLIENTE O EMPRESARIO PARA COMPRAR EL KIT DE INICIO
-      if ( Session::Get('logueado') == TRUE ){
+      if ( $_SESSION['logueado'] == TRUE ){
           $idtipo_plan_compras =  Session::Get('idtipo_plan_compras');
           $kit_comprado                   = Session::Get('kit_comprado');
       }else{
@@ -977,7 +977,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     }
 
     public function Validar_Ingreso_Usuario(){
-       Session::Set('logueado',   FALSE);
+       $_SESSION['logueado'] = FALSE;
        $Email                = General_Functions::Validar_Entrada('email','TEXT');
        $Password             = General_Functions::Validar_Entrada('Password','TEXT');
        $Password             = md5($Password );
@@ -989,7 +989,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
        }else {
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo = "Logueo_OK";
-            Session::Set('logueado',   TRUE);
+            $_SESSION['logueado'] = TRUE;
          }
 
          $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');

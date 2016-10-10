@@ -91,7 +91,7 @@
 
             <tr>
                 <td class="text-right">
-                    Valor del kit de inicio <strong><small>( Calculado para Cali )</small></strong>:
+                    Valor del kit de inicio <strong><small> </small></strong>:
                 </td>
                 <td class="text-center">
 
@@ -104,12 +104,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td class="text-right"><strong>TOTAL A PAGAR <small> ( Calculado para Cali ) : </small></strong> </td>
-                <td class="text-center">.</td>
-                <td class="text-center">$ <?= number_format( Session::Get('valor_kit_inicio_ocasional'),0) ;?> </td>
-                <td class="text-center">$ <?= number_format( Session::Get('valor_kit_inicio_empresario'),0) ;?> </td>
-            </tr>
+
 
             <tr>
                 <td class="text-right" style="vertical-align:middle;"><strong>REGISTRARME EN EL PLAN:</strong></td>

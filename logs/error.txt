@@ -15,3 +15,5 @@
 [05-Oct-2016 23:25:31 Europe/Berlin] PHP Fatal error:  Call to undefined method PedidosController::Pedido_Consulta_Datos_Cambio_Forma_Pago() in C:\xampp\htdocs\tron\controllers\PedidosController.php on line 276
 [05-Oct-2016 23:29:41 Europe/Berlin] PHP Fatal error:  Call to undefined method PedidosController::Pedidos_Consulta_Datos_Cambio_Forma_Pago() in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 144
 [05-Oct-2016 23:31:46 Europe/Berlin] PHP Fatal error:  Call to undefined method PedidosController::Pedido_Consulta_Datos_Cambio_Forma_Pago() in C:\xampp\htdocs\tron\controllers\CarritoController.php on line 144
+[10-Oct-2016 16:22:43 Europe/Berlin] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\controllers\IndexController.php on line 52
+[10-Oct-2016 16:27:24 Europe/Berlin] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\controllers\IndexController.php on line 52

@@ -251,7 +251,7 @@ class CarritoController extends Controller{
       Session::Set('iddireccion_despacho',   0 );
       Session::Set('finalizar_pedido_siguiente_paso','DIRECCION');
 
-      if (Session::Get('logueado') == FALSE ) {
+      if ( $_SESSION['logueado'] == FALSE ) {
         $this->View->Mostrar_Vista('finalizar_pedido_identificacion');
       }else      {
         $this->View->Direcciones = $this->Terceros->Direcciones_Despacho();
@@ -496,10 +496,10 @@ class CarritoController extends Controller{
      */
     Session::Set('kit_combos_eliminados', FALSE);
 
-    if ( Session::Get('logueado')== FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
+    if ( $_SESSION['logueado'] == FALSE || Session::Get('idtipo_plan_compras') ==1 ||  Session::Get('usuario_viene_del_registro') == TRUE  ){
       return;
     }
-    if (Session::Get('logueado')== TRUE && Session::Get('kit_comprado') == FALSE){
+    if ( $_SESSION['logueado'] == TRUE && Session::Get('kit_comprado') == FALSE){
       return;
     }
 
@@ -957,7 +957,7 @@ public function Totalizar_Carrito (  ){
 
 
 
-        if ( Session::Get('logueado') == FALSE ){
+        if ( $_SESSION['logueado'] == FALSE ){
             if ( $this->Vr_Transporte_Ocasional  > $this->Vr_Transporte_Tron )     {
                   $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Ocasional ;
                   $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;
@@ -1271,7 +1271,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
         $cumple_compras_tron                  = FALSE;
 
 
-        if ( Session::Get('logueado') == TRUE ) {
+        if ( $_SESSION['logueado'] == TRUE ) {
           if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
                  ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
                  ($usuario_viene_del_registro == TRUE && $kit_comprado  == FALSE)){
@@ -1281,7 +1281,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
               }
         }
 
-      if ( Session::Get('logueado') == FALSE ) {
+      if ( $_SESSION['logueado'] == FALSE ) {
             if ( ($compras_totales_tron >= $compra_minima_productos_tron)  || ($compras_totales_industrial >= $compra_minima_productos_industriales ) ) {
                $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
               }else{

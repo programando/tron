@@ -4,7 +4,7 @@
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
 
-        <?php if (Session::Get('logueado') == FALSE): ; ?>
+        <?php if ( $_SESSION['logueado'] == FALSE): ; ?>
             <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
                 <div class="col-resumen-pedido"><strong>Transporte + Recaudo <small>( Calculado para Cali ):</small></strong></div>
                 <?php else : ?>
@@ -40,7 +40,7 @@
 
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-  $logueado                              = Session::Get('logueado');
+  $logueado                              = $_SESSION['logueado'];
 ?>
 
  <?php if ( $cumple_condicion_cpras_tron_industial == FALSE || empty( $cumple_condicion_cpras_tron_industial) ) :?>

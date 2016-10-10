@@ -1,4 +1,4 @@
-<?php if (Session::Get('logueado')== FALSE ) :?>
+<?php if ( $_SESSION['logueado'] == FALSE ) :?>
 
   <div class="modal fade" id="myModal"
       tabindex="-1" role="dialog"
