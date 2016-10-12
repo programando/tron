@@ -64,10 +64,36 @@
                         <?php endif ;?>
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS</a></li>
 
+				
+                <style>
+                	
+					.ssgg ul 	{ width:100%; padding:0; background-color:#7D170F; }
+					.ssgg ul li	{ width:100%; }
+				
+                </style>
 
-
-           <li><a href="<?=BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf">
-                            CATÁLOGO MANTENIMIENTO INDUSTRIAL</a></li>
+           					<li class="dropdown ssgg">
+                            	 <!--href="<?=BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf"-->
+                                <a class="dropdown-toggle cP" id="dropdownMenu551" data-toggle="dropdown">
+                                	CATÁLOGO POR LÍNEA <span class="caret"></span>
+                                </a>
+                            	
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu551">
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="#">Acción</a>
+                                    </li>
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="#">Otra acción</a>
+                                    </li>
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="#">Otra acción más</a>
+                                    </li>
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="#">Acción separada</a>
+                                    </li>
+                                  </ul>
+                                
+                            </li>
 
                         </ul>
 
