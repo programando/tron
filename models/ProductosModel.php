@@ -47,6 +47,20 @@
             return $Productos;
         }
 
+        public function Busqueda_Nombre ($texto_a_buscar, $tipo_busqueda)        {
+            /**ENERO 22 DE 2015
+            * REALIZA BÚSQUEDA DE PRODUCTOS DE ACUERDO A UN CRITERIO DEL USUARIO EN EL CUADRO BUSCAR    */
+            $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+            if ( empty( $Id_Area_Consulta ) ) { Session::Set('Id_Area_Consulta', 2); }
+
+            $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+
+            $Productos        = $this->Db->Ejecutar_Sp("productos_busqueda_nombre($Id_Area_Consulta,'$texto_a_buscar')");
+            return $Productos;
+        }
+
+
+
         public function Productos_Tron_x_Id_Categoria_Producto($id_categoria)        {
             /**ENERO 23 DE 2014
             * CONSULTA TODOS LOS PRODUCTOS TRON DISPONIBLES PARA LA VENTA   */

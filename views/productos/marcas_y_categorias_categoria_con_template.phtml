@@ -1,0 +1,46 @@
+
+<div class="ionix">
+    <div class="general">
+    	<div class="contenido-index mb30 pAA30">
+
+			<div class="row">
+
+ 				<!-- CATEGORIAS MARCAS -->
+                <div id="menu-izq-otros-productos" class="col-sm-3 col-xs-12 colCatMar">
+                    <div class="panel-group" id="accordion">
+																								<?php include (APPLICATION_SECTIONS .'otros_productos_categorias.php');?><!--Llamado Al Menu-Industrial -->
+                        <?php include (APPLICATION_SECTIONS .'otros_productos_marcas.php');?><!--Llamado Al Menu-Industrial -->
+                        <?php include (APPLICATION_SECTIONS .'otros_productos_empresas.php');?><!--Llamado Al Menu-Industrial -->
+                    </div>
+                </div>
+
+
+<div id="contenido-productos">
+	<div>
+
+		<?php
+			include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
+
+			foreach ($this->Productos_Pagina as $Productos) {
+				$mostrar_imagen_varias_referencias=true;
+				include (APPLICATION_CODS . 'campos_productos.php');
+        ?>
+
+         <?php if ( $en_oferta == 1 ) : ?> <div class="artOpt artPor4 oferta">
+            <?php else :?>                 <div class="artOpt artPor4">
+         <?php endif ;?>
+         <?php include (APPLICATION_SECTIONS . 'productos_listado.php');?>
+          </div>
+
+        <?php
+			} if( isset($this->Paginacion)) echo $this->Paginacion;
+		?>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+

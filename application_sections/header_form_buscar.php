@@ -1,7 +1,14 @@
-<div class="contenido-input-buscar rr10">
+
+
+<div class="contenido-input-buscar rr10" style="z-index: 200;">
     <div class="columan-input rr10">
-        <input type="text" class="form-control input-buscar rr10 taL t14" placeholder='Buscar Producto'  id="texto-busqueda" />
+        <input name ="typeahead" type="text"
+        class="form-control input-buscar rr10 taL t14"
+        placeholder='Buscar Producto'
+        id="texto-busqueda" />
+
     </div>
+
 
     <div class="cont-btn-buscar">
     	<button type="button" class="btn-buscar">
@@ -10,5 +17,11 @@
             </div>
         </button>
     </div>
+
+</div>
+<div style="z-index: 200;">
+    <ul  id="resultados" >
+
+    </ul>
 </div>
 

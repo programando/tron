@@ -53,6 +53,37 @@
 
           }
 
+        public function Mostrar_Vista_Completa($vista,$View_Vars=array())  {
+         /**
+         * REALIZA LA LLAMADA A LA VISTA DE ACUERDO A SU CONTROLADOR
+         * @param [text] $vista     [nombre de la vista]
+         * @param array  $View_Vars [parámetros para la vista]
+         */
+         $this->Controlador = strtolower( $this->Controlador);
+         $vista             = strtolower($vista );
+         $RutaView     = ROOT .  'views' . DS  . $this->Controlador. DS . $vista . '.phtml';
+         $RutaTemplate = ROOT .  'views' . DS . 'template.phtml';
+         $RutaFooter   = ROOT .  'views' . DS . 'footer.phtml';
+
+
+             if(is_readable( $RutaView ) )  {
+               extract($View_Vars);
+               ob_start();
+               require_once ($RutaView);
+               $ContenidoBody = ob_get_clean();
+               require_once ($RutaTemplate);
+
+            }
+            else {
+
+                throw new Exception(header('Location: ' . BASE_URL .'error/404.php'));
+            }
+
+          }
+
+
+
+
         public function Mostrar_Vista_Parcial($vista) {
          /**
          * REALIZA LA LLAMADA A LA VISTA DE ACUERDO A SU CONTROLADOR

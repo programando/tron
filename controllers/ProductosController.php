@@ -84,16 +84,40 @@ class ProductosController extends Controller
       $Tipo_Busqueda    = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
       $pagina           = General_Functions::Validar_Entrada('Pagina','NUM');
       if ( strlen($Texto_Busqueda) > 0 ){
-      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
-      $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','mostrar_tabla_carrito'));
-      $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
-      $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
-      $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-      $this->View->Mostrar_Vista('resultado_busqueda');
+        $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','mostrar_tabla_carrito'));
+        $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
+        $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
+        $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        $this->View->Mostrar_Vista('resultado_busqueda');
       }
     }
 
 
+    public function Busqueda_Productos (){
+       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+       $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
+
+       if ( !empty( $Texto_Busqueda )){
+        $Productos = $this->Productos->Busqueda_Nombre($Texto_Busqueda, '');
+      }
+
+       if ( !$Productos or empty( $Texto_Busqueda )) {
+        echo json_encode($html,256);
+       }else{
+
+
+         foreach ($Productos as $Producto) {
+           # code...
+           $html = $html . '<li><a target="_blank" href="urlString">'. $Producto['nom_producto'] .'</a></li>';
+           //$html = $html  . $Producto['nom_producto'] ;
+         }
+
+         echo json_encode($html,256);
+       }
+
+
+    }
 
     public function Varias_Referencias($Id_Agrupacion) {
       /**  ENERO 22 DE 2015   MUESTRA PRODUCTOS AGRUPADOS EN VARIOS REFERENCIAS
@@ -245,32 +269,41 @@ class ProductosController extends Controller
         $this->View->SetCss(array('tron_carrito','tron-vista-industrial','tron_productos_vista_ampliada','tron_ventana_modal'));
       }
       $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));
+
       $this->View->Mostrar_Vista('vista_ampliada');
     }
 
 
-    public function Categorias_Marcas ($pagina=false){
+    public function Categorias_Marcas ( $pagina=false ){
      /** DIC 31 DE 2014
      *  MUSTRA EL MENU LATERAL DE DATOS RELACIONADOS CON CATEGORÍAS Y MARCAS
     */
-     if ($pagina==false) {   $pagina = 1 ;};
-      $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
-      if ( !isset( $Id_Area_Consulta ) ){
-        Session::Set('Id_Area_Consulta',2);
-        $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
-      }
-      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
-      $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
 
-      $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);
-      $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
-      $this->View->Productos_Marcas          = $this->Marcas->Marcas_Consultar($Id_Area_Consulta);
 
-      $this->View->Productos_Pagina          = $this->Productos->Listar_Poductos_Paginador($Id_Area_Consulta );
-      $this->View->Productos_Pagina          = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
-      $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
-      $this->View->Mostrar_Vista('marcas_y_categorias');
-    }
+           if ($pagina==false) {   $pagina = 1 ;};
+            $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
+            if ( !isset( $Id_Area_Consulta ) ){
+              Session::Set('Id_Area_Consulta',2);
+              $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
+            }
+            $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
+            $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
+
+            $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);
+            $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
+            $this->View->Productos_Marcas          = $this->Marcas->Marcas_Consultar($Id_Area_Consulta);
+
+            $this->View->Productos_Pagina          = $this->Productos->Listar_Poductos_Paginador($Id_Area_Consulta );
+            $this->View->Productos_Pagina          = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
+            $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
+
+
+                $this->View->Mostrar_Vista('marcas_y_categorias');
+
+
+
+
+    }// Fin Categorias_Marcas
 
 
 
@@ -314,16 +347,18 @@ class ProductosController extends Controller
       $this->View->Mostrar_Vista('marcas_y_categorias_individual');
     } // Fin Productos_por_Categoria
 
-    public function Productos_por_Categoria() {
+    public function Productos_por_Categoria(   ) {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
       */
       if (!isset($pagina)) { $pagina = false;  };
       if ($pagina==false)  { $pagina = 1 ;     };
-      $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-      $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
-      $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
+
+          $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+          $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
+          $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
+
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
       Session::Set('IdMarca',0);
@@ -334,9 +369,10 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Productos->Productos_por_Categoria( $Id_Area_Consulta, $_idorden_nv_1 );
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
-      $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
+
+       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
+
     } // Fin Productos_por_Categoria
 
 
@@ -391,8 +427,10 @@ class ProductosController extends Controller
       if (!isset($pagina)) { $pagina=false;}
       if ($pagina==false) {   $pagina = 1 ;};
       $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+
       $_idorden_nv_2    =  General_Functions::Validar_Entrada('idorden_nv_2','NUM');
       $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
+
       Session::Set('IdCategoria_n1',0);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',$_idorden_nv_2);
       Session::Set('IdMarca',0);
@@ -402,9 +440,31 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
-       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
+      $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
+
+    /* COOPSALUD
+    PSA..........................
+    TSH..........................
+    TRANSAMINASAS................
+    */
+
     } // Fin Productos_por_Categoria
 
+
+    private function Historial_Ultimo_Sitio_Visitado ( $Id_Area_Consulta, $Id_SubCategoria, $NomSubCategoria ) {
+
+      if ( !isset( $_SESSION['ultimo_sitio_visitado'] )){
+          $_SESSION['Ultimo_Sitio_Visitado']           = '';
+          $_SESSION['Ultimo_Sitio_Id_Area_Consulta']   = 0;
+          $_SESSION['Ultimo_Sitio_Id_SubCategoria']    = 0;
+          $_SESSION['Ultimo_Sitio_Id_NomSubCategoria'] = '';
+      }
+       $_SESSION['Ultimo_Sitio_Visitado']           = $_GET['url'];
+       $_SESSION['Ultimo_Sitio_Id_Area_Consulta']   = $Id_Area_Consulta;
+       $_SESSION['Ultimo_Sitio_Id_SubCategoria']    = $Id_SubCategoria;
+       $_SESSION['Ultimo_Sitio_Id_NomSubCategoria'] = $NomSubCategoria;
+
+    }
 
 
     public function Productos_por_Marca() {

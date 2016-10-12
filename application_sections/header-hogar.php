@@ -3,7 +3,7 @@
     <div class="ionix hein1">
         <div class="generalMax">
 
-            <div class="row header-tron">
+            <div class="row header-tron page-busqueda">
 
                 <div class="">
                     <div class="col-sm-4  col-xs-12 vcenter taLC mb10_onlySmart">
@@ -12,7 +12,7 @@
                         </a>
                     </div><!--
 
-                    --><div class="col-sm-4 col-xs-12 vcenter">
+                    --><div class="col-sm-4 col-xs-12 vcenter ">
                         <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
                     </div><!--
 
