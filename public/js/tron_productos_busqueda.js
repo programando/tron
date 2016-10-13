@@ -17,7 +17,7 @@ function search( $valor_busqueda ) {
 
 
 
-$(".page-busqueda").on("keyup","#texto-busqueda", function(e) {
+$(".page-busqueda").on("keyup","#texto-busqueda-live", function(e) {
 
     // Set Search String
     var search_string = $(this).val();

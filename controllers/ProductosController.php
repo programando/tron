@@ -106,7 +106,7 @@ class ProductosController extends Controller
         echo json_encode($html,256);
        }else{
 
-
+          $html ='';
          foreach ($Productos as $Producto) {
            # code...
            $html = $html . '<li><a target="_blank" href="urlString">'. $Producto['nom_producto'] .'</a></li>';

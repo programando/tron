@@ -64,12 +64,12 @@
                         <?php endif ;?>
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS</a></li>
 
-				
+
                 <style>
-                	
+
 					.ssgg ul 	{ width:100%; padding:0; background-color:#7D170F; }
 					.ssgg ul li	{ width:100%; }
-				
+
                 </style>
 
            					<li class="dropdown ssgg">
@@ -77,22 +77,31 @@
                                 <a class="dropdown-toggle cP" id="dropdownMenu551" data-toggle="dropdown">
                                 	CATÁLOGO POR LÍNEA <span class="caret"></span>
                                 </a>
-                            	
+
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu551">
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="#">Acción</a>
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-alimentaria-balquimia-2016.pdf">Alimentaria</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="#">Otra acción</a>
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-artes-graficas-balquimia.pdf">Artes Gráficas</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="#">Otra acción más</a>
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-automotriz-balquimia-2016.pdf">Automotriz</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="#">Acción separada</a>
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-hotelera-balquimia-2016.pdf">Hotelera</a>
+                                    </li>
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf">Industrial</a>
+                                    </li>
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-materias-primas-balquimia.pdf">Materias Primas</a>
+                                    </li>
+                                    <li role="presentation">
+                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-sanidad portatil-balquimia.pdf">Sanidad Portátil</a>
                                     </li>
                                   </ul>
-                                
+
                             </li>
 
                         </ul>
