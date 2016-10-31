@@ -89,7 +89,8 @@ class PedidosController extends Controller
 
 
     public function Grabar() {
-					$id_forma_pago               = 0;
+
+          $id_forma_pago               = 0;
 					$idtercero                   = Session::Get('idtercero_pedido');
 					$iddireccion_despacho        = Session::Get('iddireccion_despacho');
 
@@ -144,8 +145,8 @@ class PedidosController extends Controller
           $peso_gramos_pedido_carga          = Session::Get('Peso_Pedido_Carga');
           $vr_payu_latam                     = Session::Get('vr_payu_latam');
           if ( !isset($id_transportadora_carga))    { $id_transportadora_carga   = 0 ;     }
-          if ( !isset($tipo_despacho_carga))        { $tipo_despacho_carga   = 0 ;     }
-
+          if ( !isset($tipo_despacho_carga))        { $tipo_despacho_carga       = 0 ;     }
+          if ( !isset($id_transportadora))          { $id_transportadora       = 0 ;     }
 
 
     	  $Datos  = compact('id_forma_pago','idtercero','iddireccion_despacho', 'vr_compra_tron','vr_compra_ta','vr_compra_acc','vr_compra_otros','vr_comis_pago_pedidos',
@@ -153,6 +154,7 @@ class PedidosController extends Controller
           'vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
         'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado',
         'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga','vr_payu_latam');
+
 
 
       $Pedido            = $this->Pedidos->Grabar($Datos );
@@ -214,6 +216,7 @@ class PedidosController extends Controller
 				$this->Sessiones->Pedidos_Reiniciar_Variables();
         $this->Index->Consultar_Datos_Transportadoras();
         Session::Set('Generando_Pedido_Amigo', $Generando_Pedido_Amigo); // Restablecer valor de esta variable
+
         echo "OK";
 
     }

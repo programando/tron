@@ -42,6 +42,7 @@ class IndexController extends Controller
         //$Version_Navegador  = (int)$info['version'];
 
 
+
         Session::Set('Id_Area_Consulta','2')  ;
 
         //$this->Consultar_Datos_Transportadoras();

@@ -375,13 +375,15 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 	   		 return ;
 	    }
 
+
+
 	     // PASAR A LA FORMA DE PAGAR PARA EL PEDIDO
 							$.ajax({
 									dataType: 'text',
 									url:      '/tron/pedidos/Grabar/',
 									type:     'post',
 				     success:  function (resultado)	 {
-				 							window.location.href = "/tron/carrito/finalizar_pedido_forma_Pago";
+														 window.location.href = "/tron/carrito/finalizar_pedido_forma_Pago";
 				    	 }
 							});
 

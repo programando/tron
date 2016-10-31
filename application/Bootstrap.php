@@ -25,7 +25,6 @@ class Bootstrap
         $ControllerIndex->Parametros_Iniciales();
 
 
-
         if( is_readable( $RutaControlador ) )    {
 
             require_once $RutaControlador;

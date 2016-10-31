@@ -8,10 +8,15 @@
  */
 	class Session
 	{
-		public static function Init( ){
 
+        public static function Init(  ){
 
+            //session_cache_limiter('nocache,private');
+            //session_name( $NombreSession );
             session_start();
+
+            //Debug::Mostrar( session_name() );
+
             /* Establecemos que las paginas no pueden ser cacheadas */
             header("Expires: Tue, 01 Jul 2001 06:00:00 GMT");
             header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
