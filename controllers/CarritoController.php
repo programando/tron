@@ -1269,9 +1269,8 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
         $aplica_pago_adicional_payu_latam     = FALSE;
         $cumple_compras_tron                  = FALSE;
 
-//Debug::Mostrar( $compras_totales_tron  );
-//Debug::Mostrar( $compra_minima_productos_tron );
-//Debug::Mostrar( Session::Get('idtercero') );
+
+
 
 
 
@@ -1303,8 +1302,11 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
       Session::Set('aplica_pago_adicional_payu_latam'        , $aplica_pago_adicional_payu_latam );
       Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
 
- Debug::Mostrar('idtercero_pedido'. Session::Get('idtercero_pedido') );
- Debug::Mostrar('idtercero'. Session::Get('idtercero') );
+ Debug::Mostrar( $compras_totales_tron  );
+ Debug::Mostrar( $compra_minima_productos_tron );
+
+  Debug::Mostrar('idtercero_pedido'. Session::Get('idtercero_pedido') );
+  Debug::Mostrar('idtercero'. Session::Get('idtercero') );
   Debug::Mostrar( $Cumple_Condic_Cpras_Tron_Industial );
       //
       return $Cumple_Condic_Cpras_Tron_Industial;
