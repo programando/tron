@@ -38,7 +38,7 @@
 
  			    Session::Init(   );
 
- 			    Debug::Mostrar( sys_get_temp_dir() );
+ 			    //Debug::Mostrar( sys_get_temp_dir() );
  			    //Debug::Mostrar( md5($_SERVER['HTTP_USER_AGENT']) );
 
 
