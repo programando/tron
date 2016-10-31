@@ -135,6 +135,8 @@
 
 				public function Compra_Productos_Tron_Mes_Actual()
 				{
+					Debug::Mostrar('idtercero_pedido'. Session::Get('idtercero_pedido') );
+					Debug::Mostrar('idtercero'. Session::Get('idtercero') );
 					$idtercero                = Session::Get('idtercero_pedido');
 					if (!isset($idtercero) || $idtercero    == 0)	{
 						$idtercero = Session::Get('idtercero');
