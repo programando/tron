@@ -136,8 +136,9 @@
 				public function Compra_Productos_Tron_Mes_Actual()
 				{
 					$idtercero                = Session::Get('idtercero_pedido');
-					if (!isset($idtercero))	{
-						$idtercero = 0;
+					if (!isset($idtercero) || $idtercero    == 0)	{
+						$idtercero = Session::Get('idtercero');
+						Session::Set('idtercero_pedido',$idtercero );
 					}
 					$Registro                 =  $this->Db->Ejecutar_Sp("terceros_consultar_compras_tron_mes_actual( $idtercero )");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;

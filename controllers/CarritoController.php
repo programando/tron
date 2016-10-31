@@ -1271,7 +1271,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
 
 //Debug::Mostrar( $compras_totales_tron  );
 //Debug::Mostrar( $compra_minima_productos_tron );
-        Debug::Mostrar( Session::Get('idtercero') );
+//Debug::Mostrar( Session::Get('idtercero') );
 
         if ( $_SESSION['logueado'] == TRUE ) {
           if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
