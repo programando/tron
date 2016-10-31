@@ -1258,7 +1258,6 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
 
 
         $Cumple_Condic_Cpras_Tron_Industial = FALSE;
-
         $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
         $compra_minima_productos_industriales = Session::Get('minimo_compras_productos_ta');
         $compras_este_mes_tron                = Session::Get('compras_productos_tron');
@@ -1270,11 +1269,14 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
         $aplica_pago_adicional_payu_latam     = FALSE;
         $cumple_compras_tron                  = FALSE;
 
+Debug::Mostrar( $compras_totales_tron  );
+Debug::Mostrar( $compra_minima_productos_tron );
 
         if ( $_SESSION['logueado'] == TRUE ) {
           if ( ($compras_totales_tron       >= $compra_minima_productos_tron)           ||
                  ($compras_totales_industrial >= $compra_minima_productos_industriales )  ||
                  ($usuario_viene_del_registro == TRUE && $kit_comprado  == FALSE)){
+
                  $Cumple_Condic_Cpras_Tron_Industial   = TRUE;
               }else{
                   $Cumple_Condic_Cpras_Tron_Industial   = FALSE;
