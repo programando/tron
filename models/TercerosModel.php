@@ -141,6 +141,7 @@
 						$idtercero = Session::Get('idtercero');
 						Session::Set('idtercero_pedido',$idtercero );
 					}
+					 if ( empty($idtercero  )) { $idtercero   = 0 ;}
 					$Registro                 =  $this->Db->Ejecutar_Sp("terceros_consultar_compras_tron_mes_actual( $idtercero )");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 					return $Registro;

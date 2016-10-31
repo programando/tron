@@ -123,6 +123,7 @@ class CarritoController extends Controller{
        $this->Fletes         = $this->Load_Controller('Fletes');
        $this->Departamentos  = $this->Load_Model('Departamentos');
        $this->Productos      = $this->Load_Model('Productos');
+       $this->MdlTerceros    = $this->Load_Model('Terceros');
 
     }
 
@@ -1256,6 +1257,7 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
    *      DETERMINA SI CUMPLE LAS CONDICIONES PARA APLICAR EL PRECIO ESPECIAL EN LA COMPRA
    */
 
+        $Registro = $this->MdlTerceros->Compra_Productos_Tron_Mes_Actual();
 
         $Cumple_Condic_Cpras_Tron_Industial = FALSE;
         $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
@@ -1264,15 +1266,15 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
         $compras_este_mes_industiales         = Session::Get('compras_productos_fabricados_ta');
         $usuario_viene_del_registro           = Session::Get('usuario_viene_del_registro');
         $kit_comprado                         = Session::Get('kit_comprado') ;
+
+        $compras_este_mes_tron                = $Registro[0]['compras_productos_tron'];
+        $compras_este_mes_industiales         = $Registro[0]['compras_productos_fabricados_ta'];
+
+
         $compras_totales_tron                 = $this->compras_tron + $compras_este_mes_tron ;
         $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
         $aplica_pago_adicional_payu_latam     = FALSE;
         $cumple_compras_tron                  = FALSE;
-
-
-
-
-
 
 
         if ( $_SESSION['logueado'] == TRUE ) {
