@@ -33,8 +33,8 @@
  						 foreach ( glob(LIBS .    '*.php') as $file ) {  	require_once $file;     } //librerias/funciones de la aplicacion
 
  						 $Session_Security = new Session_Security();
- 						 $Session_Nom 				 = $Session_Security->Validate_Session();
- 			    Session::Init( $Session_Nom   );
+ 						 $Session_Nombre 				 = $Session_Security->Validate_Session();
+ 			    Session::Init( $Session_Nombre   );
 
  		try
  		  {
