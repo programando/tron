@@ -74,6 +74,12 @@ a, input, button						{ outline:none !important; }
 .menGion .navbar-nav li	a.infoSpecial					{ background-color:#fc8e01; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#fff; }
 .menGion .navbar-nav li	a.infoSpecial:hover				{ background-color:#333; color:#fff; }
 
+.contenSearAuto 						{ background-color:#eee; position:absolute; width:76%; margin:0 12%; z-index:98465153514819613; max-height:300px; overflow:auto;}
+.contenSearAuto ul						{ list-style:none; padding:0; margin:0; border:solid 1px #ccc; border-top:0; border-bottom:0; }
+.contenSearAuto li 						{ padding:10px; border-bottom:solid 1px #ccc; }
+.contenSearAuto li:hover				{ background-color:#FFFFFF; }
+	
+
 
 /* INDEX */
 .contenido-index, .contenido-industrial { width:100%; margin:0px auto; padding-top:0; }

@@ -19,7 +19,9 @@
     </div>
 
 </div>
-<div style="z-index: 200;">
+
+
+<div class="contenSearAuto">
     <ul  id="resultados" >
 
     </ul>
