@@ -103,7 +103,7 @@ class ProductosController extends Controller
       }
 
        if ( !$Productos or empty( $Texto_Busqueda )) {
-        echo json_encode($html,256);
+        echo json_encode('',256);
        }else{
 
           $html ='';

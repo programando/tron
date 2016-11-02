@@ -5,7 +5,7 @@
         <input name ="typeahead" type="text"
         class="form-control input-buscar rr10 taL t14"
         placeholder='Buscar Producto'
-        id="texto-busqueda" />
+        id="texto-busqueda-live" />
 
     </div>
 
