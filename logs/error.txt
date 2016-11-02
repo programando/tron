@@ -1,1 +1,2 @@
 
+[02-Nov-2016 09:59:34 America/Bogota] PHP Notice:  Undefined variable: Productos in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 105
