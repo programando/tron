@@ -24,6 +24,9 @@
         $vr_devolucion = 0;
      }
 
+     $baseIva  = $vr_total_pedido;
+     $iva       = 0 ;
+
     $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
 
 ?>
@@ -48,7 +51,6 @@
 
             <input type="hidden" name="description"         id="description"            value = "<?= "Pedido No. ".$numero_pedido ; ?>" />
             <input type="hidden" name="amount"              id="amount"                 value = "<?= $vr_total_pedido; ?>" />
-
 
             <input type="hidden" name="tax"                 id="tax"                    value = "<?= $iva;?>" />
             <input type="hidden" name="taxReturnBase"       id="taxReturnBase"          value = "<?= $baseIva ; ?>" />
