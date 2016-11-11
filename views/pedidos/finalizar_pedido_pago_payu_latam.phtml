@@ -9,12 +9,12 @@
      $compra_con_iva        = round(Session::Get('compra_con_iva'),2);
      $baseIva               = round(Session::Get('Vr_Base_Iva'),2);
 
-     $vr_comis_pago_pedidos = round(Session::Get('vr_comis_pago_pedidos'),2);
-     $vr_puntos_redimidos   = round(Session::Get('vr_puntos_redimidos'),2);
-     $vr_fletes_totales     = round(Session::Get('vr_fletes_totales'),2);
+     $puntos_comis_pagados = round(Session::Get('puntos_comis_pagados'),2);
+     $valor_total_pedido   = round(Session::Get('valor_total_pedido'),2);
 
 
-     $vr_total_pedido  = $vr_total_pedido  + $vr_comis_pago_pedidos + $vr_puntos_redimidos  ;
+
+     $vr_total_pedido  = $valor_total_pedido  ;
 
      $vr_devolucion         = $baseIva;
      $iva                   = $compra_con_iva - $baseIva ;
