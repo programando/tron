@@ -13,7 +13,7 @@
      $valor_total_pedido   = round(Session::Get('valor_total_pedido'),2);
 
 
-
+     $vr_total_pedido = $valor_total_pedido;
 
      $vr_devolucion         = $baseIva;
      $iva                   = $compra_con_iva - $baseIva ;
@@ -24,7 +24,7 @@
         $vr_devolucion = 0;
      }
 
-    $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$valor_total_pedido."~COP");
+    $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
 
 ?>
 <br />
