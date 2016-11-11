@@ -6,12 +6,15 @@
      $identificacion        = Session::Get('identificacion');
 
      $vr_total_pedido       = round(Session::Get('vr_total_pedido'),2);
-     $compra_con_iva        = round(Session::Get('compra_con_iva'));
+     $compra_con_iva        = round(Session::Get('compra_con_iva'),2);
      $baseIva               = round(Session::Get('Vr_Base_Iva'),2);
 
+     $vr_comis_pago_pedidos = round(Session::Get('vr_comis_pago_pedidos'),2);
+     $vr_puntos_redimidos   = round(Session::Get('vr_puntos_redimidos'),2);
+     $vr_fletes_totales     = round(Session::Get('vr_fletes_totales'),2);
 
 
-     $signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
+     $vr_total_pedido  = $vr_total_pedido  + $vr_comis_pago_pedidos + $vr_puntos_redimidos  ;
 
      $vr_devolucion         = $baseIva;
      $iva                   = $compra_con_iva - $baseIva ;
@@ -21,6 +24,8 @@
         $iva           = 0;
         $vr_devolucion = 0;
      }
+
+$signature             = md5 ("4uiapnu24digpg1gb05pntuge3~511623~".$numero_pedido ."~".$vr_total_pedido."~COP");
 
 //Debug::Mostrar( $numero_pedido  );
  /*$file = fopen("c:/archivo.txt", "w");

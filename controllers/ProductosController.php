@@ -110,7 +110,6 @@ class ProductosController extends Controller
          foreach ($Productos as $Producto) {
            # code...
            $html = $html . '<li><a target="_blank" href="urlString">'. $Producto['nom_producto'] .'</a></li>';
-           //$html = $html  . $Producto['nom_producto'] ;
          }
 
          echo json_encode($html,256);
