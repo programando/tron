@@ -9,22 +9,54 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr style="border-bottom: 3px solid #003E90;">
-                <th width="25%"  colspan="1" rowspan="2" class="taC"><img src="../public/images/empresa/logo.png" width="150" /></th>
-                <th class="taC t12"></th>
-                <th width="25%" class="text-center" style="background:#d7f8fe;" >
+                <th width="35%"  colspan="2" rowspan="1" class="taC"><img src="../public/images/empresa/logo.png" width="150" /></th>
+                <th class="taC t12" style="background:#fadfdf;">Productos Grupo:</th>
+                <th width="20%" class="text-center" style="background:#d7f8fe;" >
                 	COMISIONES  POR COMPRAS DE EMPRESARIOS TRON<br />
                     <small>(% sobre venta sin IVA)</small>
                 </th>
-                <th width="50%" colspan="2" class="taC"  style="background:#fadfdf;">
+                <th width="40%" colspan="2" class="taC"  style="background:#fadfdf;">
                 	COMISIONES  POR COMPRAS DE CLIENTES TRON Y COMPRADORES OCASIONALES<br />
                     <small>(% sobre venta sin IVA)</small>
                 </th>
             </tr>
-            <tr style="border-bottom: 3px solid #003E90;">
-            	<th class="taC t12">Productos Grupo:</th>
-                <th class="text-center" style="background:#d7f8fe;">COMISIÓN PARA CADA UNO DE LOS EMPRESARIOS HASTA 6 NIVELES SOBRE EL COMPRADOR</th>
-                <th class="text-center" style="background:#fadfdf;">COMISIÓN PARA EL EMPRESARIO QUE HACE LA VENTA AL CLIENTE</th>
-                <th class="text-center" style="background:#fadfdf;">COMISIÓN PARA EL EMPRESARIO SUPERVISOR DE QUIEN HACE LA VENTA AL CLIENTE</th>
+            <tr style="border-bottom: 1px solid #ccc; background-color:#ccc;">
+                <th colspan="2" rowspan="1" class="taC" style="">Kit de Inicio Empresario</th>
+                <th style="background:#fadfdf;">
+                    <center>
+                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                            <div class="tabIn">
+                                <strong>A</strong>
+                            </div>
+                        </div>
+                    </center>
+                </th>
+                <th class="taC">36%</th>
+                <th class="taC"></th>
+                <th class="taC"></th>
+            </tr>
+            <tr style="border-bottom: 3px solid #003E90; background-color:#ccc;">
+                <th colspan="2" rowspan="1" class="taC">Kit de Inicio Cliente</th>
+                <th style="background:#fadfdf;">
+                	<center>
+                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                            <div class="tabIn">
+                                <strong>A</strong>
+                            </div>
+                        </div>
+                    </center>
+                </th>
+                <th class="taC"></th>
+                <th class="taC">25%</th>
+                <th class="taC">5%</th>
+            </tr>
+            <tr style="border-bottom: 3px solid #fff;">
+                <td class="taC t12" style="background-color:#eee;"></td>
+                <td class="taC t12" style="background:#d7f8fe;">Si has ingresado<br>con tu código<br>de usuario a:</td>
+                <td style="background:#fadfdf;"></td>
+                <td class="text-center" style="background:#d7f8fe;">COMISIÓN PARA CADA UNO DE LOS EMPRESARIOS HASTA 6 NIVELES SOBRE EL COMPRADOR</td>
+                <td class="text-center" style="background:#fadfdf;">COMISIÓN PARA EL EMPRESARIO QUE HACE LA VENTA AL CLIENTE</td>
+                <td class="text-center" style="background:#fadfdf;">COMISIÓN PARA EL EMPRESARIO SUPERVISOR DE QUIEN HACE LA VENTA AL CLIENTE</td>
             </tr>
         </thead>
 
@@ -56,13 +88,46 @@
         ?>
                 <!-- Grupo A -->
                 <tr>
-                    <td>TRON Hogar</td>
-                    <td class="text-center" >
+                    <td rowspan="3">TRON Hogar y Automotríz</td>
+                    <td class="t12" style="background:#d7f8fe;">0 - 1 Empresarios</td>
+                    <td style="background:#fadfdf;">
+                    	<center>
                     	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
                         	<div class="tabIn">
                             	<strong><?= $codigo_grupo  ;?></strong>
                         	</div>
                         </div>
+                        </center>
+                    </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad ;?>  </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?>  </td>
+                </tr>
+                <tr>
+                    <td class="t12" style="background:#d7f8fe;">2 - 3 Empresarios</td>
+                    <td style="background:#fadfdf;">
+                    	<center>
+                    	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                        	<div class="tabIn">
+                            	<strong><?= $codigo_grupo  ;?></strong>
+                        	</div>
+                        </div>
+                        </center>
+                    </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad ;?>  </td>
+                    <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n2_unidad  ;?>  </td>
+                </tr>
+                <tr>
+                    <td class="t12" style="background:#d7f8fe;">4 o más Empresarios</td>
+                    <td style="background:#fadfdf;">
+                    	<center>
+                    	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                        	<div class="tabIn">
+                            	<strong><?= $codigo_grupo  ;?></strong>
+                        	</div>
+                        </div>
+                        </center>
                     </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad ;?>  </td>
@@ -74,15 +139,17 @@
             <?php elseif ( $Segundo_Registro == TRUE) :?>
 
                 <tr>
-                    <td>Línea Industrial
+                    <td colspan="2">Línea Industrial
                         <?php $Segundo_Registro = FALSE ;?>
                     </td>
-                    <td class="text-center" >
+                    <td style="background:#fadfdf;">
+                    	<center>
                     	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
                         	<div class="tabIn">
                             	<strong>B</strong>
                         	</div>
                         </div>
+                        </center>
                     </td>
                     <td class="taC" style="background:#d7f8fe;"><?= $comis_empre_1_unidad  ;?> </td>
                     <td class="taC" style="background:#fadfdf;"><?= $comis_amg_n1_unidad ;?></td>
@@ -93,14 +160,16 @@
             <?php if ( $codigo_grupo != 'PP') :?>
                 <tr>
                     <?php if($ggg <2){ ?>
-                        <td rowspan="8">Otros productos</td>
+                        <td rowspan="8" colspan="2">Otros productos</td>
                     <?php } ?>
-                    <td class="text-center">
+                    <td style="background:#fadfdf;">
+                    	<center>
                         <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
                         	<div class="tabIn">
                             	<strong><?= $codigo_grupo  ;?></strong>
                         	</div>
                         </div>
+                        </center>
                     </td>
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
                     <td class="text-center" style="background:#fadfdf;"> <?= $comis_amg_n1_unidad  ;?> </td>
@@ -109,13 +178,15 @@
             <?php else : ?>
 
                 <tr>
-				<td>Productos Promocionales</td>
-                    <td class="text-center">
+					<td colspan="2">Productos Promocionales</td>
+                    <td style="background:#fadfdf;">
+                    	<center>
                     	<div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
                         	<div class="tabIn">
                             	<strong><?= $codigo_grupo  ;?></strong>
                         	</div>
                         </div>
+                        </center>
                     </td>
 
                     <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
