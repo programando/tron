@@ -14,6 +14,14 @@ class TercerosController extends Controller {
 
     }
 
+
+
+    public function nuevo_usuario(){
+      $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
+      $this->View->SetJs(array('nuevo_usuario'));
+      $this->View->Mostrar_Vista("nuevo_usuario");
+    }
+
     public function Index() { }
 
     public function editar() {
@@ -989,13 +997,13 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
          $Resultado_Logueo = "NO-Logueo_OK";
        }else {
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
-            $Resultado_Logueo = "Logueo_OK";
+            $Resultado_Logueo     = "Logueo_OK";
             $_SESSION['logueado'] = TRUE;
          }
 
          $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');
          if (!isset( $Siguiente_Paso ) ) {
-          $Siguiente_Paso='';
+          $Siguiente_Paso ='';
          }
          $Datos            = compact('Resultado_Logueo','Siguiente_Paso');
          echo json_encode($Datos,256);

@@ -1,18 +1,23 @@
-
+<?php
+   /*
+   //<input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>" disabled="disabled" />
+   //<?php else :?>
+   */
+?>
 
 <div>
 	<div class="row formulario">
 		<form class="form-horizontal" role="form">
 
-			<div>
+			<div  >
+               <?php if ( $this->Modifica_Codigo_Presenta == TRUE) :?>
                 <label for="input_codigo" class="col-sm-4 col-xs-12 vcenter">
                     <div class="taR pR20 ff1">Código del usuario que te presenta en la Red:</div>
-                </label><!--
+                </label><?php endif ;?><!--
                 --><div class="col-sm-8 col-xs-12 vcenter">
-                    <?php if ( $this->Modifica_Codigo_Presenta == FALSE) :?>
-                        <input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>" disabled="disabled" />
-                    <?php else :?>
-                        <input type="text" class="form-control" id="input_codigo" tabindex="1" value= "<?= $this->codigousuario ;?>"/>
+                    <?php if ( $this->Modifica_Codigo_Presenta == TRUE) :?>
+                        <input type="text" class="form-control" id="input_codigo" tabindex="1"
+                        value= "<?= $this->codigousuario ;?>" placeholder="Deja en blanco si nadie te presenta"/>
                     <?php endif ;?>
                 </div>
 
@@ -23,7 +28,7 @@
                     <div class="pR20 ff1">Tipo de Documento:</div>
                 </label><!--
                 --><div class="col-sm-8 col-xs-12 vcenter" id="cont-selec-document">
-                    <?php include (APPLICATION_SECTIONS . 'tipos_documentos.php');?>
+                    <?php include (APPLICATION_SECTIONS . 'terceros/tipos_documentos.php');?>
                 </div>
             </div>
 

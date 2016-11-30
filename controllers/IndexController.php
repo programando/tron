@@ -41,8 +41,15 @@ class IndexController extends Controller
         //$Tipo_Navegador_2   = $info['browser'];
         //$Version_Navegador  = (int)$info['version'];
 
+/*
 
-
+    if( isset($_COOKIE[$mylogueado])){
+        Debug::Mostrar('cokke' . $_COOKIE[$mylogueado]    );
+    }else
+    {
+        Debug::Mostrar(     "dldld" );
+    }
+*/
         Session::Set('Id_Area_Consulta','2')  ;
 
         //$this->Consultar_Datos_Transportadoras();

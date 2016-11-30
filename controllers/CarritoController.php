@@ -1046,6 +1046,7 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
            $CarritoTron[$i_tron]['nom_producto'] = $Productos['nom_producto'] ;
            $CarritoTron[$i_tron]['idproducto']   = $Productos['idproducto'] ;
            //
+
            $pv_tron_resumen     = $pv_tron_resumen + ( $CarritoTron[$i_tron]['pv_tron']      * $CarritoTron[$i_tron]['cantidad'] );
            $pv_ocas_resumen     = $pv_ocas_resumen + ( $CarritoTron[$i_tron]['pv_ocasional'] * $CarritoTron[$i_tron]['cantidad'] );
 
@@ -1057,11 +1058,18 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
            $i_tron ++;
         }
 
+
      }// endforach
+
+
+
      $this->Cerrar_Procesos_Carro();
+
 
      $pv_tron_resumen = $pv_tron_resumen - $pv_tron_acc ;
      $pv_ocas_resumen = $pv_ocas_resumen - $pv_ocas_acc ;
+
+
 
      Session::Set('CarritoTron',$CarritoTron);
      Session::Set('pv_tron_resumen',$pv_tron_resumen);
