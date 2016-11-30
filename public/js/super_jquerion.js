@@ -70,20 +70,47 @@ function calcularAlturas(){
 
 	var iififi = $(".artOpt").width();
 	$(".counttis").css('width', iififi+56);
+	
+	
+	var altoAllion		= $(".allion").height();
+	var altoAllionIn	= $(".allionIn").height();
+	
+	if(ancho < 768)	{
+		$(".allion").height("auto");
+		$(".nodoa").height("auto");
+	} else {
+		$(".allion").height(alto-100);
+		$(".nodoa").height((alto-100)/10);
+	}
+	
+	if(ancho < 768)	{
+		$(".allionIn").height("auto");
+	} else {
+		$(".allionIn").height(alto-150);
+	}
 
-
+	
 
 	var mukSlide1	= $(".mukSlide1").height();
 	var lationT1	= $(".lationT1").height();
+	var carresped	= $(".carrito-resumen-pedido").height();
 
 	if(ancho > 750){
 		$(".mukSlideIn").css('height', (mukSlide1/4-3));
 		$(".mukSlideIn img").css('max-height', (mukSlide1/4-3));
 		$(".lationT2").css('height', lationT1);
-
+		
+		$(".ionWin").css('height', carresped+60);
+		
 	}else{
 		$(".lationT2").css('height', 'auto');
+		$(".ionWin").css('height', carresped+60);
 	}
+	
+	$('*').on('click',function(){
+		var carresped	= $(".carrito-resumen-pedido").height();
+		$(".ionWin").css('height', carresped+60);	
+	});
 
 
 
@@ -126,17 +153,30 @@ function calcularAlturas(){
 	}
 
 
+	//if(ancho > 750){
+
+		//$(window).scroll( function () {
+			//var altuus = 200;
+			//if(altuus < $(window).scrollTop()) 	var aaa = $(window).scrollTop() - altuus;
+			//else								var aaa = 0;
+
+			//$('.carrito-resumen-pedido').stop().animate({'top': aaa}, 100);
+		//});
+
+	//}
+	
 	if(ancho > 750){
 
 		$(window).scroll( function () {
-			var altuus = 200;
-			if(altuus < $(window).scrollTop()) 	var aaa = $(window).scrollTop() - altuus;
-			else								var aaa = 0;
-
-			$('.carrito-resumen-pedido').stop().animate({'top': aaa});
+			var altuus = 300;
+			if(altuus < $(window).scrollTop()) 	{ $('.ionIIid').addClass("slelel"); }
+			else								{ $('.ionIIid').removeClass("slelel"); }
+ 
+			
 		});
 
 	}
-
+	
+	
 
 }

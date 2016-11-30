@@ -283,12 +283,6 @@ class PedidosController extends Controller
        Session::Set('nombre_cliente',     $Registro[0]['nombre_cliente']);
        Session::Set('email',              $Registro[0]['email']);
        Session::Set('identificacion',     $Registro[0]['identificacion']);
-       Session::Set('puntos_comis_pagados',     $Registro[0]['puntos_comis_pagados']);
-
-
-       Session::Set('valor_total_pedido',     $Registro[0]['valor_total_pedido']);
-
-
     }
 
 }
