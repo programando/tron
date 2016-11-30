@@ -123,5 +123,7 @@
 	.menuMiCuenta ul li						{ display:block; }
 	.menuMiCuenta ul li a span				{ text-align:left; padding:7px 15px; }
 	
+	.ionWin 								{ position:relative !important; left:0 !important;}
+	
 	
 }
