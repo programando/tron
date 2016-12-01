@@ -2,7 +2,7 @@
     <div class="row"><!--Titulo-->
         <h5 class="titulo-resumen-pedido text-center"><strong>RESUMEN PEDIDO TRON</strong></h5>
     </div><!--Fin-Titulo-->
-    
+
     <!--Cant , Precio , Borrar Inicio Cabezera Del Resumen-Pedido -->
     <div class="row">
         <div class="fila-cant_precio_borrar p10">
@@ -12,14 +12,14 @@
         </div>
     </div>
     <!--Cant , Precio , Borrar Inicio Cabezera Del Resumen-Pedido -->
-    
+
     <!--Informacion-Producto Acerca DE CANT , PRECIO , BORRAR -->
     <div class="resumen_tron mb10">
         <div class="row">
             <div class="datos_producto_seleccionado">
                 <table class="tabla-cont-datos-porducto-seleccionado"><!--Datos Del Producto -->
                     <tbody id ='resumen_pedido_productos'>
-                        <?php include (APPLICATION_SECTIONS . 'productos_tron_resumen_productos.php'); ?>
+                        <?php include (APPLICATION_SECTIONS . 'productos/tron/resumen_productos.php'); ?>
                     </tbody>
                 </table><!--Datos Del Producto -->
             </div>
@@ -28,12 +28,9 @@
     <!--Informacion-Producto Acerca DE CANT , PRECIO , BORRAR -->
 
 
-    <!--Datos Precios
-    Session::Destroy('pv_tron_resumen');
-    Session::Destroy('pv_ocas_resumen');
-    -->
-    <div class=" row">    
-        <div class="resumen_datos_precios">        
+
+    <div class=" row">
+        <div class="resumen_datos_precios">
             <p class="resumen_precio_ocacional">
                 <strong id='Total_Venta_Ocasional_Resumen'>
                     <?php
@@ -48,7 +45,7 @@
                 </strong><!--contenedor = Precio-Ocacional 16 -->
                 <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>18.png" title="Comprador Ocasional"></span>
             </p>
-        
+
             <p class="resumen_precio_clien-tron">
                 <strong id ='Total_Venta_Tron_Resumen'>
                     <?php
@@ -64,7 +61,7 @@
                 <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
                 <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>
             </p>
-        
+
             <p>
                 Descuento:
                 <strong id ="tron_descuento">
@@ -77,7 +74,7 @@
                     ?>
                 </strong>
             </p><!--contenedor = Descuento  -->
-            
+
             <p>
                 Ahorro:
                 <strong id ='tron_descuento_porciento'>
@@ -89,7 +86,7 @@
                     ?>
                 </strong>
             </p><!--contenedor = Ahorro -->
-        
+
         </div>
     </div>
     <!--Datos Precios -->
@@ -102,7 +99,7 @@
             <a id="link_btn_resumen_pedido" href="<?= BASE_URL ;?>carrito/mostrar_carrito/1/">
                 <button id="" type="button" class="btn btn-danger mb5" style="width:100%;">Ir al Carrito</button>
             </a>
-            
+
             <a id="link_btn_resumen_pedido" href="<?= BASE_URL ;?>productos/categorias_marcas/">
                 <button id="boton-otros-productos" type="button" class="btn btn-info" style="width:100%;"><span class="nothere">Comprar </span>Otros Productos</button>
             </a>

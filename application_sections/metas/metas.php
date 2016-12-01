@@ -29,17 +29,20 @@
 
 <?php if ( Session::Get('FACEBOOK') == TRUE ):?>
   <?php
-     $Pagina_Facebook_keywords=  trim(Session::Get('Pagina_Facebook_TITULO'));
+     $Pagina_Facebook_keywords=  trim( Session::Get('Pagina_Facebook_TITULO') );
      $Pagina_Facebook_keywords = str_replace (" ", ", ", $Pagina_Facebook_keywords);
+     $Pagina_Facebook_keywords = $Pagina_Facebook_keywords . ','.Session::Get('Pagina_Facebook_KEYS');
   ?>
     <meta name="title"                  content="<?= Session::Get('Pagina_Facebook_TITULO') ;?>" />
     <meta property="og:title"           content="<?= Session::Get('Pagina_Facebook_TITULO') ;?>" />
     <meta name="description"            content="<?= Session::Get('Pagina_Facebook_DESCRIPCION') ;?>" />
     <meta property="og:description"     content="<?= Session::Get('Pagina_Facebook_DESCRIPCION') ;?>" />
     <meta property="og:image"           content="<?= Session::Get('Pagina_Facebook_IMAGEN') ;?>" />
-    <meta name="keywords"               content="<?=  $Pagina_Metas_GeneralKeys .$Pagina_Facebook_keywords ;?>" />
+    <meta name="keywords"               content="<?=  $Pagina_Metas_GeneralKeys.$Pagina_Facebook_keywords ;?>" />
     <?php   Session::Set('FACEBOOK', FALSE);
 	 endif; ?>
+
+
 
 <?php   if(Session::Get('CEO_CONTROLLER') == 'index') : ;?>
     <?php
@@ -138,7 +141,7 @@
     <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/liena_artes_graficas.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
-  
+
   <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 4) :?>
      <?php
        $Pagina_Metas_Keys          = 'Inocuidad, seguridad alimentaria, bioseguridad, bioseguridad alimentaria, limpieza, desinfección, limpieza y desinfección, BPM, HACCP, prácticas higiénicas';
@@ -153,7 +156,7 @@
     <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_alimentaria.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
-  
+
    <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 2) :?>
      <?php
        $Pagina_Metas_Keys          = 'Químicos, baños, baños móviles, baños portátiles, orinales, popo, pipi, obras de construcción, carreteras, eventos, conciertos, matrimonios, cumpleaños, limpieza, desinfección, desodorizar, aromatizar, malos olores, materia fecal, biodegradable, asfalto, grafitis, superficies brillantes';
@@ -168,7 +171,7 @@
     <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_sanidad.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
-  
+
   <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 8) :?>
      <?php
        $Pagina_Metas_Keys          = 'Formulaciones, aseo, limpieza, cera, ceras, carnauba, autoemulsificables, alto brillo, pisos, baldosas, silicona, Agente desmoldante, anti-adherente, moldes, muebles, madera, cuero, detergente, concentrados, pH';

@@ -1,6 +1,6 @@
 
-function Imprimir_Totales_Carrito_Header(resultado)
-	{
+function Imprimir_Totales_Carrito_Header(resultado) 	{
+
 		  $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
 
@@ -17,15 +17,21 @@ function Imprimir_Totales_Carrito_Header(resultado)
 
 	   if ( resultado.vr_unitario_ropa != '$ 0'){
 	   			$('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
+	   			$('#precio-tron-ropa').html(resultado.vr_unitario_ropa);
+
 	  	}
 	  	if ( resultado.vr_unitario_banios != '$ 0'){
 	   			$('#vr_unitario_banios').html(resultado.vr_unitario_banios);
+	   			$('#precio-tron-banios').html(resultado.vr_unitario_banios);
 	  	}
 	  	if ( resultado.vr_unitario_pisos != '$ 0'){
 	   			$('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
+	   			$('#precio-tron-pisos').html(resultado.vr_unitario_pisos);
 	  	}
 	  	if ( resultado.vr_unitario_loza != '$ 0'){
 	   			$('#vr_unitario_loza').html(resultado.vr_unitario_loza);
+	   			$('#precio-tron-loza').html(resultado.vr_unitario_loza);
+
 	  	}
 	   $('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
 	}

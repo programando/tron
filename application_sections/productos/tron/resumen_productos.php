@@ -12,7 +12,7 @@
 
 			<tr class="fila_por_producto">
 				<td id='datos-producto tab'>
-				
+
 					<div class="nombre_producto"><small> <?= $nom_producto  ;?></small></div> <!--Nombre Del Producto -->
 					<div class="cantidad-producto"><small>x<?= $cantidad ;?></small></div><!--cantidad-producto -->
 					<div class="precio-porducto"><small>$<?= $pv_tron ;?></small> </div><!--precio-porducto -->

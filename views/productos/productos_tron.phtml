@@ -1,25 +1,28 @@
-<script type="text/javascript" src="<?=  BASE_JS ; ?>theia-sticky-sidebar.js"></script> 
+<script type="text/javascript" src="<?=  BASE_JS ; ?>theia-sticky-sidebar.js"></script>
 <script>
 	$(document).ready(function() {
-		
+
 		var ionIIidH	= $(".ionIIid").height();
 		$('#resumen-pedido-tron').theiaStickySidebar({
 		  // Settings
-		  additionalMarginTop: 10 + ionIIidH + 20		  
+		  additionalMarginTop: 10 + ionIIidH + 20
 		});
-		console.log("algo hizo");
 	});
 </script>
 
 
+<?php
+    include (APPLICATION_SECTIONS .'productos/tron/asignar_precios_individuales.php');
+ ?>
+
 
 <div class="ionix">
 	<div class="general mb30 pAA30">
-    	
+
         <div class="titleM1 colorBlue t24 mb30">PRODUCTOS TRON</div>
-		
+
         <div class="row mb20 beee ionIIid">
-        
+
         	<div class="col-sm-3 col-xs-6">
             	<div class="tab h100 bS1">
                 	<div class="tabIn">
@@ -28,8 +31,8 @@
                         </div><!--
                         --><div class="col-sm-8 col-xs-8 vcenter">
                             <div class="t14 ff2 mb3 colorBlue">Detergente de Ropa</div>
-                            <div class="t20 ff1 color000">$8.500</div>
-                            <div class="t35R ff2 mb3 colorOrange">$8.500</div>
+                            <div class="t20 ff1 color000 precio_publico-ocacional">      <?= $text_pv_comprador_ocasional_ropa ;?></div>
+                            <div class="t35R ff2 mb3 colorOrange" id="precio-tron-ropa"> <?= $text_pv_tron_ropa ;?></div>
                             <div class="t12 ff0 color666">Precio especial para ti</div>
                         </div>
                     </div>
@@ -43,8 +46,8 @@
                         </div><!--
                         --><div class="col-sm-8 col-xs-8 vcenter">
                             <div class="t14 ff2 mb3 colorBlue">Desinfectante de baños</div>
-                            <div class="t20 ff1 color000">$8.500</div>
-                            <div class="t35R ff2 mb3 colorOrange">$8.500</div>
+                            <div class="t20 ff1 color000">  <?= $text_pv_comprador_ocasional_banios  ;?> </div>
+                            <div class="t35R ff2 mb3 colorOrange" id="precio-tron-banios">  <?= $text_pv_tron_banios  ;?> </div>
                             <div class="t12 ff0 color666">Precio especial para ti</div>
                         </div>
                     </div>
@@ -58,8 +61,8 @@
                         </div><!--
                         --><div class="col-sm-8 col-xs-8 vcenter">
                             <div class="t14 ff2 mb3 colorBlue">Limpiador multiusos</div>
-                            <div class="t20 ff1 color000">$8.500</div>
-                            <div class="t35R ff2 mb3 colorOrange">$8.500</div>
+                            <div class="t20 ff1 color000"> <?= $text_pv_comprador_ocasional_pisos  ;?> </div>
+                            <div class="t35R ff2 mb3 colorOrange" id="precio-tron-pisos"><?= $text_pv_tron_pisos  ;?> </div>
                             <div class="t12 ff0 color666">Precio especial para ti</div>
                         </div>
                     </div>
@@ -73,40 +76,37 @@
                         </div><!--
                         --><div class="col-sm-8 col-xs-8 vcenter">
                             <div class="t14 ff2 mb3 colorBlue">Lavaloza</div>
-                            <div class="t20 ff1 color000">$8.500</div>
-                            <div class="t35R ff2 mb3 colorOrange">$8.500</div>
+                            <div class="t20 ff1 color000"><?= $text_pv_comprador_ocasional_loza ;?> </div>
+                            <div class="t35R ff2 mb3 colorOrange" id="precio-tron-loza"><?= $text_pv_tron_loza ;?></div>
                             <div class="t12 ff0 color666">Precio especial para ti</div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         <div class="row">
-        	
+
             <?php
             	include (APPLICATION_SECTIONS .'productos_tron_ventana_modal.php');
 				$arrIon = array (
 					"Todos los Productos",
-					"productos_tron_ropa.php",
-					"productos_tron_ropa_fragancias.php",
-					"productos_tron_ropa_accesorios.php",
-					"productos_tron_banios.php",
-					"productos_tron_banios_fragancias.php",
-					"productos_tron_banios_accesorios.php",
-					"productos_tron_pisos.php",
-					"productos_tron_pisos_fragancias.php",
-					"productos_tron_pisos_accesorios.php",
-					"productos_tron_loza.php",
-					"productos_tron_loza_fragancias.php",
-					"productos_tron_loza_accesorios.php"
+					"productos/tron/ropa.php",
+					"productos/tron/ropa_fragancias.php",
+					"productos/tron/ropa_accesorios.php",
+					"productos/tron/banios.php",
+					"productos/tron/banios_fragancias.php",
+					"productos/tron/banios_accesorios.php",
+					"productos/tron/pisos.php",
+					"productos/tron/pisos_fragancias.php",
+					"productos/tron/pisos_accesorios.php",
+					"productos/tron/loza.php",
+					"productos/tron/loza_fragancias.php",
+					"productos/tron/loza_accesorios.php"
 				);
 			?>
-            
-        	
-            
-            
+
             <div class="col-sm-9 col-xs-12 lationT1" >
 
 				<?php $t=0; for($tt=0; $tt<4; $tt++){ ?>
@@ -114,13 +114,13 @@
                         <div class="col-sm-3 col-xs-12">
 							<?php include (APPLICATION_SECTIONS.$arrIon[1+$t]); ?>
 						</div>
-                        
+
                         <div class="col-sm-9 col-xs-12">
                             <div class="row mb20"><!--Fragancias-->
                                 <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
                                 <?php include (APPLICATION_SECTIONS.$arrIon[2+$t]); ?>
                             </div>
-                            
+
                             <div class="row">
                                 <?php include (APPLICATION_SECTIONS.$arrIon[3+$t]); ?>
                             </div>
@@ -133,9 +133,9 @@
 			</div>
             <div class="col-sm-3 col-xs-12" id="resumen-pedido-tron">
                 <div class="theiaStickySidebar ionWin">
-                
-                	<?php include (APPLICATION_SECTIONS .'productos_tron_resumen.php'); ?>
-                       
+
+                	<?php include (APPLICATION_SECTIONS .'productos/tron/resumen_marco_derecho.php'); ?>
+
                 </div>
             </div>
  		</div>

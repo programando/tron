@@ -36,6 +36,7 @@
       $id_agrupacion            = $Producto[0]['id_agrupacion'];
       $logueado                 = $_SESSION['logueado'];
       $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
+      $tags_busqueda            = $Producto[0]['tags_busqueda'];
 
       if ( $logueado  == TRUE ){
            $Pagina_Actual = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/1/';
@@ -49,10 +50,12 @@
       $URL_COMPARTIR_TWITER   = "https://twitter.com/?status=Me gusta esta página: ".$Pagina_Actual;
 
       Session::Set('FACEBOOK',TRUE);
-      Session::Set('Pagina_Facebook_URL',$Pagina_Actual );
-      Session::Set('Pagina_Facebook_TITULO',$nom_producto_largo );
-      Session::Set('Pagina_Facebook_DESCRIPCION',$nom_producto_descripcion );
-      Session::Set('Pagina_Facebook_IMAGEN',BASE_IMG_PRODUCTOS_472x472.$nombre_imagen );
+      Session::Set('Pagina_Facebook_URL'          , trim($Pagina_Actual) );
+      Session::Set('Pagina_Facebook_TITULO'       , trim($nom_producto_largo) );
+      Session::Set('Pagina_Facebook_DESCRIPCION'  , trim(  $nom_producto_descripcion ) );
+      Session::Set('Pagina_Facebook_IMAGEN'       , BASE_IMG_PRODUCTOS_472x472.$nombre_imagen );
+      Session::Set('Pagina_Facebook_KEYS'         , trim($tags_busqueda) ) ;
+
 ?>
 
 <?php include (APPLICATION_SECTIONS . 'productos/valida_oferta_cumpleanios.php');?>

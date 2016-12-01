@@ -161,7 +161,7 @@ class ProductosController extends Controller
      public function Productos_Tron() {
          Session::Set('Id_Area_Consulta','2');
          $this->View->SetCss(array('tron_carrito','tron_estilos_productos_tron','tron_productos_tron_active','tron_campo_1'));
-         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','resumen_pedido_tron','tron_productos_tron'));
+         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','tron_productos_tron'));
          $Id_Categoria_Ropa                = 1;
          $this->Productos_Tron_Consultar($Id_Categoria_Ropa);
          $this->View->Accesorios_Tron_Ropa = $this->_Accesorios_Tron;
