@@ -1,7 +1,7 @@
 
 function Imprimir_Totales_Carrito_Header(resultado) 	{
 
-		  $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
+	   $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
 
 	   $('#tron_descuento').html(resultado.descuento_especial_porcentaje);
@@ -14,23 +14,165 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 	   $('#Total_Venta_Tron_Resumen').html(resultado.pv_tron_resumen);
 
 
+		function paraLimpiar(valor){
+			valor 	  = valor.replace('$','');
+			valor 	  = valor.replace(' ','');
+			valor 	  = parseInt(valor.replace('.',''));
+			return valor;
+		}
+		function paraLimpiar2(valor22){
+			valor22 	  = valor22.replace('$','');
+			valor22 	  = valor22.replace(' ','');
+			valor22 	  = parseInt(valor22.replace('.',''));
+			return valor22;
+		}
+		function paraLimpiar3(valor33){
+			valor33 	  = valor33.replace('$','');
+			valor33 	  = valor33.replace(' ','');
+			valor33 	  = parseInt(valor33.replace('.',''));
+			return valor33;
+		}
+		function paraLimpiar4(valor44){
+			valor44 	  = valor44.replace('$','');
+			valor44 	  = valor44.replace(' ','');
+			valor44 	  = parseInt(valor44.replace('.',''));
+			return valor44;
+		}
+		function paraMostrar(valor111, inc10111, turn111){
+			var iinn1 = parseInt(valor111) + parseInt(Math.round(inc10111*turn111)); return "$"+iinn1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+		function paraMostrar2(valor222, inc10222, turn222){
+			var iinn2 = parseInt(valor222) + parseInt(Math.round(inc10222*turn222)); return "$"+iinn2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+		function paraMostrar3(valor333, inc10333, turn333){
+			var iinn3 = parseInt(valor333) + parseInt(Math.round(inc10333*turn333));
+			//console.log("iinn PROD3 -> " + iinn3);
+			return "$"+iinn3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+		function paraMostrar4(valor444, inc10444, turn444){
+			var iinn4 = parseInt(valor444) + parseInt(Math.round(inc10444*turn444));			
+			return "$"+iinn4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+		function paraFinalizar(valorRec){
+			return "$"+valorRec.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
 
 	   if ( resultado.vr_unitario_ropa != '$ 0'){
-	   			$('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
-	   			$('#precio-tron-ropa').html(resultado.vr_unitario_ropa);
+		   
+			$('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
+			
+			var valor 		= paraLimpiar(resultado.vr_unitario_ropa);
+			var new_value 	= paraLimpiar($('#precio-tron-ropa').text());
+			var ot_val 		= valor-new_value;
+			var inc10 		= ot_val / 10;
+			
+			console.log("PROD 1 | Nuevo:" + valor + " Anterior: " + new_value + " Diferencia: " + ot_val );
+			
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 1)); }, 50);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 2)); }, 100);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 3)); }, 150);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 4)); }, 200);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 5)); }, 250);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 6)); }, 300);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 7)); }, 350);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 8)); }, 400);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 9)); }, 450);
+			setTimeout(function(){ $('#precio-tron-ropa').html(paraFinalizar(valor)); }, 500);
+		
+			$( "#bIONPrd1 #precio-tron-ropa" ).stop().animate({ color : '#003e90' }, 500, function() {
+				$( "#bIONPrd1 #precio-tron-ropa" ).animate({ color : '#f89008' }, 600);
+			});
+			
+	  	}
 
-	  	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	  	if ( resultado.vr_unitario_banios != '$ 0'){
-	   			$('#vr_unitario_banios').html(resultado.vr_unitario_banios);
-	   			$('#precio-tron-banios').html(resultado.vr_unitario_banios);
+			
+			$('#vr_unitario_banios').html(resultado.vr_unitario_banios);
+
+			var valor2 		= paraLimpiar2(resultado.vr_unitario_banios);
+			var new_value2 	= paraLimpiar2($('#precio-tron-banios').text());
+			var ot_val2 	= valor2-new_value2;
+			var inc102 		= ot_val2 / 10;
+			
+			console.log("PROD 2 | Nuevo:" + valor2 + " Anterior: " + new_value2 + " Diferencia: " + ot_val2 );
+			
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 1)); }, 50);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 2)); }, 100);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 3)); }, 150);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 4)); }, 200);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 5)); }, 250);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 6)); }, 300);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 7)); }, 350);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 8)); }, 400);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 9)); }, 450);
+			setTimeout(function(){ $('#precio-tron-banios').html(paraFinalizar(valor2)); }, 500);
+		
+			$( "#bIONPrd2 #precio-tron-banios" ).stop().animate({ color : '#003e90' }, 500, function() {
+				$( "#bIONPrd2 #precio-tron-banios" ).animate({ color : '#f89008' }, 600);
+			});
+				
+				
 	  	}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	  	if ( resultado.vr_unitario_pisos != '$ 0'){
-	   			$('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
-	   			$('#precio-tron-pisos').html(resultado.vr_unitario_pisos);
+			
+			$('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
+
+			var valor3 		= paraLimpiar3(resultado.vr_unitario_pisos);
+			var new_value3 	= paraLimpiar3($('#precio-tron-pisos').text());
+			var ot_val3 	= valor3-new_value3;
+			var inc103 		= ot_val3 / 10;
+			
+			console.log("PROD 3 | Nuevo:" + valor3 + " Anterior: " + new_value3 + " Diferencia: " + ot_val3 );
+			
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 1)); }, 50);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 2)); }, 100);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 3)); }, 150);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 4)); }, 200);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 5)); }, 250);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 6)); }, 300);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 7)); }, 350);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 8)); }, 400);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 9)); }, 450);
+			setTimeout(function(){ $('#precio-tron-pisos').html(paraFinalizar(valor3)); }, 500);
+		
+			$( "#bIONPrd3 #precio-tron-pisos" ).stop().animate({ color : '#003e90' }, 500, function() {
+				$( "#bIONPrd3 #precio-tron-pisos" ).animate({ color : '#f89008' }, 600);
+			});
+			
 	  	}
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
 	  	if ( resultado.vr_unitario_loza != '$ 0'){
-	   			$('#vr_unitario_loza').html(resultado.vr_unitario_loza);
-	   			$('#precio-tron-loza').html(resultado.vr_unitario_loza);
+	   		
+			$('#vr_unitario_loza').html(resultado.vr_unitario_loza);
+
+			var valor4 		= paraLimpiar4(resultado.vr_unitario_loza);
+			var new_value4 	= paraLimpiar4($('#precio-tron-loza').text());
+			var ot_val4 	= valor4-new_value4;
+			var inc104 		= ot_val4 / 10;
+			
+			console.log("PROD 4 | Nuevo:" + valor4 + " Anterior: " + new_value4 + " Diferencia: " + ot_val4 );
+			
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 1)); }, 50);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 2)); }, 100);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 3)); }, 150);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 4)); }, 200);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 5)); }, 250);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 6)); }, 300);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 7)); }, 350);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 8)); }, 400);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 9)); }, 450);
+			setTimeout(function(){ $('#precio-tron-loza').html(paraFinalizar(valor4)); }, 500);
+		
+			$( "#bIONPrd4 #precio-tron-loza" ).stop().animate({ color : '#003e90' }, 500, function() {
+				$( "#bIONPrd4 #precio-tron-loza" ).animate({ color : '#f89008' }, 600);
+			});
 
 	  	}
 	   $('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
