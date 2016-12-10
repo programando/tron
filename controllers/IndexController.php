@@ -36,21 +36,8 @@ class IndexController extends Controller
 
 
     public function Index() {
-        //$info               = General_Functions::Datos_Navegador();
-        //$Tipo_Navegador     = $info['browser'];
-        //$Tipo_Navegador_2   = $info['browser'];
-        //$Version_Navegador  = (int)$info['version'];
 
-/*
-
-    if( isset($_COOKIE[$mylogueado])){
-        Debug::Mostrar('cokke' . $_COOKIE[$mylogueado]    );
-    }else
-    {
-        Debug::Mostrar(     "dldld" );
-    }
-*/
-        Session::Set('Id_Area_Consulta','2')  ;
+      Session::Set('Id_Area_Consulta','2')  ;
 
         //$this->Consultar_Datos_Transportadoras();
         $this->Parametros_Iniciales();                  // Parámetros Iniciales

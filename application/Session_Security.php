@@ -11,12 +11,13 @@
           $Session  = TOKEN_PASSWORDS .  $_SERVER['HTTP_USER_AGENT'] . $Ip ;
           $Session  = 'SES'.md5( $Session );
 
-
-
            return    $Session ;
-
-
 		}
+
+
+
+
+
 
         private function Get_Ip(){
 
