@@ -168,11 +168,22 @@ function calcularAlturas(){
 	if(ancho > 750){
 
 		$(window).scroll( function () {
-			var altuus = 300;
-			if(altuus < $(window).scrollTop()) 	{ $('.ionIIid').addClass("slelel"); }
-			else								{ $('.ionIIid').removeClass("slelel"); }
- 
+			var scrollTop     = $(window).scrollTop(),
+			elementOffset = $('.felipeCalcula').offset().top,
+			distance      = (elementOffset - scrollTop);
+			console.log(distance);
+			//$('.reerr').html(distance);
 			
+			var altuus = 300;
+			if(altuus < $(window).scrollTop() && distance > 125) 	{
+				$('.ionIIid').addClass("slelel");
+				$('.reemplllazo').addClass("h100");
+			}
+			else													{
+				$('.ionIIid').removeClass("slelel");
+				$('.reemplllazo').removeClass("h100");
+			}
+ 
 		});
 
 	}

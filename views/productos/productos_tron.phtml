@@ -19,8 +19,9 @@
 <div class="ionix">
 	<div class="general mb30 pAA30">
 
-        <div class="titleM1 colorBlue t24 mb30">PRODUCTOS TRON</div>
+        <div class="titleM1 colorBlue t24 mb30">PRODUCTOS TRON | <a href="#carrosmotos" class="colorBlue2 t12">Carros y motos</a></div>
 
+		<div class="reemplllazo"></div>
         <div class="row mb20 beee ionIIid">
 
         	<div class="col-sm-3 col-xs-6">
@@ -108,27 +109,42 @@
 			?>
 
             <div class="col-sm-9 col-xs-12 lationT1" >
-
-				<?php $t=0; for($tt=0; $tt<4; $tt++){ ?>
-                    <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
-                        <div class="col-sm-3 col-xs-12">
-							<?php include (APPLICATION_SECTIONS.$arrIon[1+$t]); ?>
-						</div>
-
-                        <div class="col-sm-9 col-xs-12">
-                            <div class="row mb20"><!--Fragancias-->
-                                <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
-                                <?php include (APPLICATION_SECTIONS.$arrIon[2+$t]); ?>
+            	
+                
+					<?php $t=0; for($tt=0; $tt<4; $tt++){ ?>
+                        <div class="contenedor_del_producto_presentado"><!--Contenido-Presentacion-Producto-->
+                            <div class="col-sm-3 col-xs-12">
+                                <?php include (APPLICATION_SECTIONS.$arrIon[1+$t]); ?>
                             </div>
-
-                            <div class="row">
-                                <?php include (APPLICATION_SECTIONS.$arrIon[3+$t]); ?>
+    
+                            <div class="col-sm-9 col-xs-12">
+                                <div class="row mb20"><!--Fragancias-->
+                                    <p class="titulo_fragancia"> <strong> FRAGANCIAS </strong> </p>
+                                    <?php include (APPLICATION_SECTIONS.$arrIon[2+$t]); ?>
+                                </div>
+    
+                                <div class="row">
+                                    <?php include (APPLICATION_SECTIONS.$arrIon[3+$t]); ?>
+                                </div>
                             </div>
+    
+                            <br style="clear:both" />
                         </div>
-
-                        <br style="clear:both" />
+                    <?php $t = $t+3; } ?>
+                    
+               	<div id="carrosmotos" style="height:50px;"></div>
+                
+                <div class="felipeCalcula">
+                
+                    <div class="titleM1 colorBlue t24 mb30">CARROS Y MOTOS</div>
+                    
+                    <div class="">
+                    
+                    	<?php include (APPLICATION_SECTIONS .'productos/tron/temporal_borrar_cuando_reemplace.php'); ?>
+                    
                     </div>
-				<?php $t = $t+3; } ?>
+                    
+                </div>
 
 			</div>
             <div class="col-sm-3 col-xs-12" id="resumen-pedido-tron">
