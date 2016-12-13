@@ -1469,10 +1469,18 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
 
 
-     if ( Session::Get('vr_unitario_ropa')    == 0 ) { Session::Set('vr_unitario_ropa', Session::Get('text_pv_tron_ropa'))     ; }
-     if ( Session::Get('vr_unitario_banios')  == 0 ) { Session::Set('vr_unitario_banios', Session::Get('text_pv_tron_banios')) ; }
-     if ( Session::Get('vr_unitario_pisos')   == 0 ) { Session::Set('vr_unitario_pisos', Session::Get('text_pv_tron_pisos'))   ; }
-     if ( Session::Get('vr_unitario_loza')    == 0 ) { Session::Set('vr_unitario_loza', Session::Get('text_pv_tron_loza'))     ; }
+     if ( Session::Get('vr_unitario_ropa')    == 0 ||  Session::Get('vr_unitario_ropa')  > Session::Get('text_pv_tron_ropa') ) {
+            Session::Set('vr_unitario_ropa', Session::Get('text_pv_tron_ropa'))     ;
+          }
+     if ( Session::Get('vr_unitario_banios')  == 0 || Session::Get('vr_unitario_banios')  > Session::Get('text_pv_tron_banios')) {
+            Session::Set('vr_unitario_banios', Session::Get('text_pv_tron_banios')) ;
+          }
+     if ( Session::Get('vr_unitario_pisos')   == 0 || Session::Get('vr_unitario_pisos')  > Session::Get('text_pv_tron_pisos')) {
+            Session::Set('vr_unitario_pisos', Session::Get('text_pv_tron_pisos'))   ;
+          }
+     if ( Session::Get('vr_unitario_loza')    == 0 ||  Session::Get('vr_unitario_loza')  >  Session::Get('text_pv_tron_loza')) {
+          Session::Set('vr_unitario_loza', Session::Get('text_pv_tron_loza'))     ;
+        }
 
 
       $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
