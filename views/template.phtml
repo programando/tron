@@ -81,6 +81,8 @@
                <?php include (VENTANAS_MODALES . 'mensaje_cumpleanios.php');?>
             <?php endif ;?>
 
+
+
             <!-- SEPTIEMBRE 14 2016
                 CONDICIONES PARA MOSTRAR LA VENTANA CUANDO SE CAMBIA DE STATUS A EMPRESARIO TRON
             -->
@@ -90,6 +92,11 @@
                <?php include (VENTANAS_MODALES . 'tienda_oferta_x_cambio_status.php');?>
             <?php endif ;?>
 
+          <?php   $mostrar_modal_vacaciones  = Session::Get('mostrar_modal_vacaciones'); ?>
+
+           <?php if ( $mostrar_modal_vacaciones  == TRUE )  :?>
+                <?php include (VENTANAS_MODALES . 'mensaje_vacaciones_colectivas.php');?>
+          <?php endif ;?>
 
       <?= $ContenidoBody;?>
 
@@ -202,7 +209,7 @@
         yellow: [255, 255, 0],
         transparent: [255, 255, 255]
     }
-})(jQuery);	
+})(jQuery);
 
 </script>
 

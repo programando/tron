@@ -164,8 +164,9 @@ public function Parametros_Iniciales(){
                 Session::Iniciar_Variable('cumple_condicion_cpras_tron_industial'   , FALSE ) ; // Cumple condiciones para precio especial
                 Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
                 Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
+                Session::Iniciar_Variable('mostrar_modal_vacaciones'                , TRUE) ;
 
-                 Session::Set('Consultar_Parametros_Iniciales', FALSE ) ;
+                Session::Set('Consultar_Parametros_Iniciales', FALSE ) ;
             }
 
 
@@ -175,6 +176,7 @@ public function Parametros_Iniciales(){
     public function ocultar_mjs_cumpleanios(){
         Session::Set('mostrar_modal_cumple_anios', FALSE ) ;
         Session::Set('mostrar_modal_ofertas_x_cambio_status', FALSE);
+        Session::Set('mostrar_modal_vacaciones', FALSE);
     }
 
     public function Cerrar_Sesion() {

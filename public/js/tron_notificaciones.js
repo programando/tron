@@ -15,6 +15,14 @@ $('#modal_cumpleanios').modal('show');
 //========================================================================
 $('#tienda_oferta_x_cambio_status').modal('show');
 
+
+//  DIC 13 DE 2016
+//  VENTANA QUE MUESTRA CON MOTIVO DE VACACIONES COLECTIVAS
+//========================================================================
+$('#modal_vacaciones').modal('show');
+
+
+
 //CIERRE DE LA VENTANA DE CUMPLEAÑOS
 //======================================
 $('.cerrar_cumpleanios').on('click', function(){
@@ -29,6 +37,20 @@ $('.cerrar_cumpleanios').on('click', function(){
        });
 		});
 
+
+//CIERRE DE LA VENTANA DE CUMPLEAÑOS
+//======================================
+$('.cerrar-msj-vacaciones').on('click', function(){
+     $.ajax({
+       data:'',
+       dataType: '',
+       url: '/tron/index/ocultar_mjs_cumpleanios/',
+       type: 'post',
+         success:  function (resultado) {
+            window.location.href = "/tron/productos/categorias_marcas";
+          }
+       });
+    });
 
 
 
