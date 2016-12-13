@@ -15,7 +15,8 @@
 </p><!--Aviso Acerca De Los Cojines-->
 
 <div class="precio_del_producto">
-    <p class="text-center precio_publico-ocacional"> <strong> <?= $text_pv_comprador_ocasional_ropa ;?> </strong><!--contenedor = Precio-Ocacional-->
+    <p class="text-center precio_publico-ocacional">
+    <strong> <?= $text_pv_comprador_ocasional_ropa ;?> </strong><!--contenedor = Precio-Ocacional-->
         <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>18.png" title="Comprador Ocasional"></span>
     </p>
     <p class="text-center  precio_del_cliente_tron">

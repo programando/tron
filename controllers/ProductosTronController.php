@@ -383,17 +383,21 @@
 								if ( $Cantidad_Loza   > 0 )  {	$Precio_Unitario_Loza    = 	$VrPedTotal_Loza   / $Cantidad_Loza   ;	}
 
 
- 															// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
-																Session::Set('precio_especial'              , $precio_especial   );
-																Session::Set('transporte_tron'              , 0                  );
-																Session::Set('descuento_especial'           , $descuento_especial);
-																Session::Set('descuento_especial_porcentaje', $descuento_especial_porciento);
-																Session::Set('Sobre_Precio_Prod_Tron'       , 0 );
+									// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
+									Session::Set('precio_especial'              , $precio_especial   );
+									Session::Set('transporte_tron'              , 0                  );
+									Session::Set('descuento_especial'           , $descuento_especial);
+									Session::Set('descuento_especial_porcentaje', $descuento_especial_porciento);
+									Session::Set('Sobre_Precio_Prod_Tron'       , 0 );
 
-																Session::Set('vr_unitario_ropa',     $Precio_Unitario_Ropa);
-																Session::Set('vr_unitario_banios',   $Precio_Unitario_Banios);
-																Session::Set('vr_unitario_pisos',    $Precio_Unitario_Pisos);
-																Session::Set('vr_unitario_loza',     $Precio_Unitario_Loza);
+
+
+
+									Session::Set('vr_unitario_ropa',     $Precio_Unitario_Ropa);
+									Session::Set('vr_unitario_banios',   $Precio_Unitario_Banios);
+									Session::Set('vr_unitario_pisos',    $Precio_Unitario_Pisos);
+									Session::Set('vr_unitario_loza',     $Precio_Unitario_Loza);
+
 
 
 		    } //Proceso para hallar el precio especial

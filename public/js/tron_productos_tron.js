@@ -1,6 +1,8 @@
 
 function Imprimir_Totales_Carrito_Header(resultado) 	{
 
+	  //console.log( resultado );
+
 	   $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
 
@@ -12,6 +14,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 
 	   $('#Total_Venta_Ocasional_Resumen').html(resultado.pv_ocas_resumen);
 	   $('#Total_Venta_Tron_Resumen').html(resultado.pv_tron_resumen);
+
 
 
 		function paraLimpiar(valor){
@@ -50,7 +53,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			return "$"+iinn3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 		}
 		function paraMostrar4(valor444, inc10444, turn444){
-			var iinn4 = parseInt(valor444) + parseInt(Math.round(inc10444*turn444));			
+			var iinn4 = parseInt(valor444) + parseInt(Math.round(inc10444*turn444));
 			return "$"+iinn4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 		}
 		function paraFinalizar(valorRec){
@@ -58,16 +61,16 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 		}
 
 	   if ( resultado.vr_unitario_ropa != '$ 0'){
-		   
+
 			$('#vr_unitario_ropa').html(resultado.vr_unitario_ropa);
-			
+
 			var valor 		= paraLimpiar(resultado.vr_unitario_ropa);
 			var new_value 	= paraLimpiar($('#precio-tron-ropa').text());
 			var ot_val 		= valor-new_value;
 			var inc10 		= ot_val / 10;
-			
-			console.log("PROD 1 | Nuevo:" + valor + " Anterior: " + new_value + " Diferencia: " + ot_val );
-			
+
+
+
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 2)); }, 100);
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 3)); }, 150);
@@ -78,26 +81,26 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraFinalizar(valor)); }, 500);
-		
+
 			$( "#bIONPrd1 #precio-tron-ropa" ).stop().animate({ color : '#003e90' }, 500, function() {
 				$( "#bIONPrd1 #precio-tron-ropa" ).animate({ color : '#f89008' }, 600);
 			});
-			
+
 	  	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	  	if ( resultado.vr_unitario_banios != '$ 0'){
-			
+
 			$('#vr_unitario_banios').html(resultado.vr_unitario_banios);
 
 			var valor2 		= paraLimpiar2(resultado.vr_unitario_banios);
 			var new_value2 	= paraLimpiar2($('#precio-tron-banios').text());
 			var ot_val2 	= valor2-new_value2;
 			var inc102 		= ot_val2 / 10;
-			
+
 			console.log("PROD 2 | Nuevo:" + valor2 + " Anterior: " + new_value2 + " Diferencia: " + ot_val2 );
-			
+
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 2)); }, 100);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 3)); }, 150);
@@ -108,27 +111,27 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraFinalizar(valor2)); }, 500);
-		
+
 			$( "#bIONPrd2 #precio-tron-banios" ).stop().animate({ color : '#003e90' }, 500, function() {
 				$( "#bIONPrd2 #precio-tron-banios" ).animate({ color : '#f89008' }, 600);
 			});
-				
-				
+
+
 	  	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	  	if ( resultado.vr_unitario_pisos != '$ 0'){
-			
+
 			$('#vr_unitario_pisos').html(resultado.vr_unitario_pisos);
 
 			var valor3 		= paraLimpiar3(resultado.vr_unitario_pisos);
 			var new_value3 	= paraLimpiar3($('#precio-tron-pisos').text());
 			var ot_val3 	= valor3-new_value3;
 			var inc103 		= ot_val3 / 10;
-			
+
 			console.log("PROD 3 | Nuevo:" + valor3 + " Anterior: " + new_value3 + " Diferencia: " + ot_val3 );
-			
+
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 2)); }, 100);
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 3)); }, 150);
@@ -139,26 +142,26 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraFinalizar(valor3)); }, 500);
-		
+
 			$( "#bIONPrd3 #precio-tron-pisos" ).stop().animate({ color : '#003e90' }, 500, function() {
 				$( "#bIONPrd3 #precio-tron-pisos" ).animate({ color : '#f89008' }, 600);
 			});
-			
+
 	  	}
-		
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 	  	if ( resultado.vr_unitario_loza != '$ 0'){
-	   		
+
 			$('#vr_unitario_loza').html(resultado.vr_unitario_loza);
 
 			var valor4 		= paraLimpiar4(resultado.vr_unitario_loza);
 			var new_value4 	= paraLimpiar4($('#precio-tron-loza').text());
 			var ot_val4 	= valor4-new_value4;
 			var inc104 		= ot_val4 / 10;
-			
+
 			console.log("PROD 4 | Nuevo:" + valor4 + " Anterior: " + new_value4 + " Diferencia: " + ot_val4 );
-			
+
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 2)); }, 100);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 3)); }, 150);
@@ -169,7 +172,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraFinalizar(valor4)); }, 500);
-		
+
 			$( "#bIONPrd4 #precio-tron-loza" ).stop().animate({ color : '#003e90' }, 500, function() {
 				$( "#bIONPrd4 #precio-tron-loza" ).animate({ color : '#f89008' }, 600);
 			});
@@ -203,7 +206,7 @@ function Borrar_Producto_de_Carrito(Parametros)
 					type:     'post',
      success:  function (resultado)
     	 {
-    	 		Imprimir_Totales_Carrito_Header(resultado);
+    	 		Imprimir_Totales_Carrito_Header( resultado );
     	 }
 					});
 }

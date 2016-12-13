@@ -310,7 +310,9 @@ class CarritoController extends Controller{
         if ($productos['idproducto'] == $IdProducto)  {
             $cantidad_producto = $this->Datos_Carro[$key]['cantidad'];
             $cantidad_producto = $cantidad_producto - $Cantidad;
+
             Session::Set($NombreArray,$cantidad_producto);
+
             if ($cantidad_producto <= 0) {
               array_splice($this->Datos_Carro, $i, 1);
               Session::Set($NombreArray,0);
@@ -669,7 +671,7 @@ public function Totalizar_Carrito (  ){
       $cumple_condicion_cpras_tron_industial = $this->Determinar_Cumple_Condicion_Cpras_Tron_Industial();   // EVALUAR SI CUMPLE CONDICIONES PARA DAR PRECIO ESPECIAL DEL PRODUCTO
       //Debug::Mostrar('CUMPLE ' . $cumple_condicion_cpras_tron_industial );
 
-      foreach ( $this->Datos_Carro as &$Productos ){                                                    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO
+      foreach ( $this->Datos_Carro as &$Productos ){    //  EL SIGNO & SE USA PARA PASAR LOS VALORES POR REFERENCIA. SON CAMBIADOS EN EL RECORRIDO DEL CICLO
 
           $cantidad              = $Productos['cantidad'];
           $cmv                   = $Productos['cmv'];
@@ -682,9 +684,6 @@ public function Totalizar_Carrito (  ){
           $porciento_ppto_fletes = 0;
           $pv_ocasional          = $Productos['pv_ocasional'];
           $pv_tron               = $Productos['pv_tron'] ;
-
-
-
 
           if ($idproducto == 10744){
               $kit_inicio_peso_total       = $kit_inicio_peso_total + $peso_gramos ;
@@ -699,7 +698,6 @@ public function Totalizar_Carrito (  ){
 
           if ( $cumple_condicion_cpras_tron_industial == TRUE ){
             $Productos['precio_unitario_produc_pedido'] = $pv_tron;
-
           }
 
           $precio_unitario_producto                      = $Productos['precio_unitario_produc_pedido'];
@@ -1368,7 +1366,6 @@ public function Totalizar_Pedido_x_Categoria_Producto() {
                $this->Cantidad_Registros_Prod_Tron = $this->Cantidad_Registros_Prod_Tron + 1; // Cantidad de Registros-  Productos tron
                $this->Tengo_Productos_Tron         = TRUE;
 
-
           }
 
           if ($id_categoria_producto == 6) {
@@ -1469,6 +1466,15 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
     }
 
     public function Retornar_Totales_Carro_Json()  {
+
+
+
+     if ( Session::Get('vr_unitario_ropa')    == 0 ) { Session::Set('vr_unitario_ropa', Session::Get('text_pv_tron_ropa'))     ; }
+     if ( Session::Get('vr_unitario_banios')  == 0 ) { Session::Set('vr_unitario_banios', Session::Get('text_pv_tron_banios')) ; }
+     if ( Session::Get('vr_unitario_pisos')   == 0 ) { Session::Set('vr_unitario_pisos', Session::Get('text_pv_tron_pisos'))   ; }
+     if ( Session::Get('vr_unitario_loza')    == 0 ) { Session::Set('vr_unitario_loza', Session::Get('text_pv_tron_loza'))     ; }
+
+
       $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
       $SubTotal_Pedido_Ocasional     =  "$ ".number_format($this->SubTotal_Pedido_Ocasional ,0,"",".");
       // DATOS DE PRODUCTOS TRON
