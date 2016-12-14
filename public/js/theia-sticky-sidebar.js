@@ -32,7 +32,7 @@
             var success = tryInit(options, $that);
 
             if (!success) {
-                console.log('TSS: Body width smaller than options.minWidth. Init is delayed.');
+
 
                 $(document).scroll(function (options, $that) {
                     return function (evt) {
@@ -334,20 +334,20 @@
                 }
             });
         }
-        
+
         function getWidthForObject(object) {
             var width;
-            
+
             try {
                 width = object[0].getBoundingClientRect().width;
             }
             catch(err) {
             }
-            
+
             if (typeof width === "undefined") {
                 width = object.width();
             }
-            
+
             return width;
         }
     }

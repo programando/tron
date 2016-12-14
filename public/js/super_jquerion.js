@@ -70,11 +70,11 @@ function calcularAlturas(){
 
 	var iififi = $(".artOpt").width();
 	$(".counttis").css('width', iififi+56);
-	
-	
+
+
 	var altoAllion		= $(".allion").height();
 	var altoAllionIn	= $(".allionIn").height();
-	
+
 	if(ancho < 768)	{
 		$(".allion").height("auto");
 		$(".nodoa").height("auto");
@@ -82,14 +82,14 @@ function calcularAlturas(){
 		$(".allion").height(alto-100);
 		$(".nodoa").height((alto-100)/10);
 	}
-	
+
 	if(ancho < 768)	{
 		$(".allionIn").height("auto");
 	} else {
 		$(".allionIn").height(alto-150);
 	}
 
-	
+
 
 	var mukSlide1	= $(".mukSlide1").height();
 	var lationT1	= $(".lationT1").height();
@@ -99,17 +99,17 @@ function calcularAlturas(){
 		$(".mukSlideIn").css('height', (mukSlide1/4-3));
 		$(".mukSlideIn img").css('max-height', (mukSlide1/4-3));
 		$(".lationT2").css('height', lationT1);
-		
+
 		$(".ionWin").css('height', carresped+60);
-		
+
 	}else{
 		$(".lationT2").css('height', 'auto');
 		$(".ionWin").css('height', carresped+60);
 	}
-	
+
 	$('*').on('click',function(){
 		var carresped	= $(".carrito-resumen-pedido").height();
-		$(".ionWin").css('height', carresped+60);	
+		$(".ionWin").css('height', carresped+60);
 	});
 
 
@@ -164,16 +164,16 @@ function calcularAlturas(){
 		//});
 
 	//}
-	
+
 	if(ancho > 750){
 
 		$(window).scroll( function () {
 			var scrollTop     = $(window).scrollTop(),
 			elementOffset = $('.felipeCalcula').offset().top,
 			distance      = (elementOffset - scrollTop);
-			console.log(distance);
+
 			//$('.reerr').html(distance);
-			
+
 			var altuus = 300;
 			if(altuus < $(window).scrollTop() && distance > 125) 	{
 				$('.ionIIid').addClass("slelel");
@@ -183,11 +183,11 @@ function calcularAlturas(){
 				$('.ionIIid').removeClass("slelel");
 				$('.reemplllazo').removeClass("h100");
 			}
- 
+
 		});
 
 	}
-	
-	
+
+
 
 }

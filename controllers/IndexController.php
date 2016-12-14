@@ -176,8 +176,13 @@ public function Parametros_Iniciales(){
     public function ocultar_mjs_cumpleanios(){
         Session::Set('mostrar_modal_cumple_anios', FALSE ) ;
         Session::Set('mostrar_modal_ofertas_x_cambio_status', FALSE);
+    }
+
+
+    public function ocultar_mjs_vacaciones(){
         Session::Set('mostrar_modal_vacaciones', FALSE);
     }
+
 
     public function Cerrar_Sesion() {
         $_SESSION['logueado'] = FALSE ;

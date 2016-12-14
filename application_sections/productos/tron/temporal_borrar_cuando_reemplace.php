@@ -1,5 +1,7 @@
+<div id="contenido-productos">
 <div class="artOpt artPor4">
-                                                  <div id="contenedor-productos" style="position:relative;">
+
+<div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis" style="width: 221px;">
     	<img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad1.png" class="lad1">
@@ -96,7 +98,7 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
     <div class="imgRefTec">
 
-		        	        
+
 
           <!--
         -->
@@ -106,7 +108,7 @@
     <div class="taC mb10">
         <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/189/2 ">
                           <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_189_35066677750.jpg" class="mb10">
-            
+
             <div class="nomproducto taC t14" id="nomproducto189">Crema TRON</div>
             <div class="nompresentacion taC" id="nompresentacion189"><small>220 grs.</small></div>
         </a>
@@ -117,7 +119,7 @@
           <strong>$7.765</strong>
           <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
-    
+
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
@@ -125,7 +127,7 @@
             <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
             <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
-      
+
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
@@ -167,10 +169,10 @@
 
 </div>
                           </div>
-                          
-                          
-                          
-                          
+
+
+
+
                           <div class="artOpt artPor4">
                                                   <div id="contenedor-productos" style="position:relative;">
 
@@ -269,7 +271,7 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
     <div class="imgRefTec">
 
-		        	        
+
 
           <!--
         -->
@@ -279,7 +281,7 @@
     <div class="taC mb10">
         <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/807/2 ">
                           <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_807_17713393392.jpg" class="mb10">
-            
+
             <div class="nomproducto taC t14" id="nomproducto807">RAX Limpia-parabrisas</div>
             <div class="nompresentacion taC" id="nompresentacion807"><small>450 mls.</small></div>
         </a>
@@ -290,7 +292,7 @@
           <strong>$5.300</strong>
           <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
-    
+
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
@@ -298,7 +300,7 @@
             <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
             <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
-      
+
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
@@ -340,10 +342,10 @@
 
 </div>
                           </div>
-                          
-                          
-                          
-                          
+
+
+
+
                           <div class="artOpt artPor4">
                                                   <div id="contenedor-productos" style="position:relative;">
 
@@ -442,7 +444,7 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
     <div class="imgRefTec">
 
-		        	        
+
 
           <!--
         -->
@@ -452,7 +454,7 @@
     <div class="taC mb10">
         <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/845/2 ">
                           <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_845_35426787768.jpg" class="mb10">
-            
+
             <div class="nomproducto taC t14" id="nomproducto845">RAX SILICONA Viscosa</div>
             <div class="nompresentacion taC" id="nompresentacion845"><small>450 mls.</small></div>
         </a>
@@ -463,7 +465,7 @@
           <strong>$10.610</strong>
           <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
-    
+
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
@@ -471,7 +473,7 @@
             <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
             <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
-      
+
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
@@ -513,9 +515,9 @@
 
 </div>
                           </div>
-                          
-                          
-                          
+
+
+
                           <div class="artOpt artPor4">
                                                   <div id="contenedor-productos" style="position:relative;">
 
@@ -614,7 +616,7 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
     <div class="imgRefTec">
 
-		        	        
+
 
           <!--
         -->
@@ -624,7 +626,7 @@
     <div class="taC mb10">
         <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/1531/2 ">
                           <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_1531_26570091492.jpg" class="mb10">
-            
+
             <div class="nomproducto taC t14" id="nomproducto1531">RAX LLW Plus</div>
             <div class="nompresentacion taC" id="nompresentacion1531"><small>450 mls.</small></div>
         </a>
@@ -635,7 +637,7 @@
           <strong>$7.690</strong>
           <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
-    
+
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
@@ -643,7 +645,7 @@
             <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
             <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
-      
+
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
@@ -684,4 +686,6 @@
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
 
 </div>
-                          </div>
+</div>
+</div>
+

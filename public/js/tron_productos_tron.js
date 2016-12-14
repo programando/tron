@@ -1,7 +1,7 @@
 
 function Imprimir_Totales_Carrito_Header(resultado) 	{
 
-	  //console.log( resultado );
+
 
 	   $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
 	   $Total_Venta_Tron.html(resultado.SubTotal_Pedido_Amigos);
@@ -49,7 +49,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 		}
 		function paraMostrar3(valor333, inc10333, turn333){
 			var iinn3 = parseInt(valor333) + parseInt(Math.round(inc10333*turn333));
-			//console.log("iinn PROD3 -> " + iinn3);
+
 			return "$"+iinn3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 		}
 		function paraMostrar4(valor444, inc10444, turn444){
@@ -99,7 +99,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			var ot_val2 	= valor2-new_value2;
 			var inc102 		= ot_val2 / 10;
 
-			console.log("PROD 2 | Nuevo:" + valor2 + " Anterior: " + new_value2 + " Diferencia: " + ot_val2 );
+
 
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 2)); }, 100);
@@ -130,7 +130,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			var ot_val3 	= valor3-new_value3;
 			var inc103 		= ot_val3 / 10;
 
-			console.log("PROD 3 | Nuevo:" + valor3 + " Anterior: " + new_value3 + " Diferencia: " + ot_val3 );
+
 
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 2)); }, 100);
@@ -160,7 +160,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			var ot_val4 	= valor4-new_value4;
 			var inc104 		= ot_val4 / 10;
 
-			console.log("PROD 4 | Nuevo:" + valor4 + " Anterior: " + new_value4 + " Diferencia: " + ot_val4 );
+
 
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 1)); }, 50);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 2)); }, 100);

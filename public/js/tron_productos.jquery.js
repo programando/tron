@@ -576,8 +576,9 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
   var Parametros 						 		  = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,
   																									"es_tron": es_tron , "es_tron_acc": es_tron_acc, "en_oferta":en_oferta 	 };
+
   // SI ES KIT DE INICIO O PRODUCTO PROMOCIONAL Y ES EMPRESARIO O CLIENTE TRON NO SE LE PERMITE COMPRAR.
-  if ( IdProducto == 10744 ||  id_categoria_producto == 8){
+  /*if ( IdProducto == 10744 ||  id_categoria_producto == 8){
   	  Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio();
   	  if ( ($idtipo_plan_compras_kit == 2 || $idtipo_plan_compras_kit==3) && $kit_comprado == true){
   	  	       new Messi("<br>Los Combos, el Kit de Inicio y los Productos Promocionales, son productos exclusivos para los compradores ocasionales por lo tanto no se pueden agregar a tu cartito. <br> Pero como tienes el privilegio de ser Cliente o Empresario TRON puedes armar estos paquetes en la sección productos TRON.<br><br>",
@@ -587,12 +588,15 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
   	  	return false;
   	  }
 
-  }
-
+  }*/
   Agregar_Producto_a_Carrito(NomProducto,Parametros);
   Mostrar_Mensaje_Producto_Agregado(NomProducto);
   return false;
 });
+
+
+
+
 
 $('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function()
 	{
