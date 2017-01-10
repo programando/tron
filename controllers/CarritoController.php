@@ -1482,12 +1482,20 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           Session::Set('vr_unitario_loza', Session::Get('text_pv_tron_loza'))     ;
         }
 
+        $Descuento_Especial 										 = Session::Get('descuento_especial');
+        $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
+        if ( Session::Get('pv_tron_resumen') == Session::Get('pv_ocas_resumen')){
+        			$Descuento_Especial  = 0 ;
+        			$descuento_especial_porcentaje = 0;
+        }
+
+
 
       $SubTotal_Pedido_Amigos        =  "$ ".number_format($this->SubTotal_Pedido_Amigos ,0,"",".");
       $SubTotal_Pedido_Ocasional     =  "$ ".number_format($this->SubTotal_Pedido_Ocasional ,0,"",".");
       // DATOS DE PRODUCTOS TRON
-      $descuento_especial            =  "$ ".number_format(Session::Get('descuento_especial'),0,"",".");
-      $descuento_especial_porcentaje =  Session::Get('descuento_especial_porcentaje');
+      $descuento_especial            =  "$ ".number_format($Descuento_Especial ,0,"",".");
+      //$descuento_especial_porcentaje =  Session::Get('descuento_especial_porcentaje');
       $descuento_especial_porcentaje =  number_format((float)$descuento_especial_porcentaje, 2, '.', '') .'%';
 
       $vr_unitario_ropa              =  "$ ".number_format(Session::Get('vr_unitario_ropa'),0,"",".");

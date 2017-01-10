@@ -19,7 +19,7 @@ $('#tienda_oferta_x_cambio_status').modal('show');
 //  DIC 13 DE 2016
 //  VENTANA QUE MUESTRA CON MOTIVO DE VACACIONES COLECTIVAS
 //========================================================================
-$('#modal_vacaciones').modal('show');
+//$('#modal_vacaciones').modal('show');
 
 
 
