@@ -19,7 +19,7 @@
 		    	 */
 		    		Session::Set('REDETRANS_COURRIER_VR_FLETE', 0);
 		    		Session::Set('Sobre_Precio_Prod_Tron', 0 );
-		    		$parametros[0]['iva']  = 16 ;
+		    		$parametros[0]['iva']  = Session::Get('iva'); ;
 									$idmcipio                            = Session::Get('idmcipio');
 									$iddpto                              = Session::Get('iddpto');
 									$re_expedicion                       = Session::Get('re_expedicion');
@@ -184,7 +184,7 @@
 		    	 */
 		    		Session::Set('REDETRANS_COURRIER_VR_FLETE', 0);
 		    		Session::Set('Sobre_Precio_Prod_Tron', 0 );
-		    		$parametros[0]['iva']  = 16 ;
+		    		$parametros[0]['iva']  = Session::Get('iva'); ;
 									$idmcipio                            = Session::Get('idmcipio');
 									$iddpto                              = Session::Get('iddpto');
 									$re_expedicion                       = Session::Get('re_expedicion');

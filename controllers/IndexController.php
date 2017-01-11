@@ -131,13 +131,15 @@ public function Parametros_Iniciales(){
                 Session::Set('subsidio_transporte_tron',          $Parametros[0]['subsidio_transporte_tron']);      // Subsidio de transporte productos tron
                 Session::Set('kit_vr_transporte'                  ,0);
                 Session::Set('vr_minimo_para_recaudo',             $Parametros[0]['vr_minimo_para_recaudo']);
-
+                Session::Set('iva',               $Parametros[0]['iva']);
                 // VALORES PAYU LATAM
                 Session::Set('py_porciento_recaudo',          $Parametros[0]['py_porciento_recaudo']/100);
                 Session::Set('py_vr_min_recaudo',             $Parametros[0]['py_vr_min_recaudo']);
                 Session::Set('py_vr_adicional',               $Parametros[0]['py_vr_adicional']);
 
+
                 Session::Set('py_vr_min_recaudo_', $Parametros[0]['py_vr_min_recaudo']);
+
 
                 Session::Set('valor_transferencia_bancaria',  Numeric_Functions::Formato_Numero($Parametros[0]['valor_transferencia_bancaria']));
                 Session::Set('valor_minimo_transferencias',   Numeric_Functions::Formato_Numero( $Parametros[0]['valor_minimo_transferencias'] ));
