@@ -164,8 +164,6 @@
         }
 
 
-
-
 									Session::Set('vr_unitario_ropa',     $Precio_Unitario_Ropa);
 									Session::Set('vr_unitario_banios',   $Precio_Unitario_Banios);
 									Session::Set('vr_unitario_pisos',    $Precio_Unitario_Pisos);

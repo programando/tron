@@ -1482,7 +1482,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
           Session::Set('vr_unitario_loza', Session::Get('text_pv_tron_loza'))     ;
         }
 
-        $Descuento_Especial 										 = Session::Get('descuento_especial');
+        $Descuento_Especial 					 = Session::Get('descuento_especial');
         $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
         if ( Session::Get('pv_tron_resumen') == Session::Get('pv_ocas_resumen')){
         			$Descuento_Especial  = 0 ;
@@ -1505,11 +1505,12 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
       $pv_tron_resumen               =  "$ ".number_format(Session::Get('pv_tron_resumen'),0,"",".");
       $pv_ocas_resumen               =  "$ ".number_format(Session::Get('pv_ocas_resumen'),0,"",".");
+      $text_pv_tron_ropa             =   Session::Get('text_pv_tron_ropa');
 
 
       $Datos    = compact('SubTotal_Pedido_Amigos','SubTotal_Pedido_Ocasional','descuento_especial','descuento_especial_porcentaje',
                           'vr_unitario_ropa','vr_unitario_banios','vr_unitario_pisos','vr_unitario_loza',
-                          'pv_ocas_resumen','pv_tron_resumen');
+                          'pv_ocas_resumen','pv_tron_resumen','text_pv_tron_ropa');
       echo json_encode($Datos,256);
     }
 
