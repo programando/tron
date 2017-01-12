@@ -1,6 +1,17 @@
 
 function Imprimir_Totales_Carrito_Header(resultado) 	{
 
+		function paraLimpiarOld(valor){
+			valor 	  = valor.replace('$','');
+			valor 	  = valor.replace(' ','');
+			valor 	  = parseInt(valor.replace('.',''));
+			return valor;
+		}
+		
+		var old_value1 	= paraLimpiarOld($('#precio-tron-ropa').text());
+		var old_value2 	= paraLimpiarOld($('#precio-tron-banios').text());
+		var old_value3 	= paraLimpiarOld($('#precio-tron-pisos').text());
+		var old_value4 	= paraLimpiarOld($('#precio-tron-loza').text());
 
 
 	   $Total_Venta_Ocasional.html(resultado.SubTotal_Pedido_Ocasional);
@@ -81,10 +92,13 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraMostrar(valor, inc10, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-ropa').html(paraFinalizar(valor)); }, 500);
-
-			$( "#bIONPrd1 #precio-tron-ropa" ).stop().animate({ color : '#003e90' }, 500, function() {
-				$( "#bIONPrd1 #precio-tron-ropa" ).animate({ color : '#f89008' }, 600);
-			});
+			
+			console.log(valor+" OLD: "+ old_value1);
+			if(valor != old_value1){
+				$( "#bIONPrd1 #precio-tron-ropa" ).stop().animate({ color : '#003e90' }, 500, function() {
+					$( "#bIONPrd1 #precio-tron-ropa" ).animate({ color : '#f89008' }, 600);
+				});
+			}
 
 	  	}
 
@@ -111,10 +125,13 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraMostrar2(valor2, inc102, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-banios').html(paraFinalizar(valor2)); }, 500);
-
-			$( "#bIONPrd2 #precio-tron-banios" ).stop().animate({ color : '#003e90' }, 500, function() {
-				$( "#bIONPrd2 #precio-tron-banios" ).animate({ color : '#f89008' }, 600);
-			});
+				
+			console.log(valor2+" OLD: "+ old_value2);
+			if(valor2 != old_value2){
+				$( "#bIONPrd2 #precio-tron-banios" ).stop().animate({ color : '#003e90' }, 500, function() {
+					$( "#bIONPrd2 #precio-tron-banios" ).animate({ color : '#f89008' }, 600);
+				});
+			}
 
 
 	  	}
@@ -143,9 +160,12 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraMostrar3(valor3, inc103, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-pisos').html(paraFinalizar(valor3)); }, 500);
 
-			$( "#bIONPrd3 #precio-tron-pisos" ).stop().animate({ color : '#003e90' }, 500, function() {
-				$( "#bIONPrd3 #precio-tron-pisos" ).animate({ color : '#f89008' }, 600);
-			});
+			console.log(valor3+" OLD: "+ old_value3);
+			if(valor3 != old_value3){
+				$( "#bIONPrd3 #precio-tron-pisos" ).stop().animate({ color : '#003e90' }, 500, function() {
+					$( "#bIONPrd3 #precio-tron-pisos" ).animate({ color : '#f89008' }, 600);
+				});
+			}
 
 	  	}
 
@@ -172,10 +192,12 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 8)); }, 400);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraMostrar4(valor4, inc104, 9)); }, 450);
 			setTimeout(function(){ $('#precio-tron-loza').html(paraFinalizar(valor4)); }, 500);
-
-			$( "#bIONPrd4 #precio-tron-loza" ).stop().animate({ color : '#003e90' }, 500, function() {
-				$( "#bIONPrd4 #precio-tron-loza" ).animate({ color : '#f89008' }, 600);
-			});
+			
+			if(valor4 != old_value4){
+				$( "#bIONPrd4 #precio-tron-loza" ).stop().animate({ color : '#003e90' }, 500, function() {
+					$( "#bIONPrd4 #precio-tron-loza" ).animate({ color : '#f89008' }, 600);
+				});
+			}
 
 	  	}
 	   $('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
