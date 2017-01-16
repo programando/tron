@@ -1,0 +1,2 @@
+[16-Jan-2017 15:08:55 America/Bogota] PHP Fatal error:  Call to undefined method ProductosController::Listar_Poductos_Carros_y_Motos() in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 181
+[16-Jan-2017 15:26:47 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in C:\xampp\htdocs\tron\application_sections\productos_listado.php on line 205

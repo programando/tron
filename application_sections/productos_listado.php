@@ -22,24 +22,9 @@
                     <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
                 </div>
             </div>
-
         </div>
 
-        <!--
-        <div class="p510 bb333 ">
-            <div class="colorT1 ff3 text-center" style="color:black;"><small><strong>OFERTA POR TIEMPO LIMITADO</strong> </small></div>
-            <div class="row" style="margin:0; padding:0;">
-                <div class="col-sm-12 col-xs-12 colorT2 t40 ff2 vcenter text-center">
-                   <?= $pv_tron; ?>
-                </div>
-        		<div class="text-center">
-                    <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
-        		</div>
-            </div>
-        </div>
-        -->
+
 
         <!-- Opción CUENTA REGRESIVA OFERTAS -->
         <div class="p510 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:none;">
@@ -97,8 +82,6 @@
 
 
 
-
-
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
     <div class="imgRefTec">
 
@@ -143,10 +126,14 @@
     <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
     <?php if (Session::Get('Id_Area_Consulta') == 2) :?>
       <div class="taC mb10"><!-- Precio Clientes Ocasional -->
-          <strong><?=$pv_ocasional;?></strong>
-          <span><img src="<?=BASE_IMG_TIENDA;?>18.png" title="Precio Público / Comprador Ocasional" ></span>
+          <?php if ( isset($mostrar_un_solo_precio  ) and $mostrar_un_solo_precio == false) : ?>
+            <strong><?=$pv_ocasional;?></strong>
+            <span><img src="<?=BASE_IMG_TIENDA;?>18.png" title="Precio Público / Comprador Ocasional" ></span>
+         <?php endif ;?>
+
       </div>
     <?php endif ;?>
+
 
     <!--PRECIO AMIGO TRON-->
      <?php if ($en_oferta == 0): ?>
@@ -164,7 +151,7 @@
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
 
-          <div class=" col-xs-4" id="cont-menos">
+          <div class="col-xs-4" id="cont-menos">
             <div class="form-group"><!--Inicio  Boton Menos-->
               <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carrito"
                       onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"  >-

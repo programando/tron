@@ -184,6 +184,14 @@
             return $Productos  ;
         }
 
+        public function Listar_Poductos_Carros_y_Motos( ) {
+            /** ENERO 16 DE 2017
+            *  CONSULTA LOS PRODUCTOS PARA LA PAGINACIÓN
+            */
+            $Productos = $this->Db->Ejecutar_Sp("productos_listado_carros_y_motos()");
+            return $Productos  ;
+        }
+
         public function Productos_por_Categoria($id_area_consulta, $_idorden_nv_1) {
             /** ENERO 09 DE 2014
             *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)

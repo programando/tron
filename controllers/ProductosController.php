@@ -178,6 +178,7 @@ class ProductosController extends Controller
          $this->Productos_Tron_Consultar( $Id_Categoria_Loza  );
          $this->View->Accesorios_Tron_Loza = $this->_Accesorios_Tron;
          $this->View->Productos_Tron_Loza  = $this->_Productos_Tron;
+         $this->View->Productos_Carros_Motos = $this->Productos->Listar_Poductos_Carros_y_Motos();
          $this->View->Mostrar_Vista('productos_tron');
     }
 
@@ -298,7 +299,7 @@ class ProductosController extends Controller
             $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
 
 
-                $this->View->Mostrar_Vista('marcas_y_categorias');
+           $this->View->Mostrar_Vista('marcas_y_categorias');
 
 
 

@@ -19,9 +19,10 @@
                 <div id="contenido-productos" class="col-sm-9 col-xs-12">
                     <?php
                     	include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
-
+                        $mostrar_imagen_varias_referencias = true;
+                        $mostrar_un_solo_precio            = false ;
                         foreach ($this->Productos_Pagina as $Productos){
-                            $mostrar_imagen_varias_referencias=true;
+
                             include (APPLICATION_CODS . 'campos_productos.php');
                     ?>
                          <?php if ( $en_oferta == 1 ) : ?> <div class="artOpt artPor4 oferta">

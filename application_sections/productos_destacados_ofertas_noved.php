@@ -15,9 +15,11 @@
 
                 <!-- INFORMACION DEL PRODUCTO -->
                 <?php
+                    $mostrar_imagen_varias_referencias=true;
+                    $mostrar_un_solo_precio         = false;
                     foreach ($this->Productos_Destacados_Index as $Productos) {
                         include (APPLICATION_CODS . 'campos_productos.php'); // Carga las variables de
-                        $mostrar_imagen_varias_referencias=true;
+
                 ?>
 
                             <div class="artOpt artPor5">
@@ -46,9 +48,11 @@
 
                 <!-- INFORMACION DEL PRODUCTO -->
                 <?php
+                    $mostrar_imagen_varias_referencias=true;
+                    $mostrar_un_solo_precio         = false;
                     foreach ($this->Productos_Ofertas_Index as $Productos){
                         include (APPLICATION_CODS . 'campos_productos.php'); // Carga las variables de
-                        $mostrar_imagen_varias_referencias=true;
+
                 ?>
 
                             <div class="artOpt artPor5">
@@ -77,9 +81,11 @@
 
             <!-- INFORMACION DEL PRODUCTO -->
             <?php
+                $mostrar_imagen_varias_referencias=true;
+                $mostrar_un_solo_precio         = false;
                 foreach ($this->Productos_Novedades_Index as $Productos){
                     include (APPLICATION_CODS . 'campos_productos.php'); // Carga las variables de
-                    $mostrar_imagen_varias_referencias=true;
+
             ?>
 
                         <div class="artOpt artPor5">
