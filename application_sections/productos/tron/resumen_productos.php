@@ -1,7 +1,9 @@
 <tbody id='resumen_pedido_productos'>
 
 <?php
+
 	$CarritoTron = Session::Get('CarritoTron');
+
 	if ( isset($CarritoTron) ) {
 		foreach ($CarritoTron  as $Productos){
 			$nom_producto = trim($Productos['nom_producto']);

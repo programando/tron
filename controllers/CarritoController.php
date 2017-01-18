@@ -1037,7 +1037,8 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
 
      foreach ($this->Datos_Carro as $Productos){
         $id_categoria_producto = $Productos['id_categoria_producto'];
-        if ( $id_categoria_producto >=1 && $id_categoria_producto  <= 4 ){
+        $aplica_proceso_tron   = $Productos['aplica_proceso_tron'];
+        if ( ( $id_categoria_producto >=1 && $id_categoria_producto  <= 4) ||  $aplica_proceso_tron  == TRUE ){
            $CarritoTron[$i_tron]['cantidad']     = $Productos['cantidad'] ;
            $CarritoTron[$i_tron]['pv_tron']      = $Productos['pv_tron'] ;
            $CarritoTron[$i_tron]['pv_ocasional'] = $Productos['pv_ocasional'] ;
@@ -1072,6 +1073,7 @@ private function Totalizar_Carrito_Conformar_Resumen_Carrito_Tron(){
      Session::Set('CarritoTron',$CarritoTron);
      Session::Set('pv_tron_resumen',$pv_tron_resumen);
      Session::Set('pv_ocas_resumen',$pv_ocas_resumen);
+
 
 }
 
@@ -1606,7 +1608,8 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
                                         'vr_anticipo_recaudo'=>0,'precio_venta_antes_iva_tron'=>0, 'precio_venta_antes_iva_ocasional'=>0,
                                         'vr_ppto_fletes_tron'=>0, 'vr_ppto_fletes_ocas'=>0, 'vr_anticipo_recaudo_tron'=>0,
                                         'vr_anticipo_recaudo_ocas'=>0, 'precio_kit_ocasional'=>0, 'precio_kit_tron'=>0,
-                                        'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=> 0 );
+                                        'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=> 0,
+                                        'aplica_proceso_tron' => 0 );
 
         if (!isset( $Parametros)) {
           $Parametros = $this->Parametros->Consultar();
@@ -1658,6 +1661,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
                 $CarroTemporal['tipo_despacho']          = $ProductoComprado[0]['tipo_despacho'];
                 $CarroTemporal['margen_bruta_inicial']   = $ProductoComprado[0]['margen_bruta_inicial'] / 100 ;
+                $CarroTemporal['aplica_proceso_tron']    = $ProductoComprado[0]['aplica_proceso_tron']  ;
 
 
 
