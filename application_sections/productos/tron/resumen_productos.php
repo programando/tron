@@ -1,8 +1,15 @@
+<!--
+<?php
+	Debug::Mostrar(Session::Get('CarritoTron')  );
+?>
+  -->
+
 <tbody id='resumen_pedido_productos'>
 
 <?php
 
 	$CarritoTron = Session::Get('CarritoTron');
+
 
 	if ( isset($CarritoTron) ) {
 		foreach ($CarritoTron  as $Productos){

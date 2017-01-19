@@ -151,51 +151,43 @@
     <div class="costos-cantidad">
         <form class="form-horizontal" role="form">
 
-          <div class="col-xs-4" id="cont-menos">
-            <div class="form-group"><!--Inicio  Boton Menos-->
-              <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carrito"
-                      onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"  >-
-              </button><!-- Fin Boton Menos-->
+                <div class=" col-xs-4" id="cont-menos">
+                    <div class="form-group"><!--Inicio  Boton Menos-->
+                        <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMenos"
+                            onclick="javascript: Carrito_RestarTRON('<?=$id_controles ;?>')"  >-
+                        </button><!-- Fin Boton Menos-->
+                    </div>
+                </div>
+
+
+            <div class="col-xs-4" id="cont-digitos">
+                <div class="form-group"><!--Inicio Input-->
+                    <input type        = "text"  value="<?= $Cantidad_Comprada ;?> "
+                    id                = "<?=$id_controles ;?>"
+                    class             = "digitos btn-carrito-input CantProdCompraTronFragancias"
+                    precio-amigo-tron = "<?= $id_pv_tron ;?>"
+                    idproducto        =  "<?= $idproducto ;?>"
+                    es-tron           =  "true"
+                    es-tron-acc       =  "false"
+                    >
+                </div><!--Fin Input-->
             </div>
-          </div>
 
-           <div class="col-xs-4" id="cont-digitos">
-              <div class="form-group"><!--Inicio Input-->
-                 <input type        = "text"  value="1"
-                  id                = "<?=$id_controles ;?>"
-                  class             = "digitos btn-carrito-input CantProductosComprados"
-                  id-idescala       = "<?= $idescala;?>"
-                  pv-tron-escala-a  = "<?= $pv_tron_escala_a ;?>"
-                  pv-tron-escala-b  = "<?= $pv_tron_escala_b ;?>"
-                  pv-tron-escala-c  = "<?= $pv_tron_escala_c ;?>"
-                  precio-amigo-tron = "<?= $id_pv_tron ;?>"
-                  >
-              </div><!--Fin Input-->
-           </div>
 
-           <div class=" col-xs-4" id="cont-mas">
-              <div class="form-group"><!-- Inicio Boton Mas-->
-                <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carrito"
-                      onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
-              </button><!-- Fin Boton Mas-->
-              </div>
-           </div>
+
+
+
+
+            <div class=" col-xs-4" id="cont-mas">
+                <div class="form-group"><!-- Inicio Boton Mas-->
+                    <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMas"
+                        onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
+                    </button><!-- Fin Boton Mas-->
+                </div>
+            </div>
+
         </form>
 
-        <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
-        <div class="div-btn-">
-             <button type="button" class="agregar boton-agregar-carrito"
-              id                     = "<?=$id_controles ;?>"
-              id-categoria-producto  = "<?= $id_categoria_producto ;?>"
-              en-oferta               = "<?= $en_oferta ;?>">
-              <div class="btn-agregar-carrito">
-                Agregar
-                <span>
-                   <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
-                </span>
-              </div>
-             </button>
-        </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
     </div>
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS-->
 
