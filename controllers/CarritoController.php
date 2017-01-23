@@ -821,8 +821,8 @@ public function Totalizar_Carrito (  ){
       $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
       if ( $_Carga_Fija_Unidades  > 0 && $_Carga_Fija_Vr_Declarado  > 0 && $_Carga_Fija_Peso_Pedido > 0 ){
           $this->Fletes->Redetrans_Carga         ( $_Carga_Fija_Unidades    , $_Carga_Fija_Vr_Declarado , $_Carga_Fija_Peso_Pedido );
-          $this->Fletes->Servientrega_Industrial ( $_Carga_Fija_Unidades    , $_Carga_Fija_Vr_Declarado , $_Carga_Fija_Peso_Pedido );
-          $this->Fletes->Sevientrega_Premier     ( $_Carga_Fija_Peso_Pedido , $_Carga_Fija_Vr_Declarado );
+         // $this->Fletes->Servientrega_Industrial ( $_Carga_Fija_Unidades    , $_Carga_Fija_Vr_Declarado , $_Carga_Fija_Peso_Pedido );
+         // $this->Fletes->Sevientrega_Premier     ( $_Carga_Fija_Peso_Pedido , $_Carga_Fija_Vr_Declarado );
      }
 
      //Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
@@ -894,7 +894,7 @@ public function Totalizar_Carrito (  ){
             $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
 
             $this->Fletes->Redetrans_Courrier     ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
-            $this->Fletes->Sevientrega_Premier    ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
+            //$this->Fletes->Sevientrega_Premier    ( $_Otros_Productos_Peso_Gramos , $Valor_Declarado );
             //Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
             $this->Fletes->Encontrar_Mejor_Flete();
 
