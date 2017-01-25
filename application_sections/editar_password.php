@@ -1,5 +1,4 @@
 
-
 <div class="contenedor-contrasenia">
 	  <!--Nueva contrasseña -->
    <div class="form-group">
