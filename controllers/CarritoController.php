@@ -1562,6 +1562,7 @@ public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
 
           $_SESSION['carrito'] = $Carrito_Actual;
 
+
           $this->Depurar_Carrito();
           $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $IdProducto,  $ProdEnOferta  );
           $this->Totalizar_Carrito(   );
