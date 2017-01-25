@@ -440,6 +440,7 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
     }
 
 
+
   public function activar_cuenta_usuario_finalizar_registro(){
       $Respuesta           = '';
       $idtecero            = General_Functions::Validar_Entrada('idtecero','NUM');

@@ -101,6 +101,7 @@ function Recuperar_Password(Parametros)
 				});
 }
 
+
 function Verificar_Activacion_Usuario_Envio_Correo(Parametros){
 	//$idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras , $idtpidentificacion,$razonsocial
 					$idtercero           = Parametros.idtercero;
