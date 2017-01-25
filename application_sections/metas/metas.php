@@ -3,10 +3,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
-  <meta http-equiv="cache-control"   content="max-age=0" />
-  <meta http-equiv="cache-control"   content="no-cache" />
-  <meta http-equiv="expires"         content="0" />
-  <meta http-equiv="expires"         content="Tue, 01 Jan 1980 1:00:00 GMT" />
   <meta http-equiv="pragma"          content="no-cache" />
   <meta http-equiv="Cache-Control" content="public" />
 
@@ -21,9 +17,11 @@
   <meta property='og:site_name'     content='Entre Amigos Alcanzamos'/>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<?= Session::Get('CEO_URL'); ?>" />
+      
+
 
 <?php
-    $Pagina_Metas_GeneralKeys= 'TRON, Cali, Amigos,';
+    $Pagina_Metas_GeneralKeys= 'TRON, Cali, Amigos, Balquimia,';
     $Pagina_Metas_Keys = '';
 ?>
 
@@ -33,6 +31,7 @@
      $Pagina_Facebook_keywords = str_replace (" ", ", ", $Pagina_Facebook_keywords);
      $Pagina_Facebook_keywords = $Pagina_Facebook_keywords . ','.Session::Get('Pagina_Facebook_KEYS');
   ?>
+  	<title><?= Session::Get('Pagina_Facebook_TITULO') ;?></title>
     <meta name="title"                  content="<?= Session::Get('Pagina_Facebook_TITULO') ;?>" />
     <meta property="og:title"           content="<?= Session::Get('Pagina_Facebook_TITULO') ;?>" />
     <meta name="description"            content="<?= Session::Get('Pagina_Facebook_DESCRIPCION') ;?>" />
@@ -44,12 +43,13 @@
 
 
 
-<?php   if(Session::Get('CEO_CONTROLLER') == 'index') : ;?>
+<?php   if(Session::Get('CEO_METODO') == 'index' || Session::Get('CEO_METODO') == 'terceros') : ;?>
     <?php
       $Pagina_Metas_Keys          = '';
       $Pagina_Metas_title         = "Entre amigos alcanzamos - TRON";
       $Pagina_Metas_description   = "El multinivel de los no-vendedores. La Red TRON es un modelo de negocio que permite tener ganancias de una manera sencilla y cómoda para tí. Sin tomar pedidos, sin cobrar, sin manejar inventarios. Sólo pasando la voz a tus amigos, parientes o compañeros de trabajo.";
-    ?>
+	?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -60,12 +60,13 @@
 
 
 
-  <?php   if(Session::Get('CEO_CONTROLLER') == 'industrial') :?>
+  <?php   if(Session::Get('CEO_METODO') == 'industrial') :?>
      <?php
        $Pagina_Metas_Keys          = '';
        $Pagina_Metas_title         = "Productos Industrial - TRON";
        $Pagina_Metas_description   = "Productos especializados para diferentes sectores de la industria";
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -79,11 +80,13 @@
 
   <?php   if(Session::Get('CEO_CONTROLLER') == 'redtron') :?>
      <?php
+	 
        $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
        $Pagina_Metas_title         = "Productos Industrial - TRON";
        $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -102,6 +105,7 @@
        $Pagina_Metas_description   = "productos especializados, la Línea hogar cuida el medio ambiente por ser biodegradables y por reducir el impacto ambiental que producen los desechos plásticos";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -111,13 +115,16 @@
   <?php  endif; ?>
 
 
-  <?php   if( (Session::Get('CEO_METODO') == 'categorias_marcas') || (Session::Get('CEO_METODO') == 'productos_por_categoria_individual') ) :?>
+  <?php  
+ if( (Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 0) && 
+ 		((Session::Get('CEO_METODO') == 'categorias_marcas') || (Session::Get('CEO_METODO') == 'productos_por_categoria_individual') || (Session::Get('CEO_METODO') == 'novedades') || (Session::Get('CEO_METODO') == 'ofertas') || (Session::Get('CEO_METODO') == 'varias_referencias')) ) :?>
      <?php
        $Pagina_Metas_Keys          = 'categorías de productos, marcas, categorías, productos, tienda virtual, agrupaciones, categorías, productos, grupos';
        $Pagina_Metas_title         = "Productos en la tienda virtual TRON";
        $Pagina_Metas_description   = "Los productos en la tienda virtual TRON entreamigosalcanzamos están agrupados por categorías y marcas para facilitar su búsqueda";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
-    ?>
+	 ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -134,6 +141,7 @@
        $Pagina_Metas_description   = "La Línea Lito-Tron cuenta con productos altamente especializados para la Industria de Artes Gráficas y gracias a ellos En este importante sector hemos logrado optimizar sus alistamientos y reducir sus tiempos muertos";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -149,6 +157,7 @@
        $Pagina_Metas_description   = "Su enfoque es la bioseguridad alimentaria, Cuenta con productos especializados para la limpieza y desifección en todos los sectores de una planta de producción de alimentos, sus  productos son elaborados con altos estándares de calidad y cumplen con todos  los requisitos exigidos por los organismos de control";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -164,6 +173,7 @@
        $Pagina_Metas_description   = "Productos químicos especializados, enfocados para la limpieza y desinfección de baños móviles o portátiles utilizados en obras de construcción, eventos públicos o privados";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -179,6 +189,7 @@
        $Pagina_Metas_description   = "Productos químicos que agilizan sus procesos a bajos costos";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
@@ -196,6 +207,7 @@
        $Pagina_Metas_description   = "Productos químicos especialmente diseñados para el cuidado cualquier tipo de vehículo sin contaminar el medio ambiente";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
+    <title><?= $Pagina_Metas_title; ?></title>
     <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
