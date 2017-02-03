@@ -217,6 +217,8 @@ class PedidosController extends Controller
         $this->Index->Consultar_Datos_Transportadoras();
         Session::Set('Generando_Pedido_Amigo', $Generando_Pedido_Amigo); // Restablecer valor de esta variable
 
+        Session::Set('Valor_Final_Pedido_Real',$vr_total_pedido );
+
         echo "OK";
 
     }
