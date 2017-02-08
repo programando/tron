@@ -7,8 +7,9 @@
             <!-- INICIA PRESENTACIÓN DE PRODUCTOS -->
             <div id="contenido-productos">
 				<?php
-                    $mostrar_imagen_varias_referencias=true;
-                    $mostrar_un_solo_precio         = TRUE;
+                    $mostrar_imagen_varias_referencias = true;
+
+                    Session::Set('mostrar_un_solo_precio', TRUE );
                     foreach ($this->Productos_Carros_Motos as $Productos){
 
 
@@ -29,6 +30,7 @@
 
 
         </div>
+
     </div>
 
 

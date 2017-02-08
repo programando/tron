@@ -20,7 +20,7 @@
                     <?php
                     	include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
                         $mostrar_imagen_varias_referencias = true;
-                        $mostrar_un_solo_precio            = false ;
+                        Session::Set('mostrar_un_solo_precio', FALSE );
                         foreach ($this->Productos_Pagina as $Productos){
 
                             include (APPLICATION_CODS . 'campos_productos.php');

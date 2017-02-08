@@ -752,11 +752,24 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         $nombre_usuario = $Registro[0]['nombre_usuario'];
         $codigousuario  = $Registro[0]['codigousuario'];
         //
-        Session::Set('idtercero_presenta'         ,$idtercero);
-        Session::Set('nombre_usuario_presenta'    ,$nombre_usuario);
-        Session::Set('codigousuario_presenta'     ,$codigousuario);
-        $Respuesta ='CODIGO_SI_EXISTE';
-        $Datos = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
+        Session::Set('idtercero_presenta'         , $Registro[0]['idtercero']             );
+        Session::Set('nombre_usuario_presenta'    , $Registro[0]['nombre_usuario']        );
+        Session::Set('codigousuario_presenta'     , $Registro[0]['codigousuario']         );
+        Session::Set('cobrar_fletes'              , $Registro[0]['cobrar_fletes']         );
+        Session::Set('idtipo_plan_compras'        , $Registro[0]['idtipo_plan_compras']   );
+        Session::Set('registro_inactivo'          , $Registro[0]['registro_inactivo']     );
+
+        if ( $Registro[0]['idtipo_plan_compras']  != 3 ) {
+          $Respuesta ='CODIGO_NO_EMPRESARIO';
+        }
+        if ( $Registro[0]['registro_inactivo'] == 1 ) {
+          $Respuesta ='CODIGO_INACTIVO';
+        }
+        if  ( $Registro[0]['idtipo_plan_compras'] ==3 && $Registro[0]['registro_inactivo'] == 0 ) {
+            $Respuesta ='CODIGO_OK';
+        }
+
+        $Datos     = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
       }
       if ( $salida_jquery == TRUE ){
           echo json_encode($Datos,256);
