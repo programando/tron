@@ -15,7 +15,7 @@
 						  require_once APP_PATH . 'Config.php';
 
 
-						  // Archivo de configuración de la base de datos
+						  // Archivo de configuración de la base de datos. coloco un comentario p
 						  //------------------------------------------------
 						  require_once APP_PATH . 'Database_config.php';
 
