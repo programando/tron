@@ -1,1 +1,30 @@
-[08-Feb-2017 15:08:36 America/Bogota] PHP Parse error:  syntax error, unexpected '<' in C:\xampp\htdocs\tron\application_sections\productos_listado.php on line 130
+[16-Feb-2017 17:28:24 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 1
+[16-Feb-2017 17:28:24 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 27
+[16-Feb-2017 17:28:24 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\formulario_login.php on line 1
+[16-Feb-2017 17:28:24 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\tabs_hogar_industrial.php on line 19
+[16-Feb-2017 17:28:24 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[16-Feb-2017 17:28:24 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[16-Feb-2017 17:28:28 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 1
+[16-Feb-2017 17:28:28 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 27
+[16-Feb-2017 17:28:28 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\formulario_login.php on line 1
+[16-Feb-2017 17:28:28 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\tabs_hogar_industrial.php on line 19
+[16-Feb-2017 17:28:28 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[16-Feb-2017 17:28:28 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[16-Feb-2017 17:29:23 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 1
+[16-Feb-2017 17:29:23 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 27
+[16-Feb-2017 17:29:23 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\formulario_login.php on line 1
+[16-Feb-2017 17:29:23 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\tabs_hogar_industrial.php on line 19
+[16-Feb-2017 17:29:23 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[16-Feb-2017 17:29:23 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[16-Feb-2017 17:31:44 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 1
+[16-Feb-2017 17:31:44 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 27
+[16-Feb-2017 17:31:44 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\formulario_login.php on line 1
+[16-Feb-2017 17:31:44 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\tabs_hogar_industrial.php on line 19
+[16-Feb-2017 17:31:44 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[16-Feb-2017 17:31:44 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[16-Feb-2017 17:32:25 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 1
+[16-Feb-2017 17:32:25 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\header_cuenta_usuario.php on line 27
+[16-Feb-2017 17:32:25 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\formulario_login.php on line 1
+[16-Feb-2017 17:32:25 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\tabs_hogar_industrial.php on line 19
+[16-Feb-2017 17:32:25 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
+[16-Feb-2017 17:32:25 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
