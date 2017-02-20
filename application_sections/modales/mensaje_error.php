@@ -13,7 +13,7 @@
        <div class="modal-header text-center">
        <!-- Boton de cierre en el lado derecho      -->
         <!--  <button type="button"  class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button> -->
-          <h5 id="contenido" >¡ ERROR AL INGRESAR AL SISTEMA !</h5>
+          <strong><h4 id="contenido" >¡ ERROR AL INGRESAR AL SISTEMA !</h4></strong>
        </div>
 
        <!-- body -->

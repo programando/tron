@@ -758,6 +758,8 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         Session::Set('cobrar_fletes'              , $Registro[0]['cobrar_fletes']         );
         Session::Set('idtipo_plan_compras'        , $Registro[0]['idtipo_plan_compras']   );
         Session::Set('registro_inactivo'          , $Registro[0]['registro_inactivo']     );
+        Session::Set('registro_organizado'        , $Registro[0]['registro_organizado']     );
+
 
         if ( $Registro[0]['idtipo_plan_compras']  != 3 ) {
           $Respuesta ='CODIGO_NO_EMPRESARIO';
@@ -767,6 +769,9 @@ public function Terceros_Consultar_Datos_Identificacion_Pedido_Amigo(){
         }
         if  ( $Registro[0]['idtipo_plan_compras'] ==3 && $Registro[0]['registro_inactivo'] == 0 ) {
             $Respuesta ='CODIGO_OK';
+        }
+        if  ( $Registro[0]['idtipo_plan_compras'] ==3 && $Registro[0]['registro_inactivo'] == 0 && $Registro[0]['registro_organizado'] == 0 ) {
+            $Respuesta ='CODIGO_NO_HABILITADO';
         }
 
         $Datos     = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
