@@ -46,10 +46,7 @@
 				public function Consulta_Datos_Usuario ($idtercero ){
 						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_idtercero ( $idtercero )");
 							return $Registro;
-
 				}
-
-
 
 
 				public function Consultar_Saldos_Comisiones_Puntos_x_Idtercero(){
@@ -70,7 +67,8 @@
 				 $SQL = $SQL."'$param_nombre_titular_cuenta',$param_idbanco_transferencias,'$param_nro_cuenta_transferencias',";
 				 $SQL = $SQL."'$param_tipo_cuenta_transferencias',$param_idmcipio_transferencias,$param_acepto_retencion_comis_para_pago_pedidos,";
 				 $SQL = $SQL."$param_valor_comisiones_para_pago_pedidos,$nadie_presenta,$idtipo_plan_compras,$idtppersona ";
-						$Registro    =  $this->Db->Ejecutar_Sp("terceros_crear_modificar(".$SQL.")");
+
+				 $Registro    =  $this->Db->Ejecutar_Sp("terceros_crear_modificar(".$SQL.")");
 						return $Registro ;
 				}
 

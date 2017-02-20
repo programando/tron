@@ -28,3 +28,118 @@
 [16-Feb-2017 17:32:25 America/Bogota] PHP Notice:  Undefined index: logueado in C:\xampp\htdocs\tron\application_sections\tabs_hogar_industrial.php on line 19
 [16-Feb-2017 17:32:25 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 13
 [16-Feb-2017 17:32:25 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\tron\views\footer.phtml on line 29
+[20-Feb-2017 14:46:33 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 14:46:44 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 15:00:58 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:00:58 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:00:58 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:00:58 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:01:41 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:01:41 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:01:41 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:01:41 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:05:12 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:05:12 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:05:28 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:05:28 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:05:35 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:05:35 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:05:43 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:05:43 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 15:07:11 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 970
+[20-Feb-2017 15:07:11 Europe/Berlin] PHP Notice:  Undefined index: registro_organizado in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 982
+[20-Feb-2017 16:12:15 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:12:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:12:43 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:12:46 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:12:47 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:13:48 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:13:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:14:55 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 874
+[20-Feb-2017 16:15:16 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 831
+[20-Feb-2017 16:15:36 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 831
+[20-Feb-2017 16:20:21 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:20:22 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:20:29 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:20:49 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 756
+[20-Feb-2017 16:21:04 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 756
+[20-Feb-2017 16:23:58 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 765
+[20-Feb-2017 16:24:35 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:25:48 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:26:59 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:27:16 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:27:24 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:27:34 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:27:44 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:27:55 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:28:02 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:28:09 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:28:22 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:28:51 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:29:14 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:29:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:30:07 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 739
+[20-Feb-2017 16:31:10 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:31:36 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 767
+[20-Feb-2017 16:35:03 Europe/Berlin] PHP Notice:  Undefined variable: passwordusuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 766
+[20-Feb-2017 16:35:03 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:36:03 Europe/Berlin] PHP Notice:  Undefined variable: passwordusuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 766
+[20-Feb-2017 16:36:03 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:36:11 Europe/Berlin] PHP Notice:  Undefined variable: passwordusuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 766
+[20-Feb-2017 16:36:11 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:36:20 Europe/Berlin] PHP Notice:  Undefined variable: passwordusuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 766
+[20-Feb-2017 16:36:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:36:33 Europe/Berlin] PHP Notice:  Undefined variable: passwordusuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 766
+[20-Feb-2017 16:36:33 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:36:39 Europe/Berlin] PHP Notice:  Undefined variable: passwordusuario in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 766
+[20-Feb-2017 16:36:39 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:37:09 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:37:09 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:39:07 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:39:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:39:58 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:39:58 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:40:07 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:40:07 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:40:18 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:40:18 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:40:56 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$Datos' (T_VARIABLE) in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 916
+[20-Feb-2017 16:43:18 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$Datos' (T_VARIABLE) in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 916
+[20-Feb-2017 16:43:47 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$Datos' (T_VARIABLE) in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 916
+[20-Feb-2017 16:44:45 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$Datos' (T_VARIABLE) in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 916
+[20-Feb-2017 16:45:00 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:45:08 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:45:09 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:46:53 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:46:53 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:47:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:47:20 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:47:59 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:47:59 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:48:00 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:48:00 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:49:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:49:20 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:49:45 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:49:45 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:49:46 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:49:46 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:50:24 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:50:24 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:53:40 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:54:06 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:56:44 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:00:11 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:11:14 Europe/Berlin] PHP Notice:  Undefined variable: razonsocial in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 757
+[20-Feb-2017 17:11:14 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:11:15 Europe/Berlin] PHP Notice:  Undefined variable: razonsocial in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 757
+[20-Feb-2017 17:11:15 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:11:22 Europe/Berlin] PHP Notice:  Undefined variable: razonsocial in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 757
+[20-Feb-2017 17:11:22 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:12:32 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:12:32 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 17:13:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:13:20 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 17:14:45 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 17:14:45 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 17:15:30 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
