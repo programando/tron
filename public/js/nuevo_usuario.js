@@ -7,7 +7,7 @@ var $es_empresario           = false ;
 $("#persona-juridica").hide();
 $("#mes-anio").hide();
 $("#lblgenero").hide();
-
+ 
 
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){
 	    $('.modal-header #contenido').html($Titulo);
