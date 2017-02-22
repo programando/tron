@@ -1407,7 +1407,7 @@ public function Actualizar_Password()
           $Respuesta = "EMAIL-NO-OK" ;
         }else {
           $Terceros = $this->Terceros->Consulta_Datos_Por_Email( $Email );
-          if ($Terceros){
+          if ( $Terceros ){
             $Respuesta = "EMAIL-EXISTE"  ;
           }else{
             $Respuesta = "EMAIL-NO-EXISTE";

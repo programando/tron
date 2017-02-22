@@ -3,7 +3,7 @@
 <br>
       <!-- Campo NIT -->
        <?php if ( $this->idtpidentificacion == 31 ) :?>
-        <div class=" well col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; display: " id="campos_nit">
+        <div class="col-lg-12 col-md-12 col-sm-12 " style="padding: 0px; display: " id="campos_nit">
 
              <div class="col-lg-6 col-sm-6 col-md-6 " style="padding: 0px;">
 		             <!-- Numero NIT -->

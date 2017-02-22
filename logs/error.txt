@@ -230,3 +230,7 @@
 [20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1225
 [20-Feb-2017 16:33:12 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
 [20-Feb-2017 16:33:12 America/Bogota] PHP Notice:  Undefined variable: passwordTexto in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 925
+[22-Feb-2017 15:28:26 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[22-Feb-2017 15:28:32 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[22-Feb-2017 15:29:32 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[22-Feb-2017 16:23:11 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771

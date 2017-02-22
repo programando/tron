@@ -143,6 +143,11 @@ $("#email").on('blur',function(){
 		Funciones.Terceros_Validar_Email();
 })
 
+//VALIDACION UNICIDAD DE NÚMERO DE DOCUMENTTO
+$("#identificacion").on('blur',function(){
+		Funciones.Terceros_Buscar_x_Identificacion();
+})
+
 
 // CAMBIO DEL TIPO DE DOCUMENTO
 $('#idtpidentificacion').on('change',function(){
