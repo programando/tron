@@ -421,33 +421,8 @@ $('.li_pasos_registro:first').css('background','#003E90');
 
 /// VALIDACIONES EMAIL
 $('#email').on('blur',function(){
-  var $Texto='';
-  if ($('#email').length == 0) { return ;}
-  $email = $(this).val();
 
-  $.ajax({
-        data:  {'email':$email},
-        dataType: 'json',
-        url:      '/tron/terceros/Consulta_Datos_Por_Email_Registro/',
-        type:     'post',
-   success:  function (respuesta)
-     {
-        if (respuesta.Respuesta == 'EMAIL-NO-OK'){
-            $Texto = 'El correo electrónico  <strong>' + $email + '</strong> tiene un formato no válido. por favor corrija los datos.';
-          }
-         if (respuesta.Respuesta == 'EMAIL-EXISTE'){
-            $Texto = 'El correo electrónico  <strong>' +  $email + '</strong> ya se encuentra registrado en nuestra base de datos.';
-          }
-          if ( $Texto.length > 0){
-                new Messi($Texto,
-                  {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error',
-                    buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
-                $('#email').val('');
-              }
-
-     }
-     });
-
+  Funciones.Terceros_Validar_Email();
 });
 
 $('#email').on('focusout',function(){

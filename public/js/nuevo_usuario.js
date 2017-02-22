@@ -138,6 +138,12 @@ $("#codigoterceropresenta").on('blur',function(){
 	Validacion_Codigo_Tercero_Presenta();
 })
 
+//VALIDACION UNICIDAD DEL EMAIL
+$("#email").on('blur',function(){
+		Funciones.Terceros_Validar_Email();
+})
+
+
 // CAMBIO DEL TIPO DE DOCUMENTO
 $('#idtpidentificacion').on('change',function(){
 	var $tpidentificacion = $("#idtpidentificacion").val();

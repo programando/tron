@@ -4,7 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
   <meta http-equiv="pragma"          content="no-cache" />
-  <meta http-equiv="Cache-Control" content="public" />
+  <meta http-equiv='cache-control' content='no-cache , no-store'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
 
   <meta name="viewport"              content="width=device-width, initial-scale=1">
   <meta name="vw96.objectype" content="Document" />
@@ -17,7 +19,7 @@
   <meta property='og:site_name'     content='Entre Amigos Alcanzamos'/>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<?= Session::Get('CEO_URL'); ?>" />
-      
+
 
 
 <?php
@@ -80,7 +82,7 @@
 
   <?php   if(Session::Get('CEO_CONTROLLER') == 'redtron') :?>
      <?php
-	 
+
        $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
        $Pagina_Metas_title         = "Productos Industrial - TRON";
        $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
@@ -115,8 +117,8 @@
   <?php  endif; ?>
 
 
-  <?php  
- if( (Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 0) && 
+  <?php
+ if( (Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 0) &&
  		((Session::Get('CEO_METODO') == 'categorias_marcas') || (Session::Get('CEO_METODO') == 'productos_por_categoria_individual') || (Session::Get('CEO_METODO') == 'novedades') || (Session::Get('CEO_METODO') == 'ofertas') || (Session::Get('CEO_METODO') == 'varias_referencias')) ) :?>
      <?php
        $Pagina_Metas_Keys          = 'categorías de productos, marcas, categorías, productos, tienda virtual, agrupaciones, categorías, productos, grupos';

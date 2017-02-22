@@ -24,9 +24,18 @@
           </div>
        </div>
 
+    <?php
+      $Redirect           = Session::Get('Redirect');
+      $UrlRedirect        = Session::Get('UrlRedirect');
+      $BtnCaptionRedirect = Session::Get('BtnCaptionRedirect');
+      ?>
        <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-        </div>
+            <?php if ( !isset( $Redirect )) :?>
+              <button type="button" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            <?php else :?>
+            <a href= "<?= $UrlRedirect ;?>" class="btn btn-info" role="button"><?= $BtnCaptionRedirect  ;?></a>
+          <?php endif ;?>
+       </div>
 
    	  </div>
    </div>

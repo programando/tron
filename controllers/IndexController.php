@@ -57,9 +57,9 @@ class IndexController extends Controller
                 $this->Terceros->Compra_Productos_Tron_Mes_Actual();
             }
 
-
-
-
+        Session::Destroy('Redirect');
+        Session::Destroy('UrlRedirect');
+        Session::Destroy('BtnCaptionRedirect');
 
         $this->View->SetCss(array('tron_index','tron_carrito','tron_varias_referencias-ofertas-tecnologias_SA',
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));

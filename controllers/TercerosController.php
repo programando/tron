@@ -910,10 +910,20 @@ public function Registro_Nuevo_Usuario() {
           'idtppersona','nadie_presenta', 'idtipo_plan_compras');
 
       // GRABAR DATOS DEL TERCERO
+        $Texto_Respuesta = '';
         $Registro             =  $this->Terceros->Grabar($Datos_Terceros);
         $idtercero            =  $Registro[0]['idtercero'];
+        if ( $Registro ) {
+          $Texto_Respuesta = "Registro grabado con exito. <br>Ahora haces parte de nuestra tienda virtual.";
+          Session::Set('Redirect', TRUE);
+          Session::Set('UrlRedirect',BASE_URL);
+          Session::Set('BtnCaptionRedirect','Continuar');
 
-        $Texto_Respuesta = "Registro grabado con exito. Ahora hace parte de nuestra tienda virtual.";
+           $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email( $email , $passwordusuario );
+           $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
+           $_SESSION['logueado'] = TRUE;
+           Debug::Mostrar(  $email . $passwordTexto  );
+        }
 
         $Datos = compact('Texto_Respuesta' );
         echo json_encode($Datos,256);
@@ -1218,7 +1228,9 @@ public function Actualizar_Password()
 
     }
 
-    public function Validar_Ingreso_Usuario(){
+
+
+    public function Validar_Ingreso_Usuario( ){
      $_SESSION['logueado'] = FALSE;
      $Email                = General_Functions::Validar_Entrada('email','TEXT');
      $Password             = General_Functions::Validar_Entrada('Password','TEXT');
@@ -1384,20 +1396,24 @@ public function Actualizar_Password()
         return $Terceros;
       }
 
-      public function Consulta_Datos_Por_Email_Registro() {
+      public function Consulta_Datos_Por_Email_Registro( $Email ='' ) {
         $Respuesta ='';
-        $email     = General_Functions::Validar_Entrada('email','TEXT');
-        $Es_email  = General_Functions::Validar_Entrada('email','EMAIL');
+
+        $Email     =  trim(htmlspecialchars( strtolower($Email), ENT_QUOTES));
+        $Es_email =  filter_var($Email , FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $Email );
+
+
         if ($Es_email == FALSE){
-          $Respuesta = "EMAIL-NO-OK";
+          $Respuesta = "EMAIL-NO-OK" ;
         }else {
-          $Terceros = $this->Terceros->Consulta_Datos_Por_Email($email);
+          $Terceros = $this->Terceros->Consulta_Datos_Por_Email( $Email );
           if ($Terceros){
-            $Respuesta = "EMAIL-EXISTE";
+            $Respuesta = "EMAIL-EXISTE"  ;
           }else{
             $Respuesta = "EMAIL-NO-EXISTE";
           }
         }
+
         $Respuesta= compact('Respuesta');
         echo json_encode($Respuesta,256);
       }

@@ -143,3 +143,90 @@
 [20-Feb-2017 17:14:45 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
 [20-Feb-2017 17:14:45 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [20-Feb-2017 17:15:30 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:13:36 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:24:10 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:25:15 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:25:40 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:26:03 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:35:35 America/Bogota] PHP Fatal error:  Call to undefined method Session::Destoy() in C:\xampp\htdocs\tron\controllers\IndexController.php on line 60
+[20-Feb-2017 15:35:50 America/Bogota] PHP Fatal error:  Call to undefined method Session::Destoy() in C:\xampp\htdocs\tron\controllers\IndexController.php on line 60
+[20-Feb-2017 15:36:02 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:36:22 America/Bogota] PHP Fatal error:  Call to undefined method Session::Destoy() in C:\xampp\htdocs\tron\controllers\IndexController.php on line 60
+[20-Feb-2017 15:36:29 America/Bogota] PHP Fatal error:  Call to undefined method Session::Destoy() in C:\xampp\htdocs\tron\controllers\IndexController.php on line 60
+[20-Feb-2017 15:37:23 America/Bogota] PHP Fatal error:  Call to undefined method Session::Destoy() in C:\xampp\htdocs\tron\controllers\IndexController.php on line 60
+[20-Feb-2017 15:38:18 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:38:22 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:38:50 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:39:27 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:39:46 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:39:54 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:40:24 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:40:26 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:40:37 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:41:27 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:43:01 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:43:46 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:45:33 America/Bogota] PHP Parse error:  syntax error, unexpected ';', expecting ':' in C:\xampp\htdocs\tron\application_sections\modales\mensaje_error.php on line 35
+[20-Feb-2017 15:46:01 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:47:11 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:47:38 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 15:58:04 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:21:59 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1190
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1191
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1192
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1193
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1194
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1195
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1196
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1198
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1199
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1200
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1201
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1202
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1204
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1206
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1208
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1210
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1211
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1212
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1213
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1214
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1216
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1224
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1224
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1225
+[20-Feb-2017 16:22:00 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1225
+[20-Feb-2017 16:22:30 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:22:38 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:22:41 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:22:44 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:22:48 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1190
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1191
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1192
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1193
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1194
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1195
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1196
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1198
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1199
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1200
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1201
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1202
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1204
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1206
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1208
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1210
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1211
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1212
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1213
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1214
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1216
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1224
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1224
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1225
+[20-Feb-2017 16:23:54 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 1225
+[20-Feb-2017 16:33:12 America/Bogota] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
+[20-Feb-2017 16:33:12 America/Bogota] PHP Notice:  Undefined variable: passwordTexto in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 925

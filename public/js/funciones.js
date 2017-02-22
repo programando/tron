@@ -41,7 +41,6 @@ var  Funciones = {
                 type:     'post',
                 success:  function (resultado) {
                   Funciones.Mostrar_Mensajes('Información del Sistema',  resultado.Texto_Respuesta );
-
                 },
                 beforeSend: function(){
                           //$img_cargando.css('display','block');
@@ -58,8 +57,33 @@ var  Funciones = {
           },//    Terceros_Grabar_Datos_Registro
 
 
-
-
+          Terceros_Validar_Email : function ( ){
+            $email = $("#email").val();
+            alert($email  );
+            if ( $email.length == 0 ){
+              return ;
+            }
+           $.ajax({
+              data:  {'email':$email},
+              dataType: 'json',
+              url:      '/tron/terceros/Consulta_Datos_Por_Email_Registro/'+$email ,
+              type:     'post',
+              cache :false,
+              success:  function (respuesta)
+                {
+                  if (respuesta.Respuesta == 'EMAIL-NO-OK'){
+                    $Texto = 'El correo electrónico  <strong>' + $email + '</strong> tiene un formato no válido. por favor corrija los datos.';
+                  }
+                  if (respuesta.Respuesta == 'EMAIL-EXISTE'){
+                    $Texto = 'El correo electrónico  <strong>' +  $email + '</strong> ya se encuentra registrado en nuestra base de datos.';
+                  }
+                  if ( $Texto.length > 0){
+                     Funciones.Mostrar_Mensajes('Información del Sistema',$Texto  );
+                     $("#email").val('');
+                  }
+              }
+            });
+          },// Terceros_Validar_Email
 
 
 
