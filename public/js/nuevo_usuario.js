@@ -11,6 +11,7 @@ var	$nombre_usuario_presenta = '';
 $("#persona-juridica").hide();
 $("#mes-anio").hide();
 $("#lblgenero").hide();
+$("#alert-datos-grabados").hide();
 
 
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){

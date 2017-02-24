@@ -43,20 +43,23 @@ var  Funciones = {
                 url:      '/tron/terceros/Registro_Nuevo_Usuario/',
                 type:     'post',
                 success:  function (resultado) {
-                  Funciones.Mostrar_Mensajes('Información del Sistema',  resultado.Texto_Respuesta );
+                  //window.location.href = "/tron/Index";
+                  //Funciones.Mostrar_Mensajes('Información del Sistema',  resultado.Texto_Respuesta );
+                  $('#btn-grabar-datos').hide();
+                  $('#alert-datos-grabados').show();
+
                 },
                 beforeSend: function(){
                           //$img_cargando.css('display','block');
                         },
-                        complete: function(){
+                complete: function(){
                           //$img_cargando.css('display','none');
                            //alert("completado");
                          },
-                         error: function(xhr){
+                error: function(xhr){
                            Funciones.Mostrar_Mensajes('Información del Sistema',  xhr.responseText );
                          }
                        });
-
           },//    Terceros_Grabar_Datos_Registro
 
 

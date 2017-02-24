@@ -24,11 +24,12 @@
           </div>
        </div>
 
-    <?php
-      $Redirect           = Session::Get('Redirect');
-      $UrlRedirect        = Session::Get('UrlRedirect');
-      $BtnCaptionRedirect = Session::Get('BtnCaptionRedirect');
+      <?php
+        $Redirect           = Session::Get('Redirect');
+        $UrlRedirect        = Session::Get('UrlRedirect');
+        $BtnCaptionRedirect = Session::Get('BtnCaptionRedirect');
       ?>
+
        <div class="modal-footer">
             <?php if ( !isset( $Redirect )) :?>
               <button type="button" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Cerrar</button>

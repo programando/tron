@@ -96,6 +96,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
           $this->Validar_Ingreso_Usuario_Asignar_Datos( $Registro );
           Session::Set('Generando_Pedido_Amigo', TRUE);
           $_SESSION['logueado'] = TRUE;
+          Session::Set('logueado', TRUE);
           $Respuesta ='SI EXISTE';
         }
       }
@@ -922,7 +923,7 @@ public function Registro_Nuevo_Usuario() {
            $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email( $email , $passwordusuario );
            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
            $_SESSION['logueado'] = TRUE;
-           Debug::Mostrar(  $email . $passwordTexto  );
+           Session::Set('logueado', TRUE);
         }
 
         $Datos = compact('Texto_Respuesta' );
@@ -933,15 +934,6 @@ public function Registro_Nuevo_Usuario() {
   }
 
 //*** FIN  REGISTRO NUEVO USUARIO
-
-
-
-
-
-
-
-
-
 
 
   public function Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras ,
@@ -1244,6 +1236,7 @@ public function Actualizar_Password()
             $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);      // ASIGNA LOS DATOS PROVENIENTES DEL LOGUEO
             $Resultado_Logueo     = "Logueo_OK";
             $_SESSION['logueado'] = TRUE;
+            Session::Set('logueado',TRUE);
           }
 
           $Siguiente_Paso = Session::Get('finalizar_pedido_siguiente_paso');

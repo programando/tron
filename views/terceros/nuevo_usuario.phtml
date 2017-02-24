@@ -41,43 +41,18 @@
 
             <div class="form-group ">
               <div class="row">
-                <label for="pnombre" class="col-lg-3 control-label">Tipo Documento :</label>
-
+                <label for="pnombre" class="col-lg-4 control-label">Tipo Documento :</label>
+                <div>
                   <div class="col-lg-3">
                     <?php include (APPLICATION_SECTIONS . 'terceros/tipos_documentos.php');?>
                   </div>
-
-
-                  <label for="identificacion" class="col-lg-3 control-label">Número :</label>
+                  <label for="identificacion" class="col-lg-2 control-label">Número :</label>
                   <div class="col-lg-3">
-                    <input type="text" class="form-control" id="identificacion" placeholder="Número documento">
+                  <input type="text" class="form-control" id="identificacion" placeholder="Número documento">
                   </div>
-
-                  <div class="col-lg-1">
-                    <input type="text" class="form-control" id="dv" placeholder="Dv">
-                  </div>
-
-
+                </div>
               </div>
-
             </div>
-
-<div class="form-group ">
-            <div class="row">
-    <div class="col-md-3">
-        <label for="pnombre" class="col-lg-3 control-label">Tipo Documento :</label>
-    </div>
-    <div class="col-md-3">
-       <span class="label label-default">Label2</span>
-    </div>
-    <div class="col-md-3">
-       <span class="label label-default">Label3</span>
-    </div>
-    <div class="col-md-3">
-       <span class="label label-default">Label4</span>
-    </div>
-  </div>
-  </div>
 
 
 
@@ -191,7 +166,13 @@
               <span class="glyphicon glyphicon-floppy-save"></span>
               Grabar Datos </button>
             </div>
-          </div>
+              <div class="text-center">
+              <div class="alert alert-success" id="alert-datos-grabados">
+                Los datos han sido grabados con éxito. Ahora haces parte de  nuestra tienda virtual. <br>
+                <a href="<?= BASE_URL ;?>" class="alert-link">Presiona aquí para continuar...</a>
+              </div>
+              </div>
+        </div>
 
         </div> <!-- Fin / panel panel-primary      -->
 
