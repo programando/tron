@@ -1,0 +1,181 @@
+<style>
+  .panel-heading {background-color: #003E90!important}
+  .panel-footer  {background-color: #FFFFFF!important}
+}
+</style>
+
+
+
+
+<div class="container .content-nuevo-registro">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-primary ">
+        <div class="panel-heading">REGISTRO DE NUEVO USUARIO</div>
+        <div class="panel-body">
+
+          <form class="form-horizontal" role="form" id="form-registro">
+
+            <div class="form-group">
+              <label for="codigoterceropresenta" class="col-lg-4 control-label">Código de quien te presenta :</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" id="codigoterceropresenta" placeholder="Deja en blanco si nadie te presenta">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-lg-4 control-label">Quiero registrame como :</label>
+              <div class="col-lg-8">
+
+                <label class="radio-inline">
+                  <input type="radio" name="registro-cliente" id="registro-cliente">Cliente <a href="">  <small> ( Ver detalles )</small></a>
+                </label>
+
+                <label class="radio-inline">
+                  <input type="radio" name="registro-empresario" id="registro-empresario">Empresario TRON <a href=""> <small> ( Ver detalles )</small></a>
+                </label>
+              </div>
+            </div>
+
+
+
+            <div class="form-group ">
+              <div class="row">
+                <label for="pnombre" class="col-lg-4 control-label">Tipo Documento :</label>
+                <div>
+                  <div class="col-lg-3">
+                    <?php include (APPLICATION_SECTIONS . 'terceros/tipos_documentos.php');?>
+                  </div>
+                  <label for="identificacion" class="col-lg-2 control-label">Número :</label>
+                  <div class="col-lg-3">
+                  <input type="text" class="form-control" id="identificacion" placeholder="Número documento">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div id="persona-natural">
+              <div class="form-group ">
+                <div class="row">
+                  <label for="pnombre" class="col-lg-4 control-label">Nombre :</label>
+                  <div>
+
+                    <div class="col-lg-3">
+                      <input type="text" class="form-control" id="pnombre" placeholder="Nombre">
+                    </div>
+                    <label for="papellido" class="col-lg-2 control-label">Apellidos :</label>
+                    <div class="col-lg-3">
+                      <input type="text" class="form-control" id="papellido" placeholder="Nombre">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div id="lblgenero">
+                <div class="form-group">
+                  <label for="genero" class="col-lg-4 control-label">Género : </label>
+                  <div class="col-lg-8">
+                    <select class="form-control" id="genero">
+                      <option value="">Seleccione...</option>
+                      <option value="1">Masculino</option>
+                      <option value="0">Femenino</option>
+                    </select>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div id="mes-anio">
+              <div class="form-group ">
+                <div class="row">
+                  <label for="dianacimiento" class="col-lg-4 control-label">Día de nacimiento :</label>
+                  <div>
+
+                    <div class="col-lg-3">
+                      <select  class="form-control" id="dianacimiento" value="0">
+
+                        <?php for( $i=1; $i<=31; $i++) : ;?>
+                          <option value="<?= $i ;?>"><?= $i ;?></option>
+                        <?php endfor ;?>
+                      </select>
+                    </div>
+                    <label for="mesnacimiento" class="col-lg-2 control-label">Mes :</label>
+                    <div class="col-lg-3">
+                      <select  class="form-control " id="mesnacimiento" tabindex="4" value="0">
+                        <option value="1">ENERO</option>
+                        <option value="2">FEBRERO</option>
+                        <option value="3">MARZO</option>
+                        <option value="4">ABRIL</option>
+                        <option value="5">MAYO</option>
+                        <option value="6">JUNIO</option>
+                        <option value="7">JULIO</option>
+                        <option value="8">AGOSTO</option>
+                        <option value="9">SEPTIEMBRE</option>
+                        <option value="10">OCTUBRE</option>
+                        <option value="11">NOVIEMBRE</option>
+                        <option value="12">DICIEMBRE</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div id="persona-juridica">
+              <div class="form-group">
+                <label for="razonsocial" class="col-lg-4 control-label">Razón Social : </label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" id="razonsocial" placeholder="Empresa o razón social">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="col-lg-4 control-label">Email : </label>
+              <div class="col-lg-8">
+                <input type="email" class="form-control" id="email" placeholder="Dirección de correo electrónico">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="passwordusuario" class="col-lg-4 control-label">Contraseña : </label>
+              <div class="col-lg-8">
+                <input type="password" class="form-control" id="passwordusuario" placeholder="contraseña">
+              </div>
+            </div>
+
+
+          </form>
+
+
+        </div>
+
+        <div class="panel-footer">
+          <div class="text-right">
+            <button type="button" class="btn btn-success btn-md" id="btn-grabar-datos">
+              <span class="glyphicon glyphicon-floppy-save"></span>
+              Grabar Datos </button>
+            </div>
+              <div class="text-center">
+              <div class="alert alert-success" id="alert-datos-grabados">
+                Los datos han sido grabados con éxito. Ahora haces parte de  nuestra tienda virtual. <br>
+                <a href="<?= BASE_URL ;?>" class="alert-link">Presiona aquí para continuar...</a>
+              </div>
+              </div>
+        </div>
+
+        </div> <!-- Fin / panel panel-primary      -->
+
+      </div>    <!-- Fin / Col      -->
+    </div>      <!-- Fin / Row      -->
+  </div>        <!-- Fin / Container      -->
