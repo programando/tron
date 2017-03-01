@@ -287,8 +287,7 @@ class ProductosController extends Controller
               Session::Set('Id_Area_Consulta',2);
               $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
             }
-            $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
-            $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
+
 
             $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);
             $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
@@ -298,7 +297,8 @@ class ProductosController extends Controller
             $this->View->Productos_Pagina          = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
             $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
 
-
+            $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
+            $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
            $this->View->Mostrar_Vista('marcas_y_categorias');
 
 
@@ -334,8 +334,7 @@ class ProductosController extends Controller
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);               // Segundo nivel
       Session::Set('IdMarca',0);                      // Deplegado el menú de marcas. tron-vista-industrial.css
-      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
-      $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
+     
       $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar( $Id_Area_Consulta );
       $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
       $this->View->Productos_Marcas          = $this->Marcas->Marcas_Consultar($Id_Area_Consulta);
@@ -345,7 +344,9 @@ class ProductosController extends Controller
       $this->View->nom_categoria             = $nom_categoria ;
       $this->View->idorden_nv_1              = $_idorden_nv_1;
       $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
-      $this->View->Mostrar_Vista('marcas_y_categorias_individual');
+
+      $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
+      $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));     $this->View->Mostrar_Vista('marcas_y_categorias_individual');
     } // Fin Productos_por_Categoria
 
     public function Productos_por_Categoria(   ) {

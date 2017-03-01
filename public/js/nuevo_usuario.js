@@ -12,7 +12,9 @@ $("#persona-juridica").hide();
 $("#mes-anio").hide();
 $("#lblgenero").hide();
 $("#alert-datos-grabados").hide();
-
+$("#registro-cliente").prop("checked", true);
+$("#img_cargando").hide();
+$('#digitoverificacion').hide();
 
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){
 	$('.modal-header #contenido').html($Titulo);
@@ -52,7 +54,8 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 					$idtercero_presenta      = resultado.idtercero;
 					$codigo_tercero_presenta = resultado.codigousuario;
 					$nombre_usuario_presenta = resultado.nombre_usuario ;
-					Mostrar_Mensajes ('¡ Información Importante !','Usted quedará registrado(a) en la red de usuarios encabezada por :<br><br><strong>' + $codigoterceropresenta  + ' - ' +$nombre_usuario_presenta + '</strong>' )
+					Mostrar_Mensajes ('<strong>¡ Información Importante !</strong>','Usted quedará registrado(a) en la red de usuarios liderada por :<br><br><strong>' + 
+						$nombre_usuario_presenta + '</strong> <br>cuyo código de usuario es : <strong>'+ $codigoterceropresenta  +'</strong>' )
 				}
 
 
@@ -102,31 +105,31 @@ var Validaciones_Email_Password = function(){
 
 }
 
-var Validaciones_Registro_Tipo_Cliente = function($tpidentificacion, $pnombre, $papellido, $genero, $razonsocial  ){
+var Validaciones_Registro_Tipo_Cliente = function($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial  ){
 
-	if ( $tpidentificacion == '31' && $razonsocial == '' ){
+	if ( $idtpidentificacion == '31' && $razonsocial == '' ){
 		$Seguir  = 'NO';
 		Mostrar_Mensajes ('Error en el Registro','Para registrar una empresa debe especificar su nombre o razón social.');
 		return ;
 	}
-	if ( $tpidentificacion != '31' && ( $pnombre == '' || $papellido == '' || $genero =='0') ){
+	if ( $idtpidentificacion != '31' && ( $pnombre == '' || $papellido == '' || $genero =='-1') ){
 		$Seguir  = 'NO';
-		Mostrar_Mensajes ('Error en el Registro','Para registrar un cliente es necesario que indique su nombre, apellido y género.');
+		Mostrar_Mensajes ('Error en el Registro','Para registrarse es necesario que indique su nombre, apellido y género....');
 		return ;
 	}
 	$Seguir  = 'SI';
 }
 
-var Validaciones_Registro_Tipo_Empresario = function($tpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ){
+var Validaciones_Registro_Tipo_Empresario = function($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ){
 
-	if ( $tpidentificacion == '31' && $razonsocial == '' ){
+	if ( $idtpidentificacion == '31' && $razonsocial == '' ){
 		$Seguir  = 'NO';
-		Mostrar_Mensajes ('Error en el Registro','Para registrar una empresa debe especificar su nombre o razón social.');
+		Mostrar_Mensajes ('Error en el Registro','Para registrarse debe especificar su nombre o razón social.');
 		return ;
 	}
-	if ( $tpidentificacion != '31' && ( $pnombre == '' || $papellido == '' || $genero =='0' || $dianacimiento =='0' || $mesnacimiento == '') ){
+	if ( $idtpidentificacion != '31' && ( $pnombre == '' || $papellido == '' || $genero =='-1' || $dianacimiento =='0' || $mesnacimiento == '') ){
 		$Seguir  = 'NO';
-		Mostrar_Mensajes ('Error en el Registro','Para registrar un empresario es necesario que indique su nombre, apellido, género, día y mes de nacimiento. <br> Algunos de estos datos se usarán para generar un código único con el cual conformará su red.');
+		Mostrar_Mensajes ('Error en el Registro','Para registrarse es necesario que indique su nombre, apellido, género, día y mes de nacimiento. <br> Algunos de estos datos se usarán para generar un código único con el cual conformará su red.');
 		return ;
 	}
 	$Seguir  = 'SI';
@@ -152,19 +155,19 @@ $("#identificacion").on('blur',function(){
 
 // CAMBIO DEL TIPO DE DOCUMENTO
 $('#idtpidentificacion').on('change',function(){
-	var $tpidentificacion = $("#idtpidentificacion").val();
+	var $idtpidentificacion = $("#idtpidentificacion").val();
 	var $es_cliente       =  $("#form-registro input[name=registro-cliente]:radio").is(':checked');
 	var $es_empresario    =  $("#form-registro input[name=registro-empresario]:radio").is(':checked');
 
 			 // 31 Tipo de Identificacion NIT
-			 if ( $tpidentificacion == '31' ){
+			 if ( $idtpidentificacion == '31' ){
 			 	$("#persona-juridica").show();
 			 	$("#persona-natural").hide();
 			 	$("#lblgenero").hide();
 			 	$("#mes-anio").hide();
 			 }
 
-			 if ( $tpidentificacion != '31' ){
+			 if ( $idtpidentificacion != '31' ){
 			 	$("#persona-juridica").hide();
 			 	$("#persona-natural").show();
 			 	$("#lblgenero").show();
@@ -190,9 +193,9 @@ $("#registro-cliente").on('click', function(){
 
 // BOTÓN EMPREARIO
 $("#registro-empresario").on('click', function(){
-	var $tpidentificacion = $("#idtpidentificacion").val();
+	var $idtpidentificacion = $("#idtpidentificacion").val();
 	$('input:radio[name=registro-cliente]').attr('checked',false);
-	if ( $tpidentificacion != '31'){
+	if ( $idtpidentificacion != '31'){
 		$("#mes-anio").show();
 		$("#lblgenero").show();
 	}
@@ -220,9 +223,9 @@ $('#btn-grabar-datos').on('click',function(){
 								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta    };
 
 
-	//Validacion_Codigo_Tercero_Presenta();
-	//if ( $Seguir == 'NO'){  return ; }
- /*
+	Validacion_Codigo_Tercero_Presenta();
+	if ( $Seguir == 'NO'){  return ; }
+
     Validaciones_Eleccion_Plan_Registro();
     	if ( $Seguir == 'NO'){
 					Mostrar_Mensajes ('Error en el Registro','Debe indicar el tipo de registro que desea crear: Cliente o Empresario TRON.');
@@ -236,24 +239,25 @@ $('#btn-grabar-datos').on('click',function(){
 					return ;
 				}
 
+
+
+
+	 if ( $es_cliente == true ) {
+	 			Validaciones_Registro_Tipo_Cliente ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial ) ;
+
+	 			if ( $Seguir =='NO') { return ; }
+	 }
+
+	 if ( $es_empresario ) {
+	 			Validaciones_Registro_Tipo_Empresario ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ) ;
+	 			if ( $Seguir =='NO') { return ; }
+	 		}
+
 				Validaciones_Email_Password() ;
 				if ( $Seguir == 'NO'){
 					Mostrar_Mensajes ('Error en el Registro','Debe registrar una cuenta de correo electrónico y la contraseña que usará para hacer uso de nuestro sitio.');
 					return ;
 				}
-
-
-
-	 if ( $es_cliente == true ) {
-	 			Validaciones_Registro_Tipo_Cliente ($tpidentificacion, $pnombre, $papellido, $genero, $razonsocial ) ;
-	 			if ( $Seguir =='NO') { return ; }
-	 }
-
-	 if ( $es_empresario ) {
-	 			Validaciones_Registro_Tipo_Empresario ($tpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ) ;
-	 			if ( $Seguir =='NO') { return ; }
-	 		}*/
-
 
 	 			Funciones.Terceros_Grabar_Datos_Registro ( $Parametros );
 

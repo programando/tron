@@ -250,3 +250,10 @@
 [24-Feb-2017 15:41:20 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 771
 [24-Feb-2017 15:47:58 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
 [24-Feb-2017 16:04:48 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[27-Feb-2017 13:38:58 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[01-Mar-2017 15:44:51 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[01-Mar-2017 15:54:00 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[01-Mar-2017 16:49:27 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[01-Mar-2017 16:50:14 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[01-Mar-2017 16:51:35 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[01-Mar-2017 17:09:32 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772

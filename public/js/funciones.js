@@ -36,24 +36,23 @@ var  Funciones = {
 
         Terceros_Grabar_Datos_Registro : function( $Parametros ) {
               //var $Texto = '';
-              //var $img_cargando        = $('#img_cargando');
+              var $img_cargando        = $('#img_cargando');
               $.ajax({
                 data:  $Parametros,
                 dataType: 'json',
                 url:      '/tron/terceros/Registro_Nuevo_Usuario/',
                 type:     'post',
                 success:  function (resultado) {
-                  //window.location.href = "/tron/Index";
-                  //Funciones.Mostrar_Mensajes('Información del Sistema',  resultado.Texto_Respuesta );
+
                   $('#btn-grabar-datos').hide();
                   $('#alert-datos-grabados').show();
 
                 },
                 beforeSend: function(){
-                          //$img_cargando.css('display','block');
+                          $img_cargando.css('display','block');
                         },
                 complete: function(){
-                          //$img_cargando.css('display','none');
+                          $img_cargando.css('display','none');
                            //alert("completado");
                          },
                 error: function(xhr){
@@ -94,7 +93,7 @@ var  Funciones = {
            });
           },// Terceros_Validar_Email
 
-          
+
 
 
 
