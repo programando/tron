@@ -42,7 +42,7 @@ var  Mostrar_Detalle_Pedido = function(Parametros)
 	  $.ajax({
 	      data:  Parametros,
 	      dataType: 'html',
-	      url:      'pedidos/Eliminar',
+	      url:      '/pedidos/Eliminar',
 	      type:     'post',
 	      success:  function (resultado)
 	      {
