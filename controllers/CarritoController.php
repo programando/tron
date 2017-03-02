@@ -139,16 +139,20 @@ class CarritoController extends Controller{
 
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
 
+
         if ( $idpedido > 0 ){
          $Vr_Total_Pedido_Real = 1;
          Session::Set('idpedido_temporal', $idpedido);
          $this->Pedidos->Datos_Cambio_Forma_Pago ( $idpedido );
+
        }
 
        if ( $Vr_Total_Pedido_Real > 0 ){
+
         $this->View->SetJs(array('tron_pasos_pagar','tron_dptos_mcipios'));
         $this->View->SetCss(array('tron_carrito','tron_carrito_confi_envio','tron_carrito_identificacion','tron_carrito_forma_pago','tron_estilos_linea_tiempo'));
         Session::Set('imagen_resumen_pedido',FALSE);
+
         $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
       }else{
         $this->View->Mostrar_Vista('pedido_pago_cero');

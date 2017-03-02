@@ -16,7 +16,7 @@ var Grabar_Nuevo_Password = function(Parametros)
 			$.ajax({
 							data:  Parametros,
 							dataType: 'text',
-							url:      '/tron/terceros/Actualizar_Password',
+							url:      '/terceros/Actualizar_Password',
 							type:     'post',
        success:  function (Resultado)
       	 {
@@ -37,7 +37,7 @@ var Grabar_Nuevo_Password = function(Parametros)
 
 
 $('#cerrar-ventana-final').on('click',function(){
- 	window.location.href = "/tron";
+ 	window.location.href = "/index";
 	 $('#ventana-final').modal('hide');
 })
 

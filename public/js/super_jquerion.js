@@ -153,17 +153,7 @@ function calcularAlturas(){
 	}
 
 
-	//if(ancho > 750){
 
-		//$(window).scroll( function () {
-			//var altuus = 200;
-			//if(altuus < $(window).scrollTop()) 	var aaa = $(window).scrollTop() - altuus;
-			//else								var aaa = 0;
-
-			//$('.carrito-resumen-pedido').stop().animate({'top': aaa}, 100);
-		//});
-
-	//}
 
 	if(ancho > 750){
 

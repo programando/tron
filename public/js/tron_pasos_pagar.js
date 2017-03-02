@@ -25,11 +25,11 @@ function Mostrar_Direcciones_Usuario_Seleccionado(Usuario_Seleccionado, Cantidad
   $.ajax({
       data:  Parametros,
       dataType: 'text',
-      url:      '/tron/carrito/Finalizar_Pedido_Direccion_Cambio_Usuario/',
+      url:      'Finalizar_Pedido_Direccion_Cambio_Usuario',
       type:     'post',
       success:  function (resultado)
       {
-        $('.fila-direcciones').load('/tron/carrito/Finalizar_Pedido_Direccion_Mostrar_Direcciones');
+        $('.fila-direcciones').load('Finalizar_Pedido_Direccion_Mostrar_Direcciones');
       }
    });
 }
@@ -41,13 +41,13 @@ function Direccion_Usuario_Grabar(Parametros)
   $.ajax({
       data:  Parametros,
       dataType: 'json',
-      url:      '/tron/terceros/Direcciones_Despacho_Grabar_Actualizar/',
+      url:      '/terceros/Direcciones_Despacho_Grabar_Actualizar',
       type:     'post',
       success:  function (server)
       {
           if (server.Respuesta=='OK') {
             $('#venta_editar').modal('hide');
-            $('.fila-direcciones').load('/tron/carrito/Finalizar_Pedido_Direccion_Mostrar_Direcciones');
+            $('.fila-direcciones').load('Finalizar_Pedido_Direccion_Mostrar_Direcciones');
             return false;
           }else{
               new Messi(server.Respuesta,
@@ -64,7 +64,7 @@ $('.btn-continuar').on('click',function()
 {
   $.ajax({
       dataType: 'text',
-      url:      '/tron/carrito/Finalizar_Pedido_Finalizar_Direccion/',
+      url:      'Finalizar_Pedido_Finalizar_Direccion',
       type:     'post',
       success:  function (resultado) {
         resultado=$.trim(resultado);
@@ -72,7 +72,7 @@ $('.btn-continuar').on('click',function()
           $('.modal-body #texto').html(resultado);
           $('#ventana_error').modal('show');
         }else   {
-           window.location.href = "/tron/carrito/mostrar_carrito/1";
+           window.location.href = "mostrar_carrito/1";
         }
       }
    });
@@ -149,7 +149,7 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
     $.ajax({
       data:  Parametros,
       dataType: 'json',
-      url:      '/tron/carrito/Finalizar_Pedido_Direccion_Final/',
+      url:      'Finalizar_Pedido_Direccion_Final',
       type:     'post',
       success:  function (resultado)   {
           //$('#nombre-usuario-pedido').html('El pedido será despachado a nombre de :' + $Nombre_Usuario_Pedido);
@@ -211,7 +211,7 @@ $('.img-pago1').on('click',function(){
       $.ajax({
       data:  $Parametros,
       dataType: 'text',
-      url:      '/tron/pedidos/Forma_Pago_Pedido_Payu_Latam/',
+      url:      '/pedidos/Forma_Pago_Pedido_Payu_Latam',
       type:     'post',
       success:  function (resultado)  {
          $('#formaspago').html(resultado);
@@ -227,7 +227,7 @@ $('#btn-ing-por-amigo').on('click',function(){
       $.ajax({
       data:  $Parametros,
       dataType: 'text',
-      url:      '/tron/terceros/Terceros_Consultar_Datos_Identificacion_Codigo_Usuario/',
+      url:      'Terceros_Consultar_Datos_Identificacion_Codigo_Usuario',
       type:     'post',
       success:  function (resultado) {
           $Respuesta = $.trim(resultado);
@@ -244,7 +244,7 @@ $('#btn-ing-por-amigo').on('click',function(){
                   buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
                   });
           }else{
-             window.location.href = "/tron/carrito/mostrar_carrito/1";
+             window.location.href = "mostrar_carrito/1";
           }
       }
    });

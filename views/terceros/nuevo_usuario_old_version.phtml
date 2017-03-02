@@ -80,7 +80,7 @@
                   <label for="genero" class="col-lg-4 control-label">Género : </label>
                   <div class="col-lg-8">
                     <select class="form-control" id="genero">
-                      <option value="">Seleccione...</option>
+                      <option value="-1">Seleccione...</option>
                       <option value="1">Masculino</option>
                       <option value="0">Femenino</option>
                     </select>
@@ -166,6 +166,9 @@
               <span class="glyphicon glyphicon-floppy-save"></span>
               Grabar Datos </button>
             </div>
+        <div class="text-center" id='img_cargando'>
+          <img src="<?= BASE_IMG_EMPRESA ;?>cargando.gif" alt="">
+        </div>
               <div class="text-center">
               <div class="alert alert-success" id="alert-datos-grabados">
                 Los datos han sido grabados con éxito. Ahora haces parte de  nuestra tienda virtual. <br>

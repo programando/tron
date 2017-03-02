@@ -47,7 +47,7 @@ var Iniciar_Sesion = function(Parametros){
 $.ajax({
 							data:  Parametros,
 							dataType: 'json',
-							url:      '/tron/terceros/Validar_Ingreso_Usuario',
+							url:      '/terceros/Validar_Ingreso_Usuario',
 							type:     'post',
 							async:    false,
        success:  function (resultado) {
@@ -60,9 +60,9 @@ $.ajax({
 
 	      	 if ( 	Resultado_Logueo == 'Logueo_OK'){
 	      	 			if (Siguiente_Paso =='DIRECCION' ){
-	      	 						window.location.href = "/tron/Carrito/Finalizar_Pedido_Direccion_Envio/";
+	      	 						window.location.href = "/carrito/Finalizar_Pedido_Direccion_Envio";
 	      	 			}else{
-	      	 				window.location.href = "/tron/Index";
+	      	 				window.location.href = "/Index";
 	      	 			}
 	      	 }
 
@@ -78,7 +78,7 @@ function Recuperar_Password(Parametros)
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
-							url:      '/tron/terceros/Recuperar_Password/',
+							url:      '/terceros/Recuperar_Password',
 							type:     'post',
        success:  function (resultado)
       	 {
@@ -114,7 +114,7 @@ function Verificar_Activacion_Usuario_Envio_Correo(Parametros){
 				$.ajax({
 							data:  '',
 							dataType: 'json',
-							url:      '/tron/terceros/Registro_Datos_Usuario_Envio_Correo_Activacion/'+$idtercero +'/'+$email+'/'+$nombre_usuario+'/'+$genero +'/'+$idtipo_plan_compras+'/'+$idtpidentificacion+'/'+$razonsocial+'/',
+							url:      'Registro_Datos_Usuario_Envio_Correo_Activacion/'+$idtercero +'/'+$email+'/'+$nombre_usuario+'/'+$genero +'/'+$idtipo_plan_compras+'/'+$idtpidentificacion+'/'+$razonsocial,
 							type:     'post',
        success:  function (resultado)	 {
 
@@ -128,7 +128,7 @@ function Verificar_Activacion_Usuario(Parametros){
 			$.ajax({
 							data:  Parametros,
 							dataType: 'json',
-							url:      '/tron/terceros/Verificar_Activacion_Usuario/',
+							url:      'Verificar_Activacion_Usuario',
 							type:     'post',
        success:  function (resultado)	 {
        	if (resultado.Respuesta == 'Usuario_No_Activo'){
@@ -141,7 +141,7 @@ function Verificar_Activacion_Usuario(Parametros){
 				      {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
 				        buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}],
 				        callback: function(val){
-				          window.location.href = "/tron/index/";
+				          window.location.href = "/index";
 				        }
 				      });
      				}

@@ -13,7 +13,7 @@ $('#iddpto').on('change',function(){
     $.ajax({
 					data:  {'iddpto':$IdDpto},
 					dataType: 'json',
-					url:      '/tron/municipios/Consultar/',
+					url:      '/municipios/Consultar',
 					type:     'post',
      success:  function (municipios)
     	 {
@@ -48,7 +48,7 @@ $('.contenedor_cuenta').on('change','#iddpto_transferencia',function(){
     $.ajax({
           data:  {'iddpto':$IdDpto},
           dataType: 'json',
-          url:      '/tron/municipios/Consultar/',
+          url:      '/municipios/Consultar',
           type:     'post',
      success:  function (municipios)
        {
@@ -79,7 +79,7 @@ $('.contenedor_cuenta').on('change','#iddpto',function(){
     $.ajax({
           data:  {'iddpto':$IdDpto},
           dataType: 'json',
-          url:      '/tron/municipios/Consultar/',
+          url:      '/municipios/Consultar',
           type:     'post',
      success:  function (municipios)
        {
@@ -112,7 +112,7 @@ $('.contenedor_cuenta').on('change','#iddpto',function(){
     $.ajax({
           data:  {'iddpto':$IdDpto},
           dataType: 'json',
-          url:      '/tron/municipios/Consultar/',
+          url:      '/municipios/Consultar',
           type:     'post',
      success:  function (municipios)
        {
@@ -145,7 +145,7 @@ $('.contenedor_cuenta').on('change','#new_iddpto',function(){
     $.ajax({
           data:  {'iddpto':$IdDpto},
           dataType: 'json',
-          url:      '/tron/municipios/Consultar/',
+          url:      '/municipios/Consultar',
           type:     'post',
      success:  function (municipios)
        {

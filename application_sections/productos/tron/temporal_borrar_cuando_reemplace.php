@@ -4,8 +4,8 @@
 <div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis" style="width: 221px;">
-    	<img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad1.png" class="lad1">
-        <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad2.png" class="lad2">
+    	<img src="<?= DOMINIO ;?>tron/public/images/tienda/lad1.png" class="lad1">
+        <img src="<?= DOMINIO ;?>tron/public/images/tienda/lad2.png" class="lad2">
 
         <div class="p10">
             <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - </div>
@@ -15,8 +15,8 @@
                    $7.765                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
 
@@ -30,8 +30,8 @@
                    $7.765                </div>
         		<div class="text-center">
                     <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
         		</div>
             </div>
         </div>
@@ -106,8 +106,8 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
 
     <div class="taC mb10">
-        <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/189/2 ">
-                          <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_189_35066677750.jpg" class="mb10">
+        <a href="<?= DOMINIO ;?>tron/productos/vista_ampliada/189/2 ">
+                          <img src="<?= DOMINIO ;?>tron/public/images/productos/472x472/tron_189_35066677750.jpg" class="mb10">
 
             <div class="nomproducto taC t14" id="nomproducto189">Crema TRON</div>
             <div class="nompresentacion taC" id="nompresentacion189"><small>220 grs.</small></div>
@@ -117,15 +117,14 @@
     <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
           <div class="taC mb10"><!-- Precio Clientes Ocasional -->
           <strong>$7.765</strong>
-          <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
+          <span><img src="<?= DOMINIO ;?>tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
 
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
-        	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron189">  $7.765 </span>
-            <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-            <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
@@ -159,7 +158,7 @@
               <div class="btn-agregar-carrito">
                 Agregar
                 <span>
-                   <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/carrito-transparente.png" id="agr-car">
+                   <img src="<?= DOMINIO ;?>tron/public/images/tienda/carrito-transparente.png" id="agr-car">
                 </span>
               </div>
              </button>
@@ -177,8 +176,8 @@
                                                   <div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis" style="width: 221px;">
-    	<img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad1.png" class="lad1">
-        <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad2.png" class="lad2">
+    	<img src="<?= DOMINIO ;?>tron/public/images/tienda/lad1.png" class="lad1">
+        <img src="<?= DOMINIO ;?>tron/public/images/tienda/lad2.png" class="lad2">
 
         <div class="p10">
             <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - </div>
@@ -188,8 +187,8 @@
                    $5.300                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
 
@@ -203,8 +202,8 @@
                    $5.300                </div>
         		<div class="text-center">
                     <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
         		</div>
             </div>
         </div>
@@ -279,8 +278,8 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
 
     <div class="taC mb10">
-        <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/807/2 ">
-                          <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_807_17713393392.jpg" class="mb10">
+        <a href="<?= DOMINIO ;?>tron/productos/vista_ampliada/807/2 ">
+                          <img src="<?= DOMINIO ;?>tron/public/images/productos/472x472/tron_807_17713393392.jpg" class="mb10">
 
             <div class="nomproducto taC t14" id="nomproducto807">RAX Limpia-parabrisas</div>
             <div class="nompresentacion taC" id="nompresentacion807"><small>450 mls.</small></div>
@@ -290,15 +289,15 @@
     <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
           <div class="taC mb10"><!-- Precio Clientes Ocasional -->
           <strong>$5.300</strong>
-          <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
+          <span><img src="<?= DOMINIO ;?>tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
 
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
-        	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
+        	 <!-- <img src="<?= DOMINIO ;?>tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron807">  $5.300 </span>
-            <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-            <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
@@ -332,7 +331,7 @@
               <div class="btn-agregar-carrito">
                 Agregar
                 <span>
-                   <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/carrito-transparente.png" id="agr-car">
+                   <img src="<?= DOMINIO ;?>tron/public/images/tienda/carrito-transparente.png" id="agr-car">
                 </span>
               </div>
              </button>
@@ -350,8 +349,8 @@
                                                   <div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis" style="width: 221px;">
-    	<img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad1.png" class="lad1">
-        <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad2.png" class="lad2">
+    	<img src="<?= DOMINIO ;?>tron/public/images/tienda/lad1.png" class="lad1">
+        <img src="<?= DOMINIO ;?>tron/public/images/tienda/lad2.png" class="lad2">
 
         <div class="p10">
             <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - </div>
@@ -361,8 +360,8 @@
                    $10.610                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
 
@@ -376,8 +375,8 @@
                    $10.610                </div>
         		<div class="text-center">
                     <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
         		</div>
             </div>
         </div>
@@ -452,8 +451,8 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
 
     <div class="taC mb10">
-        <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/845/2 ">
-                          <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_845_35426787768.jpg" class="mb10">
+        <a href="<?= DOMINIO ;?>tron/productos/vista_ampliada/845/2 ">
+                          <img src="<?= DOMINIO ;?>tron/public/images/productos/472x472/tron_845_35426787768.jpg" class="mb10">
 
             <div class="nomproducto taC t14" id="nomproducto845">RAX SILICONA Viscosa</div>
             <div class="nompresentacion taC" id="nompresentacion845"><small>450 mls.</small></div>
@@ -463,15 +462,15 @@
     <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
           <div class="taC mb10"><!-- Precio Clientes Ocasional -->
           <strong>$10.610</strong>
-          <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
+          <span><img src="<?= DOMINIO ;?>tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
 
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
-        	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
+        	 <!-- <img src="<?= DOMINIO ;?>tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron845">  $10.610 </span>
-            <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-            <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
@@ -505,7 +504,7 @@
               <div class="btn-agregar-carrito">
                 Agregar
                 <span>
-                   <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/carrito-transparente.png" id="agr-car">
+                   <img src="<?= DOMINIO ;?>tron/public/images/tienda/carrito-transparente.png" id="agr-car">
                 </span>
               </div>
              </button>
@@ -522,8 +521,8 @@
                                                   <div id="contenedor-productos" style="position:relative;">
 
 	<div class="counttis" style="width: 221px;">
-    	<img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad1.png" class="lad1">
-        <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/lad2.png" class="lad2">
+    	<img src="<?= DOMINIO ;?>tron/public/images/tienda/lad1.png" class="lad1">
+        <img src="<?= DOMINIO ;?>tron/public/images/tienda/lad2.png" class="lad2">
 
         <div class="p10">
             <div class="colorT1 ff3 t12 mb5 taC">- OFERTA - </div>
@@ -533,8 +532,8 @@
                    $7.690                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-                    <span class="dIB"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
 
@@ -548,8 +547,8 @@
                    $7.690                </div>
         		<div class="text-center">
                     <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
         		</div>
             </div>
         </div>
@@ -624,8 +623,8 @@
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
 
     <div class="taC mb10">
-        <a href="http://entreamigosalcanzamos.com/tron/productos/vista_ampliada/1531/2 ">
-                          <img src="http://entreamigosalcanzamos.com/tron/public/images/productos/472x472/tron_1531_26570091492.jpg" class="mb10">
+        <a href="<?= DOMINIO ;?>tron/productos/vista_ampliada/1531/2 ">
+                          <img src="<?= DOMINIO ;?>tron/public/images/productos/472x472/tron_1531_26570091492.jpg" class="mb10">
 
             <div class="nomproducto taC t14" id="nomproducto1531">RAX LLW Plus</div>
             <div class="nompresentacion taC" id="nompresentacion1531"><small>450 mls.</small></div>
@@ -635,15 +634,15 @@
     <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
           <div class="taC mb10"><!-- Precio Clientes Ocasional -->
           <strong>$7.690</strong>
-          <span><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
+          <span><img src="<?= DOMINIO ;?>tron/public/images/tienda/18.png" title="Precio Público / Comprador Ocasional"></span>
       </div>
 
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
-        	 <!-- <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/tach.png" class="tach">-->
+        	 <!-- <img src="<?= DOMINIO ;?>tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron1531">  $7.690 </span>
-            <span class="tipee2"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
-            <span class="tipee3"><img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
     <!--SECTION = INPUT , BOTONES , IMG => DONDE SE SELECCIONA LA CANTIDAD DE PRODUCTOS -->
@@ -677,7 +676,7 @@
               <div class="btn-agregar-carrito">
                 Agregar
                 <span>
-                   <img src="http://entreamigosalcanzamos.com/tron/public/images/tienda/carrito-transparente.png" id="agr-car">
+                   <img src="<?= DOMINIO ;?>tron/public/images/tienda/carrito-transparente.png" id="agr-car">
                 </span>
               </div>
              </button>

@@ -1,11 +1,3 @@
-// Funtiones tabs
-// TABS  =  mi perfil , informes , favoritos
-
-// var $Opciones_Seleccionada = '';
-// $(function() {
-//    // $('#mi-perfil').click();
-//    // // $('#btn_mostrar').click();
-// });
 
 var $Usuario_Seleccionado = 0;
 var $Codigo_Seleccionado  = '';
@@ -36,7 +28,7 @@ $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
 	  $.ajax({
 	      data:  Parametros,
 	      dataType: 'html',
-	      url:      '/tron/productos/Favoritos_Borrar_x_IdTercero_IdProducto/',
+	      url:      '/productos/Favoritos_Borrar_x_IdTercero_IdProducto',
 	      type:     'post',
 	      success:  function (resultado) {
 				         $('.contenedor_cuenta').html('');
@@ -70,7 +62,7 @@ var  Mostrar_Participacion_en_Red = function($idtercero,$anio){
 	  $.ajax({
 	      data:  '',
 	      dataType: 'html',
-	      url:      '/tron/informes/Participacion_En_La_Red_Ajax/'+$idtercero+'/'+$anio,
+	      url:      '/informes/Participacion_En_La_Red_Ajax/'+$idtercero+'/'+$anio,
 	      type:     'post',
 	      success:  function (resultado)  {
 				      $('.participacion-red').html('');
@@ -83,7 +75,7 @@ var  Mostrar_Amigos_Presentados = function($idtercero,$anio){
 	  $.ajax({
 	      data:  '',
 	      dataType: 'html',
-	      url:      '/tron/informes/Amigos_Presentados_Ajax/'+$idtercero+'/'+$anio,
+	      url:      '/informes/Amigos_Presentados_Ajax/'+$idtercero+'/'+$anio,
 	      type:     'post',
 	      success:  function (resultado)  {
 				      $('.participacion-red').html('');
@@ -96,7 +88,7 @@ var  Mostar_Clientes_x_IdTercero = function($codigousuario){
 	  $.ajax({
 	      data:  '',
 	      dataType: 'html',
-	      url:      '/tron/informes/Clientes_Presentados_Ajax/'+$codigousuario,
+	      url:      '/informes/Clientes_Presentados_Ajax/'+$codigousuario,
 	      type:     'post',
 	      success:  function (resultado)  {
 				      $('.participacion-red').html('');
@@ -109,7 +101,7 @@ var  Mostar_Clientes_x_IdTercero = function($codigousuario){
 var Mostrar_Red_de_Usuarios_Detallada_Por_Usuario = function($idtercero){
    $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Mi_Red_de_Usuarios_x_IdTtercero/'+$idtercero,
+         url:      '/informes/Mi_Red_de_Usuarios_x_IdTtercero/'+$idtercero,
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor-datos-informe').html('');
@@ -124,7 +116,7 @@ var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
     $.ajax({
     					data : {'idtercero':$idtercero},
          dataType: 'html',
-         url:      '/tron/informes/Saldos_Comisiones_Puntos_x_IdTercero/',
+         url:      '/informes/Saldos_Comisiones_Puntos_x_IdTercero',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor-datos-informe').html('');
@@ -136,7 +128,7 @@ var Mostrar_Estado_Cuenta_x_idTercero = function($idtercero){
 var Mostar_Compra_Tron_x_IdTercero = function($idtercero,$anio){
 	    $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Productos_Tron_x_IdTercero/'+$idtercero+'/'+$anio,
+         url:      '/informes/Compras_Productos_Tron_x_IdTercero/'+$idtercero+'/'+$anio,
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenido-reporte').html('');
@@ -148,7 +140,7 @@ var Mostar_Compra_Tron_x_IdTercero = function($idtercero,$anio){
 var Mostar_Compra_Otros_x_IdTercero = function($idtercero,$anio){
 	    $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Otros_Productos_x_IdTercero/'+$idtercero+'/'+$anio,
+         url:      '/informes/Compras_Otros_Productos_x_IdTercero/'+$idtercero+'/'+$anio,
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenido-reporte').html('');
@@ -160,7 +152,7 @@ var Mostar_Compra_Otros_x_IdTercero = function($idtercero,$anio){
 var Mostar_Compra_Industriales_x_IdTercero = function($idtercero,$anio){
 	    $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Productos_Industriales_x_IdTercero/'+$idtercero+'/'+$anio,
+         url:      '/informes/Compras_Productos_Industriales_x_IdTercero/'+$idtercero+'/'+$anio,
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenido-reporte').html('');
@@ -172,7 +164,7 @@ var Mostar_Compra_Industriales_x_IdTercero = function($idtercero,$anio){
 var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 	    $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Totales_x_IdTercero/'+$idtercero+'/'+$anio,
+         url:      '/informes/Compras_Totales_x_IdTercero/'+$idtercero+'/'+$anio,
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenido-reporte').html('');
@@ -234,7 +226,7 @@ var Mostrar_Direcciones_x_IdTercero = function($idtercero){
   $.ajax({
       data:  {'idtercero':$idtercero,'json':0},
       dataType: 'html',
-      url:      '/tron/terceros/Direcciones_Despacho_x_IdTercero/',
+      url:      '/terceros/Direcciones_Despacho_x_IdTercero',
       type:     'post',
       success:  function (resultado){
           $('.conteneror-direcciones').html('');
@@ -291,7 +283,7 @@ var  Direccion_Usuario_Grabar = function(Parametros){
   $.ajax({
       data:  Parametros,
       dataType: 'json',
-      url:      '/tron/terceros/Direcciones_Despacho_Grabar_Actualizar/',
+      url:      '/terceros/Direcciones_Despacho_Grabar_Actualizar',
       type:     'post',
       async:     false,
       success:  function (server)  {
@@ -394,7 +386,7 @@ $('.contenedor_cuenta').on('click','#ver_pases_cortesia',function(){
 $('#plan_seleccionado').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/plan_seleccionado/',
+         url:      '/terceros/plan_seleccionado',
          type:     'post',
 				    success:  function (respuesta)
 				      {
@@ -408,7 +400,7 @@ $('#perfil-datos-personales').on('click',function(){
 		  $Opciones_Seleccionada ='DATOS_PERSONALES';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/modificacion_datos/',
+         url:      '/terceros/modificacion_datos',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -421,7 +413,7 @@ $('#perfil-datos-personales').on('click',function(){
 $('#tabla_comisiones').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/tabla_comisiones_tron/',
+         url:      '/terceros/tabla_comisiones_tron',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -435,7 +427,7 @@ $('#cuenta_favoritos').on('click',function(){
 
     $.ajax({
          dataType: 'html',
-         url:      '/tron/productos/Favoritos_Consulta_x_idTercero/',
+         url:      '/productos/Favoritos_Consulta_x_idTercero',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -478,7 +470,7 @@ $('.contenedor_cuenta').on('click','#borrar_producto_favoritos', function(){
 $('#recomendar_amigo').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/recomendar_amigo/',
+         url:      '/terceros/recomendar_amigo',
          type:     'post',
 				    success:  function (respuesta) {
 				         $('.contenedor_cuenta').html('');
@@ -490,7 +482,7 @@ $('#recomendar_amigo').on('click',function(){
 $('#pases_cortesia').on('click',function(){
     $.ajax({
          dataType: 'html',
-         url:      '/tron/terceros/pases_cortesia/',
+         url:      '/terceros/pases_cortesia',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -515,8 +507,7 @@ $('#cont_conevion_comercial').on('mouseout',function(){
 $('#convenio_pdf').on('click',function(){
     $('.contenedor_cuenta').html('');
 	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
-	// window.location.href  = '/tron/pdf/Convenio_Comercial';
-	window.open('/tron/pdf/Convenio_Comercial');
+	window.open('pdf/Convenio_Comercial');
 	$('.contenedor_cuenta').html('');
 	// $('.menu_convenio').hide();
 });
@@ -527,7 +518,7 @@ $('#convenio_pdf').on('click',function(){
  		$Opciones_Seleccionada ='PEDIDOS_REALIZADOS';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/pedidos/historial_mis_pedidos/',
+         url:      '/pedidos/historial_mis_pedidos',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -547,7 +538,7 @@ $('#informes-estado-cuenta').on('click',function(){
     $Opciones_Seleccionada ='ESTADO_CUENTA';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Saldos_Comisiones_Puntos/',
+         url:      '/informes/Saldos_Comisiones_Puntos',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -560,7 +551,7 @@ $('#informes-participacion-red').on('click',function(){
     $Opciones_Seleccionada = 'PARTICIPACION_EN_RED';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Participacion_En_La_Red/',
+         url:      '/informes/Participacion_En_La_Red',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -574,7 +565,7 @@ $('#informes-amigos-presentados').on('click',function(){
     $Opciones_Seleccionada = 'AMIGOS_PRESENTADOS';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Amigos_Presentados/',
+         url:      '/informes/Amigos_Presentados',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -587,7 +578,7 @@ $('#informes-clientes-presentados').on('click',function(){
     $Opciones_Seleccionada = 'CLIENTES_PRESENTADOS';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Clientes_Presentados/',
+         url:      '/informes/Clientes_Presentados',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -604,7 +595,7 @@ $('#compras_tron_link').on('click',function(){
 		$Opciones_Seleccionada = 'COMPRAS_TRON';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Productos_Tron/',
+         url:      '/informes/Compras_Productos_Tron',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -617,7 +608,7 @@ $('#compras_otros_link').on('click',function(){
 		$Opciones_Seleccionada = 'COMPRAS_TRON';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Otros_Productos/',
+         url:      '/informes/Compras_Otros_Productos',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -630,7 +621,7 @@ $('#compras_industriales_link').on('click',function(){
 		$Opciones_Seleccionada = 'COMPRAS_INDUSTRIALES';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Productos_Industriales/',
+         url:      '/informes/Compras_Productos_Industriales',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -643,7 +634,7 @@ $('#compras_totales_link').on('click',function(){
 		$Opciones_Seleccionada = 'COMPRAS_TOTALES';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Compras_Totales/',
+         url:      '/informes/Compras_Totales',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -657,7 +648,7 @@ $('#informes-red-usuarios').on('click',function(){
     $Opciones_Seleccionada = 'RED_USUARIOS';
     $.ajax({
          dataType: 'html',
-         url:      '/tron/informes/Mi_Red_de_Usuarios/',
+         url:      '/informes/Mi_Red_de_Usuarios',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -674,7 +665,7 @@ $('.contenedor_cuenta').on('click','.btnUsuarioRed', function(){
   var idtercero = $(this).attr('id');
       $.ajax({
          dataType: 'json',
-         url:      '/tron/terceros/Consulta_Datos_Usuario/'+idtercero,
+         url:      '/terceros/Consulta_Datos_Usuario/'+idtercero,
          type:     'post',
 				    success:  function (datos){
 				    		$Texto = 'Nombre      : ' + datos.nombre+'<br>' ;
@@ -728,11 +719,11 @@ $('.contenedor_cuenta').on('click','.historial-eliminar-pedido', function(){
 
 	     $.ajax({
 	        dataType: 'json',
-	        url:      '/tron/pedidos/Genera_Consecutivo/'+$numero_pedido,
+	        url:      '/pedidos/Genera_Consecutivo/'+$numero_pedido,
 	        type:     'post',
 				    	success:  function (datos){
 				    		Pedidos_Realizados();
-				    		window.location.href = '/tron/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
+				    		window.location.href = '/carrito/Finalizar_Pedido_Forma_Pago/'+$idpedido;
 				      }
 				     });
 	});
@@ -808,7 +799,7 @@ $('.contenedor_cuenta').on('click','#btn-recomendar-modelo-metodo-1',function(){
 																															 'recomendar_nombre_envia':$recomendar_nombre_envia };
   $.ajax({
          dataType: 'json',
-         url:      '/tron/Emails/Recomendar_Negocio_Amigo/',
+         url:      '/Emails/Recomendar_Negocio_Amigo',
          type:     'post',
          data:     $Parametros,
 				    success:  function (Server){

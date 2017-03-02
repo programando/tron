@@ -31,7 +31,7 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 		$.ajax({
 			data:  {'codigousuario':$codigoterceropresenta},
 			dataType: 'json',
-			url:      '/tron/terceros/Registro_Buscar_Por_Codigo/',
+			url:      'Registro_Buscar_Por_Codigo',
 			type:     'post',
 			async	: false,
 			success:  function (resultado)	 {
@@ -54,7 +54,7 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 					$idtercero_presenta      = resultado.idtercero;
 					$codigo_tercero_presenta = resultado.codigousuario;
 					$nombre_usuario_presenta = resultado.nombre_usuario ;
-					Mostrar_Mensajes ('<strong>¡ Información Importante !</strong>','Usted quedará registrado(a) en la red de usuarios liderada por :<br><br><strong>' + 
+					Mostrar_Mensajes ('<strong>¡ Información Importante !</strong>','Usted quedará registrado(a) en la red de usuarios liderada por :<br><br><strong>' +
 						$nombre_usuario_presenta + '</strong> <br>cuyo código de usuario es : <strong>'+ $codigoterceropresenta  +'</strong>' )
 				}
 

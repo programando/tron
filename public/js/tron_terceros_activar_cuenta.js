@@ -3,7 +3,7 @@ var Agregar_Producto_a_Carrito= function (NomProducto,Parametros)
     $.ajax({
           data:  Parametros,
           dataType: 'json',
-          url:      '/tron/carrito/Agregar_Producto/',
+          url:      'carrito/Agregar_Producto',
           type:     'post',
            success:  function (resultado)
              {
@@ -19,7 +19,7 @@ var Paso_Final_Registro_Plan_1 = function(Texto){
       {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
         buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}],
         callback: function(val){
-          window.location.href = "/tron/index/";
+          window.location.href = "/index";
         }
       });
 }
@@ -40,10 +40,10 @@ var Paso_Final_Registro_Plan_2 = function( nombre_usuario,idtpidentificacion,ped
                   {id: 1, label: 'Pagar Ahora', val: 'P', class: 'btn-danger'}],
         callback: function(val){
               if ( val== 'S'){
-                window.location.href = "/tron/index/";
+                window.location.href = "/index";
               }
               if ( val== 'P'){
-                window.location.href = '/tron/carrito/Mostrar_Carrito/1';
+                window.location.href = '/carrito/Mostrar_Carrito/1';
               }
 
              }
@@ -61,10 +61,10 @@ var Paso_Final_Registro_Plan_3 = function( nombre_usuario, idtpidentificacion,pe
                   {id: 1, label: 'Pagar Ahora', val: 'P', class: 'btn-danger'}],
         callback: function(val){
               if ( val== 'S'){
-                window.location.href = "/tron/index/";
+                window.location.href = "/index";
               }
               if ( val== 'P'){
-                window.location.href = '/tron/carrito/Mostrar_Carrito/1';
+                window.location.href = '/carrito/Mostrar_Carrito/1';
               }
 
              }
@@ -100,7 +100,7 @@ $('#btn-activar_cta_ocasional').on('click',function(){
         $.ajax({
               data:  $Parametros,
               dataType: 'json',
-              url:      '/tron/terceros/activar_cuenta_usuario_finalizar_registro/',
+              url:      'terceros/activar_cuenta_usuario_finalizar_registro',
               type:     'post',
           success:  function (resultado)
            {

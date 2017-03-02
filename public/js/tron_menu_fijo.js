@@ -11,7 +11,7 @@ var Realizar_Busqueda = function (Parametros){
     $.ajax({
       data:  Parametros,
       dataType: 'html',
-      url:      '/tron/productos/Busqueda_General/',
+      url:      '/productos/Busqueda_General',
       type:     'post',
        success:  function (resultado)
          {

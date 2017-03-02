@@ -278,6 +278,7 @@ class PedidosController extends Controller
 
       $Registro= $this->Pedidos->Pedido_Consulta_Datos_Cambio_Forma_Pago ( $idpedido );
 
+
        Session::Set('numero_pedido',      $Registro[0]['numero_pedido']);
        Session::Set('vr_total_pedido',    $Registro[0]['vr_total_pedido']);
        Session::Set('Vr_Base_Iva',        $Registro[0]['Vr_Base_Iva']);

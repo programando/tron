@@ -9,7 +9,7 @@ var Comisiones_x_IdTercero = function($idtercero)
 					$.ajax({
 						data:  {'idtercero':$idtercero},
 						dataType: 'html',
-						url:      '/tron/Informes/Saldos_Comisiones_Puntos_x_IdTercero/',
+						url:      'Saldos_Comisiones_Puntos_x_IdTercero',
 						type:     'post',
       success:  function (resultado)
      	 {

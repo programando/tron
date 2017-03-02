@@ -49,7 +49,8 @@ class ProductosController extends Controller
 
 
     public function mostrar_resumen_producto() {
-        $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
+     //Debug::Mostrar( "mostrar productos" );
+      $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
     }
 
 
@@ -334,7 +335,7 @@ class ProductosController extends Controller
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);               // Segundo nivel
       Session::Set('IdMarca',0);                      // Deplegado el menú de marcas. tron-vista-industrial.css
-     
+
       $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar( $Id_Area_Consulta );
       $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
       $this->View->Productos_Marcas          = $this->Marcas->Marcas_Consultar($Id_Area_Consulta);

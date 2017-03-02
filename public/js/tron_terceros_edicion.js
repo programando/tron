@@ -140,7 +140,7 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
 			$.ajax({
 						data:  Parametros,
 						dataType: 'json',
-						url:      '/tron/terceros/Actualizar_Datos_Cuenta/',
+						url:      'terceros/Actualizar_Datos_Cuenta',
 						type:     'post',
 	     success:  function (resultado)
 	    	 {
@@ -163,7 +163,7 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
 
 $('.tab-mi-perfil').on('click', function(){
    $('.contenedor_cuenta').html('');
-    window.location.href = "/tron/terceros/administrar_cuenta/";
+    window.location.href = "/terceros/administrar_cuenta";
 });
 
 
@@ -252,7 +252,7 @@ $('.contenedor_cuenta').on('click','#direcciones',function(){
     $.ajax({
       data:  {'idtercero':$idtercero,'json':$json },
       dataType: 'json',
-      url:      '/tron/terceros/Direcciones_Despacho_x_IdTercero/',
+      url:      'terceros/Direcciones_Despacho_x_IdTercero',
       type:     'post',
       success:  function (resultado)
       {
@@ -298,16 +298,3 @@ $('.contenedor_cuenta').on('click','#btn-actualizar-direccion',function(){
 
 
 
-/*
-function Actualizar_Direcciones(editableObj,column,id) {
-  $(editableObj).css("background","#FFF url('/tron/public/images/empresa/loaderIcon.gif') no-repeat right");
-  $.ajax({
-    url: '/tron/terceros/direcciones_actualizar/',
-    type: "POST",
-    data:'column='+column+'&editval='+editableObj.innerHTML+'&id='+id,
-    success: function(data){
-      $(editableObj).css("background","#FDFDFD");
-    }
-   });
-}
-*/

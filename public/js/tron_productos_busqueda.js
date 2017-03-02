@@ -3,7 +3,7 @@ function search( $valor_busqueda ) {
     var query_value = $valor_busqueda ;
         $.ajax({
             type: "POST",
-            url: '/tron/productos/Busqueda_Productos/',
+            url: 'productos/Busqueda_Productos',
             data: { texto_busqueda: query_value },
             cache: false,
             success: function(html){

@@ -5,7 +5,7 @@ var Mostrar_Productos_Categorias = function(IdCategoria,Nombre_Categoria  )
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',
-						url:      '/tron/productos/Productos_por_Categoria/',
+						url:      '../Productos_por_Categoria',
 						type:     'post',
       success:  function (resultado)
      	 {
@@ -24,7 +24,7 @@ var Paginacion = function(pagina , nombre_categoria ) 	{
 					$.ajax({
 						data:  Parametros,
 						dataType: 'html',
-						url:      '/tron/productos/Productos_Mostrar_Via_Ajax/',
+						url:      '../Productos_Mostrar_Via_Ajax',
 						type:     'post',
       success:  function (resultado)
      	 {
@@ -50,7 +50,7 @@ var Mostrar_Productos_Sub_Categorias = function(IdSubCategoria,NombreSubcategori
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',
-						url:      '/tron/productos/Productos_por_Sub_Categoria/',
+						url:      '../Productos_por_Sub_Categoria',
 						type:     'post',
       success:  function (resultado)
      	 {
@@ -70,7 +70,7 @@ var Mostrar_Productos_x_Marca = function(IdMarca,NomMarca  )
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',
-						url:      '/tron/productos/Productos_por_Marca/',
+						url:      '../Productos_por_Marca',
 						type:     'post',
       success:  function (resultado)
      	 {

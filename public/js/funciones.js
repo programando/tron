@@ -18,11 +18,10 @@ var  Funciones = {
       $.ajax({
         data:  {'identificacion':$identificacion},
         dataType: 'json',
-        url:      '/tron/terceros/Buscar_Por_Identificacion/',
+        url:      'Buscar_Por_Identificacion',
         type:     'post',
         success:  function (respuesta)     {
           if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados == 0){
-           //window.location.href = "/tron/terceros/modificacion_datos/" + respuesta.idtercero;
            Funciones.Mostrar_Mensajes('Información de Cuenta', 'La identificación ya se encuentra registrada en nuestro sistema de información.<br>Inicie sesión si desea modificar sus datos.');
            $('#identificacion').val('');
          }
@@ -40,7 +39,7 @@ var  Funciones = {
               $.ajax({
                 data:  $Parametros,
                 dataType: 'json',
-                url:      '/tron/terceros/Registro_Nuevo_Usuario/',
+                url:      'Registro_Nuevo_Usuario',
                 type:     'post',
                 success:  function (resultado) {
 
@@ -73,7 +72,7 @@ var  Funciones = {
             $.ajax({
               data:  {'email':$email},
               dataType: 'json',
-              url:      '/tron/terceros/Consulta_Datos_Por_Email_Registro/'+$email ,
+              url:      'Consulta_Datos_Por_Email_Registro'+$email ,
               type:     'post',
               cache :false,
               success:  function (respuesta) {

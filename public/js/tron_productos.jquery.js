@@ -13,7 +13,7 @@ $("#agregar-producto-favoritos").on('click',function(){
 	$idtercero  = $(this).attr('idtercero');
  				$.ajax({
 								dataType: 'text',
-								url:      '/tron/productos/Favoritos_Grabar/'+$idproducto+"/"+	$idtercero,
+								url:      '/productos/Favoritos_Grabar/'+$idproducto+"/"+	$idtercero,
 								type:     'post',
 	       success:  function (resultado) {
 		       new Messi("Producto agregado a tus favoritos !.",
@@ -28,7 +28,6 @@ $("#agregar-producto-favoritos").on('click',function(){
 
 
 
-//$('#ventana_mensaje').modal('show');
 
 /** MUESTRA MENSAJE PARA LA LÍNEA UNDUSTRIAL, SI NO ESTA LOGUEADO **/
 $('#modal-industrial').on('click', function(){
@@ -44,7 +43,7 @@ var $Total_Venta_Tron           = $('.carrito-Total_Parcial_pv_tron');
 var $Mensaje_Add_Producto       = $('.mensaje-agregar_producto');
 var $Imagen_Cargando            = $("#dv-img-cargando-recomendar-producto");
 //-------------------------------------------------------------------------
-var $idtipo_plan_compras                   = 0;http://localhost/tron/index
+var $idtipo_plan_compras                   = 0;
 var $usuario_viene_del_registro            = false;
 var $usuario_viene_del_registro_es_empresa = false;
 var $compra_productos_industriales									= 0;
@@ -67,7 +66,7 @@ function Recomendar_Producto_a_Mi_Amigo_Mensaje(Parametros){
 }
 
 function Actualizar_Vista_Carrito(){
-	 $('.carrito-compras').load('/tron/carrito/Mostrar_Carrito/2');
+	 $('.carrito-compras').load('../../carrito/Mostrar_Carrito/2');
 }
 
 
@@ -76,7 +75,7 @@ function Hallar_Precio_Final_Tron(IdProducto,Parametros){
 				$.ajax({
 								data:  Parametros,
 								dataType: 'json',
-								url:      '/tron/productos/Hallar_Valor_Escala/',
+								url:      'Hallar_Valor_Escala',
 								type:     'post',
 	       success:  function (resultado) {
 	      	 	$("#precio_final_tron"+IdProducto).html(resultado.Precio_Final_Tron);
@@ -84,26 +83,13 @@ function Hallar_Precio_Final_Tron(IdProducto,Parametros){
 					});
 }
 
-function Consultar_Total_Compra_Productos_Industriales(){
-				$.ajax({
-								data:  '',
-								dataType: 'json',
-								url:      '/tron/carrito/Consultar_Total_Compra_Productos_Industriales',
-								type:     'post',
-								async:    false,
-	       success:  function (resultado)	 {
-											$compra_productos_industriales   = resultado.compra_productos_industriales	;
-											$minimo_compras_productos_ta = resultado.minimo_compras_productos_ta  ;
-	      	 }
-					});
-}
 
 
 function Agregar_Producto_a_Carrito(NomProducto,Parametros){
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
-					url:      '/tron/carrito/Agregar_Producto/',
+					url:      '/carrito/Agregar_Producto',
 					type:     'post',
      success:  function (resultado) {
     	 }
@@ -120,7 +106,7 @@ function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Pl
 		$.ajax({
 						data:  {'idtipo_plan_compras':$idtipo_plan_compras,'tipo_proceso_en_plan':'DEGRADAR_PLAN'},
 						dataType: 'text',
-						url:      '/tron/terceros/Cambio_Plan/',
+						url:      '/terceros/Cambio_Plan',
 						type:     'post',
 	     success:  function (resultado) {
 	     		}
@@ -131,7 +117,7 @@ function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario_Cambio_Pl
 function Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario(){
 			$.ajax({
 					dataType: 'json',
-					url:      '/tron/terceros/Verificar_Registro_Inicial_Usuario/',
+					url:      '/terceros/Verificar_Registro_Inicial_Usuario',
 					type:     'post',
 					async: false,
 	     success:  function (resultado) {
@@ -149,7 +135,7 @@ function Borrar_Producto(Parametros){
  	$.ajax({
 					data:  Parametros,
 					dataType: 'json',
-					url:      '/tron/carrito/Borrar_Producto_Carrito/',
+					url:      '/carrito/Borrar_Producto_Carrito',
 					type:     'post',
      success:  function (resultado)
     	 {
@@ -262,7 +248,7 @@ function Recomendar_Producto_a_Mi_Amigo(Parametros){
 			$.ajax({
 					data:  Parametros,
 					dataType: 'text',
-					url:      '/tron/productos/Recomendar_Producto_a_Amigo/',
+					url:      '/productos/Recomendar_Producto_a_Amigo',
 					type:     'post',
      success:  function (resultado)    	 {
     	 		resultado =  resultado.replace("\n", "");
@@ -287,7 +273,7 @@ function Recomendar_Producto_a_Mi_Amigo(Parametros){
 var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
 				$.ajax({
 					dataType: 'text',
-					url:      '/tron/carrito/Verificar_Valor_Minimo_A_Pagar/',
+					url:      '/carrito/Verificar_Valor_Minimo_A_Pagar',
 					type:     'post',
 					async: false,
      success:  function (Respuesta)    	 {
@@ -299,7 +285,7 @@ var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
 var Pedidos_Verficiar_Compra_Minima_Productos_Tron = function(){
 				$.ajax({
 					dataType: 'text',
-					url:      '/tron/carrito/Verificar_Compra_Minima_Productos_Tron/',
+					url:      '/carrito/Verificar_Compra_Minima_Productos_Tron',
 					type:     'post',
 					async: false,
      success:  function (Respuesta)    	 {
@@ -316,7 +302,7 @@ var Pedidos_Verficiar_Compra_Minima_Productos_Tron = function(){
 var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
 				$.ajax({
 					dataType: 'text',
-					url:      '/tron/carrito/Verificar_Valor_Minimo_A_Pagar/',
+					url:      '/carrito/Verificar_Valor_Minimo_A_Pagar',
 					type:     'post',
 					async: false,
      success:  function (Respuesta)    	 {
@@ -329,7 +315,7 @@ var Pedidos_Verificar_Valor_Minimo_A_Pagar = function(){
 var Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario = function( $Seguir_Comprando, $Usar_Comis_Puntos ){
 				$.ajax({
 					dataType: 'text',
-					url:      '/tron/carrito/Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario/'+ $Seguir_Comprando+'/'+$Usar_Comis_Puntos,
+					url:      '/carrito/Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario/'+ $Seguir_Comprando+'/'+$Usar_Comis_Puntos,
 					type:     'post',
 					async: false,
      success:  function (Respuesta)    	 {
@@ -344,11 +330,11 @@ var Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario = function(
 // FEBRERO 28 DE 2015... PASOS CARRITO
 // BOTÓN SEGUIR COMPRANDO
 	$('#contenido-productos').on('click','.btn-seguir-comprando',function(){
-	 window.location.href = "/tron";
+	 window.location.href = "/index";
 });
 
 $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
-		window.location.href = "/tron/Carrito/finalizar_pedido_identificacion/";
+		window.location.href = "/carrito/finalizar_pedido_identificacion";
 });
 
 // BOTON ELEGIR FORMA DE PAGO PARA EL PEDIDO
@@ -380,10 +366,10 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 	     // PASAR A LA FORMA DE PAGAR PARA EL PEDIDO
 							$.ajax({
 									dataType: 'text',
-									url:      '/tron/pedidos/Grabar/',
+									url:      '/pedidos/Grabar',
 									type:     'post',
 				     success:  function (resultado)	 {
-														 window.location.href = "/tron/carrito/finalizar_pedido_forma_Pago";
+														 window.location.href = "/carrito/finalizar_pedido_forma_Pago";
 				    	 }
 							});
 
@@ -392,7 +378,7 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 
 
 	$('#contenido-productos').on('click','#btn-seguir_comprando',function(){
-				window.location.href = "/tron";
+				window.location.href = "/index";
 				$('#modal_no_cumple_pedido_minimo').modal('hide');
 				$Seguir_Comprando = true;
 				$Usar_Comis_Puntos = true;
@@ -404,7 +390,7 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 				$Seguir_Comprando  = true;
 				$Usar_Comis_Puntos = false;
 				Pedidos_Verificar_Valor_Minimo_A_Pagar_Procesar_Eleccion_Usuario ( $Seguir_Comprando,$Usar_Comis_Puntos );
-				window.location.href = "/tron/carrito/mostrar_carrito/1";
+				window.location.href = "/carrito/mostrar_carrito/1";
 	});
 
 
@@ -550,7 +536,7 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
 			$.ajax({
 					dataType: 'json',
-					url:      '/tron/terceros/Comprobar_Tipo_Usuario',
+					url:      '/terceros/Comprobar_Tipo_Usuario',
 					type:     'post',
 					async:    false,
      success:  function (resultado) {
@@ -577,18 +563,6 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
   var Parametros 						 		  = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,
   																									"es_tron": es_tron , "es_tron_acc": es_tron_acc, "en_oferta":en_oferta 	 };
 
-  // SI ES KIT DE INICIO O PRODUCTO PROMOCIONAL Y ES EMPRESARIO O CLIENTE TRON NO SE LE PERMITE COMPRAR.
-  /*if ( IdProducto == 10744 ||  id_categoria_producto == 8){
-  	  Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio();
-  	  if ( ($idtipo_plan_compras_kit == 2 || $idtipo_plan_compras_kit==3) && $kit_comprado == true){
-  	  	       new Messi("<br>Los Combos, el Kit de Inicio y los Productos Promocionales, son productos exclusivos para los compradores ocasionales por lo tanto no se pueden agregar a tu cartito. <br> Pero como tienes el privilegio de ser Cliente o Empresario TRON puedes armar estos paquetes en la sección productos TRON.<br><br>",
-         {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
-           buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
-         });
-  	  	return false;
-  	  }
-
-  }*/
   Agregar_Producto_a_Carrito(NomProducto,Parametros);
   Mostrar_Mensaje_Producto_Agregado(NomProducto);
   return false;
@@ -614,7 +588,7 @@ $('#btn-agregar-kit-ocasional').on('click',function(){
      $Parametros  = {"IdProducto" :10744, "CantidadComprada": 1, "es_tron": true , "es_tron_acc": false };
      Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
      Mostrar_Mensaje_Producto_Agregado('Kit de Inicio clientes');
-     window.location.href = "/tron/carrito/mostrar_Carrito/1";
+     window.location.href = "/carrito/mostrar_Carrito/1";
 });
 
 $('#btn-agregar-kit-empresario').on('click',function(){
@@ -624,11 +598,11 @@ $('#btn-agregar-kit-empresario').on('click',function(){
      $.ajax({
            data:  '',
            dataType: 'text',
-           url:      '/tron/terceros/Cambio_Status/',
+           url:      '/terceros/Cambio_Status',
            type:     'post',
            async:    false,
           success:  function (resultado)     {
-           		window.location.href = "/tron/index/";
+           		window.location.href = "/index";
            }
         });
 

@@ -12,7 +12,7 @@ var  Mostrar_Pedidos_Usuario = function(Parametros)
 	  $.ajax({
 	      data:  Parametros,
 	      dataType: 'html',
-	      url:      '/tron/pedidos/historial_mis_pedidos_x_tercero/',
+	      url:      '/pedidos/historial_mis_pedidos_x_tercero',
 	      type:     'post',
 	      success:  function (resultado)
 	      {
@@ -28,7 +28,7 @@ var  Mostrar_Detalle_Pedido = function(Parametros)
 	  $.ajax({
 	      data:  Parametros,
 	      dataType: 'html',
-	      url:      '/tron/pedidos/historial_mis_pedidos_x_idpedido/',
+	      url:      '/pedidos/historial_mis_pedidos_x_idpedido',
 	      type:     'post',
 	      success:  function (resultado)
 	      {
@@ -42,7 +42,7 @@ var  Mostrar_Detalle_Pedido = function(Parametros)
 	  $.ajax({
 	      data:  Parametros,
 	      dataType: 'html',
-	      url:      '/tron/pedidos/Eliminar/',
+	      url:      'pedidos/Eliminar',
 	      type:     'post',
 	      success:  function (resultado)
 	      {

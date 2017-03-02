@@ -13,7 +13,7 @@ var Enviar_Correo_Contactos = function(Parametros){
  $.ajax({
               data:  Parametros,
               dataType: 'json',
-              url:      '/tron/Emails/envio_correo_contactos/',
+              url:      'envio_correo_contactos',
               type:     'post',
           success:  function (resultado)
            {
@@ -41,7 +41,7 @@ var Enviar_Correo_Contactos = function(Parametros){
 }
 
 $btn_cancelar.on('click',function(){
-	 window.location.href = "/tron/index/";
+	 window.location.href = "/index";
 });
 
 

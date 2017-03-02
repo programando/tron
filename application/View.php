@@ -93,6 +93,7 @@
          $RutaView     = ROOT .  'views' . DS  . $this->Controlador. DS . $vista . '.phtml';
          $RutaTemplate = $RutaView;
 
+
             if(is_readable($RutaView))
             {
                require_once ($RutaView);

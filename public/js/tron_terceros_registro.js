@@ -103,7 +103,7 @@ var Grabar_Datos_Registro = function(Parametros){
   $.ajax({
               data:  Parametros,
               dataType: 'json',
-              url:      '/tron/terceros/Registro_Datos_Usuario/',
+              url:      'terceros/Registro_Datos_Usuario',
               type:     'post',
           success:  function (resultado)
            {
@@ -113,7 +113,7 @@ var Grabar_Datos_Registro = function(Parametros){
                   {title: 'Mensaje del Sistema',modal: true, titleClass: 'info',
                     buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}],
                     callback: function(val) {
-                      window.location.href = "/tron/index/";
+                      window.location.href = "/index";
                        }
                   });
            },
@@ -137,7 +137,7 @@ var Grabar_Datos_Registro = function(Parametros){
         $.ajax({
               data:  Parametros,
               dataType: 'json',
-              url:      '/tron/terceros/Registro_Establecer_Tipo_Plan_Seleccionado/',
+              url:      'terceros/Registro_Establecer_Tipo_Plan_Seleccionado',
               type:     'post',
          success:  function (respuesta){
               $Tipo_Plan_Seleccionado = respuesta.idtipo_plan_compras
@@ -150,7 +150,7 @@ var Grabar_Datos_Registro = function(Parametros){
         $.ajax({
             data: {} ,
             dataType: 'json',
-            url:      '/tron/terceros/Registro_Re_Establecer_Tercero_Presenta/',
+            url:      'terceros/Registro_Re_Establecer_Tercero_Presenta',
             type:     'post',
             success:  function (respuesta) {
           }
@@ -162,7 +162,7 @@ var Grabar_Datos_Registro = function(Parametros){
            $.ajax({
               data:  {'codigousuario':codigousuario},
               dataType: 'json',
-              url:      '/tron/terceros/Registro_Buscar_Por_Codigo/',
+              url:      'terceros/Registro_Buscar_Por_Codigo',
               type:     'post',
          success:  function (respuesta)
            {
@@ -278,12 +278,12 @@ $('#identificacion_nat').on('blur',function(){
     $.ajax({
           data:  {'identificacion':$identificacion},
           dataType: 'json',
-          url:      '/tron/terceros/Buscar_Por_Identificacion/',
+          url:      'terceros/Buscar_Por_Identificacion',
           type:     'post',
      success:  function (respuesta)     {
 
           if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados == 0){
-               window.location.href = "/tron/terceros/modificacion_datos/" + respuesta.idtercero;
+               window.location.href = "/terceros/modificacion_datos/" + respuesta.idtercero;
             }
            if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados > 0){
                 Mensaje_Identificacion_Ya_Existe();
@@ -342,7 +342,7 @@ $('#identificacion').on('blur',function(){
     $.ajax({
           data:  {'identificacion':$identificacion},
           dataType: 'json',
-          url:      '/tron/terceros/Buscar_Por_Identificacion/',
+          url:      'terceros/Buscar_Por_Identificacion',
           type:     'post',
      success:  function (respuesta)   {
           if (respuesta.Respuesta == 'SI_EXISTE'){

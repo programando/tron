@@ -200,7 +200,7 @@ function Imprimir_Totales_Carrito_Header(resultado) 	{
 			}
 
 	  	}
-	   $('.resumen_tron').load('/tron/productos/mostrar_resumen_producto');
+	  $('.resumen_tron').load('../mostrar_resumen_producto');
 	}
 
 
@@ -209,7 +209,7 @@ function Agregar_Producto_Tron_a_Carrito(Parametros)
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
-					url:      '/tron/carrito/Agregar_Producto/',
+					url:      '../../carrito/Agregar_Producto',
 					type:     'post',
      success:  function (resultado)
     	 {
@@ -224,7 +224,7 @@ function Borrar_Producto_de_Carrito(Parametros)
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
-					url:      '/tron/carrito/Borrar_Producto_Carrito/',
+					url:      '../../carrito/Borrar_Producto_Carrito',
 					type:     'post',
      success:  function (resultado)
     	 {
@@ -246,7 +246,7 @@ $('.CantProdCompraTronFragancias ').on('keyup',function(){
 			$Parametros  = {'IdProducto':$IdProducto , 'CantidadComprada':1,'es_tron':$es_tron, 'es_tron_acc':$es_tron_acc};
 
 			// AGREGAR PRODUCTO TRON AL CARRITO
-			Agregar_Producto_Tron_a_Carrito ($Parametros);
+			Agregar_Producto_Tron_a_Carrito ( $Parametros );
 
 
 });

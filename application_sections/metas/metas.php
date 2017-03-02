@@ -56,7 +56,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/slider/1.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/slider/1.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -73,7 +73,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/slider/1.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/slider/1.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
 
   <?php  endif; ?>
@@ -93,7 +93,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/productos/tron_1.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -112,7 +112,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/productos/tron_1.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -131,7 +131,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/productos/tron_1.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -148,7 +148,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/liena_artes_graficas.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/liena_artes_graficas.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -164,7 +164,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_alimentaria.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_alimentaria.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -180,7 +180,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_sanidad.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_sanidad.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -196,7 +196,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_materias_primas.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_materias_primas.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
@@ -214,7 +214,7 @@
     <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
     <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
     <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="http://entreamigosalcanzamos.com/tron/public/images/categorias_index/linea_automotriz.jpg" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_automotriz.jpg" />
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
