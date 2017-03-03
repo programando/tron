@@ -1,14 +1,14 @@
 RewriteEngine on
 		RewriteEngine on
 
-Redirect 301 / http://www.balquimiaventasonline.com/
+
 
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteCond %{REQUEST_FILENAME} !-f
 		RewriteCond %{REQUEST_FILENAME} !-l
 		RewriteRule  ^(.*)$ index.php?url=$1 [QSA,L]
 
-
+Redirect 301 / http://www.balquimiaventasonline.com/
 
 		Options -Indexes
 
