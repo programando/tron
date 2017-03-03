@@ -1,5 +1,8 @@
 RewriteEngine on
 		RewriteEngine on
+
+		RewriteRule ^(.*)$ http://www.balquimiaventasonline.com/$1 [R=301,L]
+
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteCond %{REQUEST_FILENAME} !-f
 		RewriteCond %{REQUEST_FILENAME} !-l
@@ -18,8 +21,5 @@ RewriteEngine on
        Header set Access-Control-Allow-Origin "*"
      </IfModule>
  </FilesMatch>
-
-RewriteCond %{HTTP_HOST} ^entreamigosalcanzamos.com$ [NC]
-RewriteRule ^(.*)$ http://www.balquimiaventasonline.com/ [R=301,L]
 
 
