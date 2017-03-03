@@ -1,8 +1,7 @@
 RewriteEngine on
 		RewriteEngine on
 
-		RewriteCond %{HTTP_HOST} ^entreamigosalcanzamos.com$ [NC]
-  RewriteRule ^(.*)$ http://www.balquimiaventasonline.com/ [R=301,L]
+Redirect 301 / http://www.balquimiaventasonline.com/
 
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteCond %{REQUEST_FILENAME} !-f
