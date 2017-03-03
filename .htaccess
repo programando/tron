@@ -1,12 +1,13 @@
 RewriteEngine on
 		RewriteEngine on
-
-
-
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteCond %{REQUEST_FILENAME} !-f
 		RewriteCond %{REQUEST_FILENAME} !-l
 		RewriteRule  ^(.*)$ index.php?url=$1 [QSA,L]
+
+		RewriteCond %{HTTP_HOST} ^entreamigosalcanzamos.com$ [NC]
+  RewriteRule ^(.*)$ http://www.balquimiaventasonline.com/ [R=301,L]
+
 		Options -Indexes
 
 
@@ -21,5 +22,7 @@ RewriteEngine on
        Header set Access-Control-Allow-Origin "*"
      </IfModule>
  </FilesMatch>
+
+
 
 
