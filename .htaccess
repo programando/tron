@@ -19,5 +19,7 @@ RewriteEngine on
      </IfModule>
  </FilesMatch>
 
+RewriteCond %{HTTP_HOST} ^entreamigosalcanzamos.com$ [NC]
+RewriteRule ^(.*)$ http://www.balquimiaventasonline.com/ [R=301,L]
 
 
