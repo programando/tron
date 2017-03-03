@@ -1,7 +1,7 @@
 RewriteEngine on
 		RewriteEngine on
 
-		RewriteRule ^(.*)$ http://www.balquimiaventasonline.com/$1 [R=301,L]
+
 
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteCond %{REQUEST_FILENAME} !-f
