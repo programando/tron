@@ -1392,8 +1392,11 @@ public function Actualizar_Password()
       public function Consulta_Datos_Por_Email_Registro( $Email ='' ) {
         $Respuesta ='';
 
-        $Email     =  trim(htmlspecialchars( strtolower($Email), ENT_QUOTES));
-        $Es_email =  filter_var($Email , FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $Email );
+        //$Email     =  trim(htmlspecialchars( strtolower($Email), ENT_QUOTES));
+        //$Es_email =  filter_var($Email , FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $Email );
+        //
+        $Email             = General_Functions::Validar_Entrada('email','TEXT');
+        $Es_email          = General_Functions::Validar_Entrada('email','EMAIL');
 
 
         if ($Es_email == FALSE){
@@ -1407,8 +1410,9 @@ public function Actualizar_Password()
           }
         }
 
-        $Respuesta= compact('Respuesta');
-        echo json_encode($Respuesta,256);
+        //$Respuesta= compact('Respuesta');
+        //echo json_encode($Email ,256);
+        echo  $Email ;
       }
 
 

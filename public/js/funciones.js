@@ -72,7 +72,7 @@ var  Funciones = {
             $.ajax({
               data:  {'email':$email},
               dataType: 'json',
-              url:      'Consulta_Datos_Por_Email_Registro'+$email ,
+              url:      '/terceros/Consulta_Datos_Por_Email_Registro/' ,
               type:     'post',
               cache :false,
               success:  function (respuesta) {

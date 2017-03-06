@@ -24,6 +24,7 @@ var Mostrar_Mensajes = function( $Titulo, $Contenido ){
 
 
 var Validacion_Codigo_Tercero_Presenta = function(){
+
 	var $codigoterceropresenta = $('#codigoterceropresenta').val();
 	if ( $codigoterceropresenta =='') {
 		$Seguir = 'CODIGO_EN_BLACO';
@@ -139,6 +140,7 @@ var Validaciones_Registro_Tipo_Empresario = function($idtpidentificacion, $pnomb
 //-------------------------------------------------------------------------------------------------------------------------
 
 $("#codigoterceropresenta").on('blur',function(){
+	$(this).val($(this).val().toUpperCase());
 	Validacion_Codigo_Tercero_Presenta();
 })
 

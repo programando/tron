@@ -394,3 +394,23 @@
 [02-Mar-2017 15:09:08 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
 [02-Mar-2017 15:09:10 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
 [02-Mar-2017 15:09:22 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[06-Mar-2017 14:59:41 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:00:04 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:02:51 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[06-Mar-2017 15:03:13 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:03:20 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 115
+[06-Mar-2017 15:06:55 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:07:30 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[06-Mar-2017 15:09:49 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:11:48 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[06-Mar-2017 15:13:57 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:14:04 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:14:28 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[06-Mar-2017 15:14:31 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 15:14:37 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 17:03:33 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 17:04:02 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 17:10:43 Europe/Berlin] PHP Notice:  Undefined variable: idtipo_plan_compras in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 772
+[06-Mar-2017 17:10:46 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
+[06-Mar-2017 17:10:51 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 115
+[06-Mar-2017 17:11:51 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59

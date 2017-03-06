@@ -11,11 +11,11 @@
             <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
         </a>
 
-<!--
+
          <a href="<?=BASE_URL ;?>terceros/nuevo_usuario" class="aS p10 colorRed dIB">
             <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
         </a>
-  -->
+
 	</div>
     <div class="onlyPCBoo"><br /><br /><br /></div>
 
