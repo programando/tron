@@ -209,7 +209,7 @@ function Agregar_Producto_Tron_a_Carrito(Parametros)
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
-					url:      '../../carrito/Agregar_Producto',
+					url:      '/carrito/Agregar_Producto',
 					type:     'post',
      success:  function (resultado)
     	 {
@@ -224,7 +224,7 @@ function Borrar_Producto_de_Carrito(Parametros)
 		$.ajax({
 					data:  Parametros,
 					dataType: 'json',
-					url:      '../../carrito/Borrar_Producto_Carrito',
+					url:      '/carrito/Borrar_Producto_Carrito',
 					type:     'post',
      success:  function (resultado)
     	 {

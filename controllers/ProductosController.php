@@ -347,7 +347,8 @@ class ProductosController extends Controller
       $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
-      $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));     $this->View->Mostrar_Vista('marcas_y_categorias_individual');
+      $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
+      $this->View->Mostrar_Vista('marcas_y_categorias_individual');
     } // Fin Productos_por_Categoria
 
     public function Productos_por_Categoria(   ) {
