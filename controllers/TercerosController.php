@@ -1394,7 +1394,7 @@ public function Actualizar_Password()
 
         //$Email     =  trim(htmlspecialchars( strtolower($Email), ENT_QUOTES));
         //$Es_email =  filter_var($Email , FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $Email );
-        //
+
         $Email             = General_Functions::Validar_Entrada('email','TEXT');
         $Es_email          = General_Functions::Validar_Entrada('email','EMAIL');
 

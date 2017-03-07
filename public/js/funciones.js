@@ -63,10 +63,11 @@ var  Funciones = {
 
           Terceros_Validar_Email : function ( ){
             $email = $("#email").val();
-            //alert($email  );
+            //
             if ( $email.length == 0 ){
               return ;
             }
+            
             $Texto        = '';
             $Texto.length = 0;
             $.ajax({
@@ -74,9 +75,8 @@ var  Funciones = {
               dataType: 'json',
               url:      '/terceros/Consulta_Datos_Por_Email_Registro/' ,
               type:     'post',
-              cache :false,
               success:  function (respuesta) {
-
+                //alert($email  );
                 if (respuesta.Respuesta == 'EMAIL-NO-OK'){
                   $Texto = 'El correo electrónico  <strong>' + $email + '</strong> tiene un formato no válido. Por favor escríbalo nuevamente.';
                 }
