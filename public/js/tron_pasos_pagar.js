@@ -25,7 +25,7 @@ function Mostrar_Direcciones_Usuario_Seleccionado(Usuario_Seleccionado, Cantidad
   $.ajax({
       data:  Parametros,
       dataType: 'text',
-      url:      'Finalizar_Pedido_Direccion_Cambio_Usuario',
+      url:      '/carrito/Finalizar_Pedido_Direccion_Cambio_Usuario',
       type:     'post',
       success:  function (resultado)
       {
@@ -64,7 +64,7 @@ $('.btn-continuar').on('click',function()
 {
   $.ajax({
       dataType: 'text',
-      url:      'Finalizar_Pedido_Finalizar_Direccion',
+      url:      '/carrito/Finalizar_Pedido_Finalizar_Direccion',
       type:     'post',
       success:  function (resultado) {
         resultado=$.trim(resultado);
@@ -72,7 +72,7 @@ $('.btn-continuar').on('click',function()
           $('.modal-body #texto').html(resultado);
           $('#ventana_error').modal('show');
         }else   {
-           window.location.href = "mostrar_carrito/1";
+           window.location.href = "/carrito/mostrar_carrito/1";
         }
       }
    });
@@ -149,7 +149,7 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
     $.ajax({
       data:  Parametros,
       dataType: 'json',
-      url:      'Finalizar_Pedido_Direccion_Final',
+      url:      '/carrito/Finalizar_Pedido_Direccion_Final',
       type:     'post',
       success:  function (resultado)   {
           //$('#nombre-usuario-pedido').html('El pedido será despachado a nombre de :' + $Nombre_Usuario_Pedido);
@@ -227,7 +227,7 @@ $('#btn-ing-por-amigo').on('click',function(){
       $.ajax({
       data:  $Parametros,
       dataType: 'text',
-      url:      'Terceros_Consultar_Datos_Identificacion_Codigo_Usuario',
+      url:      '/terceros/Terceros_Consultar_Datos_Identificacion_Codigo_Usuario',
       type:     'post',
       success:  function (resultado) {
           $Respuesta = $.trim(resultado);
@@ -244,7 +244,7 @@ $('#btn-ing-por-amigo').on('click',function(){
                   buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-success'}]
                   });
           }else{
-             window.location.href = "mostrar_carrito/1";
+             window.location.href = "/carrito/mostrar_carrito/1";
           }
       }
    });
