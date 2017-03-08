@@ -1410,9 +1410,9 @@ public function Actualizar_Password()
           }
         }
 
-        //$Respuesta= compact('Respuesta');
-        //echo json_encode($Email ,256);
-        echo  $Email ;
+        $Respuesta= compact('Respuesta');
+        echo json_encode($Respuesta ,256);
+
       }
 
 

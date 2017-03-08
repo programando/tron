@@ -1,6 +1,0 @@
-[07-Mar-2017 16:21:17 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
-[07-Mar-2017 16:21:44 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
-[07-Mar-2017 16:41:33 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
-[07-Mar-2017 16:43:05 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
-[07-Mar-2017 16:43:55 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59
-[07-Mar-2017 16:45:55 Europe/Berlin] PHP Notice:  Use of undefined constant DOMINIO - assumed 'DOMINIO' in C:\xampp\htdocs\tron\application_sections\metas\metas.php on line 59

@@ -1,6 +1,11 @@
 <style>
-  .panel-heading {background-color: #003E90!important}
-  .panel-footer  {background-color: #FFFFFF!important}
+  .panel-heading { background-color: #003E90 !important }
+  .panel-footer  { background-color: #FFFFFF !important }
+
+   .modal-header {
+   padding:0px;
+
+}
 
 </style>
 
@@ -167,6 +172,12 @@
               <span class="glyphicon glyphicon-floppy-save"></span>
               Grabar Datos </button>
             </div>
+<div class="text-right">
+            <button type="button" class="btn btn-success btn-md" id="btn-mostrar-modal">
+              <span class="glyphicon glyphicon-floppy-save"></span>
+              Ver Ventana </button>
+            </div>
+
         <div class="text-center" id='img_cargando'>
           <img src="<?= BASE_IMG_EMPRESA ;?>cargando.gif" alt="">
         </div>
@@ -183,3 +194,6 @@
       </div>    <!-- Fin / Col      -->
     </div>      <!-- Fin / Row      -->
   </div>        <!-- Fin / Container      -->
+
+
+<?php include (VENTANAS_MODALES . 'terceros_cambio_status_ventajas_cliente.php');?>

@@ -16,6 +16,13 @@ $("#registro-cliente").prop("checked", true);
 $("#img_cargando").hide();
 $('#digitoverificacion').hide();
 
+
+
+$("#btn-mostrar-modal").on('click',function(){
+ 
+		$("#modal_ventajas_cliente").modal('show');
+})
+
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){
 	$('.modal-header #contenido').html($Titulo);
 	$('.modal-body #contenido').html($Contenido);

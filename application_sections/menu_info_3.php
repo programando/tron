@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <nav>
                     <ul class="nav">
-                    
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/preguntas_frecuentes" class="cP t14">
                                 <div class="tab">
@@ -19,7 +19,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/contactanos" class="cP t14">
                                 <div class="tab">
@@ -28,7 +28,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/garantia_calidad" class="cP t14">
                                 <div class="tab">
@@ -37,7 +37,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="http://www.balquimia.com" target="_blank" class="cP t14">
                                 <div class="tab">
@@ -46,7 +46,7 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/terminos_condiciones" class="cP t14">
                                 <div class="tab">
@@ -63,4 +63,3 @@
         </div>
     </div>
 </div>
-    

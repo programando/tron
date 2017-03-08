@@ -159,9 +159,10 @@ function calcularAlturas(){
 
 		$(window).scroll( function () {
 			var scrollTop     = $(window).scrollTop(),
-			elementOffset = $('.felipeCalcula').offset().top,
-			distance      = (elementOffset - scrollTop);
+			//elementOffset = $('.felipeCalcula').offset().top,
+			//distance      = (elementOffset - scrollTop);
 
+			distance      = (800 - scrollTop);
 			//$('.reerr').html(distance);
 
 			var altuus = 300;

@@ -18,7 +18,7 @@ var  Funciones = {
       $.ajax({
         data:  {'identificacion':$identificacion},
         dataType: 'json',
-        url:      'Buscar_Por_Identificacion',
+        url:      '/terceros/Buscar_Por_Identificacion',
         type:     'post',
         success:  function (respuesta)     {
           if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados == 0){
@@ -34,12 +34,13 @@ var  Funciones = {
         },//    Buscar_Por_Identificacion
 
         Terceros_Grabar_Datos_Registro : function( $Parametros ) {
-              //var $Texto = '';
+               
+                
               var $img_cargando        = $('#img_cargando');
               $.ajax({
                 data:  $Parametros,
                 dataType: 'json',
-                url:      'Registro_Nuevo_Usuario',
+                url:      '/terceros/Registro_Nuevo_Usuario',
                 type:     'post',
                 success:  function (resultado) {
 
@@ -58,6 +59,7 @@ var  Funciones = {
                            Funciones.Mostrar_Mensajes('Información del Sistema',  xhr.responseText );
                          }
                        });
+
           },//    Terceros_Grabar_Datos_Registro
 
 
@@ -67,7 +69,7 @@ var  Funciones = {
             if ( $email.length == 0 ){
               return ;
             }
-            
+
             $Texto        = '';
             $Texto.length = 0;
             $.ajax({
