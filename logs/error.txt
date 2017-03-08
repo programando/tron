@@ -1,0 +1,5 @@
+[08-Mar-2017 16:23:24 Europe/Berlin] PHP Warning:  Missing argument 1 for ProductosController::Vista_Ampliada() in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 237
+[08-Mar-2017 16:23:24 Europe/Berlin] PHP Warning:  Missing argument 2 for ProductosController::Vista_Ampliada() in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 237
+[08-Mar-2017 16:23:24 Europe/Berlin] PHP Notice:  Undefined variable: Id_Area_Consulta in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 249
+[08-Mar-2017 16:23:24 Europe/Berlin] PHP Notice:  Undefined variable: Idproducto in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 250
+[08-Mar-2017 16:23:24 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32

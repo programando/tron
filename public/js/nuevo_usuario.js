@@ -20,7 +20,7 @@ $('#digitoverificacion').hide();
 
 $("#btn-mostrar-modal").on('click',function(){
  
-		$("#modal_ventajas_cliente").modal('show');
+		$("#modal-registro-empresario").modal('show');
 })
 
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){
