@@ -775,7 +775,7 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
      }
     }
 
-    if ( $idtpidentificacion != '31'  && $genero =='0')  {
+    if ( $idtpidentificacion != '31'  && $genero =='-1')  {
        $Texto_Respuesta ='<strong>Es necesario que registre el género.<br><br>';
     }
 
@@ -924,9 +924,13 @@ public function Registro_Nuevo_Usuario() {
            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
            $_SESSION['logueado'] = TRUE;
            Session::Set('logueado', TRUE);
+
+           if ( $idtipo_plan_compras == 3 ) {
+             $this->Correos->Informar_Codigo_Empresario( $email, $this->codigo_usuario_generado);
+           }
         }
 
-        $Datos = compact('Texto_Respuesta' );
+        $Datos = compact('Texto_Respuesta','idtipo_plan_compras' );
         echo json_encode($Datos,256);
 
     }

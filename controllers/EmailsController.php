@@ -288,6 +288,30 @@
       }
 
 
+      public function Informar_Codigo_Empresario($email, $codigousuario ){
+         $this->Configurar_Cuenta('Registro Nuevo Empresario');
+         $this->Email->AddAddress($email );
+         $logo                = BASE_IMG_EMPRESA .'logo.png';
+
+            $codigo_generado = 'Para que lo tengas en cuenta, tu código de usuario es : <strong>'. $codigousuario .'</strong><br />';
+            $codigo_generado = $codigo_generado . 'Este será el código que entregarás a tus amigos para que al registrarse queden bajo tu red.';
+
+         $Saludo  = 'Te damos una cordial bienvenida !!!';
+
+
+
+         $Texto_Correo      = file_get_contents(BASE_EMAILS.'nuevo_empresario.phtml','r');
+         $Texto_Correo      = str_replace("#_SALUDO_#"                  , $Saludo            ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_LOGO_#"                    , $logo              ,$Texto_Correo);
+         $Texto_Correo      = str_replace("#_CODIGO_GENERADO_#"         , $codigo_generado   ,$Texto_Correo);
+         $this->Email->Body =  $this->Unir_Partes_Correo ($Texto_Correo);
+
+         $Respuesta         = $this->Enviar_Correo();
+
+         return $Respuesta;
+      }
+
+
 
     public function Configurar_Cuenta( $asunto ) {
 

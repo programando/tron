@@ -18,10 +18,7 @@ $('#digitoverificacion').hide();
 
 
 
-$("#btn-mostrar-modal").on('click',function(){
- 
-		$("#modal-registro-empresario").modal('show');
-})
+
 
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){
 	$('.modal-header #contenido').html($Titulo);
@@ -145,6 +142,11 @@ var Validaciones_Registro_Tipo_Empresario = function($idtpidentificacion, $pnomb
 
 
 //-------------------------------------------------------------------------------------------------------------------------
+
+$("#ir-inicio").on('click', function(){
+				window.location.href = "/Index";
+})
+
 
 $("#codigoterceropresenta").on('blur',function(){
 	$(this).val($(this).val().toUpperCase());

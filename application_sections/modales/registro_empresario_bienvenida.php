@@ -28,15 +28,13 @@
           <h5>
 
             <p>
-              Tu registro como <strong>EMPRESARIO</strong> se ha llevado a cabo con éxito.<br>
-              para que este registro quede en firme debes efectuar una compra por valor de $ 120.000 en productos
-              <strong>TRON</strong> (antes de transporte )…los encontrará en la siguientes sección.
+              Tu registro como <strong>EMPRESARIO</strong> EMPRESARIO ha sido exitoso!<br> Para que este registro quede en firme debes efectuar una compra por valor de <strong>$120.000</strong> en productos <strong>TRON</strong> ( antes de transporte )…los encontrará en las siguientes secciones.
             </p>
-            <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.png" />
+            <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.jpg" />
           </h5>
           <br>
           <p>
-            Hemos enviado un correo a la cuenta registrada con tu código de usuario, el cual debes usar cuando presentes un amigo a la RED así ese amigo queda relacionado contigo, recuerda empiezas a ganar cuando hayas presentado 2 Empresarios y más aún, cuando presentes 4, porque….Entre Amigos Alcanzamos.
+           A la cuenta de correo electrónico que registraste llegará tu código de usuario, el cual debes usar cuando presentes un amigo a la RED, de esta manera tu amigo quedará relacionado contigo. Recuerda empiezas a ganar cuando hayas presentado 2 Empresarios y más aún cuando presentes 4, porque… Entre Amigos Alcanzamos.
           </p>
 
         </div>
@@ -45,8 +43,7 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true" id="ir-inicio">Ir a la tienda</button>
-
+    <a type="button" class="btn btn-success" href="<?=BASE_URL ;?>">Ir a la tienda</a>
   </div>
 
 </div>

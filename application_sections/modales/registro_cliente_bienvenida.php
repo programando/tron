@@ -29,17 +29,17 @@
 
             <p>
 
-              Tu registro como <strong>CLIENTE</strong> se ha llevado a cabo con éxito.<br>
-              como ha podido observar nuestros productos tienen 2 precios, el de color negro corresponde a los precios normales del mercado, el precio en rojo y las ofertas son para quienes en ese mes compren productos <strong>TRON.</strong>
+              Tu registro como <strong>CLIENTE</strong> ha sido exitoso!<br>
+               Como has podido observar nuestros productos tienen 2 precios: el de color negro corresponde a los precios normales del mercado, el precio en rojo y las ofertas son para quienes en ese mes compren productos <strong>TRON</strong>.
 
             </p>
-            <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente.png" />
+            <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente.jpg" />
           </h5>
           <br>
           <p>
             Con sólo agregar a tu compra <strong> <?= Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_tron')) ;?> </strong>de productos <strong>TRON</strong> tendrás acceso a las ofertas y precios especiales… los encontrará en las siguientes secciónes...
           </p>
-          <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.png" />
+          <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.jpg" />
 
 
         </div>
@@ -48,8 +48,7 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true" id="ir-inicio">Ir a la tienda</button>
-
+    <a type="button" class="btn btn-success" href="<?=BASE_URL ;?>">Ir a la tienda</a>
   </div>
 
 </div>

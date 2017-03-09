@@ -34,8 +34,7 @@ var  Funciones = {
         },//    Buscar_Por_Identificacion
 
         Terceros_Grabar_Datos_Registro : function( $Parametros ) {
-               
-                
+
               var $img_cargando        = $('#img_cargando');
               $.ajax({
                 data:  $Parametros,
@@ -44,8 +43,15 @@ var  Funciones = {
                 type:     'post',
                 success:  function (resultado) {
 
-                  $('#btn-grabar-datos').hide();
-                  $('#alert-datos-grabados').show();
+                  if ( resultado.idtipo_plan_compras == '2' ) {
+                      $("#modal-registro-cliente").modal('show');
+                    }
+
+                  if ( resultado.idtipo_plan_compras == '3' ) {
+                      $("#modal-registro-empresario").modal('show');
+                    }
+
+
 
                 },
                 beforeSend: function(){
