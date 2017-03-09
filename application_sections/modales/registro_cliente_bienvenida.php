@@ -30,7 +30,7 @@
             <p>
 
               Tu registro como <strong>CLIENTE</strong> ha sido exitoso!<br>
-               Como has podido observar nuestros productos tienen 2 precios: el de color negro corresponde a los precios normales del mercado, el precio en rojo y las ofertas son para quienes en ese mes compren productos <strong>TRON</strong>.
+               Como has podido observar nuestros productos tienen 2 precios: el de color negro corresponde a los precios normales del mercado, el precio en rojo y las ofertas son para quienes en ese mes compren productos <strong>TRON</strong>. <br>
 
             </p>
             <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente.jpg" />

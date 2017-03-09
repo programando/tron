@@ -28,7 +28,7 @@
           <h5>
 
             <p>
-              Tu registro como <strong>EMPRESARIO</strong> EMPRESARIO ha sido exitoso!<br> Para que este registro quede en firme debes efectuar una compra por valor de <strong>$120.000</strong> en productos <strong>TRON</strong> ( antes de transporte )…los encontrará en las siguientes secciones.
+              Tu registro como <strong>EMPRESARIO</strong> EMPRESARIO ha sido exitoso!<br> Para que este registro quede en firme debes efectuar una compra por valor de <strong>$120.000</strong> en productos <strong>TRON</strong> ( antes de transporte )…los encontrará en las siguientes secciones. <br>
             </p>
             <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.jpg" />
           </h5>
