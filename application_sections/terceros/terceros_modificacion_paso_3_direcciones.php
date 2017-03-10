@@ -79,12 +79,6 @@
 
 
 
-<!--
-  <a iddirecciondespacho="0" class="btn-editar-direccion" href="#venta_editar">... o cree una nueva dirección</a>
-    <td contenteditable="true" onBlur="saveToDatabase(this,'question','<?php echo $faq[$k]["id"]; ?>')" onClick="showEdit(this);"><?php echo $faq[$k]["question"]; ?></td>
-    <td contenteditable="true" onBlur="saveToDatabase(this,'answer','<?php echo $faq[$k]["id"]; ?>')" onClick="showEdit(this);"><?php echo $faq[$k]["answer"]; ?></td>
- -->
-
 
 
 

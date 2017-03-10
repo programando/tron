@@ -1,5 +1,5 @@
 
-var $Seguir                  ='NO';
+var $Seguir                  ='SI';
 var $es_cliente              = false ;
 var $es_empresario           = false ;
 
@@ -42,15 +42,19 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 			success:  function (resultado)	 {
 
 				if ( resultado.Respuesta == 'CODIGO_NO_HABILITADO' )	{
+					$("#codigoterceropresenta").val('');
 					Mostrar_Mensajes ('Error en el Registro','El código : <h4>' + $codigoterceropresenta + '</h4> no se encuentra habilitado en nuestro sistema de información.');
 				}
 				if ( resultado.Respuesta == 'CODIGO_NO_EMPRESARIO' )	{
+						$("#codigoterceropresenta").val('');
 					Mostrar_Mensajes ('Error en el Registro','El código : <h4>' + $codigoterceropresenta + '</h4> no pertenece a un empresario.');
 				}
 				if ( resultado.Respuesta == 'CODIGO_INACTIVO' )						{
+					$("#codigoterceropresenta").val('');
 					Mostrar_Mensajes ('Error en el Registro','El código : <h4>' + $codigoterceropresenta + '</h4> no se encuentra activo en nuestro sistema de información o se encuentra desabilitado.');
 				}
 				if ( resultado.Respuesta == 'CODIGO_NO_EXISTE' )					{
+					$("#codigoterceropresenta").val('');
 					Mostrar_Mensajes ('Error en el Registro','El código : <h4>' + $codigoterceropresenta + '</h4> no existe en nuestro sistema de información o se encuentra desabilitado.');
 				}
 
@@ -76,12 +80,13 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 var Validaciones_Eleccion_Plan_Registro = function(){
 	var $es_cliente       =  $("#form-registro input[name=registro-cliente]:radio").is(':checked');
 	var $es_empresario    =  $("#form-registro input[name=registro-empresario]:radio").is(':checked');
-	if ( $es_cliente == false && $es_empresario  == false ) {
+  $Seguir                  = 'SI';
+	if ( ( $es_cliente == false) && ( $es_empresario  == false) ) {
 		$Seguir                  = 'NO';
 	}
-	if ( $es_cliente 			== true ) {	idtipo_plan_compras = 2 ; }
-	if ( $es_empresario == true ) {	idtipo_plan_compras = 3 ; }
 
+	if ( $es_cliente 			== true ) {	idtipo_plan_compras = 2 ; }
+	if ( $es_empresario   == true )   {	idtipo_plan_compras = 3 ; }
 }
 
 
@@ -107,7 +112,6 @@ var Validaciones_Email_Password = function(){
 	}else{
 		$Seguir                  = 'SI';
 	}
-
 }
 
 var Validaciones_Registro_Tipo_Cliente = function($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial  ){
@@ -233,9 +237,10 @@ $('#btn-grabar-datos').on('click',function(){
 								 'papellido':$papellido, 'genero':$genero,'dianacimiento':$dianacimiento,'mesnacimiento':$mesnacimiento,
 								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta    };
 
-
+/*
 	Validacion_Codigo_Tercero_Presenta();
 	if ( $Seguir == 'NO'){  return ; }
+	*/
 
     Validaciones_Eleccion_Plan_Registro();
     	if ( $Seguir == 'NO'){

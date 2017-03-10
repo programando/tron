@@ -29,16 +29,17 @@
 
             <p>
 
-              Tu registro como <strong>CLIENTE</strong> ha sido exitoso!<br>
-               Como has podido observar nuestros productos tienen 2 precios: el de color negro corresponde a los precios normales del mercado, el precio en rojo y las ofertas son para quienes en ese mes compren productos <strong>TRON</strong>. <br>
+              Tu registro como <strong>CLIENTE</strong> ha sido exitoso! Como has podido observar nuestros productos tienen 2 precios: el de color negro corresponde a los precios normales del mercado, el precio en rojo y las ofertas son para quienes en ese mes compren productos <strong>TRON</strong>. <br> <br>
 
             </p>
             <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente.jpg" />
           </h5>
           <br>
+           <br>
           <p>
             Con sólo agregar a tu compra <strong> <?= Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_tron')) ;?> </strong>de productos <strong>TRON</strong> tendrás acceso a las ofertas y precios especiales… los encontrará en las siguientes secciónes...
           </p>
+           <br>
           <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.jpg" />
 
 

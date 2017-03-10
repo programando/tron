@@ -1,21 +1,28 @@
 <!-- MARZO 03 DE 2015
-CONTENIDO DINÁMICO VIA AJAX DEL USUARIO SELECCIONADO -->
+    CONTENIDO DINÁMICO VIA AJAX DEL USUARIO SELECCIONADO -->
+    <?php 
+    $CantidadDirecciones = Session::Get('cantidad_direcciones') ;
+    ?>
 
-<div class="fila-direcciones" style="width:100%;"><!-- Direccion -->
+    <div class="fila-direcciones" style="width:100%;"><!-- Direccion -->
 
-    <span>Seleccione la dirección a donde será enviado el pedido. </span>
-
-    <?php if (Session::Get('cantidad_direcciones') < 3)  :;?>
-        <span>
-            <a href="#venta_editar" class="btn-editar-direccion" iddirecciondespacho="0">... o cree una nueva dirección</a>
-        </span>
-    <?php
-        endif;
+        <?php if  ( $CantidadDirecciones == 0 ) :?>
+          <div >
+            <a type="button" class="btn btn-success btn-editar-direccion" href="<?=BASE_URL ;?>">Crear direeción para despacho de mi pedido</a>
+        </div>
+    <?php else :?>
+     <span>Seleccione la dirección a donde será enviado el pedido. </span>
+        <?php if ( $CantidadDirecciones < 3)  :;?>
+            <span>
+                <a href="#venta_editar" class="btn-editar-direccion" iddirecciondespacho="0">... o cree una nueva dirección</a>
+            </span>
+        <?php  endif;
         echo "<br /><br />";
         $I = 0;
         foreach($this->Direcciones as $Direccion) {
             include (APPLICATION_CODS.'campos_direccion_usuario.php'); // Carga las variables direcciones
             include (APPLICATION_SECTIONS.'carrito_crear_editar_direccion_datos.php');
         }
-    ?>
+        ?>
+    <?php endif ;?>
 </div>

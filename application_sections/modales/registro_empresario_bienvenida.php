@@ -28,10 +28,12 @@
           <h5>
 
             <p>
-              Tu registro como <strong>EMPRESARIO</strong> EMPRESARIO ha sido exitoso!<br> Para que este registro quede en firme debes efectuar una compra por valor de <strong>$120.000</strong> en productos <strong>TRON</strong> ( antes de transporte )…los encontrará en las siguientes secciones. <br>
+              Tu registro como <strong>EMPRESARIO</strong> ha sido exitoso! Para que este registro quede en firme debes efectuar una compra por valor de <strong>$120.000</strong> en productos <strong>TRON</strong> ( antes de transporte )…los encontrará en las siguientes secciones. <br><br>
+
             </p>
             <img   src="<?= BASE_IMG_EMPRESA ; ?>registro-cliente-prod-tron.jpg" />
           </h5>
+          <br>
           <br>
           <p>
            A la cuenta de correo electrónico que registraste llegará tu código de usuario, el cual debes usar cuando presentes un amigo a la RED, de esta manera tu amigo quedará relacionado contigo. Recuerda empiezas a ganar cuando hayas presentado 2 Empresarios y más aún cuando presentes 4, porque… Entre Amigos Alcanzamos.
