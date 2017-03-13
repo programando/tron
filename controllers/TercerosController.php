@@ -17,12 +17,26 @@ class TercerosController extends Controller {
   }
 
 
+ public  function  Buscar_datos_x_Idtercero_Presenta( $IdTercero = 0 ){
+    $Tercero = $this->Terceros->Consulta_Datos_x_Idtercero ( $IdTercero ) ;
+    Session::Set('idtercero_presenta'     , $Tercero[0]['idtercero'] );
+    Session::Set('codigoterceropresenta'  , $Tercero[0]['codigousuario']) ;
+    Session::Set('email_anterior'         , $Tercero[0]['email'] ) ;
+ }
 
   public function nuevo_usuario(){
     $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
     $this->View->SetJs(array('nuevo_usuario'));
     $this->View->Mostrar_Vista("nuevo_usuario");
   }
+
+    public function nuevo_usuario_modificacion_datos( $IdTercero ){
+      $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
+      $Tercero =  $this->Terceros->Consulta_Datos_x_Idtercero ( $IdTercero ) ;
+      $this->View->SetJs(array('nuevo_usuario'));
+      $this->View->Mostrar_Vista("nuevo_usuario_modificacion_datos");
+  }
+
 
   public function Index() { }
 
@@ -53,11 +67,12 @@ class TercerosController extends Controller {
 }
 
 public function referidos( $idterero = 0, $codigousuario = '' ){
-  Session::Set('idtercero_presenta',0);
-  Session::Set('codigousuario','');
+        Session::Set('idtercero_presenta',0);
+        Session::Set('codigousuario','');
 
-  Session::Set('idtercero_presenta' , $idterero);
-        Session::Set('codigousuario'     , $codigousuario);   // Código del usario que presenta en en la red
+        Session::Set('idtercero_presenta'    , $idterero);
+        Session::Set('codigousuario'         , $codigousuario);   // Código del usario que presenta en en la red
+        Session::Set('codigoterceropresenta' , $codigousuario);
         header('Location: ' . BASE_URL );
       }
 
@@ -72,8 +87,9 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
           Session::Set('idtercero_presenta',0);
           Session::Set('codigousuario','');
           if ( $idterceropresenta > 0){
-            Session::Set('idtercero_presenta',$idterceropresenta);
-            Session::Set('codigousuario',$codigousuario_presenta);
+            Session::Set('idtercero_presenta'    , $idterceropresenta);
+            Session::Set('codigousuario'         , $codigousuario_presenta);
+            Session::Set('codigoterceropresenta' , $codigousuario_presenta );
           }
           header('Location: ' . BASE_URL );
         }
@@ -1052,7 +1068,7 @@ public function Registro_Nuevo_Usuario() {
           *         INSERTA O ACTUALIZA UNA DIRECCIÓN DE DESPACHO PARA UN TERCERO
           */
       $iddireccion_despacho = General_Functions::Validar_Entrada('iddireccion_despacho','NUM');
-      $idtercero =  General_Functions::Validar_Entrada('idtercero','NUM');
+      $idtercero            =  General_Functions::Validar_Entrada('idtercero','NUM');
       if ( !isset($idtercero) || $idtercero == 0){
        $idtercero            = Session::Get('idtercero_pedido');
      }
@@ -1104,6 +1120,8 @@ public function Registro_Nuevo_Usuario() {
   public function Direcciones_Despacho()
   {
     $this->Direcciones = $this->Terceros->Direcciones_Despacho();
+    $cantidad_direcciones = count($this->Direcciones);
+    Session::Set('cantidad_direcciones', $cantidad_direcciones);
     return $this->Direcciones;
   }
 
@@ -1449,9 +1467,9 @@ public function Actualizar_Password()
     }else{
       $Respuesta ='SI_EXISTE';
       $cant_pedidos_facturados = $Tercero[0]['cant_pedidos_facturados'];
-      $idtercero             = $Tercero[0]['idtercero'];
+      $idtercero               = $Tercero[0]['idtercero'];
     }
-    $Datos = compact('Respuesta','cant_pedidos_facturados','idtercero' );
+    $Datos = compact('Respuesta','cant_pedidos_facturados','idtercero' ,'identificacion');
     echo json_encode($Datos ,256);
   }
 
@@ -1459,11 +1477,6 @@ public function Actualizar_Password()
   public function Compresion_Dinamica (){
    $this->Terceros->Compresion_Dinamica ();
  }
-
-
-
-
-
 
 }
 ?>

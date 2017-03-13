@@ -17,6 +17,7 @@ class ProductosController extends Controller
         $this->Marcas             = $this->Load_Model('Marcas');
         $this->Escalas            = $this->Load_Controller('ProductosEscalas');
         $this->Email              = $this->Load_Controller('Emails');
+        $this->Terceros           = $this->Load_Controller('Terceros');
         $this->Paginador          = $this->Load_External_Library('paginador');
         $this->Paginador          = new Paginador();
     }
@@ -237,13 +238,11 @@ class ProductosController extends Controller
     public function Vista_Ampliada($Idproducto , $Id_Area_Consulta,$reasigna_valores = 0, $idterceropresenta=0, $codigousuario_presenta='') {
      /** DIC 31 DE 2014
      *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
+     *  JUANBAUTISTA
      */
       if( $reasigna_valores == TRUE){
-          Session::Set('idtercero_presenta',0);
-          Session::Set('codigousuario','');
           if ( $idterceropresenta > 0){
-              Session::Set('idtercero_presenta',$idterceropresenta);
-              Session::Set('codigousuario',$codigousuario_presenta);
+              $this->Terceros->Buscar_datos_x_Idtercero_Presenta( $idterceropresenta );
             }
         }
       Session::Set('Id_Area_Consulta',$Id_Area_Consulta) ; // 2, Corresponde a productos de la linea hogar

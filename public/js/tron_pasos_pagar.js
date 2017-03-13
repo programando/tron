@@ -38,6 +38,7 @@ function Mostrar_Direcciones_Usuario_Seleccionado(Usuario_Seleccionado, Cantidad
 
 function Direccion_Usuario_Grabar(Parametros)
 {
+  console.log( Parametros );
   $.ajax({
       data:  Parametros,
       dataType: 'json',
@@ -47,7 +48,8 @@ function Direccion_Usuario_Grabar(Parametros)
       {
           if (server.Respuesta=='OK') {
             $('#venta_editar').modal('hide');
-            $('.fila-direcciones').load('Finalizar_Pedido_Direccion_Mostrar_Direcciones');
+            //$('.fila-direcciones').load('Finalizar_Pedido_Direccion_Mostrar_Direcciones'); 
+             window.location.href = "/carrito/finalizar_pedido_identificacion";
             return false;
           }else{
               new Messi(server.Respuesta,
@@ -90,13 +92,19 @@ $('.fila-direcciones').on('click','.crear-direccion',function(e){
   });
 
 $('#btn-direccion-grabar').on('click',function(){
-
    var $iddireccion_despacho = $iddireccion_despacho_seleccionada;
+
+  if (typeof $iddireccion_despacho_seleccionada === "undefined" ) { 
+    $iddireccion_despacho_seleccionada = 0;
+    }
+ 
+
    var $idmcipio             = $('#idmcipio').val();
    var $direccion            = $('#direccion').val();
    var $telefono             = $('#telefono').val();
    var $barrio               = $('#barrio').val();
    var $destinatario         = $('#destinatario').val();
+
    var $Parametros = {'iddireccion_despacho':$iddireccion_despacho,'destinatario':$destinatario, 'idmcipio':$idmcipio,
                      'direccion':$direccion , 'telefono':$telefono, 'barrio':$barrio,'destinatario':$destinatario   };
 
@@ -105,9 +113,13 @@ $('#btn-direccion-grabar').on('click',function(){
 
 //Administración de la venta editar / crear dirección
 $('.fila-direcciones').on('click','.btn-editar-direccion',function(e){
+
   e.preventDefault();
   var $IdDireccion_Despacho = $(this).attr('iddirecciondespacho');
   $iddireccion_despacho_seleccionada = $IdDireccion_Despacho;
+  if ( typeof $iddireccion_despacho_seleccionada === 'undefined' ) { 
+    $iddireccion_despacho_seleccionada = 0;
+    }
   var $destinatario         = $(this).attr('destinatario');
   var $iddpto               = $(this).attr('iddpto');
   var $idmcipio             = $(this).attr('idmcipio');

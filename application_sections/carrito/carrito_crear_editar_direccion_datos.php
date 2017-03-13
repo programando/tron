@@ -1,10 +1,10 @@
 <label for="direccion<?= $I ;?>" class="direccion1" id="label<?= $I ;?>">
-	
+
     <div class="cont-direccion"><!-- Direccion  1 -->
 
 		<div class="tabAll">
-    	
-    		<div class="tabIn p5">    
+
+    		<div class="tabIn p5">
                 <input type="radio" name="direccion-usuario" id="direccion<?= $I ;?>"
                     class                 ="input-checkbox-direccion"
                     iddirecciondespacho   = <?= $IdDireccion_Depacho ;?>
@@ -18,7 +18,7 @@
                     codigousuario         = <?= "'".$CodigoUsuario."'"   ;?>
                 />
         	</div>
-            <div class="tabIn ff1 p20"> 
+            <div class="tabIn ff1 p20">
             	<div class="t12"><?= $Destinatario ;?></div>
                 <strong><?= $Destino  ;?></strong>
 				<div><?= $Barrio  . " / " . $NomMcipio  . " / " . $NomDpto ;?></div>
@@ -40,9 +40,9 @@
                     <img src="<?= BASE_IMG_TIENDA ;?>editar.png" width="48" title="Editar Dirección" />
                 </a>
             </div>
-    	
+
     	</div>
-    
+
 	</div><!-- Direccion  1 -->
 
 </label>

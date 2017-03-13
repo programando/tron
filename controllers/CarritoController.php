@@ -173,7 +173,7 @@ class CarritoController extends Controller{
       $Cumple_Condicion_Cpras_Tron_Industial  = Session::Get('cumple_condicion_cpras_tron_industial');
 
       $Texto_Resultado                        = 'Siguente_Paso_OK';
-      $Texto_Error                            = 'Debes seleccionar uno de los usuarios y la dirección a donde enviarás el pedido para poder continuar...';
+      $Texto_Error                            = 'Debes la dirección a donde enviarás el pedido para poder continuar...';
 
 
       $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $iddireccion_despacho );

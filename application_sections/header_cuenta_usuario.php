@@ -43,11 +43,13 @@
                             <span class="glyphicon glyphicon-user"></span> &nbsp; Mi Cuenta
                         </a>
                     </li>
-                    <li role="presentation">
-                        <a href="<?= BASE_URL ;?>terceros/registro/1" role="menuitem" tabindex="-1">
-                            <span class="registrar_amigo"></span> &nbsp; Registrar Amigo bajo mi código
-                        </a>
-                    </li>
+                    <?php if ( Session::Get('idtipo_plan_compras') == 3 ) :?>
+                        <li role="presentation">
+                            <a href="<?= BASE_URL ;?>terceros/registro/1" role="menuitem" tabindex="-1">
+                                <span class="registrar_amigo"></span> &nbsp; Registrar Amigo bajo mi código
+                            </a>
+                        </li>
+                     <?php endif; ?>
                 <?php endif; ?>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation">

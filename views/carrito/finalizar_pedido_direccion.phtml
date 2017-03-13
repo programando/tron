@@ -1,4 +1,8 @@
 <!-- Los Estilos css Se encuentran en CSS => tron_carrito_confi_envio.css -->
+<?php
+    $CantidadDirecciones = Session::Get('cantidad_direcciones') ;
+
+ ?>
 
 <div class="ionix"><!-- Contenedor principal -->
 	<div class="general pAA30">
@@ -21,17 +25,14 @@
 
   			<?php include(APPLICATION_SECTIONS .'barra_usuraios.php') ;?>
 
-			<hr />
+<br/>
 
 			<!-- Formulario -->
 
             <!-- Direccion -->
 			<?php include "views/carrito/finalizar_pedido_direccion_usuario.phtml"; ?>
 
-			<br /><br />
-    		<center><button type="button" class="btn-continuar btn btn-danger">Continuar</button></center>
-
-			<?php include (APPLICATION_SECTIONS . 'carrito_crear_editar_direccion.php');?>
+			<?php include (APPLICATION_SECTIONS . '/carrito/carrito_crear_editar_direccion.php');?>
             <?php include (APPLICATION_SECTIONS . 'ventana_mensaje_error.php');?>
 
             <br /><br /><br />

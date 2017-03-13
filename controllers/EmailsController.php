@@ -186,11 +186,12 @@
           $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
           if ( $_SESSION['logueado'] == TRUE ) {
             $idtercero_presenta     = Session::Get('idtercero');
-            $codigousuario_presenta = Session::Get('codigousuario');
+            $codigousuario_presenta =  Session::Get('codigousuario') ;
             $Url_Imagen        = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/1/$idtercero_presenta/$codigousuario_presenta/";
           }else{
             $Url_Imagen       = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/";
           }
+
 
           $codigo_confirmacion = General_Functions::Generar_Codigo_Confirmacion();
 
