@@ -8,6 +8,17 @@
 				}
 
 
+
+				public function Actualizar_Registro_Basico_Usuario ( $params=array() ){
+						extract($params);
+
+						$SQL = "$idtercero,$idtipo_plan_compras,$idtpidentificacion,'$identificacion','$pnombre','$papellido','$razonsocial'," ;
+						$SQL = $SQL."'$genero', '$mesnacimiento','$dianacimiento','$email','$passwordusuario'    ";
+						$Registro    =  $this->Db->Ejecutar_Sp("terceros_actualizar_datos_basicos(".$SQL.")");
+				}
+
+
+
 				public function Recomendacion_Amigo_Producto_Grabar($nombre, $email, $idproducto, $idconfirmacion){
 					/** SEPTIEMBRE 13 DE 2015
 					 * 		ALMACENA INFORMACIÓN DE LA PERSONA A LA QUE SE RECOMIENDA PRODUCTOS

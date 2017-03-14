@@ -48,6 +48,7 @@ class IndexController extends Controller
         if ( !isset( $_SESSION['logueado'] )){
             $_SESSION['logueado'] = FALSE;
             Session::Set('idtipo_plan_compras',1);
+            Session::Set('logueado', FALSE ) ;
         }
 
 
@@ -167,6 +168,7 @@ public function Parametros_Iniciales(){
                 Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
                 Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
                 Session::Iniciar_Variable('mostrar_modal_vacaciones'                , TRUE) ;
+                
 
                 Session::Set('Consultar_Parametros_Iniciales', FALSE ) ;
             }

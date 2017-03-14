@@ -1,3 +1,0 @@
-[13-Mar-2017 17:17:08 Europe/Berlin] PHP Warning:  Missing argument 1 for TercerosController::nuevo_usuario_modificacion_datos() in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 32
-[13-Mar-2017 17:17:08 Europe/Berlin] PHP Notice:  Undefined variable: IdTercero in C:\xampp\htdocs\tron\controllers\TercerosController.php on line 34
-[13-Mar-2017 17:17:08 Europe/Berlin] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32

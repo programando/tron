@@ -7,9 +7,15 @@
 
 </style>
 
-<?php
-   $codigoterceropresenta = Session::Get('codigoterceropresenta');
-?>
+
+ <?php if ( $this->EXISTE == FALSE ) :?>
+
+  <div class="text-center">
+    <br> <br> <br> <h2>
+        EL REGISTRO NO SE ENCUENTRA ALMACENADO EN NUESTRO SISTEMA DE INFORMACIÓN
+    </h2><br><br><br><br><br><br><br>
+  </div>
+<?php else :?>
 
 
 <div class="container .content-nuevo-registro">
@@ -22,37 +28,38 @@
 
          <form class="form-horizontal" role="form" id="form-registro">
 
-            <?php if ( !isset( $codigoterceropresenta )  ) :?>
-                <div class="form-group">
-                  <label for="codigoterceropresenta" class="col-lg-4 control-label ">Código de quien te presenta :</label>
-                  <div class="col-lg-8">
-                    <input type="text" class="form-control" id="codigoterceropresenta" placeholder="Deja en blanco si nadie te presenta">
-                  </div>
-                </div>
-            <?php endif ;?>
 
-            <?php if ( strlen( $codigoterceropresenta ) > 0  ) :?>
                 <div class="form-group" style="display:none">
                   <label for="codigoterceropresenta" class="col-lg-4 control-label ">Código de quien te presenta :</label>
                   <div class="col-lg-8">
-                    <input type="text" class="form-control" id="codigoterceropresenta" value="<?=$codigoterceropresenta ;?>" disabled="disabled">
+                    <input type="text"  class="form-control" id="codigoterceropresenta" value="<?=$this->codigoterceropresenta ;?>" disabled="disabled">
                   </div>
                 </div>
-            <?php endif ;?>
-
-
+                <div class="alert alert-success alert-dismissable text-center">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                   <strong> Estos son los datos que registraste. Ahora podrás modificarlos.</strong>
+                </div>
 
             <div class="form-group">
               <label  class="col-lg-4 control-label">Quiero registrame como :</label>
               <div class="col-lg-8">
 
                 <label class="radio-inline">
-                  <input type="radio" name="registro-cliente" id="registro-cliente" checked="checked" >Cliente
+                  <?php   if ( $this->idtipo_plan_compras == 2 ) :?>
+                    <input type="radio" name="registro-cliente" id="registro-cliente" checked="checked" >Cliente
+                  <?php else :?>
+                    <input type="radio" name="registro-cliente" id="registro-cliente" >Cliente
+                  <?php endif ;?>
                 </label>
 
                 <label class="radio-inline">
-                  <input type="radio" name="registro-empresario" id="registro-empresario" checked="checked">Empresario TRON
+                  <?php   if ( $this->idtipo_plan_compras == 3 ) :?>
+                    <input type="radio" name="registro-empresario" id="registro-empresario" checked="checked">Empresario TRON
+                    <?php else :?>
+                      <input type="radio" name="registro-empresario" id="registro-empresario">Empresario TRON
+                    <?php endif ;?>
                 </label>
+
               </div>
             </div>
 
@@ -63,11 +70,20 @@
                 <label for="pnombre" class="col-lg-4 control-label">Tipo Documento :</label>
                 <div>
                   <div class="col-lg-3">
-                    <?php include (APPLICATION_SECTIONS . 'terceros/tipos_documentos.php');?>
+
+                    <select class="form-control input_campo_datos" id="idtpidentificacion">
+                      <option value="<?=$this->idtpidentificacion;?>"><?= $this->nomtpidentificacion ;?></option>
+                      <?php
+                      foreach ($this->TiposDocumentos as $Documento) {
+                        echo '<option value="'.$Documento['idtpidentificacion'].'">'.   $Documento['nomtpidentificacion'].'</option>';
+                      }
+                      ?>
+                    </select>
+
                   </div>
                   <label for="identificacion" class="col-lg-2 control-label">Número :</label>
                   <div class="col-lg-3">
-                  <input type="text" class="form-control" id="identificacion" placeholder="Número documento">
+                  <input type="text" class="form-control" id="identificacion" placeholder="Número documento" value="<?= $this->identificacion ;?>">
                   </div>
                 </div>
               </div>
@@ -87,7 +103,7 @@
                     </div>
                     <label for="papellido" class="col-lg-2 control-label">Apellidos :</label>
                     <div class="col-lg-3">
-                      <input type="text" class="form-control" id="papellido" placeholder="Nombre">
+                      <input type="text" class="form-control" id="papellido" placeholder="Apellido" value ="<?= $this->papellido ;?>">
                     </div>
                   </div>
                 </div>
@@ -98,8 +114,9 @@
                 <div class="form-group">
                   <label for="genero" class="col-lg-4 control-label">Género : </label>
                   <div class="col-lg-8">
+
                     <select class="form-control" id="genero">
-                      <option value="-1">Seleccione...</option>
+                      <option value="<?=$this->genero ;?>"><?= $this->nom_genero ;?></option>
                       <option value="1">Masculino</option>
                       <option value="0">Femenino</option>
                     </select>
@@ -119,7 +136,7 @@
 
                     <div class="col-lg-3">
                       <select  class="form-control" id="dianacimiento" value="0">
-
+                          <option value="<?= $this->dianacimiento ;?>"><?= $this->dianacimiento  ;?></option>
                         <?php for( $i=1; $i<=31; $i++) : ;?>
                           <option value="<?= $i ;?>"><?= $i ;?></option>
                         <?php endfor ;?>
@@ -128,6 +145,8 @@
                     <label for="mesnacimiento" class="col-lg-2 control-label">Mes :</label>
                     <div class="col-lg-3">
                       <select  class="form-control " id="mesnacimiento" tabindex="4" value="0">
+                        <option value="<?= $this->mesnacimiento ;?>"><?= $this->nom_mes ;?></option>
+
                         <option value="1">ENERO</option>
                         <option value="2">FEBRERO</option>
                         <option value="3">MARZO</option>
@@ -140,6 +159,7 @@
                         <option value="10">OCTUBRE</option>
                         <option value="11">NOVIEMBRE</option>
                         <option value="12">DICIEMBRE</option>
+
                       </select>
                     </div>
                   </div>
@@ -153,7 +173,7 @@
               <div class="form-group">
                 <label for="razonsocial" class="col-lg-4 control-label">Razón Social : </label>
                 <div class="col-lg-8">
-                  <input type="text" class="form-control" id="razonsocial" placeholder="Empresa o razón social">
+                  <input type="text" class="form-control" id="razonsocial" placeholder="Empresa o razón social" value="<?= $this->razonsocial;?>">
 
                 </div>
               </div>
@@ -162,7 +182,7 @@
             <div class="form-group">
               <label for="email" class="col-lg-4 control-label">Email : </label>
               <div class="col-lg-8">
-                <input type="email" class="form-control" id="email" placeholder="Dirección de correo electrónico">
+                <input type="email" class="form-control" id="email-edit" placeholder="Dirección de correo electrónico" value="<?= $this->email ;?>">
               </div>
             </div>
 
@@ -170,6 +190,7 @@
               <label for="passwordusuario" class="col-lg-4 control-label">Contraseña : </label>
               <div class="col-lg-8">
                 <input type="password" class="form-control" id="passwordusuario" placeholder="contraseña">
+                <input type="hidden"   id="idtercero" value="<?= $this->idtercero ;?>">
               </div>
             </div>
           </form>
@@ -183,9 +204,9 @@
         </div>
 
           <div class="text-right">
-            <button type="button" class="btn btn-success btn-md" id="btn-grabar-datos">
+            <button type="button" class="btn btn-success btn-md" id="btn-actualiza-datos">
               <span class="glyphicon glyphicon-floppy-save"></span>
-              Grabar Datos </button>
+              Actualizar Información </button>
             </div>
 
         </div>
@@ -196,6 +217,7 @@
     </div>      <!-- Fin / Row      -->
   </div>        <!-- Fin / Container      -->
 
+<?php endif ;?>
 <!--
 <?php //include (VENTANAS_MODALES . 'registro_cliente_bienvenida.php');?>
 <?php //include (VENTANAS_MODALES . 'registro_empresario_bienvenida.php');?>

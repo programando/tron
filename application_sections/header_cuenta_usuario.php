@@ -1,4 +1,4 @@
-<?php if ( $_SESSION['logueado'] == FALSE ) :?>
+<?php if (   $_SESSION['logueado'] == FALSE ) :?>
 
 	<!-- INFORMACION SOBRE CUENTAS-->
 	<div class="taRC">
@@ -25,7 +25,7 @@
 
 
 <!-- INFORMACIÓN PARA USUARIOS LOGUEADOS -->
-<?php if ( $_SESSION['logueado'] == TRUE ) :?>
+<?php if (   $_SESSION['logueado'] == TRUE ) :?>
 
     <div class="dropCuenta taRC">
     <!-- Bienvenido: -->

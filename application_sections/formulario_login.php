@@ -1,4 +1,4 @@
-<?php if ( $_SESSION['logueado'] == FALSE ) :?>
+<?php if ( isset( $_SESSION['logueado']  ) && $_SESSION['logueado'] == FALSE ) :?>
 
   <div class="modal fade" id="myModal"
       tabindex="-1" role="dialog"

@@ -33,7 +33,6 @@ var  Funciones = {
         },//    Buscar_Por_Identificacion
 
         Terceros_Grabar_Datos_Registro : function( $Parametros ) {
-
               var $img_cargando        = $('#img_cargando');
               $.ajax({
                 data:  $Parametros,
@@ -49,9 +48,6 @@ var  Funciones = {
                   if ( resultado.idtipo_plan_compras == '3' ) {
                       $("#modal-registro-empresario").modal('show');
                     }
-
-
-
                 },
                 beforeSend: function(){
                           $img_cargando.css('display','block');
@@ -64,7 +60,6 @@ var  Funciones = {
                            Funciones.Mostrar_Mensajes('Información del Sistema',  xhr.responseText );
                          }
                        });
-
           },//    Terceros_Grabar_Datos_Registro
 
 
@@ -100,8 +95,63 @@ var  Funciones = {
           },// Terceros_Validar_Email
 
 
+          Terceros_Validar_Email_Edicion : function ( ){
+            $email = $("#email-edit").val();
+            //
+            if ( $email.length == 0 ){
+              return ;
+            }
 
+            $Texto        = '';
+            $Texto.length = 0;
+            $.ajax({
+              data:  {'email':$email},
+              dataType: 'json',
+              url:      '/terceros/Actualizar_Datos_Basicos/' ,
+              type:     'post',
+              success:  function (respuesta) {
+                //alert($email  );
+                if (respuesta.Respuesta == 'EMAIL-NO-OK'){
+                  $Texto = 'El correo electrónico  <strong>' + $email + '</strong> tiene un formato no válido. Por favor escríbalo nuevamente.';
+                }
+                if ( $Texto.length > 0){
+                 Funciones.Mostrar_Mensajes('Información del Sistema',$Texto  );
+                 $("#email-edit").val('');
 
+               }
+             }
+           });
+          },// Terceros_Validar_Email
+
+      Terceros_Actualizar_Datos_Registro : function( $Parametros ) {
+              var $img_cargando        = $('#img_cargando');
+              $.ajax({
+                data:  $Parametros,
+                dataType: 'json',
+                url:      '/terceros/Registro_Actualizar_Datos_Basicos',
+                type:     'post',
+                success:  function (resultado) {
+
+                  if ( resultado.idtipo_plan_compras == '2' ) {
+                      $("#modal-registro-cliente").modal('show');
+                    }
+
+                  if ( resultado.idtipo_plan_compras == '3' ) {
+                      $("#modal-registro-empresario").modal('show');
+                    }
+                },
+                beforeSend: function(){
+                          $img_cargando.css('display','block');
+                        },
+                complete: function(){
+                          $img_cargando.css('display','none');
+                           //alert("completado");
+                         },
+                error: function(xhr){
+                           Funciones.Mostrar_Mensajes('Información del Sistema',  xhr.responseText );
+                         }
+                       });
+          },//    Terceros_Actualizar_Datos_Registro
 
 }// Fin Funciones
 

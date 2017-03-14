@@ -32,22 +32,35 @@ class TercerosController extends Controller {
 
     public function edicion( $IdTercero ){
       $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
-
       $Tercero                           =  $this->Terceros->Consulta_Datos_x_Idtercero ( $IdTercero ) ;
-      $this->View->pnombre               = $Tercero[0]['pnombre'];
-      $this->View->papellido             = $Tercero[0]['papellido'];
-      $this->View->genero                = $Tercero[0]['genero'];
-      $this->View->email                 = $Tercero[0]['email'];
-      $this->View->idtipo_plan_compras   = $Tercero[0]['idtipo_plan_compras'];
-      $this->View->razonsocial           = $Tercero[0]['razonsocial'];
-      $this->View->dianacimiento         = $Tercero[0]['dianacimiento'];
-      $this->View->mesnacimiento         = $Tercero[0]['mesnacimiento'];
-      $this->View->idtpidentificacion    = $Tercero[0]['idtpidentificacion'];
-      $this->View->codigoterceropresenta = $Tercero[0]['codigoterceropresenta'];
-
+      if ( $Tercero ){
+          $this->View->idtercero             = $Tercero[0]['idtercero'];
+          $this->View->codigoterceropresenta = $Tercero[0]['codigoterceropresenta'];
+          $this->View->idtipo_plan_compras   = $Tercero[0]['idtipo_plan_compras'];
+          $this->View->idtpidentificacion    = $Tercero[0]['idtpidentificacion'];
+          $this->View->nomtpidentificacion   = $Tercero[0]['nomtpidentificacion'];
+          $this->View->identificacion        = $Tercero[0]['identificacion'];
+          $this->View->pnombre               = $Tercero[0]['pnombre'];
+          $this->View->papellido             = $Tercero[0]['papellido'];
+          $this->View->genero                = $Tercero[0]['genero'];
+          if ( $this->View->genero == 0 ) {
+            $this->View->nom_genero = 'Femenino';
+          }
+          if ( $this->View->genero == 1 ) {
+            $this->View->nom_genero = 'Masculino';
+          }
+            $this->View->dianacimiento         = $Tercero[0]['dianacimiento'];
+            $this->View->mesnacimiento         = $Tercero[0]['mesnacimiento'];
+            $this->View->nom_mes               = $Tercero[0]['nom_mes'];
+            $this->View->razonsocial           = $Tercero[0]['razonsocial'];
+            $this->View->email                 = $Tercero[0]['email'];
+            $this->View->EXISTE = TRUE ;
+         } else {
+            $this->View->EXISTE = FALSE ;
+        }
       $this->View->SetJs(array('nuevo_usuario'));
       $this->View->Mostrar_Vista("registro_edit_datos");
-  }
+  } /// Fin Edicion
 
 
   public function Index() { }
@@ -968,6 +981,103 @@ public function Registro_Nuevo_Usuario() {
 //*** FIN  REGISTRO NUEVO USUARIO
 
 
+
+
+public function Registro_Actualizar_Datos_Basicos() {
+      /** MAYO 30 2015
+       *      REALIZA REGISTRO DE DATOS DEL REGISTRO OCASIONAL PERSONA NATURAL
+       */
+      $Texto_Respuesta               = '';
+      $idtipo_plan_compras           =  0;
+      $codigo_usuario_generado       = '';
+      $codigoterceropresenta         = General_Functions::Validar_Entrada('codigoterceropresenta','TEXT');
+      $codigoterceropresenta_inicial = $codigoterceropresenta;
+      $idterceropresenta             = General_Functions::Validar_Entrada('idterceropresenta','NUM');
+      $es_cliente                    = General_Functions::Validar_Entrada('es_cliente','BOL');
+      $es_empresario                 = General_Functions::Validar_Entrada('es_empresario','BOL');
+      $idtercero                    = General_Functions::Validar_Entrada('idtercero','NUM');
+
+      if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
+      if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
+
+
+      $idtpidentificacion = General_Functions::Validar_Entrada('idtpidentificacion','TEXT');
+      $identificacion     = General_Functions::Validar_Entrada('identificacion','TEXT');
+      $pnombre            = General_Functions::Validar_Entrada('pnombre','TEXT');
+      $papellido          = General_Functions::Validar_Entrada('papellido','TEXT');
+      $genero             = General_Functions::Validar_Entrada('genero','TEXT');
+      $idmcipio           = 0;
+      $direccion          = '';
+      $barrio             = '';
+      $celular1           = '';
+      $email             = General_Functions::Validar_Entrada('email','TEXT');
+      $es_e_mail          = General_Functions::Validar_Entrada('email','EMAIL');
+      $passwordusuario   = General_Functions::Validar_Entrada('passwordusuario','TEXT');
+      $passwordusuario = md5( $passwordusuario );
+
+        //DATOS DIFERENCIALES EMPRESA
+      $nit                = General_Functions::Validar_Entrada('nit','TEXT');
+      $digitoverificacion = '';
+      $razonsocial        = General_Functions::Validar_Entrada('razonsocial','TEXT');
+
+      $mesnacimiento           = General_Functions::Validar_Entrada('mesnacimiento','NUM');
+      $dianacimiento           = General_Functions::Validar_Entrada('dianacimiento','NUM');
+
+      if ($mesnacimiento  < 9) { $mesnacimiento  = '0'.$mesnacimiento ; }
+      if ($dianacimiento  < 9) { $dianacimiento  = '0'.$dianacimiento ; }
+
+      $Datos_Validacion  = compact('idtpidentificacion','identificacion','pnombre','papellido','genero','email','mesnacimiento','dianacimiento','es_e_mail','es_cliente','es_empresario','passwordusuario','razonsocial');
+
+      $this->Registro_Nuevo_Usuario_Validaciones ( $Datos_Validacion );
+      $Texto_Respuesta = $this->Texto_Respuesta ;
+      if ( strlen( $Texto_Respuesta ) != 0 ){
+         $Datos = compact('Texto_Respuesta' );
+         echo json_encode($Datos,256);
+         return ;
+     }else
+     {
+        $dianacimiento                                  = intval($dianacimiento);
+        $mesnacimiento                                  = intval($mesnacimiento);
+        $email                                          = strtolower($email);
+        $idtppersona                                    = 2;
+        if ($idtpidentificacion != '31'){ $idtppersona    = '1';}
+        if ($idtpidentificacion == '31'){ $genero         = '0';}
+
+        $pnombre     = strtoupper(trim( $pnombre     ));
+        $papellido   = strtoupper(trim( $papellido   ));
+        $razonsocial = strtoupper(trim( $razonsocial ));
+
+
+        $Datos_Terceros = compact('idtercero,idtipo_plan_compras,idtpidentificacion,identificacion,pnombre,papellido,razonsocial,
+                                   genero,mesnacimiento,dianacimiento,email,passwordusuario');
+
+      // GRABAR DATOS DEL TERCERO
+        $Texto_Respuesta = '';
+        $Registro             =  $this->Terceros->Actualizar_Registro_Basico_Usuario($Datos_Terceros);
+
+        if ( $Registro ) {
+           $Texto_Respuesta = "Registro actualizado con éxito. ";
+           $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email( $email , $passwordusuario );
+           $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
+           $_SESSION['logueado'] = TRUE;
+           Session::Set('logueado', TRUE);
+        }
+
+        $Datos = compact('Texto_Respuesta','idtipo_plan_compras' );
+        echo json_encode($Datos,256);
+
+    }
+
+  }
+
+//*** FIN  EDICION REGISTRO  Registro_Actualizar_Datos_Basicos
+
+
+
+
+
+
+
   public function Registro_Datos_Usuario_Envio_Correo_Activacion($idtercero ,$email, $pnombre, $genero, $idtipo_plan_compras ,
     $idtpidentificacion,$razonsocial, $codigousuario)
   {
@@ -1423,11 +1533,9 @@ public function Actualizar_Password()
         return $Terceros;
       }
 
+
       public function Consulta_Datos_Por_Email_Registro( $Email ='' ) {
         $Respuesta ='';
-
-        //$Email     =  trim(htmlspecialchars( strtolower($Email), ENT_QUOTES));
-        //$Es_email =  filter_var($Email , FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $Email );
 
         $Email             = General_Functions::Validar_Entrada('email','TEXT');
         $Es_email          = General_Functions::Validar_Entrada('email','EMAIL');
@@ -1446,9 +1554,26 @@ public function Actualizar_Password()
 
         $Respuesta= compact('Respuesta');
         echo json_encode($Respuesta ,256);
-
       }
 
+
+      public function Consulta_Datos_Por_Email_Edicion( $Email ='' ) {
+        $Respuesta ='';
+
+        $Email             = General_Functions::Validar_Entrada('email','TEXT');
+        $Es_email          = General_Functions::Validar_Entrada('email','EMAIL');
+
+         $Respuesta = "EMAIL-OK" ;
+        if ($Es_email == FALSE){
+          $Respuesta = "EMAIL-NO-OK" ;
+        }
+
+        
+
+        $Respuesta= compact('Respuesta');
+        echo json_encode($Respuesta ,256);
+
+      }
 
       public function cambiar_password($numero_confirmacion) {
 

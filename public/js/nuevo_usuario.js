@@ -12,7 +12,7 @@ $("#persona-juridica").hide();
 $("#mes-anio").hide();
 $("#lblgenero").hide();
 $("#alert-datos-grabados").hide();
-$("#registro-cliente").prop("checked", true);
+//$("#registro-cliente").prop("checked", true);
 $("#img_cargando").hide();
 $('#digitoverificacion').hide();
 
@@ -113,6 +113,18 @@ var Validaciones_Email_Password = function(){
 		$Seguir                  = 'SI';
 	}
 }
+
+var Validaciones_Email_Password_Edicion = function(){
+	$email  														= $("#email-edit").val();
+	$passwordusuario      = $("#passwordusuario").val();
+
+	if ( $email == '0' || $passwordusuario == '' ){
+		$Seguir                  = 'NO';
+	}else{
+		$Seguir                  = 'SI';
+	}
+}
+
 
 var Validaciones_Registro_Tipo_Cliente = function($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial  ){
 
@@ -255,9 +267,6 @@ $('#btn-grabar-datos').on('click',function(){
 					return ;
 				}
 
-
-
-
 	 if ( $es_cliente == true ) {
 	 			Validaciones_Registro_Tipo_Cliente ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial ) ;
 
@@ -277,9 +286,75 @@ $('#btn-grabar-datos').on('click',function(){
 
 	 			Funciones.Terceros_Grabar_Datos_Registro ( $Parametros );
 
-
-
-
 	 	});
 
+
+
+//----------------------------------------------------------------------------------------------
+//---     MODIFICACIÓN DE DATOS DE USUARIO
+//----------------------------------------------------------------------------------------------
+
+//VALIDACION UNICIDAD DEL EMAIL
+$("#email-edit").on('blur',function(){
+		Funciones.Terceros_Validar_Email_Edicion();
+}) ;
+
+
+
+$('#btn-actualiza-datos').on('click',function(){
+	var $codigoterceropresenta =  $('#codigoterceropresenta').val();
+	var $es_cliente            =  $("#form-registro input[name=registro-cliente]:radio").is(':checked');
+	var $es_empresario         =  $("#form-registro input[name=registro-empresario]:radio").is(':checked');
+	var $idtpidentificacion    =  $("#idtpidentificacion").val();
+	var $identificacion        =  $("#identificacion").val();
+	var $pnombre               =  $("#pnombre").val();
+	var $papellido             =  $("#papellido").val();
+	var $genero                =  $("#genero").val();
+	var $dianacimiento         =  $("#dianacimiento").val();
+	var $mesnacimiento         =  $("#mesnacimiento").val();
+	var $razonsocial           =  $("#razonsocial").val();
+	var	$email                 =  $("#email").val();
+	var $passwordusuario       =  $("#passwordusuario").val();
+	var $idtercero 												=  $("#idtercero").val();
+
+
+	$Parametros = {'codigoterceropresenta':$codigoterceropresenta, 'es_cliente':$es_cliente,'es_empresario':$es_empresario,
+								 'idtpidentificacion':$idtpidentificacion,'identificacion':$identificacion,'pnombre':$pnombre,
+								 'papellido':$papellido, 'genero':$genero,'dianacimiento':$dianacimiento,'mesnacimiento':$mesnacimiento,
+								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta,'idtercero':$idtercero    };
+
+ 
+    Validaciones_Eleccion_Plan_Registro();
+    	if ( $Seguir == 'NO'){
+					Mostrar_Mensajes ('Error en el Registro','Debe indicar el tipo de registro que desea crear: Cliente o Empresario TRON.');
+					return ;
+				}
+
+
+				Validaciones_Tipo_Documento_Numero() ;
+				if ( $Seguir == 'NO'){
+					Mostrar_Mensajes ('Error en el Registro','Es necesario que especifique el tipo y número de su documento.');
+					return ;
+				}
+
+	 if ( $es_cliente == true ) {
+	 			Validaciones_Registro_Tipo_Cliente ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial ) ;
+	 			if ( $Seguir =='NO') { return ; }
+	 }
+
+	 if ( $es_empresario ) {
+	 			Validaciones_Registro_Tipo_Empresario ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ) ;
+	 			if ( $Seguir =='NO') { return ; }
+	 		}
+
+				Validaciones_Email_Password_Edicion() ;
+				if ( $Seguir == 'NO'){
+					Mostrar_Mensajes ('Error en el Registro','Debe registrar una cuenta de correo electrónico y la contraseña que usará para hacer uso de nuestro sitio.');
+					return ;
+				}
+
+			alert("llegue  " + $idtercero);
+	 			//Funciones.Terceros_Actualizar_Datos_Registro ( $Parametros );
+
+	 	});
 
