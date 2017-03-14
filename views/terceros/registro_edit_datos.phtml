@@ -8,7 +8,7 @@
 </style>
 
 <?php
-    $codigoterceropresenta = Session::Get('codigoterceropresenta');
+   $codigoterceropresenta = Session::Get('codigoterceropresenta');
 ?>
 
 
@@ -17,6 +17,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-primary ">
         <div class="panel-heading">MODIFICACIÓN DE DATOS REGISTRADOS</div>
+
         <div class="panel-body">
 
          <form class="form-horizontal" role="form" id="form-registro">
@@ -46,11 +47,11 @@
               <div class="col-lg-8">
 
                 <label class="radio-inline">
-                  <input type="radio" name="registro-cliente" id="registro-cliente">Cliente
+                  <input type="radio" name="registro-cliente" id="registro-cliente" checked="checked" >Cliente
                 </label>
 
                 <label class="radio-inline">
-                  <input type="radio" name="registro-empresario" id="registro-empresario">Empresario TRON
+                  <input type="radio" name="registro-empresario" id="registro-empresario" checked="checked">Empresario TRON
                 </label>
               </div>
             </div>
@@ -82,7 +83,7 @@
                   <div>
 
                     <div class="col-lg-3">
-                      <input type="text" class="form-control" id="pnombre" placeholder="Nombre">
+                      <input type="text" class="form-control" id="pnombre" placeholder="Nombre" value = "<?=$this->pnombre ;?>">
                     </div>
                     <label for="papellido" class="col-lg-2 control-label">Apellidos :</label>
                     <div class="col-lg-3">
@@ -195,6 +196,7 @@
     </div>      <!-- Fin / Row      -->
   </div>        <!-- Fin / Container      -->
 
-
-<?php include (VENTANAS_MODALES . 'registro_cliente_bienvenida.php');?>
-<?php include (VENTANAS_MODALES . 'registro_empresario_bienvenida.php');?>
+<!--
+<?php //include (VENTANAS_MODALES . 'registro_cliente_bienvenida.php');?>
+<?php //include (VENTANAS_MODALES . 'registro_empresario_bienvenida.php');?>
+   -->

@@ -22,7 +22,7 @@ var  Funciones = {
         type:     'post',
         success:  function (respuesta)     {
           if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados == 0){
-           window.location.href = "/terceros/nuevo_usuario_modificacion_datos/"+respuesta.idtercero;
+           window.location.href = "/terceros/edicion/"+respuesta.idtercero;
          }
          if (respuesta.Respuesta == 'SI_EXISTE' && respuesta.cant_pedidos_facturados > 0){
           Funciones.Mostrar_Mensajes('Información de Control', 'La identificación ya se encuentra registrada en nuestro sistema de información.');

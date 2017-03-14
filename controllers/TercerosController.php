@@ -27,14 +27,26 @@ class TercerosController extends Controller {
   public function nuevo_usuario(){
     $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
     $this->View->SetJs(array('nuevo_usuario'));
-    $this->View->Mostrar_Vista("nuevo_usuario");
+    $this->View->Mostrar_Vista("registro_nuevo_usuario");
   }
 
-    public function nuevo_usuario_modificacion_datos( $IdTercero ){
+    public function edicion( $IdTercero ){
       $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
-      $Tercero =  $this->Terceros->Consulta_Datos_x_Idtercero ( $IdTercero ) ;
+
+      $Tercero                           =  $this->Terceros->Consulta_Datos_x_Idtercero ( $IdTercero ) ;
+      $this->View->pnombre               = $Tercero[0]['pnombre'];
+      $this->View->papellido             = $Tercero[0]['papellido'];
+      $this->View->genero                = $Tercero[0]['genero'];
+      $this->View->email                 = $Tercero[0]['email'];
+      $this->View->idtipo_plan_compras   = $Tercero[0]['idtipo_plan_compras'];
+      $this->View->razonsocial           = $Tercero[0]['razonsocial'];
+      $this->View->dianacimiento         = $Tercero[0]['dianacimiento'];
+      $this->View->mesnacimiento         = $Tercero[0]['mesnacimiento'];
+      $this->View->idtpidentificacion    = $Tercero[0]['idtpidentificacion'];
+      $this->View->codigoterceropresenta = $Tercero[0]['codigoterceropresenta'];
+
       $this->View->SetJs(array('nuevo_usuario'));
-      $this->View->Mostrar_Vista("nuevo_usuario_modificacion_datos");
+      $this->View->Mostrar_Vista("registro_edit_datos");
   }
 
 
