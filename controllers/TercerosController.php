@@ -776,8 +776,6 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
   $Texto_Respuesta='';
   extract( $Datos );
 
-
-
   if  ( $idtpidentificacion == '0'){
         $Texto_Respuesta =  $Texto_Respuesta . 'Debe seleccionar el tipo de identificación.<br>';
   }
@@ -995,7 +993,7 @@ public function Registro_Actualizar_Datos_Basicos() {
       $idterceropresenta             = General_Functions::Validar_Entrada('idterceropresenta','NUM');
       $es_cliente                    = General_Functions::Validar_Entrada('es_cliente','BOL');
       $es_empresario                 = General_Functions::Validar_Entrada('es_empresario','BOL');
-      $idtercero                    = General_Functions::Validar_Entrada('idtercero','NUM');
+      $idtercero                     = General_Functions::Validar_Entrada('idtercero','NUM');
 
       if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
       if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
@@ -1048,26 +1046,25 @@ public function Registro_Actualizar_Datos_Basicos() {
         $razonsocial = strtoupper(trim( $razonsocial ));
 
 
-        $Datos_Terceros = compact('idtercero,idtipo_plan_compras,idtpidentificacion,identificacion,pnombre,papellido,razonsocial,
-                                   genero,mesnacimiento,dianacimiento,email,passwordusuario');
+        $Datos_Terceros = compact('idtercero','idtipo_plan_compras','idtpidentificacion','identificacion','pnombre','papellido','razonsocial','genero','mesnacimiento','dianacimiento','email','passwordusuario');
 
       // GRABAR DATOS DEL TERCERO
         $Texto_Respuesta = '';
         $Registro             =  $this->Terceros->Actualizar_Registro_Basico_Usuario($Datos_Terceros);
 
         if ( $Registro ) {
-           $Texto_Respuesta = "Registro actualizado con éxito. ";
+           $Texto_Respuesta = "ACTUALIZADO-OK";
            $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email( $email , $passwordusuario );
            $this->Validar_Ingreso_Usuario_Asignar_Datos($Registro);
            $_SESSION['logueado'] = TRUE;
            Session::Set('logueado', TRUE);
+           $Datos = compact('Texto_Respuesta','idtipo_plan_compras' );
+        }else {
+            $Texto_Respuesta = "ACTUALIZADO-NO-OK";
         }
-
-        $Datos = compact('Texto_Respuesta','idtipo_plan_compras' );
-        echo json_encode($Datos,256);
-
     }
 
+      echo json_encode($Datos,256);
   }
 
 //*** FIN  EDICION REGISTRO  Registro_Actualizar_Datos_Basicos
@@ -1568,7 +1565,7 @@ public function Actualizar_Password()
           $Respuesta = "EMAIL-NO-OK" ;
         }
 
-        
+
 
         $Respuesta= compact('Respuesta');
         echo json_encode($Respuesta ,256);

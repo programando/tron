@@ -91,7 +91,7 @@
 
 
 
-
+        <?php if ( $this->idtpidentificacion != '31') :?>
             <div id="persona-natural">
               <div class="form-group ">
                 <div class="row">
@@ -109,75 +109,27 @@
                 </div>
 
               </div>
-
-              <div id="lblgenero">
-                <div class="form-group">
-                  <label for="genero" class="col-lg-4 control-label">Género : </label>
-                  <div class="col-lg-8">
-
-                    <select class="form-control" id="genero">
-                      <option value="<?=$this->genero ;?>"><?= $this->nom_genero ;?></option>
-                      <option value="1">Masculino</option>
-                      <option value="0">Femenino</option>
-                    </select>
-
-                  </div>
-                </div>
-              </div>
-
+                <?php include (APPLICATION_SECTIONS . 'terceros/registro_campo_genero.php');?>
             </div>
+              <?php include (APPLICATION_SECTIONS . 'terceros/registro_campos_mes_anio.php');?>
 
 
-            <div id="mes-anio">
-              <div class="form-group ">
-                <div class="row">
-                  <label for="dianacimiento" class="col-lg-4 control-label">Día de nacimiento :</label>
-                  <div>
-
-                    <div class="col-lg-3">
-                      <select  class="form-control" id="dianacimiento" value="0">
-                          <option value="<?= $this->dianacimiento ;?>"><?= $this->dianacimiento  ;?></option>
-                        <?php for( $i=1; $i<=31; $i++) : ;?>
-                          <option value="<?= $i ;?>"><?= $i ;?></option>
-                        <?php endfor ;?>
-                      </select>
-                    </div>
-                    <label for="mesnacimiento" class="col-lg-2 control-label">Mes :</label>
-                    <div class="col-lg-3">
-                      <select  class="form-control " id="mesnacimiento" tabindex="4" value="0">
-                        <option value="<?= $this->mesnacimiento ;?>"><?= $this->nom_mes ;?></option>
-
-                        <option value="1">ENERO</option>
-                        <option value="2">FEBRERO</option>
-                        <option value="3">MARZO</option>
-                        <option value="4">ABRIL</option>
-                        <option value="5">MAYO</option>
-                        <option value="6">JUNIO</option>
-                        <option value="7">JULIO</option>
-                        <option value="8">AGOSTO</option>
-                        <option value="9">SEPTIEMBRE</option>
-                        <option value="10">OCTUBRE</option>
-                        <option value="11">NOVIEMBRE</option>
-                        <option value="12">DICIEMBRE</option>
-
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
+          <?php else :?>
 
             <div id="persona-juridica">
               <div class="form-group">
                 <label for="razonsocial" class="col-lg-4 control-label">Razón Social : </label>
                 <div class="col-lg-8">
                   <input type="text" class="form-control" id="razonsocial" placeholder="Empresa o razón social" value="<?= $this->razonsocial;?>">
-
                 </div>
               </div>
+              <?php include (APPLICATION_SECTIONS . 'terceros/registro_campo_genero.php');?>
+              <?php include (APPLICATION_SECTIONS . 'terceros/registro_campos_mes_anio.php');?>
+
             </div>
+        <?php endif ;?>
+
+
 
             <div class="form-group">
               <label for="email" class="col-lg-4 control-label">Email : </label>

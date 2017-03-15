@@ -13,8 +13,9 @@
 						extract($params);
 
 						$SQL = "$idtercero,$idtipo_plan_compras,$idtpidentificacion,'$identificacion','$pnombre','$papellido','$razonsocial'," ;
-						$SQL = $SQL."'$genero', '$mesnacimiento','$dianacimiento','$email','$passwordusuario'    ";
+						$SQL = $SQL."'$genero', '$mesnacimiento','$dianacimiento','$email','$passwordusuario'";
 						$Registro    =  $this->Db->Ejecutar_Sp("terceros_actualizar_datos_basicos(".$SQL.")");
+					 return 	$Registro;
 				}
 
 

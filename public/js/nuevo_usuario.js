@@ -8,9 +8,9 @@ var	$codigo_tercero_presenta = '';
 var	$nombre_usuario_presenta = '';
 
 
-$("#persona-juridica").hide();
-$("#mes-anio").hide();
-$("#lblgenero").hide();
+//$("#persona-juridica").hide();
+//$("#mes-anio").hide();
+//$("#lblgenero").hide();
 $("#alert-datos-grabados").hide();
 //$("#registro-cliente").prop("checked", true);
 $("#img_cargando").hide();
@@ -313,7 +313,7 @@ $('#btn-actualiza-datos').on('click',function(){
 	var $dianacimiento         =  $("#dianacimiento").val();
 	var $mesnacimiento         =  $("#mesnacimiento").val();
 	var $razonsocial           =  $("#razonsocial").val();
-	var	$email                 =  $("#email").val();
+	var	$email                 =  $("#email-edit").val();
 	var $passwordusuario       =  $("#passwordusuario").val();
 	var $idtercero 												=  $("#idtercero").val();
 
@@ -323,7 +323,7 @@ $('#btn-actualiza-datos').on('click',function(){
 								 'papellido':$papellido, 'genero':$genero,'dianacimiento':$dianacimiento,'mesnacimiento':$mesnacimiento,
 								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta,'idtercero':$idtercero    };
 
- 
+
     Validaciones_Eleccion_Plan_Registro();
     	if ( $Seguir == 'NO'){
 					Mostrar_Mensajes ('Error en el Registro','Debe indicar el tipo de registro que desea crear: Cliente o Empresario TRON.');
@@ -353,8 +353,8 @@ $('#btn-actualiza-datos').on('click',function(){
 					return ;
 				}
 
-			alert("llegue  " + $idtercero);
-	 			//Funciones.Terceros_Actualizar_Datos_Registro ( $Parametros );
+
+	 			Funciones.Terceros_Actualizar_Datos_Registro ( $Parametros );
 
 	 	});
 

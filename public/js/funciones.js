@@ -131,14 +131,11 @@ var  Funciones = {
                 url:      '/terceros/Registro_Actualizar_Datos_Basicos',
                 type:     'post',
                 success:  function (resultado) {
-
-                  if ( resultado.idtipo_plan_compras == '2' ) {
-                      $("#modal-registro-cliente").modal('show');
-                    }
-
-                  if ( resultado.idtipo_plan_compras == '3' ) {
-                      $("#modal-registro-empresario").modal('show');
-                    }
+                    if ( resultado.Texto_Respuesta = 'ACTUALIZADO-OK'){
+                        window.location.href ="/index"
+                      } else {
+                        Funciones.Mostrar_Mensajes('Información del Sistema',  "La modificación de datos no pudo ejecutarse correctamente.");
+                      }
                 },
                 beforeSend: function(){
                           $img_cargando.css('display','block');
