@@ -128,6 +128,10 @@ $('.fila-direcciones').on('click','.btn-editar-direccion',function(e){
   var $telefono             = $(this).attr('telefono');
   var $nommcipio            = $(this).attr('nommcipio');
   var $nomdpto              = $(this).attr('nomdpto');
+  if (typeof $destinatario == 'undefined'){
+    $destinatario = $(this).attr('nombre-usuario');
+  }
+
   $('.modal-body #destinatario').val($destinatario);
   $('.modal-body #departamento').val($iddpto );
   $('.modal-body #direccion').val($direccion );

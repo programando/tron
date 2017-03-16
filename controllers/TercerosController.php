@@ -1344,7 +1344,6 @@ public function Actualizar_Password()
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
       Session::Set('cobrar_fletes'      ,             $Registro[0]["cobrar_fletes"]);
-
       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
 

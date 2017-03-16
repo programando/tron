@@ -1,16 +1,17 @@
 
 
 <?php
-	$cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
-	$logueado                              =  $_SESSION['logueado']; //Session::Get('logueado');
+	$cumple_condicion_cpras_tron_industial =  Session::Get('cumple_condicion_cpras_tron_industial');
+	$logueado                              =  $_SESSION['logueado'];
+    $idtipo_plan_compras                   =  $_SESSION['idtipo_plan_compras'];
 ?>
 
-<?php if ( $logueado == TRUE ) :?>
+<?php if ( $logueado == TRUE && $idtipo_plan_compras == 3 ) :?>
 	<div class="taR mb20">
 		<small>Pedido a nombre del Usuario : <strong> <?= strtoupper( Session::Get('codigousuario')) ;?></strong></small>
 	</div>
     <?php else :?>
-	       <br />
+	    <small>Pedido a nombre de : <strong> <?= strtoupper( Session::Get('nombre_usuario')) ;?></strong></small>
 <?php endif ;?>
 
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->

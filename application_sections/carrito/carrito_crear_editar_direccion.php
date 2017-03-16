@@ -2,6 +2,7 @@
 <!-- MARZO 04 DE 2015
   VENTANA MODAL PARA LA EDICIÓN / CREACIÓN DE DIRECCIONES DE DESPACHO PARA PEDIDOS
 -->
+ 
 <div class="modal fade " id="venta_editar" tabindex="-1"  role="dialog" aria-labelledby="#venta_editar" aia-hidden="true">
 	   <div class="modal-dialog ventana-editar-direccion">
 	   	   <div class="modal-content "><!-- Contenido de la ventana -->
@@ -20,7 +21,7 @@
                             <!--destinario -->
                               <div class="col-lg-12 col-md-12 col-sm-12">
                                  <label for="destinario" class="text-label">Destinatario :</label>
-                                 <input type="text" id="destinatario" class="form-control destinario"><br>
+                                 <input type="text" id="destinatario" class="form-control destinario" <br>
                               </div>
 
                              <!-- Selecciona país-->

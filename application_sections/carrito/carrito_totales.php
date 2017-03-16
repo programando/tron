@@ -1,23 +1,20 @@
+<?php 
+  $nommcipio_despacho = trim( Session::Get('nommcipio_despacho'));
+  //echo strlen($nommcipio_despacho);
+?>
 
 <tr>
   <td colspan="6" class="text-right">
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
 
-        <?php if ( $_SESSION['logueado'] == FALSE): ; ?>
-            <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
-                <div class="col-resumen-pedido"><strong>Transporte + Recaudo <small>( Calculado para Cali ):</small></strong></div>
-                <?php else : ?>
-                  <div class="col-resumen-pedido"><strong> Recaudo <small>( Calculado para Cali ):</small></strong></div>
-            <?php endif ;?>
-
-        <?php else : ?>
-             <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
-                <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
-                <?php else : ?>
-                  <div class="col-resumen-pedido"><strong>( + ) Recaudo <small>( <?= Session::Get('nommcipio_despacho') ;?> ):</small> </strong></div>
-             <?php endif ;?>
-        <?php endif ;?>
+        <?php if ( strlen($nommcipio_despacho) > 0 ) :?>
+               <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
+                  <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo... <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
+                  <?php else : ?>
+                    <div class="col-resumen-pedido"><strong>( + ) Recaudo.<small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
+               <?php endif ;?>
+          <?php endif ;?>
 
 
         <!-- PUNTOS -->

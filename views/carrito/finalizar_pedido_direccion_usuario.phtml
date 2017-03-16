@@ -3,17 +3,18 @@
 <?php
     //Session::Set('cantidad_direcciones',0);
     $CantidadDirecciones = Session::Get('cantidad_direcciones') ;
-    //echo $CantidadDirecciones;
+    $nombre_usuario_pedido = Session::Get('nombre_usuario_pedido');
  ?>
+
 
    <div class="fila-direcciones" style="width:100%;"><!-- Direccion -->
          <?php if  ( $CantidadDirecciones == 0 ) :?>
             <div class="text-center">
-               <a type="button" class="btn btn-success btn-editar-direccion" href="#" ><h4>Crear dirección para despacho de mi pedido</h4></a>
+               <a type="button" class="btn btn-success btn-editar-direccion" nombre-usuario="<?=$nombre_usuario_pedido ;?>" href="#" ><h4>Crear dirección para enviar su pedido</h4></a>
             </div>
         <?php else :?>
 
-           <span>Seleccione la dirección a donde será enviado el pedido. </span> <br>
+           <span>Haga click sobre el recuadro y seleccione la dirección a donde será enviado el pedido. </span> <br>
 
            <div class="text-center"><br>
               <?php
@@ -29,8 +30,8 @@
 
         <div class="text-center">
 
-            <?php if  ( $CantidadDirecciones < 3 ) :?>
-                <a type="button" class="btn btn-success btn-editar-direccion" href="#" >Crear dirección para despacho de mi pedido</a>
+            <?php if  ( $CantidadDirecciones >=1 && $CantidadDirecciones < 3 ) :?>
+                <a type="button" class="btn btn-success btn-editar-direccion" nombre-usuario="<?=$nombre_usuario_pedido ;?>" href="#" >Crear otra dirección para enviar su pedido</a>
             <?php endif ;?>
 
             <?php if ( $CantidadDirecciones > 0 ) :?>

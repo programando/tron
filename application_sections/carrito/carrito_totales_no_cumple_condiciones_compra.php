@@ -5,7 +5,9 @@
 <td coslpan="3" class="text-right">
    <!-- SUBTOTAL -->
        <div><strong><?=  Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Amigos ) ; ?> </strong></div>
+       <?php if ( strlen($nommcipio_despacho) > 0 ) :?> 
          <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Transporte_Tron)  ;?> </strong></div>
+       <?php endif ;?>
        <!-- PUNTOS -->
        <?php if (isset($this->Puntos_Utilizados ) and $this->Puntos_Utilizados >0): ; ?>
         <div><strong> <?=   Numeric_Functions::Formato_Numero( $this->Puntos_Utilizados)  ;?> </strong></div>

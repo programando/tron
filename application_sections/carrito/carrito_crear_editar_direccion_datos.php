@@ -37,6 +37,7 @@
                 nomdpto             = <?= "'".$NomDpto."'"   ;?>
                 codigousuario       = <?= "'".$CodigoUsuario."'"   ;?>
                 >
+                    Editar
                     <img src="<?= BASE_IMG_TIENDA ;?>editar.png" width="48" title="Editar Dirección" />
                 </a>
             </div>
