@@ -6,7 +6,6 @@
                 <li><a href="#intro">Introdución</a></li>
                 <li><a href="#envio">Envío de URL</a></li>
                 <li><a href="#recomendar">Recomendar Productos</a></li>
-                <li><a href="#registrar">Registrar Amigos</a></li>
                 <li><a href="#realizar">Realizar Pedidos a Amigos</a></li>
             </ul>
         </nav>
@@ -55,18 +54,7 @@
 </div>
 <br><br>
 
-<div>
-	<div class="titleM1 colorBlue mb10 t18"><a name="registrar"></a>Registrar Amigos</div>
-    <div class="p20">
 
-        Siendo un Empresario TRON, podrás registrar a otras personas, éstas recibirán un correo para que terminen su registro y
-        realicen la compra para activar la cuenta.
-        <br><br>
-        Al iniciar el registro, éste usuario quedará registrado en tu red automáticamente.
-
-    </div>
-</div>
-<br><br>
 
 <div>
 	<div class="titleM1 colorBlue mb10 t18"><a name="realizar"></a>Realizar Pedido a Amigos</div>

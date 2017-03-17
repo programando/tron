@@ -20,7 +20,7 @@
         <br><br>
 
 		Cada uno de los Empresarios TRON tendrá cuatro (4) frontales en el primer nivel inicialmente. También podrá
-        inscribir amigos, que no deseen crear red, en el Plan Cliente TRON y como compradores ocasionales, formar un grupo con ellos aparte de la red y ganar comisión
+        inscribir amigos, que no deseen crear red, en el Plan Cliente TRON, formar un grupo con ellos aparte de la red y ganar comisión
         por las compras que ellos realicen.
 		<br><br>
 
@@ -58,8 +58,8 @@
         --><div class="col-sm-8 col-xs-12 vcenter">
             Como su nombre lo indica este es el Plan de las personas que desean aprovechar todos los beneficios que ofrecen los productos TRON,
             convirtiéndose en consumidores habituales de ellos con una compra mensual mínima de <?= $Pedido_Minimo_Tron ;?>. El hacerlo les da
-            derecho a acceder a precios preferenciales aún mejores que en el Plan Comprador Ocasional, no solo en los productos TRON sino también
-            en toda la tienda virtual. Para registrarse en este Plan se debe adquirir el kit de Inicio de productos TRON para el hogar ó comprar
+            derecho a acceder a precios preferenciales aún mejores que en el Plan Comprador Ocasional, no sólo en los productos TRON sino también
+            en toda la tienda virtual. Para registrarse en este Plan se debe adquirir productos TRON para el hogar ó comprar
             <?= $Pedido_Minimo_Indus ;?> en productos Industriales fabricados por Balquimia S.A.S.
             <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="60" />
         </div>

@@ -16,40 +16,12 @@
                     <small>(% sobre venta sin IVA)</small>
                 </th>
                 <th width="40%" colspan="2" class="taC"  style="background:#fadfdf;">
-                	COMISIONES  POR COMPRAS DE CLIENTES TRON Y COMPRADORES OCASIONALES<br />
+                	COMISIONES  POR COMPRAS DE CLIENTES TRON <br />
                     <small>(% sobre venta sin IVA)</small>
                 </th>
             </tr>
-            <tr style="border-bottom: 1px solid #ccc; background-color:#ccc;">
-                <th colspan="2" rowspan="1" class="taC" style="">Kit de Inicio Empresario</th>
-                <th style="background:#fadfdf;">
-                    <center>
-                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
-                            <div class="tabIn">
-                                <strong>A</strong>
-                            </div>
-                        </div>
-                    </center>
-                </th>
-                <th class="taC">36%</th>
-                <th class="taC"></th>
-                <th class="taC"></th>
-            </tr>
-            <tr style="border-bottom: 3px solid #003E90; background-color:#ccc;">
-                <th colspan="2" rowspan="1" class="taC">Kit de Inicio Cliente</th>
-                <th style="background:#fadfdf;">
-                	<center>
-                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
-                            <div class="tabIn">
-                                <strong>A</strong>
-                            </div>
-                        </div>
-                    </center>
-                </th>
-                <th class="taC"></th>
-                <th class="taC">25%</th>
-                <th class="taC">5%</th>
-            </tr>
+ 
+ 
             <tr style="border-bottom: 3px solid #fff;">
                 <td class="taC t12" style="background-color:#eee;"></td>
                 <td class="taC t12" style="background:#d7f8fe;">Si has ingresado<br>con tu código<br>de usuario a:</td>
@@ -69,20 +41,20 @@
             foreach ($this->Comisiones_Grupos as $Comisiones)  :
 
                 $codigo_grupo          = $Comisiones['codigo_grupo'];
-                $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],3,',','.').'%';
-                $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],3,',','.').'%';
-                $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],3,',','.').'%';
-                $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],3,',','.').'%';
+                $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],1,',','.').'%';
+                $comis_empre_escala_a  = number_format ($Comisiones['comis_empre_escala_a'],1,',','.').'%';
+                $comis_empre_escala_b  = number_format ($Comisiones['comis_empre_escala_b'],1,',','.').'%';
+                $comis_empre_escala_c  = number_format ($Comisiones['comis_empre_escala_c'],1,',','.').'%';
 
-                $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],3,',','.').'%';
-                $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],3,',','.').'%';
-                $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],3,',','.').'%';
-                $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],3,',','.').'%';
+                $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],1,',','.').'%';
+                $comis_amg_n1_escala_a = number_format ($Comisiones['comis_amg_n1_escala_a'],1,',','.').'%';
+                $comis_amg_n1_escala_b = number_format ($Comisiones['comis_amg_n1_escala_b'],1,',','.').'%';
+                $comis_amg_n1_escala_c = number_format ($Comisiones['comis_amg_n1_escala_c'],1,',','.').'%';
 
-                $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],3,',','.').'%';
-                $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],3,',','.').'%';
-                $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],3,',','.').'%';
-                $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],3,',','.').'%';
+                $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],1,',','.').'%';
+                $comis_amg_n2_escala_a = number_format ($Comisiones['comis_amg_n2_escala_a'],1,',','.').'%';
+                $comis_amg_n2_escala_b = number_format ($Comisiones['comis_amg_n2_escala_b'],1,',','.').'%';
+                $comis_amg_n2_escala_c = number_format ($Comisiones['comis_amg_n2_escala_c'],1,',','.').'%';
 
                 if ( $Primer_Registro == TRUE) :
         ?>

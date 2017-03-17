@@ -41,7 +41,7 @@
                  </div><!--Pregunta -->
                      <ul class="list-unstyled submenu"><!--Contenido -->
                          <li>
-                          El primero (más alto y en negro) es para los Compradores ocasionales, es un excelente precio y estamos vigilando para que sea el mejor precio del mercado. El segundo (en rojo) es el precio para los Amigos de los productos TRON. Aquellas personas que conocen que sólo elaboramos productos de alta calidad y que nuestros precios son supremamente atractivos. A ellos que consumen mensualmente los productos TRON para el aseo del hogar en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> mensuales ó los productos industriales fabricados por Balquimia S.A.S. en cuantía mínima de <?= $Pedido_Minimo_Indus ;?> mensuales, les ofrecemos el beneficio de este precio especial.
+                          El primero (más alto y en negro) es para los Clientes, es un excelente precio y estamos vigilando para que sea el mejor precio del mercado. El segundo (en rojo) es el precio para los Amigos de los productos TRON. Aquellas personas que conocen que sólo elaboramos productos de alta calidad y que nuestros precios son supremamente atractivos. A ellos que consumen mensualmente los productos TRON para el aseo del hogar en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> mensuales ó los productos industriales fabricados por Balquimia S.A.S. en cuantía mínima de <?= $Pedido_Minimo_Indus ;?> mensuales, les ofrecemos el beneficio de este precio especial.
 
                          </li>
                      </ul><!--Contenido -->
@@ -123,7 +123,7 @@
    <li><!--¿Quiénes tienen derecho a recibir comisiones? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Quiénes tienen derecho a recibir comisiones?   </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Todos los usuarios registrados en el Plan Empresario TRON, que se encuentren activos en la red y que al último día del mes a liquidar cumplan con alguna de las siguientes condiciones: <br><br> 1) Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras. <br> 2) Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras. <br> 3) Que tengan vinculados compradores ocasionales y éstos hayan hecho compras <br> 4) Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON o en el plan Compradores Ocasionales y éstos hayan hecho compras.    </li>
+             <li>Todos los usuarios registrados en el Plan Empresario TRON, que se encuentren activos en la red y que al último día del mes a liquidar cumplan con alguna de las siguientes condiciones: <br><br> 1) Que tengan amigos en su red vinculados al Plan Empresario TRON y éstos hayan hecho compras. <br> 2) Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.  <br> 3) Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON y éstos hayan hecho compras.    </li>
          </ul><!--Contenido -->
    </li><!--¿Quiénes tienen derecho a recibir comisiones? -->
 
@@ -182,7 +182,7 @@
              <li> Todas las compras de productos hechas en el mes por las personas que conforman tu red
              (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresario TRON hasta el nivel sexto (6º.)
              en tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de
-             Usuario en el Plan Cliente TRON y compradores ocasionales.   </li>
+             Usuario en el Plan Cliente TRON.   </li>
          </ul><!--Contenido -->
    </li><!--¿Cuál es la base para liquidación de mis comisiones? -->
 
@@ -276,40 +276,9 @@
 </div>
 </div><!--Panel -->
 
-<!-- ///////////////////////////////////////////////////////-Panel-Kit de Inicio-///////////////////////////////////////////////////////-->
 
 
-<div class="panel panel-default"><!--Panel -->
-<div class="  panel-heading">
-<h4 class="cont-titulos-panel  panel-title">
-     <a href="#kit-inicio"  class="panel-titulo"  data-toggle="collapse"   data-parent="#accordion">Kit de Inicio</a>
-</h4>
-</div>
 
-<div id="kit-inicio" class="panel-collapse collapse">
-<div class="panel-body"><!--Contenedor de Kit de Inicio -->
-
-   <ul class="list-unstyled accordion" id="accordion"><!-- Menu accordion-->
-
-     <li><!--¿En qué consiste? -->
-        <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿En qué consiste?   </p></div><!--Pregunta -->
-         <ul class="list-unstyled submenu"><!--Contenido -->
-               <li>El kit de inicio es el primer pedido que toda persona que se registre en el plan Cliente TRON ó Empresario TRON debe hacer para ingresar. Contiene todos los productos y los accesorios requeridos para usarlos, más unos obsequios de cortesía.    </li>
-           </ul><!--Contenido -->
-     </li><!--¿En qué consiste? -->
-
-    <li><!--¿Cuánto cuesta el kit de inicio?  -->
-        <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuánto cuesta el kit de inicio?    </p></div><!--Pregunta -->
-         <ul class="list-unstyled submenu"><!--Contenido -->
-               <li>El kit de Inicio cuesta <?=$valor_kit_inicio_ocasional ;?>. En él encontrarás 4 productos TRON en cojines, sus envases vacíos correspondientes, tapas, pistola y válvulas especiales para utilizarlos y además unos obsequios de bienvenida.”    </li>
-           </ul><!--Contenido -->
-     </li><!--¿Cuánto cuesta el kit de inicio?  -->
-
-
-   </ul><!--Menu accordion -->
-</div><!--Contenedor de Kit de Inicio -->
-</div>
-</div><!--Panel -->
 
 
 
@@ -389,7 +358,7 @@
   <li><!--¿Qué pasa si se me olvida hacer mi pedido mensual? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Qué pasa si se me olvida hacer mi pedido mensual?</p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li>Si se te olvida hace tu pedido mínimo reglamentario del mes en productos de aseo TRON, no tendrás derecho a liquidación de comisiones, estas volverán a ser liquidadas con la comisión regular cuando hagas y pagues tu pedido mínimo reglamentario del mes de productos de aseo TRON o de productos industriales fabricados por Balquimia S.A.S.</li>
+             <li>Si se te olvida hacer tu pedido mínimo reglamentario del mes en productos de aseo TRON, no tendrás derecho a liquidación de comisiones, estas volverán a ser liquidadas con la comisión regular cuando hagas y pagues tu pedido mínimo reglamentario del mes de productos de aseo TRON o de productos industriales fabricados por Balquimia S.A.S.</li>
          </ul><!--Contenido -->
    </li><!--¿Qué pasa si se me olvida hacer mi pedido mensual? -->
 

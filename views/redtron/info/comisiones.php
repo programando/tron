@@ -37,8 +37,7 @@
         <ul class="list-unstyled ulGen">
            <li>1. Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras.</li>
            <li>2. Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.</li>
-           <li>3. Que tengan amigos vinculados en el Plan Compradores Ocasionales y éstos hayan hecho compras</li>
-           <li>4. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON o Plan Compradores Ocasionales y estos hayan hecho compras.</li>
+           <li>3. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON éstos hayan hecho compras.</li>
 
         </ul>
         <br>
@@ -57,7 +56,7 @@
         Las liquidaciones se basan en todas las compras de productos hechas en el mes por las personas que conforman tu red
         (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresarios TRON hasta el nivel sexto (6º.) en
         tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de Usuario
-        en el Plan Cliente TRON y Plan Compradores Ocasionales.
+        en el Plan Cliente TRON.
         <br><br>
         Hay algunas cuantías sobre las que no se pagan comisiones, estas son: el IVA, el valor del transporte, la compra de accesorios o
         de productos promocionales los cuales se encuentran identificados con el ícono <img src="<?= BASE_IMG_PRODUCTOS ;?>star2.png" width="32" />
@@ -137,7 +136,7 @@
 <div>
 	<div class="titleM1 colorBlue mb10 t18"><a name="medios"></a>Medios de Cobro</div>
     <div class="p20 taJ">
-        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes y serán abonadas en tu cuenta dinero. El saldo de tu cuenta dinero podrá ser trasladado a tu cuenta bancaria cuando lo solicites.
+        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes y serán abonadas en tu cuenta dinero.  
         <br><br>
         Recuerda que el costo de la transferencia bancaria es de <?= Session::Get('valor_transferencia_bancaria') ;?> por lo que debes ajustar
         la cifra Valor Mínimo a Transferir a la cuantía que te convenga. Esta cifra viene por defecto en <?= Session::Get('valor_minimo_transferencias') ;?>

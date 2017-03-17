@@ -141,7 +141,7 @@
                 </tr>
                 <tr>
                     <td>PRECIOS PARA AMIGOS TRON <br>
-                        <small>Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar o los productos de la línea industrial fabricados por Balquimia S.A.S. y en su primer pedido compraron kit de inicio o su equivalente en productos industriales.</small>
+                        <small>Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar o los productos de la línea industrial fabricados por Balquimia S.A.S. </small>
                     </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>
@@ -157,7 +157,7 @@
                 <tr>
                     <td>COMISIONES <br>
                         <small>Sobre las compras de las personas que ingreses a la red y las que ellos ingresen hasta por 6 niveles
-                        y comisiones aún más especiales sobre las compras de quienes quieren sólo consumir los productos TRON sin pertenecer a la Red siendo compradores ocasionales.</small><a name="requisitos"></a>
+                        y comisiones aún más especiales sobre las compras de quienes quieren sólo consumir los productos TRON sin pertenecer a la Red siendo clientes.</small><a name="requisitos"></a>
                     </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>
@@ -185,7 +185,7 @@
         <p>Para pertenecer a la Red TRON se debe cumplir los siguientes requisitos:</p>
        	<br />
         <ul class="ulGen">
-            <li>Registrarse como Empresario TRON y para ello se debe comprar el Kit de Inicio.</li>
+            <li>Registrarse como Empresario TRON.</li>
             <li>Comprometerse con ingresar como mínimo 4 amigos que se registren en el plan Empresarios TRON.</li>
             <li>Asesorar y motivar a los amigos ingresados para que estos a su vez puedan ingresar también los cuatro (4) amigos que les corresponde.</li>
             <li>Comprar como mínimo <?= $Pedido_Minimo_Tron ;?> pesos mensuales en productos  TRON que se encuentran en la zona HOGAR Y PERSONAL ó si eres comprador de productos industriales, comprar como mínimo <?= $Pedido_Minimo_Indus ;?>  pesos mensuales en productos de la zona INDUSTRIAL fabricados por Balquimia S.A.S. y marcados en la Tienda Virtual con el símbolo :

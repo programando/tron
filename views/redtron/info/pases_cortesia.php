@@ -5,7 +5,7 @@
             <ul class="list-unstyled">
                 <li><a href="#introduccion">Introducción</a></li>
                 <li><a href="#funciona">¿Cómo Funciona?</a></li>
-                <li><a href="#bene-envia">Beneficios para quien lo eniva</a></li>
+                <li><a href="#bene-envia">Beneficios para quien lo envía</a></li>
                 <li><a href="#bene-recibe">Beneficio para quien recibe</a></li>
                 <li><a href="#obtenerlos">¿Cómo obtenerlos?</a></li>
             </ul>

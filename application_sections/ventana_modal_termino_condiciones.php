@@ -11,7 +11,7 @@
                         <br /><br />
                         <h1 style="text-align:center;">TÉRMINOS Y CONDICIONES DE USO DE<br />LA TIENDA VIRTUAL TRON</h1>
                         <br /><br />
-                        La TIENDA VIRTUAL TRON Entre amigos alcanzamos, en adelante LA TIENDA VIRTUAL, pone a disposición de sus clientes la posibilidad de comprar sus productos a través de Internet. Los términos y condiciones de las compras que realice el cliente por este medio serán los que constan a continuación y que serán aceptados por el cliente, como condición esencial para acceder a los productos ofrecidos por Balquimia S.A.S. por medio del sitio www.entreamigosalcanzamos.com.
+                        La TIENDA VIRTUAL TRON Entre amigos alcanzamos, en adelante LA TIENDA VIRTUAL, pone a disposición de sus clientes la posibilidad de comprar sus productos a través de Internet. Los términos y condiciones de las compras que realice el cliente por este medio serán los que constan a continuación y que serán aceptados por el cliente, como condición esencial para acceder a los productos ofrecidos por Balquimia S.A.S. por medio del sitio <?=DOMINIO ;?>.
                       <br /><br />
                         La posibilidad de realizar compras a través de esta página, está disponible de manera exclusiva para los clientes que cuenten con la debida capacidad jurídica, según lo dispuesto por la normatividad legal vigente en Colombia, por lo tanto LA TIENDA VIRTUAL no se encuentra obligada a emitir aceptación de una oferta emanada de un cliente que no posea la capacidad necesaria para contratar.
                       <br /><br />
@@ -21,7 +21,7 @@
                       <br /><br />
 
                         <h2>Pago carrito de compras</h2>
-                        Los productos que los clientes de LA TIENDA VIRTUAL podrán adquirir, se enuncian y describen en el sitio web: www.entreamigosalcanzamos.com   y ostentan dos precios: El precio normal para los Compradores Ocasionales y el precio especial, exclusivo para quienes se haya registrado en los planes denominados: Plan Cliente TRON ó Plan Empresario TRON.
+                        Los productos que los clientes de LA TIENDA VIRTUAL podrán adquirir, se enuncian y describen en el sitio web: <?=DOMINIO ;?>   y ostentan dos precios: El precio normal para los Clientes y el precio especial, exclusivo para quienes se haya registrado en los planes denominados: Plan Empresario TRON.
                       <br /><br />
 
                       <h2>Registro de usuario</h2>
@@ -73,7 +73,7 @@
                       <br /><br />
 
                         <h2>Exoneración y garantías</h2>
-                        Los productos y/o servicios exhibidos son suministrados en el estado en que normalmente se encontrarían en el almacén de LA TIENDA VIRTUAL sin haber de por medio garantías de cualquier tipo, ya sea expresas o implícitas. LA TIENDA VIRTUAL no garantiza que las imágenes de los productos y/o servicios en www.entreamigosalcanzamos.com correspondan exactamente a las características de los mismos. Salvo lo previsto en la Legislación colombiana como obligaciones del comercializador, LA TIENDA VIRTUAL desconoce todas las garantías expresas o implícitas, incluyendo, mas no limitado a, garantías de comerciabilidad, adecuación para un propósito particular, no contravención u otra violación de derechos.
+                        Los productos y/o servicios exhibidos son suministrados en el estado en que normalmente se encontrarían en el almacén de LA TIENDA VIRTUAL sin haber de por medio garantías de cualquier tipo, ya sea expresas o implícitas. LA TIENDA VIRTUAL no garantiza que las imágenes de los productos y/o servicios en <?=DOMINIO ;?> correspondan exactamente a las características de los mismos. Salvo lo previsto en la Legislación colombiana como obligaciones del comercializador, LA TIENDA VIRTUAL desconoce todas las garantías expresas o implícitas, incluyendo, mas no limitado a, garantías de comerciabilidad, adecuación para un propósito particular, no contravención u otra violación de derechos.
                       <br /><br />
 
                         <h2>Responsabilidad limitada</h2>
