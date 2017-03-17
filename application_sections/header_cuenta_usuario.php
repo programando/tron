@@ -6,11 +6,11 @@
         <a href="#myModal" class="aS p10 colorRed dIB" data-toggle="modal" data-target="#myModal">
             <span class="glyphicon glyphicon-user arro rr50"></span> Iniciar Sesión
         </a>
-
+ <!-- INFORMACION SOBRE CUENTAS
         <a href="<?=BASE_URL ;?>terceros/registro" class="aS p10 colorRed dIB">
             <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
         </a>
- 
+ -->   
 
          <a href="<?=BASE_URL ;?>terceros/nuevo_usuario" class="aS p10 colorRed dIB">
             <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
