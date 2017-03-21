@@ -1,12 +1,16 @@
 <?php 
   $nommcipio_despacho = Session::Get('nommcipio_despacho');
+    $iddireccion_despacho = Session::Get('iddireccion_despacho');
+  if ( !isset($iddireccion_despacho )){
+      $iddireccion_despacho = 0;
+  }
     
 ?>
   <td></td>
   <td coslpan="3" class="text-right">
      <!-- SUBTOTAL -->
          <div><strong><?=  Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Amigos ) ; ?> </strong></div>
-        <?php if ( strlen($nommcipio_despacho) > 0 ) :?> 
+        <?php if ( $iddireccion_despacho> 0 ) :?> 
            <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Transporte_Real)  ;?> </strong></div>
         <?php endif ;?>
          <!-- PUNTOS -->
