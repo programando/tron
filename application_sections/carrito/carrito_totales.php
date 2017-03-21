@@ -1,6 +1,10 @@
 <?php 
-  $nommcipio_despacho = trim( Session::Get('nommcipio_despacho'));
-  //echo strlen($nommcipio_despacho);
+  $nommcipio_despacho   = trim( Session::Get('nommcipio_despacho'));
+  $iddireccion_despacho = Session::Get('iddireccion_despacho');
+  if ( !isset($iddireccion_despacho )){
+      $iddireccion_despacho = 0;
+  }
+  //echo $iddireccion_despacho . 'iddireccion_despacho';
 ?>
 
 <tr>
@@ -8,7 +12,7 @@
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
 
-        <?php if ( strlen($nommcipio_despacho) > 0 ) :?>
+        <?php if ( $iddireccion_despacho > 0 ) :?>
                <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
                   <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo... <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
                   <?php else : ?>
