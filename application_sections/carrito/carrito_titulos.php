@@ -4,14 +4,19 @@
 	$cumple_condicion_cpras_tron_industial =  Session::Get('cumple_condicion_cpras_tron_industial');
 	$logueado                              =  $_SESSION['logueado'];
     $idtipo_plan_compras                   =  $_SESSION['idtipo_plan_compras'];
+    $nombre_usuario                        =  strtoupper(trim(Session::Get('nombre_usuario')));
+    $codigousuario                         =  Session::Get('codigousuario');
+
 ?>
 
 <?php if ( $logueado == TRUE && $idtipo_plan_compras == 3 ) :?>
 	<div class="taR mb20">
-		<small>Pedido a nombre del Usuario : <strong> <?= strtoupper( Session::Get('codigousuario')) ;?></strong></small>
+		<small>Pedido a nombre del Usuario : <strong> <?= strtoupper( $codigousuario) ;?></strong></small>
 	</div>
     <?php else :?>
-	    <small>Pedido a nombre de : <strong> <?= strtoupper( Session::Get('nombre_usuario')) ;?></strong></small>
+        <?php if ( strlen($nombre_usuario) > 0 ) :?>
+	       <small>Pedido a nombre de : <strong> <?=  $nombre_usuario  ;?></strong></small>
+        <?php endif ;?>
 <?php endif ;?>
 
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->

@@ -122,3 +122,5 @@
 [21-Mar-2017 08:40:17 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
 [21-Mar-2017 08:40:58 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
 [21-Mar-2017 08:41:09 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[21-Mar-2017 08:54:46 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[21-Mar-2017 08:57:34 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
