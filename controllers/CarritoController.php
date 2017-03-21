@@ -847,7 +847,11 @@ private function Asignar_Transportadora_a_Productos(){
        $Valor_Flete_Tron              = $Valor_Flete_Ocasional ;
        $this->Vr_Transporte_Tron      = $Valor_Flete_Tron   ;
      }
-
+      $iddireccion_despacho = Session::Get('iddireccion_despacho');
+      if ( $iddireccion_despacho == 0 ){
+        $this->Vr_Transporte_Ocasional = 0;
+        $this->Vr_Transporte_Tron      = 0;
+      }
      Session::Set('tipo_despacho_carga',         Session::Get('tipo_despacho_pedido' ) );
      Session::Set('id_transportadora_carga',     Session::Get('id_transportadora')   );
      Session::Set('vr_flete_carga',              $Valor_Flete_Ocasional      );
@@ -971,6 +975,12 @@ private function Asignar_Transportadora_a_Productos(){
          }
        }
 
+      $iddireccion_despacho = Session::Get('iddireccion_despacho');
+      if ( $iddireccion_despacho == 0 ){
+        $this->Vr_Transporte_Ocasional = 0;
+        $this->Vr_Transporte_Tron      = 0;
+      }
+      
 
        if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE  ){
          $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;

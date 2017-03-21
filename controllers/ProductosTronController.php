@@ -73,7 +73,11 @@
 											if ( $descuento_especial < 0 ) { $descuento_especial = $descuento_especial * -1 ;}
 
 											$descuento_especial 										= round($descuento_especial,0);
-											$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
+											if ( $Precio_Lista_Total > 0) {
+												$descuento_especial_porciento = $descuento_especial / $Precio_Lista_Total  * 100;
+											}else{
+														$descuento_especial_porciento = 0;
+											}
 											$descuento_especial_porciento = round($descuento_especial_porciento,2);
 
 										//*** PRECIOS UNITARIOS
