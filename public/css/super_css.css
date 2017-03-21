@@ -20,7 +20,7 @@ a, input, button						{ outline:none !important; }
 
 /* HEADER */
 .header-tron							{ height:auto; }
-.header-tron .logo						{ padding:10px; max-width:240px; }
+.header-tron .logo						{ padding:10px; max-width:402px; }
 
 .contenido-input-buscar					{ border:1px solid #b5b5b5; display:block; margin:0 auto; width:80%; min-width:0; overflow:hidden; }
 .columan-input							{ width:100%; max-width:none; }

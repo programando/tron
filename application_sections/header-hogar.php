@@ -68,6 +68,8 @@
                                     <li><a href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
                                 <?php endif;?>
 
+                            
+                            <li><a href="http://balquimia.com" target="_blank">SOBRE BALQUIMIA</a></li>
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS </a></li>
                         </ul>
 

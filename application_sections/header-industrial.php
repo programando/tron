@@ -62,6 +62,7 @@
                             <?php if ( Session::Get('Cantidad_Destacados_Industrial') >=5 ) :?>
                             <li><a href="<?=BASE_URL ;?>productos/destacados/" id="indus_destacados">DESTACADOS</a></li>
                         <?php endif ;?>
+                        	<li><a href="http://balquimia.com" target="_blank">SOBRE BALQUIMIA</a></li>
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS</a></li>
 
 
