@@ -29,7 +29,7 @@
                               $idorden_nv_1_en_nv_2 = $Categorias_Nv_2['idorden_menu_nivel_1']; // Campo que relaciona Categoria y subcategoria
                               $orden_nivel_2        =  $Categorias_Nv_2['orden_nivel_2'] ;
                               //$orden_nivel_2        = $orden_nivel_2  .' (' . $Categorias_Nv_2['cantidad'] . ')';
-    
+
                               $idorden_nv_2         = $Categorias_Nv_2['idorden_nv_2'] ;
                               if ( $idorden_nv_1 == $idorden_nv_1_en_nv_2) {
                           ?>
@@ -39,7 +39,7 @@
                                     id-subcategoria="<?= $idorden_nv_2 ;?>"
                                   >
 								  		<span class="cantti t10 rr10"><?= $Categorias_Nv_2['cantidad']; ?></span>
-										<?=$orden_nivel_2 ;?>                                        
+										<?=$orden_nivel_2 ;?>
                                         <br style="clear:both;" />
                                 </a>
                             </li>

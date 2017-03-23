@@ -35,8 +35,8 @@
 
                         <?php else: ?>
 
-                            <li><a class="pagina" pagina="<?= $this->_paginacion['rango'][$i]; ?>" href="javascript:void(0);">
-                                    <?= $this->_paginacion['rango'][$i]; ?>
+                            <li><a class="pagina" nombre-categoria='<?= $this->nom_categoria;?>' pagina="<?= $this->_paginacion['rango'][$i]; ?>" href="javascript:void(0);">
+                                    <?= $this->_paginacion['rango'][$i]; ?> 
                                 </a>
                             </li>
 

@@ -52,4 +52,13 @@
 				return $mes;
 			}
 
+				public static	function Sin_Acentos ($cadena){
+		    $originales 	= 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕñ';
+		    $modificadas = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRrn';
+		    $cadena 					= utf8_decode ($cadena );
+		    $cadena 					= strtr( $cadena, utf8_decode($originales), $modificadas);
+		    $cadena 					= strtoupper( $cadena );
+		    return utf8_encode( $cadena );
+		}
+
 }

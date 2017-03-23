@@ -129,3 +129,49 @@
 [21-Mar-2017 09:13:08 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
 [21-Mar-2017 09:13:15 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
 [21-Mar-2017 09:13:21 America/Bogota] PHP Warning:  Division by zero in C:\xampp\htdocs\tron\controllers\ProductosTronController.php on line 76
+[23-Mar-2017 08:21:54 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[23-Mar-2017 08:21:55 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[23-Mar-2017 08:21:56 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[23-Mar-2017 08:21:56 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[23-Mar-2017 09:31:04 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:31:10 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:31:10 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:31:10 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:31:14 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:31:14 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:31:14 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:32:59 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:33:05 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:33:05 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:33:05 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:33:11 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:33:11 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:33:11 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:42 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:47 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:47 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:47 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:58 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:58 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:34:58 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:35:03 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:35:03 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:35:03 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:36:20 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:36:20 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:36:20 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:36:22 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:36:22 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:36:22 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:21 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:21 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:21 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:26 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:26 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:26 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:32 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:32 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:37:32 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:55:10 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:55:10 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38
+[23-Mar-2017 09:55:10 America/Bogota] PHP Notice:  Undefined property: Paginador::$nom_categoria in C:\xampp\htdocs\tron\views\paginador\paginador_ajax.php on line 38

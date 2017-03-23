@@ -24,7 +24,7 @@ var Paginacion = function(pagina , nombre_categoria ) 	{
 					$.ajax({
 						data:  Parametros,
 						dataType: 'html',
-						url:      'productos/Productos_Mostrar_Via_Ajax',
+						url:      '/productos/Productos_Mostrar_Via_Ajax',
 						type:     'post',
       success:  function (resultado)
      	 {
@@ -111,6 +111,7 @@ $("#menu-izq-otros-productos").on('click','.lista-marcas',function(){
 $("#contenido-productos").on('click','.pagina',function(){
 			var numero_pagina     = $(this).attr('pagina');
 			var  nombre_categoria = $(this).attr("nombre-categoria");
+   //alert( nombre_categoria );
 			Paginacion(numero_pagina, nombre_categoria);
 });
 

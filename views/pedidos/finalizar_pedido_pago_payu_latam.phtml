@@ -1,7 +1,8 @@
 
 <?php
      $numero_pedido         = Session::Get('numero_pedido');
-     $pnombre               = utf8_encode(Session::Get('nombre_cliente'));
+     $pnombre               = Session::Get('nombre_cliente');
+     $pnombre               = String_Functions::Sin_Acentos ( $pnombre );
      $email                 = utf8_encode(Session::Get('email'));
      $identificacion        = Session::Get('identificacion');
 

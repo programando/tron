@@ -91,6 +91,7 @@ class ProductosController extends Controller
         $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
         $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        $this->View->nom_categoria = '';
         $this->View->Mostrar_Vista('resultado_busqueda');
       }
     }
@@ -296,9 +297,10 @@ class ProductosController extends Controller
             $this->View->Productos_Pagina          = $this->Productos->Listar_Poductos_Paginador($Id_Area_Consulta );
             $this->View->Productos_Pagina          = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
             $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
+            //$this->View->nom_categoria = 'dldl';
 
             $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
-            $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
+           $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
            $this->View->Mostrar_Vista('marcas_y_categorias');
 
 
@@ -344,6 +346,9 @@ class ProductosController extends Controller
       $this->View->nom_categoria             = $nom_categoria ;
       $this->View->idorden_nv_1              = $_idorden_nv_1;
       $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
+       
+      
+
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
       $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
@@ -445,11 +450,7 @@ class ProductosController extends Controller
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
-    /* COOPSALUD
-    PSA..........................
-    TSH..........................
-    TRANSAMINASAS................
-    */
+ 
 
     } // Fin Productos_por_Categoria
 
