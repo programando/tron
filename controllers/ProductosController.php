@@ -91,7 +91,7 @@ class ProductosController extends Controller
         $this->View->Productos = $this->Productos->Busqueda_General($Texto_Busqueda, $Tipo_Busqueda);
         $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
-        $this->View->nom_categoria = '';
+        Session::Set('nom_categoria','');
         $this->View->Mostrar_Vista('resultado_busqueda');
       }
     }
@@ -281,14 +281,12 @@ class ProductosController extends Controller
      *  MUSTRA EL MENU LATERAL DE DATOS RELACIONADOS CON CATEGORÍAS Y MARCAS
     */
 
-
            if ($pagina==false) {   $pagina = 1 ;};
             $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
             if ( !isset( $Id_Area_Consulta ) ){
               Session::Set('Id_Area_Consulta',2);
               $Id_Area_Consulta  = Session::Get('Id_Area_Consulta');
             }
-
 
             $this->View->Productos_Categorias_Nv_1 = $this->Productos->Categorias_Consultar($Id_Area_Consulta);
             $this->View->Productos_Categorias_Nv_2 = $this->Productos->SubCategorias_Consultar($Id_Area_Consulta);
@@ -297,14 +295,11 @@ class ProductosController extends Controller
             $this->View->Productos_Pagina          = $this->Productos->Listar_Poductos_Paginador($Id_Area_Consulta );
             $this->View->Productos_Pagina          = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
             $this->View->Paginacion                = $this->Paginador->Mostrar_Paginacion('paginador','productos/Categorias_Marcas');
-            //$this->View->nom_categoria = 'dldl';
+            Session::Set('nom_categoria','');
 
             $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
            $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
            $this->View->Mostrar_Vista('marcas_y_categorias');
-
-
-
 
     }// Fin Categorias_Marcas
 
@@ -346,6 +341,7 @@ class ProductosController extends Controller
       $this->View->nom_categoria             = $nom_categoria ;
       $this->View->idorden_nv_1              = $_idorden_nv_1;
       $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
+      Session::Set('nom_categoria', $nom_categoria);
        
       
 
@@ -378,6 +374,7 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
+      Session::Set('nom_categoria',$nom_categoria );
 
        $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
@@ -414,6 +411,7 @@ class ProductosController extends Controller
             $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
             $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
             $this->View->nom_categoria    = strtoupper($nom_categoria);
+            Session::Set('nom_categoria', $nom_categoria);
             $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
             $this->View->SetJs(array('tron_marcas_categorias','tron_productos.jquery','tron_carrito'));
             $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
@@ -448,6 +446,7 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
       $this->View->nom_categoria    = strtoupper( $nom_categoria );
+      Session::Set('nom_categoria', $nom_categoria);
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
  
@@ -490,6 +489,7 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
        $this->View->nom_categoria    = strtoupper( $nom_marca );
+       Session::Set('nom_categoria', $nom_categoria);
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Marca
 

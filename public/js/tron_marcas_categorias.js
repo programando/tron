@@ -90,7 +90,6 @@ $('#menu-izq-otros-productos').on('click','.lista-productos',function(){
 	var IdCategoria      = $(this).attr("id-categoria");
 	var Nombre_Categoria = $(this).attr("nombre-categoria");
 					Mostrar_Productos_Categorias(IdCategoria,Nombre_Categoria );
-
 });
 
 // SUB CATEGORIAS  ( NIVEL 2)
@@ -114,14 +113,3 @@ $("#contenido-productos").on('click','.pagina',function(){
    //alert( nombre_categoria );
 			Paginacion(numero_pagina, nombre_categoria);
 });
-
-
-
-
-
-
-
-
-
-
-

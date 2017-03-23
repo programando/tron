@@ -1,6 +1,8 @@
 
 <?php if(isset($this->_paginacion)): ?>
 
+ 
+
     <div class="row">
         <div class="col-lg-12  col-md-12  col-sm-12 col-xs-3">
             <div class="paginadores">
@@ -35,7 +37,7 @@
 
                         <?php else: ?>
 
-                            <li><a class="pagina" nombre-categoria='<?= $this->nom_categoria;?>' pagina="<?= $this->_paginacion['rango'][$i]; ?>" href="javascript:void(0);">
+                            <li><a class="pagina" nombre-categoria='<?= Session::Get('nom_categoria');?>' pagina="<?= $this->_paginacion['rango'][$i]; ?>" href="javascript:void(0);">
                                     <?= $this->_paginacion['rango'][$i]; ?> 
                                 </a>
                             </li>
