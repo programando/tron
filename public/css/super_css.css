@@ -72,7 +72,10 @@ a, input, button						{ outline:none !important; }
 .headIndustrial .menGion .navbar-nav li.active			{ background-color:#BA070D; }
 
 .menGion .navbar-nav li	a.infoSpecial					{ background-color:#fc8e01; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#fff; }
-.menGion .navbar-nav li	a.infoSpecial:hover				{ background-color:#333; color:#fff; }
+.menGion .navbar-nav li	a.infoSpecial:hover				{ background-color:#666; color:#fff; }
+
+.menGion .navbar-nav li	a.infoSpecial2					{ background-color:#999; height:20px; display:inline-block; padding:0 10px; margin:10px 10px 0 0; height:auto; vertical-align:middle; color:#fff; }
+.menGion .navbar-nav li	a.infoSpecial2:hover			{ background-color:#666; color:#fff; }
 
 .contenSearAuto 						{ background-color:#eee; position:absolute; width:76%; margin:0 12%; z-index:98465153514819613; max-height:300px; overflow:auto;}
 .contenSearAuto ul						{ list-style:none; padding:0; margin:0; border:solid 1px #ccc; border-top:0; border-bottom:0; }

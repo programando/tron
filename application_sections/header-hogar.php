@@ -69,11 +69,15 @@
                                 <?php endif;?>
 
                             
-                            <li><a href="http://balquimia.com" target="_blank">SOBRE BALQUIMIA</a></li>
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS </a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="http://balquimia.com" target="_blank" title="Información" class="t12 infoSpecial2 rr20" >
+                                    <strong>Ir a Balquimia</strong>
+                                </a>
+                            </li>
                             <li>
                                 <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" title="Información" class="t12 infoSpecial rr20" >
                                     <img src="<?= BASE_IMG_CATEGORIAS_INDEX ;?>info2.png" style="padding-bottom:2px" /> &nbsp; <strong>INFO</strong>
