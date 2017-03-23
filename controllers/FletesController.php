@@ -339,6 +339,8 @@
 						$this->idmcipio               = Session::Get('idmcipio');
 						$this->iddpto                 = Session::Get('iddpto');
 
+
+
 						$this->tipo_despacho          = 2;  // CARGA REDETRANS
 						$this->Cant_Unidades_Despacho = $Numero_Unidades;
 

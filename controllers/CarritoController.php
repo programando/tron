@@ -738,6 +738,8 @@ class CarritoController extends Controller{
 
        if ( $this->Tengo_Productos_Tron == TRUE) {
          $this->Hallar_Asignar_Precio_Especial_Productos_Tron();
+       }else{
+          Session::Set('precio_especial',0);
        }
 
        $this->Fletes->Numero_Unidades_Despacho();
@@ -852,12 +854,13 @@ private function Asignar_Transportadora_a_Productos(){
         $this->Vr_Transporte_Ocasional = 0;
         $this->Vr_Transporte_Tron      = 0;
       }
+
+
      Session::Set('tipo_despacho_carga',         Session::Get('tipo_despacho_pedido' ) );
      Session::Set('id_transportadora_carga',     Session::Get('id_transportadora')   );
      Session::Set('vr_flete_carga',              $Valor_Flete_Ocasional      );
      Session::Set('valor_declarado_carga',       $_Carga_Fija_Vr_Declarado) ;
      Session::Set('Peso_Pedido_Carga',           $_Carga_Fija_Peso_Pedido );
-
 
    }
 
@@ -980,7 +983,7 @@ private function Asignar_Transportadora_a_Productos(){
         $this->Vr_Transporte_Ocasional = 0;
         $this->Vr_Transporte_Tron      = 0;
       }
-      
+
 
        if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE  ){
          $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;
@@ -1365,6 +1368,7 @@ return $Cumple_Condic_Cpras_Tron_Industial;
         $id_categoria_producto = $this->Datos_Carro[$i]['id_categoria_producto'] ;
         $aplica_proceso_tron    =$this->Datos_Carro[$i]['aplica_proceso_tron'] ;
 
+
         if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ){
           $precio_unitario       = $this->Datos_Carro[$i]['pv_tron'] ;
         }
@@ -1378,7 +1382,7 @@ return $Cumple_Condic_Cpras_Tron_Industial;
         $total_item_tron       = $this->Datos_Carro[$i]['pv_tron'] * $cantidad  ;
 
 
-        if ($id_categoria_producto  <= 4 || $aplica_proceso_tron = TRUE) {
+        if ($id_categoria_producto  <= 4 || $aplica_proceso_tron == TRUE) {
                $this->compras_tron                 = $this->compras_tron            + $total_item_tron;//$total_item  ;
                $this->compras_tron_sin_iva         = $this->compras_tron_sin_iva    +  ( $total_item_tron )  / ( 1 +  $this->Datos_Carro[$i]['iva']/100 ) ;
 

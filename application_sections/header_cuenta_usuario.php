@@ -10,12 +10,12 @@
         <a href="<?=BASE_URL ;?>terceros/registro" class="aS p10 colorRed dIB">
             <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
         </a>
- -->   
+ -->
 
          <a href="<?=BASE_URL ;?>terceros/nuevo_usuario" class="aS p10 colorRed dIB">
             <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
         </a>
- 
+
 
 	</div>
     <div class="onlyPCBoo"><br /><br /><br /></div>
@@ -43,13 +43,15 @@
                             <span class="glyphicon glyphicon-user"></span> &nbsp; Mi Cuenta
                         </a>
                     </li>
+                    <!--
                     <?php if ( Session::Get('idtipo_plan_compras') == 3 ) :?>
                         <li role="presentation">
-                            <a href="<?= BASE_URL ;?>terceros/registro/1" role="menuitem" tabindex="-1">
+                            <a href="<?= BASE_URL ;?>terceros/nuevo_usuario/1" role="menuitem" tabindex="-1">
                                 <span class="registrar_amigo"></span> &nbsp; Registrar Amigo bajo mi código
                             </a>
                         </li>
                      <?php endif; ?>
+ -->
                 <?php endif; ?>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation">

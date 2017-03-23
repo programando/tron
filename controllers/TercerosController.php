@@ -24,7 +24,17 @@ class TercerosController extends Controller {
     Session::Set('email_anterior'         , $Tercero[0]['email'] ) ;
  }
 
-  public function nuevo_usuario(){
+  public function nuevo_usuario( $presentado_por_amigo = 0){
+      if ( $presentado_por_amigo == 0 ) {
+        $this->Registro_Re_Establecer_Tercero_Presenta();
+      }
+      if ( $presentado_por_amigo == 1 ) {
+        $this->View->codigoterceropresenta = Session::Get('codigousuario');
+      }
+
+
+      Session::Destroy('idtipo_plan_compras');
+
     $this->View->TiposDocumentos        = $this->TiposDocumentos->Consultar();
     $this->View->SetJs(array('nuevo_usuario'));
     $this->View->Mostrar_Vista("registro_nuevo_usuario");
