@@ -7,9 +7,7 @@
             <span class="glyphicon glyphicon-user arro rr50"></span> Iniciar Sesión
         </a>
  <!-- INFORMACION SOBRE CUENTAS
-        <a href="<?=BASE_URL ;?>terceros/registro" class="aS p10 colorRed dIB">
-            <span class="glyphicon glyphicon-list-alt arro rr50"></span> Registrarme
-        </a>
+
  -->
 
          <a href="<?=BASE_URL ;?>terceros/nuevo_usuario" class="aS p10 colorRed dIB">
@@ -43,7 +41,7 @@
                             <span class="glyphicon glyphicon-user"></span> &nbsp; Mi Cuenta
                         </a>
                     </li>
-                    <!--
+
                     <?php if ( Session::Get('idtipo_plan_compras') == 3 ) :?>
                         <li role="presentation">
                             <a href="<?= BASE_URL ;?>terceros/nuevo_usuario/1" role="menuitem" tabindex="-1">
@@ -51,7 +49,7 @@
                             </a>
                         </li>
                      <?php endif; ?>
- -->
+
                 <?php endif; ?>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation">
