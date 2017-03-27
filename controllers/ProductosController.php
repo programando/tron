@@ -97,6 +97,27 @@ class ProductosController extends Controller
     }
 
 
+    public function Busqueda_Producto_Compra_Online( $Texto_Busqueda ){
+      /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
+      */
+      $Id_Area_Consulta = 1;
+   
+
+      $pagina           = 1;
+      if ( strlen($Texto_Busqueda) > 0 ){
+        $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','mostrar_tabla_carrito'));
+        $this->View->Productos = $this->Productos->Busqueda_Nombre($Texto_Busqueda, 0,$Id_Area_Consulta );
+        $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos, $pagina);
+        $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
+        Session::Set('nom_categoria','');
+        $this->View->Mostrar_Vista('resultado_busqueda');
+      }
+    }
+
+
+
+
     public function Busqueda_Productos (){
        $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
        $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
@@ -118,7 +139,6 @@ class ProductosController extends Controller
 
          echo json_encode($html,256);
        }
-
 
     }
 
