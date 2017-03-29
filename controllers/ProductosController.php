@@ -97,12 +97,11 @@ class ProductosController extends Controller
     }
 
 
-    public function Busqueda_Producto_Compra_Online( $Texto_Busqueda ){
-      /**  ENERO 22 DE 2015.    REALIZA BUSQUEDA DE PRODUCTOS TENIENDO EN CUENTA UN CRITERIO DADO POR EL USUARIO
+    public function Compra_Online( $Texto_Busqueda ){
+      /**  MARZO 22 DE 2017.
+            ESTE METODO SE INVOCA DESDE BALQUIMIA.COM PARA INICIAR LA COMPRA DE PRODUCTO
       */
       $Id_Area_Consulta = 1;
-   
-
       $pagina           = 1;
       if ( strlen($Texto_Busqueda) > 0 ){
         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
@@ -362,8 +361,8 @@ class ProductosController extends Controller
       $this->View->idorden_nv_1              = $_idorden_nv_1;
       $this->View->Id_Area_Consulta          = $Id_Area_Consulta;
       Session::Set('nom_categoria', $nom_categoria);
-       
-      
+
+
 
 
       $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas'));
@@ -469,7 +468,7 @@ class ProductosController extends Controller
       Session::Set('nom_categoria', $nom_categoria);
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
 
- 
+
 
     } // Fin Productos_por_Categoria
 
