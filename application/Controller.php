@@ -10,6 +10,7 @@ abstract class Controller
 
     public function __construct()
      {
+        //
         $this->View = new View(new Request);
      }
 
