@@ -63,12 +63,24 @@
 										$formula_a  = ( $Costo_Total  +  $costofijo ) / ( $correctorvariacion  - ( $py_porciento_recaudo * $Por100Iva ) ) ;
 
 
+ 
+
+ /*echo $Costo_Total  .'<br>';
+echo $costofijo  .'<br>';
+echo $correctorvariacion   .'<br>';
+echo $py_porciento_recaudo   .'<br>';
+echo $formula_a .'<br>';
+echo $Por100Iva;*
+*/
+
 											$precio_especial = $formula_a ;
 											$formula_elegida = $formula_a ;
 
 											$precio_especial 				 = $precio_especial  * $Por100Iva    ;
+
 											$precio_especial_temp = $precio_especial ;
 											$descuento_especial   = $Precio_Lista_Total  - $precio_especial ;
+
 
 											if ( $descuento_especial < 0 ) { $descuento_especial = $descuento_especial * -1 ;}
 
@@ -79,6 +91,8 @@
 														$descuento_especial_porciento = 0;
 											}
 											$descuento_especial_porciento = round($descuento_especial_porciento,2);
+
+
 
 										//*** PRECIOS UNITARIOS
 										//*----------------------
@@ -93,10 +107,12 @@
 										if ( $Cantidad_Loza   > 0 )  {	$Precio_Unitario_Loza    = 	$Precio_Lista_Loza   / $Cantidad_Loza   ;	}
 
 
+
 									$Precio_Unitario_Ropa   = $Precio_Unitario_Ropa   	* ( 1 - $dscto_precio_mercado_1_ropa				) ;
 									$Precio_Unitario_Banios = $Precio_Unitario_Banios 	* ( 1 - $dscto_precio_mercado_2_banios  ) ;
 									$Precio_Unitario_Pisos  = $Precio_Unitario_Pisos  	* ( 1 - $dscto_precio_mercado_3_pisos  	)	;
 									$Precio_Unitario_Loza   = $Precio_Unitario_Loza  		* ( 1 - $dscto_precio_mercado_4_loza  		)	;
+
 
 									$Precio_Total_Ropa   = $Precio_Unitario_Ropa   	* $Cantidad_Ropa  ;
 									$Precio_Total_Banios = $Precio_Unitario_Banios 	* $Cantidad_Banios;
@@ -106,6 +122,8 @@
 									$Precio_Total_Pedido = $Precio_Total_Ropa  + 	$Precio_Total_Banios + $Precio_Total_Pisos + $Precio_Total_Loza  ;
 
 									$Descuento_Concedido = $Precio_Total_Pedido  - $precio_especial  ;
+
+
 
 									/** PROPORCIONES DE LOS PRECIOS INDIVIDUALES
 									**------------------------------------------*/
@@ -127,6 +145,7 @@
 								$Proporc_Dscto_Pisos  = $Proporc_Pisos_Precio_Mcado 	* $Descuento_Concedido ;
 								$Proporc_Dscto_Loza   = $Proporc_Loza_Precio_Mcado 		* $Descuento_Concedido ;
 
+
 								// VALORES TOTALES INDIVIDUALES
 								$VrPedTotal_Ropa   = $Precio_Total_Ropa 		- $Proporc_Dscto_Ropa   ;
 								$VrPedTotal_Banios = $Precio_Total_Banios - $Proporc_Dscto_Banios  ;
@@ -144,6 +163,7 @@
 								if ( $Cantidad_Pisos  > 0 )  {	$Precio_Unitario_Pisos   = 	$VrPedTotal_Pisos  / $Cantidad_Pisos  ;	}
 								if ( $Cantidad_Loza   > 0 )  {	$Precio_Unitario_Loza    = 	$VrPedTotal_Loza   / $Cantidad_Loza   ;	}
 
+ 
 
 									// CALCULO DEL VALOR DECLARADO PARA PRODUCTOS TRON
 									Session::Set('precio_especial'              , $precio_especial   );
@@ -154,7 +174,7 @@
 
 
 
-     if ( $Precio_Unitario_Ropa    == 0 ||  $Precio_Unitario_Ropa  > Session::Get('text_pv_tron_ropa') ) {
+   if ( $Precio_Unitario_Ropa    == 0 ||  $Precio_Unitario_Ropa  > Session::Get('text_pv_tron_ropa') ) {
            $Precio_Unitario_Ropa =  Session::Get('text_pv_tron_ropa')    ;
           }
      if ( $Precio_Unitario_Banios  == 0 || $Precio_Unitario_Banios  > Session::Get('text_pv_tron_banios')) {
@@ -166,7 +186,7 @@
      if ( $Precio_Unitario_Loza    == 0 ||  $Precio_Unitario_Loza  >  Session::Get('text_pv_tron_loza')) {
          $Precio_Unitario_Loza = Session::Get('text_pv_tron_loza')     ;
         }
-
+ 
 
 									Session::Set('vr_unitario_ropa',     $Precio_Unitario_Ropa);
 									Session::Set('vr_unitario_banios',   $Precio_Unitario_Banios);

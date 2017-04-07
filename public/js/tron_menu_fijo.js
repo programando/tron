@@ -12,15 +12,15 @@ var Realizar_Busqueda = function (Parametros){
       data:  Parametros,
       dataType: 'html',
       url:      '/productos/Busqueda_General',
-      type:     'post',
+      type:     'get',
        success:  function (resultado)
          {
            $pagina.html('');
            $pagina.html(resultado);
          }
         });
-
 }
+
 
 $('.btn-buscar').on('click',function(){
       var $texto_busqueda = $('.input-buscar').val();

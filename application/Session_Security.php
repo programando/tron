@@ -3,7 +3,6 @@
 	{
 
 
-
         public  function Validate_Session( ){
 
           //md5(TOKEN_PASSWORDS . microtime().rand(1,9999999999999999999999999));
