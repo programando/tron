@@ -207,6 +207,8 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
        *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
        */
       $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
+      
+      
       $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
