@@ -207,8 +207,8 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
        *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
        */
       $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
-      
-      
+
+
       $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
     }
 
@@ -821,8 +821,9 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
     }
 
                // PLAN 3 , PERSONAS NATURALES.
+
     if ( $idtipo_plan_compras == 3 && ( $idtpidentificacion != '31'  ) ){
-      if ( $mes == 0 || $dia == 0 ){
+      if ( $mesnacimiento == 0 || $dianacimiento == 0 ){
        $Texto_Respuesta ='<strong>Es necesario que registre el día y mes de nacimiento ya que estos datos se utilizan para generar su código de usuario.<br><br>';
      }
     }
@@ -851,6 +852,7 @@ public function Registro_Nuevo_Usuario() {
       /** MAYO 30 2015
        *      REALIZA REGISTRO DE DATOS DEL REGISTRO OCASIONAL PERSONA NATURAL
        */
+
       $Texto_Respuesta               = '';
       $idtipo_plan_compras           =  0;
       $codigo_usuario_generado       = '';
@@ -905,12 +907,13 @@ public function Registro_Nuevo_Usuario() {
       $mesnacimiento           = General_Functions::Validar_Entrada('mesnacimiento','NUM');
       $dianacimiento           = General_Functions::Validar_Entrada('dianacimiento','NUM');
 
-      if ($mesnacimiento  < 9) { $mesnacimiento  = '0'.$mesnacimiento ; }
-      if ($dianacimiento  < 9) { $dianacimiento  = '0'.$dianacimiento ; }
+      if ($mesnacimiento  < 10) { $mesnacimiento  = '0'.$mesnacimiento ; }
+      if ($dianacimiento  < 10) { $dianacimiento  = '0'.$dianacimiento ; }
 
-      $Datos_Validacion  = compact('idtpidentificacion','identificacion','pnombre','papellido','genero','email','mesnacimiento','dianacimiento','es_e_mail','es_cliente','es_empresario','passwordusuario','razonsocial');
+      $Datos_Validacion  = compact('idtpidentificacion','identificacion','pnombre','papellido','genero','email','mesnacimiento','dianacimiento','es_e_mail','es_cliente','es_empresario','passwordusuario','razonsocial','idtipo_plan_compras');
 
       $this->Registro_Nuevo_Usuario_Validaciones ($Datos_Validacion );
+
       $Texto_Respuesta = $this->Texto_Respuesta ;
       if ( strlen( $Texto_Respuesta ) != 0 ){
          $Datos = compact('Texto_Respuesta' );
@@ -961,6 +964,8 @@ public function Registro_Nuevo_Usuario() {
           'param_nro_cuenta_transferencias' ,'param_tipo_cuenta_transferencias' ,'param_idmcipio_transferencias' ,
           'param_acepto_retencion_comis_para_pago_pedidos' , 'param_valor_comisiones_para_pago_pedidos' ,
           'idtppersona','nadie_presenta', 'idtipo_plan_compras');
+
+
 
       // GRABAR DATOS DEL TERCERO
         $Texto_Respuesta = '';

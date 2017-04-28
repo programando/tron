@@ -2,6 +2,111 @@
 
 
     <style>
+        td, th          { vertical-align:middle !important; }
+    </style>
+
+    <!-- tabla -->
+    <h3 class="text-center">PLAN DE COMPENSACIÓN</h3>
+    <h4 class="text-center"> A partir de la vinculación como Empresario y por los próximos seis (6) meses.</h4>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr style="border-bottom: 3px solid #003E90;">
+                <th width="35%"  colspan="2"  class="taC"><img src="../public/images/empresa/logo.png" width="150" /></th>
+                <th class="taC t12" style="background:#fadfdf;">GRUPOS</th>
+                <th width="50%" class="text-center" style="background:#d7f8fe;" >
+                    COMISIONES  POR COMPRAS DE EMPRESARIOS y/o CLIENTES <br />
+                    <small>(% sobre venta sin IVA)</small>
+                </th>
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+            <?php
+                $Agrupar_B      = TRUE ;
+                $Agrupar_Otros  = TRUE ;
+            ?>
+            <?php  foreach ($this->Comisiones_Grupos as $Comisiones)  : ;?>
+                    <?php
+                     $codigo_grupo          = $Comisiones['codigo_grupo'];
+                     $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'] * 4 ,1,',','.').'%';
+                     $ini_grupo = substr($codigo_grupo,0,1);
+
+                     ?>
+              <?php if ( $ini_grupo =='A') : ; ?>
+                <tr>
+                    <td colspan="2">TRON Hogar y Automotríz</td>
+                    <td style="background:#fadfdf;">
+                        <center>
+                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                            <div class="tabIn">
+                                <strong><?= $codigo_grupo  ;?></strong>
+                            </div>
+                        </div>
+                        </center>
+                    </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+
+                    </tr>
+              <?php endif; ?>
+
+              <?php if ( $ini_grupo =='B') : ; ?>
+                    <tr >
+                    <?php if ( $Agrupar_B == TRUE ) : ;?>
+                        <td   colspan="2" rowspan="3">Línea Industrial</td>
+                    <?php  $Agrupar_B = FALSE ; endif ; ?>
+
+
+                    <td style="background:#fadfdf;">
+                        <center>
+                        <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                            <div class="tabIn">
+                                <strong><?= $codigo_grupo  ;?></strong>
+                            </div>
+                        </div>
+                        </center>
+                    </td>
+                    <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+
+                    </tr>
+              <?php endif; ?>
+
+              <?php if ( $ini_grupo !='A' && $ini_grupo !='B') : ; ?>
+                    <tr >
+                         <?php if  ( $Agrupar_Otros == TRUE ) : ;?>
+                            <td colspan="2" rowspan="8" >Otros productos</td>
+                        <?php  $Agrupar_Otros = FALSE ; endif ; ?>
+
+
+                        <td style="background:#fadfdf;">
+                            <center>
+                            <div style="background:url(../public/images/productos/23.png) center center no-repeat; width:44px; height:44px; background-size:44px auto; color:#FFF;" class="tab">
+                                <div class="tabIn">
+                                    <strong><?= $codigo_grupo  ;?></strong>
+                                </div>
+                            </div>
+                            </center>
+                        </td>
+                        <td class="text-center" style="background:#d7f8fe;"> <?= $comis_empre_1_unidad  ;?> </td>
+
+                    </tr>
+              <?php endif; ?>
+
+
+            <?php endforeach ;?>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+<div class="pAA30">
+    <style>
         td, th			{ vertical-align:middle !important; }
     </style>
 
@@ -34,9 +139,9 @@
         </thead>
 
         <tbody>
-            <?php 
+            <?php
                 $Agrupar_B      = TRUE ;
-                $Agrupar_Otros  = TRUE ;    
+                $Agrupar_Otros  = TRUE ;
             ?>
             <?php  foreach ($this->Comisiones_Grupos as $Comisiones)  : ;?>
                     <?php
@@ -113,9 +218,6 @@
             <?php endforeach ;?>
         </tbody>
     </table>
-
-
-
 
 </div>
 

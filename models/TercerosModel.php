@@ -112,6 +112,9 @@
 						/** JUNIO 05 2015
  						 * 		CUANDO NADIE PRESENTA SE CORRE PROCESO AUTOMATICO PARA ASIGNAR A UN INTEGRANTE DE LA RED
 						 */
+						 $pnombre = substr($pnombre, 0,1);
+						 $papellido = substr($papellido, 0,1);
+
 							$Registro         =  $this->Db->Ejecutar_Sp("terceros_genera_codigo_usuario('$pnombre', '$papellido','$dia','$mes')");
 							return $Registro;
 				}

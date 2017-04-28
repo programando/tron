@@ -40,7 +40,6 @@ var  Funciones = {
                 url:      '/terceros/Registro_Nuevo_Usuario',
                 type:     'post',
                 success:  function (resultado) {
-
                   if ( resultado.idtipo_plan_compras == '2' ) {
                       $("#modal-registro-cliente").modal('show');
                     }
