@@ -31,7 +31,7 @@
             <?php  foreach ($this->Comisiones_Grupos as $Comisiones)  : ;?>
                     <?php
                      $codigo_grupo          = $Comisiones['codigo_grupo'];
-                     $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'] * 4 ,1,',','.').'%';
+                     $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'] * 4 ,2,',','.').'%';
                      $ini_grupo = substr($codigo_grupo,0,1);
 
                      ?>
@@ -146,9 +146,9 @@
             <?php  foreach ($this->Comisiones_Grupos as $Comisiones)  : ;?>
                     <?php
                      $codigo_grupo          = $Comisiones['codigo_grupo'];
-                     $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],1,',','.').'%';
-                     $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],1,',','.').'%';
-                     $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],1,',','.').'%';
+                     $comis_empre_1_unidad  = number_format ( $Comisiones['comis_empre_1_unidad'],2,',','.').'%';
+                     $comis_amg_n1_unidad   = number_format ($Comisiones['comis_amg_n1_unidad'],2,',','.').'%';
+                     $comis_amg_n2_unidad   = number_format ($Comisiones['comis_amg_n2_unidad'],2,',','.').'%';
                      $ini_grupo = substr($codigo_grupo,0,1);
 
                      ?>
