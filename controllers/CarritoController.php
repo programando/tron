@@ -1488,7 +1488,7 @@ public function Retornar_Totales_Carro_Json()  {
 
 
 
- if ( Session::Get('vr_unitario_ropa')    == 0 ||  Session::Get('vr_unitario_ropa')  > Session::Get('text_pv_tron_ropa') ) {
+ /*if ( Session::Get('vr_unitario_ropa')    == 0 ||  Session::Get('vr_unitario_ropa')  > Session::Get('text_pv_tron_ropa') ) {
   Session::Set('vr_unitario_ropa', Session::Get('text_pv_tron_ropa'))     ;
 }
 if ( Session::Get('vr_unitario_banios')  == 0 || Session::Get('vr_unitario_banios')  > Session::Get('text_pv_tron_banios')) {
@@ -1500,6 +1500,7 @@ if ( Session::Get('vr_unitario_pisos')   == 0 || Session::Get('vr_unitario_pisos
 if ( Session::Get('vr_unitario_loza')    == 0 ||  Session::Get('vr_unitario_loza')  >  Session::Get('text_pv_tron_loza')) {
   Session::Set('vr_unitario_loza', Session::Get('text_pv_tron_loza'))     ;
 }
+*/
 
 $Descuento_Especial 					 = Session::Get('descuento_especial');
 $descuento_especial_porcentaje = Session::Get('descuento_especial_porcentaje');
@@ -1522,9 +1523,11 @@ $vr_unitario_banios            =  "$ ".number_format(Session::Get('vr_unitario_b
 $vr_unitario_pisos             =  "$ ".number_format(Session::Get('vr_unitario_pisos'),0,"",".");
 $vr_unitario_loza              =  "$ ".number_format(Session::Get('vr_unitario_loza'),0,"",".");
 
-$pv_tron_resumen               =  "$ ".number_format(Session::Get('pv_tron_resumen'),0,"",".");
+$pv_tron_resumen               =  "$ ".number_format(Session::Get('precio_especial'),0,"",".");
 $pv_ocas_resumen               =  "$ ".number_format(Session::Get('pv_ocas_resumen'),0,"",".");
 $text_pv_tron_ropa             =   Session::Get('text_pv_tron_ropa');
+$precio_especial               =  "$ ".number_format(Session::Get('precio_especial'),0,"",".");
+
 
 
 $Datos    = compact('SubTotal_Pedido_Amigos','SubTotal_Pedido_Ocasional','descuento_especial','descuento_especial_porcentaje',
