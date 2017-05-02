@@ -85,6 +85,7 @@ class ProductosController extends Controller
       $Texto_Busqueda   = General_Functions::Validar_Entrada('texto_busqueda','TEXT');
       $Tipo_Busqueda    = General_Functions::Validar_Entrada('tipo_busqueda','TEXT');
       $pagina           = General_Functions::Validar_Entrada('Pagina','NUM');
+
       if ( strlen($Texto_Busqueda) > 0 ){
         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA'));
         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','mostrar_tabla_carrito'));
@@ -93,7 +94,9 @@ class ProductosController extends Controller
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
         Session::Set('nom_categoria','');
         $this->View->Mostrar_Vista('resultado_busqueda');
+        
       }
+
     }
 
 

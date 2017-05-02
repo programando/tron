@@ -12,7 +12,7 @@ var Realizar_Busqueda = function (Parametros){
       data:  Parametros,
       dataType: 'html',
       url:      '/productos/Busqueda_General',
-      type:     'get',
+      type:     'post',
        success:  function (resultado)
          {
            $pagina.html('');
@@ -37,6 +37,7 @@ $('#texto-busqueda').on('keypress',function(event){
      var $texto_busqueda = $('.input-buscar').val();
       var $tipo_busqueda  = ''
       var Parametros     = {"texto_busqueda": $texto_busqueda,"tipo_busqueda":$tipo_busqueda };
+
       if ($texto_busqueda.length>0)  {
           Realizar_Busqueda(Parametros);
       }

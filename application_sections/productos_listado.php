@@ -125,17 +125,21 @@
 
     <!-- SÓLO SE MUESTRAN 2 PRECIOS PARA OTROS PRODUCTOS   ABRIL 25 2016    -->
 
-    <?php $mostrar_un_solo_precio = Session::Get('mostrar_un_solo_precio' ); ?>
+    <?php
+        $mostrar_un_solo_precio = Session::Get('mostrar_un_solo_precio' );
+        if  ( $id_categoria_producto == 6 ){
+            $mostrar_un_solo_precio == TRUE;
+        }
+    ?>
 
-    <?php if (Session::Get('Id_Area_Consulta') == 2) :?>
-      <div class="taC mb10"><!-- Precio Clientes Ocasional -->
-          <?php if ( isset($mostrar_un_solo_precio  ) && $mostrar_un_solo_precio == FALSE) : ?>
-            <strong><?=$pv_ocasional;?></strong>
+      <div class="taC mb10"><!-- Precio Clientes Ocasional $pv_ocasional-->
+          <?php if ( $id_categoria_producto <> 6 ) : ?>
+            <strong><?= $pv_ocasional ;?></strong>
             <span><img src="<?=BASE_IMG_TIENDA;?>18.png" title="Precio Público / Comprador Ocasional" ></span>
          <?php endif ;?>
 
       </div>
-    <?php endif ;?>
+
 
 
     <!--PRECIO AMIGO TRON-->
