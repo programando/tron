@@ -48,7 +48,7 @@
 <?php   if(Session::Get('CEO_METODO') == 'index' || Session::Get('CEO_METODO') == 'terceros') : ;?>
     <?php
       $Pagina_Metas_Keys          = '';
-      $Pagina_Metas_title         = "Entre amigos alcanzamos - TRON";
+      $Pagina_Metas_title         = "Balquimia Ventas Online";
       $Pagina_Metas_description   = "El multinivel de los no-vendedores. La Red TRON es un modelo de negocio que permite tener ganancias de una manera sencilla y cómoda para tí. Sin tomar pedidos, sin cobrar, sin manejar inventarios. Sólo pasando la voz a tus amigos, parientes o compañeros de trabajo.";
 	?>
     <title><?= $Pagina_Metas_title; ?></title>

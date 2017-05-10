@@ -56,6 +56,7 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav t14">
                             <li><a href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a></li>
+                            <li><a href="<?=BASE_URL ;?>productos/productos_tron/#carrosmotos">CARROS Y MOTOS</a></li>
                             <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
                             <?php if ( Session::Get('Cantidad_Destacados') >= 5)  : ?>
                                 <li><a href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
@@ -68,7 +69,7 @@
                                     <li><a href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
                                 <?php endif;?>
 
-                            
+
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS </a></li>
                         </ul>
 
