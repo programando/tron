@@ -66,7 +66,9 @@ function Recomendar_Producto_a_Mi_Amigo_Mensaje(Parametros){
 }
 
 function Actualizar_Vista_Carrito(){
-	 $('.carrito-compras').load('../../carrito/Mostrar_Carrito/2');
+	 $('.carrito-compras').load('/carrito/Mostrar_Carrito/2');
+
+
 }
 
 
@@ -139,7 +141,7 @@ function Borrar_Producto(Parametros){
 					type:     'post',
      success:  function (resultado)
     	 {
-    	 		Imprimir_Totales_Carrito_Header(resultado.SubTotal_Pedido_Ocasional,resultado.SubTotal_Pedido_Amigos );
+    	 		//Imprimir_Totales_Carrito_Header(resultado.SubTotal_Pedido_Ocasional,resultado.SubTotal_Pedido_Amigos );
     	 		Actualizar_Vista_Carrito();
     	 }
 					});
@@ -229,6 +231,7 @@ function Borrar_Producto_de_Carrito(Parametros){
 				// ANTES DE BORRAR VERIFICO SI VIENE DEL REGISTRO Y SI EL PRODUCTO QUE DESEA BORRAR ES EL KIT DE INICIO
 				// SE LE ADVIERT QUE SI LO BORRA SE DEGRADARÁ DE PLAN.
 				Borrar_Producto_de_Carrito_Verificar_Registro_Inicial_Usuario();
+
 				if ($usuario_viene_del_registro == false ){
 								Borrar_Producto(Parametros);
 				}else{

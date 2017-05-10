@@ -399,7 +399,7 @@ class CarritoController extends Controller{
 
 
 
-      $this->Borrar_Productos_Carro_Plan_2_3();
+      //$this->Borrar_Productos_Carro_Plan_2_3();
 
       //----------------------------------------------------------------------------------------------------------------------------
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX

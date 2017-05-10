@@ -229,7 +229,8 @@ function Borrar_Producto_de_Carrito(Parametros)
      success:  function (resultado)
     	 {
     	 		Imprimir_Totales_Carrito_Header( resultado );
-    	 		location.reload();
+
+    	 		window.location.href = "/carrito/mostrar_carrito/2";
     	 }
 					});
 }
