@@ -125,6 +125,23 @@
               $this->View->Mostrar_Vista_Parcial("comisiones_puntos_x_idtercero");
           }
 
+          public function Comisiones() {
+              $idtercero =  80148;
+              $mes  = 4;
+              $anio = 2017;
+              $this->View->Comisiones =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
+              $this->View->Periodos   =  $this->Informes->Periodos_Comisiones();
+              //var_dump($Comisiones );
+              //echo "dldl";
+             $this->View->Mostrar_Vista("comisiones_bonificaciones_pagadas");
+          }
+
+            //public function comisiones_bonificaciones_pagadas() {
+              //$this->View->SetCss(array("tron_terceros_comis_bonifi"));
+            //}
+
+
+
         public function Participacion_En_La_Red($idtercero =false, $anio=0)
         {
             if ($anio == 0 ) {

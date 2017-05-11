@@ -1329,10 +1329,6 @@ public function Actualizar_Password()
       $this->View->Mostrar_Vista("confi_perfil");
     }
 
-    public function comisiones_bonificaciones_pagadas() {
-      $this->View->SetCss(array("tron_terceros_comis_bonifi"));
-      $this->View->Mostrar_Vista("comisiones_bonificaciones_pagadas");
-    }
 
 
     public function Validar_Ingreso_Usuario_Asignar_Datos( $Registro ){

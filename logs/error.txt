@@ -1,1 +1,6 @@
- 
+ [11-May-2017 11:04:28 America/Bogota] PHP Notice:  Undefined variable: Comisiones in C:\xampp\htdocs\tron\views\informes\comisiones_bonificaciones_pagadas.phtml on line 45
+[11-May-2017 11:07:20 America/Bogota] PHP Notice:  Undefined variable: Comisiones in C:\xampp\htdocs\tron\views\informes\comisiones_bonificaciones_pagadas.phtml on line 45
+[11-May-2017 11:07:20 America/Bogota] PHP Notice:  Undefined variable: Comisiones in C:\xampp\htdocs\tron\views\informes\comisiones_bonificaciones_pagadas.phtml on line 46
+[11-May-2017 11:07:20 America/Bogota] PHP Notice:  Undefined variable: Comisiones in C:\xampp\htdocs\tron\views\informes\comisiones_bonificaciones_pagadas.phtml on line 47
+[11-May-2017 11:07:47 America/Bogota] PHP Notice:  Undefined variable: Comisiones in C:\xampp\htdocs\tron\views\informes\comisiones_bonificaciones_pagadas.phtml on line 45
+[11-May-2017 11:08:59 America/Bogota] PHP Notice:  Undefined variable: Comisiones in C:\xampp\htdocs\tron\views\informes\comisiones_bonificaciones_pagadas.phtml on line 45
