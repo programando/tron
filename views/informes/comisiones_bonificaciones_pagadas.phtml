@@ -5,8 +5,8 @@
      <div class=" row">
         <div class=" col-lg-12 col-md-12 col-sm-12 info"><!--INFORMACION MES, AÑO , CONSULTA -->
             <h3 class="text-center"><strong>Comisiones Pagadas</strong></h3>
- 
-                <div class="info-consultas">
+
+                <div class="info-consultas text-center">
                   <strong>PERIODO DE CONSULTA : </strong>
                    <select name="meses" id="seleccion">
                    <?php foreach ($this->Periodos as $Periodo) : ;?>
@@ -15,12 +15,12 @@
                     <?php endforeach ;?>
                       </select>
 
-
+              <!-- <button type="button" class="btn btn-default btn-sm consultar">Consultar</button> -->
                 </div>
- 
+
               <br>
               <br>
-<table class="table table-bordered table-hover  tabla_info_compras">
+<table class="table table-bordered table-hover  tabla_info_compras table-condensed">
             <thead><!-- cabezera -->
                   <tr>
                     <th class="text-center">TP.ING.</th>
@@ -40,13 +40,15 @@
                   </tr>
             </thead><!-- cabezera -->
             <tbody>
+              <?php $Total_Ganado = 0 ;?>
               <?php foreach ($this->Comisiones as $Comision) : ;?>
-                <?php 
-                    $compra_productos = number_format ( $Comision['compra_productos'],0,',','.');
-                    $vr_iva = number_format ( $Comision['vr_iva'],0,',','.');  
-                    $base_comision = number_format ( $Comision['base_comision'],0,',','.');  
-                    $porcentaje =number_format ( $Comision['porcentaje'] * 4 ,3,',','.').'%';
-                    $total_comision = number_format ( $Comision['total_comision'],0,',','.');  
+                <?php
+                    $compra_productos     = number_format ( $Comision['compra_productos'],0,',','.');
+                    $vr_iva               = number_format ( $Comision['vr_iva'],0,',','.');
+                    $base_comision        = number_format ( $Comision['base_comision'],0,',','.');
+                    $porcentaje           = number_format ( $Comision['porcentaje'] * 4 ,3,',','.').'%';
+                    $total_comision       = number_format ( $Comision['total_comision'],0,',','.');
+                    $Total_Ganado         = $Total_Ganado + $Comision['total_comision'];
                 ?>
                       <tr>
                         <td><?= $Comision['gana_como'] ;?></td>
@@ -66,7 +68,25 @@
 
                <?php endforeach ;?>
             </tbody>
+                              <tr>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"><?= number_format ( $Total_Ganado ,0,',','.'); ?></th>
+                    <th class="text-center"></th>
+
+                  </tr>
   </table>
+  
+  <br><br>
         </div><!--FIN INFORMACION MES, AÑO , CONSULTA echo '<option value="'.$Anios['anio'].'">'.$Anios['anio'].'</option>';-->
      </div>
 
