@@ -7,7 +7,7 @@
             <h3 class="text-center"><strong>Comisiones Pagadas</strong></h3>
  
                 <div class="info-consultas">
-                  <strong>MES : </strong>
+                  <strong>PERIODO DE CONSULTA : </strong>
                    <select name="meses" id="seleccion">
                    <?php foreach ($this->Periodos as $Periodo) : ;?>
                         <option value="1"><?= $Periodo['nom_periodo'] ?></option>
@@ -15,7 +15,7 @@
                     <?php endforeach ;?>
                       </select>
 
-               <button type="button" class="btn btn-default btn-sm consultar">Consultar</button>
+
                 </div>
  
               <br>
@@ -43,6 +43,10 @@
               <?php foreach ($this->Comisiones as $Comision) : ;?>
                 <?php 
                     $compra_productos = number_format ( $Comision['compra_productos'],0,',','.');
+                    $vr_iva = number_format ( $Comision['vr_iva'],0,',','.');  
+                    $base_comision = number_format ( $Comision['base_comision'],0,',','.');  
+                    $porcentaje =number_format ( $Comision['porcentaje'] * 4 ,3,',','.').'%';
+                    $total_comision = number_format ( $Comision['total_comision'],0,',','.');  
                 ?>
                       <tr>
                         <td><?= $Comision['gana_como'] ;?></td>
@@ -50,14 +54,14 @@
                         <td><?= $Comision['numero_factura'] ;?></td>
                         <td><?= $Comision['comprador'] ;?></td>
                         <td><?= $Comision['tipocomprador'] ;?></td>
-                        <td><?= $Comision['nivel'] ;?></td>
-                        <td class="text-rigth"><?= $compra_productos ;?></td>
-                        <td><?= $Comision['vr_iva'] ;?></td>
-                        <td><?= $Comision['base_comision'] ;?></td>
+                        <td class="text-center"><?= $Comision['nivel'] ;?></td>
+                        <td class="text-right"><?= $compra_productos ;?></td>
+                        <td class="text-right"><?= $vr_iva ;?></td>
+                        <td class="text-right"><?= $base_comision ;?></td>
                         <td class="text-center"><?= $Comision['codigo_grupo'] ;?></td>
-                        <td><?= $Comision['porcentaje'] ;?></td>
-                        <td><?= $Comision['total_comision'] ;?></td>
-                        <td><?= $Comision['textidcomision'] ;?></td>
+                        <td class="text-right"><?= $porcentaje;?></td>
+                        <td class="text-right"><?= $total_comision ;?></td>
+                        <td class="text-right"><?= $Comision['textidcomision'] ;?></td>
                       </tr>
 
                <?php endforeach ;?>

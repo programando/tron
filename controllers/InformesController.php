@@ -126,7 +126,7 @@
           }
 
           public function Comisiones() {
-              $idtercero =  80148;
+              $idtercero =  80006;
               $mes  = 4;
               $anio = 2017;
               $this->View->Comisiones =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
