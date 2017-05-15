@@ -125,14 +125,18 @@
               $this->View->Mostrar_Vista_Parcial("comisiones_puntos_x_idtercero");
           }
 
-          public function Comisiones() {
-              $idtercero =  80006;
-              $mes  = 4;
-              $anio = 2017;
+          public function Comisiones( $mes=0, $anio=0 ) {
+              $idtercero =  81388;
+              //$mes  = 4;
+              //$anio = 2017;
+              
               $this->View->Comisiones =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
+              $this->View->cumple_condiciones = $this->View->Comisiones[0]['cumple_condiciones'];
+
               $this->View->Periodos   =  $this->Informes->Periodos_Comisiones();
               //var_dump($Comisiones );
               //echo "dldl";
+             $this->View->SetJs(array('tron_informes'));
              $this->View->Mostrar_Vista("comisiones_bonificaciones_pagadas");
           }
 

@@ -4,16 +4,20 @@
   <div class="contenido">
      <div class=" row">
         <div class=" col-lg-12 col-md-12 col-sm-12 info"><!--INFORMACION MES, AÑO , CONSULTA -->
-            <h3 class="text-center"><strong>Comisiones Pagadas</strong></h3>
+            <h3 class="text-center"><strong>COMISIONES</strong></h3>
+ 
 
                 <div class="info-consultas text-center">
                   <strong>PERIODO DE CONSULTA : </strong>
-                   <select name="meses" id="seleccion">
-                   <?php foreach ($this->Periodos as $Periodo) : ;?>
-                        <option value="1"><?= $Periodo['nom_periodo'] ?></option>
+                   <select name="meses" id="cboperiodo" class="cboperiodo" idmes='4'>
+                       <?php foreach ($this->Periodos as $Periodo) : ;?>
+                            <option value="<?= $Periodo['nom_periodo'] ?>"  
+                                    data-idmes = <?= $Periodo['idmes'] ;?>
+                                    data-anio  = <?= $Periodo['anio'] ;?>>
+                                    <?= $Periodo['nom_periodo'] ?></option>
 
-                    <?php endforeach ;?>
-                      </select>
+                        <?php endforeach ;?>
+                   </select>
 
               <!-- <button type="button" class="btn btn-default btn-sm consultar">Consultar</button> -->
                 </div>
@@ -23,7 +27,7 @@
 <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
             <thead><!-- cabezera -->
                   <tr>
-                    <th class="text-center">TP.ING.</th>
+                    <th class="text-center"><a href="">ORIGEN</a></th>
                     <th class="text-center">PEDIDO</th>
                     <th class="text-center">FACTURA</th>
                     <th class="text-center">COMPRADOR</th>
@@ -35,7 +39,7 @@
                     <th class="text-center">GRUPO</th>
                     <th class="text-center">% COMIS.</th>
                     <th class="text-center">VR.COMIS.</th>
-                    <th class="text-center">NRO. COMIS.</th>
+                    <th class="text-center"><a href=""># MES</a></th>
 
                   </tr>
             </thead><!-- cabezera -->
@@ -46,7 +50,7 @@
                     $compra_productos     = number_format ( $Comision['compra_productos'],0,',','.');
                     $vr_iva               = number_format ( $Comision['vr_iva'],0,',','.');
                     $base_comision        = number_format ( $Comision['base_comision'],0,',','.');
-                    $porcentaje           = number_format ( $Comision['porcentaje'] * 4 ,3,',','.').'%';
+                    $porcentaje           = number_format ( $Comision['porcentaje'] ,3,',','.').'%';
                     $total_comision       = number_format ( $Comision['total_comision'],0,',','.');
                     $Total_Ganado         = $Total_Ganado + $Comision['total_comision'];
                 ?>
@@ -85,7 +89,7 @@
 
                   </tr>
   </table>
-  
+
   <br><br>
         </div><!--FIN INFORMACION MES, AÑO , CONSULTA echo '<option value="'.$Anios['anio'].'">'.$Anios['anio'].'</option>';-->
      </div>

@@ -1,7 +1,7 @@
 $(".usu-1" ).first().css('background','#003E90');
 $(".usu-1" ).first().css('color','white')
 
-$(".table").tablesorter();
+//$(".table").tablesorter();
 
 var Comisiones_x_IdTercero = function($idtercero)
 	{
@@ -38,5 +38,21 @@ $('.usu-1').on('click',function()
 
 
 
+$('.cboperiodo').on('change',function(){
+  var seleccionado = $(this).find('option:selected');
+  var idmes        = seleccionado.data('idmes');
+  var anio         = seleccionado.data('anio');
+ 
+  $.ajax({
+            data:  {},
+            dataType: 'html',
+            url:      'informes/comisiones/'+idmes+'/'+anio,
+            type:     'post',
+      success:  function (resultado)
+       {
+        }
+      });
+ 
 
 
+});
