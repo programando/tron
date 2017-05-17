@@ -6,16 +6,7 @@
         <thead><!--Emcabezado -->
             <tr>
                 <th class="t18">BENEFICIOS</th>
-                <th class="text-center">
-                    <a class="nuvv" title="
-                    <img src='<?= BASE_IMG_EMPRESA ;?>img_tooltips1.png' style='float:left; margin:0 20px 10px 0' /> <br />
-                    Para aquellas personas que aún no han descubierto los beneficios de consumir los productos TRON.
-                    <br style='clear:both;' /> ">
-                        <span class="aS colurAd">
-                            PLAN COMPRADOR<br />OCASIONAL
-                        </span>
-                    </a>
-                </th>
+
 
                 <th class="text-center">
                     <a class="nuvv" title="
@@ -26,6 +17,7 @@
                         </span>
                     </a>
                 </th>
+
                 <th class="text-center">
                     <a class="nuvv" title="
                     <img src='<?= BASE_IMG_EMPRESA ;?>img_tooltips3.png' style='float:left; margin:0 20px 10px 0' />

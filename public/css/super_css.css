@@ -81,7 +81,7 @@ a, input, button						{ outline:none !important; }
 .contenSearAuto ul						{ list-style:none; padding:0; margin:0; border:solid 1px #ccc; border-top:0; border-bottom:0; }
 .contenSearAuto li 						{ padding:10px; border-bottom:solid 1px #ccc; }
 .contenSearAuto li:hover				{ background-color:#FFFFFF; }
-	
+
 
 
 /* INDEX */
@@ -313,9 +313,12 @@ th.headerSortDown 								{ background:#003e90 url(../images/tienda/arr2.png) ri
 
 .bloqEnd 							{ background:#666; width:100%; height:50px; position:absolute; bottom:0; left:0; }
 
+.bloqEndTable  { background:#666; width:100%; height:60px; position:absolute; bottom:0; left:0; }
 
-
-
+.bordes { border: solid 1px; padding:5px;}
+.borderIz {border-left: solid 1px;padding:5px; }
+.borderDerech {border-right:  solid 1px; padding:5px;}
+.borderAbajo {border-bottom:   solid 1px; padding:5px;}
 
 /* _______________________________________________________________________________________________________________________________________________ */
 
@@ -416,3 +419,74 @@ th.headerSortDown 								{ background:#003e90 url(../images/tienda/arr2.png) ri
 }
 
 
+
+a:hover { /*para que funcione en IE6*/
+background:#ffffff; /* el color de fondo del enlace*/
+text-decoration: none;
+}
+a.Mytooltip span {
+display:none;
+padding:10px;
+margin-left:8px;
+width:180px; /*el ancho del tooltip*/
+
+}
+a.Mytooltip:hover span {
+display: inline;
+position: absolute; /* posición del tooltip necesaria y obligatoria*/
+background: #ddeaf6 ; /*el color del fondo del tooltip*/
+border: 1px solid #c6dcf0; /*el color del borde y su estilo*/
+color: #353536;  /*el color de la letra del tooltip*/
+font-size: 14px;  /*el tamaño de la letra*/
+line-height: 120%;  /*la separación entre lineas*/
+}
+
+
+
+
+/*  código para el Tooltip  */
+.tip {
+   position: relative;
+   border-bottom: dotted 1px #3E3E3E;
+   cursor: default;
+}
+.tip span {
+    -moz-border-radius   : 5px; /* Firefox */
+    -webkit-border-radius: 5px; /* Safari */
+    background           : #003E90;
+    border-radius        : 5px;
+    color                : #fff;
+    display              : none;
+    left                 : 20px;
+    padding              : 5px;
+    position             : absolute;
+    top                  : 15px;
+    width                : 225px;
+    z-index              : 100;
+}
+*:hover.tip {
+     font-size: 99%; /* fix IE */
+}
+*:hover.tip span {
+    display: block;
+   margin-left: 15px;
+}
+/* personalizar el cursor según el tipo de información
+abbr.tip{
+cursor: help;
+}
+a.tip{
+cursor: pointer;
+} */
+
+/* podemos personalizar tambien cada tip en particular */
+span.tip span{
+text-align: center;
+font-size: 11px;
+}
+span.tip span img{
+opacity: 0.8;
+}
+span.tip span img:hover{
+opacity: 1;
+}

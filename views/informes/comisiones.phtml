@@ -1,0 +1,127 @@
+
+
+<div class="container">
+  <div class="contenido">
+
+
+      <h3 class="text-center"><strong>COMISIONES</strong></h3>
+
+
+      <div class="info-consultas text-center">
+        <strong>PERIODO DE CONSULTA : </strong>
+        <select name="meses" id="cboperiodo" class="cboperiodo" idmes='4'>
+         <?php foreach ($this->Periodos as $Periodo) : ;?>
+          <option value="<?= $Periodo['nom_periodo'] ?>"
+              data-idmes = <?= $Periodo['idmes'] ;?>
+              data-anio  = <?= $Periodo['anio'] ;?>>
+              <?= $Periodo['nom_periodo'] ?>
+            </option>
+
+          <?php endforeach ;?>
+        </select>
+
+        <!-- <button type="button" class="btn btn-default btn-sm consultar">Consultar</button> -->
+      </div>
+
+      <div class="bloqIn allionIn">
+        <div class="p30 table-responsive">
+          <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
+            <thead><!-- cabezera -->
+              <tr>
+
+
+                <th class="text-center">
+                      <a class="tip" href="#" >ORIGEN
+                        <span>
+                            Es la forma como te has ganado las comisiones
+                          </span>
+                      </a>
+                </th>
+                <th class="text-center">PEDIDO</th>
+                <th class="text-center">FACTURA</th>
+                <th class="text-center">COMPRADOR</th>
+                <th class="text-center">TP.COMP.</th>
+                <th class="text-center">NIV.</th>
+                <th class="text-center">PRODUCTOS</th>
+                <th class="text-center">IVA</th>
+                <th class="text-center">BASE COMIS.</th>
+                <th class="text-center">GRUPO</th>
+                <th class="text-center">% COMIS.</th>
+                <th class="text-center">VR.COMIS.</th>
+                <th class="text-center">
+                      <a class="Mytooltip" href="#" >#MES
+                        <span>
+                            Corresponde al número de comisión que te ganas luego de haberte registrado.
+                          </span>
+                      </a>
+                </th>
+
+              </tr>
+            </thead><!-- cabezera -->
+            <tbody>
+              <?php $Total_Ganado = 0 ;?>
+              <?php foreach ($this->Comisiones as $Comision) : ;?>
+                <?php
+                $compra_productos     = number_format ( $Comision['compra_productos'],0,',','.');
+                $vr_iva               = number_format ( $Comision['vr_iva'],0,',','.');
+                $base_comision        = number_format ( $Comision['base_comision'],0,',','.');
+                $porcentaje           = number_format ( $Comision['porcentaje'] ,3,',','.').'%';
+                $total_comision       = number_format ( $Comision['total_comision'],0,',','.');
+                $Total_Ganado         = $Total_Ganado + $Comision['total_comision'];
+                ?>
+                <tr>
+                  <td><?= $Comision['gana_como'] ;?></td>
+                  <td><?= $Comision['numero_pedido'] ;?></td>
+                  <td><?= $Comision['numero_factura'] ;?></td>
+                  <td><?= $Comision['comprador'] ;?></td>
+                  <td><?= $Comision['tipocomprador'] ;?></td>
+                  <td class="text-center"><?= $Comision['nivel'] ;?></td>
+                  <td class="text-right"><?= $compra_productos ;?></td>
+                  <td class="text-right"><?= $vr_iva ;?></td>
+                  <td class="text-right"><?= $base_comision ;?></td>
+                  <td class="text-center"><?= $Comision['codigo_grupo'] ;?></td>
+                  <td class="text-right"><?= $porcentaje;?></td>
+                  <td class="text-right"><?= $total_comision ;?></td>
+                  <td class="text-right"><?= $Comision['textidcomision'] ;?></td>
+                </tr>
+
+              <?php endforeach ;?>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+       </div>
+
+<br>
+<br>
+
+    <div class="row">
+        <div class="text-center bordes  colorBlue  t30 ff0 tU pLR40">COMISIONES TOTALES</div>
+        <div class=" col-sm-3  text-center borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40">GENERADAS POR LA RED</div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40">VENTAS A CLIENTES</div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40">VENTAS A CLIENTES DE LA RED</div>
+        <div class=" col-sm-3 text-center  borderIz borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40">TOTAL GANADO </div>
+    </div>
+
+    <div class="row">
+        <div class=" col-sm-3  text-center  borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40"><strong>522</strong></div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo  colorBlue  t18 ff0 tU pLR40"><strong>0</strong></div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo  colorBlue  t18 ff0 tU pLR40"><strong>10500</strong></div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40"><strong>9999999999</div></strong>
+    </div>
+    <div >Comisiones no pagables</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+</div>
+
+
+

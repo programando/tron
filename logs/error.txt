@@ -1,7 +1,0 @@
-[15-May-2017 11:56:52 America/Bogota] PHP Warning:  Missing argument 1 for InformesController::Comisiones() in C:\xampp\htdocs\tron\controllers\InformesController.php on line 128
-[15-May-2017 11:56:52 America/Bogota] PHP Warning:  Missing argument 2 for InformesController::Comisiones() in C:\xampp\htdocs\tron\controllers\InformesController.php on line 128
-[15-May-2017 11:56:52 America/Bogota] PHP Notice:  Undefined variable: mes in C:\xampp\htdocs\tron\controllers\InformesController.php on line 132
-[15-May-2017 11:56:52 America/Bogota] PHP Notice:  Undefined variable: anio in C:\xampp\htdocs\tron\controllers\InformesController.php on line 132
-[15-May-2017 11:56:52 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
-[15-May-2017 11:57:24 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\InformesController.php on line 133
-[15-May-2017 11:57:58 America/Bogota] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\tron\controllers\InformesController.php on line 134

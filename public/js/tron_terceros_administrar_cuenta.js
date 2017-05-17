@@ -428,6 +428,7 @@ $('#cuenta_favoritos').on('click',function(){
     $.ajax({
          dataType: 'html',
          url:      '/productos/Favoritos_Consulta_x_idTercero',
+         //url:      '/informes/comisiones',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
