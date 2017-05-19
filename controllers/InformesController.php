@@ -133,11 +133,19 @@
               }
 
               $this->View->Comisiones         =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
-              $this->View->cumple_condiciones = $this->View->Comisiones[0]['cumple_condiciones'];
+              if ( $this->View->Comisiones ){
+                $this->View->cumple_condiciones = $this->View->Comisiones[0]['cumple_condiciones'];
+              }else{
+                $this->View->cumple_condiciones = FALSE;
+              }
 
 
               $this->View->Periodos           =  $this->Informes->Periodos_Comisiones();
-              $this->View->ultimo_periodo     = $this->View->Periodos[0]['nom_periodo'];
+              if ($this->View->Periodos){
+                  $this->View->ultimo_periodo     = $this->View->Periodos[0]['nom_periodo'];
+                }else{
+                  $this->View->ultimo_periodo  = '';
+                }
 
 
              $this->View->SetJs(array('tron_informes'));

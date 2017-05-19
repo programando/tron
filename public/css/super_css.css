@@ -429,6 +429,7 @@ display:none;
 padding:10px;
 margin-left:8px;
 width:180px; /*el ancho del tooltip*/
+font-weight: normal;
 
 }
 a.Mytooltip:hover span {
@@ -440,53 +441,7 @@ color: #353536;  /*el color de la letra del tooltip*/
 font-size: 14px;  /*el tamaño de la letra*/
 line-height: 120%;  /*la separación entre lineas*/
 }
+ 
 
 
-
-
-/*  código para el Tooltip  */
-.tip {
-   position: relative;
-   border-bottom: dotted 1px #3E3E3E;
-   cursor: default;
-}
-.tip span {
-    -moz-border-radius   : 5px; /* Firefox */
-    -webkit-border-radius: 5px; /* Safari */
-    background           : #003E90;
-    border-radius        : 5px;
-    color                : #fff;
-    display              : none;
-    left                 : 20px;
-    padding              : 5px;
-    position             : absolute;
-    top                  : 15px;
-    width                : 225px;
-    z-index              : 100;
-}
-*:hover.tip {
-     font-size: 99%; /* fix IE */
-}
-*:hover.tip span {
-    display: block;
-   margin-left: 15px;
-}
-/* personalizar el cursor según el tipo de información
-abbr.tip{
-cursor: help;
-}
-a.tip{
-cursor: pointer;
-} */
-
-/* podemos personalizar tambien cada tip en particular */
-span.tip span{
-text-align: center;
-font-size: 11px;
-}
-span.tip span img{
-opacity: 0.8;
-}
-span.tip span img:hover{
-opacity: 1;
-}
+ 
