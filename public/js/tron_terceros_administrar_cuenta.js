@@ -13,6 +13,44 @@ $('.contenedor_cuenta').on('click','#btn-cambiar-plan3', function(){
 });
 
 
+ var  Comisiones_Ganadas = function(  ){
+   $Opciones_Seleccionada ='COMISIONES_GANADAS';
+    $.ajax({
+         dataType: 'html',
+         url:      '/informes/comisiones',
+         type:     'post',
+        success:  function (respuesta){
+
+             $('.contenedor_cuenta').html('');
+             $('.contenedor_cuenta').html(respuesta);
+          }
+      });
+ }
+
+$('.contenedor_cuenta').on('change','.cboperiodo', function(){
+
+ //$('.cboperiodo').on('change',function(){
+  var seleccionado = $(this).find('option:selected');
+  var idmes        = seleccionado.data('idmes');
+  var anio         = seleccionado.data('anio');
+  var nom_mes      = seleccionado.val();
+  $.ajax({
+            data:  {'idmes':idmes,'anio':anio,'nom_mes':nom_mes},
+            dataType: 'html',
+            url:      '/informes/comisiones/',
+            type:     'post',
+      success:  function (respuesta)
+       {
+         $('.contenedor_cuenta').html('');
+         $('.contenedor_cuenta').html(respuesta);
+        }
+      });
+
+
+
+});
+
+
 
 // Efecto activo de los tabs
 $('.contenedor_cuenta').on('click','.tab_link_modif',function(){
@@ -192,12 +230,25 @@ $('#informes_pedidos').on('click',function(){
 	$(this).css('background','#003E90');
 
 
-
 	$('#cabezera_perfil').slideUp(400);
 	$('#cabezera_informes').slideDown(400);
 	$('#cabezera_favoritos').slideUp(400);
 	$('#informes-pedidos-realizados').click();
 });
+
+// Informes
+$('#informes_comisiones').on('click',function(){
+ $('.li_pasos_registro').css('background','#85ABDD');
+ $(this).css('background','#003E90');
+ $('#cabezera_perfil').slideUp(400);
+ $('#cabezera_informes').slideUp(400);
+ $('#cabezera_favoritos').slideUp(400);
+ $('#plan_seleccionado').click();
+ Comisiones_Ganadas();
+
+});
+
+
 
 // Favoritos
 $('#favoritos').on('click',function(){
@@ -428,7 +479,6 @@ $('#cuenta_favoritos').on('click',function(){
     $.ajax({
          dataType: 'html',
          url:      '/productos/Favoritos_Consulta_x_idTercero',
-         //url:      '/informes/comisiones',
          type:     'post',
 				    success:  function (respuesta){
 				         $('.contenedor_cuenta').html('');
@@ -508,7 +558,7 @@ $('#cont_conevion_comercial').on('mouseout',function(){
 $('#convenio_pdf').on('click',function(){
     $('.contenedor_cuenta').html('');
 	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
-	window.open('pdf/Convenio_Comercial');
+	window.open('/pdf/Convenio_Comercial');
 	$('.contenedor_cuenta').html('');
 	// $('.menu_convenio').hide();
 });
@@ -527,6 +577,8 @@ $('#convenio_pdf').on('click',function(){
 				      }
 				  });
 	}
+
+
 
 
 

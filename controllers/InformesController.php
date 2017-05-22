@@ -125,36 +125,31 @@
               $this->View->Mostrar_Vista_Parcial("comisiones_puntos_x_idtercero");
           }
 
-          public function Comisiones( $mes=0, $anio=0 ) {
-              $idtercero =  80006;
+          public function Comisiones( ) {
+              $idtercero =  Session::Get('idtercero');
+              $mes       =  General_Functions::Validar_Entrada('idmes','NUM');
+              $anio      =  General_Functions::Validar_Entrada('anio','NUM');
+              $nom_mes   =  General_Functions::Validar_Entrada('nom_mes','TEXT');
+              $nom_mes   = strtoupper( $nom_mes );
+
               if ( $mes == 0 ) {
                   $mes  = date("n");
                   $anio = date("Y");
               }
 
+
               $this->View->Comisiones         =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
-              if ( $this->View->Comisiones ){
-                $this->View->cumple_condiciones = $this->View->Comisiones[0]['cumple_condiciones'];
-              }else{
-                $this->View->cumple_condiciones = FALSE;
+
+              if ( !isset( $this->View->Periodos )) {
+                $this->View->Periodos           =  $this->Informes->Periodos_Comisiones();
+                $this->View->nom_mes     =$nom_mes;
+
               }
 
 
-              $this->View->Periodos           =  $this->Informes->Periodos_Comisiones();
-              if ($this->View->Periodos){
-                  $this->View->ultimo_periodo     = $this->View->Periodos[0]['nom_periodo'];
-                }else{
-                  $this->View->ultimo_periodo  = '';
-                }
-
-
              $this->View->SetJs(array('tron_informes'));
-             $this->View->Mostrar_Vista("comisiones");
+             $this->View->Mostrar_Vista_Parcial("comisiones");
           }
-
-            //public function comisiones_bonificaciones_pagadas() {
-              //$this->View->SetCss(array("tron_terceros_comis_bonifi"));
-            //}
 
 
 

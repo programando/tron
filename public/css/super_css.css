@@ -441,7 +441,10 @@ color: #353536;  /*el color de la letra del tooltip*/
 font-size: 14px;  /*el tamaño de la letra*/
 line-height: 120%;  /*la separación entre lineas*/
 }
- 
+
+.fondo_rojo{
+ background-color: red;
+ color: white;
+}
 
 
- 

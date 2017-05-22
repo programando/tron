@@ -38,21 +38,3 @@ $('.usu-1').on('click',function()
 
 
 
-$('.cboperiodo').on('change',function(){
-  var seleccionado = $(this).find('option:selected');
-  var idmes        = seleccionado.data('idmes');
-  var anio         = seleccionado.data('anio');
- 
-  $.ajax({
-            data:  {},
-            dataType: 'html',
-            url:      'informes/comisiones/'+idmes+'/'+anio,
-            type:     'post',
-      success:  function (resultado)
-       {
-        }
-      });
- 
-
-
-});
