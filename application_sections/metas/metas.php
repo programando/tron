@@ -80,22 +80,179 @@
 
 
 
-  <?php   if(Session::Get('CEO_CONTROLLER') == 'redtron') :?>
-     <?php
-
-       $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
-       $Pagina_Metas_title         = "Productos Industrial - TRON";
-       $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
-       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+  <?php   if(Session::Get('CEO_CONTROLLER') == 'redtron'){ ?>
+  
+	<?php
+		if(Session::Get('CEO_METODO') == 'red_de_amigos_tron'){
+			$Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+			$Pagina_Metas_title         = "Productos TRON - INFO";
+			$Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+			$Pagina_Metas_Keys			= $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+	?>
+        <title><?= $Pagina_Metas_title; ?></title>
+        <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+        <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+        <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+        <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+        <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+        <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'tron_productos'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
-    <title><?= $Pagina_Metas_title; ?></title>
-    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
-    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
-    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
-    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
-    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-  <?php  endif; ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+    <?php  
+		}elseif(Session::Get('CEO_METODO') == 'comisiones'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+    <?php  
+		}elseif(Session::Get('CEO_METODO') == 'planes_de_registro'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+    <?php  
+		}elseif(Session::Get('CEO_METODO') == 'tron_medios_pago'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'funcionalidades_interesantes'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'tron_transporte'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'preguntas_frecuentes'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'contactanos'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'garantia_calidad'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php  
+		}elseif(Session::Get('CEO_METODO') == 'terminos_condiciones'){
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php
+		}else{
+		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
+		   $Pagina_Metas_title         = "Productos Industrial - TRON";
+		   $Pagina_Metas_description   = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, Resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+		   $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+            <title><?= $Pagina_Metas_title; ?></title>
+            <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+            <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+            <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+            <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
+            <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+	<?php } ?>  
+
+  <?php } ?>
 
 
 
@@ -168,7 +325,7 @@
     <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
   <?php  endif; ?>
 
-   <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 2) :?>
+   <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 7) :?>
      <?php
        $Pagina_Metas_Keys          = 'Químicos, baños, baños móviles, baños portátiles, orinales, popo, pipi, obras de construcción, carreteras, eventos, conciertos, matrimonios, cumpleaños, limpieza, desinfección, desodorizar, aromatizar, malos olores, materia fecal, biodegradable, asfalto, grafitis, superficies brillantes';
        $Pagina_Metas_title         = "La Línea sanidad portátil de Balquimia";
@@ -202,10 +359,61 @@
 
 
 
-  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 5) :?>
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 2) :?>
      <?php
        $Pagina_Metas_Keys          = 'Vehículos, carros, camiones, mixer, camionetas, buses, busetas, motos, tractores, tractomulas, carpas, contenedores,lanchas, shampoo, detergente, desengrasante, biodegradable, medio ambiente, pH neutro, espuma, espumosidad, ceras, lavar, limpieza, motor';
        $Pagina_Metas_title         = "Línea Automotríz de Balquimia";
+       $Pagina_Metas_description   = "Productos químicos especialmente diseñados para el cuidado cualquier tipo de vehículo sin contaminar el medio ambiente";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <title><?= $Pagina_Metas_title; ?></title>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_automotriz.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
+
+
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 5) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Vehículos, carros, camiones, mixer, camionetas, buses, busetas, motos, tractores, tractomulas, carpas, contenedores,lanchas, shampoo, detergente, desengrasante, biodegradable, medio ambiente, pH neutro, espuma, espumosidad, ceras, lavar, limpieza, motor';
+       $Pagina_Metas_title         = "Línea Hotelera de Balquimia";
+       $Pagina_Metas_description   = "Productos químicos especialmente diseñados para el cuidado cualquier tipo de vehículo sin contaminar el medio ambiente";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <title><?= $Pagina_Metas_title; ?></title>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_automotriz.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
+
+
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 3) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Vehículos, carros, camiones, mixer, camionetas, buses, busetas, motos, tractores, tractomulas, carpas, contenedores,lanchas, shampoo, detergente, desengrasante, biodegradable, medio ambiente, pH neutro, espuma, espumosidad, ceras, lavar, limpieza, motor';
+       $Pagina_Metas_title         = "Línea Mantenimiento Industrial de Balquimia";
+       $Pagina_Metas_description   = "Productos químicos especialmente diseñados para el cuidado cualquier tipo de vehículo sin contaminar el medio ambiente";
+       $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+    ?>
+    <title><?= $Pagina_Metas_title; ?></title>
+    <meta name="title"                  content="<?= $Pagina_Metas_title; ?>" />
+    <meta property="og:title"           content="<?= $Pagina_Metas_title; ?>" />
+    <meta name="description"            content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
+    <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/categorias_index/linea_automotriz.jpg" />
+    <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
+  <?php  endif; ?>
+
+
+  <?php   if(Session::Get('CEO_CATEGORIA_INDUSTRIAL') == 6) :?>
+     <?php
+       $Pagina_Metas_Keys          = 'Vehículos, carros, camiones, mixer, camionetas, buses, busetas, motos, tractores, tractomulas, carpas, contenedores,lanchas, shampoo, detergente, desengrasante, biodegradable, medio ambiente, pH neutro, espuma, espumosidad, ceras, lavar, limpieza, motor';
+       $Pagina_Metas_title         = "Línea Textil de Balquimia";
        $Pagina_Metas_description   = "Productos químicos especialmente diseñados para el cuidado cualquier tipo de vehículo sin contaminar el medio ambiente";
        $Pagina_Metas_Keys         = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
     ?>
