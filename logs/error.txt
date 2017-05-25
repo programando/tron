@@ -1,0 +1,6 @@
+[25-May-2017 10:13:22 America/Bogota] PHP Parse error:  syntax error, unexpected ':' in C:\xampp\htdocs\tron\views\informes\comisiones.phtml on line 165
+[25-May-2017 10:13:27 America/Bogota] PHP Parse error:  syntax error, unexpected ':' in C:\xampp\htdocs\tron\views\informes\comisiones.phtml on line 165
+[25-May-2017 10:13:36 America/Bogota] PHP Parse error:  syntax error, unexpected ':' in C:\xampp\htdocs\tron\views\informes\comisiones.phtml on line 165
+[25-May-2017 10:27:53 America/Bogota] PHP Notice:  Undefined index: nom_periodo_sys in C:\xampp\htdocs\tron\controllers\InformesController.php on line 148
+[25-May-2017 11:18:13 America/Bogota] PHP Notice:  Undefined variable: Cant_Unidades_Despacho in C:\xampp\htdocs\tron\controllers\FletesController.php on line 384
+[25-May-2017 11:18:17 America/Bogota] PHP Notice:  Undefined variable: Cant_Unidades_Despacho in C:\xampp\htdocs\tron\controllers\FletesController.php on line 384

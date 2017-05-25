@@ -62,6 +62,7 @@
       $this->Depurar_Fletes_Calculados();
 						$i                               = 0;
 						$Fletes_Cobrados_Transportadoras = Session::Get('Fletes_Cobrados_Transportadoras');
+
 						$Asignar_Flete                   = TRUE;
 						$this->valor_flete               = 0;
 					 $Mejor_Flete   																		= current($Fletes_Cobrados_Transportadoras) ;//[0];
@@ -366,6 +367,7 @@
 																				$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_urbano']  ;
 																				$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_urbano']  ;
 																}
+ echo $flete_minimo;
 																if ( $this->idmcipio != 153  ) {
 																				$tipo_destino         ='REGIONAL';
 
@@ -380,13 +382,17 @@
 																				$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_regional']  ;
 																}
 											}
+
 											if ($this->iddpto != 32 ){
 																				$tipo_destino         ='NACIONAL';
 																				if ( $this->Cant_Unidades_Despacho <= 1 ){
 																					 $peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional']  ;
+
 																				}else{
 																						$peso_minimo          =	$this->Transportadoras[0]['rdtrans_peso_min_nacional_mayor_2_cajas']  * $this->Cant_Unidades_Despacho  ;
+
 																						$peso_minimo										= $this->Redetrans_Carga_Evaluar_Peso_Minimo ($peso_minimo, $Peso_Pedido );
+
 																				}
 																				$flete_minimo         =	$this->Transportadoras[0]['rdtrans_flete_min_nacional'] ;
 																				$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_nacional']  ;
@@ -413,6 +419,7 @@
 
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $Peso_Pedido * $vr_kilo_idmcipio_redetrans ;
+ 
 
 
     		if ($this->re_expedicion == 0) {
@@ -420,11 +427,12 @@
     		 }
     		 $this->valor_flete  = $this->valor_flete  - $descuento_comercial;
 
+
 								//DETERMINO EL FLETE MÍNIMO
       	if ($this->valor_flete < $flete_minimo) {
       		  	$this->valor_flete = $flete_minimo;
       		  }
-
+ 
 							/**SEGURO
 							*--------------------------------------------------------
 							* SEGURO 1.... % SOBRE EL VALOR DECLARADO ... MINU Unids
@@ -456,6 +464,7 @@
 											 	$this->valor_flete   = 0;
 											}
 											$this->valor_seguro = $seguro_flete;
+ 
 
 								Session::Set('REDETRANS_CARGA_VR_FLETE',$this->valor_flete);
 								$this->flete_calculado = TRUE ;

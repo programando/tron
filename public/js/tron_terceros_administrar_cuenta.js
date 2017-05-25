@@ -20,16 +20,14 @@ $('.contenedor_cuenta').on('click','#btn-cambiar-plan3', function(){
          url:      '/informes/comisiones',
          type:     'post',
         success:  function (respuesta){
-
-             $('.contenedor_cuenta').html('');
-             $('.contenedor_cuenta').html(respuesta);
+             $('.contenido').html('');
+             $('.contenido').html(respuesta);
           }
       });
  }
 
 $('.contenedor_cuenta').on('change','.cboperiodo', function(){
-
- //$('.cboperiodo').on('change',function(){
+ alert('mi-cboperiodo');
   var seleccionado = $(this).find('option:selected');
   var idmes        = seleccionado.data('idmes');
   var anio         = seleccionado.data('anio');
@@ -39,15 +37,11 @@ $('.contenedor_cuenta').on('change','.cboperiodo', function(){
             dataType: 'html',
             url:      '/informes/comisiones/',
             type:     'post',
-      success:  function (respuesta)
-       {
+      success:  function (respuesta)  {
          $('.contenedor_cuenta').html('');
          $('.contenedor_cuenta').html(respuesta);
         }
       });
-
-
-
 });
 
 
@@ -215,12 +209,9 @@ var Mostar_Compra_Totales_x_IdTercero = function($idtercero,$anio){
 $('#mi-perfil').on('click',function(){
 	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
-
-
 	$('#cabezera_perfil').slideDown(400);
 	$('#cabezera_informes').slideUp(400);
 	$('#cabezera_favoritos').slideUp(400);
-
 	$('#plan_seleccionado').click();
 });
 
@@ -228,8 +219,6 @@ $('#mi-perfil').on('click',function(){
 $('#informes_pedidos').on('click',function(){
 	$('.li_pasos_registro').css('background','#85ABDD');
 	$(this).css('background','#003E90');
-
-
 	$('#cabezera_perfil').slideUp(400);
 	$('#cabezera_informes').slideDown(400);
 	$('#cabezera_favoritos').slideUp(400);
@@ -243,9 +232,7 @@ $('#informes_comisiones').on('click',function(){
  $('#cabezera_perfil').slideUp(400);
  $('#cabezera_informes').slideUp(400);
  $('#cabezera_favoritos').slideUp(400);
- $('#plan_seleccionado').click();
  Comisiones_Ganadas();
-
 });
 
 
