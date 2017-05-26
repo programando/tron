@@ -139,11 +139,9 @@
               $this->View->Comisiones         =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
               if ( !isset( $this->View->Periodos )) {
                 $this->View->Periodos =  $this->Informes->Periodos_Comisiones();
-                //$this->View->nom_mes  =  $this->View->Periodos[0]['nom_periodo_sys'];
                 $this->View->anio     =  $this->View->Periodos[0]['idmes_sys'];
                 $this->View->idmes    =  $this->View->Periodos[0]['anio_sys'];
               }else  {
-
                  $this->View->anio    =  $mes;
                  $this->View->idmes   =  $anio;
               }
