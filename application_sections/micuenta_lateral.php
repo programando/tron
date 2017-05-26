@@ -14,14 +14,16 @@
     </div>
 <?php endif ;?>
 
-<?php if ( $this->idtipo_plan_compras == 3 ) :?>
-    <div class="li_pasos_registro colorfff cP" id="informes_comisiones">
-        <span class="ff2 mb5 dB t20">Comisiones</span>
-        <span class="ff1 onlyPCBoo">
-            Comisiones actuales y las que ya se han pagado
-        </span>
-    </div>
+<?php if (  Session::Get('email')  == 'organizacionsmart@gmail.com') :?>
+    <?php if ( $this->idtipo_plan_compras == 3 ) :?>
+        <div class="li_pasos_registro colorfff cP" id="informes_comisiones">
+            <span class="ff2 mb5 dB t20">Comisiones</span>
+            <span class="ff1 onlyPCBoo">
+                Comisiones actuales y las que ya se han pagado
+            </span>
+        </div>
 
+    <?php endif ;?>
 <?php endif ;?>
 
 <?php if ( $this->idtipo_plan_compras == 3 ) :?>
