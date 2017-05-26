@@ -20,18 +20,20 @@ $('.contenedor_cuenta').on('click','#btn-cambiar-plan3', function(){
          url:      '/informes/comisiones',
          type:     'post',
         success:  function (respuesta){
-             $('.contenido').html('');
-             $('.contenido').html(respuesta);
+             $('.contenedor_cuenta').html('');
+             $('.contenedor_cuenta').html(respuesta);
           }
       });
  }
 
-$('.contenedor_cuenta').on('change','.cboperiodo', function(){
- alert('mi-cboperiodo');
-  var seleccionado = $(this).find('option:selected');
-  var idmes        = seleccionado.data('idmes');
-  var anio         = seleccionado.data('anio');
-  var nom_mes      = seleccionado.val();
+
+$('.contenedor_cuenta').on('click','#Btnperiodo', function(){
+
+  var idmes        = $(this).data("idmes");
+  var anio         = $(this).data("anio");
+  var nom_mes      = $(this).data("mes");
+  nom_mes  = nom_mes  + ' - ' + anio ;
+
   $.ajax({
             data:  {'idmes':idmes,'anio':anio,'nom_mes':nom_mes},
             dataType: 'html',
@@ -232,6 +234,9 @@ $('#informes_comisiones').on('click',function(){
  $('#cabezera_perfil').slideUp(400);
  $('#cabezera_informes').slideUp(400);
  $('#cabezera_favoritos').slideUp(400);
+ $("#columna_izquierdad").hide(400);
+ $("#menuAppr").show(400);
+
  Comisiones_Ganadas();
 });
 

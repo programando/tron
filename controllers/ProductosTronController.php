@@ -100,20 +100,27 @@
 										if ( $Cantidad_Loza   == 0 ) { $dscto_precio_mercado_4_loza   = 0 ; }
 										$dscto_precio_mercado_total = $dscto_precio_mercado_1_ropa  + $dscto_precio_mercado_2_banios  + $dscto_precio_mercado_3_pisos  +$dscto_precio_mercado_4_loza;
 
+								if ( $dscto_precio_mercado_total > 0 ){
+																		$dscto_precio_mercado_1_ropa   = ( $dscto_precio_mercado_1_ropa    * 100 / $dscto_precio_mercado_total )/100 ;
+																		$dscto_precio_mercado_2_banios = ( $dscto_precio_mercado_2_banios  * 100 / $dscto_precio_mercado_total )/100 ;
+																		$dscto_precio_mercado_3_pisos  = ( $dscto_precio_mercado_3_pisos   * 100 / $dscto_precio_mercado_total )/100 ;
+																		$dscto_precio_mercado_4_loza   = ( $dscto_precio_mercado_4_loza    * 100 / $dscto_precio_mercado_total )/100 ;
 
-										$dscto_precio_mercado_1_ropa   = ( $dscto_precio_mercado_1_ropa    * 100 / $dscto_precio_mercado_total )/100 ;
-										$dscto_precio_mercado_2_banios = ( $dscto_precio_mercado_2_banios  * 100 / $dscto_precio_mercado_total )/100 ;
-										$dscto_precio_mercado_3_pisos  = ( $dscto_precio_mercado_3_pisos   * 100 / $dscto_precio_mercado_total )/100 ;
-										$dscto_precio_mercado_4_loza   = ( $dscto_precio_mercado_4_loza    * 100 / $dscto_precio_mercado_total )/100 ;
-
-
+								}
 									//*** PROPORCION A PRECIO DE LISTA
 									//**-------------------------------
+								if ( $Precio_Lista_Total > 0 ){
 										$dscto_precio_mercado_1_ropa_lista    = ( $Precio_Lista_Ropa    / $Precio_Lista_Total * 100) / 100 ;
 										$dscto_precio_mercado_2_banios_lista  = ( $Precio_Lista_Banios  / $Precio_Lista_Total * 100) / 100 ;
 										$dscto_precio_mercado_3_pisos_lista   = ( $Precio_Lista_Pisos   / $Precio_Lista_Total * 100) / 100 ;
 										$dscto_precio_mercado_4_loza_lista    = ( $Precio_Lista_Loza    / $Precio_Lista_Total * 100) / 100 ;
-
+									}else
+									{
+										$dscto_precio_mercado_1_ropa_lista    = 0 ;
+										$dscto_precio_mercado_2_banios_lista  = 0 ;
+										$dscto_precio_mercado_3_pisos_lista   = 0 ;
+										$dscto_precio_mercado_4_loza_lista    = 0 ;
+									}
 									//*** PROPORCION A APLICAR
 									//**-------------------------------
 
@@ -137,11 +144,17 @@
 									$TotalDescuentos_1 = $DescuentoRopa_1   + $Descuentopisos_1 +   $Descuentobanos_1 + $Descuentoloza_1 ;
 
 
-
-									$DescuentoRopa_2   = $DescuentoRopa_1   * $TotalDescuentos_1 / $descuento_especial ;
-									$Descuentobanos_2  = $Descuentobanos_1  * $TotalDescuentos_1 / $descuento_especial;
-									$Descuentopisos_2  = $Descuentopisos_1  * $TotalDescuentos_1 / $descuento_especial;
-									$Descuentoloza_2   = $Descuentoloza_1   * $TotalDescuentos_1 / $descuento_especial;
+									if  ( $descuento_especial > 0 ){
+												$DescuentoRopa_2   = $DescuentoRopa_1   * $TotalDescuentos_1 / $descuento_especial ;
+												$Descuentobanos_2  = $Descuentobanos_1  * $TotalDescuentos_1 / $descuento_especial;
+												$Descuentopisos_2  = $Descuentopisos_1  * $TotalDescuentos_1 / $descuento_especial;
+												$Descuentoloza_2   = $Descuentoloza_1   * $TotalDescuentos_1 / $descuento_especial;
+									}else{
+															$DescuentoRopa_2   = 0;
+															$Descuentobanos_2  = 0;
+															$Descuentopisos_2  = 0;
+															$Descuentoloza_2   = 0;
+									}
 									$TotalDescuentos_2 = $DescuentoRopa_2   + $Descuentopisos_2 +   $Descuentobanos_2 + $Descuentoloza_2;
 
 

@@ -346,13 +346,14 @@
 						$this->Cant_Unidades_Despacho = $Numero_Unidades;
 
 						$redetrans_tipo_despacho      =  Session::Get('redetrans_tipo_despacho');
+
       if (  empty( $redetrans_tipo_despacho ) ){
       	$this->Adicionar_Cobro_Flete_Transportadora(1,'0','REDETRANS - CARGA -> NO APLICA');
       	return ;
       }
-
 								// DETERMINAR EL TIPO DE TARIFA A APLICAR.  URBANO - REGIONAL - NACIONAL O REEXPEDICION
 								//----------------------------------------------------------------------------------------
+
 							if ( $this->re_expedicion  == FALSE) {
 											if ($this->iddpto == 32 ){		// VALLE
 																if ( $this->idmcipio == 153 ){
@@ -367,7 +368,7 @@
 																				$flete_variable_porc  =	$this->Transportadoras[0]['rdtrans_flete_variable_porc_urbano']  ;
 																				$flete_variable_valor =	$this->Transportadoras[0]['rdtrans_flete_variable_valor_urbano']  ;
 																}
- echo $flete_minimo;
+
 																if ( $this->idmcipio != 153  ) {
 																				$tipo_destino         ='REGIONAL';
 
@@ -419,12 +420,13 @@
 
 							//CALCULO EL VALOR DEL FLETE
 								$this->valor_flete          = $Peso_Pedido * $vr_kilo_idmcipio_redetrans ;
- 
+
 
 
     		if ($this->re_expedicion == 0) {
     					$descuento_comercial  = $this->valor_flete * $porciento_dscto_ccial;
     		 }
+
     		 $this->valor_flete  = $this->valor_flete  - $descuento_comercial;
 
 
@@ -432,7 +434,7 @@
       	if ($this->valor_flete < $flete_minimo) {
       		  	$this->valor_flete = $flete_minimo;
       		  }
- 
+
 							/**SEGURO
 							*--------------------------------------------------------
 							* SEGURO 1.... % SOBRE EL VALOR DECLARADO ... MINU Unids
@@ -458,13 +460,13 @@
 								if ($seguro_minimo > 	$seguro ){
 									$seguro_flete = $seguro_minimo ;
 								}
+
 								if ( $this->valor_flete  > 0 ) {
 											$this->valor_flete     = $this->valor_flete  + $seguro_flete;
 											}else{
 											 	$this->valor_flete   = 0;
 											}
 											$this->valor_seguro = $seguro_flete;
- 
 
 								Session::Set('REDETRANS_CARGA_VR_FLETE',$this->valor_flete);
 								$this->flete_calculado = TRUE ;

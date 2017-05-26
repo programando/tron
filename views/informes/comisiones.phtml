@@ -1,51 +1,32 @@
-
-
-
 <div class="container">
-
+       <div class="contenido">
       <h3 class="text-center"><strong>COMISIONES</strong></h3>
-
-
       <div class="info-consultas text-center">
-        <strong>PERIODO DE CONSULTA : </strong>
-        <select name="meses" id="cboperiodo" class="cboperiodo">
-            <?php if ( strlen($this->nom_mes) > 0 ) : ;?>
-              <option value="<?=$this->nom_mes ;?>"  
-                      data-idmes = <?= $this->idmes ;?>
-                      data-anio  = <?= $this->anio ;?>
-              > <?= $this->nom_mes ;?> 
-              </option>
-            <?php endif;?>
-           <?php foreach ($this->Periodos as $Periodo) : ;?>
-              <?php if ( $this->nom_mes != $Periodo['nom_periodo'] ) :?>
-                <option value="<?= $Periodo['nom_periodo'] ?>"
-                    data-idmes = <?= $Periodo['idmes'] ;?>
-                    data-anio  = <?= $Periodo['anio'] ;?>>
-                    <?= $Periodo['nom_periodo'] ?>
-                  </option>
-                <?php endif ;?>
 
-              <?php endforeach ;?>
+        <?php foreach ($this->Periodos as $Periodo) : ;?>
+             <button data-idmes = <?= $Periodo['idmes'] ;?>
+                     data-anio  = <?= $Periodo['anio'] ;?>
+                     data-mes   = <?= $Periodo['nom_periodo'].'-' ;?>
+                     type="button"
+                     id="Btnperiodo"
+                     class="btn btn-default btn-primary Btnperiodo">
+                     <?= $Periodo['nom_periodo'] ?>
+            </button>
 
-        </select>
-
+        <?php endforeach ;?>
       </div>
 
-
-  <div class="well contenido">
 <br>
+<strong><?=  $this->nom_mes ;?></strong>
       <div class="bloqIn  >
         <div class="p30 table-responsive">
           <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
             <thead><!-- cabezera -->
               <tr>
-
-
                 <th class="text-center">
                       <a class="Mytooltip text-left" href="#" >ORIGEN
                         <span>
                             La procedencia de las comisiones que ganas.
-
                           </span>
                       </a>
                 </th>
@@ -164,7 +145,7 @@
     <?php if ( $periodo_sys == $periodo_sql )  : ;?>
           <div class="row">
               <div class="col-md-8 text-right borderIz  borderAbajo  colorBlue t18 ff0 tU pLR40
-                    <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> "> VALOR A PAGAR : </div>
+                    <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> "> VALOR POR PAGAR : </div>
               <div class="col-sm-4 text-right borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40
                 <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> "">
               <strong><?= $Total_Ganado ;?></strong></div>
