@@ -68,12 +68,7 @@ class RedtronController extends Controller
             $this->View->Mostrar_Vista("productos_tron");
         }
 
-    public function kint_de_inicio()
-        {
-            $this->View->SetCss(array('tron_red_amigo_general','unificar_botones'));
-            $this->View->SetJs(array('tron_btn_ir_arriba'));
-            $this->View->Mostrar_Vista("kit_de_inicio");
-        }
+
 
     public function comisiones()
         {

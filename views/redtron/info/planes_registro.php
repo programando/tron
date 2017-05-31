@@ -7,12 +7,11 @@
 	<div class="titleM1 colorBlue t18 dIB">PLAN EMPRESARIO TRON</div>
     <div class="p20">
         <div class="col-sm-8 col-xs-12 vcenter">
-            Es un plan para las personas que además de querer beneficiarse de los productos TRON desean obtener ingresos adicionales a través del
-            modelo de negocio que brinda la red TRON Entre amigos alcanzamos.
+            Es un plan para las personas que además de querer beneficiarse de los productos TRON desean obtener ingresos adicionales.
             <br><br>
             Las personas inscritas en el Plan Empresario TRON recibirán un código que les permitirá inscribir amigos y podrán hacer una red de
             consumidores para ganar comisiones por las compras que realicen sus amigos y los amigos de sus amigos, recibirá comisiones hasta
-            el sexto(6to) nivel en profundidad, <a id="soy" href="<?= BASE_URL ;?>redtron/red_de_amigos_tron#estructura">ver estructura de la red.</a>
+            el cuarto ( 4to ) nivel en profundidad, <a id="soy" href="<?= BASE_URL ;?>redtron/red_de_amigos_tron#estructura">ver estructura de la red.</a>
         </div><!--
         --><div class="col-sm-4 col-xs-12 vcenter taRC">
             <img src="<?= BASE_IMG_EMPRESA ;?>empresarioI.png" />
@@ -20,7 +19,7 @@
         <br><br>
 
 		Cada uno de los Empresarios TRON tendrá cuatro (4) frontales en el primer nivel inicialmente. También podrá
-        inscribir amigos, que no deseen crear red, en el Plan Cliente TRON, formar un grupo con ellos aparte de la red y ganar comisión
+        inscribir amigos, que no deseen crear red, en el Plan Cliente, formar un grupo con ellos aparte de la red y ganar comisión
         por las compras que ellos realicen.
 		<br><br>
 
@@ -60,12 +59,12 @@
             convirtiéndose en consumidores habituales de ellos con una compra mensual mínima de <?= $Pedido_Minimo_Tron ;?>. El hacerlo les da
             derecho a acceder a precios preferenciales aún mejores que en el Plan Comprador Ocasional, no sólo en los productos TRON sino también
             en toda la tienda virtual. Para registrarse en este Plan se debe adquirir productos TRON para el hogar ó comprar
-            <?= $Pedido_Minimo_Indus ;?> en productos Industriales fabricados por Balquimia S.A.S.
+            <?= $Pedido_Minimo_Indus ;?> en productos Industriales.
             <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="60" />
         </div>
         <br><br>
 
-        En síntesis, el Cliente TRON contará con:
+        En síntesis, el Cliente contará con:
         <br><br>
 
         <ul class="list-unstyled ulGen">

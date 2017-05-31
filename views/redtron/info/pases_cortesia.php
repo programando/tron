@@ -69,7 +69,7 @@
                   <td>Comisiones por la compra + un (1) Pase de Cortesía</td>
                </tr>
                <tr>
-                  <td>Cliente TRON</td>
+                  <td>Cliente</td>
                   <td>Comisiones sobre ésta y todas las compras que ese amigo haga<br> en su vida + un (1) Pase de Cortesía.<a name="bene-recibe"></a></td>
                </tr>
                <tr>
@@ -104,7 +104,7 @@
                    <td>Precios Especiales de los Amigos TRON.</td>
                </tr>
                <tr>
-                   <td>Cliente TRON</td>
+                   <td>Cliente</td>
                    <td>Precios Escala A sin importar la cantidad comprada.</td>
                </tr>
                <tr>

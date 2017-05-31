@@ -57,8 +57,8 @@
                             echo '$0';
                         }
                     ?>
-                </strong><!--contenedor = Precio-Cliente TRON 30 -->
-                <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
+                </strong>
+                <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente"></span>
                 <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>
             </p>
 

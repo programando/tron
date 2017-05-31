@@ -202,14 +202,18 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
       echo json_encode($datos,256);
     }
 
-    public function tabla_comisiones_tron(){
+    public function tabla_comisiones_tron( $tipo_vista = null ){
       /** AGOSTO 30 DE 2015
        *      CARGA LA TABLA DE COMISIONES QUE SE TIENEN ESTABLECIDAS POR PRODUCTO / GRUPO
        */
       $this->View->Comisiones_Grupos = $this->Comisiones_Grupos->Comisiones_x_Grupo_Producto();
 
-
-      $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
+      if ( $tipo_vista == null ) {
+          $this->View->Mostrar_Vista_Parcial("tabla_comisiones");
+        }
+          else{
+            $this->View->Mostrar_Vista("tabla_comisiones");
+          }
     }
 
     public function plan_compensacion(){

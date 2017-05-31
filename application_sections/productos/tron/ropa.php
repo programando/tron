@@ -22,9 +22,9 @@
     <p class="text-center  precio_del_cliente_tron">
         <strong id='vr_unitario_ropa'>
             <?= $text_pv_tron_ropa ;?>
-        </strong><!--contenedor = Precio-Cliente TRON-->
+        </strong>
 
-        <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente TRON"></span>
+        <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>17.png" title="Cliente"></span>
         <span><img class="resumen-pedido-img" src="<?= BASE_IMG_PRODUCTOS ;?>16.png" title="Empresario TRON"></span>
     </p>
 </div>

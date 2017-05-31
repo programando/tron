@@ -2,7 +2,7 @@
 
     <div class="p20 taJ">
 
-        Balquimia S.A.S. y la Tienda Virtual TRON Entre amigos alcanzamos, realiza convenios y negociaciones con
+        Balquimia S.A.S. y la Tienda Virtual Balquimia ventas online, realiza convenios y negociaciones con
         grandes marcas de la industria nacional e internacional para poder otorgar a sus clientes los mejores precios, calidad y respaldo.
         <br><br>
         Cada producto comprado en la Tienda Virtual TRON posee una garantía que deriva de la empresa fabricante, estamos

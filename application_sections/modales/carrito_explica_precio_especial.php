@@ -19,7 +19,7 @@
                   <div class=" text-justify col-lg-12 col-md-12 col-sm-12">
                     Incluyes en este pedido: <br><br>
                     <strong><?= $valor_minimo_pedido_productos ;?> </strong> en productos <strong>TRON</strong> ó <br> <br>
-                    <strong><?= $valor_min_productos_industriales  ;?> </strong> en productos <strong>INDUSTRIALES</strong> fabricados por BALQUIMIA S.A.S.
+                    <strong><?= $valor_min_productos_industriales  ;?> </strong> en productos <strong>INDUSTRIALES</strong>
                   	   </p>
                   </div>
        	   	   </div>

@@ -36,7 +36,7 @@
                 <td>
                     <a class="nuvv cP" title="
                         Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar o los productos de la línea industrial
-                        fabricados por BALQUIMIA S.A.S. ">
+                        ">
                         <span class="aS colurAd">PRECIOS ESPECIALES PARA AMIGOS TRON</span>
                     </a>
                 </td>
@@ -64,7 +64,7 @@
             <tr>
                 <td>
                     <a class="nuvv cP" title="
-                        Sobre las compras de las personas que ingreses a la red y las que ellos ingresen hasta por 6 niveles.">
+                        Sobre las compras de las personas que ingreses a la red y las que ellos ingresen hasta por 4 niveles.">
                         <span class="aS colurAd">COMISIONES</span>
                     </a>
                 </td>

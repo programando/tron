@@ -11,7 +11,7 @@
                         <br /><br />
                         <h1 style="text-align:center;">TÉRMINOS Y CONDICIONES DE USO DE<br />LA TIENDA VIRTUAL TRON</h1>
                         <br /><br />
-                        La TIENDA VIRTUAL TRON Entre amigos alcanzamos, en adelante LA TIENDA VIRTUAL, pone a disposición de sus clientes la posibilidad de comprar sus productos a través de Internet. Los términos y condiciones de las compras que realice el cliente por este medio serán los que constan a continuación y que serán aceptados por el cliente, como condición esencial para acceder a los productos ofrecidos por Balquimia S.A.S. por medio del sitio <?=DOMINIO ;?>.
+                        La TIENDA VIRTUAL Balquimia Ventas online, en adelante LA TIENDA VIRTUAL, pone a disposición de sus clientes la posibilidad de comprar sus productos a través de Internet. Los términos y condiciones de las compras que realice el cliente por este medio serán los que constan a continuación y que serán aceptados por el cliente, como condición esencial para acceder a los productos ofrecidos por Balquimia S.A.S. por medio del sitio <?=DOMINIO ;?>.
                       <br /><br />
                         La posibilidad de realizar compras a través de esta página, está disponible de manera exclusiva para los clientes que cuenten con la debida capacidad jurídica, según lo dispuesto por la normatividad legal vigente en Colombia, por lo tanto LA TIENDA VIRTUAL no se encuentra obligada a emitir aceptación de una oferta emanada de un cliente que no posea la capacidad necesaria para contratar.
                       <br /><br />
@@ -92,7 +92,7 @@
                         Estos términos y condiciones de venta se regirán e interpretarán de acuerdo con las leyes de la República de Colombia. Cualquier controversia que derive de este documento se someterá a los tribunales del Municipio de Cali (Valle del Cauca, Colombia), y tanto LA TIENDA VIRTUAL como el cliente renuncian expresamente a cualquier otro fuero que pudiera corresponderles en razón de su domicilio presente o futuro.
 
                         <br /><br /><br /><br />
-                                    
+
               </div>
               </div>
             </div>

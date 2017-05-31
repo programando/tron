@@ -17,7 +17,7 @@
                 Esta compra será liquidada a <strong>precios normales</strong>
                 porque no has realizado compra mínima reglamentaria en este mes
                 <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_tron')) ?>
-                en productos TRON para el Hogar ó <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_ta')) ?> en productos Industriales fabricados por Balquimia.
+                en productos TRON para el Hogar ó <?=  Numeric_Functions::Formato_Numero(Session::Get('minimo_compras_productos_ta')) ?> en productos Industriales..
                 <br><br>
                 Si agregas en este pedido tu compra reglamentaria, obtendrás <strong>los precios especiales TRON</strong>.
                     </p>

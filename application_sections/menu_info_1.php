@@ -29,14 +29,7 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="<?= BASE_URL ;?>redtron/kint_de_inicio" class="cP t14">
-                                <div class="tab">
-                                    <div class="tab30 p5"><img src="<?= BASE_IMG_TIENDA ;?>kitC.png" /></div>
-                                    <div class="tab70 p5">Kit de Inicio</div>
-                                </div>
-                            </a>
-                        </li>
+
 
                         <li>
                             <a href="<?= BASE_URL ;?>redtron/comisiones" class="cP t14">

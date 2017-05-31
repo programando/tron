@@ -54,7 +54,7 @@
                     de segundo nivel. Las personas que serán vinculadas a la Red por los amigos del segundo nivel se denominarán con relación
                     al usuario primario, los amigos del tercer nivel. Y así sucesivamente, se irán formando los niveles de amigos hasta completar
                     seis (6) niveles. Las personas que se vinculen en los niveles séptimo (7º.) y siguientes, se considerarán sin relación alguna
-                    con el usuario primario. El conjunto de personas que conforman desde el nivel 2 hasta el nivel 6, se denomina Los Amigos de mis
+                    con el usuario primario. El conjunto de personas que conforman desde el nivel 1 hasta el nivel 4, se denomina Los Amigos de mis
                     Amigos. <span class="resaltados">1.1.4. Miembro activo:</span> Es el status que adquiere todo miembro que compra por lo menos una vez al mes  los productos marca
                     TRON u otros fabricados por BALQUIMIA S.A.S. o promovidos por la Tienda Virtual y/o la Red que se determinen como de compra
                     mensual obligatoria. <span class="resaltados"><em>Parágrafo primero:</em></span> BALQUIMIA S.A.S., se reserva el derecho a limitar el número de productos que

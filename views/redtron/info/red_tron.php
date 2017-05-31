@@ -46,7 +46,7 @@
                 <tr>
                     <th class="text-center" >Consideraciones</th>
                     <th class="text-center" >Multiniveles tradicionales</th>
-                    <th class="text-center" >TRON Entre amigos alcanzamos</th>
+                    <th class="text-center" >Balquimia Ventas OnLine</th>
                 </tr>
             </thead><!--Emcabezado -->
 
@@ -141,7 +141,7 @@
                 </tr>
                 <tr>
                     <td>PRECIOS PARA AMIGOS TRON <br>
-                        <small>Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar o los productos de la línea industrial fabricados por Balquimia S.A.S. </small>
+                        <small>Beneficio que adquieren aquellas personas que consumen mensualmente los productos TRON de aseo y desinfección para el hogar, carros y motos o los productos de la línea industrial. </small>
                     </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
                 </tr>
@@ -156,7 +156,7 @@
                 </tr>
                 <tr>
                     <td>COMISIONES <br>
-                        <small>Sobre las compras de las personas que ingreses a la red y las que ellos ingresen hasta por 6 niveles
+                        <small>Sobre las compras de las personas que ingreses a la red y las que ellos ingresen hasta por 4 niveles
                         y comisiones aún más especiales sobre las compras de quienes quieren sólo consumir los productos TRON sin pertenecer a la Red siendo clientes.</small><a name="requisitos"></a>
                     </td>
                     <td class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>positivo-verde.png"/></td><!--IMG-Calificacion-->
@@ -188,8 +188,8 @@
             <li>Registrarse como Empresario TRON.</li>
             <li>Comprometerse con ingresar como mínimo 4 amigos que se registren en el plan Empresarios TRON.</li>
             <li>Asesorar y motivar a los amigos ingresados para que estos a su vez puedan ingresar también los cuatro (4) amigos que les corresponde.</li>
-            <li>Comprar como mínimo <?= $Pedido_Minimo_Tron ;?> pesos mensuales en productos  TRON que se encuentran en la zona HOGAR Y PERSONAL ó si eres comprador de productos industriales, comprar como mínimo <?= $Pedido_Minimo_Indus ;?>  pesos mensuales en productos de la zona INDUSTRIAL fabricados por Balquimia S.A.S. y marcados en la Tienda Virtual con el símbolo :
-            	<img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="100px" />
+            <li>Comprar como mínimo <?= $Pedido_Minimo_Tron ;?> pesos mensuales en productos  TRON que se encuentran en la zona HOGAR Y PERSONAL ó si eres comprador de productos industriales, comprar como mínimo <?= $Pedido_Minimo_Indus ;?>  pesos mensuales en productos de la sección INDUSTRIAL.
+
             </li>
         </ul>
 	</div>
@@ -202,9 +202,8 @@
 	<div class="titleM1 colorBlue mb10 t18">Estructura de la Red</div>
 
     <div class="p20">
-        <p>La Red de Amigos TRON tiene una estructura que permite un crecimiento exponencial, ya que cada persona puede tener cuatro (4)
-        Frontales y cada uno de ellos se puede expandir hasta seis (6) niveles de profundidad, dando como resultado recibir comisiones
-        de una red de más de 5.400 usuarios y ése, no es el límite.</p>
+        <p>La Red de Amigos TRON tiene una estructura que permite un crecimiento exponencial, ya que cada persona puede tener todos los frontales que desee y recibir beneficios hasta el cuarto ( 4to ) nivel.
+        </p>
 		<p class="text-center"><img src="<?= BASE_IMG_TIENDA ;?>estructura.jpg" /> <a name="diferencias_ilegales"></a></p>
 	</div>
 </div><!--Contenido-Esctructura-->
@@ -223,7 +222,7 @@
                 <tr>
                     <th class="text-center" >Consideraciones</th>
                     <th class="text-center" >Multiniveles tradicionales</th>
-                    <th class="text-center" >TRON Entre amigos alcanzamos</th>
+                    <th class="text-center" >Balquimia Ventas OnLine</th>
                 </tr>
             </thead><!--Emcabezado-->
 

@@ -36,8 +36,8 @@
 
         <ul class="list-unstyled ulGen">
            <li>1. Que tengan amigos en su red vinculados al Plan Empresario TRON y estos hayan hecho compras.</li>
-           <li>2. Que tengan amigos vinculados por ellos en el Plan Cliente TRON y estos hayan hecho compras.</li>
-           <li>3. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente TRON éstos hayan hecho compras.</li>
+           <li>2. Que tengan amigos vinculados por ellos en el Plan Cliente  y estos hayan hecho compras.</li>
+           <li>3. Que amigos vinculados por ellos al Plan Empresario TRON, tengan amigos vinculados por ellos en el Plan Cliente  éstos hayan hecho compras.</li>
 
         </ul>
         <br>
@@ -54,9 +54,9 @@
         el valor <a name="porcentajes"></a>de $1 M/cte. (un peso moneda colombiana corriente).
         <br><br>
         Las liquidaciones se basan en todas las compras de productos hechas en el mes por las personas que conforman tu red
-        (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresarios TRON hasta el nivel sexto (6º.) en
+        (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresarios TRON hasta el nivel cuarto ( 4º ) en
         tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de Usuario
-        en el Plan Cliente TRON.
+        en el Plan Cliente.
         <br><br>
         Hay algunas cuantías sobre las que no se pagan comisiones, estas son: el IVA, el valor del transporte, la compra de accesorios o
         de productos promocionales los cuales se encuentran identificados con el ícono <img src="<?= BASE_IMG_PRODUCTOS ;?>star2.png" width="32" />
@@ -69,16 +69,20 @@
 <div>
 	<div class="titleM1 colorBlue mb10 t18">Porcentajes de Comisiones</div>
     <div class="p20 taJ">
+    <h4>
+        <a href="<?=BASE_URL;?>terceros/tabla_comisiones_tron/1">Ver tabla de comisiones</a>
+        </h4>
+        <!--
         <table class="table table-condensed table-hover contenido-tablas">
-            <thead><!--Emcabezado -->
+            <thead>
                 <tr>
                     <th>Tipo Plan</th>
                     <th  class="text-center">Productos Comprados</th>
                     <th  class="text-center">Comisiones</th>
                 </tr>
-            </thead><!--Emcabezado -->
+            </thead>
 
-            <tbody><!--Cuerpo-->
+            <tbody>
                 <tr>
                     <td>Empresario TRON:</td>
                     <td class="text-left">Productos TRON (cojines)</td>
@@ -90,7 +94,7 @@
                     <td class="text-left">Variable<small>( ver tabla en menú Mi Cuenta )</small></td>
                 </tr>
                 <tr>
-                    <td>Cliente TRON</td>
+                    <td>Cliente</td>
                     <td class="text-left">Productos TRON (cojines)</td>
                     <td class="text-left">entre el 25% y el 30% según su rango</td>
                 </tr>
@@ -107,9 +111,9 @@
                 </tr>
 
 
-            </tbody><!--Cuerpo-->
+            </tbody>
         </table>
-
+ -->
 	</div>
 </div>
 <br><br>
@@ -136,7 +140,7 @@
 <div>
 	<div class="titleM1 colorBlue mb10 t18"><a name="medios"></a>Medios de Cobro</div>
     <div class="p20 taJ">
-        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes y serán abonadas en tu cuenta dinero.  
+        El pago de las Comisiones se hará los primeros tres (3) días hábiles de cada mes.
         <br><br>
         Recuerda que el costo de la transferencia bancaria es de <?= Session::Get('valor_transferencia_bancaria') ;?> por lo que debes ajustar
         la cifra Valor Mínimo a Transferir a la cuantía que te convenga. Esta cifra viene por defecto en <?= Session::Get('valor_minimo_transferencias') ;?>

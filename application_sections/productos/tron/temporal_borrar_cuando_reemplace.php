@@ -15,27 +15,14 @@
                    $7.765                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
                     <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
 
         </div>
 
-        <!--
-        <div class="p510 bb333 ">
-            <div class="colorT1 ff3 text-center" style="color:black;"><small><strong>OFERTA POR TIEMPO LIMITADO</strong> </small></div>
-            <div class="row" style="margin:0; padding:0;">
-                <div class="col-sm-12 col-xs-12 colorT2 t40 ff2 vcenter text-center">
-                   $7.765                </div>
-        		<div class="text-center">
-                    <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
-        		</div>
-            </div>
-        </div>
-        -->
+
 
         <!-- Opción CUENTA REGRESIVA OFERTAS -->
         <div class="p510 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:none;">
@@ -123,7 +110,7 @@
     <!--PRECIO AMIGO TRON-->
              <div class="priceTRONProd taC mb20" style="position:relative;">
             <span id="precio_final_tron189">  $7.765 </span>
-            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
             <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
@@ -187,27 +174,13 @@
                    $5.300                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
                     <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
 
         </div>
 
-        <!--
-        <div class="p510 bb333 ">
-            <div class="colorT1 ff3 text-center" style="color:black;"><small><strong>OFERTA POR TIEMPO LIMITADO</strong> </small></div>
-            <div class="row" style="margin:0; padding:0;">
-                <div class="col-sm-12 col-xs-12 colorT2 t40 ff2 vcenter text-center">
-                   $5.300                </div>
-        		<div class="text-center">
-                    <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
-                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
-        		</div>
-            </div>
-        </div>
-        -->
 
         <!-- Opción CUENTA REGRESIVA OFERTAS -->
         <div class="p510 bb333 taC color666 ff0" style="color:#fff; background-color:#f63d27; display:none;">
@@ -296,7 +269,7 @@
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="<?= DOMINIO ;?>tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron807">  $5.300 </span>
-            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
             <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
@@ -360,7 +333,7 @@
                    $10.610                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
                     <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
@@ -375,7 +348,7 @@
                    $10.610                </div>
         		<div class="text-center">
                     <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente" ></span>
                     <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
         		</div>
             </div>
@@ -469,7 +442,7 @@
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="<?= DOMINIO ;?>tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron845">  $10.610 </span>
-            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
             <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 
@@ -532,7 +505,7 @@
                    $7.690                </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+                    <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
                     <span class="dIB"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
                 </div>
             </div>
@@ -547,7 +520,7 @@
                    $7.690                </div>
         		<div class="text-center">
                     <span class="dB t12 color999 mb3" style="color:black;"><em>Exclusivo para clientes y empresarios TRON</em></span>
-                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png"   title="Precio Plan Cliente" ></span>
                     <span class=""><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png"   title="Precio Plan Empresario TRON" ></span>
         		</div>
             </div>
@@ -641,7 +614,7 @@
              <div class="priceTRONProd taC mb20" style="position:relative;">
         	 <!-- <img src="<?= DOMINIO ;?>tron/public/images/tienda/tach.png" class="tach">-->
             <span id="precio_final_tron1531">  $7.690 </span>
-            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente TRON"></span>
+            <span class="tipee2"><img src="<?= DOMINIO ;?>tron/public/images/tienda/17.png" title="Precio Plan Cliente"></span>
             <span class="tipee3"><img src="<?= DOMINIO ;?>tron/public/images/tienda/16.png" title="Precio Plan Empresario TRON"></span>
         </div>
 

@@ -18,7 +18,7 @@
                 </div><!--
                 --><div class="col-sm-12 col-xs-12 colorT2 ff2 vcenter taC">
                    <span class="dB t10 color666 mb3"><em>Exclusivo</em></span>
-                    <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+                    <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente" ></span>
                     <span class="dIB"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
                 </div>
             </div>
@@ -147,7 +147,7 @@
         <div class="priceTRONProd taC mb20" style="position:relative;" >
         	 <!-- <img src="<?=BASE_IMG_TIENDA;?>tach.png" class="tach">-->
             <span  id="<?= $id_precio_final_tron ;?>">  <?=$pv_tron;?> </span>
-            <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente TRON" ></span>
+            <span class="tipee2"><img src="<?=BASE_IMG_TIENDA;?>17.png"   title="Precio Plan Cliente" ></span>
             <span class="tipee3"><img src="<?=BASE_IMG_TIENDA;?>16.png"   title="Precio Plan Empresario TRON" ></span>
         </div>
       <?php else :?>
