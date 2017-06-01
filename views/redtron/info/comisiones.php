@@ -70,7 +70,7 @@
 	<div class="titleM1 colorBlue mb10 t18">Porcentajes de Comisiones</div>
     <div class="p20 taJ">
     <h4>
-        <a href="<?=BASE_URL;?>terceros/tabla_comisiones_tron/1">Ver tabla de comisiones</a>
+        <a style="text-decoration:underline;" href="<?=BASE_URL;?>terceros/tabla_comisiones_tron/1">Ver tabla de comisiones</a>
         </h4>
         <!--
         <table class="table table-condensed table-hover contenido-tablas">

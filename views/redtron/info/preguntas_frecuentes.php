@@ -212,8 +212,6 @@
 </div><!--Panel -->
 
 
-<!-- ///////////////////////////////////////////////////////-Panel-Estructura de la Red de Usuarios-///////////////////////////////////////////////////////-->
-
 <div class="panel panel-default"><!--Panel -->
 <div class="  panel-heading">
 <h4 class="cont-titulos-panel  panel-title">
@@ -244,14 +242,8 @@
 
 
 
-
-
-
 <div class="panel panel-default"><!--Panel -->
-<div class="  panel-heading">
 
-
-</div>
 
 <div id="derecho-inscripcion" class="panel-collapse collapse">
 <div class="panel-body">

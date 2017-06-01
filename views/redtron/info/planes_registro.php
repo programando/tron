@@ -40,7 +40,7 @@
 
         <!--Boton-registrar-Empresario TRON -->
         <div>
-        	<a href="<?= BASE_URL ;?>terceros/nuevo_registro" type="button" class="btn btn-danger">Regístrate ahora!</a>
+        	<a href="<?= BASE_URL ;?>terceros/nuevo_usuario" type="button" class="btn btn-danger">Regístrate ahora!</a>
         </div>
         <!--Boton-registrar-Empresario TRON -->
 	</div>
@@ -74,7 +74,7 @@
        	<br><br>
 
         <div>
-        	<a href="<?= BASE_URL ;?>terceros/nuevo_registro" type="button" class="btn btn-danger">Regístrate ahora!</a>
+        	<a href="<?= BASE_URL ;?>terceros/nuevo_usuario" type="button" class="btn btn-danger">Regístrate ahora!</a>
         </div>
 
 	</div>
