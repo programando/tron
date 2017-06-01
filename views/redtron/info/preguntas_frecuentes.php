@@ -91,7 +91,7 @@
        <li><!--¿Cuántos tipos de registro hay? -->
           <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Cuántos tipos de registro hay?   </p></div><!--Pregunta -->
            <ul class="list-unstyled submenu"><!--Contenido -->
-                 <li>Hay dos (2) tipos de registro. El más sencillo es Cliente. Recibes unos muy buenos precios siempre. Sugerimos, a quienes escojan este plan, que busquen productos TRON, los compren y los evalúen. Si les gustan y desean implementar compras mensuales de ellos, en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> o los productos industriales, recibirán como beneficio por esta referencia, un precios especial en toda la tienda ( los precios en color rojo)<br>
+                 <li>Hay dos (2) tipos de registro. El más sencillo es Cliente. Recibes unos muy buenos precios siempre. Sugerimos, a quienes escojan este plan, que busquen productos TRON, los compren y los evalúen. Si les gustan y desean implementar compras mensuales de ellos, en cuantía mínima de <?= $Pedido_Minimo_Tron ;?> o los productos industriales, recibirán como beneficio por esta preferencia precios especiales en toda la tienda ( los precios en color rojo)<br>
                  <br>
                  El plan Empresario TRON tiene todos los beneficios del plan anterior pero es para personas emprendedoras que desean tener ingresos adicionales beneficiando a sus amigos y conocidos al recomendar esta página. Ellos obtendrán ganancias según el plan de <a href="<?=BASE_URL;?>terceros/tabla_comisiones_tron/1">compensación que ofrecemos.</a>
                  </li>
@@ -176,10 +176,10 @@
   <li><!--¿Cuál es la base para liquidación de mis comisiones? -->
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span> ¿Cuál es la base para liquidación de mis comisiones?  </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
-             <li> Todas las compras de productos hechas en el mes por las personas que conforman tu red
-             (“Mis amigos” y “los Amigos de mis Amigos”) registrados en el Plan Empresario TRON hasta el nivel cuarto ( 4º)
+             <li> Todas las compras de productos hechas en el mes por las personas que conforman tu red,
+             “Mis amigos” y “los Amigos de mis Amigos” (Red), registrados en el Plan Empresario TRON hasta el nivel cuarto ( 4º)
              en tu Red y todas las compras de productos hechas en el mes por las personas registradas con tu Código de
-             Usuario en el Plan Cliente.   </li>
+             Usuario en el Plan Cliente y por los clientes de mis empresarios (Cli/Emp).  </li>
          </ul><!--Contenido -->
    </li><!--¿Cuál es la base para liquidación de mis comisiones? -->
 
@@ -341,7 +341,7 @@
          <ul class="list-unstyled submenu"><!--Contenido -->
                <li>Tus responsabilidades son dos: <br><br>
                    <ul>
-                      <li>Consumir los productos para el aseo y la desinfección de tu hogar de la marca TRON ó productos de la sección INDUSTRIAL identificados con el logo símbolo de la empresa: <img src="<?= BASE_IMG_PRODUCTOS ;?>balquimia.png" width="100px" /> en cuantías mensuales de mínimo <?=$Pedido_Minimo_Tron ;?> . Al hacerlo, conservas tu status de Activo y el beneficio de ganar las comisiones sobre las compras de tus amigos y los amigos de tus amigos.</li> <br><br>
+                      <li>Consumir los productos para el aseo y la desinfección de tu hogar de la marca TRON ó productos de la sección INDUSTRIAL en cuantías mensuales de mínimo <?=$Pedido_Minimo_Tron ;?> . Al hacerlo, conservas tu status de Activo y el beneficio de ganar las comisiones sobre las compras de tus amigos y los amigos de tus amigos.</li> <br><br>
 
                       <li>Integrar por lo menos a cuatro (4) amigos en tu red. Si no haces esto, no puedes esperar que tu red crezca y se generen ingresos residuales a tu favor en el futuro. Hacerlo y acompañar a tus amigos para que igualmente lo hagan, es asegurar que la red no se detenga y puedas ver crecer tu negocio como integrante de esta.</li>
                    </ul>
