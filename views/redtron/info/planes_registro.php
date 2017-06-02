@@ -48,7 +48,7 @@
 <br /><br />
 
 <div class="pAA30">
-	<div class="titleM1 colorBlue t18">PLAN CLIENTE TRON</div>
+	<div class="titleM1 colorBlue t18">PLAN CLIENTE</div>
     <div class="p20">
 
         <div class="col-sm-4 col-xs-12 vcenter taLC">

@@ -44,7 +44,7 @@
             <button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
             <button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true"
             id ="btn-agregar-kit-ocasional">Cambiar mi status a
-            <strong>CLIENTE TRON</strong></button>
+            <strong>CLIENTE</strong></button>
 
         </div>
 

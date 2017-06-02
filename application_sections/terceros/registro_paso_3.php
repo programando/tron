@@ -13,9 +13,9 @@
               </div>
          </article>
 
-        <!--  Formulario = Plan 2  PLAN CLIENTE TRON -->
+
           <article class="plan_2" id="">
-             <h3 class="titulo_del_plan" id=""><strong>Plan 2</strong> <br> <small> PLAN CLIENTE TRON </small></h3><br>
+             <h3 class="titulo_del_plan" id=""><strong>Plan 2</strong> <br> <small> PLAN CLIENTE  </small></h3><br>
                 <div class="cont-plan">
                     <form class="form-horizontal" role="form">
                          <label for="">Código de usuario del amigo que  <br> te presenta. (Deja en blanco si nadie te presenta):</label>
