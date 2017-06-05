@@ -21,7 +21,7 @@
     <?php endif ;?>
 
       <?php if ( isset($this->Anios)) : ?>
-        <div class="divicion_barra_usuario" style="width: 79%;">
+        <div class="diviion_barra_usuario" style="width: 79%;">
        <?php else :?>
            <div class="divicion_barra_usuario" style="width: 100%;">
        <?php endif ;?>
