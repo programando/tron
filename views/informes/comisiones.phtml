@@ -1,8 +1,8 @@
 <div class="container">
        <div class="contenido">
-      <h3 class="text-center"><strong>COMISIONES</strong></h3>
-      <div class="info-consultas text-center">
 
+      <div class="info-consultas text-center">
+<h3 class="text-center"><strong><?=  $this->nom_mes ;?></strong></h3>
         <?php foreach ($this->Periodos as $Periodo) : ;?>
              <button data-idmes = <?= $Periodo['idmes'] ;?>
                      data-anio  = <?= $Periodo['anio'] ;?>
@@ -18,9 +18,10 @@
 
 <br>
 <?php if ( !$this->Comisiones ) : ?>
-  <strong><?=  $this->nom_mes ;?></strong>
+
       <h1 class ="text-center">NO SE HAN GENERADO COMISIONES PARA EL PERIODO CONSULTADO </h1>
     <?php else :?>
+
       <div class="bloqIn  >
         <div class="p30 table-responsive">
           <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
@@ -28,9 +29,7 @@
               <tr>
                 <th class="text-center">
                       <a class="Mytooltip text-left" href="#" >ORIGEN
-                        <span>
-                            La procedencia de las comisiones que ganas.
-                          </span>
+                        <span> La procedencia de las comisiones que ganas.  </span>
                       </a>
                 </th>
                 <th class="text-center">PEDIDO</th>
@@ -46,15 +45,13 @@
                 <th class="text-center">VR.COMIS.</th>
                 <th class="text-center">
                       <a class="Mytooltip text-left" href="#" >#MES
-                        <span>
-                            Comisión preferencial por 6 meses después de tu inscripción.
-                          </span>
+                        <span> Comisión preferencial por 6 meses después de tu inscripción. </span>
                       </a>
                 </th>
 
               </tr>
             </thead><!-- cabezera -->
-            <tbody>
+            <tbody style ="font-size:11px;">
               <?php
                   $Total_Ganado     = 0 ;
                   $Total_Ganado_Red = 0;
@@ -126,56 +123,63 @@
   ?>
 
     <div class="row">
-        <div class="text-center bordes  colorBlue  t20 ff0 tU pLR40">COMISIONES TOTALES</div>
-        <div class=" col-sm-4  text-center borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40">GENERADAS POR LA RED</div>
-        <div class=" col-sm-4 text-center borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40">VENTAS A CLIENTES</div>
-        <a href="" class="Mytooltip">
-        <div class=" col-sm-4 text-center borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40">OTROS CLIENTES (CLI/EMPR)
-        <span> CLIENTES DE MIS EMPRESARIOS </span>
-        </a>
-        </div>
-    </div>
+        <div class="text-center bordes  colorBlue  t16 ff0 tU pLR40">DISTRIBUCIÓN COMISIONES </div>
+        <div class=" col-sm-3  text-center borderIz  borderAbajo colorBlue  t14 ff0 tU pLR40">RED-Compras de mi Red</div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo colorBlue  t14 ff0 tU pLR40">Ventas a mis Clientes</div>
+        <div class=" col-sm-3 text-center borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">CLI/EMP - Cliente de mis empr. </div>
+        <div class=" col-sm-3 text-center   borderDerech colorBlue borderAbajo t14 ff0 tU pLR40">TOTAL </div>
+</div>
 
     <div class="row">
-        <div class=" col-sm-4  text-right  borderIz  borderAbajo colorBlue  t18 ff0 tU pLR40">
+        <div class=" col-sm-3  text-right  borderIz  borderAbajo colorBlue  t14 ff0 tU pLR40">
             <strong><?= $Total_Ganado_Red ;?></strong></div>
-        <div class=" col-sm-4 text-right borderIz  borderAbajo  colorBlue  t18 ff0 tU pLR40">
+        <div class=" col-sm-3 text-right borderIz  borderAbajo  colorBlue  t14 ff0 tU pLR40">
             <strong><?= $Total_Ganado_Cli ;?></strong></div>
-        <div class=" col-sm-4 text-right borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40">
+        <div class=" col-sm-3 text-right borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">
             <strong><?= $Total_Ganado_Otr ;?></strong></div>
+        <div class=" col-sm-3 text-right   borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">
+            <strong><?= $Total_Ganado ;?></strong></div>
     </div>
+
     <!-- Si el periodo del sistema es igual al periodo de consulta se muestra cierta información...      -->
     <?php if ( $periodo_sys == $periodo_sql )  : ;?>
+      
           <div class="row">
-              <div class="col-md-8 text-right borderIz  borderAbajo  colorBlue t18 ff0 tU pLR40
-                    <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> "> VALOR POR PAGAR : </div>
-              <div class="col-sm-4 text-right borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40
+              <div class="col-md-9 text-right borderIz  borderAbajo  colorBlue t14 ff0 tU pLR40
+                    <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> ">comisiones de este mes a pagar : </div>
+              <div class="col-sm-3 text-right borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40
                 <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> "">
-              <strong><?= $Total_Ganado ;?></strong></div>
+              <strong> <?php if ( $cumple_condiciones == TRUE ) :?>>
+                       <?= $Total_Ganado ;?>
+                     <?php else :?>
+                          0
+                    <?php endif;?>      
+                
+              </strong></div>
+
             <?php if ( $cumple_condiciones == FALSE )  :;?>
             <div class="col-sm-12 text-right ">
-                Dado que no has cumplido con la compra mínima reglamentaria, estas comisiones no serán pagadas.
+                Aún tienes tiempo para realizar tu compra mensual reglamentaria de mínimo <strong><?= Session::Get('valor_minimo_pedido_productos') ;?></strong> No pierdas tus comisiones.
             </div>
+
           <?php endif ;?>
 
           </div>
+        <?php else :?>
+          <div class="row">
+              <div class="col-md-9 text-right borderIz  borderAbajo  colorBlue t14 ff0 tU pLR40"> Comisiones Pagadas : </div>
 
-      <?php else :?>
-            <div class="row">
-              <div class="col-md-8 text-right borderIz  borderAbajo  colorBlue t18 ff0 tU pLR40"> VALOR PAGADO EN PUNTOS : </div>
+              <div class="col-sm-3 text-right borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">
+              <strong><?= $Total_Ganado ;?></strong></div>
 
-              <div class="col-sm-4 text-right borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40">
+              <div class="col-md-9 text-right borderIz  borderAbajo  colorBlue t14 ff0 tU pLR40"> Abono a la cuenta puntos (30%) : </div>
+              <div class="col-sm-3 text-right borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">
               <strong><?= $Puntos ;?></strong></div>
 
-              <div class="col-md-8 text-right borderIz  borderAbajo  colorBlue t18 ff0 tU pLR40"> VALOR PAGADO EN COMISIONES : </div>
-              <div class="col-sm-4 text-right borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40">
+               <div class="col-md-9 text-right borderIz  borderAbajo  colorBlue t14 ff0 tU pLR40"> Abono a la cuenta dinero (70%) : </div>
+              <div class="col-sm-3 text-right borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">
               <strong><?= $Comisiones ;?></strong></div>
-
-               <div class="col-md-8 text-right borderIz  borderAbajo  colorBlue t18 ff0 tU pLR40"> TOTAL GANADO : </div>
-              <div class="col-sm-4 text-right borderIz  borderAbajo borderDerech colorBlue  t18 ff0 tU pLR40">
-              <strong><?= $Total_Ganado ;?></strong></div>
-          </div>
-
+          </div>        
     <?php endif ;?>
 
 

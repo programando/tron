@@ -126,28 +126,27 @@
           }
 
           public function Comisiones( ) {
+              $meses = array("ENERO", "FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO",
+                "AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE");
               $idtercero =  Session::Get('idtercero');
               $mes       =  General_Functions::Validar_Entrada('idmes','NUM');
               $anio      =  General_Functions::Validar_Entrada('anio','NUM');
               $nom_mes   =  General_Functions::Validar_Entrada('nom_mes','TEXT');
               $nom_mes   = strtoupper( $nom_mes );
 
-              if ( $mes == 0 ) {
-                  $mes  = date("n");
+              if ( empty( $nom_mes )   ) {
+                  $mes  = $meses[date("n")-1] ;
                   $anio = date("Y");
+                  $nom_mes = $mes .' - ' .  $anio;
+                  $mes  = date("n");
               }
               $this->View->Comisiones         =  $this->Informes->Comisiones_Ganadas_x_IdTercero( $idtercero,$mes, $anio) ;
               if ( !isset( $this->View->Periodos )) {
                 $this->View->Periodos =  $this->Informes->Periodos_Comisiones();
-                $this->View->anio     =  $this->View->Periodos[0]['idmes_sys'];
-                $this->View->idmes    =  $this->View->Periodos[0]['anio_sys'];
-              }else  {
-                 $this->View->anio    =  $mes;
-                 $this->View->idmes   =  $anio;
               }
-              $this->View->nom_mes =  $nom_mes;
-             $this->View->SetJs(array('tron_informes'));
-             $this->View->Mostrar_Vista_Parcial("comisiones");
+              $this->View->nom_mes = 'COMISIONES  ' .  $nom_mes;
+              $this->View->SetJs(array('tron_informes'));
+              $this->View->Mostrar_Vista_Parcial("comisiones");
           }
 
 

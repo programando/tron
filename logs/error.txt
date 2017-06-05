@@ -1,4 +1,0 @@
-
-[30-May-2017 23:41:24 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in C:\laragon\www\tron\libs\Numeric_Functions.php on line 5
-[30-May-2017 23:42:04 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in C:\laragon\www\tron\libs\Numeric_Functions.php on line 5
-[30-May-2017 23:42:52 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in C:\laragon\www\tron\libs\Numeric_Functions.php on line 5
