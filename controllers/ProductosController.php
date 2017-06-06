@@ -94,7 +94,7 @@ class ProductosController extends Controller
         $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
         Session::Set('nom_categoria','');
         $this->View->Mostrar_Vista('resultado_busqueda');
-        
+
       }
 
     }
@@ -279,22 +279,31 @@ class ProductosController extends Controller
             $this->View->Favorito = TRUE ;
           }
       }
-      $this->View->Producto                = $this->Productos->Buscar_por_IdProducto($idproducto);
+      $ProductoBuscado               = $this->Productos->Buscar_por_IdProducto($idproducto);
+      if ( $ProductoBuscado ){
+            $this->View->Producto  = $ProductoBuscado ;
+            $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);
+            $this->View->Cantidad_Registros      = $this->Productos->Cantidad_Registros;
 
-      $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);
-      $this->View->Cantidad_Registros      = $this->Productos->Cantidad_Registros;
+            $this->View->Productos_Tabs          = $this->Productos->Tabs_Consultar($idproducto);
 
-      $this->View->Productos_Tabs          = $this->Productos->Tabs_Consultar($idproducto);
+            $this->View->Cantidad_Tabs           = $this->Productos->Cantidad_Registros;
+            if ($Id_Area_Consulta ==2)   {// HOGAR
+                $this->View->SetCss(array('tron_carrito','tron_productos_vista_ampliada','font_styles','tron_ventana_modal'));
+            } else {
+              $this->View->SetCss(array('tron_carrito','tron-vista-industrial','tron_productos_vista_ampliada','tron_ventana_modal'));
+            }
+            $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));
+            $this->View->Producto_Encontrado = TRUE ;
+    }else{
+        $this->View->Producto_Encontrado = FALSE ;
+    }
+          if ( $this->View->Producto_Encontrado == TRUE ) {
+          $this->View->Mostrar_Vista('vista_ampliada');
+        }else {
+          $this->View->Mostrar_Vista('vista_ampliada_no_existe');
+        }
 
-      $this->View->Cantidad_Tabs           = $this->Productos->Cantidad_Registros;
-      if ($Id_Area_Consulta ==2)   {// HOGAR
-          $this->View->SetCss(array('tron_carrito','tron_productos_vista_ampliada','font_styles','tron_ventana_modal'));
-      } else {
-        $this->View->SetCss(array('tron_carrito','tron-vista-industrial','tron_productos_vista_ampliada','tron_ventana_modal'));
-      }
-      $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));
-
-      $this->View->Mostrar_Vista('vista_ampliada');
     }
 
 

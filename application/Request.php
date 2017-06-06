@@ -25,6 +25,7 @@ class Request
              $this->url = $_GET['url'];
           }
 
+
         $segmentos_url = explode('/',$this->url);
         $this->ResolveController( $segmentos_url );
         $this->ResolveMethod    ( $segmentos_url );

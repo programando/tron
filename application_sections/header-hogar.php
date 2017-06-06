@@ -47,7 +47,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
+<!--       -->
                         <a href="<?=BASE_URL ;?>index" class="navbar-brand"><div class="tabIn"><span class="inicio colorfff"></span></div></a>
                         <a href="javascript:window.history.back();" class="navbar-brand"><div class="tabIn colorfff"><span class="glyphicon glyphicon-chevron-left t10"></span></div></a>
 
