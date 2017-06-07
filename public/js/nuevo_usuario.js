@@ -177,6 +177,11 @@ $("#email").on('blur',function(){
 //VALIDACION UNICIDAD DE NÚMERO DE DOCUMENTTO
 $("#identificacion").on('blur',function(){
 		Funciones.Terceros_Buscar_x_Identificacion();
+		$("#alert-datos-grabados").hide();
+})
+
+$("#identificacion").on('change',function(){
+		$("#alert-datos-grabados").hide();
 })
 
 
@@ -192,12 +197,14 @@ $('#idtpidentificacion').on('change',function(){
 			 	$("#persona-natural").hide();
 			 	$("#lblgenero").hide();
 			 	$("#mes-anio").hide();
+			 	$("#alert-datos-grabados").show();
 			 }
 
 			 if ( $idtpidentificacion != '31' ){
 			 	$("#persona-juridica").hide();
 			 	$("#persona-natural").show();
 			 	$("#lblgenero").show();
+			 	$("#alert-datos-grabados").hide();
 			 	if ( $es_empresario == true ){
 			 		$("#mes-anio").show();
 			 	}
