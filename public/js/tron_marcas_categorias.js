@@ -2,6 +2,7 @@
 var Mostrar_Productos_Categorias = function(IdCategoria,Nombre_Categoria  )
 {
 	 var Parametros		    = {"idorden_nv_1" :IdCategoria,"nom_categoria":Nombre_Categoria  };
+
 		$.ajax({
 						data:  Parametros,
 						dataType: 'html',
@@ -87,9 +88,11 @@ var Mostrar_Productos_x_Marca = function(IdMarca,NomMarca  )
 
 // CATEGORIAS ( NIVEL 1)
 $('#menu-izq-otros-productos').on('click','.lista-productos',function(){
-	var IdCategoria      = $(this).attr("id-categoria");
-	var Nombre_Categoria = $(this).attr("nombre-categoria");
+	    var IdCategoria      = $(this).attr("id-categoria");
+	    var Nombre_Categoria = $(this).attr("nombre-categoria");
+     var view             = $(this).attr("myhref");
 					Mostrar_Productos_Categorias(IdCategoria,Nombre_Categoria );
+     //window.history.pushState(view, null, view);
 });
 
 // SUB CATEGORIAS  ( NIVEL 2)

@@ -382,7 +382,7 @@ class ProductosController extends Controller
       $this->View->Mostrar_Vista('marcas_y_categorias_individual');
     } // Fin Productos_por_Categoria
 
-    public function Productos_por_Categoria(   ) {
+    public function Productos_por_Categoria( ) {
       /** ENERO 09 DE 2014
       *  CONSULTA LOS PRODUCTOS POR CATEGORIA. TIENE EN CUENTA EL AREA DE CONSULTA ( HOGAR O INDUSTRIAL)
       *   Y EL TIPO DE CATEGORÍA ( _idorden_nv_1)
@@ -390,9 +390,12 @@ class ProductosController extends Controller
       if (!isset($pagina)) { $pagina = false;  };
       if ($pagina==false)  { $pagina = 1 ;     };
 
-          $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
-          $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
-          $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
+      $Id_Area_Consulta = Session::Get('Id_Area_Consulta');
+
+
+      $_idorden_nv_1    =  General_Functions::Validar_Entrada('idorden_nv_1','NUM');
+      $nom_categoria    =  General_Functions::Validar_Entrada('nom_categoria','TEXT');
+
 
       Session::Set('IdCategoria_n1',$_idorden_nv_1);  // Primer nivel menu lateral izquierdo
       Session::Set('IdCategoria_n2',0);
