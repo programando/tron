@@ -32,6 +32,46 @@ public static function Generar_Codigo_Confirmacion($longitud=6){
 }
 
 
+public static  function Eliminar_Acentos($cadena){
+
+    //Codificamos la cadena en formato utf8 en caso de que nos de errores
+    //$cadena = utf8_encode($cadena);
+
+    //Ahora reemplazamos las letras
+    $cadena = str_replace(
+        array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä','´','`'),
+        array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A','',''),
+        $cadena   );
+
+    $cadena = str_replace(
+        array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+        array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+        array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+        array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+        array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ñ', 'Ñ', 'ç', 'Ç'),
+        array('n', 'N', 'c', 'C'),
+        $cadena
+    );
+
+    return $cadena;
+}
+
 
 	public static function Validar_Entrada($Clave,$Tipo_Validacion)
 			{
@@ -61,42 +101,43 @@ public static function Generar_Codigo_Confirmacion($longitud=6){
 										break;
 
 										case 'BOL':
-										$Clave_Recibida = filter_var($Clave_Recibida,FILTER_VALIDATE_BOOLEAN);
-										break;
+													$Clave_Recibida = filter_var($Clave_Recibida,FILTER_VALIDATE_BOOLEAN);
+													break;
 
 									case 'TEXT':
-										$Clave_Recibida =  trim(htmlspecialchars( strtoupper($Clave_Recibida), ENT_QUOTES));
-
+													$Clave_Recibida =  General_Functions::Eliminar_Acentos( $Clave_Recibida );
+													$Clave_Recibida =  trim(htmlspecialchars( strtoupper($Clave_Recibida), ENT_QUOTES));
+													break;
 
 									case 'TEXT-EMAIL':
-										$Clave_Recibida = trim(htmlspecialchars( strtolower( $Clave_Recibida), ENT_QUOTES));
-
-										break;
+													$Clave_Recibida = trim(htmlspecialchars( strtolower( $Clave_Recibida), ENT_QUOTES));
+													break;
 
 									case 'NUM':
-											$Clave_Recibida  = filter_var($Clave_Recibida ,FILTER_VALIDATE_INT);
-										 break;
+													$Clave_Recibida  = filter_var($Clave_Recibida ,FILTER_VALIDATE_INT);
+												 break;
 
 									case 'DEC':
-											$Clave_Recibida  = filter_var($Clave_Recibida ,FILTER_VALIDATE_FLOAT);
-										 break;
+													$Clave_Recibida  = filter_var($Clave_Recibida ,FILTER_VALIDATE_FLOAT);
+												 break;
 
 									case 'FECHA':
-											$valores								=  explode("/", $Clave_Recibida);
-											$Clave_Recibida =  $valores[2].'-'.$valores[1].'-'.$valores[0];
-										 $Clave_Recibida =  strtotime($Clave_Recibida );
-										 $Clave_Recibida =  date('Y-m-d',$Clave_Recibida);
-										 break;
+													$valores								=  explode("/", $Clave_Recibida);
+													$Clave_Recibida =  $valores[2].'-'.$valores[1].'-'.$valores[0];
+												 $Clave_Recibida =  strtotime($Clave_Recibida );
+												 $Clave_Recibida =  date('Y-m-d',$Clave_Recibida);
+												 break;
+
 									case 'FECHA-HORA':
-											$valores          =  explode("/", $Clave_Recibida);
-											$anio             = substr($valores[2], 0,4);
-											$horas            = substr($valores[2], 5,2).':';
-											$minutos          = substr($valores[2], 8,2).':';
-											$segundos         ='00';
-											$Clave_Recibida   =  $anio.'-'.$valores[1].'-'.$valores[0] .' '. $horas . $minutos . 	$segundos;
-											$Clave_Recibida   =  strtotime($Clave_Recibida );
-											$Clave_Recibida   =  date('Y-m-d H:i:s',$Clave_Recibida);
-										 break;
+													$valores          =  explode("/", $Clave_Recibida);
+													$anio             = substr($valores[2], 0,4);
+													$horas            = substr($valores[2], 5,2).':';
+													$minutos          = substr($valores[2], 8,2).':';
+													$segundos         ='00';
+													$Clave_Recibida   =  $anio.'-'.$valores[1].'-'.$valores[0] .' '. $horas . $minutos . 	$segundos;
+													$Clave_Recibida   =  strtotime($Clave_Recibida );
+													$Clave_Recibida   =  date('Y-m-d H:i:s',$Clave_Recibida);
+												 break;
 
 									default:
 										if ($Tipo_Variable=='N' )
