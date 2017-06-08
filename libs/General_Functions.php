@@ -106,7 +106,8 @@ public static  function Eliminar_Acentos($cadena){
 
 									case 'TEXT':
 													$Clave_Recibida =  General_Functions::Eliminar_Acentos( $Clave_Recibida );
-													$Clave_Recibida =  trim(htmlspecialchars( strtoupper($Clave_Recibida), ENT_QUOTES));
+												 //$Clave_Recibida =  trim(htmlspecialchars( strtoupper($Clave_Recibida), ENT_QUOTES));
+													$Clave_Recibida =  trim(htmlspecialchars( ($Clave_Recibida), ENT_QUOTES));
 													break;
 
 									case 'TEXT-EMAIL':

@@ -1388,6 +1388,7 @@ public function Actualizar_Password()
      $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
 
 
+
      if (!$Registro ) {
        $Resultado_Logueo = "NO-Logueo_OK";
      }else {
