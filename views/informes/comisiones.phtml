@@ -45,7 +45,7 @@
                 <th class="text-center">VR.COMIS.</th>
                 <th class="text-center">
                       <a class="Mytooltip text-left" href="#" >#MES
-                        <span> Comisión preferencial por 6 meses después de tu inscripción. </span>
+                        <span> Comisión preferencial por 6 meses consecutivos cada vez que incorporan un Empresario o un Cliente. </span>
                       </a>
                 </th>
 
@@ -143,7 +143,7 @@
 
     <!-- Si el periodo del sistema es igual al periodo de consulta se muestra cierta información...      -->
     <?php if ( $periodo_sys == $periodo_sql )  : ;?>
-      
+
           <div class="row">
               <div class="col-md-9 text-right borderIz  borderAbajo  colorBlue t14 ff0 tU pLR40
                     <?php if ( $cumple_condiciones == FALSE ) echo 'fondo_rojo' ;?> ">comisiones de este mes a pagar : </div>
@@ -153,8 +153,8 @@
                        <?= $Total_Ganado ;?>
                      <?php else :?>
                           0
-                    <?php endif;?>      
-                
+                    <?php endif;?>
+
               </strong></div>
 
             <?php if ( $cumple_condiciones == FALSE )  :;?>
@@ -179,7 +179,7 @@
                <div class="col-md-9 text-right borderIz  borderAbajo  colorBlue t14 ff0 tU pLR40"> Abono a la cuenta dinero (70%) : </div>
               <div class="col-sm-3 text-right borderIz  borderAbajo borderDerech colorBlue  t14 ff0 tU pLR40">
               <strong><?= $Comisiones ;?></strong></div>
-          </div>        
+          </div>
     <?php endif ;?>
 
 
