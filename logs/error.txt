@@ -1,1 +1,2 @@
 
+[13-Jun-2017 09:58:24 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
