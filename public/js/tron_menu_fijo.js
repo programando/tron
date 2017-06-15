@@ -8,6 +8,7 @@
    // BARRA DE BUSQUEDA
 var Realizar_Busqueda = function (Parametros){
     var $pagina        =  $('body');
+
     $.ajax({
       data:  Parametros,
       dataType: 'html',
@@ -19,6 +20,7 @@ var Realizar_Busqueda = function (Parametros){
            $pagina.html(resultado);
          }
         });
+
 }
 
 

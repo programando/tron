@@ -10,11 +10,13 @@
                 <?php endif;?>
 
             </div>
+
         <div id="contenido-productos">
             <div class="row">
                 <?php
+                    $resultado_busqueda = true ;
                     foreach ($this->Productos as $Productos) {
-                    $mostrar_imagen_varias_referencias=true;
+                    $mostrar_imagen_varias_referencias = true;
                     include (APPLICATION_CODS . 'campos_productos.php');
                 ?>
                         <?php if ( $en_oferta == 1 ) : ?> <div class="artOpt artPor5 oferta">
