@@ -42,7 +42,7 @@ class ProductosController extends Controller
 
     public function Productos_Comprados_x_Tercero(  ){
         $idtercero             = Session::Get('idtercero');
-        //$idtercero  = 80006;
+
         $this->View->Productos =  $this->Productos->Productos_Comprados_x_IdTercero(   $idtercero ) ;
         $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
         $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));

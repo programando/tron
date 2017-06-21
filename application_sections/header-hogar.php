@@ -69,7 +69,7 @@
                             <?php endif ;?>
 
                     <?php if (   $_SESSION['logueado'] == TRUE ) :?>
-                         <!--          <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>  -->
+                             <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
                     <?php endif ;?>
 
 
