@@ -230,10 +230,27 @@ function Borrar_Producto_de_Carrito(Parametros)
     	 {
     	 		Imprimir_Totales_Carrito_Header( resultado );
 
-    	 		window.location.href = "/carrito/mostrar_carrito/2";
+    	 	window.location.href = "/carrito/mostrar_carrito/2";
+
     	 }
 					});
 }
+
+function Borrar_Producto_de_Carrito_Resumen(Parametros)
+{
+		$.ajax({
+					data:  Parametros,
+					dataType: 'json',
+					url:      '/carrito/Borrar_Producto_Carrito',
+					type:     'post',
+     success:  function (resultado)
+    	 {
+    	 		Imprimir_Totales_Carrito_Header( resultado );
+    	 	window.location.href = "/productos/productos_tron/";
+    	 }
+					});
+}
+
 
 
 // EVENTOS SOBRE PRODUCTOS TRON - CONTROL QUE TIENE LA CANTIDAD DE PRODUCTOS COMPRADOS
@@ -260,7 +277,7 @@ $('.resumen_tron').on('click','#btn-borrar-resumen', function(){
 	$idproducto 				 = $(this).attr('idproducto');
 	$cantidad  						= $(this).attr('cantidad');
  $Parametros = {'IdProducto':$idproducto , 'Cantidad':$cantidad };
-	Borrar_Producto_de_Carrito($Parametros );
+	Borrar_Producto_de_Carrito_Resumen($Parametros );
 
 
 }) ;

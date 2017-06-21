@@ -40,6 +40,15 @@ class ProductosController extends Controller
         $this->View->Mostrar_Vista_Parcial('favoritos');
     }
 
+    public function Productos_Comprados_x_Tercero(  ){
+        $idtercero             = Session::Get('idtercero');
+        //$idtercero  = 80006;
+        $this->View->Productos =  $this->Productos->Productos_Comprados_x_IdTercero(   $idtercero ) ;
+        $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
+        $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
+
+        $this->View->Mostrar_Vista('comprados_x_tercero');
+    }
 
 
     public function Favoritos_Grabar( $idproducto, $idtercero ){
@@ -50,7 +59,7 @@ class ProductosController extends Controller
 
 
     public function mostrar_resumen_producto() {
-     //Debug::Mostrar( "mostrar productos" );
+
       $this->View->Mostrar_Vista_Parcial('productos_tron_resumen_productos');
     }
 

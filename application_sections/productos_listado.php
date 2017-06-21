@@ -196,11 +196,6 @@
                 </div><!--Fin Input-->
             </div>
 
-
-
-
-
-
             <div class=" col-xs-4" id="cont-mas">
                 <div class="form-group"><!-- Inicio Boton Mas-->
                     <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMas"

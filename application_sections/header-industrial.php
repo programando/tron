@@ -59,9 +59,11 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav t14">
                             <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/" id="indus_productos">PRODUCTOS</a></li>
-                            <?php if ( Session::Get('Cantidad_Destacados_Industrial') >=5 ) :?>
-                            <li><a href="<?=BASE_URL ;?>productos/destacados/" id="indus_destacados">DESTACADOS</a></li>
-                        <?php endif ;?>
+
+                     <?php if (   $_SESSION['logueado'] == TRUE ) :?>
+                             <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
+                    <?php endif ;?>
+
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS</a></li>
 
 

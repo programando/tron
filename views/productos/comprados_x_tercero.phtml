@@ -1,0 +1,127 @@
+
+<?php if ( empty($this->Productos ) ) :?>
+
+    <div class='text-center'>
+        <br>
+        <h4>No has agregado realizado compra de productos</h4>
+    </div>
+
+<?php else :?>
+<div class="ionix">
+    <div class="general">
+        <div class="contenido-index mb30 pAA30">
+            <div class="titleM1 colorBlue t24 mb30">PRODUCTOS COMPRADOS</div>
+
+            <div id="contenido-productos" style="position:relative;">
+<table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+
+                <th>Img</th>
+                <th class="text-center">Producto</th>
+                <th class="text-center">Cantidad</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+
+
+        <tbody>
+            <?php foreach ( $this->Productos as $Producto ) : ?>
+                <?php
+                    $idorden_nv_0          = $Producto['idorden_nv_0'];
+                    $idproducto            = $Producto['idproducto'];
+                    $nom_producto          = trim($Producto['nom_producto']) ;
+                    $fragancia             = trim($Producto['fragancia']) ;
+                    $nom_producto          = $nom_producto . '   ' . $fragancia ;
+                    $nombre_imagen         = BASE_IMG_PRODUCTOS_50x50. $Producto['nombre_imagen'] ;
+                    $idtercero             = Session::Get('idtercero');
+                    $id_controles          = 'cantidad'.$Producto['idproducto'];
+                    $id_categoria_producto = $Producto['id_categoria_producto'];
+                    $en_oferta             = $Producto['en_oferta'];
+                    $idnomproducto         = 'nomproducto'.$Producto['idproducto'];
+                ?>
+
+                <tr>
+                	<td width="120"><img  src="<?= $nombre_imagen ;?>"  /></td>
+                    <td style="vertical-align:middle" id ="<?= $idnomproducto ;?>">  <?= $nom_producto  ; ?> </td>
+                    <td style="vertical-align:middle">
+
+                    <form class="form-horizontal" role="form">
+
+                            <div class=" col-xs-4" id="cont-menos">
+                                <div class="form-group"><!--Inicio  Boton Menos-->
+                                    <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMenos"
+                                        onclick="javascript: Carrito_RestarTRON('<?=$id_controles ;?>')"  >-
+                                    </button><!-- Fin Boton Menos-->
+                                </div>
+                            </div>
+
+
+                        <div class="col-xs-4" id="cont-digitos">
+                            <div class="form-group"><!--Inicio Input-->
+                                <input type        = "text"  value="0"
+                                id                = "<?=$id_controles ;?>"
+                                class             = "digitos btn-carrito-input"
+                                idproducto        =  "<?= $idproducto ;?>"
+
+                                >
+                            </div><!--Fin Input-->
+                        </div>
+
+                        <div class=" col-xs-4" id="cont-mas">
+                            <div class="form-group"><!-- Inicio Boton Mas-->
+                                <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMas"
+                                    onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
+                                </button><!-- Fin Boton Mas-->
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                     </td>
+
+                    <td style="vertical-align:middle" class="taC">
+
+                        <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
+
+                         <a   class=" btn btn-info agregar boton-agregar-carrito"
+                          id                     = "<?=$id_controles ;?>"
+                          id-categoria-producto  = "<?= $id_categoria_producto ;?>"
+                          en-oferta               = "<?= $en_oferta ;?>">
+                          <div class="btn-agregar-carrito">
+                            Agregar
+                            <span>
+                               <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
+                            </span>
+                          </div>
+
+                         </a>
+
+
+                    </td>
+
+                    <td >
+                    	<a href="<?= BASE_URL ;?>productos/vista_ampliada/<?= $idproducto ?>/<?=  $idorden_nv_0 ;?>"
+                        class="btn btn-info">Ver Producto</a>
+                    </td>
+
+
+                </tr>
+            <?php endforeach ;?>
+
+        </tbody>
+</table>
+    </table>
+    </div>
+    </div>
+    </div>
+
+
+ <?php endif ;?>
+
+
+

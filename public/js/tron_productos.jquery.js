@@ -552,6 +552,7 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
 	$('#contenido-productos').on('click','.boton-agregar-carrito',function()
 {
+
 		var NombreBoton           = $(this).attr("id");
 		var IdInputCantidad       = NombreBoton.split("cantidad");
 		var IdProducto            = IdInputCantidad[1];
@@ -565,10 +566,13 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
   var Parametros 						 		  = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,
   																									"es_tron": es_tron , "es_tron_acc": es_tron_acc, "en_oferta":en_oferta 	 };
-
+ if ( CantidadComprada > 0 ){
   Agregar_Producto_a_Carrito(NomProducto,Parametros);
   Mostrar_Mensaje_Producto_Agregado(NomProducto);
+
+ }
   return false;
+
 });
 
 

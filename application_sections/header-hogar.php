@@ -58,16 +58,19 @@
                             <li><a href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a></li>
                             <li><a href="<?=BASE_URL ;?>productos/productos_tron/#carrosmotos">CARROS Y MOTOS</a></li>
                             <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
+
+<!--
                             <?php if ( Session::Get('Cantidad_Destacados') >= 5)  : ?>
                                 <li><a href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
                             <?php endif ;?>
-
+-->
                             <?php if ( Session::Get('Cantidad_Ofertas') >= 5)  : ?>
                                 <li><a href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
                             <?php endif ;?>
-                                <?php if ( Session::Get('Cantidad_Novedades') >= 5 )  :;?>
-                                    <li><a href="<?=BASE_URL ;?>productos/novedades/">NOVEDADES</a></li>
-                                <?php endif;?>
+
+                    <?php if (   $_SESSION['logueado'] == TRUE ) :?>
+                             <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
+                    <?php endif ;?>
 
 
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS </a></li>

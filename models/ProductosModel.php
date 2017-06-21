@@ -28,6 +28,11 @@
              return $Productos;
         }
 
+        public function Productos_Comprados_x_IdTercero (  $idtercero){
+            $Productos    = $this->Db->Ejecutar_Sp("productos_comprados_x_idtercero (  $idtercero  )");
+             return $Productos;
+        }
+
 
         public function Favoritos_Grabar ($idproducto, $idtercero){
             $Productos    = $this->Db->Ejecutar_Sp("productos_favoritos_grabar ($idproducto, $idtercero  )");
