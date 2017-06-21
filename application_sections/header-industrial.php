@@ -61,7 +61,7 @@
                             <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/" id="indus_productos">PRODUCTOS</a></li>
 
                      <?php if (   $_SESSION['logueado'] == TRUE ) :?>
-                             <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
+                            <!--          <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li> -->
                     <?php endif ;?>
 
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS</a></li>
