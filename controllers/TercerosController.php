@@ -1627,7 +1627,8 @@ public function Actualizar_Password()
 
 
   public function Compresion_Dinamica (){
-   $this->Terceros->Compresion_Dinamica ();
+   //$this->Terceros->Compresion_Dinamica ();
+   echo ".";
  }
 
 }

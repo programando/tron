@@ -38,7 +38,7 @@
 
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
             $this->Email->AddAddress( $email  );
-            $Respuesta              = $this->Enviar_Correo();
+            //$Respuesta              = $this->Enviar_Correo();
         }
 
 
