@@ -329,11 +329,12 @@
        $this->Email->Mailer        = "smtp";                   // set the SMTP port
        $this->Email->Username      = CORREO_CONTACTOS;         // GMAIL username
        $this->Email->Password      = PASS_CORREO_CONTACTOS;    // GMAIL password
-       $this->Email->From          = CORREO_CONTACTOS;
+       $this->Email->From          = 'contactos@balquimia.com';
        $this->Email->FromName      = 'TRON Entre amigos alcanzamos';
        $this->Email->Subject       = $asunto;
        $this->Email->AltBody       = ""; //Text Body
        $this->Email->WordWrap      = 50; // set word wrap                                // send as HTML
+
     }
 
 
