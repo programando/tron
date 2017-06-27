@@ -2,13 +2,16 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+  <meta name      ="viewport"              content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8"/>
+
+
   <meta http-equiv="pragma"          content="no-cache" />
   <meta http-equiv='cache-control' content='no-cache , no-store'>
   <meta http-equiv='expires' content='0'>
   <meta http-equiv='pragma' content='no-cache'>
 
-  <meta name="viewport"              content="width=device-width, initial-scale=1">
+
   <meta name="vw96.objectype" content="Document" />
   <meta name="distribution" content="all" />
   <meta name="robots" content="all" />
@@ -81,7 +84,7 @@
 
 
   <?php   if(Session::Get('CEO_CONTROLLER') == 'redtron'){ ?>
-  
+
 	<?php
 		if(Session::Get('CEO_METODO') == 'red_de_amigos_tron'){
 			$Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
@@ -96,7 +99,7 @@
         <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
         <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
         <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-  	<?php  
+  	<?php
 		}elseif(Session::Get('CEO_METODO') == 'tron_productos'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -110,7 +113,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-    <?php  
+    <?php
 		}elseif(Session::Get('CEO_METODO') == 'comisiones'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -124,7 +127,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-    <?php  
+    <?php
 		}elseif(Session::Get('CEO_METODO') == 'planes_de_registro'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -138,7 +141,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-    <?php  
+    <?php
 		}elseif(Session::Get('CEO_METODO') == 'tron_medios_pago'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -152,7 +155,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php  
+	<?php
 		}elseif(Session::Get('CEO_METODO') == 'funcionalidades_interesantes'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -166,7 +169,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php  
+	<?php
 		}elseif(Session::Get('CEO_METODO') == 'tron_transporte'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -180,7 +183,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php  
+	<?php
 		}elseif(Session::Get('CEO_METODO') == 'preguntas_frecuentes'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -194,7 +197,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php  
+	<?php
 		}elseif(Session::Get('CEO_METODO') == 'contactanos'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -208,7 +211,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php  
+	<?php
 		}elseif(Session::Get('CEO_METODO') == 'garantia_calidad'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -222,7 +225,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php  
+	<?php
 		}elseif(Session::Get('CEO_METODO') == 'terminos_condiciones'){
 		   $Pagina_Metas_Keys          = 'mlm, mln, como funciona, mercado en red, tienda virtual';
 		   $Pagina_Metas_title         = "Productos Industrial - TRON";
@@ -250,7 +253,7 @@
             <meta property="og:description"     content="<?= $Pagina_Metas_description; ?>" />
             <meta property="og:image"           content="<?= DOMINIO ;?>tron/public/images/productos/tron_1.jpg" />
             <meta name="keywords"               content="<?= $Pagina_Metas_Keys ;?>" />
-	<?php } ?>  
+	<?php } ?>
 
   <?php } ?>
 
