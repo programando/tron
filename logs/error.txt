@@ -102,3 +102,5 @@ Stack trace:
 #3 C:\laragon\www\tron\index.php(43): Bootstrap::Run(Object(Request))
 #4 {main}
   thrown in C:\laragon\www\tron\application\Database.php on line 32
+[28-Jun-2017 22:04:15 UTC] PHP Notice:  Undefined variable: codigousuario in C:\laragon\www\tron\controllers\TercerosController.php on line 879
+[28-Jun-2017 22:06:50 UTC] PHP Notice:  Undefined variable: codigousuario in C:\laragon\www\tron\controllers\TercerosController.php on line 883

@@ -876,6 +876,14 @@ public function Registro_Nuevo_Usuario() {
       if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
       if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
 
+      // VERIFICA SI ALGUIEN PRESENTA AL NUEVO USUARIO EN LA RED
+       if ( strlen( $codigoterceropresenta ) > 0 ){
+         $Registro       = $this->Terceros->Buscar_Por_Codigo( $codigoterceropresenta);
+         if ( $Registro ) {
+            $idterceropresenta     = $Registro[0]['idtercero'];
+         }
+       }
+
  /// SI NADIE LO  PRESENTA, DEJÓ EN BLANCO DEBO ASIGNARLO
 
       if ( $idterceropresenta == 0 ){
@@ -1128,6 +1136,7 @@ public function Registro_Actualizar_Datos_Basicos() {
       $Registro       = $this->Terceros->Buscar_Por_Codigo($codigousuario);
       $Respuesta      = '';
 
+
       if (!$Registro){
         $Respuesta ='CODIGO_NO_EXISTE';
         $Datos = compact('Respuesta');
@@ -1160,6 +1169,7 @@ public function Registro_Actualizar_Datos_Basicos() {
 
         $Datos     = compact('idtercero','nombre_usuario','codigousuario','Respuesta');
       }
+
       if ( $salida_jquery == TRUE ){
         echo json_encode($Datos,256);
       }

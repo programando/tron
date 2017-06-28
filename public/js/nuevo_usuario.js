@@ -36,7 +36,7 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 		$.ajax({
 			data:  {'codigousuario':$codigoterceropresenta},
 			dataType: 'json',
-			url:      'Registro_Buscar_Por_Codigo',
+			url:      '/terceros/Registro_Buscar_Por_Codigo',
 			type:     'post',
 			async	: false,
 			success:  function (resultado)	 {
@@ -256,10 +256,7 @@ $('#btn-grabar-datos').on('click',function(){
 								 'papellido':$papellido, 'genero':$genero,'dianacimiento':$dianacimiento,'mesnacimiento':$mesnacimiento,
 								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta    };
 
-/*
-	Validacion_Codigo_Tercero_Presenta();
-	if ( $Seguir == 'NO'){  return ; }
-	*/
+
 
     Validaciones_Eleccion_Plan_Registro();
     	if ( $Seguir == 'NO'){
