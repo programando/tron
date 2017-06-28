@@ -358,15 +358,15 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
     if ( $param_valor_comisiones_para_pago_pedidos <= 0 ) {
       $Texto = $Texto . 'Registre el valor que autoriza descontar de sus cuenta dinero para el pago de pedidos. <br>';
     }
+  }else{
+    $param_acepto_retencion_comis_para_pago_pedidos = 0;
+    $param_valor_comisiones_para_pago_pedidos = 0;
   }
 
   if (  trim( $password)  != trim($confirmar_password)  ){
     $Texto = $Texto . 'La contraseña y su confirmación deben ser iguales. <br>';
   }
 
-  if ( (strlen(trim($password)) < 6 && $password !='') ){
-    $Texto = $Texto . 'La contraseña debe tener una longitud de 6 caracteres como mínimo. <br>';
-  }
 
 
 
