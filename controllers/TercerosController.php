@@ -305,7 +305,6 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
 
     $Texto = 'OK';
 
-
     if ( $idtpidentificacion  != 31 && ( strlen( $pnombre) == 0 || strlen($papellido ) == 0 ) ){
       $Texto = $Texto . 'Debe registrar nombre y el apellido para identificar el registro. <br>';
     }
@@ -347,6 +346,12 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
     if ( $param_idmcipio_transferencias  == 0 ){
       $Texto = $Texto . 'Debe seleccionar el departamento y la ciudad en donde está radicada la cuenta para transferencias bancarias. <br>';
     }
+  }else
+  {
+    $param_idbanco_transferencias = 0;
+    $param_nro_cuenta_transferencias = '';
+    $param_tipo_cuenta_transferencias = '';
+    $param_idmcipio_transferencias = 0;
   }
 
   if ( $param_acepto_retencion_comis_para_pago_pedidos == TRUE){
@@ -370,6 +375,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
     if ( strlen($password ) >0 ){
       $password   = md5($password);
     }
+
     $parametros = compact('idtercero', 'idtpidentificacion','pnombre', 'papellido', 'razonsocial','idmcipio','direccion','barrio','celular1',
       'email','pago_comisiones_transferencia', 'param_idbanco_transferencias' ,'param_nro_cuenta_transferencias',
       'param_tipo_cuenta_transferencias','param_idmcipio_transferencias', 'recibo_promociones_celular',
@@ -377,7 +383,8 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
       'declaro_renta', 'param_acepto_retencion_comis_para_pago_pedidos', 'param_valor_comisiones_para_pago_pedidos',
       'pago_comisiones_efecty','password','param_nombre_titular_cuenta','param_identificacion_titular_cuenta',
       'param_idtpidentificacion_titular_cuenta');
-    $this->Terceros->Actualizar_Datos_Usuario($parametros);
+
+     $this->Terceros->Actualizar_Datos_Usuario($parametros);
 
   }
 

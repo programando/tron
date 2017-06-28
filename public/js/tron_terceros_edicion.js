@@ -140,7 +140,7 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
 			$.ajax({
 						data:  Parametros,
 						dataType: 'json',
-						url:      'terceros/Actualizar_Datos_Cuenta',
+						url:      '/terceros/Actualizar_Datos_Cuenta',
 						type:     'post',
 	     success:  function (resultado)
 	    	 {
