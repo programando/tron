@@ -144,6 +144,7 @@ var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
 						type:     'post',
 	     success:  function (resultado)
 	    	 {
+ 
             if (resultado.Texto == 'OK'){
 	    	 				resultado.Texto ='<h4> Los datos han sido actualizados con éxito ! </h4>'
              new Messi(resultado.Texto,
@@ -172,6 +173,7 @@ $('.contenedor_cuenta').on('click', '#btn_atualizar_datos', function(){
     $idtercero               = $(this).attr('idtercero');
     $idtpidentificacion      = $(this).attr('idtpidentificacion');
     var $Formulario_Validado = false;
+
 
     $Formulario_Validado = Datos_Validados($idtercero , $idtpidentificacion  )
 

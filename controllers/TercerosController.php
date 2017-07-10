@@ -305,6 +305,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
 
     $Texto = 'OK';
 
+
     if ( $idtpidentificacion  != 31 && ( strlen( $pnombre) == 0 || strlen($papellido ) == 0 ) ){
       $Texto = $Texto . 'Debe registrar nombre y el apellido para identificar el registro. <br>';
     }
@@ -368,7 +369,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
   }
 
 
-
+ 
 
   if ( $Texto == 'OK'){
         // ACTUALIZAR REGISTRO
