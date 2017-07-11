@@ -269,10 +269,10 @@ function AliasNbPages($alias='{nb}')
 	$this->AliasNbPages = $alias;
 }
 
-function Error($msg)
+function Error($msg, $ruta='')
 {
 	// Fatal error
-	throw new Exception('FPDF error: '.$msg);
+	throw new Exception('FPDF error: '.$msg . ' ' . $ruta);
 }
 
 function Close()
@@ -1157,7 +1157,7 @@ protected function _loadfont($font)
 		$this->Error('Incorrect font definition file name: '.$font);
 	include($this->fontpath.$font);
 	if(!isset($name))
-		$this->Error('ruta' . $this->fontpath . 'Could not include font definition files');
+		$this->Error('Could not include font definition files', $this->fontpath .'...'. $name);
 	if(isset($enc))
 		$enc = strtolower($enc);
 	if(!isset($subsetted))
