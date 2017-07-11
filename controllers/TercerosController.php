@@ -369,8 +369,6 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
   }
 
 
- 
-
   if ( $Texto == 'OK'){
         // ACTUALIZAR REGISTRO
     if ( strlen($password ) >0 ){

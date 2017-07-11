@@ -137,6 +137,7 @@ var $Parametros_Actualizar_Registro ='';
 
 
 var Actualizar_Datos_Cuenta_Usuario = function(Parametros){
+
 			$.ajax({
 						data:  Parametros,
 						dataType: 'json',
