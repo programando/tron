@@ -115,7 +115,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	// Core fonts
 
 		$this->fontpath = dirname(__FILE__).DS.'font'. DS;
-Debug::Mostrar( $this->fontpath );
+
 
 	$this->CoreFonts = array('courier', 'helvetica', 'times', 'symbol', 'zapfdingbats');
 	// Scale factor
@@ -272,7 +272,7 @@ function AliasNbPages($alias='{nb}')
 function Error($msg, $ruta='')
 {
 	// Fatal error
-	throw new Exception('FPDF error: '.$msg . ' ' . $ruta);
+	throw new Exception('FPDF error...: '.$msg . ' ' . $ruta);
 }
 
 function Close()
@@ -1157,7 +1157,7 @@ protected function _loadfont($font)
 		$this->Error('Incorrect font definition file name: '.$font);
 	include($this->fontpath.$font);
 	if(!isset($name))
-		$this->Error('Could not include font definition files', $this->fontpath .'...'. $name);
+		$this->Error('Could not include font definition files', $name);
 	if(isset($enc))
 		$enc = strtolower($enc);
 	if(!isset($subsetted))
