@@ -8,8 +8,10 @@ class PdfController extends Controller
     public function __construct() {
         parent::__construct();
 
-        $this->Pdf    =  $this->Load_External_Library('tcpdf/tcpdf');
-        $this->Pdf    = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        //$this->Pdf    =  $this->Load_External_Library('tcpdf/tcpdf');
+        //$this->Pdf    = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $this->Pdf = $this->Load_External_Library('fpdf/app_pdf');
+        $this->Pdf = new PDF();
     }
 
     public function index(){}
@@ -24,7 +26,35 @@ class PdfController extends Controller
 
     }
 
+
     public function Convenio_Comercial() {
+        $encabezado                 = '';
+        $fecha_hora_acepta_convenio = Session::Get('fecha_hora_acepta_convenio');
+
+        if (isset($fecha_hora_acepta_convenio )){
+            $encabezado ='Convenio comercial firmado digitalmente por : ' . Session::Get('nombre_usuario_pedido')  ;
+            $encabezado = $encabezado .  ' con ' . Session::Get('cod_tp_identificacion').  '. ' . Session::Get('identificacion');
+            $encabezado = $encabezado  . ' en ' . strtoupper($fecha_hora_acepta_convenio);
+        }
+        $this->Pdf->AddPage();
+        $this->Pdf->Header($encabezado);
+
+        $this->Pdf->SetFont('Arial','I',13);
+        $this->Pdf->Cell(190,10, "CONVENIO COMERCIAL DE LA RED DE AMIGOS TRON - BALQUIMIA S.A.S." ,0,0,'C');
+        $texto_convenio_comercial   =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
+        $texto_convenio_comercial   = utf8_decode($texto_convenio_comercial );
+        $this->Pdf->SetFont('Arial','',9);
+        $this->Pdf->WriteHTML('<br><br> <p style="text-align: justify;" '.$texto_convenio_comercial.'</p> ');
+
+        $this->Pdf->Output();
+
+
+        //$html  = $html.'<style> .justy { text-align: justify;} </style> <div class="justy ">Texto justificado</div>';
+
+    }
+
+
+    public function Convenio_Comercial_olf() {
 
         set_time_limit(300);
         $this->Pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
