@@ -11,6 +11,7 @@ class PDF extends FPDF
       var $ALIGN ='';
 
 function __construct(){
+    $this->fontpath = dirname(__FILE__).'/font/';
     Debug::Mostrar( $this->fontpath );
 }
  function Header( $Encabezado = '') {
