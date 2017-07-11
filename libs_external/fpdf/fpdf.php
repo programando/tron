@@ -115,6 +115,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	// Core fonts
 
 		$this->fontpath = dirname(__FILE__).DS.'font'. DS;
+Debug::Mostrar( $this->fontpath );
 
 	$this->CoreFonts = array('courier', 'helvetica', 'times', 'symbol', 'zapfdingbats');
 	// Scale factor
