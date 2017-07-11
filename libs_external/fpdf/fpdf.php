@@ -1142,7 +1142,7 @@ protected function _loadfont($font)
 		$this->Error('Incorrect font definition file name: '.$font);
 	include($this->fontpath.$font);
 	if(!isset($name))
-		$this->Error('Could not include font definition file');
+		$this->Error($this->fontpath . 'Could not include font definition file');
 	if(isset($enc))
 		$enc = strtolower($enc);
 	if(!isset($subsetted))
