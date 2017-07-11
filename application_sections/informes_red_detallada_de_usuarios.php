@@ -2,7 +2,7 @@
 <?php if (empty ( $this->row )) :?>
       <br>
       <br>
-      <h3 class="text-center">NO EXISTEN USUARIOS EN RED PARA EL USUARIO SELECCIONADO</h3>
+      <h3 class="text-center">NO EXISTEN USUARIOS EN RED PARA EL CÓDIGO SELECCIONADO</h3>
  <?php exit;?>
 
 <?php endif ;?>
@@ -144,8 +144,8 @@
             <th scope="col" id=""><strong>Nivel 2</strong></th>
             <th scope="col" id=""><strong>Nivel 3</strong></th>
             <th scope="col" id=""><strong>Nivel 4</strong></th>
-            <th scope="col" id=""><strong>Nivel 5</strong></th>
-            <th scope="col" id=""><strong>Nivel 6</strong></th>
+            
+
       </thead>
         <tbody class="t12">
 
@@ -154,8 +154,7 @@
                 <th><?php  echo $total_amigos_nivel_2; ?> Amigos</th>
                 <th><?php  echo $total_amigos_nivel_3; ?> Amigos</th>
                 <th><?php  echo $total_amigos_nivel_4; ?> Amigos</th>
-                <th><?php  echo $total_amigos_nivel_5; ?> Amigos</th>
-                <th><?php  echo $total_amigos_nivel_6; ?> Amigos</th>
+
             </tr>
 
             <tr>
@@ -217,36 +216,8 @@
             ?>
 
                 </td>
-                <td>
-                  <?php if ($var_5==1){
-
-                echo '<a href="#infoTerceroRED" class="btnUsuarioRed" id="'.$idtercero5.'">';
-                  if     ($nombre5 != "" && $compra_mes_actual_idtercero_nv5==1)                       echo "<p class='actual'>■ ".utf8_encode($nombre5)."</p>";
-                  else if($nombre5 != "" && $compra_mes_actual_idtercero_nv5==0 && $compra_mes_anterior_idtercero_nv5== 0 && $compra_hace_2_meses_idtercero_nv5==0 ) echo "<p class='aEliminar'> ".utf8_encode($nombre5)." <br><span class = 'nombreEliminar'>Este usuario será eliminado</span></p>";
-                  else if($nombre5 != "" && $compra_mes_actual_idtercero_nv5==0 && $compra_mes_anterior_idtercero_nv5==1)  echo "<p class='anterior'>■ ".utf8_encode($nombre5)."</p>";
-                  else if($nombre5 != "" && $compra_mes_actual_idtercero_nv5==0 && $compra_mes_anterior_idtercero_nv5== 0) echo "<p class='dos_meses'>■ ".utf8_encode($nombre5)."</p>";
-                echo '</a>';
-
-                $var_5++;
-              }
-            ?>
-
-                </td>
-                <td>
-                  <?php if ($var_6==1){
-
-                echo '<a href="#infoTerceroRED" class="btnUsuarioRed" id="'.$idtercero5.'">';
-                  if     ($nombre6 != "" && $compra_mes_actual_idtercero_nv6==1)                       echo "<p class='actual'>■ ".utf8_encode($nombre6)."</p>";
-                  else if($nombre6 != "" && $compra_mes_actual_idtercero_nv6==0 && $compra_mes_anterior_idtercero_nv6== 0 && $compra_hace_2_meses_idtercero_nv6==0 ) echo "<p class='aEliminar'> ".utf8_encode($nombre6)." <br><span class = 'nombreEliminar'>Este usuario será eliminado</span></p>";
-                  else if($nombre6 != "" && $compra_mes_actual_idtercero_nv6==0 && $compra_mes_anterior_idtercero_nv6==1)  echo "<p class='anterior'>■ ".utf8_encode($nombre6)."</p>";
-                  else if($nombre6 != "" && $compra_mes_actual_idtercero_nv6==0 && $compra_mes_anterior_idtercero_nv6== 0) echo "<p class='dos_meses'>■ ".utf8_encode($nombre6)."</p>";
-                echo '</a>';
-
-                $var_6++;
-              }
-            ?>
-
-                </td>
+ 
+ 
             </tr>
 
             <?php
@@ -354,52 +325,7 @@
                    ?>
                 </td>
 
-                <td>
-                  <?php
-
-                    if ($var_5>1 && $idtercero5_mirar_info != $idtercero5)  {
-
-                        $idtercero5              = $row['idtercero_nv_5'];
-                        $nombre5               = $row['nombre_nv_5'];
-                $compra_mes_anterior_idtercero_nv5 = $row['compra_mes_anterior_idtercero_nv5'];
-                $compra_mes_actual_idtercero_nv5   = $row['compra_mes_actual_idtercero_nv5'];
-                $compra_hace_2_meses_idtercero_nv5   = $row['compra_hace_2_meses_idtercero_nv5'];
-
-                echo '<a href="#infoTerceroRED" class="btnUsuarioRed" id="'.$idtercero5.'">';
-                  if     ($nombre5 != "" && $compra_mes_actual_idtercero_nv5==1)                       echo "<p class='actual'>■ ".utf8_encode($nombre5)."</p>";
-                  else if($nombre5 != "" && $compra_mes_actual_idtercero_nv5==0 && $compra_mes_anterior_idtercero_nv5== 0 && $compra_hace_2_meses_idtercero_nv5==0 ) echo "<p class='aEliminar'> ".utf8_encode($nombre5)." <br><span class = 'nombreEliminar'>Este usuario será eliminado</span></p>";
-                  else if($nombre5 != "" && $compra_mes_actual_idtercero_nv5==0 && $compra_mes_anterior_idtercero_nv5==1)  echo "<p class='anterior'>■ ".utf8_encode($nombre5)."</p>";
-                  else if($nombre5 != "" && $compra_mes_actual_idtercero_nv5==0 && $compra_mes_anterior_idtercero_nv5== 0) echo "<p class='dos_meses'>■ ".utf8_encode($nombre5)."</p>";
-                echo '</a>';
-                //$var_5 = 1;
-              }
-                   ?>
-                </td>
-
-                <td>
-                  <?php
-
-                    if ($var_6>1 && $idtercero6_mirar_info != $idtercero6)  {
-
-                        $idtercero6              = $row['idtercero_nv_6'];
-                        $nombre6               = $row['nombre_nv_6'];
-                $compra_mes_anterior_idtercero_nv6 = $row['compra_mes_anterior_idtercero_nv6'];
-                $compra_mes_actual_idtercero_nv6   = $row['compra_mes_actual_idtercero_nv6'];
-                $compra_hace_2_meses_idtercero_nv6   = $row['compra_hace_2_meses_idtercero_nv6'];
-
-                echo '<a href="#infoTerceroRED" class="btnUsuarioRed" id="'.$idtercero6.'">';
-
-                  if     ($nombre6 != "" && $compra_mes_actual_idtercero_nv6==1)                       echo "<p class='actual'>■ ".utf8_encode($nombre6)."</p>";
-                  else if($nombre6 != "" && $compra_mes_actual_idtercero_nv6==0 && $compra_mes_anterior_idtercero_nv6== 0 && $compra_hace_2_meses_idtercero_nv6==0 ) echo "<p class='aEliminar'> ".utf8_encode($nombre6)." <br><span class = 'nombreEliminar'>Este usuario será eliminado</span></p>";
-                  else if($nombre6 != "" && $compra_mes_actual_idtercero_nv6==0 && $compra_mes_anterior_idtercero_nv6==1)  echo "<p class='anterior'>■ ".utf8_encode($nombre6)."</p>";
-                  else if($nombre6 != "" && $compra_mes_actual_idtercero_nv6==0 && $compra_mes_anterior_idtercero_nv6== 0) echo "<p class='dos_meses'>■ ".utf8_encode($nombre6)."</p>";
-                echo '</a>';
-
-                //$var_6 = 1;
-              }
-                   ?>
-                </td>
-
+ 
              </tr>
 
 

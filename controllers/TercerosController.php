@@ -305,6 +305,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
 
     $Texto = 'OK';
 
+
     if ( $idtpidentificacion  != 31 && ( strlen( $pnombre) == 0 || strlen($papellido ) == 0 ) ){
       $Texto = $Texto . 'Debe registrar nombre y el apellido para identificar el registro. <br>';
     }
@@ -366,8 +367,6 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
   if (  trim( $password)  != trim($confirmar_password)  ){
     $Texto = $Texto . 'La contraseña y su confirmación deben ser iguales. <br>';
   }
-
-
 
 
   if ( $Texto == 'OK'){

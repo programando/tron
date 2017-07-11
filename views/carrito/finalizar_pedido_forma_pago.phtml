@@ -15,9 +15,10 @@
 
 			<h3 class="colorBlue ff2 t30 titleM1">
             	<strong>Paso 4 </strong> <br>
-				<small class="sutb-titulo">seleccione la forma de pago.</small>
             </h3>
-
+            <div class='sutb-titulo text-center'>
+                <h4>Su pedido número : <strong> <?= Session::Get('numero_pedido') ;?> </strong> ha sido creado con éxito. Ahora puede seleccionar la forma de pago.</h4>
+                </div>
             <div class="option-pago1">
             	<div class="tabAll"><div class="tabIn">
             		<img src="<?= BASE_IMG_TIENDA ;?>forma-pago1.png" class="img-pago1" id="1" />
