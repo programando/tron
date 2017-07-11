@@ -4,14 +4,15 @@ require('fpdf.php');
 class PDF extends FPDF
 {
 
-      var $B=0;
-      var $I=0;
-      var $U=0;
-      var $HREF='';
-      var $ALIGN='';
+      var $B     =0;
+      var $I     =0;
+      var $U     =0;
+      var $HREF  ='';
+      var $ALIGN ='';
 
-
-
+function __construct(){
+    Debug::Mostrar( $this->fontpath );
+}
  function Header( $Encabezado = '') {
      // Logo
 
