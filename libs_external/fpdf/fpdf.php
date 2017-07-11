@@ -475,11 +475,15 @@ function AddFont($family, $style='', $file='')
 function SetFont($family, $style='', $size=0)
 {
 	// Select a font; size given in points
+
+
 	if($family=='')
 		$family = $this->FontFamily;
 	else
 		$family = strtolower($family);
+
 	$style = strtoupper($style);
+
 	if(strpos($style,'U')!==false)
 	{
 		$this->underline = true;
@@ -495,21 +499,27 @@ function SetFont($family, $style='', $size=0)
 	if($this->FontFamily==$family && $this->FontStyle==$style && $this->FontSizePt==$size)
 		return;
 	// Test if font is already loaded
-	$fontkey = $family.$style;
+	$fontkey =   $family.$style  ;
+
 	if(!isset($this->fonts[$fontkey]))
 	{
 		// Test if one of the core fonts
-		if($family=='arial')
+		if($family=='arial'){
 			$family = 'helvetica';
+		}
+
+
 		if(in_array($family,$this->CoreFonts))
 		{
 			if($family=='symbol' || $family=='zapfdingbats')
 				$style = '';
 			$fontkey = $family.$style;
+
 			if(!isset($this->fonts[$fontkey]))
 				$this->AddFont($family,$style);
 		}
 		else
+
 			$this->Error('Undefined font: '.$family.' '.$style);
 	}
 	// Select it

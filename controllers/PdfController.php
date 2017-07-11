@@ -44,7 +44,7 @@ class PdfController extends Controller
         $texto_convenio_comercial   =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
         $texto_convenio_comercial   = utf8_decode($texto_convenio_comercial );
         $this->Pdf->SetFont('Arial','',9);
-        $this->Pdf->WriteHTML('<br><br> <p style="text-align: justify;" '.$texto_convenio_comercial.'</p> ');
+        $this->Pdf->WriteHTML('<br><br>'.  $texto_convenio_comercial);
 
         $this->Pdf->Output();
 

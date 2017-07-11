@@ -10,15 +10,12 @@ class PDF extends FPDF
       var $HREF  ='';
       var $ALIGN ='';
 
-function __construct(){
-    $this->fontpath = dirname(__FILE__).'/font/';
-    Debug::Mostrar( $this->fontpath );
-}
+
  function Header( $Encabezado = '') {
      // Logo
 
      // Arial bold 15
-     $this->SetFont('Arial','B',7);
+     $this->SetFont('Arial','b',7);
       // Título
      $this->Cell(190,5,$Encabezado,0,0,'C');
      // Salto de línea
