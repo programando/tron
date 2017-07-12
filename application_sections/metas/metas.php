@@ -19,10 +19,9 @@
 
 
   <!-- JULIO 12 DE 2017
-       VERIFICACIONES PARA POSICIONAMIENTO CEO
-  -->
+       VERIFICACIONES PARA POSICIONAMIENTO CEO  -->
   <?php include (APPLICATION_SECTIONS . 'metas/verificaciones.php');?>
-
+  <!-- ////////////////////////////////////////////////////////////////      -->
 
    <meta name     ="description"            content="<?= $Pagina_Metas_description ;?>" />
    <meta name     ="keywords"               content="<?=  $Pagina_Metas_GeneralKeys.$Pagina_Facebook_keywords ;?>" />
