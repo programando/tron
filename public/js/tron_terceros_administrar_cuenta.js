@@ -548,11 +548,8 @@ $('#cont_conevion_comercial').on('mouseout',function(){
 
 // mostrar pdf = convenio comercial
 $('#convenio_pdf').on('click',function(){
-    $('.contenedor_cuenta').html('');
-	$('.contenedor_cuenta').html('Un momento por favor... estamos generando el archivo...');
-	window.open('/pdf/Convenio_Comercial');
-	$('.contenedor_cuenta').html('');
-	// $('.menu_convenio').hide();
+  $('.contenedor_cuenta').html('');
+  window.open('/pdf/convenio_comercial');
 });
 
 

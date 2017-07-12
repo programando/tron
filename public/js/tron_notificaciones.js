@@ -29,10 +29,10 @@ $('.cerrar_cumpleanios').on('click', function(){
 		 $.ajax({
        data:'',
        dataType: '',
-       url: 'ocultar_mjs_cumpleanios',
+       url: '/index/ocultar_mjs_cumpleanios',
        type: 'post',
          success:  function (resultado) {
-						window.location.href = "productos/categorias_marcas";
+						window.location.href = "/productos/categorias_marcas";
           }
        });
 		});
@@ -44,7 +44,7 @@ $('.cerrar-msj-vacaciones').on('click', function(){
      $.ajax({
        data:'',
        dataType: '',
-       url: 'ocultar_mjs_vacaciones',
+       url: '/index/ocultar_mjs_vacaciones',
        type: 'post',
          success:  function (resultado) {
             window.location.href = "/index";

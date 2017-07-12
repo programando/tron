@@ -1,0 +1,3 @@
+$('.contenedor_cuenta').on('focus','#recomendar_email,#recomendar_nombre',function(){
+  $('#msj-error').html('');
+})

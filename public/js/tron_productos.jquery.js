@@ -66,8 +66,8 @@ function Recomendar_Producto_a_Mi_Amigo_Mensaje(Parametros){
 }
 
 function Actualizar_Vista_Carrito(){
-	 $('.carrito-compras').load('/carrito/Mostrar_Carrito/2');
-
+	 //$('.carrito-compras').load('/carrito/Mostrar_Carrito/2');
+	  $('.carrito-compras').load('/carrito/Mostrar_Carrito/1');
 
 }
 

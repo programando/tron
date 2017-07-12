@@ -1,0 +1,25 @@
+<?php
+ $texto_convenio_comercial   =  file_get_contents(BASE_PDFS.'convenio_comercial.php','r');
+
+?>
+<br>
+<div class=" text-center">
+<h2>CONVENIO COMERCIAL RED DE AMIGOS TRON BALQUIMIA S.A.S.</h2>
+</div>
+    <div class="p20 taJ text-center">
+
+      <div style="width:95%;height:300px;overflow-y:scroll;margin: auto;" >
+        <p class="text-justificado">
+        <?= $texto_convenio_comercial  ;?>
+     </p>
+     </div>
+    </div>
+    <div class=" text-center">
+     <a href="/Pdf/Convenio_Comercial_Imprimir" class="btn btn-primary" role="button">Imprimir Convenio Comercial</a>
+</div>
+
+<br>
+<br>
+<br>
+
+
