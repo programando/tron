@@ -5,6 +5,8 @@
     $Pagina_Metas_GeneralKeys = 'TRON, Cali, Amigos, Balquimia,';
     $Pagina_Metas_Keys        = '';
     $Pagina_Metas_Imagen      = DOMINIO ."public/images/productos/tron_1.jpg";
+    $Pagina_Facebook_keywords = '';
+    $Pagina_Metas_description = '' ;
 
 
   // INDEX
@@ -26,13 +28,15 @@
       Session::Set('FACEBOOK', FALSE);
    }
 
-
+///// desde aqui modificar
    // SECCION INDUSTRIAL
    if(Session::Get('CEO_METODO') == 'industrial') {
         $Pagina_Metas_description = "La línea Industrial de Balquimia provee Productos especializados para diferentes sectores de la industria como: Artes Gràficas, Sector Alimentos, Textil, Mantenimiento Industrial, Hotelería, Automotriz,  Materias primas (bases para fabricación de productos), Sanidad Portátil (baños Móbiles)";
         $Pagina_Metas_Imagen      = DOMINIO . "public/images/slider/1.jpg";
         $Pagina_Metas_Keys        = " balquimia ventas online, Químicos especializados para mantenimiento industrial, mantenimiento preventivo, mantenimiento correctivo, productos para limpieza, desengrasantes, productos biodegradables, desengrasantes  no inflamable, desengrasante reutilizable, limpiadores de grasa, ceras, removedor de negro de humo, limpiador de crudo de castilla, limpiadores de aceite, mantenimiento de herramientas, limpieza de piezas mecánicas, mantenimiento de  tuberías, productos para mantenimiento de tanques, limpiadores de pisos, productos útiles en seguridad industrial, productos para fachadas, mantenimiento talleres, productos para mantenimiento de bodegas, limpiadores de aires acondicionados, desincrustante de radiadores, productos para limpieza de chiller, productos para torres de enfriamiento, productos para sistema de recirculación, embellecimiento de cauchos vulcanizados, limpieza de bambury, removedor de cemento, mantenimiento de formaletas, limpieza y mantenimiento de encofrados, productos para la construcción, lubricantes penetrantes, aflojadores de tuercas, lubricante penetrante para aflojar tornillos, objetos apretados, lubricar ejes,  lubricar cadenas, lubricar  balineras, mantenimiento de rodamiento, silenciar roces de metal a metal, lubricar  engranajes, lubricar piñones, mantenimiento  mandriles, mantenimiento acero inoxidable, desalojar la humedad, aislantes de humedad,  dieléctricos, limpiador de contactos eléctrico, limpiador de conectores, mantenimiento de motores, limpiador equipos electrónicos, mantenimiento de bobinados, mantenimiento de transformadores, mantenimiento de generadores, desoxidantes, limpiadores de óxido, removedor de herrumbre, fosfatizar, , corrosión, limpia sarro, mantenimiento de azulejos, restaurar cerámicas, restaurar porcelana sanitaria, gel decapante, brillo aluminio, brillar ollas,";
         $Pagina_Metas_title       = "Productos Industriales - TRON";
+        $Pagina_Metas_Imagen      = DOMINIO ."public/images/empresa/logo.png";
+
        }
 
    // RED DE USUARIOS TRON
@@ -45,6 +49,7 @@
                 $Pagina_Metas_description = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
                 $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                 $Pagina_Metas_title       = "Productos TRON - INFO";
+                $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/redC.png";
                 break;
 
             case 'tron_productos':
@@ -53,6 +58,8 @@
                $Pagina_Metas_description = "Los Productos TRON son especializados, la Línea hogar cuida el medio ambiente es biodegradable, el gasto de agua es menor al ser de rápido enjuage y reduce el impacto ambiental que producen los desechos plásticos.
                . ";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/cat1.png";
+
               break;
 
             case 'comisiones':
@@ -60,6 +67,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, comisiones, mercado en red, tienda virtual, ventas online, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Plan de compensación - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."terceros/plan_compensacion";
                break;
 
             case 'planes_de_registro':
@@ -67,6 +75,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, registro, mercado en red, tienda virtual, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Planes de registro - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/planes.png";
                 break;
 
             case 'tron_medios_pago':
@@ -74,6 +83,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, medios de pago, pasarela de pagos, mercado en red, tienda virtual, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "pasarela de pagos - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/medio_pago.png";
                 break;
 
             case 'funcionalidades_interesantes':
@@ -81,6 +91,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, como funciona, mercado en red, tienda virtual, medios de promoción, funcionalidades interesantes, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "funcionalidades interesantes - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/icoS4.png";
                 break;
 
             case 'tron_transporte':
@@ -88,6 +99,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, como funciona, mercado en red, tienda virtual, transporte, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Transporte - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/transporteC.png";
                 break;
 
             case 'preguntas_frecuentes':
@@ -95,6 +107,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, como funciona, mercado en red, tienda virtual, preguntas frecuentes, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Preguntas Frecuentes - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/preguntasC.png";
                 break;
 
             case 'contactanos':
@@ -102,6 +115,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, como funciona, mercado en red, tienda virtual, contacto, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Página de Contacto - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/contactoC.png";
                 break;
 
             case 'garantia_calidad':
@@ -109,6 +123,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, como funciona, mercado en red, tienda virtual, garantía, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Garantía de productos - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/garantiaC.png";
                 break;
 
             case 'terminos_condiciones':
@@ -116,6 +131,7 @@
                $Pagina_Metas_Keys        = "mlm, mln, como funciona, mercado en red, tienda virtual, condiciones, balquimia ventas online";
                $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                $Pagina_Metas_title       = "Terminos_condiciones - TRON";
+               $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/terminosC.png";
             break;
 
             default :
@@ -123,6 +139,7 @@
              $Pagina_Metas_Keys        = "balquimia ventas online, Químicos especializados para mantenimiento industrial, mantenimiento preventivo, mantenimiento correctivo, productos para limpieza, desengrasantes, productos biodegradables, desengrasantes  no inflamable, desengrasante reutilizable, limpiadores de grasa, ceras, removedor de negro de humo, limpiador de crudo de castilla, limpiadores de aceite, mantenimiento de herramientas, limpieza de piezas mecánicas, mantenimiento de  tuberías, productos para mantenimiento de tanques, limpiadores de pisos, productos útiles en seguridad industrial, productos para fachadas, mantenimiento talleres, productos para mantenimiento de bodegas, limpiadores de aires acondicionados, desincrustante de radiadores, productos para limpieza de chiller, productos para torres de enfriamiento, productos para sistema de recirculación, embellecimiento de cauchos vulcanizados, limpieza de bambury, removedor de cemento, mantenimiento de formaletas, limpieza y mantenimiento de encofrados, productos para la construcción, lubricantes penetrantes, aflojadores de tuercas, lubricante penetrante para aflojar tornillos, objetos apretados, lubricar ejes,  lubricar cadenas, lubricar  balineras, mantenimiento de rodamiento, silenciar roces de metal a metal, lubricar  engranajes, lubricar piñones, mantenimiento  mandriles, mantenimiento acero inoxidable, desalojar la humedad, aislantes de humedad,  dieléctricos, limpiador de contactos eléctrico, limpiador de conectores, mantenimiento de motores, limpiador equipos electrónicos, mantenimiento de bobinados, mantenimiento de transformadores, mantenimiento de generadores, desoxidantes, limpiadores de óxido, removedor de herrumbre, fosfatizar, , corrosión, limpia sarro, mantenimiento de azulejos, restaurar cerámicas, restaurar porcelana sanitaria, gel decapante, brillo aluminio, brillar ollas,";
              $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
              $Pagina_Metas_title       = "Productos Industrial - TRON";
+             $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/redC.png";
               break;
       }
    } // FIN SECCIÓN RED TRON
@@ -137,6 +154,7 @@
        $Pagina_Metas_Keys        = "balquimia ventas online, producto de aseo para el hogar, productos de aseo concentrados, productos biodegradables para el aseo del hogar, balquimia ventas online";
        $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
        $Pagina_Metas_title       = "Productos TRON";
+       $Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/cat1.png";
     }
 
 
@@ -150,6 +168,8 @@
        $Pagina_Metas_Keys        = "balquimia ventas online, categorías de productos, marcas, categorías, productos, tienda virtual, agrupaciones, categorías, productos, grupos";
        $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
        $Pagina_Metas_title       = "Productos en la tienda virtual TRON";
+       $Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/linea_insdustrial.jpg";
+
     }
 
   //-----------------------
