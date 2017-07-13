@@ -28,7 +28,7 @@
       Session::Set('FACEBOOK', FALSE);
    }
 
-///// desde aqui modificar
+
    // SECCION INDUSTRIAL
    if(Session::Get('CEO_METODO') == 'industrial') {
         $Pagina_Metas_description = "La línea Industrial de Balquimia provee Productos especializados para diferentes sectores de la industria como: Artes Gràficas, Sector Alimentos, Textil, Mantenimiento Industrial, Hotelería, Automotriz,  Materias primas (bases para fabricación de productos), Sanidad Portátil (baños Móbiles)";
