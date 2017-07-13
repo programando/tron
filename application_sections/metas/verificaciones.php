@@ -7,7 +7,7 @@
     $Pagina_Metas_Imagen      = DOMINIO ."public/images/productos/tron_1.jpg";
     $Pagina_Facebook_keywords = '';
     $Pagina_Metas_description = '' ;
-
+    $Pagina_Metas_title       = '';
 
   // INDEX
    if(Session::Get('CEO_METODO') == 'index' || Session::Get('CEO_METODO') == 'terceros')  {
