@@ -349,10 +349,12 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
     }
   }else
   {
-    $param_idbanco_transferencias = 0;
-    $param_nro_cuenta_transferencias = '';
+    $param_idbanco_transferencias     = 0;
+    $param_nro_cuenta_transferencias  = '';
     $param_tipo_cuenta_transferencias = '';
-    $param_idmcipio_transferencias = 0;
+    $param_idmcipio_transferencias    = 0;
+    $declaro_renta                    = 0;
+    $mis_datos_son_privados           = 0;
   }
 
   if ( $param_acepto_retencion_comis_para_pago_pedidos == TRUE){
