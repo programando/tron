@@ -36,20 +36,6 @@
 
 
 
-																			<!-- option 4
-																			<div class="checkbox">
-																			  <label>
-																			    <input type="checkbox" id="param_acepto_retencion_comis_para_pago_pedidos" value=""
-																			    <?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == TRUE) : ?>   <?php endif ;?>>
-																			    Acepto que se retenga de mis comisiones, de manera indefinida y mientras no modifique este registro, la suma de $ :<strong>
-																			    	<input type="text" name="" class="registro_suma_input" value="<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
-																			    	id ='param_valor_comisiones_para_pago_pedidos'
-																			    	valor-pago-pedidos = "<?= $this->param_valor_comisiones_para_pago_pedidos;?>"
-																			    	<?php if ( $this->param_acepto_retencion_comis_para_pago_pedidos == FALSE) : ?> disabled="disabled"  <?php endif ;?>>
-																			    </strong>para el pago de mis pedidos.
-																			  </label>
-																			</div><br>
-																			<br> -->
 
 
 				               <div>
@@ -58,28 +44,7 @@
 				               	   </div>
 				               </div><br>
 
-<!--
-																			<div class="checkbox">
-																			  <label>
-																			    <input type="checkbox" id="pago_comisiones_efecty" value=""
-																			    <?php if ( $this->pago_comisiones_efecty == TRUE) : ?>  <?php endif ;?>>
-																			    Efecty
-																			  </label>
-																			</div><br><br>
 
-
-																			<div class="checkbox"  >
-																			  <label>
-																			    <input type="checkbox" id="pago_comisiones_transferencia" value=""
-																			    <?php if ( $this->pago_comisiones_transferencia == TRUE) : ?>  <?php endif ;?>>
-                       <span class="">
-																			    Transferencia a mi cuenta bancaria.<br>
-																			    Asumo el valor de: <strong>
-																			     </strong>que corresponde al costo de la transferencia electrónica a mi cuenta para el pago de mis comisiones.
-																			     Autorizo que las comisones se transfieran a mi cuenta siempre que sean mayores a: <strong>  </strong>.
-                       </span>
-																			  </label>
-																			</div><br>Tiutulo = Forma de pago de comisiones-->
 
                  </form>
                </div>

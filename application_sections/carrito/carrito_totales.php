@@ -4,7 +4,8 @@
   if ( !isset($iddireccion_despacho )){
       $iddireccion_despacho = 0;
   }
-  //echo $iddireccion_despacho . 'iddireccion_despacho';
+  $Vr_Transporte = Session::Get('Vr_Transporte');
+
 ?>
 
 <tr>
@@ -12,11 +13,10 @@
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
 
-        <?php if ( $iddireccion_despacho > 0 ) :?>
+        <?php if ( $Vr_Transporte > 0 ) :?>
                <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
                   <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo... <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
-                  <?php else : ?>
-                    <div class="col-resumen-pedido"><strong>( + ) Recaudo.<small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
+                  
                <?php endif ;?>
           <?php endif ;?>
 

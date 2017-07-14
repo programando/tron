@@ -65,6 +65,7 @@
         </div>
       </div>
       <!-- numero de cuenta -->
+
       <div class="form-group">
         <label for="numero_cuenta" class="col-lg-4 control-label"> <p class="text-left text-label"> Número de la cuenta: </p></label>
         <div class="col-lg-8">
@@ -72,22 +73,15 @@
         </div>
       </div>
       <!-- tipo de cuenta -->
+       <?php $Tipo_Cuenta = $this->param_tipo_cuenta_transferencias  ;?>
        <div class="form-group">
-         <label for="Tipo_cuenta" class="col-lg-4 control-label"> <p class="text-left text-label"> Tipo de cuenta: </p></label>
+         <label for="Tipo_cuenta" class="col-lg-4 control-label"> <p class="text-left text-label"> <?=  $Tipo_Cuenta ;?> Tipo de cuenta: </p></label>
          <div class="col-lg-8">
 
            <select class="form-control" id="param_tipo_cuenta_transferencias" name="param_tipo_cuenta_transferencias">
-           		   <?php $Tipo_Cuenta = $this->param_tipo_cuenta_transferencias ;?>
-
-           		   <?php if ( $Tipo_Cuenta =='AH' ) :?>
-           		   		<option  value="<?= $this->param_tipo_cuenta_transferencias ;?>"><?= $this->nom_tipo_cuenta_transferencia ;?></option>
-																		<option  value="CO" >CORRIENTE</option>
-																<?php endif ;?>
-
-           		   <?php if ( $Tipo_Cuenta =='CO' ) :?>
-           		   		<option  value="<?= $this->param_tipo_cuenta_transferencias ;?>"><?= $this->nom_tipo_cuenta_transferencia ;?></option>
-																		<option  value="AH" >AHORROS</option>
-																<?php endif ;?>
+								<option  value="" >SELECCIONE</option>
+                <option  value="CO" >CORRIENTE</option>
+									<option  value="AH" >AHORROS</option>
            </select>
 
          </div>

@@ -958,9 +958,13 @@ private function Asignar_Transportadora_a_Productos(){
         $Vrs_Payu_Latam                = $Vrs_Adicionales_Fletes - Session::Get('Sobre_Precio_Prod_Tron') ;
         $Vrs_Payu_Latam                = $Vrs_Payu_Latam  ;
 
+
+
         if ( Session::Get('cobrar_fletes') == FALSE ){
           $this->Vr_Transporte_Ocasional  = 0;
           $this->Vr_Transporte_Tron       = 0;
+          $Vrs_Payu_Latam = 0;
+          $Vrs_Adicionales_Fletes  = 0 ;
         }
         $this->Vr_Transporte_Ocasional = $this->Vr_Transporte_Ocasional  +  $Vrs_Adicionales_Fletes ;
         $this->Vr_Transporte_Tron      = $this->Vr_Transporte_Tron       +  $Vrs_Adicionales_Fletes ;
@@ -997,6 +1001,8 @@ private function Asignar_Transportadora_a_Productos(){
       Session::Set('valor_declarado'          , $Valor_Declarado );
       Session::Set('Peso_Pedido_Courrier'     , $_Otros_Productos_Peso_Gramos );
       Session::Set('vr_payu_latam'            , $Vrs_Payu_Latam );
+
+ 
 
     }
 
