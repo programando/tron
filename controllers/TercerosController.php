@@ -1149,7 +1149,6 @@ public function Registro_Actualizar_Datos_Basicos() {
         Session::Set('idtercero_presenta'         , $Registro[0]['idtercero']             );
         Session::Set('nombre_usuario_presenta'    , $Registro[0]['nombre_usuario']        );
         Session::Set('codigousuario_presenta'     , $Registro[0]['codigousuario']         );
-        Session::Set('cobrar_fletes'              , $Registro[0]['cobrar_fletes']         );
         Session::Set('idtipo_plan_compras'        , $Registro[0]['idtipo_plan_compras']   );
         Session::Set('registro_inactivo'          , $Registro[0]['registro_inactivo']     );
         Session::Set('registro_organizado'        , $Registro[0]['registro_organizado']     );
@@ -1379,7 +1378,7 @@ public function Actualizar_Password()
       Session::Set('nommcipio_despacho',              $Registro[0]["nommcipio_despacho"]);
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
-      Session::Set('cobrar_fletes'      ,             $Registro[0]["cobrar_fletes"]);
+
       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
 
@@ -1507,6 +1506,7 @@ public function Actualizar_Password()
       Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
       Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
       Session::Set('servientrega_tipo_despacho',      $Registro[0]["servientrega_tipo_despacho"]);
+      Session::Set('cobrar_fletes',                   $Registro[0]["cobrar_fletes"]);
 
       if ( Session::Get('vr_kilo_idmcipio_redetrans') > 0 || Session::Get('vr_re_expedicion_redetrans') > 0 ){
         Session::Set('redetrans_tipo_despacho',         'aplica_redetrans');

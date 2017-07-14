@@ -16,6 +16,7 @@
                     nommcipio             = <?= "'".$NomMcipio."'"   ;?>
                     nomdpto               = <?= "'".$NomDpto."'"   ;?>
                     codigousuario         = <?= "'".$CodigoUsuario."'"   ;?>
+                    cobrar_fletes         = <?= "'".$Cobrar_Fletes."'"   ;?>
                 />
         	</div>
             <div class="tabIn ff1 p20">
@@ -36,6 +37,7 @@
                 nommcipio           = <?= "'".$NomMcipio."'"   ;?>
                 nomdpto             = <?= "'".$NomDpto."'"   ;?>
                 codigousuario       = <?= "'".$CodigoUsuario."'"   ;?>
+                cobrar_fletes       = <?= "'".$Cobrar_Fletes."'"   ;?>
                 >
                     Editar
                     <img src="<?= BASE_IMG_TIENDA ;?>editar.png" width="48" title="Editar Dirección" />

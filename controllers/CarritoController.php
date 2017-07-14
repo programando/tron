@@ -208,10 +208,12 @@ class CarritoController extends Controller{
     $IdDpto               =  General_Functions::Validar_Entrada('iddpto','NUM');
     $Re_Expedicion        =  General_Functions::Validar_Entrada('reexpedicion','BOL');
     $codigousuario        =  General_Functions::Validar_Entrada('codigousuario','TEXT');
+    $Cobrar_Fletes        =  General_Functions::Validar_Entrada('cobrar_fletes','BOL');
 
     $this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( $IdDireccion_Despacho,$IdMcipio  );
     Session::Set('codigousuario',  $codigousuario);
     Session::Set('iddireccion_despacho',            $IdDireccion_Despacho);
+
 
   }
 
@@ -662,8 +664,6 @@ class CarritoController extends Controller{
     return ;
   }
 
-     //Debug::Mostrar( Session::Get('iddireccion_despacho') );
-     //$this->Terceros->Consultar_Datos_Mcipio_x_Id_Direccion_Despacho( Session::Get('iddireccion_despacho'), 0 );
      // INICIALIZA VARIABLES
   $this->Totalizar_Carrito_Inicializar_Propiedades();
   $i                                  = 0 ;

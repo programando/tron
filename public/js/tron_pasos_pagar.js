@@ -48,7 +48,7 @@ function Direccion_Usuario_Grabar(Parametros)
       {
           if (server.Respuesta=='OK') {
             $('#venta_editar').modal('hide');
-            //$('.fila-direcciones').load('Finalizar_Pedido_Direccion_Mostrar_Direcciones'); 
+            //$('.fila-direcciones').load('Finalizar_Pedido_Direccion_Mostrar_Direcciones');
              window.location.href = "/carrito/finalizar_pedido_identificacion";
             return false;
           }else{
@@ -94,10 +94,10 @@ $('.fila-direcciones').on('click','.crear-direccion',function(e){
 $('#btn-direccion-grabar').on('click',function(){
    var $iddireccion_despacho = $iddireccion_despacho_seleccionada;
 
-  if (typeof $iddireccion_despacho_seleccionada === "undefined" ) { 
+  if (typeof $iddireccion_despacho_seleccionada === "undefined" ) {
     $iddireccion_despacho_seleccionada = 0;
     }
- 
+
 
    var $idmcipio             = $('#idmcipio').val();
    var $direccion            = $('#direccion').val();
@@ -117,7 +117,7 @@ $('.fila-direcciones').on('click','.btn-editar-direccion',function(e){
   e.preventDefault();
   var $IdDireccion_Despacho = $(this).attr('iddirecciondespacho');
   $iddireccion_despacho_seleccionada = $IdDireccion_Despacho;
-  if ( typeof $iddireccion_despacho_seleccionada === 'undefined' ) { 
+  if ( typeof $iddireccion_despacho_seleccionada === 'undefined' ) {
     $iddireccion_despacho_seleccionada = 0;
     }
   var $destinatario         = $(this).attr('destinatario');
@@ -151,6 +151,7 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
     var $Nombre_Usuario_Pedido = $(this).attr('nombre-usuario-pedido');
     var $Label                 = $('#label'+$IdControl);
     var $codigousuario         = $(this).attr('codigousuario');
+    var $cobrar_fletes         = $(this).attr('cobrar_fletes');
 
 
 
@@ -160,7 +161,7 @@ $('.fila-direcciones').on('click','.input-checkbox-direccion',function(){
     $Label.css('background','#003E90');
     $Label.css('color','white');
 
-    Parametros = {'iddirecciondespacho':$IdDireccion_Despacho ,
+    Parametros = {'iddirecciondespacho':$IdDireccion_Despacho ,'cobrar_fletes' : $cobrar_fletes,
                   'idmcipio':$IdMcipio ,'iddpto':$IdDpto ,'reexpedicion':$Re_Expedicion,'codigousuario':$codigousuario};
     $.ajax({
       data:  Parametros,
