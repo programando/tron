@@ -195,7 +195,7 @@
       <div class="link"><p><span class="fonts-flecha-link glyphicon glyphicon-chevron-down"></span>¿Existen cuantías pequeñas en comisiones que quedan pendientes de pago?  </p></div><!--Pregunta -->
        <ul class="list-unstyled submenu"><!--Contenido -->
           <li>
-             No. Cuando solicites el traslado de comisiones de tu cuenta dinero a tu cuenta bancaria será transfereido tu saldo y sólo se descontará el valor de la transferencia.
+             No. Cuando solicites el traslado de comisiones de tu cuenta dinero a tu cuenta bancaria será transferido tu saldo y sólo se descontará el valor de la transferencia.
            </li>
          </ul><!--Contenido -->
    </li>
