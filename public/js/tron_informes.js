@@ -37,4 +37,7 @@ $('.usu-1').on('click',function()
 })
 
 
+$('#modal_det_liq_pedido').on('click',function(){
 
+  alert('sdjkdsjksd');
+})

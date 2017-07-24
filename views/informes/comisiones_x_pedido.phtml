@@ -27,13 +27,28 @@
           <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
             <thead><!-- cabezera -->
               <tr>
+                <th class="text-center">
+                      <a class="Mytooltip text-left" href="#" >ORIGEN
+                        <span> La procedencia de las comisiones que ganas.  </span>
+                      </a>
+                </th>
                 <th class="text-center">PEDIDO</th>
                 <th class="text-center">FACTURA</th>
                 <th class="text-center">COMPRADOR</th>
                 <th class="text-center">TP.COMP.</th>
+                <th class="text-center">NIV.</th>
                 <th class="text-center">PRODUCTOS</th>
                 <th class="text-center">IVA</th>
+                <th class="text-center">BASE COMIS.</th>
+                <th class="text-center">GRUPO</th>
+                <th class="text-center">% COMIS.</th>
                 <th class="text-center">VR.COMIS.</th>
+                <th class="text-center">
+                      <a class="Mytooltip text-left" href="#" >#MES
+                        <span> Comisión preferencial por 6 meses consecutivos cada vez que incorpores un Empresario o un Cliente. </span>
+                      </a>
+                </th>
+
               </tr>
             </thead><!-- cabezera -->
             <tbody style ="font-size:11px;">
@@ -47,12 +62,17 @@
                 <?php
                     $compra_productos     = number_format ( $Comision['compra_productos'],0,',','.');
                     $vr_iva               = number_format ( $Comision['vr_iva'],0,',','.');
+                    $base_comision        = number_format ( $Comision['base_comision'],0,',','.');
+                    $porcentaje           = number_format ( $Comision['porcentaje'] ,3,',','.').'%';
                     $total_comision       = number_format ( $Comision['total_comision'],0,',','.');
                     $Gana_Como            = trim( $Comision['gana_como']) ;
                     $periodo_sys          = $Comision['periodo_sys'];
                     $periodo_sql          = $Comision['periodo_sql']; // Periodo que consulta el usuario
                     $cumple_condiciones   = $Comision['cumple_condiciones'];
-
+                    $nivel                = $Comision['nivel'] ;
+                    if ( $nivel == '0'){
+                        $nivel = '';
+                    }
                     if ( $Gana_Como == 'RED') {
                       $Total_Ganado_Red = $Total_Ganado_Red + $Comision['total_comision'];
                     }
@@ -66,18 +86,19 @@
                     $Total_Ganado         =  $Total_Ganado_Red + $Total_Ganado_Cli + $Total_Ganado_Otr;
                 ?>
                 <tr>
-                  <td><?= $Comision['numero_pedido'] ;?>
-                    <!-- <small>
-                        <a id="modal_det_liq_pedido" href="" >&nbsp;&nbsp;&nbsp;Ver Detalle </a>
-                    </small>
-                    -->
-                  </td>
+                  <td><?= $Comision['gana_como'] ;?></td>
+                  <td><?= $Comision['numero_pedido'] ;?></td>
                   <td><?= $Comision['numero_factura'] ;?></td>
                   <td><?= $Comision['comprador'] ;?></td>
                   <td><?= $Comision['tipocomprador'] ;?></td>
+                  <td class="text-center"><?= $nivel  ;?></td>
                   <td class="text-right"><?= $compra_productos ;?></td>
                   <td class="text-right"><?= $vr_iva ;?></td>
+                  <td class="text-right"><?= $base_comision ;?></td>
+                  <td class="text-center"><?= $Comision['codigo_grupo'] ;?></td>
+                  <td class="text-right"><?= $porcentaje;?></td>
                   <td class="text-right"><?= $total_comision ;?></td>
+                  <td class="text-right"><?= $Comision['textidcomision'] ;?></td>
                 </tr>
 
               <?php endforeach ;?>
@@ -160,6 +181,9 @@
               <strong><?= $Comisiones ;?></strong></div>
           </div>
     <?php endif ;?>
+
+
+
 
 <br>
 <br>
