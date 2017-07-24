@@ -1,1 +1,1 @@
- 
+ [24-Jul-2017 08:52:54 America/Bogota] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\tron\application\Database.php on line 31
