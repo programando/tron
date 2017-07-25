@@ -17,6 +17,7 @@ class TercerosController extends Controller {
   }
 
 
+
  public  function  Buscar_datos_x_Idtercero_Presenta( $IdTercero = 0 ){
     $Tercero = $this->Terceros->Consulta_Datos_x_Idtercero ( $IdTercero ) ;
     Session::Set('idtercero_presenta'     , $Tercero[0]['idtercero'] );
