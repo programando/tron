@@ -2,7 +2,7 @@
     //-------------------------------
     // DEFINICIÓN DE VARIABLES
     //-------------------------------
-    $Pagina_Metas_GeneralKeys = 'TRON, Cali, Amigos, Balquimia, tienda virtual cali, ventas online cali, ventas on line cali, tienda virtual colombia, ventas online colombia, ventas on line colombia,';
+    $Pagina_Metas_GeneralKeys = 'TRON, Cali, Colombia, Balquimia, Balquimia Ventas Online, Balquimia Tienda, Balquimia Virtual, Tienda virtual, Tienda virtual cali, Ventas online cali, ';
     $Pagina_Metas_Keys        = '';
     $Pagina_Metas_Imagen      = DOMINIO ."public/images/productos/tron_1.jpg";
     $Pagina_Facebook_keywords = '';
@@ -21,10 +21,11 @@
     // RECOMENDAR PAGINA POR FACEBOOK
    if ( Session::Get('FACEBOOK') == TRUE ) {
       $Pagina_Facebook_keywords =  trim( Session::Get('Pagina_Facebook_TITULO') );
-      $Pagina_Facebook_keywords = $Pagina_Facebook_keywords . ','.Session::Get('Pagina_Facebook_KEYS');
-      $Pagina_Facebook_keywords = str_replace (" ", ", ", $Pagina_Facebook_keywords);
+      $Pagina_Facebook_keywords = Session::Get('Pagina_Facebook_KEYS') . ',' . $Pagina_Facebook_keywords;
+      $Pagina_Facebook_keywords = str_replace (" ", "", $Pagina_Facebook_keywords);
       $Pagina_Metas_Imagen      = Session::Get('Pagina_Facebook_IMAGEN');
-      $Pagina_Metas_title       = Session::Get('Pagina_Facebook_TITULO');
+      $Pagina_Metas_title       = Session::Get('Pagina_Facebook_TITULO') . " - Balquimia Tienda Online";
+	  $Pagina_Metas_description = Session::Get('Pagina_Facebook_DESCRIPCION');
       Session::Set('FACEBOOK', FALSE);
    }
 
@@ -171,16 +172,16 @@
 
     }
 
-  //-----------------------
-  // LINEA ARTES GRÁFICAS
-  //-----------------------
-   if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 1) {
-       $Pagina_Metas_description = "La Línea Lito-Tron cuenta con productos altamente especializados para la Industria de Artes Gráficas y gracias a ellos En este importante sector hemos logrado optimizar sus alistamientos y reducir sus tiempos muertos";
-       $Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/liena_artes_graficas.jpg" ;
-       $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
-       $Pagina_Metas_title       = "Lito-Tron – Artes gráficas";
-       $Pagina_Metas_Keys        = "balquimia ventas online, artes gráficas, impresión offset, maquinas planas, lavadores de rodillos para rotativas, lavadores de rodillos planchas y mantillas, despercudidor de rodillos, relavador de rodillos offset, lavador de moletones, leche de burra, protector de planchas, rejuvenecedor de mantillas";
-      }
+	//-----------------------
+	// LINEA ARTES GRÁFICAS
+	//-----------------------
+	if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 1) {
+		$Pagina_Metas_description = "La Línea Lito-Tron cuenta con productos altamente especializados para la Industria de Artes Gráficas y gracias a ellos En este importante sector hemos logrado optimizar sus alistamientos y reducir sus tiempos muertos";
+		$Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/liena_artes_graficas.jpg" ;
+		$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
+		$Pagina_Metas_title       = "Lito-Tron – Artes gráficas";
+		$Pagina_Metas_Keys        = "balquimia ventas online, artes gráficas, impresión offset, maquinas planas, lavadores de rodillos para rotativas, lavadores de rodillos planchas y mantillas, despercudidor de rodillos, relavador de rodillos offset, lavador de moletones, leche de burra, protector de planchas, rejuvenecedor de mantillas";
+	}
 
 
   //-----------------------
