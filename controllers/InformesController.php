@@ -149,6 +149,14 @@
               $this->View->Mostrar_Vista_Parcial("comisiones");
           }
 
+          public function Comisiones_x_Pedido( $numero_pedido = 0) {
+              $idtercero =  Session::Get('idtercero');
+              $this->View->Comisiones    =  $this->Informes->Comisiones_Ganadas_x_Pedido( $idtercero,$numero_pedido) ;
+
+              $this->View->Mostrar_Vista_Parcial("comisiones_x_pedido");
+
+          }
+
 
 
 

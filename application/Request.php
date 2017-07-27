@@ -41,6 +41,7 @@ class Request
            Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , $this->Argumentos[0]  );
         }
 
+
     }
 
     /**

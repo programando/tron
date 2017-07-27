@@ -36,8 +36,29 @@ $('.usu-1').on('click',function()
 
 })
 
+$('.contenedor_cuenta').on('click','#modal_det_liq_pedido', function(){
+      $numero_pedido  = $(this).attr('numero_pedido');
+      $idctrlfactura  = $(this).attr('idctrlfactura');
+      //alert($numero_pedido );
+      //alert($idctrlfactura  );
+      //Comisiones_x_Pedido
 
-$('#modal_det_liq_pedido').on('click',function(){
+    $.ajax({
+        data:  '',
+        dataType: 'html',
+        url:      '/informes/Comisiones_x_Pedido/'+$numero_pedido,
+        type:     'post',
+        success:  function (resultado)
+        {
 
-  alert('sdjkdsjksd');
-})
+          $('.contenido').html('');
+          $('.contenido').html(resultado);
+        }
+
+     });
+
+});
+
+
+
+

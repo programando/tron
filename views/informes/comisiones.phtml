@@ -22,7 +22,7 @@
       <h1 class ="text-center">NO SE HAN GENERADO COMISIONES PARA EL PERIODO CONSULTADO </h1>
     <?php else :?>
 
-      <div class="bloqIn  >
+      <div class="bloqIn"  >
         <div class="p30 table-responsive">
           <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
             <thead><!-- cabezera -->
@@ -52,6 +52,8 @@
                     $periodo_sys          = $Comision['periodo_sys'];
                     $periodo_sql          = $Comision['periodo_sql']; // Periodo que consulta el usuario
                     $cumple_condiciones   = $Comision['cumple_condiciones'];
+                    $numero_pedido        = $Comision['numero_pedido'];
+                    $idctrlfactura        = $Comision['idctrlfactura'];
 
                     if ( $Gana_Como == 'RED') {
                       $Total_Ganado_Red = $Total_Ganado_Red + $Comision['total_comision'];
@@ -66,9 +68,12 @@
                     $Total_Ganado         =  $Total_Ganado_Red + $Total_Ganado_Cli + $Total_Ganado_Otr;
                 ?>
                 <tr>
-                  <td><?= $Comision['numero_pedido'] ;?>
-                    <!-- <small>
-                        <a id="modal_det_liq_pedido" href="" >&nbsp;&nbsp;&nbsp;Ver Detalle </a>
+                  <td><?= $numero_pedido ;?>
+                    <!--         <small>
+                        <a id="modal_det_liq_pedido" href="#"
+                        numero_pedido='<?= $numero_pedido ;?>'
+                        idctrlfactura='<?= $idctrlfactura ;?>'
+                        >&nbsp;&nbsp;&nbsp;Ver Detalle </a>
                     </small>
                     -->
                   </td>

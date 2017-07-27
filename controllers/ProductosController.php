@@ -22,7 +22,9 @@ class ProductosController extends Controller
         $this->Paginador          = new Paginador();
     }
 
-    public function Index() {}
+    public function Index() {
+      $this->Redireccionar();
+    }
 
 
     public function Favoritos_Borrar_x_IdTercero_IdProducto(){
@@ -225,15 +227,16 @@ class ProductosController extends Controller
 
 
 
-    public function Novedades_Index() {
+    /*public function Novedades_Index() {
          $this->View->Productos_Novedades    = $this->Productos->Novedades_Ofertas();
          $this->View->Cantidad_Registros     = $this->Productos->Cantidad_Registros;
          Session::Set('Cantidad_Novedades' , $this->View->Cantidad_Registros );
     }
+    */
 
 
 
-    public function Novedades() {
+    /*public function Novedades() {
          $this->View->Productos_Novedades = $this->Productos->Novedades_Ofertas();
          $this->View->Cantidad_Registros     = $this->Productos->Cantidad_Registros;
          Session::Set('Cantidad_Novedades' , $this->View->Cantidad_Registros );
@@ -241,6 +244,7 @@ class ProductosController extends Controller
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('novedades');
     }
+    */
 
 
 

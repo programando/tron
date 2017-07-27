@@ -37,10 +37,6 @@ class Bootstrap
                 $Metodo = DEFAULT_CONTROLLER;
             }
 
-            /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
-               OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
-            */
-
 
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
