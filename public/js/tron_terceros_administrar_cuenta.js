@@ -236,8 +236,7 @@ $('#informes_comisiones').on('click',function(){
  $('#cabezera_favoritos').slideUp(400);
  $("#columna_izquierdad").hide(400);
  $("#menuAppr").show(400);
-
- Comisiones_Ganadas();
+  Comisiones_Ganadas();
 });
 
 

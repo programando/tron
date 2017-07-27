@@ -128,6 +128,7 @@
           public function Comisiones( ) {
               $meses = array("ENERO", "FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO",
                 "AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE");
+
               $idtercero =  Session::Get('idtercero');
               $mes       =  General_Functions::Validar_Entrada('idmes','NUM');
               $anio      =  General_Functions::Validar_Entrada('anio','NUM');
@@ -145,14 +146,16 @@
                 $this->View->Periodos =  $this->Informes->Periodos_Comisiones();
               }
               $this->View->nom_mes = 'COMISIONES  ' .  $nom_mes;
-              $this->View->SetJs(array('tron_informes'));
+              $this->View->SetJs(array('tron_informes','tron_terceros_administrar_cuenta'));
               $this->View->Mostrar_Vista_Parcial("comisiones");
           }
 
           public function Comisiones_x_Pedido( $numero_pedido = 0) {
               $idtercero =  Session::Get('idtercero');
-              $this->View->Comisiones    =  $this->Informes->Comisiones_Ganadas_x_Pedido( $idtercero,$numero_pedido) ;
-
+              $this->View->Comisiones    = $this->Informes->Comisiones_Ganadas_x_Pedido( $idtercero,$numero_pedido) ;
+              $this->View->Numero_Pedido = $numero_pedido;
+              $this->View->IdTercero     = $idtercero;
+              $this->View->SetJs(array('tron_informes','tron_terceros_administrar_cuenta'));
               $this->View->Mostrar_Vista_Parcial("comisiones_x_pedido");
 
           }
