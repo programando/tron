@@ -1,0 +1,20 @@
+<script>
+ $(document).ready(function() {
+
+      if (!!$('.ionIIid').offset()) { // make sure ".ionIIid" element exists
+         var ionIIidTop = $('.ionIIid').offset().top; // returns number
+         $(window).scroll(function(){ // scroll event
+          var windowTop = $(window).scrollTop(); // returns number
+
+      if (ionIIidTop < windowTop){
+         $('.ionIIid').css({ position: 'fixed', top: 0 });
+         $('.carrito-resumen-pedido').css({ position: 'fixed', top: 0 });
+          } else {
+             $('.ionIIid').css('position','static');
+             $('.carrito-resumen-pedido').css('position','static');
+          }
+       });
+      }
+ });
+
+</script>

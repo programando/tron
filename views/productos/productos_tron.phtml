@@ -1,14 +1,28 @@
-<script type="text/javascript" src="<?=  BASE_JS ; ?>theia-sticky-sidebar.js"></script>
+
+
 <script>
 	$(document).ready(function() {
 
-		var ionIIidH	= $(".ionIIid").height();
-		$('#resumen-pedido-tron').theiaStickySidebar({
-		  // Settings
-		  additionalMarginTop: 10 + ionIIidH + 20
-		});
+      if (!!$('.ionIIid').offset()) { // make sure ".ionIIid" element exists
+         var ionIIidTop = $('.ionIIid').offset().top; // returns number
+         $(window).scroll(function(){ // scroll event
+          var windowTop = $(window).scrollTop(); // returns number
+
+      if (ionIIidTop < windowTop){
+         $('.ionIIid').css({ position: 'fixed', top: 0 });
+         $('.carrito-resumen-pedido').css({ position: 'fixed', top: 0 });
+          } else {
+             $('.ionIIid').css('position','static');
+             $('.carrito-resumen-pedido').css('position','static');
+          }
+       });
+      }
 	});
+
 </script>
+
+
+
 
 
 <?php
@@ -22,7 +36,7 @@
         <div class="titleM1 colorBlue t24 mb30">PRODUCTOS TRON  |  <a href="#carrosmotos" class="colorBlue t12"> CARROS Y MOTOS</a></div>
 
 		<div class="reemplllazo"></div>
-        <div class="row mb20 beee ionIIid">
+        <div class="row mb20 beee ionIIid" style="z-index: 100;">
 
         	<div class="col-sm-3 col-xs-6">
             	<div id="bIONPrd1" class="tab h100 bS1 bIONPrd1">

@@ -9,10 +9,11 @@
       <div class="bloqIn"  >
          <h3 class="text-center">LIQUIDACIÓN COMISIONES PEDIDO NÚMERO : <?= $this->Numero_Pedido ;?></h3>
         <div class="p30 table-responsive">
-         
+
           <table class="table table-bordered table-hover  tabla_info_compras table-condensed">
             <thead><!-- cabezera -->
               <tr>
+              <th class="text-center">CÓD.USUARIO</th>
                 <th class="text-center">
                       <a class="Mytooltip text-left" href="#" >ORIGEN
                         <span> La procedencia de las comisiones que ganas.  </span>
@@ -72,6 +73,7 @@
                     $Total_Ganado         =  $Total_Ganado_Red + $Total_Ganado_Cli + $Total_Ganado_Otr;
                 ?>
                 <tr>
+                  <td><?= $Comision['codigousuario'] ;?></td>
                   <td><?= $Comision['gana_como'] ;?></td>
                   <td><?= $Comision['numero_pedido'] ;?></td>
                   <td><?= $Comision['numero_factura'] ;?></td>
@@ -90,15 +92,15 @@
               <?php endforeach ;?>
 
             </tbody>
- 
+
           </table>
 <table class="table tabla_info_compras table-condensed">
   <tbody>
     <tr>
-    
+
      <td colspan="11" width="89%" class="text-right"><strong>TOTAL COMISIONES DEL PEDIDO:</strong></td>
      <td> <strong>&nbsp;&nbsp;<?= number_format (  $Total_Ganado,0,',','.') ;?> </strong></td>
-     
+
     </tr>
   </tbody>
 </table>

@@ -93,7 +93,7 @@ function calcularAlturas(){
 
 	var mukSlide1	= $(".mukSlide1").height();
 	var lationT1	= $(".lationT1").height();
-	var carresped	= $(".carrito-resumen-pedido").height();
+	//var carresped	= $(".carrito-resumen-pedido").height();
 
 	if(ancho > 750){
 		$(".mukSlideIn").css('height', (mukSlide1/4-3));
@@ -107,10 +107,11 @@ function calcularAlturas(){
 		$(".ionWin").css('height', carresped+60);
 	}
 
-	$('*').on('click',function(){
+	/*$('*').on('click',function(){
 		var carresped	= $(".carrito-resumen-pedido").height();
 		$(".ionWin").css('height', carresped+60);
 	});
+	*/
 
 
 
@@ -155,7 +156,7 @@ function calcularAlturas(){
 
 
 
-	if(ancho > 750){
+	/*if(ancho > 750){
 
 		$(window).scroll( function () {
 			var scrollTop     = $(window).scrollTop(),
@@ -178,6 +179,7 @@ function calcularAlturas(){
 		});
 
 	}
+	*/
 
 
 

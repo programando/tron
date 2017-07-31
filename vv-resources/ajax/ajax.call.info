@@ -1,0 +1,27 @@
+  $.ajax({
+         dataType: 'json',
+         url:      '/Emails/Recomendar_Negocio_Amigo',
+         type:     'post',
+         data:     $Parametros,
+        success:  function (Server){
+           respuesta = Server.Respuesta;
+            $('#msj-error').html('');
+            if ( respuesta =='OK' || respuesta =='correo_OK'){
+                $('#msj-error').html('Tu invitación ha sido enviada con éxito.');
+              } else{
+               $('#msj-error').html(respuesta);
+              }
+          },
+          beforeSend: function(){
+              $img_cargando.css('display','block');
+           },
+           complete: function(){
+              $img_cargando.css('display','none');
+           },
+           error: function(xhr){
+                   $img_cargando.css('display','none');
+                  new Messi('Se ha presentado el siguiente error : <br>' + xhr.responseText,
+                         {title: 'Mensaje del Sistema',modal: true, titleClass: 'anim error', buttons: [{id: 0, label: 'Cerrar', val: 'X', class: 'btn-danger'}]});
+           }
+      });
+});
