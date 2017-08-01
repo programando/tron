@@ -46,7 +46,7 @@
       switch ($METODO_CEO) {
            case 'red_de_amigos_tron':
                 $Pagina_Metas_Keys        = "mlm, mln, mercado en red, tienda virtual, ventas online, trabajo desde casa, monte su propio negocio, vendedores, jefe de ventas, balquimia ventas online";
-                $Pagina_Metas_description = "Tron Tienda virtual, modelo de negocio entreamigosalcanzamos, resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
+                $Pagina_Metas_description = "Tron Tienda virtual, modelo de negocio balquimiaventasonline, resuelva cualquier inquietud sobre la tienda o el modelo de negocio en la zona Info, la encontrara al lado derecho en la parte superior de la Página, botón de color naranja";
                 $Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
                 $Pagina_Metas_title       = "Productos TRON - INFO";
                 $Pagina_Metas_Imagen      = DOMINIO ."public/images/tienda/redC.png";
