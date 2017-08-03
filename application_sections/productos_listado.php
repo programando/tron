@@ -111,25 +111,30 @@
     </div>
 	<!--IMG = Varias Referencias , Ofertas , Tecnoligias-->
 
-    <div class="taC mb10">
+    <div class="taC mb10 productos_listado"
+            idproducto    ='<?= $idproducto ;?>'
+            nom-producto  ='<?= $nom_producto ;?>'
+            area-consulta ='<?= $Id_Area_Consulta ;?>'
+    >
         <?php if ( isset($resultado_busqueda ) && ($resultado_busqueda == true ))  :;?>
-            <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> " target="_blank">
-                        <?php if ( !empty( $nombre_imagen )) :;?>
-              <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
-            <?php else :?>
-              <img src="<?=BASE_IMG_PRODUCTOS_472x472. 'sin-foto.jpg';?>" class="mb10" />
-            <?php endif ;?>
+            <a href= "<?=BASE_URL ;?>productos/Detalle_Producto/<?= $idproducto;?>/<?=$nom_producto;?> " target="_blank">
+                <?php if ( !empty( $nombre_imagen )) :;?>
+                        <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
+                    <?php else :?>
+                        <img src="<?=BASE_IMG_PRODUCTOS_472x472. 'sin-foto.jpg';?>" class="mb10" />
+                <?php endif ;?>
 
             <div class="nomproducto taC t14" id ="<?= $idnomproducto ;?>"><?=$nom_producto ;?></div>
             <div class="nompresentacion taC" id ="<?= $idnompresentacion ;?>"><small><?=$nompresentacion ;?></small></div>
             </a>
              <?php else :?>
-             <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> " >
-                         <?php if ( !empty( $nombre_imagen )) :;?>
-              <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
-            <?php else :?>
-              <img src="<?=BASE_IMG_PRODUCTOS_472x472. 'sin-foto.jpg';?>" class="mb10" />
-            <?php endif ;?>
+             <a href="<?=BASE_URL ;?>productos/Detalle_Producto/<?= $idproducto;?>/<?=$nom_producto;?> " >
+
+                  <?php if ( !empty( $nombre_imagen )) :;?>
+                    <img src="<?=BASE_IMG_PRODUCTOS_472x472. $nombre_imagen;?>" class="mb10" />
+                    <?php else :?>
+                        <img src="<?=BASE_IMG_PRODUCTOS_472x472. 'sin-foto.jpg';?>" class="mb10" />
+                <?php endif ;?>
 
             <div class="nomproducto taC t14" id ="<?= $idnomproducto ;?>"><?=$nom_producto ;?></div>
             <div class="nompresentacion taC" id ="<?= $idnompresentacion ;?>"><small><?=$nompresentacion ;?></small></div>

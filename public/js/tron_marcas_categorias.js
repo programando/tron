@@ -116,3 +116,5 @@ $("#contenido-productos").on('click','.pagina',function(){
    //alert( nombre_categoria );
 			Paginacion(numero_pagina, nombre_categoria);
 });
+
+

@@ -177,7 +177,7 @@
         }
 
 
-      public function Recomendar_Producto_a_Amigo( $Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo    ){
+      public function Recomendar_Producto_a_Amigo( $Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo, $Nom_Producto=''    ){
        /** ENERO 31 DE 2015
         **  PROCEDIMEINTO POR MEDIO DEL CUAL SE RECOMIENDA PRODUCTOS A AMIGOS
         */
@@ -189,7 +189,7 @@
             $codigousuario_presenta =  Session::Get('codigousuario') ;
             $Url_Imagen        = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/1/$idtercero_presenta/$codigousuario_presenta/";
           }else{
-            $Url_Imagen       = BASE_URL."productos/vista_ampliada/$IdProducto/$Id_Area_Consulta/";
+            $Url_Imagen       = BASE_URL."productos/Detalle_Producto/$IdProducto/$Nom_Producto/";
           }
 
 

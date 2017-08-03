@@ -68,6 +68,7 @@ abstract class Controller
     {
         if($ruta)
         {
+
             header('location:' . BASE_URL . $ruta);
             exit;
         }

@@ -54,7 +54,7 @@
 
        <td class="col-nombre-product" >
          <p class="info-tabla">
-          <a href="<?=BASE_URL ;?>productos/vista_ampliada/<?= $idproducto;?>/<?= $Id_Area_Consulta;?> "> <?= $nom_producto ;?> </a>
+          <a href="<?=BASE_URL ;?>productos/Detalle_Producto/<?= $idproducto;?>/<?= $nom_producto;?> "> <?= $nom_producto ;?> </a>
           </p>
        </td><!--Nombre del producto -->
 

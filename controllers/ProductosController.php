@@ -76,13 +76,15 @@ class ProductosController extends Controller
       $Nombre_Quien_Envia = General_Functions::Validar_Entrada('nombre_quien_envia','TEXT');
       $Mensaje_Enviado    = General_Functions::Validar_Entrada('mensaje_enviado','TEXT');
       $Nombre_Imagen      = General_Functions::Validar_Entrada('nombre_imagen','TEXT');
-      $Nombre_Imagen      = General_Functions::Validar_Entrada('nombre_imagen','TEXT');
       $Nombre_Amigo       = General_Functions::Validar_Entrada('nombre_amigo','TEXT');
+      $Productos          = $this->Productos->Buscar_por_IdProducto( $IdProducto );
+      $nom_producto       = $Productos[0]['nom_producto'];
       $Texto_Respuesta    = '';
+
       if ($Email_AmigoOk==false)      {
         $Texto_Respuesta  ='Email_Amigo_No_Ok';
       }else      {
-        $Texto_Respuesta = $this->Email->Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo   );
+        $Texto_Respuesta = $this->Email->Recomendar_Producto_a_Amigo($Email_Amigo,$Nombre_Quien_Envia,$Mensaje_Enviado,$Nombre_Imagen,$IdProducto,$Nombre_Amigo , $nom_producto  );
       }
       echo $Texto_Respuesta ;
     }
@@ -271,10 +273,9 @@ class ProductosController extends Controller
     }
 
 
-    public function Vista_Ampliada($Idproducto , $Id_Area_Consulta,$reasigna_valores = 0, $idterceropresenta=0, $codigousuario_presenta='') {
+    public function Vista_Ampliada($Idproducto , $Id_Area_Consulta,$reasigna_valores = 0, $idterceropresenta=0, $codigousuario_presenta='' ) {
      /** DIC 31 DE 2014
      *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
-     *  JUANBAUTISTA
      */
       if( $reasigna_valores == TRUE){
           if ( $idterceropresenta > 0){
@@ -311,13 +312,79 @@ class ProductosController extends Controller
     }else{
         $this->View->Producto_Encontrado = FALSE ;
     }
-          if ( $this->View->Producto_Encontrado == TRUE ) {
+
+    if ( $this->View->Producto_Encontrado == TRUE ) {
           $this->View->Mostrar_Vista('vista_ampliada');
         }else {
           $this->View->Mostrar_Vista('vista_ampliada_no_existe');
         }
 
     }
+
+
+
+
+    public function Detalle_Producto($Idproducto ,  $nombre_producto='') {
+     /** DIC 31 DE 2014
+     *  MUESTRA INFORMACIÓN AMPLIADA DEL PRODUCTOS. TAMBIÉN ES POSIBLE COMPRAR DESDE ESTE SITIO
+     */
+        Session::Set('IdProductoDetalle' , $Idproducto  );
+        $nombre_producto = General_Functions::urls_amigables( $nombre_producto );
+        $this->Redireccionar('productos/detalle/'.$nombre_producto);
+    }
+
+
+ public function detalle(){
+
+     $Id_Area_Consulta = Session::Get('Id_Area_Consulta') ;
+      $idproducto                          = Session::Get('IdProductoDetalle') ;
+
+      $this->View->Favorito = FALSE ;
+
+      if ( $_SESSION['logueado'] == TRUE ) {
+          $Producto_Favorito                   = $this->Productos->Favoritos_Consulta_x_IdTercero_IdProducto(Session::Get('idtercero'),  $idproducto);
+          if ( empty(  $Producto_Favorito   )){
+             $this->View->Favorito = FALSE ;
+          }else{
+            $this->View->Favorito = TRUE ;
+          }
+      }
+
+      $ProductoBuscado               = $this->Productos->Buscar_por_IdProducto($idproducto);
+
+          if ( $ProductoBuscado ){
+                $this->View->Producto  = $ProductoBuscado ;
+                $this->View->Producto_Imagenes       = $this->Productos->Imagenes_Consultar($idproducto);
+                $this->View->Cantidad_Registros      = $this->Productos->Cantidad_Registros;
+
+                $this->View->Productos_Tabs          = $this->Productos->Tabs_Consultar($idproducto);
+
+                $this->View->Cantidad_Tabs           = $this->Productos->Cantidad_Registros;
+                if ($Id_Area_Consulta ==2)   {// HOGAR
+                    $this->View->SetCss(array('tron_carrito','tron_productos_vista_ampliada','font_styles','tron_ventana_modal'));
+                } else {
+                  $this->View->SetCss(array('tron_carrito','tron-vista-industrial','tron_productos_vista_ampliada','tron_ventana_modal'));
+                }
+                $this->View->SetJs(array('jquery.elevatezoom','tron_carrito','tron_productos.jquery','tron_tooltips'));
+                $this->View->Producto_Encontrado = TRUE ;
+        }else{
+            $this->View->Producto_Encontrado = FALSE ;
+        }
+
+
+      if ( $this->View->Producto_Encontrado == TRUE ) {
+          $this->View->Mostrar_Vista('vista_ampliada');
+        }else {
+          $this->View->Mostrar_Vista('vista_ampliada_no_existe');
+      }
+
+ }
+
+
+
+
+
+
 
 
     public function Categorias_Marcas ( $pagina=false ){
