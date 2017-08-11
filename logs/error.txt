@@ -1,0 +1,14 @@
+[11-Aug-2017 09:26:30 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 09:27:56 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 09:29:12 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 09:30:19 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 09:39:28 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 09:40:00 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 09:54:50 America/Bogota] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\tron\application\Database.php on line 31
+[11-Aug-2017 09:54:51 America/Bogota] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\tron\application\Session.php on line 19
+[11-Aug-2017 10:23:20 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 10:24:56 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 10:29:52 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 10:40:25 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 10:40:52 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[11-Aug-2017 10:41:17 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32

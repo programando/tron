@@ -100,7 +100,7 @@ function calcularAlturas(){
 		$(".mukSlideIn img").css('max-height', (mukSlide1/4-3));
 		$(".lationT2").css('height', lationT1);
 
-		$(".ionWin").css('height', carresped+60);
+		//$(".ionWin").css('height', carresped+60);
 
 	}else{
 		$(".lationT2").css('height', 'auto');

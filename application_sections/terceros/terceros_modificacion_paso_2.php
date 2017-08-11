@@ -36,28 +36,15 @@
 
 
 
-
-
-				               <div>
-				               	   <div class="col-lg-12 col-md-12 col-sm-12">
-				                        <p class="subtitulos_form2"><strong>Forma de pagos de Comisiones </strong></p>
-				               	   </div>
-				               </div><br>
-
-
-
                  </form>
                </div>
 
               <!-- Certificacion que la cuenta me pertenece -->
               <div  id='datos_cuenta_bancaria' <?php if ( $this->pago_comisiones_transferencia == FALSE) : ?>   <?php endif ;?>>
-                 <div class="col-lg-12 col-md-12 col-sm-12">
-            	  	    <div>
-           	  	    	   <div class="text-center">
-           	  	    	   	    <strong> Cuenta para transferencias:</strong><br>
-           	  	    	   </div>
-           	  	    </div>
-                 </div><br><br><br>
+                 <div class="col-lg-12 col-md-12 col-sm-12 checkbox">
+                       <input type="checkbox" id="pago_comisiones_transferencia" value="">
+                         Quiero que mis comisiones sean trasladadas a la siguiente cuenta bancaria :
+                 </div><br>
 
                  <!-- Formulario -->
                  <div class="form_sobre_banco">

@@ -307,6 +307,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
     $Texto = 'OK';
 
 
+
     if ( $idtpidentificacion  != 31 && ( strlen( $pnombre) == 0 || strlen($papellido ) == 0 ) ){
       $Texto = $Texto . 'Debe registrar nombre y el apellido para identificar el registro. <br>';
     }
@@ -335,28 +336,31 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
      $Texto = $Texto . 'El correo electrónico no tiene un formato válido. <br>';
    }
 
+ 
    if ( $pago_comisiones_transferencia  == TRUE)  {
-    if ( $param_idbanco_transferencias  == 0 ){
-      $Texto = $Texto . 'Debe seleccionar el banco en donde recibirá el pago de comisiones. <br>';
+        if ( $param_idbanco_transferencias  == 0 ){
+          $Texto = $Texto . 'Debe seleccionar el banco en donde recibirá el pago de comisiones. <br>';
+        }
+        if ( strlen($param_nro_cuenta_transferencias) == 0){
+          $Texto = $Texto . 'Registre el número de cuenta. <br>';
+        }
+        if ( empty($param_tipo_cuenta_transferencias) ){
+          $Texto = $Texto . 'Seleccione el tipo de cuenta en donde se le harán transferencias. <br>';
+        }
+        if ( $param_idmcipio_transferencias  == 0 ){
+          $Texto = $Texto . 'Debe seleccionar el departamento y la ciudad en donde está radicada la cuenta para transferencias bancarias. <br>';
+        }
     }
-    if ( strlen($param_nro_cuenta_transferencias) == 0){
-      $Texto = $Texto . 'Registre el número de cuenta. <br>';
-    }
-    if ( empty($param_tipo_cuenta_transferencias) ){
-      $Texto = $Texto . 'Seleccione el tipo de cuenta en donde se le harán transferencias. <br>';
-    }
-    if ( $param_idmcipio_transferencias  == 0 ){
-      $Texto = $Texto . 'Debe seleccionar el departamento y la ciudad en donde está radicada la cuenta para transferencias bancarias. <br>';
-    }
-  }else
-  {
-    $param_idbanco_transferencias     = 0;
-    $param_nro_cuenta_transferencias  = '';
-    $param_tipo_cuenta_transferencias = '';
-    $param_idmcipio_transferencias    = 0;
-    $declaro_renta                    = 0;
-    $mis_datos_son_privados           = 0;
-  }
+      
+
+ if ( empty( $mis_datos_son_privados) )               $mis_datos_son_privados                 = 0;
+ if ( empty( $param_confirmar_nuevos_amigos_x_email)) $param_confirmar_nuevos_amigos_x_email  = 0 ;
+ if ( empty( $declaro_renta))                         $declaro_renta                          = 0 ;
+ if ( empty( $param_idmcipio_transferencias))         $param_idmcipio_transferencias          = 0 ;
+ if ( empty( $param_tipo_cuenta_transferencias))      $param_tipo_cuenta_transferencias       = '' ;
+ if ( empty( $param_nro_cuenta_transferencias))       $param_nro_cuenta_transferencias        = '' ;
+ if ( empty( $param_idbanco_transferencias))          $param_idbanco_transferencias           = 0 ;
+
 
   if ( $param_acepto_retencion_comis_para_pago_pedidos == TRUE){
     if ( $param_valor_comisiones_para_pago_pedidos <= 0 ) {
@@ -387,7 +391,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
       'param_idtpidentificacion_titular_cuenta');
 
      $this->Terceros->Actualizar_Datos_Usuario($parametros);
-
+ 
   }
 
   $Datos = compact('Texto');
