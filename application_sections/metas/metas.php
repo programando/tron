@@ -20,14 +20,18 @@
 
   <!-- JULIO 12 DE 2017
        VERIFICACIONES PARA POSICIONAMIENTO CEO  -->
-  <?php include (APPLICATION_SECTIONS . 'metas/verificaciones.php');?>
+  <?php //include (APPLICATION_SECTIONS . 'metas/verificaciones.php');?>
+  <?php include (APPLICATION_SECTIONS . 'metas/seo_controller.php');?>
   <!-- ////////////////////////////////////////////////////////////////      -->
 
    <meta name     ="description"            content="<?= $Pagina_Metas_description ;?>" />
-   <meta name     ="keywords"               content="<?=  $Pagina_Metas_GeneralKeys.$Pagina_Facebook_keywords ;?>" />
+   <meta name     ="keywords"               content="<?= $Pagina_Metas_GeneralKeys.$Pagina_Facebook_keywords ;?>" />
    <meta name     ="title"                  content="<?= $Pagina_Metas_title ;?>" />
    <meta property ="og:description"         content="<?= $Pagina_Metas_description;?>" />
    <meta property ="og:image"               content="<?= $Pagina_Metas_Imagen ;?>" />
    <meta property ="og:title"               content="<?= $Pagina_Metas_title ;?>" />
    <title><?= $Pagina_Metas_title  ;?></title>
+   
+   
+
 
