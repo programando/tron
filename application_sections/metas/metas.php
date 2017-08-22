@@ -18,9 +18,8 @@
   <meta property   ='og:site_name'            content='Balquimia ventas online'/>
 
 
-  <!-- JULIO 12 DE 2017
-       VERIFICACIONES PARA POSICIONAMIENTO CEO  -->
-  <?php //include (APPLICATION_SECTIONS . 'metas/verificaciones.php');?>
+  <!-- JULIO 12 DE 2017-->
+
   <?php include (APPLICATION_SECTIONS . 'metas/seo_controller.php');?>
   <!-- ////////////////////////////////////////////////////////////////      -->
 
@@ -31,7 +30,7 @@
    <meta property ="og:image"               content="<?= $Pagina_Metas_Imagen ;?>" />
    <meta property ="og:title"               content="<?= $Pagina_Metas_title ;?>" />
    <title><?= $Pagina_Metas_title  ;?></title>
-   
-   
+
+
 
 
