@@ -603,7 +603,7 @@ class ProductosController extends Controller
       $this->View->Productos_Pagina = $this->Paginador->Paginar($this->View->Productos_Pagina, $pagina);
       $this->View->Paginacion       = $this->Paginador->Mostrar_Paginacion('paginador_ajax');
        $this->View->nom_categoria    = strtoupper( $nom_marca );
-       Session::Set('nom_categoria', $nom_categoria);
+       Session::Set('nom_categoria', $nom_marca);
       $this->View->Mostrar_Vista_Parcial('marcas_y_categorias_categoria');
     } // Fin Productos_por_Marca
 
