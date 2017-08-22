@@ -10,6 +10,7 @@
 			$Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/cat1.png";
 		break;
 		
+		// Esta es la vista ampliada del producto
 		case 'detalle':
 			$Pagina_Facebook_keywords = trim( Session::Get('Pagina_Facebook_TITULO') );
 			$Pagina_Facebook_keywords = Session::Get('Pagina_Facebook_KEYS') . ',' . $Pagina_Facebook_keywords;
