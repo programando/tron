@@ -19,7 +19,48 @@
         		<!-- INICIA PRESENTACIÓN DE PRODUCTOS -->
 
                 <div id="contenido-productos" class="col-sm-9 col-xs-12 "   >
+                
+                	
+                    
                     <?php
+					
+					
+						if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 1) {
+							
+							echo '<img src="../../../../public/images/banners/1.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 2) {
+							
+							echo '<img src="../../../../public/images/banners/2.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 3) {
+							
+							echo '<img src="../../../../public/images/banners/3.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 4) {
+							
+							echo '<img src="../../../../public/images/banners/4.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 5) {
+							
+							echo '<img src="../../../../public/images/banners/5.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 6) {
+							
+							echo '<img src="../../../../public/images/banners/6.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 7) {
+							
+							echo '<img src="../../../../public/images/banners/7.png" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 8) {
+							
+							echo '<img src="../../../../public/images/banners/8.png" />';
+							
+						}
+					
+					
+					
                     	include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
 
                         foreach ($this->Productos_Pagina as $Productos){
