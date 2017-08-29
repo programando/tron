@@ -24,7 +24,7 @@
               <div class="col-md-12 text-justify">
                   <h5>
                   <ul>
-                    <li>Ganarás comisiones por las compras que realicen tus clientes y los empresarios de tu red ( hasta el 6 nivel )</li>
+                    <li>Ganarás comisiones por las compras que realicen tus clientes y los empresarios de tu red ( hasta el 4 nivel )</li>
                     <li>Te asignaremos un código de usuario con el cual podrás agregar amigos a tu red</li>
                     <li>Tendrás acceso a las promociones y ofertas de nuestro sitio</li>
                     <li>Podrás hacer compras con precios especiales en todos los productos de nuestra tienda ( precios en color rojo) </li>
