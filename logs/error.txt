@@ -12,3 +12,13 @@
 [11-Aug-2017 10:40:25 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [11-Aug-2017 10:40:52 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [11-Aug-2017 10:41:17 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[29-Aug-2017 17:28:49 Europe/Berlin] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 5
+[29-Aug-2017 17:28:56 Europe/Berlin] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 5
+[29-Aug-2017 17:34:23 Europe/Berlin] PHP Notice:  Undefined variable: seo_metodo in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 5
+[29-Aug-2017 17:34:23 Europe/Berlin] PHP Notice:  Undefined variable: r in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 8
+[29-Aug-2017 17:34:30 Europe/Berlin] PHP Notice:  Undefined variable: seo_metodo in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 5
+[29-Aug-2017 17:34:30 Europe/Berlin] PHP Notice:  Undefined variable: r in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 8
+[29-Aug-2017 17:34:49 Europe/Berlin] PHP Notice:  Undefined variable: seo_metodo in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 5
+[29-Aug-2017 17:34:49 Europe/Berlin] PHP Notice:  Undefined variable: seo_metodo in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 8
+[29-Aug-2017 17:34:53 Europe/Berlin] PHP Notice:  Undefined variable: seo_metodo in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 5
+[29-Aug-2017 17:34:53 Europe/Berlin] PHP Notice:  Undefined variable: seo_metodo in C:\xampp\htdocs\tron\application_sections\paginador_prod_x_pagina.php on line 8
