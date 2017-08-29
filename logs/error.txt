@@ -12,3 +12,6 @@
 [11-Aug-2017 10:40:25 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [11-Aug-2017 10:40:52 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
 [11-Aug-2017 10:41:17 America/Bogota] PHP Fatal error:  Call to a member function fetchall() on boolean in C:\xampp\htdocs\tron\application\Database.php on line 32
+[22-Aug-2017 11:20:19 America/Bogota] PHP Notice:  Undefined variable: nom_categoria in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 606
+[22-Aug-2017 11:20:21 America/Bogota] PHP Notice:  Undefined variable: nom_categoria in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 606
+[22-Aug-2017 11:20:24 America/Bogota] PHP Notice:  Undefined variable: nom_categoria in C:\xampp\htdocs\tron\controllers\ProductosController.php on line 606
