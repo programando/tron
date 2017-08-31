@@ -19,8 +19,50 @@
         		<!-- INICIA PRESENTACIÓN DE PRODUCTOS -->
 
                 <div id="contenido-productos" class="col-sm-9 col-xs-12 "   >
+                
+                	
+                    
                     <?php
+					
+					
+						if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 1) {
+							
+							echo '<img src="'.BASE_IMG.'banners/1.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 2) {
+							
+							echo '<img src="'.BASE_IMG.'banners/2.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 3) {
+							
+							echo '<img src="'.BASE_IMG.'banners/3.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 4) {
+							
+							echo '<img src="'.BASE_IMG.'banners/4.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 5) {
+							
+							echo '<img src="'.BASE_IMG.'banners/5.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 6) {
+							
+							echo '<img src="'.BASE_IMG.'banners/6.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 7) {
+							
+							echo '<img src="'.BASE_IMG.'banners/7.png" class="mb30" />';
+							
+						} else if( Session::Get('CEO_CATEGORIA_INDUSTRIAL' ) == 8) {
+							
+							echo '<img src="'.BASE_IMG.'banners/8.png" class="mb30" />';
+							
+						} else{
+					
+					
+					
                     	include (APPLICATION_SECTIONS .'paginador_prod_x_pagina.php');
+						}
 
                         foreach ($this->Productos_Pagina as $Productos){
                             $mostrar_imagen_varias_referencias=true;
