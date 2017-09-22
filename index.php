@@ -2,23 +2,23 @@
 <?php
 
 
-					define('DS', DIRECTORY_SEPARATOR);
-					define('ROOT', realpath(dirname( __FILE__ ))                 . DS );
-					define('LIBS',                 ROOT . 'libs'                 . DS );
-					define('APP_PATH',             ROOT . 'application'          . DS );
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', realpath(dirname( __FILE__ ))                 . DS );
+define('LIBS',                 ROOT . 'libs'                 . DS );
+define('APP_PATH',             ROOT . 'application'          . DS );
 
-					define('APPLICATION_SECTIONS', 							ROOT . 'application_sections'          . DS );
-				 define('APPLICATION_CODS',     							ROOT . 'application_cods'          . DS );
-					define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'modales' . DS );
+define('APPLICATION_SECTIONS', 							ROOT . 'application_sections'          . DS );
+define('APPLICATION_CODS',     							ROOT . 'application_cods'          . DS );
+define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'modales' . DS );
 
 								// Archivo de configuración, variables generales
 							 //------------------------------------------------
-						  require_once APP_PATH . 'Config.php';
+require_once APP_PATH . 'Config.php';
 
 
 						  // Archivo de configuración de la base de datos. coloco un comentario p
 						  //------------------------------------------------
-						  require_once APP_PATH . 'Database_config.php';
+require_once APP_PATH . 'Database_config.php';
 
  						  /** OCTUBRE 11 DE 2015
  						  * 	 Archivo que se encarga de realizar la auto carga de las clases que tengo definicas
@@ -35,19 +35,19 @@
 
  						 $Session_Security = new Session_Security();
  						 $Session_Nombre 				 = $Session_Security->Validate_Session();
- 			    Session::Init( $Session_Nombre   );
+ 						 Session::Init( $Session_Nombre   );
 
- 		try
- 		  {
- 		  			$Url_Solicitada = new Request();
-							 Bootstrap::Run( $Url_Solicitada );
+ 						 try
+ 						 {
+ 						 	$Url_Solicitada = new Request();
+ 						 	Bootstrap::Run( $Url_Solicitada );
 
 
 
-					}
-					catch(Exception $e){
-					    echo $e->getMessage();
-					}
+ 						 }
+ 						 catch(Exception $e){
+ 						 	echo $e->getMessage();
+ 						 }
 
 /* AGOSTO 01
 					Inhabilité Autoload
@@ -57,4 +57,4 @@
 
 */
 
-?>
+					?>
