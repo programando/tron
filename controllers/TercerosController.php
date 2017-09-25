@@ -82,7 +82,11 @@ class TercerosController extends Controller {
   }
 
   public function Cambio_Status(){
+    $idtercero = Session::Get('idtercero');
     Session::Set('ofertas_x_cambio_status_empresario', TRUE) ;
+    // esta variable controla mensaje para usuarios que deciden cambiar de plan.
+    Session::Set('solicita_cambio_plan', TRUE) ;
+    $this->Terceros->Solicitud_Cambio_Plan( $idtercero );
     echo "ok";
   }
 

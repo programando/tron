@@ -169,6 +169,8 @@ public function Parametros_Iniciales(){
                 Session::Iniciar_Variable('cumple_condicion_cpras_tron_industial'   , FALSE ) ; // Cumple condiciones para precio especial
                 Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
                 Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
+                // Para los que cambian de clientes a empresarios, se muestra  modal si no han cumplido con la compra mínima de productos tron
+                Session::Iniciar_Variable('solicita_cambio_plan'           , FALSE ) ; 
                 Session::Iniciar_Variable('mostrar_modal_vacaciones'                , TRUE) ;
                 Session::Set('Consultar_Parametros_Iniciales', FALSE ) ;
             }

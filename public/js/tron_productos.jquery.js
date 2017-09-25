@@ -598,12 +598,13 @@ $('#btn-agregar-kit-ocasional').on('click',function(){
      window.location.href = "/carrito/mostrar_Carrito/1";
 });
 
+
 $('#btn-agregar-kit-empresario').on('click',function(){
 
     /* $Parametros  = {"IdProducto" :17038, "CantidadComprada": 1, "es_tron": true , "es_tron_acc": false };
      Agregar_Producto_a_Carrito('Kit de Inicio',$Parametros);
      Mostrar_Mensaje_Producto_Agregado('Kit de Inicio clientes');
-    
+   **/
      $.ajax({
            data:  '',
            dataType: 'text',
@@ -614,8 +615,6 @@ $('#btn-agregar-kit-empresario').on('click',function(){
            		window.location.href = "/index";
            }
         });
-        */
-
 });
 
 

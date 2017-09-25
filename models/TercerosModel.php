@@ -48,6 +48,10 @@
 
 				}
 
+			public function Solicitud_Cambio_Plan ($idtercero){
+						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_solicitud_cambio_plan ( $idtercero )");
+							return $Registro;
+				}
 
 				public function Consulta_Datos_x_Idtercero ($idtercero){
 						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_idtercero($idtercero)");

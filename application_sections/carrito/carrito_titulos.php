@@ -6,17 +6,28 @@
     $idtipo_plan_compras                   =  $_SESSION['idtipo_plan_compras'];
     $nombre_usuario                        =  strtoupper(trim(Session::Get('nombre_usuario')));
     $codigousuario                         =  Session::Get('codigousuario');
+    $solicita_cambio_plan                  = Session::Get('solicita_cambio_plan');
 
 ?>
 
 <?php if ( $logueado == TRUE && $idtipo_plan_compras == 3 ) :?>
-	<div class="taR mb20">
+	<div class=" taR mb20">
 		<small>Pedido a nombre del Usuario : <strong> <?= strtoupper( $codigousuario) ;?></strong></small>
 	</div>
     <?php else :?>
+
         <?php if ( strlen($nombre_usuario) > 0 ) :?>
 	       <small>Pedido a nombre de : <strong> <?=  $nombre_usuario  ;?></strong></small>
         <?php endif ;?>
+
+         <?php if ( $solicita_cambio_plan == TRUE  ) :?>
+               <br>     
+               <!--          <small>  Solicitaste un cambio de plan y hasta ahora has agregado $40.000 en productos 
+                    TRON... te faltan $80.000 para que el cambio sea efectivo.
+          </small>  -->
+        <?php endif ;?>
+
+
 <?php endif ;?>
 
 <thead class="cabezera-tabla"><!--Cabezera de la tabla -->

@@ -80,8 +80,8 @@ class SessionesController extends Controller
         Session::Set('vr_payu_latam'            , 0 );
 
         Session::Destroy('ofertas_x_cambio_status_empresario');
-
-
+        Session::Destroy('solicita_cambio_plan');
+        
     }
 
  }
