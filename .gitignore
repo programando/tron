@@ -16,3 +16,5 @@ resources
 .idea
 logs/error.txt
 *.txt
+.well-known
+logs/error.txt
