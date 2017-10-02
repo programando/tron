@@ -20,6 +20,7 @@ $('#digitoverificacion').hide();
 
 
 
+
 var Mostrar_Mensajes = function( $Titulo, $Contenido ){
 	$('.modal-header #contenido').html($Titulo);
 	$('.modal-body #contenido').html($Contenido);

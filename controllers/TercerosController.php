@@ -633,12 +633,12 @@ public function activar_cuenta_usuario_finalizar_registro(){
         $nadie_presenta = 0;
       }
 
-        // SI NADIE PRESENTE Y EL DEL PLAN 2, ASIGNO CODIGO AUTOMATICO
+        // SI NADIE PRESENTA  ASIGNO CODIGO AUTOMATICO
       if ( ($idtipo_plan_compras == 2 && $nadie_presenta == 1) || ($idtipo_plan_compras == 3 && $nadie_presenta == 1) ){
-        $Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
-        $idterceropresenta             = $Datos_Codigo[0]['idtercero'];
-        $codigoterceropresenta         = $Datos_Codigo[0]['codigousuario'];
-        $codigoterceropresenta_inicial = $codigoterceropresenta ;
+        //$Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
+        $idterceropresenta             = 81442 ;        // Termporalmente se asigna a balquimia... $Datos_Codigo[0]['idtercero'];
+        $codigoterceropresenta         = 'BALQUIMIA' ;  // Termporalmente se asigna a balquimia... $Datos_Codigo[0]['codigousuario'];
+        $codigoterceropresenta_inicial = 'BALQUIMIA' ;  // Termporalmente se asigna a balquimia... $codigoterceropresenta ;
         Session::Set('codigousuario_presenta',$codigoterceropresenta);
         Session::Set('idtercero_presenta', $idterceropresenta);
       }
