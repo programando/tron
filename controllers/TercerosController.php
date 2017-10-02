@@ -340,7 +340,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
      $Texto = $Texto . 'El correo electrónico no tiene un formato válido. <br>';
    }
 
- 
+
    if ( $pago_comisiones_transferencia  == TRUE)  {
         if ( $param_idbanco_transferencias  == 0 ){
           $Texto = $Texto . 'Debe seleccionar el banco en donde recibirá el pago de comisiones. <br>';
@@ -355,7 +355,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
           $Texto = $Texto . 'Debe seleccionar el departamento y la ciudad en donde está radicada la cuenta para transferencias bancarias. <br>';
         }
     }
-      
+
 
  if ( empty( $mis_datos_son_privados) )               $mis_datos_son_privados                 = 0;
  if ( empty( $param_confirmar_nuevos_amigos_x_email)) $param_confirmar_nuevos_amigos_x_email  = 0 ;
@@ -395,7 +395,7 @@ public function referidos( $idterero = 0, $codigousuario = '' ){
       'param_idtpidentificacion_titular_cuenta');
 
      $this->Terceros->Actualizar_Datos_Usuario($parametros);
- 
+
   }
 
   $Datos = compact('Texto');
@@ -883,8 +883,21 @@ public function Registro_Nuevo_Usuario() {
       $es_cliente                    = General_Functions::Validar_Entrada('es_cliente','BOL');
       $es_empresario                 = General_Functions::Validar_Entrada('es_empresario','BOL');
 
+      $idtppersona_nat               = General_Functions::Validar_Entrada('idtppersona_nat','BOL');
+      $idtppersona_jur               = General_Functions::Validar_Entrada('idtppersona_jur','BOL');
+      $idtregimen_comun              = General_Functions::Validar_Entrada('idtregimen_comun','BOL');
+      $idtregimen_simplif            = General_Functions::Validar_Entrada('idtregimen_simplif','BOL');
+
+
       if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
       if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
+
+      if ( $idtppersona_nat     == TRUE ){  $idtppersona = 1 ;} // Natural
+      if ( $idtppersona_jur     == TRUE ){  $idtppersona = 2 ;} // Juridica
+
+      if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun 
+      if ( $idtregimen_simplif   == TRUE ){  $regimen = 2 ;}    // Simplificado
+       
 
       // VERIFICA SI ALGUIEN PRESENTA AL NUEVO USUARIO EN LA RED
        if ( strlen( $codigoterceropresenta ) > 0 ){
@@ -904,10 +917,10 @@ public function Registro_Nuevo_Usuario() {
 
         // SI NADIE PRESENTE Y EL DEL PLAN 2, ASIGNO CODIGO AUTOMATICO
       if ( $nadie_presenta == 1  ){
-        $Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
-        $idterceropresenta             = $Datos_Codigo[0]['idtercero'];
-        $codigoterceropresenta         = $Datos_Codigo[0]['codigousuario'];
-        $codigoterceropresenta_inicial = $codigoterceropresenta ;
+        //$Datos_Codigo                  = $this->Terceros->Generar_Codigo_Registro_Nadie_Presenta();
+        $idterceropresenta             = 81442 ;        // Termporalmente se asigna a balquimia... $Datos_Codigo[0]['idtercero'];
+        $codigoterceropresenta         = 'BALQUIMIA' ;  // Termporalmente se asigna a balquimia... $Datos_Codigo[0]['codigousuario'];
+        $codigoterceropresenta_inicial = 'BALQUIMIA' ;  // Termporalmente se asigna a balquimia... $codigoterceropresenta ;
         Session::Set('codigousuario_presenta',$codigoterceropresenta);
         Session::Set('idtercero_presenta', $idterceropresenta);
       }
@@ -973,8 +986,8 @@ public function Registro_Nuevo_Usuario() {
         $param_idmcipio_transferencias                  = 0;
         $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
         $param_valor_comisiones_para_pago_pedidos       = 0 ;
-        $idtppersona                                    = 2;
-        if ($idtpidentificacion != '31'){ $idtppersona    = '1';}
+        
+        
         if ($idtpidentificacion == '31'){ $genero         = '0';}
 
         $pnombre     = strtoupper(trim( $pnombre     ));
@@ -992,7 +1005,7 @@ public function Registro_Nuevo_Usuario() {
           'param_identificacion_titular_cuenta' ,'param_nombre_titular_cuenta' ,'param_idbanco_transferencias' ,
           'param_nro_cuenta_transferencias' ,'param_tipo_cuenta_transferencias' ,'param_idmcipio_transferencias' ,
           'param_acepto_retencion_comis_para_pago_pedidos' , 'param_valor_comisiones_para_pago_pedidos' ,
-          'idtppersona','nadie_presenta', 'idtipo_plan_compras');
+          'idtppersona','nadie_presenta', 'idtipo_plan_compras','regimen');
 
 
 
@@ -1387,13 +1400,16 @@ public function Actualizar_Password()
       Session::Set('nommcipio_despacho',              $Registro[0]["nommcipio_despacho"]);
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
+      Session::Set('idtppersona'       ,              $Registro[0]["idtppersona"]);
+      Session::Set('regimen'       ,                  $Registro[0]["regimen"]);
 
       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
 
-      // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O PINDUSTRIALES
+      // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O INDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
       $this->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
+
 
       // DETERMINAR SI ESTE ES SU DÍA DE CUMPLEAÑOS
       $FechaNace = trim($Registro[0]["dianacimiento"]) . trim($Registro[0]["mesnacimiento"]);

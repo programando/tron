@@ -90,6 +90,24 @@ var Validaciones_Eleccion_Plan_Registro = function(){
 	if ( $es_empresario   == true )   {	idtipo_plan_compras = 3 ; }
 }
 
+var Validaciones_Datos_Tributarios = function(){
+	 $Seguir                  = 'SI';
+
+		var $idtppersona_nat       =  $("#form-registro input[name=idtppersona-nat]:radio").is(':checked');
+		var $idtppersona_jur       =  $("#form-registro input[name=idtppersona-jur]:radio").is(':checked');
+		var $idtregimen_comun      =  $("#form-registro input[name=regimen-comun]:radio").is(':checked');
+	 var $idtregimen_simplif    =  $("#form-registro input[name=regimen-simplif]:radio").is(':checked');
+
+			if ( ( $idtppersona_nat == false) && ( $idtppersona_jur  == false) ) {
+						$Seguir                  = 'NO';
+			}
+
+			if ( ( $idtregimen_comun == false) && ( $idtregimen_simplif == false) ) {
+						$Seguir                  = 'NO';
+			}
+}
+
+
 
 var Validaciones_Tipo_Documento_Numero = function(){
 	$idtpidentificacion  = $("#idtpidentificacion").val();
@@ -252,19 +270,24 @@ $('#btn-grabar-datos').on('click',function(){
 	var	$email                 =  $("#email").val();
 	var $passwordusuario       =  $("#passwordusuario").val();
 
+	var $idtppersona_nat       =  $("#form-registro input[name=idtppersona-nat]:radio").is(':checked');
+	var $idtppersona_jur       =  $("#form-registro input[name=idtppersona-jur]:radio").is(':checked');
+	var $idtregimen_comun      =  $("#form-registro input[name=regimen-comun]:radio").is(':checked');
+ var $idtregimen_simplif    =  $("#form-registro input[name=regimen-simplif]:radio").is(':checked');
+
+
 	$Parametros = {'codigoterceropresenta':$codigoterceropresenta, 'es_cliente':$es_cliente,'es_empresario':$es_empresario,
 								 'idtpidentificacion':$idtpidentificacion,'identificacion':$identificacion,'pnombre':$pnombre,
 								 'papellido':$papellido, 'genero':$genero,'dianacimiento':$dianacimiento,'mesnacimiento':$mesnacimiento,
-								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta    };
-
-
+								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta ,
+								 'idtppersona_nat':$idtppersona_nat,'idtppersona_jur':$idtppersona_jur, 'idtregimen_comun':$idtregimen_comun,
+								 'idtregimen_simplif':$idtregimen_simplif    };
 
     Validaciones_Eleccion_Plan_Registro();
     	if ( $Seguir == 'NO'){
 					Mostrar_Mensajes ('Error en el Registro','Debe indicar el tipo de registro que desea crear: Cliente o Empresario TRON.');
 					return ;
 				}
-
 
 				Validaciones_Tipo_Documento_Numero() ;
 				if ( $Seguir == 'NO'){
@@ -282,6 +305,14 @@ $('#btn-grabar-datos').on('click',function(){
 	 			Validaciones_Registro_Tipo_Empresario ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ) ;
 	 			if ( $Seguir =='NO') { return ; }
 	 		}
+
+   Validaciones_Datos_Tributarios( );
+    	if ( $Seguir == 'NO'){
+							Mostrar_Mensajes ('Error en el Registro','Es necesario que especifique: <br><br>  1) Tipo de persona : Natural o Jurídica   <br>2) Régimen tributario: Común o simplificado');
+					return ;
+				}
+
+
 
 				Validaciones_Email_Password() ;
 				if ( $Seguir == 'NO'){
