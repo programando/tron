@@ -55,12 +55,12 @@ class TercerosController extends Controller {
           $this->View->pnombre               = $Tercero[0]['pnombre'];
           $this->View->papellido             = $Tercero[0]['papellido'];
           $this->View->genero                = $Tercero[0]['genero'];
-          if ( $this->View->genero == 0 ) {
-            $this->View->nom_genero = 'Femenino';
-          }
-          if ( $this->View->genero == 1 ) {
-            $this->View->nom_genero = 'Masculino';
-          }
+          $this->View->regimen               = $Tercero[0]['regimen'];
+          $this->View->idtppersona           = $Tercero[0]['idtppersona'];
+
+          if ( $this->View->genero == 0 ) { $this->View->nom_genero = 'Femenino' ; }
+          if ( $this->View->genero == 1 ) { $this->View->nom_genero = 'Masculino'; }
+
             $this->View->dianacimiento         = $Tercero[0]['dianacimiento'];
             $this->View->mesnacimiento         = $Tercero[0]['mesnacimiento'];
             $this->View->nom_mes               = $Tercero[0]['nom_mes'];
@@ -825,7 +825,7 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
 
     if ($idtpidentificacion != '31'){
        if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
-        $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
+        $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';http://tron.dev/index/Cerrar_Sesion
       }
     }else{
       if ( strlen( $razonsocial )== 0){
@@ -843,7 +843,7 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
 
                // PLAN 3 , PERSONAS NATURALES.
 
-    if ( $idtipo_plan_compras == 3 && ( $idtpidentificacion != '31'  ) ){
+    if ( isset( $idtipo_plan_compras) && $idtipo_plan_compras == 3 && ( $idtpidentificacion != '31'  ) ){
       if ( $mesnacimiento == 0 || $dianacimiento == 0 ){
        $Texto_Respuesta ='<strong>Es necesario que registre el día y mes de nacimiento ya que estos datos se utilizan para generar su código de usuario.<br><br>';
      }
@@ -889,15 +889,16 @@ public function Registro_Nuevo_Usuario() {
       $idtregimen_simplif            = General_Functions::Validar_Entrada('idtregimen_simplif','BOL');
 
 
-      if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
-      if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
+
 
       if ( $idtppersona_nat     == TRUE ){  $idtppersona = 1 ;} // Natural
       if ( $idtppersona_jur     == TRUE ){  $idtppersona = 2 ;} // Juridica
 
       if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun 
       if ( $idtregimen_simplif   == TRUE ){  $regimen = 2 ;}    // Simplificado
-       
+
+       if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
+      if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}      
 
       // VERIFICA SI ALGUIEN PRESENTA AL NUEVO USUARIO EN LA RED
        if ( strlen( $codigoterceropresenta ) > 0 ){
@@ -1055,6 +1056,18 @@ public function Registro_Actualizar_Datos_Basicos() {
       $es_empresario                 = General_Functions::Validar_Entrada('es_empresario','BOL');
       $idtercero                     = General_Functions::Validar_Entrada('idtercero','NUM');
 
+      $idtppersona_nat               = General_Functions::Validar_Entrada('idtppersona_nat','BOL');
+      $idtppersona_jur               = General_Functions::Validar_Entrada('idtppersona_jur','BOL');
+      $idtregimen_comun              = General_Functions::Validar_Entrada('idtregimen_comun','BOL');
+      $idtregimen_simplif            = General_Functions::Validar_Entrada('idtregimen_simplif','BOL');
+
+
+      if ( $idtppersona_nat     == TRUE ){  $idtppersona = 1 ;} // Natural
+      if ( $idtppersona_jur     == TRUE ){  $idtppersona = 2 ;} // Juridica
+
+      if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun 
+      if ( $idtregimen_simplif   == TRUE ){  $regimen = 2 ;}    // Simplificado
+
       if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
       if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
 
@@ -1097,8 +1110,7 @@ public function Registro_Actualizar_Datos_Basicos() {
         $dianacimiento                                  = intval($dianacimiento);
         $mesnacimiento                                  = intval($mesnacimiento);
         $email                                          = strtolower($email);
-        $idtppersona                                    = 2;
-        if ($idtpidentificacion != '31'){ $idtppersona    = '1';}
+
         if ($idtpidentificacion == '31'){ $genero         = '0';}
 
         $pnombre     = strtoupper(trim( $pnombre     ));
@@ -1106,7 +1118,7 @@ public function Registro_Actualizar_Datos_Basicos() {
         $razonsocial = strtoupper(trim( $razonsocial ));
 
 
-        $Datos_Terceros = compact('idtercero','idtipo_plan_compras','idtpidentificacion','identificacion','pnombre','papellido','razonsocial','genero','mesnacimiento','dianacimiento','email','passwordusuario');
+        $Datos_Terceros = compact('idtercero','idtipo_plan_compras','idtpidentificacion','identificacion','pnombre','papellido','razonsocial','genero','mesnacimiento','dianacimiento','email','passwordusuario', 'idtppersona','regimen');
 
       // GRABAR DATOS DEL TERCERO
         $Texto_Respuesta = '';

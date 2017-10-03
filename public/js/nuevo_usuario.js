@@ -352,13 +352,17 @@ $('#btn-actualiza-datos').on('click',function(){
 	var	$email                 =  $("#email-edit").val();
 	var $passwordusuario       =  $("#passwordusuario").val();
 	var $idtercero 												=  $("#idtercero").val();
-
+	var $idtppersona_nat       =  $("#form-registro input[name=idtppersona-nat]:radio").is(':checked');
+	var $idtppersona_jur       =  $("#form-registro input[name=idtppersona-jur]:radio").is(':checked');
+	var $idtregimen_comun      =  $("#form-registro input[name=regimen-comun]:radio").is(':checked');
+ var $idtregimen_simplif    =  $("#form-registro input[name=regimen-simplif]:radio").is(':checked');
 
 	$Parametros = {'codigoterceropresenta':$codigoterceropresenta, 'es_cliente':$es_cliente,'es_empresario':$es_empresario,
 								 'idtpidentificacion':$idtpidentificacion,'identificacion':$identificacion,'pnombre':$pnombre,
 								 'papellido':$papellido, 'genero':$genero,'dianacimiento':$dianacimiento,'mesnacimiento':$mesnacimiento,
-								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta,'idtercero':$idtercero    };
-
+								 'razonsocial':$razonsocial, 'email':$email, 'passwordusuario':$passwordusuario,'idtercero_presenta':$idtercero_presenta,'idtercero':$idtercero,
+								 'idtppersona_nat':$idtppersona_nat,'idtppersona_jur':$idtppersona_jur, 'idtregimen_comun':$idtregimen_comun,
+								 'idtregimen_simplif':$idtregimen_simplif    };
 
     Validaciones_Eleccion_Plan_Registro();
     	if ( $Seguir == 'NO'){
@@ -382,6 +386,13 @@ $('#btn-actualiza-datos').on('click',function(){
 	 			Validaciones_Registro_Tipo_Empresario ($idtpidentificacion, $pnombre, $papellido, $genero, $razonsocial,$dianacimiento, $mesnacimiento  ) ;
 	 			if ( $Seguir =='NO') { return ; }
 	 		}
+
+   Validaciones_Datos_Tributarios( );
+    	if ( $Seguir == 'NO'){
+							Mostrar_Mensajes ('Error en el Registro','Es necesario que especifique: <br><br>  1) Tipo de persona : Natural o Jurídica   <br>2) Régimen tributario: Común o simplificado');
+					return ;
+				}
+
 
 				Validaciones_Email_Password_Edicion() ;
 				if ( $Seguir == 'NO'){

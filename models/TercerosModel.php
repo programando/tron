@@ -13,7 +13,7 @@
 						extract($params);
 
 						$SQL = "$idtercero,$idtipo_plan_compras,$idtpidentificacion,'$identificacion','$pnombre','$papellido','$razonsocial'," ;
-						$SQL = $SQL."'$genero', '$mesnacimiento','$dianacimiento','$email','$passwordusuario'";
+						$SQL = $SQL."'$genero', '$mesnacimiento','$dianacimiento','$email','$passwordusuario',$idtppersona,$regimen";
 						$Registro    =  $this->Db->Ejecutar_Sp("terceros_actualizar_datos_basicos(".$SQL.")");
 					 return 	$Registro;
 				}
@@ -54,7 +54,7 @@
 				}
 
 				public function Consulta_Datos_x_Idtercero ($idtercero){
-						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_idtercero($idtercero)");
+						 $Registro   =  $this->Db->Ejecutar_Sp("terceros_consulta_datos_x_idtercero( $idtercero )");
 							return $Registro;
 				}
 
