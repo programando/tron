@@ -172,6 +172,13 @@ public function Parametros_Iniciales(){
                 // Para los que cambian de clientes a empresarios, se muestra  modal si no han cumplido con la compra mínima de productos tron
                 Session::Iniciar_Variable('solicita_cambio_plan'           , FALSE ) ; 
                 Session::Iniciar_Variable('mostrar_modal_vacaciones'                , TRUE) ;
+                Session::Set('idtppersona'       ,           0);
+                Session::Set('regimen'       ,               0);
+                Session::Set('baserteftecpras'     ,         0);
+                Session::Set('porcrteftecpras'     ,         0);
+                Session::Set('basereteica'     ,             0);
+                Session::Set('porcentajeica'       ,         0);
+
                 Session::Set('Consultar_Parametros_Iniciales', FALSE ) ;
             }
 

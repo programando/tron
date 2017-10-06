@@ -104,6 +104,10 @@ class PedidosController extends Controller
 					$vr_inscripcion_red          = Session::Get('vr_inscripcion_red') ;
 
           $valor_declarado_pedido      = Session::Get('Valor_Declarado_Total') ;
+          
+          $vr_rte_ica   = Session::Get('vr_rte_ica') ;
+          $vr_rte_fte   = Session::Get('vr_rte_fte') ;
+          $Vr_Base_Iva  = Session::Get('Vr_Base_Iva');
 
 
           if ( !isset($vr_inscripcion_red))     { $vr_inscripcion_red    = 0 ;     }
@@ -153,7 +157,7 @@ class PedidosController extends Controller
           'vr_puntos_redimidos','vr_inscripcion_red','vr_fletes_tron','vr_fletes_tron_otros','vr_flete_seguro','vr_flete_tron_otros_seguro','vr_fletes_reserva','vr_diferencia_recaudo',
           'vr_fletes_totales','vr_total_pedido','puntos_redimidos','tipo_despacho','id_transportadora','solo_pago_inscripcion_red','id_pase_cortesia','idtercero_envia_pase',	'pase_es_premium',
         'idtercero_recibe_comisiones','peso_gramos_pedido',	'email_confirma_factura','pagado_online','pago_recibido','valor_declarado',
-        'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga','vr_payu_latam');
+        'vr_flete','tipo_despacho_carga','peso_gramos_pedido_carga','id_transportadora_carga','vr_flete_transportadora_carga','vr_declarado_carga','vr_payu_latam','vr_rte_ica','vr_rte_fte','Vr_Base_Iva');
 
 
 

@@ -825,7 +825,7 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
 
     if ($idtpidentificacion != '31'){
        if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
-        $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';http://tron.dev/index/Cerrar_Sesion
+        $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>'; 
       }
     }else{
       if ( strlen( $razonsocial )== 0){
@@ -1412,8 +1412,14 @@ public function Actualizar_Password()
       Session::Set('nommcipio_despacho',              $Registro[0]["nommcipio_despacho"]);
       Session::Set('nomdpto_despacho'  ,              $Registro[0]["nomdpto_despacho"]);
       Session::Set('iddpto'            ,              $Registro[0]["iddpto"]);
+
       Session::Set('idtppersona'       ,              $Registro[0]["idtppersona"]);
       Session::Set('regimen'       ,                  $Registro[0]["regimen"]);
+      Session::Set('baserteftecpras'     ,          $Registro[0]["baserteftecpras"]);
+      Session::Set('porcrteftecpras'     ,          $Registro[0]["porcrteftecpras"]);
+      Session::Set('basereteica'     ,             $Registro[0]["basereteica"]);
+      Session::Set('porcentajeica'       ,          $Registro[0]["porcentajeica"]);
+
 
       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
       Session::Set('codigos_usuario',                 $Usuarios);
@@ -1440,8 +1446,6 @@ public function Actualizar_Password()
      $Password             = General_Functions::Validar_Entrada('Password','TEXT');
      $Password             = md5($Password );
      $Registro             = $this->Terceros->Consulta_Datos_Por_Password_Email($Email ,$Password);
-
-
 
      if (!$Registro ) {
        $Resultado_Logueo = "NO-Logueo_OK";
