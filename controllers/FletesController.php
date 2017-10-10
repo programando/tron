@@ -346,6 +346,7 @@
 						$this->Cant_Unidades_Despacho = $Numero_Unidades;
 
 						$redetrans_tipo_despacho      =  Session::Get('redetrans_tipo_despacho');
+ 
 
       if (  empty( $redetrans_tipo_despacho ) ){
       	$this->Adicionar_Cobro_Flete_Transportadora(1,'0','REDETRANS - CARGA -> NO APLICA');
@@ -473,7 +474,7 @@
 								$this->tipo_tarifa     = 'REDETRANS - CARGA';
 		    		$this->Adicionar_Cobro_Flete_Transportadora(1,'1572','REDETRANS');
 
-
+ 
 
       }
 
