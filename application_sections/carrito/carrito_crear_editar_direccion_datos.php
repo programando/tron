@@ -24,6 +24,8 @@
                 <strong><?= $Destino  ;?></strong>
 				<div><?= $Barrio  . " / " . $NomMcipio  . " / " . $NomDpto ;?></div>
     		</div>
+            <div class="tabIn">&nbsp;&nbsp;</div>
+            <div class="tabIn">&nbsp;&nbsp;</div>
             <div class="tabIn" style="width:50px">
                 <a href="#venta_editar"
                 class="btn-editar-direccion"
