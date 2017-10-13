@@ -655,30 +655,34 @@ class CarritoController extends Controller{
  }
 
 public  function Verificar_Aplicacion_Impuestos(){
-  
+
   Session::Set('vr_rte_ica', 0) ;
   Session::Set('vr_rte_fte', 0) ;
-  $idmcipio     = Session::Get('iddireccion_despacho');
+  $iddireccion_despacho     = Session::Get('iddireccion_despacho');
+  $idmcipio     = Session::Get('idmcipio');
 
   if ( Session::Get('logueado') == FALSE)    { return ; }
-  if ( !isset($idmcipio) || $idmcipio == 0 ) { return ; }    
+  if ( !isset( $iddireccion_despacho  ) || $iddireccion_despacho  == 0 ) { return ; }
 
-  // CALCULO DEL RETE-ICA. DEBE SER CALI Y CUMPLIR CON LA BASE
+
   $basereteica  = Session::Get('basereteica');
   $vr_rte_ica   = 0 ;
   $vr_rte_fte   = 0 ;
+  $vr_base      = $this->Vr_Base_Iva - $this->Vr_Transporte_Real ;
 
   // SI ES CALI Y APLICA BASE, CALCULO RETE-ICA
-  if ( $this->Vr_Base_Iva >= $basereteica && $idmcipio  = 153){
-      $vr_rte_ica = $this->Vr_Base_Iva * Session::Get('porcentajeica')/1000;
+  if ( $vr_base >= $basereteica && $idmcipio  = 153){
+      $vr_rte_ica = $vr_base * Session::Get('porcentajeica')/1000;
   }
   //SI REGIMEN COMNUN O SIMPLIFICADO Y APLICA BASE, CALCULO RETEFUENTE
-  if ( ( Session::Get('regimen') == 1 || Session::Get('regimen') == 2 ) && $this->Vr_Base_Iva >= Session::Get('baserteftecpras') ){
-    $vr_rte_fte = $this->Vr_Base_Iva * Session::Get('porcrteftecpras')/100 ;
+  if ( ( Session::Get('regimen') == 1 || Session::Get('regimen') == 2 ) && $vr_base >= Session::Get('baserteftecpras') ){
+    $vr_rte_fte = $vr_base* Session::Get('porcrteftecpras')/100 ;
   }
 
   Session::Set('vr_rte_ica', $vr_rte_ica ) ;
   Session::Set('vr_rte_fte', $vr_rte_fte ) ;
+
+  //Debug::Mostrar( Session::Get('porcentajeica')/1000 );
 
 }
 
@@ -741,14 +745,13 @@ public  function Verificar_Aplicacion_Impuestos(){
         $Productos['precio_venta_antes_iva_ocasional'] = $pv_ocasional             / $porciento_iva ;
 
         $this->Vr_Base_Iva                    = $this->Vr_Base_Iva                    + ( $Productos['precio_total_produc_pedido'] / $porciento_iva );
+
         $this->SubTotal_Pedido_Ocasional      = $this->SubTotal_Pedido_Ocasional      + $Productos['sub_total_pv_ocasional'] ;
         $this->SubTotal_Pedido_Amigos         = $this->SubTotal_Pedido_Amigos         + $Productos['sub_total_pv_tron'] ;
         $this->SubTotal_Pedido_Real           = $this->SubTotal_Pedido_Real           + ( $precio_unitario_producto * $cantidad );
           //***
-        $this->Vr_Base_Iva                    =   $this->Vr_Base_Iva                ;
-        $this->SubTotal_Pedido_Ocasional      =   $this->SubTotal_Pedido_Ocasional  ;
-        $this->SubTotal_Pedido_Amigos         =   $this->SubTotal_Pedido_Amigos     ;
-        $this->SubTotal_Pedido_Real           =  $this->SubTotal_Pedido_Real       ;
+
+
 
 
           // TOTALIZAR PRODUCTOS TRON POR CATEGORIAS
@@ -778,12 +781,12 @@ public  function Verificar_Aplicacion_Impuestos(){
       $this->Fletes_Carga_Fija();
       $this->Fletes_Courrier_Carga_Variable();
       $this->Totalizar_Carrito_Conformar_Resumen_Carrito_Tron();
- 
+
        //***
       $this->Vr_Transporte_Real      =   $this->Vr_Transporte_Real        ;
       $this->Vr_Transporte_Ocasional =   $this->Vr_Transporte_Ocasional   ;
       $this->Vr_Transporte_Tron      =   $this->Vr_Transporte_Tron        ;
- 
+
 
       $this->Vr_Base_Iva               =  $this->Vr_Base_Iva               + $this->Vr_Transporte_Real;
       $this->Vr_Total_Pedido_Ocasional =  $this->SubTotal_Pedido_Ocasional + $this->Vr_Transporte_Ocasional;
@@ -794,7 +797,7 @@ public  function Verificar_Aplicacion_Impuestos(){
       $this->Asignar_Transportadora_a_Productos();
       $this->Verificar_Aplicacion_Impuestos() ;
 
- 
+
     /*
           $vr_rte_ica = Session::Get('vr_rte_ica') ;
           $vr_rte_fte = Session::Get('vr_rte_fte') ;
@@ -804,7 +807,7 @@ public  function Verificar_Aplicacion_Impuestos(){
               $this->Vr_Total_Pedido_Ocasional =  $this->Vr_Total_Pedido_Ocasional - ( $vr_rte_ica + $vr_rte_fte ) ;
           }
     */
-       
+
 
       Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
       Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
@@ -879,7 +882,7 @@ private function Asignar_Transportadora_a_Productos(){
       $Valor_Flete_Ocasional         = Session::Get('flete_real_calculado');
       $this->Id_Transportador_Carga  = Session::Get('id_transportadora');
 
-       
+
 
       $Valor_Flete_Ocasional  =  $Valor_Flete_Ocasional    ;
       if (  Session::Get('cumple_compras_tron') ==  FALSE ) {
@@ -1031,7 +1034,7 @@ private function Asignar_Transportadora_a_Productos(){
         $this->Vr_Transporte_Tron      = 0;
       }
 
- 
+
       if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE  ){
        $this->Vr_Transporte_Real      = $this->Vr_Transporte_Tron ;
      }else{

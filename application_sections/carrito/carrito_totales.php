@@ -1,34 +1,39 @@
-<?php 
+<?php
   $nommcipio_despacho   = trim( Session::Get('nommcipio_despacho'));
   $iddireccion_despacho = Session::Get('iddireccion_despacho');
   if ( !isset($iddireccion_despacho )){
       $iddireccion_despacho = 0;
   }
   $Vr_Transporte = Session::Get('Vr_Transporte');
-  $vr_rte_ica    = Session::Get('vr_rte_ica') ; 
-  $vr_rte_fte    = Session::Get('vr_rte_fte') ;  ?>
+  $vr_rte_ica    = Session::Get('vr_rte_ica') ;
+  $vr_rte_fte    = Session::Get('vr_rte_fte') ;
+
+  //echo Session::Get('Vr_Total_Pedido_Real');
+  ?>
 
 <tr>
   <td colspan="6" class="text-right">
 
         <div class="col-resumen-pedido"><strong>Subtotal:</strong></div>
-        
-        <?php if ( $vr_rte_ica > 0 ) :?>
-          <div class="col-resumen-pedido"><strong>(-) Rete-Ica:</strong></div>
-         <?php endif ;?>
-        
-        <?php if ( $vr_rte_fte > 0 ) :?>
-          <div class="col-resumen-pedido"><strong>(-) Rete-Fuente:</strong></div>
-        <?php endif ;?>
 
-         <?php if ( $vr_rte_fte > 0 || $vr_rte_ica > 0) :?>
-          <div class="col-resumen-pedido"><strong>Valor Base :</strong></div>
-        <?php endif ;?>
+        <?php if ( $iddireccion_despacho > 0) :;?>
+          <?php if ( $vr_rte_ica > 0 ) :?>
+            <div class="col-resumen-pedido"><strong>(-) Rete-Ica:</strong></div>
+           <?php endif ;?>
 
-      
+          <?php if ( $vr_rte_fte > 0 ) :?>
+            <div class="col-resumen-pedido"><strong>(-) Rete-Fuente:</strong></div>
+          <?php endif ;?>
+
+           <?php if ( $vr_rte_fte > 0 || $vr_rte_ica > 0) :?>
+            <div class="col-resumen-pedido"><strong>Valor Base :</strong></div>
+          <?php endif ;?>
+      <?php endif ;?>
+
+
         <?php if ( $Vr_Transporte > 0 ) :?>
                <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
-                  <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo... <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div> 
+                  <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo... <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
                <?php endif ;?>
           <?php endif ;?>
 

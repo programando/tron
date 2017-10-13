@@ -104,15 +104,17 @@ class PedidosController extends Controller
 					$vr_inscripcion_red          = Session::Get('vr_inscripcion_red') ;
 
           $valor_declarado_pedido      = Session::Get('Valor_Declarado_Total') ;
-          
+
           $vr_rte_ica   = Session::Get('vr_rte_ica') ;
           $vr_rte_fte   = Session::Get('vr_rte_fte') ;
-          $Vr_Base_Iva  = Session::Get('Vr_Base_Iva');
+          $Vr_Base_Iva  = Session::Get('Vr_Base_Iva') - Session::Get('Vr_Transporte');
 
 
           if ( !isset($vr_inscripcion_red))     { $vr_inscripcion_red    = 0 ;     }
           if ( !isset($vr_comis_pago_pedidos))  { $vr_comis_pago_pedidos = 0 ;     }
           if ( !isset($vr_puntos_redimidos))    { $vr_puntos_redimidos   = 0 ;     }
+          if ( !isset($vr_rte_ica))             { $vr_rte_ica            = 0 ;     }
+          if ( !isset($vr_rte_fte))             { $vr_rte_fte            = 0 ;     }
 
 					$vr_fletes_tron              = 0 ;
 					$vr_fletes_tron_otros        = 0 ;
@@ -122,6 +124,7 @@ class PedidosController extends Controller
 					$vr_diferencia_recaudo       = 0 ;
 					$vr_fletes_totales           = Session::Get('Vr_Transporte');
 					$vr_total_pedido             = Session::Get('Vr_Total_Pedido_Real');
+          $vr_total_pedido             = $vr_total_pedido  - ( $vr_rte_ica + $vr_rte_fte );
 
           Session::Set('Valor_Final_Pedido_Real',$vr_total_pedido );
 
