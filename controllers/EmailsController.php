@@ -340,13 +340,16 @@
 
     public function Enviar_Correo(){
         if ( $this->Email->Send()){
+            $this->Email->ClearBCCs();
             $this->Email->clearAddresses();
             return "correo_OK";
         }else {
+          $this->Email->ClearBCCs();
           $this->Email->clearAddresses();
           echo "Error: " . $this->Email->ErrorInfo;
          return "correo_No_OK";
         }
+
      }
 
    private function Unir_Partes_Correo (   $Body ){
