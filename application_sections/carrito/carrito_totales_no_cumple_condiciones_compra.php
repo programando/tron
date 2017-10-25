@@ -12,7 +12,7 @@
 ?>
 
 
-<td coslpan="3" class="well text-right">
+<td coslpan="3" class="text-right">
    <!-- SUBTOTAL -->
        <div><strong><?=  Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Amigos ) ; ?> </strong></div>
 
@@ -44,7 +44,7 @@
 
 <td></td>
 
-    <td coslpan="3" class=" well text-right">
+    <td coslpan="3" class="text-right">
             <div><strong><?= Numeric_Functions::Formato_Numero( $this->SubTotal_Pedido_Ocasional)  ; ?></strong></div>
 
             <?php if ( $iddireccion_despacho > 0 ) : ;?>
