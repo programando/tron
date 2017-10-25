@@ -15,6 +15,7 @@ $("#alert-datos-grabados").hide();
 //$("#registro-cliente").prop("checked", true);
 $("#img_cargando").hide();
 $('#digitoverificacion').hide();
+$('#datos-impuestos').hide();
 
 
 
@@ -203,6 +204,23 @@ $("#identificacion").on('change',function(){
 		$("#alert-datos-grabados").hide();
 })
 
+$("#idtppersona-nat").on('change', function(){
+		$("#idtppersona-jur").prop("checked", false);
+});
+
+$("#idtppersona-jur").on('change', function(){
+		$("#idtppersona-nat").prop("checked", false);
+});
+
+$("#regimen-comun").on('change', function(){
+		$("#regimen-simplif").prop("checked", false);
+});
+
+$("#regimen-simplif").on('change', function(){
+		$("#regimen-comun").prop("checked", false);
+});
+
+
 
 // CAMBIO DEL TIPO DE DOCUMENTO
 $('#idtpidentificacion').on('change',function(){
@@ -212,18 +230,27 @@ $('#idtpidentificacion').on('change',function(){
 
 			 // 31 Tipo de Identificacion NIT
 			 if ( $idtpidentificacion == '31' ){
-			 	$("#persona-juridica").show();
 			 	$("#persona-natural").hide();
 			 	$("#lblgenero").hide();
 			 	$("#mes-anio").hide();
+			 	$("#persona-juridica").show();
+			 	$("#datos-impuestos").show();
+			 	$("#idtppersona-nat").prop("checked", false);
+				 $("#idtppersona-jur").prop("checked", false);
+				 $("#regimen-comun").prop("checked", false);
+     $("#regimen-simplif").prop("checked", false);
 			 	$("#alert-datos-grabados").show();
+
 			 }
 
 			 if ( $idtpidentificacion != '31' ){
 			 	$("#persona-juridica").hide();
 			 	$("#persona-natural").show();
 			 	$("#lblgenero").show();
+			 	$("#datos-impuestos").hide();
 			 	$("#alert-datos-grabados").hide();
+			 	$("#idtppersona-nat").prop("checked", true);
+			 		$("#regimen-simplif").prop("checked", true);
 			 	if ( $es_empresario == true ){
 			 		$("#mes-anio").show();
 			 	}
