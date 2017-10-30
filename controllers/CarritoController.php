@@ -384,7 +384,7 @@ class CarritoController extends Controller{
         //Session::Get('minimo_compras_productos_tron')
      Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
      if ( $this->Tengo_Productos_Tron == TRUE ){
-      if ( $this->compras_tron <  Session::Get('minimo_compras_productos_tron')  ){
+      if ( ( $this->compras_tron + $this->compras_industrial ) <  Session::Get('minimo_compras_productos_tron')  ){
         Session::Set('Cumple_Minimo_Compras_Productos_Tron', FALSE);
       }else{
         Session::Set('Cumple_Minimo_Compras_Productos_Tron', TRUE);
