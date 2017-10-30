@@ -401,10 +401,6 @@ class CarritoController extends Controller{
       */
       //VERIFICA SI DENTRO E CARRO EXITEN COMBOS O KIT DE INICIO LOS CUALES NO PUEDES SER COMPRADOS POR EMPRESARIOS O CLIENTES TRON
 
-
-
-      //$this->Borrar_Productos_Carro_Plan_2_3();
-
       //----------------------------------------------------------------------------------------------------------------------------
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
 
@@ -1411,9 +1407,6 @@ return $Cumple_Condic_Cpras_Tron_Industial;
       Session::Set('compra_otros_productos',0);
       Session::Set('compra_accesorios',0);
 
-
-
-
       $this->Depurar_Carrito();
       $this->Iniciar_Procesos_Carro();
       for ($i=0; $i < $this->Cantidad_Filas_Carrito; $i++)  {
@@ -1443,9 +1436,10 @@ return $Cumple_Condic_Cpras_Tron_Industial;
                $this->Tengo_Productos_Tron         = TRUE;
 
              }
-
+            // Productos industriales
              if ($id_categoria_producto == 6) {
               $this->compras_industrial   = $this->compras_industrial  + $total_item  ;
+
             }
             if ($id_categoria_producto == 7) {
              $this->compras_otros_productos = $this->compras_otros_productos  +  $total_item  ;
@@ -1455,6 +1449,14 @@ return $Cumple_Condic_Cpras_Tron_Industial;
              $this->compras_accesorios = $this->compras_accesorios  +  $total_item ;
            }
          }
+
+         $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
+         if ( ( $this->compras_tron + $this->compras_industrial ) >= $compra_minima_productos_tron ){
+             Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
+         }else {
+             Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
+         }
+
 
          Session::Set('compra_productos_tron'            , $this->compras_tron);
          Session::Set('compra_productos_industriales'    , $this->compras_industrial );

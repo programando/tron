@@ -3,7 +3,11 @@
 <?php
 	$cumple_condicion_cpras_tron_industial =  Session::Get('cumple_condicion_cpras_tron_industial');
 	$logueado                              =  $_SESSION['logueado'];
-    $idtipo_plan_compras                   =  $_SESSION['idtipo_plan_compras'];
+    if ( isset($_SESSION['idtipo_plan_compras']) ){
+        $idtipo_plan_compras                   =  $_SESSION['idtipo_plan_compras'];
+    }else{
+        $idtipo_plan_compras = 2;
+    }
     $nombre_usuario                        =  strtoupper(trim(Session::Get('nombre_usuario')));
     $codigousuario                         =  Session::Get('codigousuario');
     $solicita_cambio_plan                  = Session::Get('solicita_cambio_plan');
@@ -21,8 +25,8 @@
         <?php endif ;?>
 
          <?php if ( $solicita_cambio_plan == TRUE  ) :?>
-               <br>     
-               <!--          <small>  Solicitaste un cambio de plan y hasta ahora has agregado $40.000 en productos 
+               <br>
+               <!--          <small>  Solicitaste un cambio de plan y hasta ahora has agregado $40.000 en productos
                     TRON... te faltan $80.000 para que el cambio sea efectivo.
           </small>  -->
         <?php endif ;?>
