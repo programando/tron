@@ -1380,7 +1380,7 @@ Session::Set('cumple_condicion_cpras_tron_industial'   , $Cumple_Condic_Cpras_Tr
 Session::Set('aplica_pago_adicional_payu_latam'        , $aplica_pago_adicional_payu_latam );
 Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
 
-
+Debug::Mostrar( $Cumple_Condic_Cpras_Tron_Industial );
       //
 return $Cumple_Condic_Cpras_Tron_Industial;
 
@@ -1401,7 +1401,7 @@ return $Cumple_Condic_Cpras_Tron_Industial;
       $this->compras_tron                   = 0;
       $this->compras_tron_sin_iva           = 0;
       $this->Tengo_Productos_Tron           = FALSE;
- Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
+
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0 );
       Session::Set('compra_otros_productos',0);
@@ -1453,12 +1453,11 @@ return $Cumple_Condic_Cpras_Tron_Industial;
          $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
 
 
-         /////////////if ( ( $this->compras_tron + $this->compras_industrial ) >= $compra_minima_productos_tron ){
+         if ( ( $this->compras_tron + $this->compras_industrial ) >= $compra_minima_productos_tron ){
              Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
-         //}else {
-             //Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
-         //}
-
+         }else {
+            Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
+         }
 
          Session::Set('compra_productos_tron'            , $this->compras_tron);
          Session::Set('compra_productos_industriales'    , $this->compras_industrial );
