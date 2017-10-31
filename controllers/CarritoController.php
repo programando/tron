@@ -1401,7 +1401,7 @@ return $Cumple_Condic_Cpras_Tron_Industial;
       $this->compras_tron                   = 0;
       $this->compras_tron_sin_iva           = 0;
       $this->Tengo_Productos_Tron           = FALSE;
-
+ Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
       Session::Set('compra_productos_tron',0);
       Session::Set('compra_productos_industriales',0 );
       Session::Set('compra_otros_productos',0);
