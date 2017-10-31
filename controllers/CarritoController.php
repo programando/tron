@@ -1420,7 +1420,7 @@ return $Cumple_Condic_Cpras_Tron_Industial;
         else {
           $precio_unitario       = $this->Datos_Carro[$i]['pv_ocasional'] ;
         }
-Debug::Mostrar(  $precio_unitario );
+
 
         $cantidad              = $this->Datos_Carro[$i]['cantidad'] ;
         $total_item            = $precio_unitario *  $cantidad ;
@@ -1453,11 +1453,11 @@ Debug::Mostrar(  $precio_unitario );
          $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
 
 
-         if ( ( $this->compras_tron + $this->compras_industrial ) >= $compra_minima_productos_tron ){
+         /////////////if ( ( $this->compras_tron + $this->compras_industrial ) >= $compra_minima_productos_tron ){
              Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
-         }else {
-             Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
-         }
+         //}else {
+             //Session::Set('cumple_condicion_cpras_tron_industial', FALSE);
+         //}
 
 
          Session::Set('compra_productos_tron'            , $this->compras_tron);
