@@ -1345,12 +1345,14 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
 
   $compras_este_mes_tron                = $Registro[0]['compras_productos_tron'];
   $compras_este_mes_industiales         = $Registro[0]['compras_productos_fabricados_ta'];
-
+   $compras_totales_tron                = 0;
 
   $compras_totales_tron                 = $this->compras_tron + $compras_este_mes_tron ;
   $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
+   $compras_totales_tron               =  $compras_totales_tron + $compras_totales_industrial;
   $aplica_pago_adicional_payu_latam     = FALSE;
   $cumple_compras_tron                  = FALSE;
+
 
 
   if ( $_SESSION['logueado'] == TRUE ) {
