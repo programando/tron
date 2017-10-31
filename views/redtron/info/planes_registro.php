@@ -9,7 +9,7 @@
         <div class="col-sm-8 col-xs-12 vcenter">
 En el plan Empresario se deben registrar todos los vendedores que deseen comercializar, entre sus amigos, los productos de nuestra tienda virtual, los inscritos en este plan podrán inscribir otros vendedores para formar su grupo de ventas. <br><br>
 
-Los vendedores inscritos en el Plan Empresario TRON recibirán un código que les permitirá inscribir amigos y podrán hacer una red de consumidores para ganar comisiones por las compras que  realicen sus amigos y los amigos de sus vendedores, recibirá comisiones hasta el cuarto (4to) nivel en profundidad, 
+Los vendedores inscritos en el Plan Empresario TRON recibirán un código que les permitirá inscribir amigos y podrán hacer una red de consumidores para ganar comisiones por las compras que  realicen sus amigos y los amigos de sus vendedores, recibirá comisiones hasta el cuarto (4to) nivel en profundidad,
 
             <a id="soy" href="<?= BASE_URL ;?>redtron/red_de_amigos_tron#estructura">ver estructura de la red.</a>
 
@@ -18,7 +18,7 @@ Los vendedores inscritos en el Plan Empresario TRON recibirán un código que le
             <img src="<?= BASE_IMG_EMPRESA ;?>empresarioI.png" />
         </div>
         <br>
-Cada uno de los Empresarios TRON tendrá cuantos vendedores desee en el primer nivel. También podrá inscribir amigos que no deseen vender, en el Plan Cliente, formar un grupo con ellos aparte de la red y ganar comisión por las compras que ellos realicen. 
+Cada uno de los Empresarios TRON tendrá cuantos vendedores desee. También podrá inscribir amigos que no deseen vender, en el Plan Cliente, formar un grupo con ellos aparte de la red y ganar comisión por las compras que ellos realicen.
 		<br><br>
 
 
@@ -55,9 +55,9 @@ Cada uno de los Empresarios TRON tendrá cuantos vendedores desee en el primer n
         </div><!--
         --><div class="col-sm-8 col-xs-12 vcenter">
             Como su nombre lo indica este es el Plan para consumidores habituales de los productos TRON. <br><br>
-            Las personas que desean aprovechar todos los beneficios que ofrecen los productos TRON, podrán hacerlo realizando compras desde 
+            Las personas que desean aprovechar todos los beneficios que ofrecen los productos TRON, podrán hacerlo realizando compras desde
             <?= $Pedido_Minimo_Tron ;?>
-            Esto  les da derecho a acceder a precios preferenciales no sólo en los productos TRON sino también en toda la tienda virtual. Cómo también a las ofertas. <br><br> Para registrarse en este Plan se debe adquirir productos TRON para el hogar ó comprar <?= $Pedido_Minimo_Tron ;?> en productos Industriales. 
+            Esto  les da derecho a acceder a precios preferenciales no sólo en los productos TRON sino también en toda la tienda virtual. Cómo también a las ofertas. <br><br> Para registrarse en este Plan se debe adquirir productos TRON para el hogar ó comprar <?= $Pedido_Minimo_Tron ;?> en productos Industriales.
 
 
 

@@ -333,7 +333,7 @@
          <ul class="list-unstyled submenu"><!--Contenido -->
                <li>Tus responsabilidades son dos: <br><br>
                    <ul>
-                      <li>Consumir los productos para el aseo y la desinfección de tu hogar de la marca TRON ó productos de la sección INDUSTRIAL en cuantías mensuales de mínimo <?=$Pedido_Minimo_Tron ;?> . Al hacerlo, conservas tu status de Activo y el beneficio de ganar las comisiones sobre las compras de tus amigos y los amigos de tus amigos.</li> <br><br>
+                      <li>Consumir los productos para el aseo y la desinfección de tu hogar de la marca TRON, Carros y Motos ó productos de la sección INDUSTRIAL en cuantías mensuales de mínimo <?=$Pedido_Minimo_Tron ;?> . Al hacerlo, conservas tu status de Activo y el beneficio de ganar las comisiones sobre las compras de tus amigos y los amigos de tus amigos.</li> <br><br>
 
                       <li>Integrar por lo menos a cuatro (4) amigos en tu red. Si no haces esto, no puedes esperar que tu red crezca y se generen ingresos residuales a tu favor en el futuro. Hacerlo y acompañar a tus amigos para que igualmente lo hagan, es asegurar que la red no se detenga y puedas ver crecer tu negocio como integrante de esta.</li>
                    </ul>

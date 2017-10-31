@@ -31,10 +31,10 @@
                   </ul>
                   </h5>
                   <br>
-                 <h5 class="text-justify"><strong>Nota:</strong><br>Para hacer efectivo el cambio de status debes realizar la compra del
-                 <strong><br>KIT INICIO PARA EMPRESARIOS</strong>,
-                 el cual tiene un costo de
-                 <?= Numeric_Functions::Formato_Numero(Session::Get('valor_kit_inicio_empresario')) ;?> + transporte .</h5>
+                 <h5 class="text-justify"><strong>Nota:</strong><br>Para hacer efectivo el cambio de status debes realizar la compra de
+                 <strong>
+                 <?= Numeric_Functions::Formato_Numero(120000) ;?></strong> en productos TRON o productos industriales ( antes de transporte ) .</h5>
+
               </div>
             </div>
           </div>

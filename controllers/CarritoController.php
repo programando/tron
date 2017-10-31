@@ -1451,6 +1451,9 @@ return $Cumple_Condic_Cpras_Tron_Industial;
          }
 
          $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
+         Debug::Mostrar( $this->compras_tron +  $this->compras_industrial );
+
+
          if ( ( $this->compras_tron + $this->compras_industrial ) >= $compra_minima_productos_tron ){
              Session::Set('cumple_condicion_cpras_tron_industial', TRUE);
          }else {
