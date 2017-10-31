@@ -1453,8 +1453,6 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
 
          $compra_minima_productos_tron         = Session::Get('minimo_compras_productos_tron');
 
-
-
          Session::Set('compra_productos_tron'            , $this->compras_tron);
          Session::Set('compra_productos_industriales'    , $this->compras_industrial );
          Session::Set('compra_otros_productos'           , $this->compras_otros_productos);
