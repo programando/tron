@@ -62,7 +62,7 @@
 
         Ahora también podrás realizar pedido por tus amigos, pudiendo incluso pagarlos.
         <br><br>
-		Ingresando en la opción Pedido a Amigo, luego suministrando su número de cédula o NIT, podrás realizar este proceso.
+		Se llega a esta opción a través del carrito de compras, sin estar logueado, al hacer el pedido ir al carrito de compras y hacer click en pagar, lo llevará a una pantalla en donde encontrará esta opción.
         <br><br>
 		En ningún momento por este método se tiene acceso a la información personal, solo puedes hacer el pedido y pagarlo si así se desea.
 

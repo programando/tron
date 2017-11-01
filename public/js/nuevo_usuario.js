@@ -275,6 +275,8 @@ $("#registro-cliente").on('click', function(){
 $("#registro-empresario").on('click', function(){
 	var $idtpidentificacion = $("#idtpidentificacion").val();
 	$('input:radio[name=registro-cliente]').attr('checked',false);
+//	$("#modal_empresario_explicacion").modal('show');
+
 	if ( $idtpidentificacion != '31'){
 		$("#mes-anio").show();
 		$("#lblgenero").show();
