@@ -21,9 +21,9 @@
             <div class="row">
 
 
-              <div class="col-md-12 text-center">
+              <div class="col-md-12 text-justify">
      <div>
-          El plan <strong> Empresario TRON </strong> es para las personas que deseen comercializar, entre sus amigos, productos de nuestra página. Este plan le permite formar 3 grupos de ventas con empresarios que se registren bajo su código y ganar comisiones por las ventas que ellos hagan.
+          El plan <strong> Empresario TRON </strong> es para las personas que deseen comercializar, entre sus amigos, productos de nuestra página. <br>Este plan le permite formar 3 grupos de ventas con empresarios que se registren bajo su código y ganar comisiones por las ventas que ellos hagan.
 
     <br><br>
 
@@ -36,7 +36,7 @@
        </div>
 
        <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Entendido</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Entendido</button>
         </div>
 
    	  </div>

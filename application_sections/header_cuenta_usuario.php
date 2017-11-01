@@ -1,4 +1,4 @@
-<?php if (   $_SESSION['logueado'] == FALSE ) :?>
+<?php if ( isset($_SESSION['logueado']) &&  $_SESSION['logueado'] == FALSE ) :?>
 
 	<!-- INFORMACION SOBRE CUENTAS-->
 	<div class="taRC">
