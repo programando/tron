@@ -30,10 +30,10 @@
          <?php if ( isset($Usuarios) && count($Usuarios ) > 1 )  :?>
 
            <div class="col-lg-3 col-md-3 col-sm-3 colum-usuarios-rgts"  style=" width: 162px;">
-            <div class="mis_usuarios">  Usuarios Registrados: </div>
+            <div class="mis_usuarios" >  Usuarios Registrados: </div>
           </div>
 
-          <div class="col-lg-9 col-md-9 col-sm-9 colum-usurarios padding_none" >
+          <div class=" col-lg-9 col-md-9 col-sm-9 colum-usurarios padding_none" style=" width: 500px;" >
             <div><!-- Cont-Usuarios -->
              <ul class="ul-usuarios">
               <?php $es_primero = TRUE ;?>
@@ -56,9 +56,11 @@
           </ul>
         </div>
       </div>
+
       </div><!-- Barraar -->
       </div>
      </div>
+</div>
 </div>
 
 
