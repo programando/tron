@@ -825,7 +825,7 @@ public function  Registro_Nuevo_Usuario_Validaciones ( $Datos ){
 
     if ($idtpidentificacion != '31'){
        if ( strlen( $pnombre)== 0 || strlen(  $papellido  ) == 0 ){
-        $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>'; 
+        $Texto_Respuesta =  $Texto_Respuesta . 'El nombre y apellido no pueden estar en blanco.<br>';
       }
     }else{
       if ( strlen( $razonsocial )== 0){
@@ -894,11 +894,11 @@ public function Registro_Nuevo_Usuario() {
       if ( $idtppersona_nat     == TRUE ){  $idtppersona = 1 ;} // Natural
       if ( $idtppersona_jur     == TRUE ){  $idtppersona = 2 ;} // Juridica
 
-      if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun 
+      if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun
       if ( $idtregimen_simplif   == TRUE ){  $regimen = 2 ;}    // Simplificado
 
        if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
-      if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}      
+      if ( $es_empresario  == TRUE ){  $idtipo_plan_compras = 3 ;}
 
       // VERIFICA SI ALGUIEN PRESENTA AL NUEVO USUARIO EN LA RED
        if ( strlen( $codigoterceropresenta ) > 0 ){
@@ -987,8 +987,8 @@ public function Registro_Nuevo_Usuario() {
         $param_idmcipio_transferencias                  = 0;
         $param_acepto_retencion_comis_para_pago_pedidos = 0 ;
         $param_valor_comisiones_para_pago_pedidos       = 0 ;
-        
-        
+
+
         if ($idtpidentificacion == '31'){ $genero         = '0';}
 
         $pnombre     = strtoupper(trim( $pnombre     ));
@@ -1065,7 +1065,7 @@ public function Registro_Actualizar_Datos_Basicos() {
       if ( $idtppersona_nat     == TRUE ){  $idtppersona = 1 ;} // Natural
       if ( $idtppersona_jur     == TRUE ){  $idtppersona = 2 ;} // Juridica
 
-      if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun 
+      if ( $idtregimen_comun     == TRUE ){  $regimen = 1 ;}    // Comun
       if ( $idtregimen_simplif   == TRUE ){  $regimen = 2 ;}    // Simplificado
 
       if ( $es_cliente     == TRUE ){  $idtipo_plan_compras = 2 ;}
@@ -1421,9 +1421,7 @@ public function Actualizar_Password()
       Session::Set('porcentajeica'       ,          $Registro[0]["porcentajeica"]);
 
 
-      $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $Registro[0]['email'] );
-      Session::Set('codigos_usuario',                 $Usuarios);
-
+      $this->Buscar_Usuarios_Activos_x_Email();
       // CONSULTA DATOS PARA DETERMINAR SI SE CUMPLEN LAS CONDICIONES DE COMPRAS MÍNIMAS DE PRODUCTOS TRON O INDUSTRIALES
       $this->Compra_Productos_Tron_Mes_Actual();
       $this->Consultar_Saldos_Comisiones_Puntos_x_Idtercero();
@@ -1438,7 +1436,13 @@ public function Actualizar_Password()
 
     }
 
+    public function Buscar_Usuarios_Activos_x_Email( ){
+       $email = Session::Get('email');
+       $Usuarios             = $this->Terceros->Buscar_Usuarios_Activos_x_Email( $email );
+       Session::Set('codigos_usuario',                 $Usuarios);
+       Session::Set('cant_codigos',           $this->Terceros->Cantidad_Registros);
 
+    }
 
     public function Validar_Ingreso_Usuario( ){
      $_SESSION['logueado'] = FALSE;

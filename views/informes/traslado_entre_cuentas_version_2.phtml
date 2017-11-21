@@ -1,0 +1,49 @@
+<!-- http://helibertoarias.com/desarrollo-web/iterar-con-jquery-sobre-una-tabla/      -->
+<div class="container">
+  <h2 class="text-center">Traslado de Comisiones y Puntos entre mis Códigos</h2>
+  <br>
+
+  <table class="table table-hover table-bordered tb-comisiones">
+    <thead>
+      <tr>
+        <th >Código</th>
+        <th  class="text-center">Comisiones</th>
+        <th  class="text-center">Puntos</th>
+        <th  class="text-center">Trasladar a...</th>
+      </tr>
+    </thead>
+    <tbody>
+     <?php foreach ( $this->Datos as $valores )   :?>
+       <?php $cod_actual = $valores['codigousuario'] ;?>
+      <tr>
+        <td> <?=  $valores['codigousuario'] ; ?> </td>
+        <td class="text-right"> <?= Numeric_Functions::Formato_Numero ( $valores['saldo_comisiones'] ) ; ?></td>
+        <td class="text-right"> <?= Numeric_Functions::Formato_Numero ( $valores['saldo_puntos']     ) ; ?> </td>
+        <td data-codigoselect='' class="mytd">
+          <select class="form-control" name="codigos_disponibles" id="codigos_disponibles" data-codseleccionado=''>
+             <option value=""> Seleccione un código... </option>
+              <?php foreach ( $this->Datos as $Codigos )   :?>
+                <?php $cod_disponible = $Codigos['codigousuario'] ;?>
+                  <?php if ( $cod_actual != $cod_disponible ) :?>
+                          <option value="<?= $cod_disponible ;?>"> <?= $cod_disponible ;?> </option>
+                       <?php endif ;?>
+             <?php endforeach ;?>
+          </select>
+
+
+        </td>
+      </tr>
+
+     <?php endforeach ;?>
+
+    </tbody>
+  </table>
+ <div class='text-center'>
+   <button type="button" class="btn btn-success btn-realizar-traslado-ctas">Realizar Traslados </button>
+   </div>
+   <br />
+</div>
+
+
+
+

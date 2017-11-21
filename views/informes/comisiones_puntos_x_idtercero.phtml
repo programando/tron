@@ -1,14 +1,26 @@
 <div class="contenedor-datos-informe">
 
-	<br /><br />
+  <?php
+        $cant_codigos = intval(Session::Get('cant_codigos'));
+        if ( !isset($cant_codigos) || is_null($cant_codigos) ) {
+              $cant_codigos = 0 ;
+           }
+      ?>
+
+    <?php if ( intval($cant_codigos) > 0 ) :?>
+      <div class="text-center">
+           <a href="/informes/traslado_comisiones_puntos" class="btn btn-primary" role="button">Traslado Dinero y Puntos entre mis usuarios</a>
+      </div>
+      <br />
+    <?php endif ; ?>
 
     <div class="col-sm-6 col-xs-12">
-    
+
         <p class="Estado-cuenta"  style="color: #009900;">Estado de Mi Cuenta Dinero</p>
         <p class="saldos" style="color: #009900;"> <?= $this->Saldo_Comisiones ;?> </p>
-        
+
       	<hr />
-        
+
 
         <div class="cont-cabezera-tabla-dinero"><!-- Tabla-header = fija -->
             <p class="text-center dIB" style="width: 15%;">Fecha</p><!--
@@ -18,7 +30,7 @@
             --><p class="text-center dIB" style="width: 15%;">Salen</p><!--
             --><p class="text-center dIB" style="width: 15%;">Saldo</p>
         </div><!-- Tabla-header = fija -->
-        
+
         <table class="table table-bordered table-hover cuerpo-tabla" style="width: 100%;">
         <tbody><!-- Cuerpo -->
         <?php foreach ($this->Comisiones as $Comisiones)  :?>
@@ -38,19 +50,19 @@
                     <td class="text-right  salen"    style="width: 15%"><?= $vr_salida  ;?>   </td>
                     <td class="text-right  saldo"    style="width: 15%;"> <?= $saldo ;?>  </td>
                 </tr>
-            <?php endforeach ;?>        
+            <?php endforeach ;?>
         </tbody><!-- Cuerpo -->
         </table>
-        
+
 	</div><!-- Mi cuenta_dinero -->
 
 
    <!-- Mi cuenta_Puntos -->
     <div class="col-sm-6 col-xs-12">
-    
+
         <p class="Estado-cuenta" style="color: #ff6600;" >Estado de Mi Cuenta Puntos</p>
         <p class="saldos" style="color: #ff6600;"><?= $this->Saldo_Puntos ;?> </p>
-        
+
         <hr />
 
         <div class="cont-cabezera-tabla-puntos"><!-- Tabla-header = fija -->
@@ -86,9 +98,12 @@
                 </tbody><!-- Cuerpo -->
               </table>
          </div><!-- Tabla-Cuenta-puntos -->
-         
+
 	</div>
-    
+
+</div>
+<div>
+
 </div>
 
 

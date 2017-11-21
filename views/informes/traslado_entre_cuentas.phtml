@@ -1,0 +1,103 @@
+
+
+
+<div class="container">
+  <h2 class="text-center">Traslado de Comisiones y Puntos entre mis Códigos</h2>
+  <br>
+
+  <table class="table table-hover table-bordered tb-comisiones" style="width: 80%; margin: auto;">
+    <thead>
+      <tr>
+        <th >Código</th>
+        <th  class="text-center">Comisiones</th>
+        <th  class="text-center">Puntos</th>
+
+      </tr>
+    </thead>
+    <tbody>
+     <?php foreach ( $this->Datos as $valores )   :?>
+       <?php
+          $cod_actual = $valores['codigousuario'] ;
+          $saldo_total = $valores['saldo_comisiones']  + $valores['saldo_puntos'] ;
+       ?>
+       <?php if ( $saldo_total > 0 ) :?>
+          <tr>
+            <td> <?=  $valores['codigousuario'] ; ?> </td>
+            <td class="text-right"> <?= Numeric_Functions::Formato_Numero ( $valores['saldo_comisiones'] ) ; ?></td>
+            <td class="text-right"> <?= Numeric_Functions::Formato_Numero ( $valores['saldo_puntos']     ) ; ?> </td>
+          </tr>
+     <?php endif ;?>
+
+     <?php endforeach ;?>
+
+    </tbody>
+  </table>
+<br><br>
+
+  <div class="text-center alert alert-danger alert-dismissible" role="alert" id="alert-error">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+      </button>
+        <div class="texto">
+
+        </div>
+    </div>
+
+<div class="row text-center">
+  <div class="form-inline">
+<!--       -->
+     <div class="col-sm-4">
+      Trasladar desde : <select class="form-control" name="cod-desde-dispon" id="cod-desde" >
+          <option value=""> Seleccione un código... </option>
+          <?php foreach ( $this->Datos as $Codigos )   :?>
+              <?php
+                  $cod_disponible = $Codigos['codigousuario'];
+                  $saldo_traslado  = $Codigos['saldo_comisiones']  + $Codigos['saldo_puntos'] ;
+               ;?>
+               <?php if ( $saldo_traslado > 0 ) :?>
+                  <option class="cod-desde-dispon"
+                          value                = "<?= $cod_disponible              ; ?>"
+                          data-saldo_traslado  = "<?= $saldo_traslado              ; ?>"
+                          data-puntos          = "<?= $Codigos['saldo_puntos']     ; ?>"
+                          data-comisiones      = "<?= $Codigos['saldo_comisiones'] ; ?>"
+                          data-idtercero_desde = "<?=  $Codigos['idtercero'];?>"> <?= $cod_disponible ;?>
+                   </option>
+                <?php endif;?>
+       <?php endforeach ;?>
+      </select>
+     </div>
+
+
+    <div class="col-sm-4">
+     Hasta  : <select class="form-control" name="cod-hasta-dispon" id="cod-hasta" >
+      <option value=""> Seleccione un código... </option>
+      <?php foreach ( $this->Datos as $Codigos )   :?>
+          <?php $cod_disponible = $Codigos['codigousuario'] ; ?>
+             <option value="<?= $cod_disponible ;?>" data-idtercero_hasta = "<?=  $Codigos['idtercero'];?>"> <?= $cod_disponible ;?>
+             </option>
+      <?php endforeach ;?>
+     </select>
+    </div>
+
+    <div class="col-sm-4">
+     <label for="vr-traslado">Valor a trasladar : </label>
+     <strong>
+     <input name="vr-traslado" style="text-align: right;" id="vr-traslado" type="text" class="form-control" disabled="disabled">
+     </strong>
+    </div>
+
+   </div>
+  </div>
+
+
+
+  <br><br>
+  <div class='text-center'>
+   <button type="button" class="btn btn-success btn-realizar-traslado-ctas">Confirmar Traslado </button>
+  </div>
+  <br />
+ </div>
+
+
+
+
