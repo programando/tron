@@ -28,7 +28,7 @@ var Comisiones_Salida = function( $idtercero,$tipo_registro,$numero_pedido, $val
           $.ajax({
             data : { 'idtercero': $idtercero, 'tipo_registro': $tipo_registro,'numero_pedido' :$numero_pedido, 'valor':$valor, 'idtercero_destino': $idtercero_destino   },
             dataType: 'text',
-            url:      'Salida_Comisiones',
+            url:      '/informes/Salida_Comisiones',
             type:     'post',
       success:  function (resultado) {
            window.location.href  = '/informes/traslado_comisiones_puntos/';
@@ -43,7 +43,7 @@ var Puntos_Salida = function( $idtercero,$tipo_registro,$numero_pedido, $valor,$
           $.ajax({
             data : { 'idtercero': $idtercero, 'tipo_registro': $tipo_registro,'numero_pedido' :$numero_pedido, 'valor':$valor, 'idtercero_destino': $idtercero_destino   },
             dataType: 'text',
-            url:      'Salida_Puntos',
+            url:      '/informes/Salida_Puntos',
             type:     'post',
       success:  function (resultado) {
             window.location.href  = '/informes/traslado_comisiones_puntos/';

@@ -21,7 +21,7 @@
 
               $idtipo_registro       = $tipo_registro ;
               $comisiones_utilizadas = $valor ;
-              $observacion           = 'TRASLADO ENTRE MIS CÓDIGOS' ;
+              $observacion           = '' ;
 
               $this->ComisPuntos->Actualizar_Comisiones( $idtercero,$tipo_registro,$numero_pedido,$valor );
 
@@ -41,14 +41,15 @@
               $idtercero_destino = General_Functions::Validar_Entrada('idtercero_destino','NUM');
               $idtipo_registro   = $tipo_registro ;
               $puntos_utilizados = $valor ;
-              $observacion       = 'TRASLADO ENTRE MIS CÓDIGOS';
+              $observacion       = '';
+
 
               $this->ComisPuntos->Actualizar_Puntos( $idtercero,$tipo_registro,$numero_pedido,$valor );
 
               $idtercero = $idtercero_destino;
-             $datos     = compact('idtercero','idtipo_registro','puntos_utilizados','observacion');
+              $datos     = compact('idtercero','idtipo_registro','puntos_utilizados','observacion');
 
-           $this->ComisPuntos->Puntos_Entrada ( $datos );
+              $this->ComisPuntos->Puntos_Entrada ( $datos );
            echo "OK";
         }
 
