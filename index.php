@@ -13,7 +13,7 @@ define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'moda
 
 								// Archivo de configuración, variables generales
 							 //------------------------------------------------
-
+echo ROOT;
 require_once APP_PATH . 'Config.php';
 
 
@@ -42,7 +42,7 @@ require_once APP_PATH . 'Database_config.php';
  						 {
 
  						 	$Url_Solicitada = new Request();
-         echo $Url_Solicitada;
+
  						 	Bootstrap::Run( $Url_Solicitada );
 
 
