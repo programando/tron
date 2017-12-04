@@ -13,7 +13,7 @@ define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'moda
 
 								// Archivo de configuración, variables generales
 							 //------------------------------------------------
-echo APP_PATH;
+
 require_once APP_PATH . 'Config.php';
 
 
