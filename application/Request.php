@@ -59,7 +59,7 @@ class Request
             {
                 $this->Controlador  = DEFAULT_CONTROLLER;
             }
-            echo $this->Controlador;
+
         }
 
     /**
@@ -76,7 +76,7 @@ class Request
             }
            $this->Metodo         =  String_Functions::LowerCamel($this->Metodo);
            $this->Metodo         = str_replace('-', '_', $this->Metodo );
-           echo  $this->Metodo;
+
 
         }
     public function ResolveParams(&$segmentos_url)
