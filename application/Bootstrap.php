@@ -24,9 +24,7 @@ class Bootstrap
         $ControllerIndex        = new $IndexController;
         $ControllerIndex->Parametros_Iniciales();
 
-        echo $RutaControlador;
-        echo '<br>';
-        echo is_readable( $RutaControlador ) ;
+        echo $IndexRuta ;
 
         if( is_readable( $RutaControlador ) )    {
 
