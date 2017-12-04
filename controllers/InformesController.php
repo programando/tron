@@ -1,14 +1,68 @@
 <?php
 
   class InformesController extends Controller  {
-      public function __construct()
-      {
-          parent::__construct();
-          $this->Informes = $this->Load_Model('Informes');
 
+      public function __construct() {
+          parent::__construct();
+          $this->Informes    = $this->Load_Model('Informes');
+          $this->ComisPuntos = $this->Load_Model('ComisionesPuntos');
+          $this->Terceros    = $this->Load_Controller('Terceros');
       }
 
       public function Index() { }
+
+
+      public function Salida_Comisiones ( ){
+              $idtercero             = General_Functions::Validar_Entrada('idtercero','NUM');
+              $tipo_registro         = General_Functions::Validar_Entrada('tipo_registro','NUM');
+              $numero_pedido         = General_Functions::Validar_Entrada('numero_pedido','NUM');
+              $valor                 = General_Functions::Validar_Entrada('valor','NUM');
+              $idtercero_destino     = General_Functions::Validar_Entrada('idtercero_destino','NUM');
+
+              $idtipo_registro       = $tipo_registro ;
+              $comisiones_utilizadas = $valor ;
+              $observacion           = '' ;
+
+              $this->ComisPuntos->Actualizar_Comisiones( $idtercero,$tipo_registro,$numero_pedido,$valor );
+
+              $idtercero = $idtercero_destino;
+              $datos     = compact('idtercero','idtipo_registro','comisiones_utilizadas','observacion');
+              $this->ComisPuntos->Entrada_Comisiones ( $datos );
+
+              echo "OK";
+        }
+
+
+      public function Salida_Puntos (){
+              $idtercero         = General_Functions::Validar_Entrada('idtercero','NUM');
+              $tipo_registro     = General_Functions::Validar_Entrada('tipo_registro','NUM');
+              $numero_pedido     = General_Functions::Validar_Entrada('numero_pedido','NUM');
+              $valor             = General_Functions::Validar_Entrada('valor','NUM');
+              $idtercero_destino = General_Functions::Validar_Entrada('idtercero_destino','NUM');
+              $idtipo_registro   = $tipo_registro ;
+              $puntos_utilizados = $valor ;
+              $observacion       = '';
+
+
+              $this->ComisPuntos->Actualizar_Puntos( $idtercero,$tipo_registro,$numero_pedido,$valor );
+
+              $idtercero = $idtercero_destino;
+              $datos     = compact('idtercero','idtipo_registro','puntos_utilizados','observacion');
+
+              $this->ComisPuntos->Puntos_Entrada ( $datos );
+           echo "OK";
+        }
+
+
+
+
+
+      public function traslado_comisiones_puntos (){
+             $this->Terceros->Buscar_Usuarios_Activos_x_Email();
+             $this->View->Datos         = Session::Get('codigos_usuario');
+             $this->View->SetJs(array('tron_informes'));
+             $this->View->Mostrar_Vista("traslado_entre_cuentas");
+         }
 
 
 

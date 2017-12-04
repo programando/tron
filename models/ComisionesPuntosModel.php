@@ -19,6 +19,7 @@
 			 			/** JUNIO 14 DE 2015
 			 			 * 			REALIZA LA SALIDA DE COMISIONES LUEGO DE PAGAR PEDIDO
 			 			 */
+
 			 					$Registro = $this->Db->Ejecutar_Sp("puntos_registro_salida_en_cuenta($idtercero,$tipo_registro,$numero_pedido,$valor);");
 			 		}
 

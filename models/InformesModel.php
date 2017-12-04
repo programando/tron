@@ -8,6 +8,7 @@
 								parent::__construct();
 							}
 
+
 						public function Comisiones_Ganadas_x_IdTercero( $idtercero, $mes, $anio ){
 										$Registro                = $this->Db->Ejecutar_Sp("terceros_comisiones_mes_anio( $idtercero, $mes, $anio)");
 									$this->Cantidad_Registros = $this->Db->Cantidad_Registros;

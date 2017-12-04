@@ -206,6 +206,7 @@
 				{
 			 	$Registro =  $this->Db->Ejecutar_Sp("terceros_buscar_usuarios_activos_x_email('$email')");
 					$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
+
 					return $Registro;
 				}
 
