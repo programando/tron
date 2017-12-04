@@ -13,7 +13,7 @@ define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'moda
 
 								// Archivo de configuración, variables generales
 							 //------------------------------------------------
-echo ROOT;
+
 require_once APP_PATH . 'Config.php';
 
 
@@ -37,7 +37,7 @@ require_once APP_PATH . 'Database_config.php';
  						 $Session_Security = new Session_Security();
  						 $Session_Nombre 				 = $Session_Security->Validate_Session();
  						 Session::Init( $Session_Nombre   );
-        echo  $Session_Nombre;
+
  						 try
  						 {
 
