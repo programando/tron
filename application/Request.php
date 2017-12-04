@@ -27,7 +27,7 @@ class Request
 
 
         $segmentos_url = explode('/',$this->url);
-        var_dump($segmentos_url);
+
         $this->ResolveController( $segmentos_url );
         $this->ResolveMethod    ( $segmentos_url );
         $this->ResolveParams    ( $segmentos_url );
@@ -59,7 +59,7 @@ class Request
             {
                 $this->Controlador  = DEFAULT_CONTROLLER;
             }
-
+            echo $this->Controlador;
         }
 
     /**
@@ -76,6 +76,7 @@ class Request
             }
            $this->Metodo         =  String_Functions::LowerCamel($this->Metodo);
            $this->Metodo         = str_replace('-', '_', $this->Metodo );
+           echo  $this->Metodo;
 
         }
     public function ResolveParams(&$segmentos_url)
