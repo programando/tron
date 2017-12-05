@@ -36,7 +36,7 @@ class RedtronController extends Controller
         }
 
 
-    public function planes_de_registro()
+    public function planes_registro()
         {
             $this->View->SetCss(array('tron_red_amigo_general','tron_Planes_funcionalidades','unificar_botones'));
             $this->View->SetJs(array('tron_btn_ir_arriba'));

@@ -12,7 +12,7 @@
                     <ul class="nav">
 
                         <li>
-                            <a href="<?= BASE_URL ;?>redtron/planes_de_registro" class="cP t14">
+                            <a href="<?= BASE_URL ;?>redtron/planes_registro" class="cP t14">
                                 <div class="tab">
                                     <div class="tab30 p5"><img src="<?= BASE_IMG_TIENDA ;?>planesC.png" /></div>
                                     <div class="tab70 p5">Planes de Registro</div>

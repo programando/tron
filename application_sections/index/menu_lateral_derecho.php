@@ -1,4 +1,4 @@
-           
+
                 <div class="mukSlide2">
                     <div class="mukSlideIn">
                         <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron">
@@ -29,7 +29,7 @@
                         </a>
                     </div>
                     <div class="mukSlideIn">
-                        <a href="<?= BASE_URL ;?>redtron/Planes_de_Registro">
+                        <a href="<?= BASE_URL ;?>redtron/planes_registro">
                         <div class="tabAll">
                             <div class="tabIn taC">
                                 <div class="col-sm-6 col-xs-6 vcenter taC">
