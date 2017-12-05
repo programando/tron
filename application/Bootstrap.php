@@ -15,6 +15,12 @@ class Bootstrap
         $Metodo          = $peticion->getMetodo();
         $args            = $peticion->getArgs();
 
+        echo $Controller;
+        echo '<br>';
+        echo $RutaControlador;
+        echo '<br>';
+        echo $Metodo;
+
         /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
            OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
         */

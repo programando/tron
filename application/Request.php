@@ -20,12 +20,12 @@ class Request
         Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
         if( !isset( $_GET['url'] ))    {
-            $this->url="";
+            $this->url  = "";
           }else{
              $this->url = $_GET['url'];
           }
 
-          echo $this->url;
+
 
         $segmentos_url = explode('/',$this->url);
 
