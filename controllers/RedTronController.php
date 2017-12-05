@@ -2,7 +2,7 @@
 
 <?php
 
-class redtronController extends Controller
+class RedTronController extends Controller
 {
 
     private $Cantidad_Registros;
