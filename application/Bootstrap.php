@@ -39,6 +39,7 @@ class Bootstrap
 
            require_once $RutaControlador;
             $Controller = new $Controller;
+            echo '<br> Siguiente 23 <br>';
 
             /*if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
