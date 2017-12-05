@@ -16,6 +16,7 @@ class RedtronController extends Controller
     public function index(){}
 
 
+
     public function red_de_amigos_tron()
         {
             $this->View->SetCss(array('tron_red_amigo_general','unificar_botones'));
