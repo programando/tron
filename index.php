@@ -39,27 +39,13 @@ require_once APP_PATH . 'Database_config.php';
  						 $Session_Nombre 				 = $Session_Security->Validate_Session();
  						 Session::Init( $Session_Nombre   );
 
-
-
-
- 						 try
- 						 {
- 						 	echo "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas! <br>";
-
+ 						 try	 {
          $Url_Solicitada = new Request();
-echo "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas! <br>";
  						 	Bootstrap::Run( $Url_Solicitada );
  						 }
  						 catch(Exception $e){
  						 	echo $e->getMessage();
  						 }
 
-/* AGOSTO 01
-					Inhabilité Autoload
-					Hice cambios en .htacces
-					Carga manual de todas las clases
-					Cambios en Session.php
-
-*/
 
 					?>

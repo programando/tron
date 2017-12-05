@@ -25,6 +25,7 @@ class Request
              $this->url = $_GET['url'];
           }
 
+        echo "Request.php";
 
 
         $segmentos_url = explode('/',$this->url);
