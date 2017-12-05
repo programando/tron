@@ -9,6 +9,8 @@ class Bootstrap
 
     public static function Run( Request $peticion )
     {
+         echo "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas!";
+
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
@@ -20,6 +22,7 @@ class Bootstrap
         echo $RutaControlador;
         echo '<br>';
         echo $Metodo;
+        echo "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas!";
 
         /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
            OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
