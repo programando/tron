@@ -16,13 +16,7 @@ class Bootstrap
         $Metodo          = $peticion->getMetodo();
         $args            = $peticion->getArgs();
 
-       /* echo $Controller;
-        echo '<br>';
-        echo $RutaControlador;
-        echo '<br>';
-        echo $Metodo;
-        echo "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas!";
-        */
+
 
         /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
            OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
@@ -57,16 +51,11 @@ class Bootstrap
 
         } else {
 
-            //throw new Exception(header('Location: ' . BASE_URL  ));
+            throw new Exception(header('Location: ' . BASE_URL  ));
 
-            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+            //throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
 
-       /* echo $Controller;
-        echo '<br>';
-        echo $RutaControlador;
-        echo '<br>';
-        echo $Metodo;
-        */
+
 
         }
     }
