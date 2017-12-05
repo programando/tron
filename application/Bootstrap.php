@@ -35,9 +35,9 @@ class Bootstrap
             echo '<br>';
             echo $RutaControlador;
 
-          /*  require_once $RutaControlador;
+           require_once $RutaControlador;
             $Controller = new $Controller;
-
+ /*
             if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
             }
