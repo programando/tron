@@ -46,17 +46,19 @@ class Bootstrap
                 $Metodo = DEFAULT_CONTROLLER;
             }
 
-            echo '<br> Args : ' . $args;
-/*
+            //echo '<br> Args : ' . $args;
+
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
-                call_user_func_array(array( $Controller, $Metodo ), $args);
+                //call_user_func_array(array( $Controller, $Metodo ), $args);
+                echo "1";
             }
             else{
-                call_user_func(array($Controller, $Metodo));
+                //call_user_func(array($Controller, $Metodo));
+                echo "2";
             }
 
-*/
+
 
         } else {
 
