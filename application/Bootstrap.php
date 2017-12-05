@@ -37,7 +37,7 @@ class Bootstrap
 
             require_once $RutaControlador;
             $Controller = new $Controller;
-/*
+
             if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
             }
@@ -53,7 +53,7 @@ class Bootstrap
             else{
                 call_user_func(array($Controller, $Metodo));
             }
-                */
+
         } else {
 
 
