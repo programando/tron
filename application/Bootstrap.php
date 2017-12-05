@@ -29,6 +29,9 @@ class Bootstrap
         $ControllerIndex->Parametros_Iniciales();
 
 
+            echo 'Ruta Controlador ' . $RutaControlador;
+            echo '<br>Controlador ' . $Controller;
+            echo '<br> Metodo : ' . $Metodo;
 
         if( is_readable( $RutaControlador ) )    {
 
@@ -43,12 +46,7 @@ class Bootstrap
                 $Metodo = DEFAULT_CONTROLLER;
             }
 
-           /* echo 'Controlador ' . $Controller;
-            echo '<br>';
-            echo $RutaControlador;
-            echo '<br> Metodo <br>';
-            echo $Metodo ;
-*/
+            echo '<br> Args : ' . $args;
 
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
