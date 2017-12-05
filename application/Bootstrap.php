@@ -14,7 +14,8 @@ class Bootstrap
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
-        $Metodo          = $peticion->getMetodo();
+        $Metodo          = DEFAULT_CONTROLLER;
+        //$Metodo        = $peticion->getMetodo();
         $args            = $peticion->getArgs();
 
 
@@ -29,10 +30,6 @@ class Bootstrap
         $ControllerIndex->Parametros_Iniciales();
 
 
-            echo 'Ruta Controlador ' . $RutaControlador;
-            echo '<br>Controlador ' . $Controller;
-            echo '<br> Metodo : ' . $Metodo;
-
         if( is_readable( $RutaControlador ) )    {
 
            require_once $RutaControlador;
@@ -42,20 +39,16 @@ class Bootstrap
             if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
             }
-            else{
-                $Metodo = DEFAULT_CONTROLLER;
-            }
 
-            //echo '<br> Args : ' . $args;
 
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
-                //call_user_func_array(array( $Controller, $Metodo ), $args);
-                echo "1";
+                call_user_func_array(array( $Controller, $Metodo ), $args);
+
             }
             else{
-                //call_user_func(array($Controller, $Metodo));
-                echo "2";
+                call_user_func(array($Controller, $Metodo));
+
             }
 
 
