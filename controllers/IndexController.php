@@ -39,14 +39,15 @@ class IndexController extends Controller
 
     public function Index() {
 
-      Session::Set('Id_Area_Consulta','2')  ;
+        echo "Metodo index - proximo a la vista " ;
+        Session::Set('Id_Area_Consulta','2')  ;
 
         //$this->Consultar_Datos_Transportadoras();
         $this->Parametros_Iniciales();                  // Parámetros Iniciales
         $this->Index_Secciones_Barra_Menu();            // Secciones de la barra de menus
         $this->Footer_Categorias_Personal_Industrial(); // Categorías del Footer
 
-        echo "Metodo index - proximo a la vista " ;
+
 
         //$usuario_logueado = $_SESSION['logueado'];
         if ( !isset( $_SESSION['logueado'] )){
