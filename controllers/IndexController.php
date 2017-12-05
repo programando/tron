@@ -46,6 +46,8 @@ class IndexController extends Controller
         $this->Index_Secciones_Barra_Menu();            // Secciones de la barra de menus
         $this->Footer_Categorias_Personal_Industrial(); // Categorías del Footer
 
+        echo "Metodo index - proximo a la vista " ;
+
         //$usuario_logueado = $_SESSION['logueado'];
         if ( !isset( $_SESSION['logueado'] )){
             $_SESSION['logueado'] = FALSE;
@@ -170,7 +172,7 @@ public function Parametros_Iniciales(){
                 Session::Iniciar_Variable('ofertas_x_cambio_status_empresario'      , FALSE ) ; //
                 Session::Iniciar_Variable('mostrar_modal_ofertas_x_cambio_status'   , TRUE ) ; //
                 // Para los que cambian de clientes a empresarios, se muestra  modal si no han cumplido con la compra mínima de productos tron
-                Session::Iniciar_Variable('solicita_cambio_plan'           , FALSE ) ; 
+                Session::Iniciar_Variable('solicita_cambio_plan'           , FALSE ) ;
                 Session::Iniciar_Variable('mostrar_modal_vacaciones'                , TRUE) ;
                 Session::Set('idtppersona'       ,           0);
                 Session::Set('regimen'       ,               0);
