@@ -32,9 +32,12 @@ class Bootstrap
         if( is_readable( $RutaControlador ) )    {
             echo $Controller;
 
-            /*require_once $RutaControlador;
-            $Controller = new $Controller;
+            echo '<br>';
+            echo $RutaControlador;
 
+            require_once $RutaControlador;
+            $Controller = new $Controller;
+/*
             if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
             }
