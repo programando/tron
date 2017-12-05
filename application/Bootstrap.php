@@ -31,15 +31,11 @@ class Bootstrap
 
 
         if( is_readable( $RutaControlador ) )    {
-            echo $Controller;
 
-            echo '<br>';
-            echo $RutaControlador;
-            echo '<br> Siguiente 22 <br>';
 
            require_once $RutaControlador;
             $Controller = new $Controller;
-            echo '<br> Siguiente 23 <br>';
+
 
             if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
@@ -48,9 +44,8 @@ class Bootstrap
                 $Metodo = DEFAULT_CONTROLLER;
             }
 
-            echo '<br> Siguiente 23 <br>';
-            echo $Metodo ;
 
+call_user_func(array($Controller, $Metodo));
 /*
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
