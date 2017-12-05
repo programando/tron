@@ -1,4 +1,1 @@
-[05-Dec-2017 00:16:14 UTC] PHP Recoverable fatal error:  Object of class Request could not be converted to string in D:\laragon\www\tron\index.php on line 44
-[05-Dec-2017 00:16:15 UTC] PHP Recoverable fatal error:  Object of class Request could not be converted to string in D:\laragon\www\tron\index.php on line 44
-[05-Dec-2017 00:16:34 UTC] PHP Recoverable fatal error:  Object of class Request could not be converted to string in D:\laragon\www\tron\index.php on line 44
-[05-Dec-2017 00:16:34 UTC] PHP Recoverable fatal error:  Object of class Request could not be converted to string in D:\laragon\www\tron\index.php on line 44
+
