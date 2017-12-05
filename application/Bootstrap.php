@@ -43,12 +43,12 @@ class Bootstrap
                 $Metodo = DEFAULT_CONTROLLER;
             }
 
-            echo 'Controlador ' . $Controller;
+           /* echo 'Controlador ' . $Controller;
             echo '<br>';
             echo $RutaControlador;
             echo '<br> Metodo <br>';
             echo $Metodo ;
-
+*/
 
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
