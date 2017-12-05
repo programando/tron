@@ -27,6 +27,7 @@ class Bootstrap
         $ControllerIndex        = new $IndexController;
         $ControllerIndex->Parametros_Iniciales();
 
+        echo $Controller ;
 
         if( is_readable( $RutaControlador ) )    {
 
@@ -51,10 +52,10 @@ class Bootstrap
 
         } else {
 
-            echo $RutaControlador;
+
             //throw new Exception(header('Location: ' . BASE_URL  ));
 
-            //throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
 
 
 
