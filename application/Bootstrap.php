@@ -10,7 +10,7 @@ class Bootstrap
     public static function Run( Request $peticion )
     {
 
-        error_reporting(E_ALL);
+
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
@@ -32,7 +32,6 @@ class Bootstrap
 
         if( is_readable( $RutaControlador ) )    {
 
-
            require_once $RutaControlador;
             $Controller = new $Controller;
 
@@ -44,10 +43,12 @@ class Bootstrap
                 $Metodo = DEFAULT_CONTROLLER;
             }
 
-
-            echo $Controller;
+            echo 'Controlador ' . $Controller;
             echo '<br>';
-            echo $Metodo;
+            echo $RutaControlador;
+            echo '<br> Metodo <br>';
+            echo $Metodo ;
+
 /*
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
