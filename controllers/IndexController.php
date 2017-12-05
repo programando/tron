@@ -39,7 +39,7 @@ class IndexController extends Controller
 
     public function Index() {
 
-        echo "Metodo index - proximo a la vista " ;
+
         Session::Set('Id_Area_Consulta','2')  ;
 
         //$this->Consultar_Datos_Transportadoras();
