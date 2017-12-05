@@ -47,7 +47,7 @@ class Bootstrap
             }
 
             echo '<br> Args : ' . $args;
-
+/*
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
                 call_user_func_array(array( $Controller, $Metodo ), $args);
@@ -56,7 +56,7 @@ class Bootstrap
                 call_user_func(array($Controller, $Metodo));
             }
 
-
+*/
 
         } else {
 
