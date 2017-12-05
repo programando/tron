@@ -41,14 +41,16 @@ class Bootstrap
             $Controller = new $Controller;
             echo '<br> Siguiente 23 <br>';
 
-            /*if( is_callable(array( $Controller, $Metodo ) ) ) {
+            if( is_callable(array( $Controller, $Metodo ) ) ) {
                 $Metodo = $peticion->getMetodo();
             }
             else{
                 $Metodo = DEFAULT_CONTROLLER;
             }
+            echo '<br> Siguiente 23 <br>';
+            echo $Metodo ;
 
-
+/*
             // Desde aqui se carga el contraolador con o sin argumentos.... carpeta controllers
             if(isset($args)){
                 call_user_func_array(array( $Controller, $Metodo ), $args);
