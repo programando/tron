@@ -27,11 +27,12 @@ class Bootstrap
         $ControllerIndex        = new $IndexController;
         $ControllerIndex->Parametros_Iniciales();
 
-        echo $Controller ;
+
 
         if( is_readable( $RutaControlador ) )    {
+            echo $Controller;
 
-            require_once $RutaControlador;
+            /*require_once $RutaControlador;
             $Controller = new $Controller;
 
             if( is_callable(array( $Controller, $Metodo ) ) ) {
@@ -49,7 +50,7 @@ class Bootstrap
             else{
                 call_user_func(array($Controller, $Metodo));
             }
-
+                */
         } else {
 
 
