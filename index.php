@@ -13,7 +13,6 @@ define('VENTANAS_MODALES',     							ROOT . 'application_sections' . DS . 'moda
 
 								// Archivo de configuración, variables generales
 							 //------------------------------------------------
-echo "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas!";
 
 
 require_once APP_PATH . 'Config.php';
@@ -40,13 +39,15 @@ require_once APP_PATH . 'Database_config.php';
  						 $Session_Nombre 				 = $Session_Security->Validate_Session();
  						 Session::Init( $Session_Nombre   );
 
-echo "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas!";
+
 
 
  						 try
  						 {
- 						 	$Url_Solicitada = new Request();
+ 						 	echo "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas! <br>";
 
+         $Url_Solicitada = new Request();
+echo "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt cumque, ipsum eligendi libero rerum! Ipsam laudantium excepturi, perferendis soluta labore illo fuga, pariatur praesentium cumque libero, natus quasi, temporibus voluptas! <br>";
  						 	Bootstrap::Run( $Url_Solicitada );
  						 }
  						 catch(Exception $e){
