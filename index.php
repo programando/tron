@@ -40,13 +40,8 @@ require_once APP_PATH . 'Database_config.php';
 
  						 try
  						 {
-
  						 	$Url_Solicitada = new Request();
-
  						 	Bootstrap::Run( $Url_Solicitada );
-
-
-
  						 }
  						 catch(Exception $e){
  						 	echo $e->getMessage();
