@@ -10,6 +10,7 @@ class Bootstrap
     public static function Run( Request $peticion )
     {
 
+        error_reporting(E_ALL);
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
@@ -35,7 +36,6 @@ class Bootstrap
             echo '<br>';
             echo $RutaControlador;
             echo '<br> Siguiente 22 <br>';
-            echo is_callable(array( $Controller, $Metodo )) ;
 
            require_once $RutaControlador;
             $Controller = new $Controller;
@@ -47,6 +47,7 @@ class Bootstrap
             else{
                 $Metodo = DEFAULT_CONTROLLER;
             }
+
             echo '<br> Siguiente 23 <br>';
             echo $Metodo ;
 
@@ -58,6 +59,7 @@ class Bootstrap
             else{
                 call_user_func(array($Controller, $Metodo));
             }
+
             */
 
         } else {
