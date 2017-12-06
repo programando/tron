@@ -10,6 +10,7 @@ class Bootstrap
     public static function Run( Request $peticion )
     {
 
+        echo 'Bootstrap';
 
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
@@ -20,10 +21,7 @@ class Bootstrap
 
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
         $Metodo          = DEFAULT_CONTROLLER;
-        //$Metodo        = $peticion->getMetodo();
         $args            = $peticion->getArgs();
-
-
 
         /* CAMBIO IMPLEMENTADO EL 03 DE OCTUBRE
            OBJETIVO:    CONSULTAR DATOS BÁSICOS ( PARÁMETROS) SI ES QUE NO SE HABÍAN CARGADO.
