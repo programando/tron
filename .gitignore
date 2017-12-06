@@ -15,7 +15,6 @@ public/images/productos/
 logs/error.txt
 resources
 .idea
-logs/error.txt
 *.txt
 .well-known
-logs/error.txt
+
