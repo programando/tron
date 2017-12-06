@@ -33,6 +33,8 @@ class Bootstrap
                 $Controller ='RedTron';
         }
 
+        echo $Controller .'<br>';
+
         if( is_readable( $RutaControlador ) )    {
 
            require_once $RutaControlador;
