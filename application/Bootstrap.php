@@ -13,6 +13,11 @@ class Bootstrap
 
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
+
+        if ($Controller == 'RedtronController'){
+            $Controller ='RedTronController';
+        }
+
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
         $Metodo          = DEFAULT_CONTROLLER;
         //$Metodo        = $peticion->getMetodo();
@@ -29,11 +34,9 @@ class Bootstrap
         $ControllerIndex        = new $IndexController;
         $ControllerIndex->Parametros_Iniciales();
 
-        if ($Controller == 'RedtronController'){
-                $Controller ='RedTronController';
-        }
 
-        echo $Controller .'<br>';
+
+
 
         if( is_readable( $RutaControlador ) )    {
 
