@@ -25,6 +25,7 @@ class RedtronController extends Controller
             $this->View->SetJs(array('tron_btn_ir_arriba','tabs-prueba'));
             $this->View->Mostrar_Vista("funcionalidades_interesantes");
             //$this->View->Mostrar_Vista("red_de_amigos_tron");
+            //Emp
 
         }
 
