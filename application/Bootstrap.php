@@ -10,15 +10,8 @@ class Bootstrap
     public static function Run( Request $peticion )
     {
 
-
-
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
-
-        if ($Controller == 'RedtronController'){
-            $Controller ='RedTronController';
-        }
-
         $RutaControlador = ROOT . 'controllers'       . DS . $Controller . '.php';
         $Metodo          = DEFAULT_CONTROLLER;
         $args            = $peticion->getArgs();
@@ -31,10 +24,6 @@ class Bootstrap
         require_once $IndexRuta ;
         $ControllerIndex        = new $IndexController;
         $ControllerIndex->Parametros_Iniciales();
-
-
-
-
 
         if( is_readable( $RutaControlador ) )    {
 
