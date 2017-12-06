@@ -10,7 +10,7 @@ class Bootstrap
     public static function Run( Request $peticion )
     {
 
-        echo 'Bootstrap';
+
 
         $Controller      = $peticion->getControlador(). 'Controller';
         $Controller      = String_Functions::Camel($Controller);
@@ -64,9 +64,9 @@ class Bootstrap
 
             //throw new Exception(header('Location: ' . BASE_URL  ));
 
-            //throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
-            echo 'RutaControlador : ' . $RutaControlador  .'<br>';
-            echo 'Metodo : ' . $Metodo  .'<br>';
+            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+            //echo 'RutaControlador : ' . $RutaControlador  .'<br>';
+            //echo 'Metodo : ' . $Metodo  .'<br>';
 
 
 
