@@ -58,8 +58,9 @@ class Bootstrap
 
             //throw new Exception(header('Location: ' . BASE_URL  ));
 
-            throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
-
+            //throw new Exception(header('Location: ' . BASE_URL .'views/error/404.php'));
+            echo 'RutaControlador : ' . $RutaControlador  .'<br>';
+            echo 'Metodo : ' . $Metodo  .'<br>';
 
 
         }
