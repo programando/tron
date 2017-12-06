@@ -29,6 +29,9 @@ class Bootstrap
         $ControllerIndex        = new $IndexController;
         $ControllerIndex->Parametros_Iniciales();
 
+        if ($Controller == 'Redtron'){
+                $Controller ='RedTron';
+        }
 
         if( is_readable( $RutaControlador ) )    {
 
