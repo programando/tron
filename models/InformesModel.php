@@ -82,12 +82,21 @@
 								$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 								return 			$Registro   ;
 						}
+
 						public function Compras_Totales($idtercero,$anio)
 						{
 								$Registro                = $this->Db->Ejecutar_Sp("terceros_informes_red_total_y_compras_productos_totales($idtercero,$anio)");
 								$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
 								return 			$Registro   ;
 						}
+
+public function Compras_Totales_Clientes ($idtercero,$anio)
+						{
+								$Registro                = $this->Db->Ejecutar_Sp("terceros_informes_red_total_y_compras_productos_totales($idtercero,$anio)");
+								$this->Cantidad_Registros = $this->Db->Cantidad_Registros;
+								return 			$Registro   ;
+						}
+
 
 						public function Total_Amigos_Detallado_Por_Nivel( $idtercero ){
 						  $Registro   =  $this->Db->Ejecutar_Sp("terceros_total_amigos_red_insert_tabla_terceros_temporal( $idtercero )");

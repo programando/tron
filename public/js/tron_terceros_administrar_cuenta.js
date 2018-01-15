@@ -684,6 +684,21 @@ $('#compras_totales_link').on('click',function(){
 				  });
 });
 
+$('#compras_totales_clientes').on('click',function(){
+  $Opciones_Seleccionada = 'COMPRAS_TOTALES_CLIENTES';
+    $.ajax({
+         dataType: 'html',
+         url:      '/informes/Compras_Totales_clientes',
+         type:     'post',
+        success:  function (respuesta){
+             $('.contenedor_cuenta').html('');
+             $('.contenedor_cuenta').html(respuesta);
+          }
+      });
+});
+
+
+
 
 $('#informes-red-usuarios').on('click',function(){
     $Opciones_Seleccionada = 'RED_USUARIOS';

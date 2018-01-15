@@ -78,6 +78,19 @@
              $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes");
          }
 
+         public function Compras_Totales_Clientes($idtercero=false, $anio=0){
+            //compras_totales_clientes ( js)
+            if ($anio == 0 ) {
+                $anio = date('Y');
+            }
+            if ( $idtercero == FALSE ){
+              $idtercero = Session::Get('idtercero');
+            }
+             $this->View->Datos_Compras = $this->Informes->Compras_Totales($idtercero ,$anio );
+             $this->View->Anios         = $this->Informes->Anios_Disponibles_Consultas();
+             $this->View->Mostrar_Vista_Parcial("compras_mes_a_mes");
+         }
+
 
            public function Compras_Totales_x_IdTercero($idtercero=false, $anio=0){
              $this->View->Datos_Compras = $this->Informes->Compras_Totales($idtercero ,$anio );

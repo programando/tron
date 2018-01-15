@@ -330,18 +330,23 @@ class ProductosController extends Controller
      */
         Session::Set('IdProductoDetalle' , $Idproducto  );
         $nombre_producto = General_Functions::urls_amigables( $nombre_producto );
-        $this->Redireccionar('productos/detalle/'.$nombre_producto);
+        $this->Redireccionar('productos/detalle/'.$nombre_producto .'/'.$Idproducto);
     }
 
 
- public function detalle(){
+ public function detalle( $nombre_producto='', $Idproducto=0    ){
 
-     $Id_Area_Consulta = Session::Get('Id_Area_Consulta') ;
-      $idproducto                          = Session::Get('IdProductoDetalle') ;
+    $Id_Area_Consulta = Session::Get('Id_Area_Consulta') ;
+    $Idproducto = $this->View->Argumentos[1] ;
+    if ( $Idproducto > 0 ) {
+      $this->Vista_Ampliada ($Idproducto ,$Id_Area_Consulta );
+      return ;
+    }
 
+     $idproducto                          = Session::Get('IdProductoDetalle') ;
       $this->View->Favorito = FALSE ;
 
-      if ( $_SESSION['logueado'] == TRUE ) {
+      if ( $_SESSION['logueado'] == TRUE   ) {
           $Producto_Favorito                   = $this->Productos->Favoritos_Consulta_x_IdTercero_IdProducto(Session::Get('idtercero'),  $idproducto);
           if ( empty(  $Producto_Favorito   )){
              $this->View->Favorito = FALSE ;
