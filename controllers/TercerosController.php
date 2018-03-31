@@ -1415,10 +1415,10 @@ public function Actualizar_Password()
 
       Session::Set('idtppersona'       ,              $Registro[0]["idtppersona"]);
       Session::Set('regimen'       ,                  $Registro[0]["regimen"]);
-      Session::Set('baserteftecpras'     ,          $Registro[0]["baserteftecpras"]);
-      Session::Set('porcrteftecpras'     ,          $Registro[0]["porcrteftecpras"]);
-      Session::Set('basereteica'     ,             $Registro[0]["basereteica"]);
-      Session::Set('porcentajeica'       ,          $Registro[0]["porcentajeica"]);
+      Session::Set('baserteftecpras'     ,            $Registro[0]["baserteftecpras"]);
+      Session::Set('porcrteftecpras'     ,            $Registro[0]["porcrteftecpras"]);
+      Session::Set('basereteica'     ,                $Registro[0]["basereteica"]);
+      Session::Set('porcentajeica'       ,            $Registro[0]["porcentajeica"]);
 
 
       $this->Buscar_Usuarios_Activos_x_Email();

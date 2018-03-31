@@ -405,7 +405,7 @@ class CarritoController extends Controller{
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
 
       $this->Iniciar_Procesos_Carro();
-     // Debug::Mostrar(  $this->Datos_Carro  );
+
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
       $this->View->SetCss(array('tron_carrito' , 'tron_carrito_pgn','tron_carrito_vacio','tron_carrito_linea_tiempo', 'tron_carrito_confi_envio'));
@@ -848,9 +848,9 @@ private function Asignar_Transportadora_a_Productos(){
 
 
     private function Fletes_Carga_Fija(){
-      $_Carga_Fija_Unidades       = Session::Get('Carga_Fija_Unidades');
-      $_Carga_Fija_Vr_Declarado   =   Session::Get('Carga_Fija_Vr_Declarado')  ;
-      $_Carga_Fija_Peso_Pedido    = Session::Get('Carga_Fija_Peso_Pedido') ;
+      $_Carga_Fija_Unidades       =  Session::Get('Carga_Fija_Unidades');
+      $_Carga_Fija_Vr_Declarado   =  Session::Get('Carga_Fija_Vr_Declarado')  ;
+      $_Carga_Fija_Peso_Pedido    =  Session::Get('Carga_Fija_Peso_Pedido') ;
 
       $Subsidio_Flete_Ocasional   =   Session::Get('Carga_Fija_Subsidio_Flete_Ocasional')  ;
       $Anticipo_Recaudo_Ocasional =   Session::Get('Carga_Fija_Recaudo_Ocasional') ;
@@ -1678,7 +1678,7 @@ public function Agregar_Producto ()  {
         'vr_ppto_fletes_tron'=>0, 'vr_ppto_fletes_ocas'=>0, 'vr_anticipo_recaudo_tron'=>0,
         'vr_anticipo_recaudo_ocas'=>0, 'precio_kit_ocasional'=>0, 'precio_kit_tron'=>0,
         'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=> 0,
-        'aplica_proceso_tron' => 0 );
+        'aplica_proceso_tron' => 0, 'tipo_combo' =>'' );
 
       if (!isset( $Parametros)) {
         $Parametros = $this->Parametros->Consultar();
@@ -1712,6 +1712,19 @@ public function Agregar_Producto ()  {
 
           $CarroTemporal['idgrupo']                = $ProductoComprado[0]['idgrupo'];
           $CarroTemporal['codigo_grupo']           = $ProductoComprado[0]['codigo_grupo'];
+
+        /*
+          $CarroTemporal['tipo_combo']
+            Marcador para los combos.
+              MARZO 22 2018
+                IND = COMBOS INDUSTRIALES
+                OTR = COMBOS DE OTROS PRODUCTOS
+                NOTA:
+                  COMBOS INDUSTRIALES, SE DESBOBLAN EN EL MOMENTO DE GRABAR EL PEDIDO, ES DECIR,
+                  SE GRABAN LOS PRODUCTOS INDIVIDUALES QUE LO COMPONEN.
+          */
+          $CarroTemporal['tipo_combo']             = $ProductoComprado[0]['tipo_combo'];
+
           $CarroTemporal['idtipo_producto']        = $ProductoComprado[0]['idtipo_producto'];
           $CarroTemporal['id_categoria_producto']  = $ProductoComprado[0]['id_categoria_producto'];
           $CarroTemporal['idpresentacion']         = $ProductoComprado[0]['idpresentacion'];

@@ -8,6 +8,13 @@
         }
 
 
+        public function ProductosxCombo (  $idproducto ){
+            $Productos    = $this->Db->Ejecutar_Sp("productos_por_combo (  $idproducto  )");
+            return $Productos;
+        }
+
+
+
         public function Favoritos_Borrar_x_IdTercero_IdProducto (  $idtercero, $idproducto ){
             $Productos    = $this->Db->Ejecutar_Sp("productos_favoritos_borrar_x_idtercero_idproducto (  $idtercero, $idproducto  )");
             return $Productos;
