@@ -216,15 +216,17 @@
             <!--INICIO BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
         <div class="div-btn-">
              <button type="button" class="agregar boton-agregar-carrito"
-              id                     = "<?=$id_controles ;?>"
-              id-categoria-producto  = "<?= $id_categoria_producto ;?>"
-              en-oferta               = "<?= $en_oferta ;?>">
-              <div class="btn-agregar-carrito">
-                Agregar
-                <span>
-                   <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
-                </span>
-              </div>
+                  id                     = "<?=$id_controles ;?>"
+                  id-categoria-producto  = "<?= $id_categoria_producto ;?>"
+                  en-oferta              = "<?= $en_oferta ;?>"
+                  tipo-combo             = "<?= $tipo_combo ;?>"
+                  >
+                  <div class="btn-agregar-carrito">
+                    Agregar
+                    <span>
+                       <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
+                    </span>
+                  </div>
              </button>
         </div><!--FIN BOTON DE AGREEGAR AL CARRITO DE COMPRAS -->
 

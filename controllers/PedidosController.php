@@ -194,7 +194,7 @@ class PedidosController extends Controller
           $tipo_combo        = $Productos['tipo_combo'];
           $idproducto        = $Productos['idproducto'];
 
-          if ( $tipo_combo  != 'IND'){
+          if ( $tipo_combo  != 'IND' || $tipo_combo == ''){
               $cantidad          = $Productos['cantidad'];
               $vrunitario        = $Productos['precio_unitario_produc_pedido'];   ;
               $vr_total          = $Productos['precio_total_produc_pedido'];
@@ -214,14 +214,9 @@ class PedidosController extends Controller
 
      	}  // Fin Foreach
 
-
-
-
+        
     		//$Texto_SQL = $Texto_SQL . $Datos;
         $Texto_SQL = $Texto_SQL . $this->Datos ;
-
-
-
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
 
 
@@ -242,7 +237,7 @@ class PedidosController extends Controller
 
         Session::Set('Valor_Final_Pedido_Real',$vr_total_pedido );
 
-        echo "OK";
+        echo $Texto_SQL;
 
     }
 

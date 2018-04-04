@@ -550,8 +550,7 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
 }
 
-	$('#contenido-productos').on('click','.boton-agregar-carrito',function()
-{
+	$('#contenido-productos').on('click','.boton-agregar-carrito',function() {
 
 		var NombreBoton           = $(this).attr("id");
 		var IdInputCantidad       = NombreBoton.split("cantidad");
@@ -563,9 +562,11 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 		var es_tron_acc           = false;
 		var id_categoria_producto = $(this).attr('id-categoria-producto');
 		var en_oferta             = $(this).attr('en-oferta');
+		var tipo_combo             = $(this).attr('tipo-combo');
+
 
   var Parametros 						 		  = {"IdProducto" :IdProducto, "CantidadComprada": CantidadComprada,
-  																									"es_tron": es_tron , "es_tron_acc": es_tron_acc, "en_oferta":en_oferta 	 };
+  																									"es_tron": es_tron , "es_tron_acc": es_tron_acc, "en_oferta":en_oferta ,'tipo_combo':tipo_combo	 };
  if ( CantidadComprada > 0 ){
   Agregar_Producto_a_Carrito(NomProducto,Parametros);
   Mostrar_Mensaje_Producto_Agregado(NomProducto);
@@ -579,11 +580,11 @@ var Comprobar_IdTipo_Plan_Usuario_Restriccion_Kit_Inicio = function(){
 
 
 
-$('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function()
-	{
+$('#contenido-productos').on('click','#tarro-de-eliminar-pedido',function() {
 		var idproducto = $(this).attr("idproducto");
 		var cantidad   = $(this).attr('cantidad');
-		var Parametros = {"IdProducto" :idproducto, "Cantidad": cantidad };
+		var idproductocombo = $(this).attr("idproductocombo");
+		var Parametros = {"IdProducto" :idproducto, "Cantidad": cantidad, 'idproductocombo': idproductocombo };
 
   Borrar_Producto_de_Carrito(Parametros);
   Actualizar_Vista_Carrito();

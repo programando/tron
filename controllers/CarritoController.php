@@ -307,6 +307,8 @@ class CarritoController extends Controller{
       if ( $producto == 0 &&  $cantidad == 0){
         $IdProducto        = General_Functions::Validar_Entrada('IdProducto','NUM');
         $Cantidad          = General_Functions::Validar_Entrada('Cantidad','NUM');
+        $IdProductoCombo   = General_Functions::Validar_Entrada('idproductocombo','NUM');
+
       }else{
         $IdProducto  = $producto;
         $Cantidad    = $cantidad;
@@ -1463,8 +1465,8 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
 
 
 
-       public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()
-    {/** FEBRERO 02 DE 2015
+       public function Totalizar_Carrito_Aplicacion_Puntos_Comisiones_Cupon()    {
+       /** FEBRERO 02 DE 2015
       *     REALIZA APLICACION DE DESCUENTOS POR CONCEPTO DE PUNTOS, COMISIONES Y CUPONES DE DESCUENTO
       */
             // Aplición de descuentos por concepto de puntos y comisiones pendientes por pagar
@@ -1480,6 +1482,8 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
 
       $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
       $Aplicacion_Puntos_Comisiones = Session::Get('Aplicacion_Puntos_Comisiones');
+      $VrRealPedido = 0;
+      $NoDescontar  = 0;
 
     // (isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = FALSE ) ||
 
@@ -1502,6 +1506,13 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
              $this->Vr_Total_Pedido_Ocasional = 0;
              $this->Vr_Total_Pedido_Amigos    = 0;
            }else{
+            //Para que si se descuentan puntos pueda pagar el pedido
+            $VrRealPedido = $this->Vr_Total_Pedido_Real      - $this->Saldo_Puntos_Cantidad;
+            if (  $VrRealPedido < 20000 ){
+              $NoDescontar = 20000 - $VrRealPedido;
+              $this->Saldo_Puntos_Cantidad = $this->Saldo_Puntos_Cantidad - $NoDescontar;
+            }
+
             $this->Vr_Total_Pedido_Real      = $this->Vr_Total_Pedido_Real      - $this->Saldo_Puntos_Cantidad;
             $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Puntos_Cantidad;
             $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Puntos_Cantidad;
@@ -1518,7 +1529,16 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
            $this->Vr_Total_Pedido_Ocasional = 0;
            $this->Vr_Total_Pedido_Amigos    = 0;
          }else{
-          $this->Vr_Total_Pedido_Real = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
+
+            //Para que si se descuentan comisiones pueda pagar el pedido
+            $VrRealPedido = $this->Vr_Total_Pedido_Real      - $this->Saldo_Comisiones;
+            if (  $VrRealPedido < 20000 ){
+              $NoDescontar = 20000 - $VrRealPedido;
+              $this->Saldo_Comisiones = $this->Saldo_Comisiones - $NoDescontar;
+            }
+
+
+          $this->Vr_Total_Pedido_Real      = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
           $this->Vr_Total_Pedido_Ocasional = $this->Vr_Total_Pedido_Ocasional - $this->Saldo_Comisiones;
           $this->Vr_Total_Pedido_Amigos    = $this->Vr_Total_Pedido_Amigos    - $this->Saldo_Comisiones;
           $Comisiones_Utilizadas           =  $this->Saldo_Comisiones;
@@ -1590,13 +1610,16 @@ public function Agregar_Producto ()  {
       /** ENERO 06 DE 2014
       *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
       */
-
+     
+      
+      $TipoCombo        = General_Functions::Validar_Entrada('tipo_combo','TEXT');
       $IdProducto       = General_Functions::Validar_Entrada('IdProducto','NUM');
       $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
       $ProdTron         = General_Functions::Validar_Entrada('es_tron','BOL');
       $ProdTronAcc      = General_Functions::Validar_Entrada('es_tron_acc','BOL');
       $ProdEnOferta     = General_Functions::Validar_Entrada('en_oferta','BOL');
       $NombreArray      = 'TRON'.$IdProducto ;
+      $IdProductoCombo  = $IdProducto ;
 
 
         Session::Set($NombreArray,$CantidadComprada); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
@@ -1605,29 +1628,59 @@ public function Agregar_Producto ()  {
         if ( !isset( $_SESSION['carrito'])) {
           $_SESSION['carrito'] = array();
         }
-
         $Carrito_Actual     = $_SESSION['carrito'];
-        $Ultima_Compra      = array('idproducto'=>$IdProducto ,'cantidad'=>$CantidadComprada,'en_oferta'=>$ProdEnOferta );
-        $Existe_Id_Producto = false;
-        $Pos                = 0;
-        $Cantidad_Filas     = count($Carrito_Actual);
-        $i                  = 0;
 
-        for ($i=0; $i < $Cantidad_Filas;  $i++)  {
-          $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
+        if ( $TipoCombo == '') { 
+              $Ultima_Compra  = array( 'idproducto'      => $IdProducto , 'cantidad' => $CantidadComprada,
+                                       'en_oferta'       => $ProdEnOferta, 'idproductocombo' => 0,
+                                       'tipo_combo'      => '', 'pv_ocasional' =>0, 'pv_tron' => 0   );
+              $Existe_Id_Producto = false;
+              $Pos                = 0;
+              $Cantidad_Filas     = count($Carrito_Actual);
+              $i                  = 0;
 
-          if ( $IdProducto_Carro == $IdProducto )      {
-            $Carrito_Actual[$i]['cantidad']  = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
-            $Cantidad_Total                  = $Carrito_Actual[$i]['cantidad'] ;
-            $i                               = $Cantidad_Filas+1;
-            $Existe_Id_Producto              = true;
-                Session::Set($NombreArray,$Cantidad_Total); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
-              }
-            }
+              for ($i=0; $i < $Cantidad_Filas;  $i++)  {
+                $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
+                if ( $IdProducto_Carro == $IdProducto )      {
+                  $Carrito_Actual[$i]['cantidad']  = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
+                  $Cantidad_Total                  = $Carrito_Actual[$i]['cantidad'] ;
+                  $i                               = $Cantidad_Filas+1;
+                  $Existe_Id_Producto              = true;
+                    Session::Set($NombreArray,$Cantidad_Total); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
+                  }
+                }
+                if ($Existe_Id_Producto == FALSE)  {
+                    array_push($Carrito_Actual, $Ultima_Compra);
+                 }
+             }
 
-            if ($Existe_Id_Producto == FALSE)  {
-              array_push($Carrito_Actual, $Ultima_Compra);
-            }
+        if ( $TipoCombo == 'IND' ){
+                $Productos = $this->Productos->ProductosxCombo( $IdProducto  );
+                foreach ($Productos as $Producto)  {
+                    $idproducto        = $Producto['idproducto'];
+                    $cantidad          = $Producto['cantidad'];
+                    if ( $cantidad  > 0 ){
+                        $vrunitario        = $Producto['precio_web'] / $cantidad ;
+                      }else{
+                        $vrunitario        = $Producto['precio_web'] ;
+                      }
+                    $vr_total          = $cantidad  * $vrunitario ;
+                    $idescala_dt       = 0;
+                    $id_transportadora = 0;
+                    $en_oferta         = 0;
+                    $idgrupo           = $Producto['idgrupo'];
+                    
+                    $Ultima_Compra  = array( 'idproducto' => $idproducto ,
+                                       'cantidad'         => $cantidad,
+                                       'en_oferta'        => 0,
+                                       'idproductocombo'  => $IdProducto,
+                                       'tipo_combo'       => 'IND',
+                                       'pv_ocasional'     => $vrunitario,
+                                       'pv_tron'          => $vrunitario);
+                      array_push($Carrito_Actual, $Ultima_Compra);
+                }  // Fin Foreach
+             } 
+
 
             $_SESSION['carrito'] = $Carrito_Actual;
 
@@ -1643,7 +1696,7 @@ public function Agregar_Producto ()  {
 
 
 
-          public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $IdProductoAgregado,  $ProdEnOferta   ) {
+    public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $IdProductoAgregado,  $ProdEnOferta   ) {
       /** ENERO 07 DE 2015
       * COMPLEMENTA LOS DATOS NECESARIOS DE PRODUCTOS EN EL CARRO DE COMPRAS PARA REALIZAR TODAS LAS OPERACIONES CORRESPONDIENTES
       * Y POSTERIORMENTE FINALIZAR EL PEDIDO
@@ -1678,7 +1731,7 @@ public function Agregar_Producto ()  {
         'vr_ppto_fletes_tron'=>0, 'vr_ppto_fletes_ocas'=>0, 'vr_anticipo_recaudo_tron'=>0,
         'vr_anticipo_recaudo_ocas'=>0, 'precio_kit_ocasional'=>0, 'precio_kit_tron'=>0,
         'tipo_despacho_final'=>'', 'id_transportadora'=>0, 'en_oferta'=> 0,
-        'aplica_proceso_tron' => 0, 'tipo_combo' =>'' );
+        'aplica_proceso_tron' => 0, 'tipo_combo' =>'', 'idproductocombo'=>0 );
 
       if (!isset( $Parametros)) {
         $Parametros = $this->Parametros->Consultar();
@@ -1686,11 +1739,15 @@ public function Agregar_Producto ()  {
 
       $CarroFinalCompleto = array();
       $Datos_Carro        = $_SESSION['carrito'];
+      
         //Debug::Mostrar( $Datos_Carro);
       foreach ( $Datos_Carro as $ProductosCarro ) {
-        $Cantidad     = $ProductosCarro['cantidad'] ;
-        $IdProducto   = $ProductosCarro['idproducto'];
-        $en_oferta    = $ProductosCarro['en_oferta'];
+        $Cantidad        = $ProductosCarro['cantidad'] ;
+        $IdProducto      = $ProductosCarro['idproducto'];
+        $en_oferta       = $ProductosCarro['en_oferta'];
+        $Pv_Tron         = $ProductosCarro['pv_tron'];
+        $Pv_Ocasional    = $ProductosCarro['pv_ocasional'];
+        $IdProductoCombo = $ProductosCarro['idproductocombo'];
 
         if ( $Cantidad > 0 )   {
           $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto( $IdProducto );
@@ -1701,15 +1758,12 @@ public function Agregar_Producto ()  {
             $CarroTemporal['en_oferta'] = $en_oferta;
           }
 
-
-
-          $CarroTemporal['idproducto']            = $IdProducto;
-          $CarroTemporal['cantidad']              = $Cantidad ;
-
+          $CarroTemporal['idproductocombo']        = $IdProductoCombo;
+          $CarroTemporal['idproducto']             = $IdProducto;
+          $CarroTemporal['cantidad']               = $Cantidad ;
           $CarroTemporal['cmv']                    = $ProductoComprado[0]['cmv'];
           $CarroTemporal['costo_sin_iva']          = $ProductoComprado[0]['costo_sin_iva'];
           $CarroTemporal['fabricado_x_ta']         = $ProductoComprado[0]['fabricado_x_ta'];
-
           $CarroTemporal['idgrupo']                = $ProductoComprado[0]['idgrupo'];
           $CarroTemporal['codigo_grupo']           = $ProductoComprado[0]['codigo_grupo'];
 
@@ -1738,7 +1792,16 @@ public function Agregar_Producto ()  {
 
           $CarroTemporal['peso_gramos']            = $ProductoComprado[0]['peso_gramos'];
           $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
-          $CarroTemporal['pv_tron']                = $ProductoComprado[0]['pv_tron'];
+          if ( $Pv_Ocasional == 0 ){
+              $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
+            }else {
+                $CarroTemporal['pv_ocasional']           = $Pv_Ocasional;
+            }
+          if ( $Pv_Tron == 0 ){
+             $CarroTemporal['pv_tron']                = $ProductoComprado[0]['pv_tron'];
+          }else           {
+             $CarroTemporal['pv_tron']                = $Pv_Tron;
+          }
 
 
           $CarroTemporal['tipo_despacho']          = $ProductoComprado[0]['tipo_despacho'];

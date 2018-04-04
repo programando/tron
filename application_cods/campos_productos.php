@@ -26,6 +26,7 @@
        //
        $text_pv_comprador_ocasional = Numeric_Functions::Formato_Numero($Productos['pv_ocasional']);
        $text_pv_tron                = Numeric_Functions::Formato_Numero($Productos['pv_tron']);
+       $tipo_combo                  = $Productos['tipo_combo'];
 
        if (!isset($Id_Area_Consulta))  {
               $Id_Area_Consulta = 2;

@@ -31,6 +31,12 @@
           $tipo_despacho_final    = $ProductosCarro['tipo_despacho_final'];
           $id_transportadora      = $ProductosCarro['id_transportadora'];
           $en_oferta              = $ProductosCarro['en_oferta'];
+          $idproductocombo        = $ProductosCarro['idproductocombo'];
+          if ( $idproductocombo > 0 ){
+              $disabled  = 'disabled';
+          }else{
+              $disabled  = '';
+          }
 
       ?>
 
@@ -40,10 +46,11 @@
        <td class="col-tabla-eliminar" >
          <p class="info-tabla">
            <span class="glyphicon glyphicon-trash  img-eliminar"
-                 id       ="tarro-de-eliminar-pedido"
-                 idproducto ="<?= $idproducto ;?>"
-                 cantidad ="<?= $cantidad  ;?>"
-                 title    ="Eliminar Producto del Pedido">
+                 id               = "tarro-de-eliminar-pedido"
+                 idproducto       = "<?= $idproducto ;?>"
+                 cantidad         = "<?= $cantidad  ;?>"
+                 title            = "Eliminar Producto del Pedido" 
+                 idproductocombo  = "<? $idproductocombo ;?>">
            </span>
 
 
@@ -61,7 +68,8 @@
        <td><!-- Presentacon $id_transportadora. ' ' .substr($tipo_despacho_final,0,3) . ' '.-->
              <p class="text-center info-tabla"> <?= $nompresentacion ;?> </p>
        </td> <!-- Presentacon -->
-
+       
+       
        <td class="col-tabla-cantidad" ><!--Botones => Cantidad -->
         <p class="text-center">
          <div class="costos-cantidad cantidad">
@@ -69,51 +77,63 @@
             <div class=" col-xs-4" id="cont-menos">
               <div class="form-group">
                 <!--Inicio  Boton Menos-->
-                <button
-                id="<?=$idproducto ;?>"
-                type  = "button"
-                class ="btn btn-default btn-menos btns-carrito carrito-resumen-menos"
-                onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"
-                idproducto  = "<?=$idproducto ;?>"
-
-                NomProducto ="<?= $nom_producto ;?>" >-
-              </button><!-- Fin Boton Menos-->
-
+                <?php if ( $disabled =='') :?>
+                  <button
+                  id="<?=$idproducto ;?>"
+                  type  = "button"
+                  class ="btn btn-default btn-menos btns-carrito carrito-resumen-menos"
+                  onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"
+                  idproducto  = "<?=$idproducto ;?>"
+                  NomProducto ="<?= $nom_producto ;?>" 
+                  "<?= $disabled ;?>" >-
+                </button><!-- Fin Boton Menos-->
+                <?php endif ;?>
             </div>
           </div>
 
+
           <div class="col-xs-4" id="cont-digitos">
             <div class="form-group"><!--Inicio Input-->
+            
+            <?php if ( $disabled =='') :?>
              <input type        = "text"  value="<?= $cantidad  ;?>"
-             id                = "<?=$id_controles ;?>"
-             class             = "digitos btn-carrito-input CantProductosComprados"
-             id-idescala       = "<?= $idescala;?>"
-             pv-tron-escala-a  = "<?= $pv_tron_escala_a ;?>"
-             pv-tron-escala-b  = "<?= $pv_tron_escala_b ;?>"
-             pv-tron-escala-c  = "<?= $pv_tron_escala_c ;?>"
-             precio-amigo-tron = "<?= $id_pv_tron ;?>" >
-
+               id                = "<?=$id_controles ;?>"
+               class             = "digitos btn-carrito-input CantProductosComprados"
+               id-idescala       = "<?= $idescala;?>"
+               pv-tron-escala-a  = "<?= $pv_tron_escala_a ;?>"
+               pv-tron-escala-b  = "<?= $pv_tron_escala_b ;?>"
+               pv-tron-escala-c  = "<?= $pv_tron_escala_c ;?>"
+               precio-amigo-tron = "<?= $id_pv_tron ;?>" >
+             <?php else :?>
+             <input type        = "text"  value="<?= $cantidad  ;?>"
+               id                = "<?=$id_controles ;?>" 
+               disabled ='disabled'>
+            <?php endif ;?>
            </div><!--Fin Input-->
          </div>
 
          <div class=" col-xs-4" id="cont-mas">
           <div class="form-group">
             <!-- Inicio Boton Mas-->
-            <button
-            id          ="<?=$idproducto ;?>"
-            type        ="button"
-            class       ="btn btn-default btn-menos btns-carrito carrito-resumen-mas"
-            onclick     ="javascript: Carrito_Sumar('<?=$id_controles ;?>')"
-            idproducto  = "<?=$idproducto ;?>"
-            en-oferta   = "<?= $en_oferta ;?>"
-            NomProducto ="<?= $nom_producto ;?>" >+
-          </button> <!-- Fin Boton Mas-->
+           <?php if ( $disabled =='') :?>
+              <button
+              id          ="<?=$idproducto ;?>"
+              type        ="button"
+              class       ="btn btn-default btn-menos btns-carrito carrito-resumen-mas"
+              onclick     ="javascript: Carrito_Sumar('<?=$id_controles ;?>')"
+              idproducto  = "<?=$idproducto ;?>"
+              en-oferta   = "<?= $en_oferta ;?>"
+              NomProducto ="<?= $nom_producto ;?>"
+                >+
+            </button> <!-- Fin Boton Mas-->
+          <?php endif ;?>
         </div>
       </div>
     </form>
   </div>
 </p>
 </td><!--Botones => Cantidad -->
+
 
 <?php
   $cumple_condicion_cpras_tron_industial = Session::Get('cumple_condicion_cpras_tron_industial');
