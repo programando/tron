@@ -141,7 +141,6 @@ function Borrar_Producto(Parametros){
 					type:     'post',
      success:  function (resultado)
     	 {
-    	 		//Imprimir_Totales_Carrito_Header(resultado.SubTotal_Pedido_Ocasional,resultado.SubTotal_Pedido_Amigos );
     	 		Actualizar_Vista_Carrito();
     	 }
 					});

@@ -49,8 +49,8 @@
                  id               = "tarro-de-eliminar-pedido"
                  idproducto       = "<?= $idproducto ;?>"
                  cantidad         = "<?= $cantidad  ;?>"
-                 title            = "Eliminar Producto del Pedido" 
-                 idproductocombo  = "<? $idproductocombo ;?>">
+                 title            = "Eliminar Producto del Pedido"
+                 idproductocombo  = "<?= $idproductocombo ;?>">
            </span>
 
 
@@ -68,8 +68,8 @@
        <td><!-- Presentacon $id_transportadora. ' ' .substr($tipo_despacho_final,0,3) . ' '.-->
              <p class="text-center info-tabla"> <?= $nompresentacion ;?> </p>
        </td> <!-- Presentacon -->
-       
-       
+
+
        <td class="col-tabla-cantidad" ><!--Botones => Cantidad -->
         <p class="text-center">
          <div class="costos-cantidad cantidad">
@@ -84,7 +84,7 @@
                   class ="btn btn-default btn-menos btns-carrito carrito-resumen-menos"
                   onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"
                   idproducto  = "<?=$idproducto ;?>"
-                  NomProducto ="<?= $nom_producto ;?>" 
+                  NomProducto ="<?= $nom_producto ;?>"
                   "<?= $disabled ;?>" >-
                 </button><!-- Fin Boton Menos-->
                 <?php endif ;?>
@@ -94,7 +94,7 @@
 
           <div class="col-xs-4" id="cont-digitos">
             <div class="form-group"><!--Inicio Input-->
-            
+
             <?php if ( $disabled =='') :?>
              <input type        = "text"  value="<?= $cantidad  ;?>"
                id                = "<?=$id_controles ;?>"
@@ -106,7 +106,7 @@
                precio-amigo-tron = "<?= $id_pv_tron ;?>" >
              <?php else :?>
              <input type        = "text"  value="<?= $cantidad  ;?>"
-               id                = "<?=$id_controles ;?>" 
+               id                = "<?=$id_controles ;?>"
                disabled ='disabled'>
             <?php endif ;?>
            </div><!--Fin Input-->

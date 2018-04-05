@@ -310,28 +310,44 @@ class CarritoController extends Controller{
         $IdProductoCombo   = General_Functions::Validar_Entrada('idproductocombo','NUM');
 
       }else{
-        $IdProducto  = $producto;
-        $Cantidad    = $cantidad;
+        $IdProducto      = $producto;
+        $Cantidad        = $cantidad;
+        $IdProductoCombo = 0;
       }
       $i                 = 0;
       $NombreArray       = 'TRON'.$IdProducto;              // CAPTURA CANTIDAD DE PRODUCTO TRON COMPRADO
 
-      foreach ($this->Datos_Carro as $key => $productos) {
-        if ($productos['idproducto'] == $IdProducto)  {
-          $cantidad_producto = $this->Datos_Carro[$key]['cantidad'];
-          $cantidad_producto = $cantidad_producto - $Cantidad;
 
-          Session::Set($NombreArray,$cantidad_producto);
+      if ( $IdProductoCombo == 0 ){
 
-          if ($cantidad_producto <= 0) {
-            array_splice($this->Datos_Carro, $i, 1);
-            Session::Set($NombreArray,0);
-          }else   {
-           $this->Datos_Carro[$key]['cantidad'] = $cantidad_producto;
+        foreach ($this->Datos_Carro as $key => $productos) {
+          if ($productos['idproducto'] == $IdProducto)  {
+            $cantidad_producto = $this->Datos_Carro[$key]['cantidad'];
+            $cantidad_producto = $cantidad_producto - $Cantidad;
+
+            Session::Set($NombreArray,$cantidad_producto);
+
+            if ($cantidad_producto <= 0) {
+              array_splice($this->Datos_Carro, $i, 1);
+              Session::Set($NombreArray,0);
+            }else   {
+             $this->Datos_Carro[$key]['cantidad'] = $cantidad_producto;
+           }
          }
-       }
-       $i++;
+         $i++;
+       } // end foreach
      }
+     $i=0;
+     if ( $IdProductoCombo > 0 ){
+       foreach ($this->Datos_Carro as $key => $productos) {
+        if ($productos['idproductocombo'] == $IdProductoCombo)  {
+          unset( $this->Datos_Carro[$i] );
+        }
+        $i++;
+
+       } // end foreach
+     }
+
      Session::Destroy('CarritoTron');
      $this->Cerrar_Procesos_Carro();
 
@@ -407,6 +423,7 @@ class CarritoController extends Controller{
       $Tipo_Vista = $this->View->Argumentos[0]; // 1 = VISTA CARRO PIRNCIPAL   2= VISTA DE CARRO PARCIAL, AJAX
 
       $this->Iniciar_Procesos_Carro();
+
 
 
       $this->View->SetJs(array('tron_carrito','tron_productos.jquery','tron_pasos_pagar'));
@@ -652,7 +669,7 @@ class CarritoController extends Controller{
 
  }
 
-public  function Verificar_Aplicacion_Impuestos(){
+ public  function Verificar_Aplicacion_Impuestos(){
 
   Session::Set('vr_rte_ica', 0) ;
   Session::Set('vr_rte_fte', 0) ;
@@ -660,32 +677,32 @@ public  function Verificar_Aplicacion_Impuestos(){
   $idmcipio     = Session::Get('idmcipio');
 
   if ( Session::Get('logueado') == FALSE)    { return ; }
-  if ( !isset( $iddireccion_despacho  ) || $iddireccion_despacho  == 0 ) { return ; }
+    if ( !isset( $iddireccion_despacho  ) || $iddireccion_despacho  == 0 ) { return ; }
 
 
-  $basereteica  = Session::Get('basereteica');
-  $vr_rte_ica   = 0 ;
-  $vr_rte_fte   = 0 ;
-  $vr_base      = $this->Vr_Base_Iva - $this->Vr_Transporte_Real ;
+    $basereteica  = Session::Get('basereteica');
+    $vr_rte_ica   = 0 ;
+    $vr_rte_fte   = 0 ;
+    $vr_base      = $this->Vr_Base_Iva - $this->Vr_Transporte_Real ;
 
   // SI ES CALI Y APLICA BASE, CALCULO RETE-ICA
-  if ( $vr_base >= $basereteica && $idmcipio  = 153){
+    if ( $vr_base >= $basereteica && $idmcipio  = 153){
       $vr_rte_ica = $vr_base * Session::Get('porcentajeica')/1000;
-  }
+    }
   //SI REGIMEN COMNUN O SIMPLIFICADO Y APLICA BASE, CALCULO RETEFUENTE
-  if ( ( Session::Get('regimen') == 1 || Session::Get('regimen') == 2 ) && $vr_base >= Session::Get('baserteftecpras') ){
-    $vr_rte_fte = $vr_base* Session::Get('porcrteftecpras')/100 ;
-  }
+    if ( ( Session::Get('regimen') == 1 || Session::Get('regimen') == 2 ) && $vr_base >= Session::Get('baserteftecpras') ){
+      $vr_rte_fte = $vr_base* Session::Get('porcrteftecpras')/100 ;
+    }
 
-  Session::Set('vr_rte_ica', $vr_rte_ica ) ;
-  Session::Set('vr_rte_fte', $vr_rte_fte ) ;
+    Session::Set('vr_rte_ica', $vr_rte_ica ) ;
+    Session::Set('vr_rte_fte', $vr_rte_fte ) ;
 
   //Debug::Mostrar( Session::Get('porcentajeica')/1000 );
 
-}
+  }
 
 
- public function Totalizar_Carrito (  ){
+  public function Totalizar_Carrito (  ){
   /** JULIO 24 DE 2015
    *      REALIA LOS CALCULOS NECESARIOS PARA HALLAR LOS TOTALES EN EL CARRITO
    */
@@ -807,14 +824,14 @@ public  function Verificar_Aplicacion_Impuestos(){
     */
 
 
-      Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
-      Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
-      Session::Set('SubTotal_Pedido_Amigos',    $this->SubTotal_Pedido_Amigos );
-      Session::Set('presupuesto_flete_otros',   $this->vr_total_ppto_fletes );
+          Session::Set('Vr_Total_Pedido_Real',      $this->Vr_Total_Pedido_Real);
+          Session::Set('SubTotal_Pedido_Ocasional', $this->SubTotal_Pedido_Ocasional );
+          Session::Set('SubTotal_Pedido_Amigos',    $this->SubTotal_Pedido_Amigos );
+          Session::Set('presupuesto_flete_otros',   $this->vr_total_ppto_fletes );
 
-      Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
-      Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
-      Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
+          Session::Set('Vr_Recaudo',                $this->Vr_Recaudo);
+          Session::Set('Vr_Base_Iva',               $this->Vr_Base_Iva);
+          Session::Set('Valor_Declarado_Total',     $this->Valor_Declarado_Total);
 
 } // Fin Tootalizar carrito tem
 
@@ -1347,11 +1364,11 @@ private function Determinar_Cumple_Condicion_Cpras_Tron_Industial(){
 
   $compras_este_mes_tron                = $Registro[0]['compras_productos_tron'];
   $compras_este_mes_industiales         = $Registro[0]['compras_productos_fabricados_ta'];
-   $compras_totales_tron                = 0;
+  $compras_totales_tron                = 0;
 
   $compras_totales_tron                 = $this->compras_tron + $compras_este_mes_tron ;
   $compras_totales_industrial           = $this->compras_industrial + $compras_este_mes_industiales ;
-   $compras_totales_tron               =  $compras_totales_tron + $compras_totales_industrial;
+  $compras_totales_tron               =  $compras_totales_tron + $compras_totales_industrial;
   $aplica_pago_adicional_payu_latam     = FALSE;
   $cumple_compras_tron                  = FALSE;
 
@@ -1385,7 +1402,7 @@ Session::Set('aplica_pago_adicional_payu_latam'        , $aplica_pago_adicional_
 Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
 
 
-      return $Cumple_Condic_Cpras_Tron_Industial;
+return $Cumple_Condic_Cpras_Tron_Industial;
 
     } // fin Determinar_cumple_condicion_cpras_tron_industial
 
@@ -1471,23 +1488,23 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
       */
             // Aplición de descuentos por concepto de puntos y comisiones pendientes por pagar
       // Si el pedido se realiza para un amigo, no se aplican descuentos de comisiones y puntos
-      Session::Set('Vr_Usado_Cupon_Descuento',    0);
-      Session::Set('Puntos_Utilizados',           0 );
-      Session::Set('Comisiones_Utilizadas',       0 );
+       Session::Set('Vr_Usado_Cupon_Descuento',    0);
+       Session::Set('Puntos_Utilizados',           0 );
+       Session::Set('Comisiones_Utilizadas',       0 );
 
-      $Vr_Usado_Cupon_Descuento  = 0;
-      $Puntos_Utilizados         = 0;
-      $Comisiones_Utilizadas     = 0;
+       $Vr_Usado_Cupon_Descuento  = 0;
+       $Puntos_Utilizados         = 0;
+       $Comisiones_Utilizadas     = 0;
       //Debug::Mostrar( 'Comisiones_punto ' . $this->Vr_Total_Pedido_Ocasional  );
 
-      $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
-      $Aplicacion_Puntos_Comisiones = Session::Get('Aplicacion_Puntos_Comisiones');
-      $VrRealPedido = 0;
-      $NoDescontar  = 0;
+       $Pedido_Para_Amigo            = Session::Get('Generando_Pedido_Amigo');
+       $Aplicacion_Puntos_Comisiones = Session::Get('Aplicacion_Puntos_Comisiones');
+       $VrRealPedido = 0;
+       $NoDescontar  = 0;
 
     // (isset($Pedido_Para_Amigo) == TRUE && $Pedido_Para_Amigo = FALSE ) ||
 
-      if ( ( isset($Aplicacion_Puntos_Comisiones ) && $Aplicacion_Puntos_Comisiones == TRUE ) ){
+       if ( ( isset($Aplicacion_Puntos_Comisiones ) && $Aplicacion_Puntos_Comisiones == TRUE ) ){
         $Vr_Usado_Cupon_Descuento = 0;
         $Puntos_Utilizados        = 0;
         $Comisiones_Utilizadas    = 0;
@@ -1531,11 +1548,11 @@ Session::Set('cumple_compras_tron'                     , $cumple_compras_tron );
          }else{
 
             //Para que si se descuentan comisiones pueda pagar el pedido
-            $VrRealPedido = $this->Vr_Total_Pedido_Real      - $this->Saldo_Comisiones;
-            if (  $VrRealPedido < 20000 ){
-              $NoDescontar = 20000 - $VrRealPedido;
-              $this->Saldo_Comisiones = $this->Saldo_Comisiones - $NoDescontar;
-            }
+          $VrRealPedido = $this->Vr_Total_Pedido_Real      - $this->Saldo_Comisiones;
+          if (  $VrRealPedido < 20000 ){
+            $NoDescontar = 20000 - $VrRealPedido;
+            $this->Saldo_Comisiones = $this->Saldo_Comisiones - $NoDescontar;
+          }
 
 
           $this->Vr_Total_Pedido_Real      = $this->Vr_Total_Pedido_Real - $this->Saldo_Comisiones;
@@ -1610,8 +1627,8 @@ public function Agregar_Producto ()  {
       /** ENERO 06 DE 2014
       *   REALIZA LA ENTRADA DE PRODUCTOS AL CARRO DE COMPRA DE ACUERDO A LAS COMPRAS QUE ESTÁ REALIZANDO EL USUARIO
       */
-     
-      
+
+
       $TipoCombo        = General_Functions::Validar_Entrada('tipo_combo','TEXT');
       $IdProducto       = General_Functions::Validar_Entrada('IdProducto','NUM');
       $CantidadComprada = General_Functions::Validar_Entrada('CantidadComprada','NUM');
@@ -1630,73 +1647,73 @@ public function Agregar_Producto ()  {
         }
         $Carrito_Actual     = $_SESSION['carrito'];
 
-        if ( $TipoCombo == '') { 
-              $Ultima_Compra  = array( 'idproducto'      => $IdProducto , 'cantidad' => $CantidadComprada,
-                                       'en_oferta'       => $ProdEnOferta, 'idproductocombo' => 0,
-                                       'tipo_combo'      => '', 'pv_ocasional' =>0, 'pv_tron' => 0   );
-              $Existe_Id_Producto = false;
-              $Pos                = 0;
-              $Cantidad_Filas     = count($Carrito_Actual);
-              $i                  = 0;
+        if ( $TipoCombo == '') {
+          $Ultima_Compra  = array( 'idproducto'      => $IdProducto , 'cantidad' => $CantidadComprada,
+           'en_oferta'       => $ProdEnOferta, 'idproductocombo' => 0,
+           'tipo_combo'      => '', 'pv_ocasional' =>0, 'pv_tron' => 0   );
+          $Existe_Id_Producto = false;
+          $Pos                = 0;
+          $Cantidad_Filas     = count($Carrito_Actual);
+          $i                  = 0;
 
-              for ($i=0; $i < $Cantidad_Filas;  $i++)  {
-                $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
-                if ( $IdProducto_Carro == $IdProducto )      {
-                  $Carrito_Actual[$i]['cantidad']  = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
-                  $Cantidad_Total                  = $Carrito_Actual[$i]['cantidad'] ;
-                  $i                               = $Cantidad_Filas+1;
-                  $Existe_Id_Producto              = true;
+          for ($i=0; $i < $Cantidad_Filas;  $i++)  {
+            $IdProducto_Carro = $Carrito_Actual[$i]['idproducto'];
+            if ( $IdProducto_Carro == $IdProducto )      {
+              $Carrito_Actual[$i]['cantidad']  = $Carrito_Actual[$i]['cantidad'] + $CantidadComprada;
+              $Cantidad_Total                  = $Carrito_Actual[$i]['cantidad'] ;
+              $i                               = $Cantidad_Filas+1;
+              $Existe_Id_Producto              = true;
                     Session::Set($NombreArray,$Cantidad_Total); // CAPTURA EN ARRAY LA CANTIDA DE PRODUCTOS TRON COMPRADOS
                   }
                 }
                 if ($Existe_Id_Producto == FALSE)  {
-                    array_push($Carrito_Actual, $Ultima_Compra);
-                 }
-             }
+                  array_push($Carrito_Actual, $Ultima_Compra);
+                }
+              }
 
-        if ( $TipoCombo == 'IND' ){
+              if ( $TipoCombo == 'IND' ){
                 $Productos = $this->Productos->ProductosxCombo( $IdProducto  );
                 foreach ($Productos as $Producto)  {
-                    $idproducto        = $Producto['idproducto'];
-                    $cantidad          = $Producto['cantidad'];
-                    if ( $cantidad  > 0 ){
-                        $vrunitario        = $Producto['precio_web'] / $cantidad ;
-                      }else{
-                        $vrunitario        = $Producto['precio_web'] ;
-                      }
-                    $vr_total          = $cantidad  * $vrunitario ;
-                    $idescala_dt       = 0;
-                    $id_transportadora = 0;
-                    $en_oferta         = 0;
-                    $idgrupo           = $Producto['idgrupo'];
-                    
-                    $Ultima_Compra  = array( 'idproducto' => $idproducto ,
-                                       'cantidad'         => $cantidad,
-                                       'en_oferta'        => 0,
-                                       'idproductocombo'  => $IdProducto,
-                                       'tipo_combo'       => 'IND',
-                                       'pv_ocasional'     => $vrunitario,
-                                       'pv_tron'          => $vrunitario);
-                      array_push($Carrito_Actual, $Ultima_Compra);
+                  $idproducto        = $Producto['idproducto'];
+                  $cantidad          = $Producto['cantidad'] * $CantidadComprada ;
+                  if ( $cantidad  > 0 ){
+                    $vrunitario        = $Producto['precio_web'] / $cantidad ;
+                  }else{
+                    $vrunitario        = $Producto['precio_web'] ;
+                  }
+                  $vr_total          = $cantidad  * $vrunitario ;
+                  $idescala_dt       = 0;
+                  $id_transportadora = 0;
+                  $en_oferta         = 0;
+                  $idgrupo           = $Producto['idgrupo'];
+
+                  $Ultima_Compra  = array( 'idproducto' => $idproducto ,
+                   'cantidad'         => $cantidad,
+                   'en_oferta'        => 0,
+                   'idproductocombo'  => $IdProducto,
+                   'tipo_combo'       => 'IND',
+                   'pv_ocasional'     => $vrunitario,
+                   'pv_tron'          => $vrunitario);
+                  array_push($Carrito_Actual, $Ultima_Compra);
                 }  // Fin Foreach
-             } 
+              }
 
 
-            $_SESSION['carrito'] = $Carrito_Actual;
+              $_SESSION['carrito'] = $Carrito_Actual;
 
 
-            $this->Depurar_Carrito();
-            $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $IdProducto,  $ProdEnOferta  );
-            $this->Totalizar_Carrito(   );
-            $this->Retornar_Totales_Carro_Json();
+              $this->Depurar_Carrito();
+              $this->Complementar_Datos_Productos_Carrito($ProdTron,$ProdTronAcc, $IdProducto,  $ProdEnOferta  );
+              $this->Totalizar_Carrito(   );
+              $this->Retornar_Totales_Carro_Json();
 
-          }
-
-
+            }
 
 
 
-    public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $IdProductoAgregado,  $ProdEnOferta   ) {
+
+
+            public function Complementar_Datos_Productos_Carrito($ProdTron=false, $ProdTronAcc=false, $IdProductoAgregado,  $ProdEnOferta   ) {
       /** ENERO 07 DE 2015
       * COMPLEMENTA LOS DATOS NECESARIOS DE PRODUCTOS EN EL CARRO DE COMPRAS PARA REALIZAR TODAS LAS OPERACIONES CORRESPONDIENTES
       * Y POSTERIORMENTE FINALIZAR EL PEDIDO
@@ -1739,7 +1756,7 @@ public function Agregar_Producto ()  {
 
       $CarroFinalCompleto = array();
       $Datos_Carro        = $_SESSION['carrito'];
-      
+
         //Debug::Mostrar( $Datos_Carro);
       foreach ( $Datos_Carro as $ProductosCarro ) {
         $Cantidad        = $ProductosCarro['cantidad'] ;
@@ -1777,63 +1794,63 @@ public function Agregar_Producto ()  {
                   COMBOS INDUSTRIALES, SE DESBOBLAN EN EL MOMENTO DE GRABAR EL PEDIDO, ES DECIR,
                   SE GRABAN LOS PRODUCTOS INDIVIDUALES QUE LO COMPONEN.
           */
-          $CarroTemporal['tipo_combo']             = $ProductoComprado[0]['tipo_combo'];
+                  $CarroTemporal['tipo_combo']             = $ProductoComprado[0]['tipo_combo'];
 
-          $CarroTemporal['idtipo_producto']        = $ProductoComprado[0]['idtipo_producto'];
-          $CarroTemporal['id_categoria_producto']  = $ProductoComprado[0]['id_categoria_producto'];
-          $CarroTemporal['idpresentacion']         = $ProductoComprado[0]['idpresentacion'];
-
-
-          $CarroTemporal['iva']                    = $ProductoComprado[0]['iva'];
-          $CarroTemporal['nom_producto']           = $ProductoComprado[0]['nom_producto'];
-          $CarroTemporal['nombre_imagen']          = $ProductoComprado[0]['nombre_imagen'];
-          $CarroTemporal['nompresentacion']        = $ProductoComprado[0]['nompresentacion'];
-          $CarroTemporal['fragancia']              = $ProductoComprado[0]['fragancia'];
-
-          $CarroTemporal['peso_gramos']            = $ProductoComprado[0]['peso_gramos'];
-          $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
-          if ( $Pv_Ocasional == 0 ){
-              $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
-            }else {
-                $CarroTemporal['pv_ocasional']           = $Pv_Ocasional;
-            }
-          if ( $Pv_Tron == 0 ){
-             $CarroTemporal['pv_tron']                = $ProductoComprado[0]['pv_tron'];
-          }else           {
-             $CarroTemporal['pv_tron']                = $Pv_Tron;
-          }
+                  $CarroTemporal['idtipo_producto']        = $ProductoComprado[0]['idtipo_producto'];
+                  $CarroTemporal['id_categoria_producto']  = $ProductoComprado[0]['id_categoria_producto'];
+                  $CarroTemporal['idpresentacion']         = $ProductoComprado[0]['idpresentacion'];
 
 
-          $CarroTemporal['tipo_despacho']          = $ProductoComprado[0]['tipo_despacho'];
-          $CarroTemporal['margen_bruta_inicial']   = $ProductoComprado[0]['margen_bruta_inicial'] / 100 ;
-          $CarroTemporal['aplica_proceso_tron']    = $ProductoComprado[0]['aplica_proceso_tron']  ;
+                  $CarroTemporal['iva']                    = $ProductoComprado[0]['iva'];
+                  $CarroTemporal['nom_producto']           = $ProductoComprado[0]['nom_producto'];
+                  $CarroTemporal['nombre_imagen']          = $ProductoComprado[0]['nombre_imagen'];
+                  $CarroTemporal['nompresentacion']        = $ProductoComprado[0]['nompresentacion'];
+                  $CarroTemporal['fragancia']              = $ProductoComprado[0]['fragancia'];
+
+                  $CarroTemporal['peso_gramos']            = $ProductoComprado[0]['peso_gramos'];
+                  $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
+                  if ( $Pv_Ocasional == 0 ){
+                    $CarroTemporal['pv_ocasional']           = $ProductoComprado[0]['pv_ocasional'];
+                  }else {
+                    $CarroTemporal['pv_ocasional']           = $Pv_Ocasional;
+                  }
+                  if ( $Pv_Tron == 0 ){
+                   $CarroTemporal['pv_tron']                = $ProductoComprado[0]['pv_tron'];
+                 }else           {
+                   $CarroTemporal['pv_tron']                = $Pv_Tron;
+                 }
+
+
+                 $CarroTemporal['tipo_despacho']          = $ProductoComprado[0]['tipo_despacho'];
+                 $CarroTemporal['margen_bruta_inicial']   = $ProductoComprado[0]['margen_bruta_inicial'] / 100 ;
+                 $CarroTemporal['aplica_proceso_tron']    = $ProductoComprado[0]['aplica_proceso_tron']  ;
 
 
 
-          $CarroTemporal['sub_total_pv_ocasional'] = 0;
-          $CarroTemporal['sub_total_pv_tron']      = 0;
+                 $CarroTemporal['sub_total_pv_ocasional'] = 0;
+                 $CarroTemporal['sub_total_pv_tron']      = 0;
 
 
                 //------------------------------------------------------------------------------------------------------
                 // DATOS PUESTOS PARA PRODUCTOS TRON
-          $CarroTemporal['es_tron']                      = $ProdTron ;
-          $CarroTemporal['es_tron_acc']                  = $ProdTronAcc ;
-          $CarroTemporal['costofijo']                    = $Parametros[0]['costofijo'];
-          $CarroTemporal['costovariable']                = $Parametros[0]['costovariable'];
-          $CarroTemporal['correctorvariacion']           = $Parametros[0]['correctorvariacion'];
-          $CarroTemporal['descuentomaximo']              = $Parametros[0]['descuentomaximo'];
-          $CarroTemporal['vrpedidominimo_con_dscto']     = $Parametros[0]['vrpedidominimo_con_dscto'];
-          $CarroTemporal['porciento_recaudador']         = $Parametros[0]['porciento_recaudador'];
-          $CarroTemporal['dscto_precio_mercado_1_ropa']  = $Parametros[0]['dscto_precio_mercado_1_ropa']/100;
-          $CarroTemporal['dscto_precio_mercado_2_banos'] = $Parametros[0]['dscto_precio_mercado_2_banos']/100;
-          $CarroTemporal['dscto_precio_mercado_3_pisos'] = $Parametros[0]['dscto_precio_mercado_3_pisos']/100;
-          $CarroTemporal['dscto_precio_mercado_4_loza']  = $Parametros[0]['dscto_precio_mercado_4_loza']/100;
+                 $CarroTemporal['es_tron']                      = $ProdTron ;
+                 $CarroTemporal['es_tron_acc']                  = $ProdTronAcc ;
+                 $CarroTemporal['costofijo']                    = $Parametros[0]['costofijo'];
+                 $CarroTemporal['costovariable']                = $Parametros[0]['costovariable'];
+                 $CarroTemporal['correctorvariacion']           = $Parametros[0]['correctorvariacion'];
+                 $CarroTemporal['descuentomaximo']              = $Parametros[0]['descuentomaximo'];
+                 $CarroTemporal['vrpedidominimo_con_dscto']     = $Parametros[0]['vrpedidominimo_con_dscto'];
+                 $CarroTemporal['porciento_recaudador']         = $Parametros[0]['porciento_recaudador'];
+                 $CarroTemporal['dscto_precio_mercado_1_ropa']  = $Parametros[0]['dscto_precio_mercado_1_ropa']/100;
+                 $CarroTemporal['dscto_precio_mercado_2_banos'] = $Parametros[0]['dscto_precio_mercado_2_banos']/100;
+                 $CarroTemporal['dscto_precio_mercado_3_pisos'] = $Parametros[0]['dscto_precio_mercado_3_pisos']/100;
+                 $CarroTemporal['dscto_precio_mercado_4_loza']  = $Parametros[0]['dscto_precio_mercado_4_loza']/100;
 
-          array_push( $CarroFinalCompleto, $CarroTemporal);
+                 array_push( $CarroFinalCompleto, $CarroTemporal);
 
-        }
-      }
-      $_SESSION['carrito'] = $CarroFinalCompleto;
+               }
+             }
+             $_SESSION['carrito'] = $CarroFinalCompleto;
 
 
     } // Fin Complementar_Datos_Productos_Carrito

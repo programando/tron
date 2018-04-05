@@ -1,7 +1,7 @@
 <?php
 
 	switch ($seo_metodo) {
-	
+
 		case 'productos_tron':
 			$Pagina_Metas_description = "productos especializados, la Línea hogar cuida el medio ambiente por ser biodegradables, por reducir el impacto ambiental que producen los desechos plásticos y por ser de rápido enjuage lo cual economiza agua ";
 			$Pagina_Metas_Keys        = "balquimia ventas online, producto de aseo para el hogar, productos de aseo concentrados, productos biodegradables para el aseo del hogar, balquimia ventas online";
@@ -9,7 +9,7 @@
 			$Pagina_Metas_title       = "Productos TRON";
 			$Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/cat1.png";
 		break;
-		
+
 		// Esta es la vista ampliada del producto
 		case 'detalle':
 			$Pagina_Facebook_keywords = trim( Session::Get('Pagina_Facebook_TITULO') );
@@ -19,10 +19,10 @@
 			$Pagina_Metas_title       = Session::Get('Pagina_Facebook_TITULO') . " - Balquimia Tienda Online";
 			$Pagina_Metas_description = Session::Get('Pagina_Facebook_DESCRIPCION');
 		break;
-		
+
 		// Líneas industriales
 		case 'productos_por_categoria_individual':
-		
+
 				//-----------------------
 				// LINEA ARTES GRÁFICAS
 				//-----------------------
@@ -33,7 +33,7 @@
 					$Pagina_Metas_title       = "Lito-Tron – Artes gráficas";
 					$Pagina_Metas_Keys        = "balquimia ventas online, artes gráficas, impresión offset, maquinas planas, lavadores de rodillos para rotativas, lavadores de rodillos planchas y mantillas, despercudidor de rodillos, relavador de rodillos offset, lavador de moletones, leche de burra, protector de planchas, rejuvenecedor de mantillas";
 				}
-				
+
 				//-----------------------
 				// LINEA ALIMENTARIA
 				//-----------------------
@@ -44,7 +44,7 @@
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
 					$Pagina_Metas_title       = "La Línea Alimentaria de Balquimia";
 				}
-				
+
 				//-----------------------
 				// SANIDAD PORTATIL
 				//-----------------------
@@ -55,7 +55,7 @@
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
 					$Pagina_Metas_title       = "La Línea sanidad portátil de Balquimia";
 				}
-				
+
 				//-----------------------
 				// MATERIAS PRIMAS
 				//-----------------------
@@ -66,7 +66,7 @@
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
 					$Pagina_Metas_title       = "La línea de Materias Primas de Balquimia";
 				}
-				
+
 				//-----------------------
 				// AUTOMOTRIZ
 				//-----------------------
@@ -77,7 +77,7 @@
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
 					$Pagina_Metas_title       = "Línea Automotríz de Balquimia";
 				}
-				
+
 				//-----------------------
 				// HOTELERA
 				//-----------------------
@@ -88,7 +88,7 @@
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
 					$Pagina_Metas_title       = "Línea Hotelera de Balquimia";
 				}
-				
+
 				//-----------------------
 				// MANTENIMIENTO INDUSTRIAL
 				//-----------------------
@@ -100,7 +100,7 @@
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
 					$Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/linea_insdustrial.jpg" ;
 				}
-				
+
 				//-----------------------
 				// LÍNEA TEXTIL
 				//-----------------------
@@ -109,9 +109,9 @@
 					$Pagina_Metas_Imagen      = DOMINIO ."public/images/categorias_index/linea_textil.jpg" ;
 					$Pagina_Metas_Keys        = "detergente líquido para lavar ropa, detergente para lavar ropa biodegradable, balquimia ventas online";
 					$Pagina_Metas_Keys        = $Pagina_Metas_GeneralKeys . $Pagina_Metas_Keys;
-					$Pagina_Metas_title       = "Línea Textil de Balquimia";
+					$Pagina_Metas_title       = "Línea Carros y Motos de Balquimia";
 				}
-		
+
 		break;
 
 		default :
@@ -120,7 +120,7 @@
 			$Pagina_Metas_Keys        = "balquimia ventas online, tienda virtual, ventas online, on line, tienda virtual, mlm, mln, multinivel, productos de aseo biodegradables, vitaminas, ventas por internet, sistema de afiliados, ";
 			$Pagina_Metas_title       = "Balquimia Ventas Online";
 		break;
-		
+
 	}
 
 ?>
