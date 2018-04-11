@@ -37,6 +37,7 @@
       $logueado                 = $_SESSION['logueado'];
       $idtipo_plan_compras      = Session::Get('idtipo_plan_compras');
       $tags_busqueda            = $Producto[0]['tags_busqueda'];
+      $tipo_combo               = $Producto[0]['tipo_combo'];
 
       if ( $logueado  == TRUE ){
            $Pagina_Actual = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/1/';
@@ -231,7 +232,8 @@
                                 <button type="button" class="agregar  boton-agregar-carrito"
                                     id                    ="<?=$id_controles ;?>"
                                     id-categoria-producto ="<?= $id_categoria_producto ;?>"
-                                    en-oferta               = "<?= $en_oferta ;?>" >
+                                    en-oferta               = "<?= $en_oferta ;?>"
+                                    tipo-combo              = "<?= $tipo_combo ;?>" >
                                     <div class="btn-agregar-carrito">
                                         Agregar <img src="<?=BASE_IMG_TIENDA;?>carrito-transparente.png" id="agr-car">
                                     </div>

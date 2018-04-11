@@ -181,7 +181,7 @@
 
                 <div class=" col-xs-4" id="cont-menos">
                     <div class="form-group"><!--Inicio  Boton Menos-->
-                        <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMenos"
+                        <button  type="button" class="btn btn-default btn-menos btns-carritoTronMenos"
                             onclick="javascript: Carrito_RestarTRON('<?=$id_controles ;?>')"  >-
                         </button><!-- Fin Boton Menos-->
                     </div>
@@ -203,7 +203,7 @@
 
             <div class=" col-xs-4" id="cont-mas">
                 <div class="form-group"><!-- Inicio Boton Mas-->
-                    <button id="<?=$idproducto ;?>" type="button" class="btn btn-default btn-menos btns-carritoTronMas"
+                    <button  type="button" class="btn btn-default btn-menos btns-carritoTronMas"
                         onclick="javascript: Carrito_Sumar('<?=$id_controles ;?>')"  >+
                     </button><!-- Fin Boton Mas-->
                 </div>

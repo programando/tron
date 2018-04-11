@@ -415,6 +415,8 @@ class ProductosController extends Controller
 
             $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_2'));
            $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias','menu-accordion'));
+
+           //Debug::Mostrar( $this->View->Productos_Pagina ) ;
            $this->View->Mostrar_Vista('marcas_y_categorias');
 
     }// Fin Categorias_Marcas

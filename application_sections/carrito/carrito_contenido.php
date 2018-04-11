@@ -79,7 +79,7 @@
                 <!--Inicio  Boton Menos-->
                 <?php if ( $disabled =='') :?>
                   <button
-                  id="<?=$idproducto ;?>"
+
                   type  = "button"
                   class ="btn btn-default btn-menos btns-carrito carrito-resumen-menos"
                   onclick="javascript: Carrito_Restar('<?=$id_controles ;?>')"
@@ -117,7 +117,7 @@
             <!-- Inicio Boton Mas-->
            <?php if ( $disabled =='') :?>
               <button
-              id          ="<?=$idproducto ;?>"
+
               type        ="button"
               class       ="btn btn-default btn-menos btns-carrito carrito-resumen-mas"
               onclick     ="javascript: Carrito_Sumar('<?=$id_controles ;?>')"
