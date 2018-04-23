@@ -137,8 +137,8 @@ class CarritoController extends Controller{
          *      MUESTRA VISTA PARA ELEGIR LA FORMA DE PAGO DEL PEDIDO
          *      SI $idpedido > 0, INDICA QUE VENGO DE LA CONSULTA DE PEDIDOS Y VOY A CAMBIAR LA FORMA DE PAGO
          */
-
-
+        $TipoUsuario = Session::Get('idtipo_plan_compras');
+        
         $Vr_Total_Pedido_Real = Session::Get('Valor_Final_Pedido_Real');
 
 
@@ -157,7 +157,12 @@ class CarritoController extends Controller{
 
         $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
       }else{
-        $this->View->Mostrar_Vista('pedido_pago_cero');
+        if ( $TipoUsuario == 3 ){ 
+           $this->View->Mostrar_Vista('finalizar_pedido_forma_pago');
+        }
+        else  {
+         $this->View->Mostrar_Vista('pedido_pago_cero'); 
+        }
       }
     }
 

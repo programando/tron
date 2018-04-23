@@ -108,3 +108,24 @@
 [11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
 [11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
 [11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
+[23-Apr-2018 16:20:10 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
+[23-Apr-2018 16:20:14 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
+[23-Apr-2018 16:20:14 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
+[23-Apr-2018 16:20:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\PedidosModel.php(48): Database->Ejecutar_Sp('pedidos_crear_m...')
+#1 D:\laragon\www\tron\controllers\PedidosController.php(172): PedidosModel->Grabar(Array)
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): PedidosController->Grabar()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[23-Apr-2018 16:20:18 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
+[23-Apr-2018 16:20:18 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
+[23-Apr-2018 16:20:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\PedidosModel.php(48): Database->Ejecutar_Sp('pedidos_crear_m...')
+#1 D:\laragon\www\tron\controllers\PedidosController.php(172): PedidosModel->Grabar(Array)
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): PedidosController->Grabar()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
