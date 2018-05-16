@@ -3,7 +3,7 @@
      $numero_pedido         = Session::Get('numero_pedido');
      $pnombre               = Session::Get('nombre_cliente');
      $pnombre               = String_Functions::Sin_Acentos ( $pnombre );
-     $email                 = utf8_encode(Session::Get('email'));
+     $email                 = trim(utf8_encode(Session::Get('email')));
      $identificacion        = Session::Get('identificacion');
 
      $vr_total_pedido       = round(Session::Get('vr_total_pedido'),2);

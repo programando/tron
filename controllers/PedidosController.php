@@ -214,7 +214,7 @@ class PedidosController extends Controller
 
      	}  // Fin Foreach
 
-        
+
     		//$Texto_SQL = $Texto_SQL . $Datos;
         $Texto_SQL = $Texto_SQL . $this->Datos ;
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
@@ -325,6 +325,7 @@ class PedidosController extends Controller
       $this->Datos_Cambio_Forma_Pago ( $IdPedido  );
 
       $this->View->Mostrar_Vista_Parcial('finalizar_pedido_pago_payu_latam');
+
     }
 
     public function Datos_Cambio_Forma_Pago ( $idpedido ){
