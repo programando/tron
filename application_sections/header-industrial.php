@@ -21,7 +21,7 @@
 
                     --><div class="col-sm-4 col-xs-12 vcenter">
                         <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
-                        <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
+
                     </div>
 
                 </div>
@@ -135,4 +135,5 @@
 
         </div>
     </div>
+    <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
 </div>
