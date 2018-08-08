@@ -40,7 +40,7 @@ class IndexController extends Controller
     public function Index() {
 
 
-        Session::Set('Id_Area_Consulta','2')  ;
+        Session::Set('Id_Area_Consulta','1')  ;
 
         //$this->Consultar_Datos_Transportadoras();
         $this->Parametros_Iniciales();                  // Parámetros Iniciales
@@ -71,7 +71,8 @@ class IndexController extends Controller
                                   'tron_estilos_slider','tron_estilos-titulos_destacados_novedades_ofertas'));
         $this->View->SetJs(array('tron_productos.jquery','tron_marcas_categorias','tron_carrito')); //'tron_login'
 
-        $this->View->Mostrar_Vista('index');
+        $this->View->Mostrar_Vista('industrial');
+        //$this->View->Mostrar_Vista('index');
 
     }
 

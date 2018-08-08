@@ -20,6 +20,7 @@ class ProductosController extends Controller
         $this->Terceros           = $this->Load_Controller('Terceros');
         $this->Paginador          = $this->Load_External_Library('paginador');
         $this->Paginador          = new Paginador();
+        Session::Set('Id_Area_Consulta','1')  ;
     }
 
     public function Index() {
@@ -189,7 +190,6 @@ class ProductosController extends Controller
 
     public function Ofertas() {
          $this->View->Productos_Ofertas = $this->Productos->Productos_Ofertas();
-
          $this->View->SetCss(array('tron_carrito' , 'tron_productos_categorias_marcas','tron_estilos-titulos_destacados_novedades_ofertas','tron_varias_referencias-ofertas-tecnologias_SA','tron_campo_4'));
          $this->View->SetJs(array('tron_productos.jquery','tron_carrito','tron_marcas_categorias'));
          $this->View->Mostrar_Vista('ofertas');

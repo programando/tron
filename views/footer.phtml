@@ -1,26 +1,27 @@
 
 <div class="ionix bGray2">
     <div class="general pAA50">
-
     	<div class="row">
-
-    		<div class="col-sm-6 col-xs-12">
+    		<div class="col-sm-6 col-xs-6">
+          <!--
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>HOGAR Y PERSONAL</strong></div>
                     <ul class="listEnd">
                         <li><a href="<?=BASE_URL;?>productos/productos_tron">Productos TRON</a></li>
-        <?php $Categorias_Hogar = Session::Get('Categorias_Hogar') ;?>
-        <?php  foreach ($Categorias_Hogar  as $Categoria ) :?>
-                <?php
-                    $idorden_nv_1  = $Categoria['idorden_nv_1'];                 // Id
-                    $orden_nivel_1 = trim(ucwords( strtolower($Categoria['orden_nivel_1'])));       // Nombre
-                    $texto_url     = BASE_URL . 'productos/productos_por_categoria_individual/'.$idorden_nv_1.'/'.$orden_nivel_1 .'/'.'2';
-                ?>
-                <li><a href="<?= $texto_url ;?>"> <?= $orden_nivel_1 ;?> </a></li>
-        <?php endforeach;?>
+              <?php $Categorias_Hogar = Session::Get('Categorias_Hogar') ;?>
+                 foreach ($Categorias_Hogar  as $Categoria ) :?>
+
+                          $idorden_nv_1  = $Categoria['idorden_nv_1'];                 // Id
+                          $orden_nivel_1 = trim(ucwords( strtolower($Categoria['orden_nivel_1'])));       // Nombre
+                          $texto_url     = BASE_URL . 'productos/productos_por_categoria_individual/'.$idorden_nv_1.'/'.$orden_nivel_1 .'/'.'2';
+                      ?>
+                      <li><a href=" $texto_url ;?>">  $orden_nivel_1 ;?> </a></li>
+        <?  endforeach;?>
 
                     </ul>
                 </div>
+
+              -->
 
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>INDUSTRIAL</strong></div>
@@ -40,19 +41,37 @@
                     </ul>
                 </div>
             </div>
-			<div class="col-sm-6 col-xs-12">
+
+
+  <div class="col-sm-6 col-xs-6">
+    <div class="titleM2 colorfff mb10"><strong>MI CUENTA</strong></div>
+     <ul class="listEnd">
+        <li>
+            <a href="#myModal" class="footer-ing" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-user"></span> Iniciar Sesión
+            </a>
+        </li>
+        <li>
+            <a href="<?= BASE_URL ;?>terceros/nuevo_usuario" class="footer-rgs"><span class="glyphicon glyphicon-list-alt"> </span> Registrarme</a>
+        </li>
+
+        <?php include (APPLICATION_SECTIONS .'ventana_modal_recuperar_contrasena.php');?>
+    </ul>
+</div>
+
+
+
+
+			<div class="col-sm-6 col-xs-6">
+              <!--
                 <div class="col-sm-6 col-xs-6">
                     <div class="titleM2 colorfff mb10"><strong>RED DE AMIGOS</strong></div>
                     <ul class="listEnd">
                         <li><a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron">La Red de Amigos Tron</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/tron_productos">Productos TRON</a></li>
 
-
                         <li><a href="<?= BASE_URL ;?>redtron/comisiones">Comisiones</a></li>
-
                     </ul>
-
-
 
                     <div class="titleM2 colorfff mb10"><strong>TIENDA TRON</strong></div>
                     <ul class="listEnd">
@@ -60,39 +79,23 @@
                         <li><a href="<?= BASE_URL ;?>redtron/tron_medios_pago">Métodos de Pagos</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/funcionalidades_interesantes">Funciones Interesantes</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/tron_transporte">Transporte</a></li>
-
-
-
-
                     </ul>
                 </div>
+              -->
 
                 <div class="col-sm-6 col-xs-6">
-                    <div class="titleM2 colorfff mb10"><strong>SOBRE TRON</strong></div>
+                    <div class="titleM2 colorfff mb10"><strong>DOCUMENTOS Y CONTACTO</strong></div>
                     <ul class="listEnd">
-                        <li><a href="<?= BASE_URL ;?>redtron/preguntas_frecuentes">Preguntas Frecuentes</a></li>
+                        <!--<li><a href="<?= BASE_URL ;?>redtron/preguntas_frecuentes">Preguntas Frecuentes</a></li>-->
                         <li><a href="<?= BASE_URL ;?>redtron/contactanos">Contáctanos</a></li>
                         <li><a href="http://www.balquimia.com">BALQUIMIA S.A.S.</a></li>
                         <li><a href="<?= BASE_URL ;?>redtron/terminos_condiciones">Términos y Condiciones</a></li>
                         <li><a href="<?=  BASE_STATIC_FILES ;?>Politica Tratamiento de datos personales - BALQUIMIA S.A.S.pdf">Política para el Tratamiento de Datos</a></li>
 
                     </ul>
-
-                    <div class="titleM2 colorfff mb10"><strong>MI CUENTA</strong></div>
-                    <ul class="listEnd">
-                        <li>
-                            <a href="#myModal" class="footer-ing" data-toggle="modal" data-target="#myModal">
-                                <span class="glyphicon glyphicon-user"></span> Iniciar Sesión
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= BASE_URL ;?>terceros/nuevo_usuario" class="footer-rgs"><span class="glyphicon glyphicon-list-alt"> </span> Registrarme</a>
-                        </li>
-
-                        <?php include (APPLICATION_SECTIONS .'ventana_modal_recuperar_contrasena.php');?>
-                    </ul>
                 </div>
-			</div>
+          </div>
+
 		</div>
 
 	</div>

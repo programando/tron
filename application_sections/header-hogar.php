@@ -1,40 +1,35 @@
 <!--ESTE ES EL HEADER PRINCIPAL DEL PROYECTO TRON -->
 <div class="headion headHogar">
-    <div class="ionix hein1">
+   <!--
+   <div class="ionix hein1">
         <div class="generalMax">
-
             <div class="row header-tron page-busqueda">
-
                 <div class="">
                     <div class="col-sm-4  col-xs-12 vcenter taLC mb10_onlySmart">
                         <a href="<?= BASE_URL ;?>">
                             <img src="<?= BASE_IMG_EMPRESA ; ?>logo.png" class="logo" />
                         </a>
-                    </div><!--
-
-                    --><div class="col-sm-4 col-xs-12 vcenter ">
-                        <?php include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
-                    </div><!--
-
-                    --><div class="col-sm-4 col-xs-12 vcenter">
-                        <?php include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
-                        <?php include (APPLICATION_SECTIONS .'formulario_login.php');?>
                     </div>
-
+                    <div class="col-sm-4 col-xs-12 vcenter ">
+                          include (APPLICATION_SECTIONS . 'header_form_buscar.php');?>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 vcenter">
+                          include (APPLICATION_SECTIONS .'header_cuenta_usuario.php');?>
+                         include (APPLICATION_SECTIONS .'formulario_login.php');?>
+                    </div>
                 </div>
-
             </div>
-
-            <?php include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
-
+              include (APPLICATION_SECTIONS .'tabs_hogar_industrial.php');?>
         </div>
     </div>
-
+-->
+ <?php include (APPLICATION_SECTIONS .'header-industrial.php');?>
 
     <!-- Menu -->
          <!-- Tabs hogar , industrial -->
 
-    <div class="ionix hein2">
+<!--
+<div class="ionix hein2">
         <div class="generalFull">
             <div class="menGion">
                 <nav class="navbar navbar-default colorfff" role="navigation">
@@ -47,7 +42,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-<!--       -->
+
                         <a href="<?=BASE_URL ;?>index" class="navbar-brand"><div class="tabIn"><span class="inicio colorfff"></span></div></a>
                         <a href="javascript:window.history.back();" class="navbar-brand"><div class="tabIn colorfff"><span class="glyphicon glyphicon-chevron-left t10"></span></div></a>
 
@@ -56,21 +51,17 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav t14">
                             <li><a href="<?=BASE_URL ;?>productos/productos_tron/">PRODUCTOS TRON</a></li>
-                          <!--  <li><a href="<?=BASE_URL ;?>productos/productos_tron/#carrosmotos">CARROS Y MOTOS</a></li>-->
+                            <li><a href="<?=BASE_URL ;?>productos/productos_tron/#carrosmotos">CARROS Y MOTOS</a></li>
                             <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/">OTROS PRODUCTOS</a></li>
 
-<!--
-                            <?php if ( Session::Get('Cantidad_Destacados') >= 5)  : ?>
-                                <li><a href="<?=BASE_URL ;?>productos/destacados/">DESTACADOS</a></li>
-                            <?php endif ;?>
--->
-                            <?php if ( Session::Get('Cantidad_Ofertas') >= 5)  : ?>
-                                <li><a href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
-                            <?php endif ;?>
 
-                    <?php if (   $_SESSION['logueado'] == TRUE ) :?>
+                             if ( Session::Get('Cantidad_Ofertas') >= 5)  : ?>
+                                <li><a href="<?=BASE_URL ;?>productos/ofertas/">OFERTAS</a></li>
+                             endif ;?>
+
+                     if (   $_SESSION['logueado'] == TRUE ) :?>
                              <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
-                    <?php endif ;?>
+                     endif ;?>
 
 
                             <li><a href="<?=BASE_URL ;?>redtron/contactanos">CONTÁCTENOS </a></li>
@@ -99,6 +90,13 @@
 
         </div>
     </div>
+
+
+
+
+-->
+
+
 </div>
 
 

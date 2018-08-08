@@ -1,131 +1,88 @@
-[11-Apr-2018 15:36:13 UTC] PHP Notice:  Undefined variable: tipo_combo in D:\laragon\www\tron\views\productos\vista_ampliada.phtml on line 235
-[11-Apr-2018 15:36:32 UTC] PHP Notice:  Undefined variable: tipo_combo in D:\laragon\www\tron\views\productos\vista_ampliada.phtml on line 235
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:48 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1438
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:49 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:50 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:51 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1433
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1434
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1441
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1445
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1447
-[11-Apr-2018 15:54:52 UTC] PHP Notice:  Undefined offset: 0 in D:\laragon\www\tron\controllers\CarritoController.php on line 1452
-[23-Apr-2018 16:20:10 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
-[23-Apr-2018 16:20:14 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
-[23-Apr-2018 16:20:14 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
-[23-Apr-2018 16:20:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+[08-Aug-2018 20:45:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
 Stack trace:
-#0 D:\laragon\www\tron\models\PedidosModel.php(48): Database->Ejecutar_Sp('pedidos_crear_m...')
-#1 D:\laragon\www\tron\controllers\PedidosController.php(172): PedidosModel->Grabar(Array)
-#2 D:\laragon\www\tron\application\Bootstrap.php(41): PedidosController->Grabar()
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
 #3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
 #4 {main}
   thrown in D:\laragon\www\tron\application\Database.php on line 32
-[23-Apr-2018 16:20:18 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
-[23-Apr-2018 16:20:18 UTC] PHP Parse error:  syntax error, unexpected '$Vr_Total_Pedido_Real' (T_VARIABLE) in D:\laragon\www\tron\controllers\CarritoController.php on line 142
-[23-Apr-2018 16:20:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+[08-Aug-2018 20:45:32 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
 Stack trace:
-#0 D:\laragon\www\tron\models\PedidosModel.php(48): Database->Ejecutar_Sp('pedidos_crear_m...')
-#1 D:\laragon\www\tron\controllers\PedidosController.php(172): PedidosModel->Grabar(Array)
-#2 D:\laragon\www\tron\application\Bootstrap.php(41): PedidosController->Grabar()
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:45:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:45:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:45:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:45:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:45:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:46:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1367): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:47:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1368): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:48:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1369): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
+#3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
+#4 {main}
+  thrown in D:\laragon\www\tron\application\Database.php on line 32
+[08-Aug-2018 20:50:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchall() on boolean in D:\laragon\www\tron\application\Database.php:32
+Stack trace:
+#0 D:\laragon\www\tron\models\TercerosModel.php(217): Database->Ejecutar_Sp('terceros_actual...')
+#1 D:\laragon\www\tron\controllers\TercerosController.php(1369): TercerosModel->Actualizar_Password_Usuario('80021', 'e10adc3949ba59a...', '2d04326eec7afc8...')
+#2 D:\laragon\www\tron\application\Bootstrap.php(41): TercerosController->Actualizar_Password()
 #3 D:\laragon\www\tron\index.php(45): Bootstrap::Run(Object(Request))
 #4 {main}
   thrown in D:\laragon\www\tron\application\Database.php on line 32

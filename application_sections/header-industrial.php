@@ -58,7 +58,8 @@
 
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav t14">
-                            <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/" id="indus_productos">PRODUCTOS</a></li>
+                          <li><a href="<?=BASE_URL ;?>productos/productos_tron/" id="indus_productos">PRODUCTOS TRON</a></li>
+                            <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/" id="indus_productos">PRODUCTOS INDUSTRIALES</a></li>
 
                      <?php if (   $_SESSION['logueado'] == TRUE ) :?>
                              <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
@@ -82,25 +83,25 @@
 
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu551">
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-alimentaria-balquimia-2016.pdf">Alimentaria</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-alimentaria-balquimia-2016.pdf">Alimentaria</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-artes-graficas-balquimia.pdf">Artes Gráficas</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-artes-graficas-balquimia.pdf">Artes Gráficas</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-automotriz-balquimia-2016.pdf">Automotriz</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-automotriz-balquimia-2016.pdf">Automotriz</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-hotelera-balquimia-2016.pdf">Hotelera</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-hotelera-balquimia-2016.pdf">Hotelera</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf">Industrial</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-industrial-balquimia-2016.pdf">Industrial</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-materias-primas-balquimia.pdf">Materias Primas</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-materias-primas-balquimia.pdf">Materias Primas</a>
                                     </li>
                                     <li role="presentation">
-                                      <a role="menuitem" tabindex="-1" href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-sanidad portatil-balquimia.pdf">Sanidad Portátil</a>
+                                      <a role="menuitem" tabindex="-1" target='_blank' href="<?=  BASE_STATIC_FILES ;?>Presentacion-linea-sanidad portatil-balquimia.pdf">Sanidad Portátil</a>
                                     </li>
                                   </ul>
 
@@ -112,15 +113,16 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="http://balquimia.com" target="_blank" title="Información" class="t12 infoSpecial2 rr20" >
-                                    <strong>Ir a Balquimia</strong>
+                                <a href="http://balquimia.com" target="_blank" title="Información" class="t12 infoSpecial rr20" >
+                                     Ir a Balquimia
                                 </a>
-                            </li>
+                            <!--
                             <li>
                                 <a href="<?= BASE_URL ;?>redtron/red_de_amigos_tron" title="Información" class="t12 infoSpecial rr20" >
                                     <img src="<?= BASE_IMG_CATEGORIAS_INDEX ;?>info2.png" style="padding-bottom:2px" /> &nbsp; <strong>INFO</strong>
                                 </a>
                             </li>
+                            -->
                             <li class="onlyMax">
                                 <a href="<?=BASE_URL ;?>carrito/mostrar_carrito/1" title="Ir al carrito" class="t12" >
                                     <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; VER CARRITO
