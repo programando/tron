@@ -1,6 +1,6 @@
 <?php if ( isset( $_SESSION['logueado']  ) && $_SESSION['logueado'] == FALSE ) :?>
 
-  <div class="modal fade" id="myModal"
+  <div class="modal fade" id="FormModalLogin"
       tabindex="-1" role="dialog"
       aria-labelledy="myModallabel"
       aria-hidden="true">

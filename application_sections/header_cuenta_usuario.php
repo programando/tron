@@ -3,7 +3,7 @@
 	<!-- INFORMACION SOBRE CUENTAS-->
 	<div class="taRC">
 
-        <a href="#myModal" class="aS p10 colorRed dIB" data-toggle="modal" data-target="#myModal">
+        <a href="#myModal" class="aS p10 colorRed dIB" data-toggle="modal" data-target="#FormModalLogin">
             <span class="glyphicon glyphicon-user arro rr50"></span> Iniciar Sesión
         </a>
  <!-- INFORMACION SOBRE CUENTAS
