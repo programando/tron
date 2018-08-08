@@ -214,7 +214,7 @@ $('.btn-login').on('click', function(){
 
 // BOTON PARA RECUPERAR CONTRASEÑA $("#btn-recupera-pass").on('click',function(){
 $("#btn-recupera-pass").on('click',function(){
-		var $email 			  = $('#login-username').val();
+		var $email 			  = $('#login-username-recu-pass').val();
 		var $Parametros = { "Email": $email };
 		Recuperar_Password($Parametros);
 		return false;

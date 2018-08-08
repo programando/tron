@@ -21,7 +21,7 @@
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-user"></i><!-- IMG QUE SE ENCUENTRA EN LA DERECHA DE INPUT-->
           </span><!--INPUT = DIRECCION DE CORREO -->
-          <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Usuario" />
+          <input id="login-username-recu-pass" type="text" class="form-control" name="username" value="" placeholder="Usuario" />
         </div>
         <div id="msgbox">
         </div>

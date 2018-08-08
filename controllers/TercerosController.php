@@ -1364,8 +1364,6 @@ public function Actualizar_Password()
         $Resultado ="TodoOK";
       }
       $new_password     = md5($new_password);
-      echo $idtercero;
-      echo $new_password;
       $this->Terceros->Actualizar_Password_Usuario($idtercero ,$new_password ,$password_temporal);
       echo $Resultado ;
     }
