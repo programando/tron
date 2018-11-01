@@ -691,7 +691,7 @@ class CarritoController extends Controller{
     $vr_base      = $this->Vr_Base_Iva - $this->Vr_Transporte_Real ;
 
   // SI ES CALI Y APLICA BASE, CALCULO RETE-ICA
-    if ( $vr_base >= $basereteica && $idmcipio  = 153){
+    if ( $vr_base >= $basereteica && $idmcipio  == 153){
       $vr_rte_ica = $vr_base * Session::Get('porcentajeica')/1000;
     }
   //SI REGIMEN COMNUN O SIMPLIFICADO Y APLICA BASE, CALCULO RETEFUENTE

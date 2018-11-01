@@ -269,7 +269,7 @@
          $codigo_generado = '';
          if ( $idtipo_plan_compras == 3 ){
             $codigo_generado = 'Para que lo tengas en cuenta, tu código de usuario es : <strong>'. $codigousuario .'</strong><br />';
-            $codigo_generado = $codigo_generado . 'Este será el código que entregarás a tus amigos para que al registrarse queden bajo tu red.';
+            $codigo_generado = $codigo_generado . 'Este será el código que entregarás a tus clientes para que al comprar te generen comisiones.';
          }
          $Saludo  = $nombre .' , Te damos una cordial bienvenida !!!';
          $enlace   = '<a href=' . BASE_URL .'terceros/activar_cuenta_usuario/' . $codigo_confirmacion .'/';
@@ -295,7 +295,7 @@
          $logo                = BASE_IMG_EMPRESA .'logo.png';
 
             $codigo_generado = 'Para que lo tengas en cuenta, tu código de usuario es : <strong>'. $codigousuario .'</strong><br />';
-            $codigo_generado = $codigo_generado . 'Este será el código que entregarás a tus amigos para que al registrarse queden bajo tu red.';
+            $codigo_generado = $codigo_generado . 'Este será el código que entregarás a tus clientes para que al comprar te generen comisiones.';
 
          $Saludo  = 'Te damos una cordial bienvenida !!!';
 

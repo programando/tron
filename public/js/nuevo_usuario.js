@@ -65,8 +65,8 @@ var Validacion_Codigo_Tercero_Presenta = function(){
 					$idtercero_presenta      = resultado.idtercero;
 					$codigo_tercero_presenta = resultado.codigousuario;
 					$nombre_usuario_presenta = resultado.nombre_usuario ;
-					Mostrar_Mensajes ('<strong>¡ Información Importante !</strong>','Usted quedará registrado(a) en la red de usuarios liderada por :<br><br><strong>' +
-						$nombre_usuario_presenta + '</strong> <br>cuyo código de usuario es : <strong>'+ $codigoterceropresenta  +'</strong>' )
+					Mostrar_Mensajes ('<strong>¡ Información Importante !</strong>','Usted quedará registrado(a) como cliente de :<br><br><strong>' +
+						$nombre_usuario_presenta + '</strong> <br>cuyo código de vendedor(a) es : <strong>'+ $codigoterceropresenta  +'</strong>' )
 				}
 
 
@@ -153,7 +153,7 @@ var Validaciones_Registro_Tipo_Cliente = function($idtpidentificacion, $pnombre,
 		Mostrar_Mensajes ('Error en el Registro','Para registrar una empresa debe especificar su nombre o razón social.');
 		return ;
 	}
-	if ( $idtpidentificacion != '31' && ( $pnombre == '' || $papellido == '' || $genero =='-1') ){
+	if ( $idtpidentificacion != '31' && ( $pnombre == '' || $papellido == '' ) ){
 		$Seguir  = 'NO';
 		Mostrar_Mensajes ('Error en el Registro','Para registrarse es necesario que indique su nombre, apellido y género....');
 		return ;
@@ -168,9 +168,9 @@ var Validaciones_Registro_Tipo_Empresario = function($idtpidentificacion, $pnomb
 		Mostrar_Mensajes ('Error en el Registro','Para registrarse debe especificar su nombre o razón social.');
 		return ;
 	}
-	if ( $idtpidentificacion != '31' && ( $pnombre == '' || $papellido == '' || $genero =='-1' || $dianacimiento =='0' || $mesnacimiento == '') ){
+	if ( $idtpidentificacion != '31' && ( $pnombre == '' || $papellido == '' ||  $dianacimiento =='0' || $mesnacimiento == '') ){
 		$Seguir  = 'NO';
-		Mostrar_Mensajes ('Error en el Registro','Para registrarse es necesario que indique su nombre, apellido, género, día y mes de nacimiento. <br> Algunos de estos datos se usarán para generar un código único con el cual conformará su red.');
+		Mostrar_Mensajes ('Error en el Registro','Para registrarse es necesario que indique su nombre, apellido,  día y mes de nacimiento. <br> Algunos de estos datos se usarán para generar un código único con el cual conformará su red.');
 		return ;
 	}
 	$Seguir  = 'SI';
@@ -269,18 +269,21 @@ $("#registro-cliente").on('click', function(){
 	$('input:radio[name=registro-empresario]').attr('checked',false);
 	$("#lblgenero").hide();
 	$("#mes-anio").hide();
+  $("#codigovendedor").show();
 });
 
 // BOTÓN EMPREARIO
 $("#registro-empresario").on('click', function(){
 	var $idtpidentificacion = $("#idtpidentificacion").val();
 	$('input:radio[name=registro-cliente]').attr('checked',false);
-	$("#modal_empresario_explicacion").modal('show');
+  $("#codigovendedor").hide();
+	//$("#modal_empresario_explicacion").modal('show');
 	if ( $idtpidentificacion != '31'){
 		$("#mes-anio").show();
-		$("#lblgenero").show();
+  	$("#lblgenero").show();
 	}
 });
+
 
 // BOTÓN GRABAR
 $('#btn-grabar-datos').on('click',function(){
@@ -291,7 +294,7 @@ $('#btn-grabar-datos').on('click',function(){
 	var $identificacion        =  $("#identificacion").val();
 	var $pnombre               =  $("#pnombre").val();
 	var $papellido             =  $("#papellido").val();
-	var $genero                =  $("#genero").val();
+	var $genero                =  0 ; //$("#genero").val();
 	var $dianacimiento         =  $("#dianacimiento").val();
 	var $mesnacimiento         =  $("#mesnacimiento").val();
 	var $razonsocial           =  $("#razonsocial").val();

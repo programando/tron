@@ -11,7 +11,7 @@ var  Funciones = {
 
     // RELACIONAS CON TERCEROS
     // -------------------------
-    Terceros_Buscar_x_Identificacion : function (  ){
+    Terceros_Buscar_x_Identificacion : function(  ){
       var $identificacion = $('#identificacion').val();
       if ($identificacion.length==0){ return ;}
 
@@ -40,13 +40,8 @@ var  Funciones = {
                 url:      '/terceros/Registro_Nuevo_Usuario',
                 type:     'post',
                 success:  function (resultado) {
-                  if ( resultado.idtipo_plan_compras == '2' ) {
-                      $("#modal-registro-cliente").modal('show');
-                    }
+                    window.location.href = "/";
 
-                  if ( resultado.idtipo_plan_compras == '3' ) {
-                      $("#modal-registro-empresario").modal('show');
-                    }
                 },
                 beforeSend: function(){
                           $img_cargando.css('display','block');
@@ -176,5 +171,5 @@ var  Funciones = {
 
 
 
-}// Fin Funciones
+}
 
