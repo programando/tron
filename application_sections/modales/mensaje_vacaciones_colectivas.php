@@ -24,8 +24,8 @@
               <div class="col-md-12 text-center">
      <div>
 
-        Por motivo de vacaciones colectivas se despacharán pedidos registrados y pagados hasta el <strong>viernes 15 de diciembre de 2017.</strong> <br><br>
-        Los pedidos registrados y pagados después de esta fecha serán despachados el <strong> 11 de enero de 2018</strong>,
+        Por motivo de vacaciones colectivas se despacharán pedidos registrados y pagados hasta el <strong>lunes 17 de diciembre de 2018.</strong> <br><br>
+        Los pedidos registrados y pagados después de esta fecha serán despachados el <strong> 14 de enero de 2019</strong>,
         fecha en la que reanudaremos operaciones.
     <br><br>
 
