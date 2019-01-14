@@ -2076,3 +2076,4 @@ Stack trace:
 [14-Dec-2018 21:25:40 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in D:\Laragon\etc\php\pear\PHPMailerAutoload.php on line 45
 [14-Dec-2018 21:25:40 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in D:\Laragon\etc\php\pear\PHPMailerAutoload.php on line 45
 [14-Dec-2018 21:25:40 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in D:\Laragon\etc\php\pear\PHPMailerAutoload.php on line 45
+[14-Jan-2019 17:01:08 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in D:\Laragon\etc\php\pear\PHPMailerAutoload.php on line 45
