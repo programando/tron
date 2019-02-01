@@ -364,16 +364,15 @@ $('#contenido-productos').on('click','.btn-finalizar-pedido',function(){
 	    }
 
 
-
 	     // PASAR A LA FORMA DE PAGAR PARA EL PEDIDO
-							$.ajax({
-									dataType: 'text',
-									url:      '/pedidos/Grabar',
-									type:     'post',
-				     success:  function (resultado)	 {
-														 window.location.href = "/carrito/finalizar_pedido_forma_Pago";
-				    	 }
-							});
+				$.ajax({
+						dataType: 'text',
+						url:      '/pedidos/Grabar',
+						type:     'post',
+	     success:  function (resultado)	 {
+					 window.location.href = "/carrito/finalizar_pedido_forma_Pago";
+	    	 }
+				});
 
 
 });

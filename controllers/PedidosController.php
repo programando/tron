@@ -190,10 +190,10 @@ class PedidosController extends Controller
      $Texto_SQL         = "INSERT INTO pedidos_dt (idpedido,idproducto,cantidad,vrunitario,vr_total,idescala_dt,id_transportadora,en_oferta, idgrupo) VALUES ";
 
       $this->SqlInsert = '';
+
     	foreach ($this->Datos_Carro as $Productos)	{
           $tipo_combo        = $Productos['tipo_combo'];
           $idproducto        = $Productos['idproducto'];
-
           if ( $tipo_combo  != 'IND' || $tipo_combo == ''){
               $cantidad          = $Productos['cantidad'];
               $vrunitario        = $Productos['precio_unitario_produc_pedido'];   ;
@@ -220,6 +220,7 @@ class PedidosController extends Controller
 				$Texto_SQL = substr($Texto_SQL, 0, strlen($Texto_SQL)-1);
 
 
+
 				$Pedido_Dt = $this->Pedidos->Grabar_Detalle( $Texto_SQL );
 
 
@@ -237,14 +238,14 @@ class PedidosController extends Controller
 
         Session::Set('Valor_Final_Pedido_Real',$vr_total_pedido );
 
-        echo $Texto_SQL;
+
 
     }
 
-    private function ConformarSQLInsert($idpedido, $idproducto, $cantidad, $vrunitario, $vr_total, $idescala_dt, $id_transportadora, $en_oferta, $idgrupo){
+    private function ConformarSQLInsert($idpedido, $idproducto, $cantidad, $vrunitario, $vr_total, $idescala_dt, $id_transportadora, $en_oferta, $idgrupoparam){
 
          $this->SqlInsert            =  $idpedido .',' .$idproducto .',' . $cantidad .',' . $vrunitario  . ',' . $vr_total  . ',' . $idescala_dt  ;
-         $this->SqlInsert            =  $this->SqlInsert   .',' . $id_transportadora .',' . $en_oferta  .',' . $idgrupo ;
+         $this->SqlInsert            =  $this->SqlInsert   .',' . $id_transportadora .',' . $en_oferta  .',' . "'$idgrupoparam'" ;
          $this->SqlInsert            =   ' ( ' .  $this->SqlInsert  . ' ),';
          $this->Datos               =   $this->Datos .  $this->SqlInsert  ;
           /*
@@ -271,8 +272,12 @@ class PedidosController extends Controller
             $idescala_dt       = 0;
             $id_transportadora = 0;
             $en_oferta         = 0;
-            $idgrupo           = $Producto['idgrupo'];
-            $this->ConformarSQLInsert( $idpedido, $idproducto, $cantidad, $vrunitario, $vr_total, $idescala_dt, $id_transportadora, $en_oferta, $idgrupo);
+            $idgrupo_prd           = $Producto['idgrupo'];
+
+
+
+
+            $this->ConformarSQLInsert( $idpedido, $idproducto, $cantidad, $vrunitario, $vr_total, $idescala_dt, $id_transportadora, $en_oferta, $idgrupo_prd);
         }  // Fin Foreach
     }
 

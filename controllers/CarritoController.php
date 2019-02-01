@@ -1772,7 +1772,8 @@ public function Agregar_Producto ()  {
         $IdProductoCombo = $ProductosCarro['idproductocombo'];
 
         if ( $Cantidad > 0 )   {
-          $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto( $IdProducto );
+            $ProductoComprado                       = $this->Productos->Buscar_por_IdProducto( $IdProducto );
+
 
           if ( $IdProductoAgregado === $IdProducto  &&  $ProdEnOferta == 1 ){
             $CarroTemporal['en_oferta'] = 1;
@@ -1788,6 +1789,9 @@ public function Agregar_Producto ()  {
           $CarroTemporal['fabricado_x_ta']         = $ProductoComprado[0]['fabricado_x_ta'];
           $CarroTemporal['idgrupo']                = $ProductoComprado[0]['idgrupo'];
           $CarroTemporal['codigo_grupo']           = $ProductoComprado[0]['codigo_grupo'];
+
+
+
 
         /*
           $CarroTemporal['tipo_combo']
@@ -1857,6 +1861,7 @@ public function Agregar_Producto ()  {
              }
              $_SESSION['carrito'] = $CarroFinalCompleto;
 
+              Debug::Mostrar( Session::Get('carrito') );
 
     } // Fin Complementar_Datos_Productos_Carrito
 
