@@ -695,6 +695,8 @@ class CarritoController extends Controller{
       $vr_rte_ica = $vr_base * Session::Get('porcentajeica')/1000;
     }
   //SI REGIMEN COMNUN O SIMPLIFICADO Y APLICA BASE, CALCULO RETEFUENTE
+
+
     if ( ( Session::Get('regimen') == 1 || Session::Get('regimen') == 2 ) && $vr_base >= Session::Get('baserteftecpras') ){
       $vr_rte_fte = $vr_base* Session::Get('porcrteftecpras')/100 ;
     }
@@ -702,7 +704,7 @@ class CarritoController extends Controller{
     Session::Set('vr_rte_ica', $vr_rte_ica ) ;
     Session::Set('vr_rte_fte', $vr_rte_fte ) ;
 
-  //Debug::Mostrar( Session::Get('porcentajeica')/1000 );
+
 
   }
 
