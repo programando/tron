@@ -7,22 +7,21 @@ class Database extends PDO
 
     public function __construct()
     {
-          $dsn    = 'mysql:dbname=' . DB_NAME . ';host=' . DB_SERVER;
-          $user   = DB_USER;
-          $pw     = DB_PW;
-          $params = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'");
-        try
-        {
-          parent::__construct($dsn, $user, $pw, $params);
-          //$this->setAttribute($params);
-        }
-          catch(PDOException $e) {
-          echo 'Connection failed: ' . $e->getMessage();
-          exit;
+            $dsn    = 'mysql:dbname=' . DB_NAME . ';host=' . DB_SERVER;
+            $user   = DB_USER;
+            $pw     = DB_PW;
+            $params = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'");
+          try
+          {
+            parent::__construct($dsn, $user, $pw, $params);
+            //$this->setAttribute($params);
+          }
+            catch(PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            exit;
+      }
     }
 
-
-    }
 
     public function Ejecutar_Sp( $nombre_sp_y_parametros ) {
      //Debug::Mostrar($nombre_sp_y_parametros);
@@ -45,9 +44,6 @@ class Database extends PDO
       try {
       $this->Cantidad_Registros = 0;
       $resultado_consulta       = $this->query($texto_SQL);
-
-
-
 
      }
       catch (Exception $e) {
