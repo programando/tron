@@ -40,12 +40,11 @@ require_once APP_PATH . 'Database_config.php';
  						 Session::Init( $Session_Nombre   );
 
  						 try	 {
-         $Url_Solicitada = new Request();
-
-         Bootstrap::Run( $Url_Solicitada );
- 						 }
- 						 catch(Exception $e){
- 						 	echo $e->getMessage();
+                 $Url_Solicitada = new Request();
+                 Bootstrap::Run( $Url_Solicitada );
+         						 }
+         						 catch(Exception $e){
+         						 	echo $e->getMessage();
  						 }
 
 
