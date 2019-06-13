@@ -38,11 +38,25 @@
 
             $this->Email->Body = $this->Unir_Partes_Correo ($Texto_Correo  );
             $this->Email->AddAddress( $email  );
-            //$Respuesta              = $this->Enviar_Correo();
+            $Respuesta              = $this->Enviar_Correo();
         }
 
 
       }
+
+
+      public function Clientes_Informe_Dian () {
+
+          $Texto_Correo    = file_get_contents(BASE_EMAILS.'clientes_requerimiento_fac_electronica.phtml','r');
+          $email             = 'jhonjamesmg@hotmail.com';
+          $nombre_usuario    = 'Jhon James';
+          $this->Configurar_Cuenta($nombre_usuario . ' - Actualización datos para facturación electrónica' );
+          $this->Email->Body = $Texto_Correo  ;
+          $this->Email->AddAddress( $email  );
+          $Respuesta         = $this->Enviar_Correo();
+          echo $this->Email->Body;
+      }
+
 
 
 
