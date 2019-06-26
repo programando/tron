@@ -15,14 +15,157 @@ class FacturaElectronicaController extends Controller
 
     public function index(){}
 
+    public function PruebaArchivo(){
+            $this->TxtoWbSrvce ='[31276723]';
+            $this->TxtoWbSrvce .= '[DEMO31276723_1]';
+            $this->TxtoWbSrvce .= '[SI]';
+            $this->TxtoWbSrvce .= '[FACTURA]';
+            $this->TxtoWbSrvce .= '[nit31276723@facturatech.co]';
+            $this->TxtoWbSrvce .= '[HVme5Nnl]';
+            $this->TxtoWbSrvce .= '(PDF)';
+            $this->TxtoWbSrvce .= 'PDF_1:P1;';
+            $this->TxtoWbSrvce .= '(/PDF)';
+            $this->TxtoWbSrvce .= '(ENC)';
+            $this->TxtoWbSrvce .= ' ENC_1:INVOIC;';
+            $this->TxtoWbSrvce .= 'ENC_2:120788;  ';
+            $this->TxtoWbSrvce .= 'ENC_3:900091175;';
+            $this->TxtoWbSrvce .= 'ENC_4:UBL 2.0;';
+            $this->TxtoWbSrvce .= 'ENC_5:DIAN 1.0;';
+            $this->TxtoWbSrvce .= ' ENC_6:FTEC700000000012301; ';
+            $this->TxtoWbSrvce .= 'ENC_7:2019-05-13;';
+            $this->TxtoWbSrvce .= 'ENC_8:08:15:19;';
+            $this->TxtoWbSrvce .= 'ENC_9:1;';
+            $this->TxtoWbSrvce .= 'ENC_10:COP;';
+            $this->TxtoWbSrvce .= '(/ENC)';
+            $this->TxtoWbSrvce .=' (EMI)' ;
+            $this->TxtoWbSrvce .=' EMI_1:1;' ;
+            $this->TxtoWbSrvce .=' EMI_2:120788;' ;
+            $this->TxtoWbSrvce .='  EMI_3:31;' ;
+            $this->TxtoWbSrvce .=' EMI_4:2;' ;
+            $this->TxtoWbSrvce .=' EMI_6:Consejo JEDI ñ ó Ñ Ó;' ;
+            $this->TxtoWbSrvce .=' EMI_10:CALLE 8 NRO 12 37 ESQUINA;' ;
+            $this->TxtoWbSrvce .=' EMI_12:DOSQUEBRADAS;' ;
+            $this->TxtoWbSrvce .=' EMI_13:DOSQUEBRADAS;' ;
+            $this->TxtoWbSrvce .=' EMI_15:CO;' ;
+            $this->TxtoWbSrvce .=' (TAC)' ;
+            $this->TxtoWbSrvce .='  TAC_1:O-05;' ;
+            $this->TxtoWbSrvce .=' (/TAC)' ;
+            $this->TxtoWbSrvce .=' (TAC)' ;
+            $this->TxtoWbSrvce .='  TAC_1:O-07;' ;
+            $this->TxtoWbSrvce .=' (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .=' TAC_1:O-08;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .='   TAC_1:O-11;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .='   TAC_1:O-14;' ;
+            $this->TxtoWbSrvce .=' (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .='   TAC_1:O-09;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .=' (TAC)' ;
+            $this->TxtoWbSrvce .='  TAC_1:O-35;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .='    TAC_1:O-10;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .='    TAC_1:O-42;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .='  (TAC)' ;
+            $this->TxtoWbSrvce .='    TAC_1:O-33;' ;
+            $this->TxtoWbSrvce .='  (/TAC)' ;
+            $this->TxtoWbSrvce .='   (ICC)' ;
+            $this->TxtoWbSrvce .='    ICC_1:17794;' ;
+            $this->TxtoWbSrvce .='  (/ICC)' ;
+            $this->TxtoWbSrvce .=' (/EMI)' ;
+            $this->TxtoWbSrvce .= '  (ADQ) ';
+            $this->TxtoWbSrvce .= '    ADQ_1:1; ';
+            $this->TxtoWbSrvce .= '    ADQ_2:900091175; ';
+            $this->TxtoWbSrvce .= '    ADQ_3:13; ';
+            $this->TxtoWbSrvce .= '    ADQ_4:2; ';
+            $this->TxtoWbSrvce .= '    ADQ_6:GRUPO MAYORISTA SAS; ';
+            $this->TxtoWbSrvce .= '    ADQ_10:CARRERA 32 NO 14 25; ';
+            $this->TxtoWbSrvce .= '    ADQ_15:CO; ';
+            $this->TxtoWbSrvce .= '  ADQ_18:Cadena prueba; ';
+            $this->TxtoWbSrvce .= '    (TCR) ';
+            $this->TxtoWbSrvce .= '      TCR_1:O-99; ';
+            $this->TxtoWbSrvce .= '    (/TCR) ';
+            $this->TxtoWbSrvce .= '    (ICR) ';
+            $this->TxtoWbSrvce .= '      ICR_1:1234567; ';
+            $this->TxtoWbSrvce .= '    (/ICR) ';
+            $this->TxtoWbSrvce .= '  (/ADQ) ';
+            $this->TxtoWbSrvce .= '  (TOT) ';
+            $this->TxtoWbSrvce .= '    TOT_1:25140000.00; ';
+            $this->TxtoWbSrvce .= '    TOT_2:COP; ';
+            $this->TxtoWbSrvce .= '    TOT_3:25140000.00; ';
+            $this->TxtoWbSrvce .= '    TOT_4:COP; ';
+            $this->TxtoWbSrvce .= '    TOT_5:39663600.00; ';
+            $this->TxtoWbSrvce .= '    TOT_6:COP; ';
+            $this->TxtoWbSrvce .= '  TOT_7:39663600; ';
+            $this->TxtoWbSrvce .= '  TOT_8:COP; ';
+            $this->TxtoWbSrvce .= '    (/TOT) ';
+            $this->TxtoWbSrvce .= '  (TIM) ';
+            $this->TxtoWbSrvce .= '    TIM_1:false; ';
+            $this->TxtoWbSrvce .= '    TIM_2:14523600.00; ';
+            $this->TxtoWbSrvce .= '    TIM_3:COP; ';
+            $this->TxtoWbSrvce .= '   (IMP) ';
+            $this->TxtoWbSrvce .= '     IMP_1:01; ';
+            $this->TxtoWbSrvce .= '     IMP_2:76440000.00; ';
+            $this->TxtoWbSrvce .= '     IMP_3:COP; ';
+            $this->TxtoWbSrvce .= '     IMP_4:14523600.00; ';
+            $this->TxtoWbSrvce .= '     IMP_5:COP; ';
+            $this->TxtoWbSrvce .= '     IMP_6:19.0; ';
+            $this->TxtoWbSrvce .= '   (/IMP) ';
+            $this->TxtoWbSrvce .= ' (/TIM) ';
+            $this->TxtoWbSrvce .='  (DRF) ';
+            $this->TxtoWbSrvce .='    DRF_1:9500000033107892; ';
+            $this->TxtoWbSrvce .='    DRF_2:2018-08-27; ';
+            $this->TxtoWbSrvce .='    DRF_3:2020-01-22; ';
+            $this->TxtoWbSrvce .='    DRF_4:FTEC; ';
+            $this->TxtoWbSrvce .='   DRF_5:700000000000000; ';
+            $this->TxtoWbSrvce .='    DRF_6:790000000000000; ';
+            $this->TxtoWbSrvce .='  (/DRF) ';
+            $this->TxtoWbSrvce .='  (ORC) ';
+            $this->TxtoWbSrvce .='    ORC_1:4500477769; ';
+            $this->TxtoWbSrvce .='  (/ORC) ';
+            $this->TxtoWbSrvce .='  (ITE) ';
+            $this->TxtoWbSrvce .='    ITE_1:1; ';
+            $this->TxtoWbSrvce .='    ITE_3:600.0; ';
+            $this->TxtoWbSrvce .='    ITE_4:ST; ';
+            $this->TxtoWbSrvce .='   ITE_5:16200000.00; ';
+            $this->TxtoWbSrvce .='   ITE_6:COP; ';
+            $this->TxtoWbSrvce .='   ITE_7:27000.00; ';
+            $this->TxtoWbSrvce .='    ITE_8:COP; ';
+            $this->TxtoWbSrvce .='   ITE_19:16200000.00; ';
+            $this->TxtoWbSrvce .='   ITE_20:COP; ';
+            $this->TxtoWbSrvce .='  (/ITE) ';
+            $this->TxtoWbSrvce .= ' (ITE) ';
+            $this->TxtoWbSrvce .= '   ITE_1:2; ';
+            $this->TxtoWbSrvce .= '     ITE_3:300.0; ';
+            $this->TxtoWbSrvce .= '   ITE_4:ST; ';
+            $this->TxtoWbSrvce .= '   ITE_5:8940000.00; ';
+            $this->TxtoWbSrvce .= '   ITE_6:COP; ';
+            $this->TxtoWbSrvce .= '   ITE_7:29800.00; ';
+            $this->TxtoWbSrvce .= '   ITE_8:COP; ';
+            $this->TxtoWbSrvce .= '    ITE_19:8940000.00; ';
+            $this->TxtoWbSrvce .= '   ITE_20:COP; ';
+            $this->TxtoWbSrvce .= '  (/ITE) ';
+            $this->TxtoWbSrvce .= '[/FACTURA]';
+    }
+
     public function emitirFactura () {
         $this->configuraDatosFactura();
+      //$this->PruebaArchivo();
         $param = array( $this->TxtoWbSrvce );
+        echo ( $this->TxtoWbSrvce );
 
         $error = 0;
         ini_set("display_errors","On");
 
-        $client = new SoapClient('http://69.160.41.171/WSfacturatech.asmx?WSDL');
+        $client = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?wsdl');
 
         try {
             $result                  = $client->__call("EmitirComprobante", $param );
@@ -56,7 +199,7 @@ class FacturaElectronicaController extends Controller
               }
               */
           echo '<br> Resultado <br>';
-          var_dump($msgError);
+          var_dump(  $msgError );
         } catch (SoapFault $fault) {
             print("
             alert('Sorry, blah returned the following ERROR: ".$fault->faultcode."-".$fault->faultstring.". We will now take you back to our home page.');
