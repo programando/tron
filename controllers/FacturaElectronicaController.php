@@ -8,6 +8,7 @@ class FacturaElectronicaController extends Controller
 
     private $Coma = ';' ;
     private $Salto = "";
+
     public function __construct() {
         parent::__construct();
         $this->Factura = $this->Load_Model('FacturaElectronica');
@@ -15,164 +16,24 @@ class FacturaElectronicaController extends Controller
 
     public function index(){}
 
-    public function PruebaArchivo(){
-            $this->TxtoWbSrvce ='[31276723]';
-            $this->TxtoWbSrvce .= '[DEMO31276723_1]';
-            $this->TxtoWbSrvce .= '[SI]';
-            $this->TxtoWbSrvce .= '[FACTURA]';
-            $this->TxtoWbSrvce .= '[nit31276723@facturatech.co]';
-            $this->TxtoWbSrvce .= '[HVme5Nnl]';
-            $this->TxtoWbSrvce .= '(PDF)';
-            $this->TxtoWbSrvce .= 'PDF_1:P1;';
-            $this->TxtoWbSrvce .= '(/PDF)';
-            $this->TxtoWbSrvce .= '(ENC)';
-            $this->TxtoWbSrvce .= ' ENC_1:INVOIC;';
-            $this->TxtoWbSrvce .= 'ENC_2:120788;  ';
-            $this->TxtoWbSrvce .= 'ENC_3:900091175;';
-            $this->TxtoWbSrvce .= 'ENC_4:UBL 2.0;';
-            $this->TxtoWbSrvce .= 'ENC_5:DIAN 1.0;';
-            $this->TxtoWbSrvce .= ' ENC_6:FTEC700000000012301; ';
-            $this->TxtoWbSrvce .= 'ENC_7:2019-05-13;';
-            $this->TxtoWbSrvce .= 'ENC_8:08:15:19;';
-            $this->TxtoWbSrvce .= 'ENC_9:1;';
-            $this->TxtoWbSrvce .= 'ENC_10:COP;';
-            $this->TxtoWbSrvce .= '(/ENC)';
-            $this->TxtoWbSrvce .=' (EMI)' ;
-            $this->TxtoWbSrvce .=' EMI_1:1;' ;
-            $this->TxtoWbSrvce .=' EMI_2:120788;' ;
-            $this->TxtoWbSrvce .='  EMI_3:31;' ;
-            $this->TxtoWbSrvce .=' EMI_4:2;' ;
-            $this->TxtoWbSrvce .=' EMI_6:Consejo JEDI ñ ó Ñ Ó;' ;
-            $this->TxtoWbSrvce .=' EMI_10:CALLE 8 NRO 12 37 ESQUINA;' ;
-            $this->TxtoWbSrvce .=' EMI_12:DOSQUEBRADAS;' ;
-            $this->TxtoWbSrvce .=' EMI_13:DOSQUEBRADAS;' ;
-            $this->TxtoWbSrvce .=' EMI_15:CO;' ;
-            $this->TxtoWbSrvce .=' (TAC)' ;
-            $this->TxtoWbSrvce .='  TAC_1:O-05;' ;
-            $this->TxtoWbSrvce .=' (/TAC)' ;
-            $this->TxtoWbSrvce .=' (TAC)' ;
-            $this->TxtoWbSrvce .='  TAC_1:O-07;' ;
-            $this->TxtoWbSrvce .=' (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .=' TAC_1:O-08;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .='   TAC_1:O-11;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .='   TAC_1:O-14;' ;
-            $this->TxtoWbSrvce .=' (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .='   TAC_1:O-09;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .=' (TAC)' ;
-            $this->TxtoWbSrvce .='  TAC_1:O-35;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .='    TAC_1:O-10;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .='    TAC_1:O-42;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .='  (TAC)' ;
-            $this->TxtoWbSrvce .='    TAC_1:O-33;' ;
-            $this->TxtoWbSrvce .='  (/TAC)' ;
-            $this->TxtoWbSrvce .='   (ICC)' ;
-            $this->TxtoWbSrvce .='    ICC_1:17794;' ;
-            $this->TxtoWbSrvce .='  (/ICC)' ;
-            $this->TxtoWbSrvce .=' (/EMI)' ;
-            $this->TxtoWbSrvce .= '  (ADQ) ';
-            $this->TxtoWbSrvce .= '    ADQ_1:1; ';
-            $this->TxtoWbSrvce .= '    ADQ_2:900091175; ';
-            $this->TxtoWbSrvce .= '    ADQ_3:13; ';
-            $this->TxtoWbSrvce .= '    ADQ_4:2; ';
-            $this->TxtoWbSrvce .= '    ADQ_6:GRUPO MAYORISTA SAS; ';
-            $this->TxtoWbSrvce .= '    ADQ_10:CARRERA 32 NO 14 25; ';
-            $this->TxtoWbSrvce .= '    ADQ_15:CO; ';
-            $this->TxtoWbSrvce .= '  ADQ_18:Cadena prueba; ';
-            $this->TxtoWbSrvce .= '    (TCR) ';
-            $this->TxtoWbSrvce .= '      TCR_1:O-99; ';
-            $this->TxtoWbSrvce .= '    (/TCR) ';
-            $this->TxtoWbSrvce .= '    (ICR) ';
-            $this->TxtoWbSrvce .= '      ICR_1:1234567; ';
-            $this->TxtoWbSrvce .= '    (/ICR) ';
-            $this->TxtoWbSrvce .= '  (/ADQ) ';
-            $this->TxtoWbSrvce .= '  (TOT) ';
-            $this->TxtoWbSrvce .= '    TOT_1:25140000.00; ';
-            $this->TxtoWbSrvce .= '    TOT_2:COP; ';
-            $this->TxtoWbSrvce .= '    TOT_3:25140000.00; ';
-            $this->TxtoWbSrvce .= '    TOT_4:COP; ';
-            $this->TxtoWbSrvce .= '    TOT_5:39663600.00; ';
-            $this->TxtoWbSrvce .= '    TOT_6:COP; ';
-            $this->TxtoWbSrvce .= '  TOT_7:39663600; ';
-            $this->TxtoWbSrvce .= '  TOT_8:COP; ';
-            $this->TxtoWbSrvce .= '    (/TOT) ';
-            $this->TxtoWbSrvce .= '  (TIM) ';
-            $this->TxtoWbSrvce .= '    TIM_1:false; ';
-            $this->TxtoWbSrvce .= '    TIM_2:14523600.00; ';
-            $this->TxtoWbSrvce .= '    TIM_3:COP; ';
-            $this->TxtoWbSrvce .= '   (IMP) ';
-            $this->TxtoWbSrvce .= '     IMP_1:01; ';
-            $this->TxtoWbSrvce .= '     IMP_2:76440000.00; ';
-            $this->TxtoWbSrvce .= '     IMP_3:COP; ';
-            $this->TxtoWbSrvce .= '     IMP_4:14523600.00; ';
-            $this->TxtoWbSrvce .= '     IMP_5:COP; ';
-            $this->TxtoWbSrvce .= '     IMP_6:19.0; ';
-            $this->TxtoWbSrvce .= '   (/IMP) ';
-            $this->TxtoWbSrvce .= ' (/TIM) ';
-            $this->TxtoWbSrvce .='  (DRF) ';
-            $this->TxtoWbSrvce .='    DRF_1:9500000033107892; ';
-            $this->TxtoWbSrvce .='    DRF_2:2018-08-27; ';
-            $this->TxtoWbSrvce .='    DRF_3:2020-01-22; ';
-            $this->TxtoWbSrvce .='    DRF_4:FTEC; ';
-            $this->TxtoWbSrvce .='   DRF_5:700000000000000; ';
-            $this->TxtoWbSrvce .='    DRF_6:790000000000000; ';
-            $this->TxtoWbSrvce .='  (/DRF) ';
-            $this->TxtoWbSrvce .='  (ORC) ';
-            $this->TxtoWbSrvce .='    ORC_1:4500477769; ';
-            $this->TxtoWbSrvce .='  (/ORC) ';
-            $this->TxtoWbSrvce .='  (ITE) ';
-            $this->TxtoWbSrvce .='    ITE_1:1; ';
-            $this->TxtoWbSrvce .='    ITE_3:600.0; ';
-            $this->TxtoWbSrvce .='    ITE_4:ST; ';
-            $this->TxtoWbSrvce .='   ITE_5:16200000.00; ';
-            $this->TxtoWbSrvce .='   ITE_6:COP; ';
-            $this->TxtoWbSrvce .='   ITE_7:27000.00; ';
-            $this->TxtoWbSrvce .='    ITE_8:COP; ';
-            $this->TxtoWbSrvce .='   ITE_19:16200000.00; ';
-            $this->TxtoWbSrvce .='   ITE_20:COP; ';
-            $this->TxtoWbSrvce .='  (/ITE) ';
-            $this->TxtoWbSrvce .= ' (ITE) ';
-            $this->TxtoWbSrvce .= '   ITE_1:2; ';
-            $this->TxtoWbSrvce .= '     ITE_3:300.0; ';
-            $this->TxtoWbSrvce .= '   ITE_4:ST; ';
-            $this->TxtoWbSrvce .= '   ITE_5:8940000.00; ';
-            $this->TxtoWbSrvce .= '   ITE_6:COP; ';
-            $this->TxtoWbSrvce .= '   ITE_7:29800.00; ';
-            $this->TxtoWbSrvce .= '   ITE_8:COP; ';
-            $this->TxtoWbSrvce .= '    ITE_19:8940000.00; ';
-            $this->TxtoWbSrvce .= '   ITE_20:COP; ';
-            $this->TxtoWbSrvce .= '  (/ITE) ';
-            $this->TxtoWbSrvce .= '[/FACTURA]';
-    }
 
-    public function emitirFactura () {
-        $this->configuraDatosFactura();
-      //$this->PruebaArchivo();
-        $param = array( $this->TxtoWbSrvce );
-        echo ( $this->TxtoWbSrvce );
 
+
+
+    public function emitirFactura ()    {
+      $this->configuraDatosFactura();
+      $CadenaWebService = $this->TxtoWbSrvce ;
+      $param            = array('LayOut' =>   utf8_encode( $CadenaWebService) );
+      echo ( $CadenaWebService );
         $error = 0;
         ini_set("display_errors","On");
-
-        $client = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?wsdl');
-
         try {
-            $result                  = $client->__call("EmitirComprobante", $param );
+            $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
+            $result                  = $client->__call("EmitirComprobante", array( $param ) );
+
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
             $msgError                = $EmitirComprobanteResult->MensajeErrorLAYOUT;
 
-           /*
             $XMLFiscalValido         = $EmitirComprobanteResult->XMLFiscalValido;
             $fileName                = $EmitirComprobanteResult->fileName;
             $documentNumber          = $EmitirComprobanteResult->documentNumber;
@@ -188,6 +49,9 @@ class FacturaElectronicaController extends Controller
             //get CUFE
             $Status                  = $EmitirComprobanteResult->MensajeRespuestaCUFE->Status;
             $CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
+            Debug::Mostrar( $CUFE ) ;
+            Debug::Mostrar( $result ) ;
+
             if (!empty($XMLFiscalValido) and empty($errorMessage)){
                   $myfilexmlResponse = fopen($path . "filename.xml", "w");
                   fwrite($myfilexmlResponse, $XMLFiscalValido);
@@ -197,15 +61,14 @@ class FacturaElectronicaController extends Controller
               else {
                     echo $errorMessage;
               }
-              */
-          echo '<br> Resultado <br>';
-          var_dump(  $msgError );
+
         } catch (SoapFault $fault) {
             print("
             alert('Sorry, blah returned the following ERROR: ".$fault->faultcode."-".$fault->faultstring.". We will now take you back to our home page.');
             window.location = 'main.php';
             ");
         }
+
         catch (Exception $e){
           echo 'Error: '.$e->getMessage();
         }
@@ -242,21 +105,22 @@ class FacturaElectronicaController extends Controller
       $this->Fact_10_REF () ;
       $this->Fact_11_FE1 () ;
       $this->Fact_12_ITE () ;
-      $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]"'  ;
+      $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]'  ;
     }
 
     private function InicioArchivo(){
       $this->TxtoWbSrvce = '';
-      $this->TxtoWbSrvce = 'LayOut => "[900755214]';
+      $this->TxtoWbSrvce = '[900755214]';
       $this->TxtoWbSrvce .=  '[DEMO900755214_1]';
       $this->TxtoWbSrvce .=  '[SI]';
       $this->TxtoWbSrvce .=  '[FACTURA]';
       $this->TxtoWbSrvce .=  '[nit900755214@facturatech.co]';
-      $this->TxtoWbSrvce .=  '[BZF%C7x1]';
+      $this->TxtoWbSrvce .=   '[BZF%C7x1]';
     }
 
     private function Fact_01_ENC (){
-      $this->TxtoWbSrvce .= $this->Salto . '(ENC)'  . $this->Salto ;
+        $this->TxtoWbSrvce .= $this->Salto . '(PDF)PDF_1:P1;(/PDF)'  . $this->Salto ;
+        $this->TxtoWbSrvce .= $this->Salto . '(ENC)'  . $this->Salto ;
         $this->TxtoWbSrvce .= 'ENC_1:'. $this->_01_Enc[0]['_01_tp_doc']       . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'ENC_2:'. $this->_01_Enc[0]['_02_nit_emprsa']   . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'ENC_3:'. $this->_01_Enc[0]['_03_nit_clinte']   . $this->Coma  . $this->Salto  ;
@@ -317,7 +181,10 @@ class FacturaElectronicaController extends Controller
           $this->TxtoWbSrvce .= 'ADQ_12:'. $this->_03_Adq[0]['_12_mcipio']              . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'ADQ_13:'. $this->_03_Adq[0]['_13_mcipio']              . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'ADQ_15:'. $this->_03_Adq[0]['_15_pais']                . $this->Coma  . $this->Salto  ;
-          $this->generaCampoInterno ('TCR', $this->_03_Adq[0]['_15_pais'] ) ;
+          $this->generaCampoInterno ('TCR', $this->_03_Adq[0]['tcr_01'] ) ;
+          if ( $this->_03_Adq[0]['_01_tp_prsna'] == '1' ){
+            $this->generaCampoInterno ('ICR', '' ) ;
+          }
           $this->TxtoWbSrvce .= '(CDA)' . $this->Salto ;
           $this->TxtoWbSrvce .= 'CDA_1:'. $this->_03_Adq[0]['cda_01_tp_cntcto']         . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'CDA_2:'. $this->_03_Adq[0]['cda_02_nom_crgo']          . $this->Coma  . $this->Salto  ;
@@ -338,6 +205,7 @@ class FacturaElectronicaController extends Controller
         $this->TxtoWbSrvce .= 'TOT_6:'. $this->_04_Tot[0]['_06_mnda']                  . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_7:'. $this->_04_Tot[0]['_07_tot_fctra']             . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_8:'. $this->_04_Tot[0]['_08_mnda']                  . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'TOT_9:'. '0'                 . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_10:'. $this->_04_Tot[0]['_10_mnda']                 . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_12:'. $this->_04_Tot[0]['_12_mnda']                 . $this->Coma  . $this->Salto  ;
        $this->TxtoWbSrvce .= $this->Salto . '(/TOT)'  ;
@@ -346,16 +214,16 @@ class FacturaElectronicaController extends Controller
     private function Fact_05_IMP () {
         $this->TxtoWbSrvce .=      $this->Salto . '(TIM)'  . $this->Salto;
         $this->TxtoWbSrvce .= 'TIM_1:'. $this->_05_Imp[0]['_01_tp_impsto']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'TIM_2:'. $this->_05_Imp[0]['_02_vr_base']                . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'TIM_2:'. $this->_05_Imp[0]['imp_04_vr_impsto']                . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TIM_3:'. $this->_05_Imp[0]['_03_mnda']                   . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .=      $this->Salto . '(IMP)'  . $this->Salto;
-              $this->TxtoWbSrvce .= 'IMP_1:'. $this->_05_Imp[0]['imp_01_tp_impsto']     . $this->Coma  . $this->Salto  ;
-              $this->TxtoWbSrvce .= 'IMP_2:'. $this->_05_Imp[0]['imp_02_base']          . $this->Coma  . $this->Salto  ;
-              $this->TxtoWbSrvce .= 'IMP_3:'. $this->_05_Imp[0]['imp_03_mnda']          . $this->Coma  . $this->Salto  ;
-              $this->TxtoWbSrvce .= 'IMP_4:'. $this->_05_Imp[0]['imp_04_vr_impsto']     . $this->Coma  . $this->Salto  ;
-              $this->TxtoWbSrvce .= 'IMP_5:'. $this->_05_Imp[0]['imp_05_mnda']          . $this->Coma  . $this->Salto  ;
-              $this->TxtoWbSrvce .= 'IMP_6:'. $this->_05_Imp[0]['imp_06_pctje']         . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= $this->Salto . '(/IMP)'  ;
+        $this->TxtoWbSrvce .=      $this->Salto . '(IMP)'  . $this->Salto;
+        $this->TxtoWbSrvce .= 'IMP_1:'. $this->_05_Imp[0]['imp_01_tp_impsto']     . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'IMP_2:'. $this->_05_Imp[0]['imp_02_base']          . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'IMP_3:'. $this->_05_Imp[0]['imp_03_mnda']          . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'IMP_4:'. $this->_05_Imp[0]['imp_04_vr_impsto']     . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'IMP_5:'. $this->_05_Imp[0]['imp_05_mnda']          . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'IMP_6:'. $this->_05_Imp[0]['imp_06_pctje']         . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= $this->Salto . '(/IMP)'  ;
         $this->TxtoWbSrvce .= $this->Salto . '(/TIM)'  ;
     }
 
@@ -396,7 +264,10 @@ class FacturaElectronicaController extends Controller
             $this->TxtoWbSrvce .=      $this->Salto . '(NOT)'  . $this->Salto;
             $this->TxtoWbSrvce .= 'NOT_1:'. $this->_09_Not[0]['_01_notas']           . $this->Coma  . $this->Salto  ;
             $this->TxtoWbSrvce .= $this->Salto . '(/NOT)'  ;
-      }
+          }
+            $this->TxtoWbSrvce .=      $this->Salto . '(ORC)'  . $this->Salto;
+           $this->TxtoWbSrvce .= 'ORC_1:'. '001-OC'           . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= $this->Salto . '(/ORC)'  ;
     }
 
     public function Fact_10_REF () {
@@ -405,7 +276,7 @@ class FacturaElectronicaController extends Controller
         $this->TxtoWbSrvce .= 'REF_2:'. $this->_10_Ref[0]['_02_num_doc']        . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'REF_3:'. $this->_10_Ref[0]['_03_fcha']           . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= $this->Salto . '(/REF)'  ;
-        $this->generaCampoInterno( 'CTS', $this->_01_Enc[0]['cts_01_cod_plntlla_fctra'] );
+        //$this->generaCampoInterno( 'CTS', $this->_01_Enc[0]['cts_01_cod_plntlla_fctra'] );
     }
 
     public function Fact_11_FE1 () {
