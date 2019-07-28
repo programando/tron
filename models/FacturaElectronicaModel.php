@@ -19,6 +19,11 @@
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_02_emi_pndte_envio_dian( $_id_fact_elctrnca )");
             return    $Facturas   ;
         }
+
+        public function fact_01_Respuesta_Operador ( $_id_fact_elctrnca, $errorMessage, $transactionId, $documentNumber )   {
+           $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_respuesta_operador( $_id_fact_elctrnca, '$errorMessage', '$transactionId', '$documentNumber' )");
+        }
+
         public function fact_03_adq ( $_id_fact_elctrnca )   {
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_03_adq_pndte_envio_dian( $_id_fact_elctrnca )");
             return    $Facturas   ;

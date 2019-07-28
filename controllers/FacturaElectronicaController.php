@@ -16,69 +16,69 @@ class FacturaElectronicaController extends Controller
 
     public function index(){}
 
-
-
-
-
-    public function emitirFactura ()    {
-      $this->configuraDatosFactura();
-      $CadenaWebService = $this->TxtoWbSrvce ;
-      $param            = array('LayOut' =>   utf8_encode( $CadenaWebService) );
-      echo ( $CadenaWebService );
-        $error = 0;
+    private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
+        //$param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
+        Debug::Mostrar ( $CadenaWebService  );
+        $param          = array('LayOut' =>    $CadenaWebService );
+        $CUFE           = '';
+        $documentNumber = '';
+        $error          = 0;
+        $transactionId  = '';
         try {
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
 
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
             $msgError                = $EmitirComprobanteResult->MensajeErrorLAYOUT;
-
             $XMLFiscalValido         = $EmitirComprobanteResult->XMLFiscalValido;
             $fileName                = $EmitirComprobanteResult->fileName;
-            $documentNumber          = $EmitirComprobanteResult->documentNumber;
-            $transactionId           = $EmitirComprobanteResult->ID;
-
             //document status
             $processName             = $EmitirComprobanteResult->MensajeDocumentStatus->processName;
             $processStatus           = $EmitirComprobanteResult->MensajeDocumentStatus->processStatus;
             $processDate             = $EmitirComprobanteResult->MensajeDocumentStatus->processDate;
             $messageType             = $EmitirComprobanteResult->MensajeDocumentStatus->messageType;
-            $errorMessage            = $EmitirComprobanteResult->MensajeDocumentStatus->errorMessage;
             $businessStatus          = $EmitirComprobanteResult->MensajeDocumentStatus->businessStatus;
             //get CUFE
             $Status                  = $EmitirComprobanteResult->MensajeRespuestaCUFE->Status;
             $CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
-            Debug::Mostrar( $CUFE ) ;
-            Debug::Mostrar( $result ) ;
+
+            $documentNumber          = $EmitirComprobanteResult->documentNumber;
+            $transactionId           = $EmitirComprobanteResult->ID;
+            $errorMessage            = $EmitirComprobanteResult->MensajeDocumentStatus->errorMessage;
 
             if (!empty($XMLFiscalValido) and empty($errorMessage)){
-                  $myfilexmlResponse = fopen($path . "filename.xml", "w");
-                  fwrite($myfilexmlResponse, $XMLFiscalValido);
-                  fclose($myfilexmlResponse);
-                   echo 'Done!';
+                  $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
               }
               else {
-                    echo $errorMessage;
+                    $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
               }
 
-        } catch (SoapFault $fault) {
-            print("
-            alert('Sorry, blah returned the following ERROR: ".$fault->faultcode."-".$fault->faultstring.". We will now take you back to our home page.');
-            window.location = 'main.php';
-            ");
+          } catch (SoapFault $fault) {
+              $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
+              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
+          }
+
+          catch (Exception $e){
+              $errorMessage =  'Error: '. $e->getMessage();
+              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
+          }
+  }
+
+
+    public function emitirFacturas ()    {
+      $FacturasPendientes = $this->Factura->fact_01_enc();
+      foreach ( $FacturasPendientes as $Factura ) {
+           $this->_01_Enc    = $Factura;
+           $id_fact_elctrnca = $Factura['id_fact_elctrnca']  ;
+           $this->configuraDatosFactura( $id_fact_elctrnca );
+           $this->enviarDocumentoFacturaTech( $this->TxtoWbSrvce, $id_fact_elctrnca ) ;
         }
-
-        catch (Exception $e){
-          echo 'Error: '.$e->getMessage();
-        }
-
-
     }
 
-    public function configuraDatosFactura () {
-      $this->_01_Enc = $this->Factura->fact_01_enc();
-      $this->id_fact_elctrnca = $this->_01_Enc[0]['id_fact_elctrnca'];
+    public function configuraDatosFactura ( $id_fact_elctrnca ) {
+
+      $this->id_fact_elctrnca = $id_fact_elctrnca ;
       /*-------------------------------------------------------------------*/
       $this->_02_Emi = $this->Factura->fact_02_emi ( $this->id_fact_elctrnca );
       $this->_03_Adq = $this->Factura->fact_03_adq ( $this->id_fact_elctrnca );
@@ -106,32 +106,35 @@ class FacturaElectronicaController extends Controller
       $this->Fact_11_FE1 () ;
       $this->Fact_12_ITE () ;
       $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]'  ;
+      return $this->id_fact_elctrnca ;
     }
 
     private function InicioArchivo(){
       $this->TxtoWbSrvce = '';
+
       $this->TxtoWbSrvce = '[900755214]';
       $this->TxtoWbSrvce .=  '[DEMO900755214_1]';
       $this->TxtoWbSrvce .=  '[SI]';
       $this->TxtoWbSrvce .=  '[FACTURA]';
       $this->TxtoWbSrvce .=  '[nit900755214@facturatech.co]';
-      $this->TxtoWbSrvce .=   '[BZF%C7x1]';
+      $this->TxtoWbSrvce .=   '[facturas@balquimia]' ; // '[BZF%C7x1]';
+
     }
 
     private function Fact_01_ENC (){
         $this->TxtoWbSrvce .= $this->Salto . '(PDF)PDF_1:P1;(/PDF)'  . $this->Salto ;
         $this->TxtoWbSrvce .= $this->Salto . '(ENC)'  . $this->Salto ;
-        $this->TxtoWbSrvce .= 'ENC_1:'. $this->_01_Enc[0]['_01_tp_doc']       . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_2:'. $this->_01_Enc[0]['_02_nit_emprsa']   . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_3:'. $this->_01_Enc[0]['_03_nit_clinte']   . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_4:'. $this->_01_Enc[0]['_04_vrsion_equma'] . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_5:'. $this->_01_Enc[0]['_05_vrsion_frmto'] . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_6:'. $this->_01_Enc[0]['_06_nro_fctra']    . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_7:'. $this->_01_Enc[0]['_07_fcha_fctra']   . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_8:'. $this->_01_Enc[0]['_08_hra_fctra']    . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_9:'. $this->_01_Enc[0]['_09_tp_fctra']     . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_10:'.$this->_01_Enc[0]['_10_mnda']         . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'ENC_16:'.$this->_01_Enc[0]['_16_fcha_vncmnto'] . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_1:'. $this->_01_Enc['_01_tp_doc']       . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_2:'. $this->_01_Enc['_02_nit_emprsa']   . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_3:'. $this->_01_Enc['_03_nit_clinte']   . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_4:'. $this->_01_Enc['_04_vrsion_equma'] . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_5:'. $this->_01_Enc['_05_vrsion_frmto'] . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_6:'. $this->_01_Enc['_06_nro_fctra']    . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_7:'. $this->_01_Enc['_07_fcha_fctra']   . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_8:'. $this->_01_Enc['_08_hra_fctra']    . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_9:'. $this->_01_Enc['_09_tp_fctra']     . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_10:'.$this->_01_Enc['_10_mnda']         . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_16:'.$this->_01_Enc['_16_fcha_vncmnto'] . $this->Coma  . $this->Salto  ;
       $this->TxtoWbSrvce .= '(/ENC)'  . $this->Salto;
     }
 
@@ -266,7 +269,7 @@ class FacturaElectronicaController extends Controller
             $this->TxtoWbSrvce .= $this->Salto . '(/NOT)'  ;
           }
             $this->TxtoWbSrvce .=      $this->Salto . '(ORC)'  . $this->Salto;
-           $this->TxtoWbSrvce .= 'ORC_1:'. '001-OC'           . $this->Coma  . $this->Salto  ;
+           $this->TxtoWbSrvce .= 'ORC_1:'. $this->_09_Not[0]['ord_cpra']           . $this->Coma  . $this->Salto  ;
             $this->TxtoWbSrvce .= $this->Salto . '(/ORC)'  ;
     }
 
