@@ -67,6 +67,7 @@ class FacturaElectronicaController extends Controller
 
 
     public function emitirFacturas ()    {
+      echo "Inicio emisión de facturas";
       $FacturasPendientes = $this->Factura->fact_01_enc();
       foreach ( $FacturasPendientes as $Factura ) {
            $this->_01_Enc    = $Factura;
@@ -74,6 +75,7 @@ class FacturaElectronicaController extends Controller
            $this->configuraDatosFactura( $id_fact_elctrnca );
            $this->enviarDocumentoFacturaTech( $this->TxtoWbSrvce, $id_fact_elctrnca ) ;
         }
+      echo "Finalizo !!!!";
     }
 
     public function configuraDatosFactura ( $id_fact_elctrnca ) {
