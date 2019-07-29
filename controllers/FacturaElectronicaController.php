@@ -18,7 +18,7 @@ class FacturaElectronicaController extends Controller
 
     private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
-        Debug::Mostrar( $CadenaWebService );
+
         $param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
         $CUFE           = '';
         $documentNumber = '';
@@ -66,15 +66,16 @@ class FacturaElectronicaController extends Controller
 
 
     public function emitirFacturas ()    {
-      echo "Inicio emisión de facturas";
+
       $FacturasPendientes = $this->Factura->fact_01_enc();
       foreach ( $FacturasPendientes as $Factura ) {
            $this->_01_Enc    = $Factura;
            $id_fact_elctrnca = $Factura['id_fact_elctrnca']  ;
            $this->configuraDatosFactura( $id_fact_elctrnca );
            $this->enviarDocumentoFacturaTech( $this->TxtoWbSrvce, $id_fact_elctrnca ) ;
+           $this->Factura->fact_01_UpdateCadenaWebService($id_fact_elctrnca, $this->TxtoWbSrvce) ;
         }
-      echo "Finalizo !!!!";
+
     }
 
     public function configuraDatosFactura ( $id_fact_elctrnca ) {
