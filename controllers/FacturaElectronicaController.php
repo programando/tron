@@ -24,43 +24,43 @@ class FacturaElectronicaController extends Controller
         $documentNumber = '';
         $error          = 0;
         $transactionId  = '';
+
         try {
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
-
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
-            $msgError                = $EmitirComprobanteResult->MensajeErrorLAYOUT;
-            $XMLFiscalValido         = $EmitirComprobanteResult->XMLFiscalValido;
-            $fileName                = $EmitirComprobanteResult->fileName;
-            //document status
-            $processName             = $EmitirComprobanteResult->MensajeDocumentStatus->processName;
-            $processStatus           = $EmitirComprobanteResult->MensajeDocumentStatus->processStatus;
-            $processDate             = $EmitirComprobanteResult->MensajeDocumentStatus->processDate;
-            $messageType             = $EmitirComprobanteResult->MensajeDocumentStatus->messageType;
-            $businessStatus          = $EmitirComprobanteResult->MensajeDocumentStatus->businessStatus;
-            //get CUFE
-            $Status                  = $EmitirComprobanteResult->MensajeRespuestaCUFE->Status;
-            $CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
 
+            /*$msgError                = $EmitirComprobanteResult->MensajeErrorLAYOUT;
+              $fileName                = $EmitirComprobanteResult->fileName;
+              $processName             = $EmitirComprobanteResult->MensajeDocumentStatus->processName;
+              $processStatus           = $EmitirComprobanteResult->MensajeDocumentStatus->processStatus;
+              $processDate             = $EmitirComprobanteResult->MensajeDocumentStatus->processDate;
+              $messageType             = $EmitirComprobanteResult->MensajeDocumentStatus->messageType;
+              $businessStatus          = $EmitirComprobanteResult->MensajeDocumentStatus->businessStatus;
+              $Status                  = $EmitirComprobanteResult->MensajeRespuestaCUFE->Status;
+            */
+
+            $XMLFiscalValido         = $EmitirComprobanteResult->XMLFiscalValido;
             $documentNumber          = $EmitirComprobanteResult->documentNumber;
             $transactionId           = $EmitirComprobanteResult->ID;
             $errorMessage            = $EmitirComprobanteResult->MensajeDocumentStatus->errorMessage;
+            $CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
 
             if (!empty($XMLFiscalValido) and empty($errorMessage)){
-                  $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
+                  $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, $CUFE );
               }
               else {
-                    $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
+                    $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber,$CUFE );
               }
 
           } catch (SoapFault $fault) {
               $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
-              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
+              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, $CUFE );
           }
 
           catch (Exception $e){
               $errorMessage =  'Error: '. $e->getMessage();
-              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber );
+              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, $CUFE );
           }
   }
 
