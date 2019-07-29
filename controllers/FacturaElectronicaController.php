@@ -18,9 +18,7 @@ class FacturaElectronicaController extends Controller
 
     private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
-        //$param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
-        Debug::Mostrar ( $CadenaWebService  );
-        $param          = array('LayOut' =>    $CadenaWebService );
+        $param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
         $CUFE           = '';
         $documentNumber = '';
         $error          = 0;
