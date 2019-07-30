@@ -80,7 +80,8 @@ class FacturaElectronicaController extends Controller
           foreach ( $ErrorEstructura as $Error) {
               $this->Factura->fact_01_UpdateErroresLayout( $id_fact_elctrnca ,$Error );
           }
-          $this->Correos->FacturaElectronicaError ( implode( "," ,$ErrorEstructura), $id_fact_elctrnca );
+
+          //$this->Correos->FacturaElectronicaError ( implode( "," ,$ErrorEstructura), $id_fact_elctrnca );
 
       }
 
