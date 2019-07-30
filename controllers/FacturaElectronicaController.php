@@ -18,8 +18,6 @@ class FacturaElectronicaController extends Controller
 
     private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
-        //$CadenaWebService = '[900755214][DEMO900755214_1][SI][FACTURA][nit900755214@facturatech.co][facturas@balquimia](PDF)PDF_1:P1;(/PDF)(ENC)ENC_1:INVOIC;ENC_2:900755214;ENC_3:900030563;ENC_4:UBL 2.0;ENC_5:DIAN 1.0;ENC_6:FTEC700000000015538;ENC_7:2019-07-29;ENC_8:04:16:52;ENC_9:1;ENC_10:COP;ENC_16:2019-07-30;(/ENC)(EMI)EMI_1:1;EMI_2:900755214;EMI_3:31;EMI_4:2;EMI_6:BALQUIMIA S.A.S.;EMI_10:CALLE 35 4 - 31;EMI_11:VALLE DEL CAUCA;EMI_12:CALI;EMI_13:CALI;EMI_15:CO;EMI_19:VALLE DEL CAUCA;EMI_20:CALI;EMI_21:COLOMBIA;(TAC)TAC_1:5;(/TAC)(TAC)TAC_1:7;(/TAC)(TAC)TAC_1:9;(/TAC)(TAC)TAC_1:10;(/TAC)(TAC)TAC_1:11;(/TAC)(TAC)TAC_1:14;(/TAC)(TAC)TAC_1:42;(/TAC)(ICC)ICC_1:906022-16;(/ICC)(/EMI)(ADQ)ADQ_1:1;ADQ_2:900030563;ADQ_3:31;ADQ_4:2;ADQ_6:SERVICIOS Y ASESORIAS NAL.LTDA;ADQ_8:;ADQ_9:;ADQ_10:AV CIRCUNVALAR CONJ. RES.AURA BLOQ.1;ADQ_11:RISARALDA;ADQ_12:PEREIRA;ADQ_13:PEREIRA;ADQ_15:CO;(TCR)TCR_1:O-99;(/TCR)(ICR)ICR_1:;(/ICR)(CDA)CDA_1:1;CDA_2:JHON JAMES MONTAÑO;CDA_3:3113369005;CDA_4:jhonjamesmg@hotmail.com;(/CDA)(/ADQ)(TOT)TOT_1:32280.0000;TOT_2:COP;TOT_3:32280.0000;TOT_4:COP;TOT_5:38413.2000;TOT_6:COP;TOT_7:38413.2000;TOT_8:COP;TOT_9:0;TOT_10:COP;TOT_12:COP;(/TOT)(TIM)TIM_1:false;TIM_2:6133.2000;TIM_3:COP;(IMP)IMP_1:01;IMP_2:32280.0000;IMP_3:COP;IMP_4:6133.2000;IMP_5:COP;IMP_6:19.000;(/IMP)(/TIM)(DSC)DSC_1:false;DSC_2:0.000;DSC_3:0.0000;DSC_4:COP;DSC_5:19;DSC_8:COP;DSC_9:1;(/DSC)(DRF)DRF_1:9500000033107892;DRF_2:2018-08-27;DRF_3:2020-01-22;DRF_4:FTEC;DRF_5:700000000000000;DRF_6:790000000000000;(/DRF)(ITD)ITD_1:6133.2000;ITD_2:COP;ITD_5:38413.2000;ITD_6:COP;(/ITD)(NOT)NOT_1: <br> Régimen común. ICA código de actividad 102 tarifa 6.6 x 1000 <br>Sírvase aplicar las siguientes retenciones: <br>Actividad ICA 2023 - Tarifa 6.6*1.000 y Retención en la fuente 2.5% <br>;(/NOT)(ORC)ORC_1:O.C. # : JOHN JAIRO;(/ORC)(REF)REF_1:IV;REF_2:700000000015538;REF_3:2019-07-29;(/REF)(ITE)ITE_1:1;ITE_2:false;ITE_3:24.0000;ITE_4:S7;ITE_5:774720.0000;ITE_6:COP;ITE_7:32280.0000;ITE_8:COP;ITE_11:RETROCHO  -- Cojin x 150 mL --  Lote #:      IN0719133;ITE_12:Cojin x 150 mL;ITE_14:S7;ITE_19:774720.0000;ITE_20:COP;ITE_21:774720.0000;ITE_22:COP;(/ITE)[/FACTURA]';
-
         $param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
         $CUFE           = '';
         $documentNumber = '';
@@ -40,29 +38,29 @@ class FacturaElectronicaController extends Controller
               $businessStatus          = $EmitirComprobanteResult->MensajeDocumentStatus->businessStatus;
 
             */
-            $msgError                = $EmitirComprobanteResult->MensajeErrorLAYOUT;
+            //$errorMessage                = $EmitirComprobanteResult->MensajeErrorLAYOUT;
             $Status                  = $EmitirComprobanteResult->MensajeRespuestaCUFE->Status;
             $XMLFiscalValido         = $EmitirComprobanteResult->XMLFiscalValido;
             $documentNumber          = $EmitirComprobanteResult->documentNumber;
             $transactionId           = $EmitirComprobanteResult->ID;
             $errorMessage            = $EmitirComprobanteResult->MensajeDocumentStatus->errorMessage;
-            $CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
+            //$CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
 
             if (!empty($XMLFiscalValido) and empty($errorMessage)){
                   $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
               }
               else {
-                    $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $msgError, $transactionId , $documentNumber, 'CUFE' );
+                    $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
               }
 
           } catch (SoapFault $fault) {
               $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
-              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $msgError, $transactionId , $documentNumber, 'CUFE');
+              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE');
           }
 
           catch (Exception $e){
               $errorMessage =  'Error: '. $e->getMessage();
-              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $msgError, $transactionId , $documentNumber, 'CUFE' );
+              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
           }
   }
 
