@@ -12,12 +12,15 @@ class FacturaElectronicaController extends Controller
     public function __construct() {
         parent::__construct();
         $this->Factura = $this->Load_Model('FacturaElectronica');
+        $this->Correos             = $this->Load_Controller('Emails');
     }
 
     public function index(){}
 
     private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
+        $CadenaWebService = '[900755214][DEMO900755214_1][SI][FACTURA][nit900755214@facturatech.co][facturas@balquimia](PDF)PDF_1:P1;(/PDF)(ENC)ENC_1:INVOIC;ENC_2:900755214;ENC_3:805016704;ENC_4:UBL 2.0;ENC_5:DIAN 1.0;ENC_6:FTEC700000000015552;ENC_7:2019-07-30;ENC_8:01:29:10;ENC_9:1;ENC_10:COP;ENC_16:2019-07-30;(/ENC)(EMI)EMI_1:1;EMI_2:900755214;EMI_3:31;EMI_4:2;EMI_6:BALQUIMIA S.A.S.;EMI_10:CALLE 35 4 - 31;EMI_11:VALLE DEL CAUCA;EMI_12:CALI;EMI_13:CALI;EMI_15:CO;EMI_19:VALLE DEL CAUCA;EMI_20:CALI;EMI_21:COLOMBIA;(TAC)TAC_1:5;(/TAC)(TAC)TAC_1:7;(/TAC)(TAC)TAC_1:9;(/TAC)(TAC)TAC_1:10;(/TAC)(TAC)TAC_1:11;(/TAC)(TAC)TAC_1:14;(/TAC)(TAC)TAC_1:42;(/TAC)(ICC)ICC_1:906022-16;(/ICC)(/EMI)(ADQ)ADQ_1:1;ADQ_2:805016704;ADQ_3:31;ADQ_4:2;ADQ_6:INALMEGA S. A.;ADQ_8:;ADQ_9:;ADQ_10:CRA. 35 # 12-249;ADQ_11:VALLE DEL CAUCA;ADQ_12:CALI;ADQ_13:CALI;ADQ_15:CO;(TCR)TCR_1:O-99;(/TCR)(ICR)ICR_1:;(/ICR)(CDA)CDA_1:1;CDA_2:JHON JAMES MONTAÑO;CDA_3:3113369005;CDA_4:jhonjamesmg@hotmail.com;(/CDA)(/ADQ)(TOT)TOT_1:968029.4117;TOT_2:COP;TOT_3:968029.4117;TOT_4:COP;TOT_5:1121365.0000;TOT_6:COP;TOT_7:1121365.0000;TOT_8:COP;TOT_9:0;TOT_10:COP;TOT_12:COP;(/TOT)(TIM)TIM_1:false;TIM_2:183925.5883;TIM_3:COP;(IMP)IMP_1:01;IMP_2:968029.4117;IMP_3:COP;IMP_4:183925.5883;IMP_5:COP;IMP_6:19.000;(/IMP)(/TIM)(DSC)DSC_1:false;DSC_2:0.000;DSC_3:0.0000;DSC_4:COP;DSC_5:19;DSC_8:COP;DSC_9:1;(/DSC)(DRF)DRF_1:9500000033107892;DRF_2:2018-08-27;DRF_3:2020-01-22;DRF_4:FTEC;DRF_5:700000000000000;DRF_6:790000000000000;(/DRF)(ITD)ITD_1:183925.5883;ITD_2:COP;ITD_5:1121365.0000;ITD_6:COP;(/ITD)(NOT)NOT_1:FACTURA TIENDA VIRTUAL TRON <br> Régimen común. ICA código de actividad 102 tarifa 6.6 x 1000 <br>Sírvase aplicar las siguientes retenciones: <br>Actividad ICA 2023 - Tarifa 6.6*1.000 y Retención en la fuente 2.5% <br>;(/NOT)(ORC)ORC_1:N/A;(/ORC)(REF)REF_1:IV;REF_2:700000000015552;REF_3:2019-07-30;(/REF)(ITE)ITE_1:1;ITE_2:false;ITE_3:3.0000;ITE_4:S7;ITE_5:128533.6134;ITE_6:COP;ITE_7:42844.5378;ITE_8:COP;ITE_11:LITO-TRON HUMECTANTE PLANCHAS  -- 4 lts.;ITE_12:4 lts.;ITE_14:S7;ITE_19:128533.6134;ITE_20:COP;ITE_21:128533.6134;ITE_22:COP;(/ITE)(ITE)ITE_1:2;ITE_2:false;ITE_3:10.0000;ITE_4:S7;ITE_5:839495.7980;ITE_6:COP;ITE_7:83949.5798;ITE_8:COP;ITE_11:LITO-TRON ULTRA ROLLER CLEANER  -- galon;ITE_12:galon;ITE_14:S7;ITE_19:839495.7980;ITE_20:COP;ITE_21:839495.7980;ITE_22:COP;(/ITE)[/FACTURA]';
+
         $param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
         $CUFE           = '';
         $documentNumber = '';
@@ -28,6 +31,7 @@ class FacturaElectronicaController extends Controller
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
+            $ErrorEstructura         = $EmitirComprobanteResult->MensajeErrorLAYOUT->string ;
 
             /*
               $fileName                = $EmitirComprobanteResult->fileName;
@@ -46,12 +50,8 @@ class FacturaElectronicaController extends Controller
             $errorMessage            = $EmitirComprobanteResult->MensajeDocumentStatus->errorMessage;
             //$CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
 
-            if (!empty($XMLFiscalValido) and empty($errorMessage)){
-                  $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
-              }
-              else {
-                    $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
-              }
+            $this->VerificarFirmaDocumento  ( $XMLFiscalValido, $errorMessage, $id_fact_elctrnca, $transactionId, $documentNumber, 'CUFE'  );
+            $this->VerificarErrorEstructura ( $ErrorEstructura, $id_fact_elctrnca);
 
           } catch (SoapFault $fault) {
               $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
@@ -64,6 +64,25 @@ class FacturaElectronicaController extends Controller
           }
   }
 
+      private function VerificarFirmaDocumento ( $XMLFiscalValido, $errorMessage, $id_fact_elctrnca, $transactionId, $documentNumber, $CUFE){
+            if (!empty( $XMLFiscalValido ) and empty($errorMessage)){
+                $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
+            }
+            else {
+                $errorMessage = 'DOCUMENTO CON ERROR - NO ENVIADO';
+                $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
+            }
+      }
+
+      private  function VerificarErrorEstructura ( array $ErrorEstructura, $id_fact_elctrnca ){
+          if  ( empty( $ErrorEstructura ) )   return ;
+
+          foreach ( $ErrorEstructura as $Error) {
+              $this->Factura->fact_01_UpdateErroresLayout( $id_fact_elctrnca ,$Error );
+          }
+          $this->Correos->FacturaElectronicaError ( implode( "," ,$ErrorEstructura), $id_fact_elctrnca );
+
+      }
 
     public function emitirFacturas ()    {
 
