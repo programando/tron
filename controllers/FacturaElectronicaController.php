@@ -75,9 +75,9 @@ class FacturaElectronicaController extends Controller
       }
 
       private  function VerificarErrorEstructura (  $ErrorEstructura, $id_fact_elctrnca ){
-         $ErrorEstructura =  (array)$ErrorEstructura ;
+         $ErrorEstructuraVacio =  (array)$ErrorEstructura ;
 
-          if  ( empty( $ErrorEstructura ) )   return ;
+          if  ( empty( $ErrorEstructuraVacio ) )   return ;
 
           $ErrorEstructura = $ErrorEstructura->string;
           foreach ( $ErrorEstructura as $Error) {
