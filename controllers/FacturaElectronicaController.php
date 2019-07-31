@@ -31,7 +31,7 @@ class FacturaElectronicaController extends Controller
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
-            Debug::Mostrar(  $EmitirComprobanteResult );
+            //Debug::Mostrar(  $EmitirComprobanteResult );
 
             /*
               $fileName                = $EmitirComprobanteResult->fileName;
