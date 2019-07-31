@@ -75,6 +75,7 @@ class FacturaElectronicaController extends Controller
       }
 
       private  function VerificarErrorEstructura (  $ErrorEstructura, $id_fact_elctrnca ){
+         $ErrorEstructura =  (array)$ErrorEstructura ;
           if  ( empty( $ErrorEstructura ) )   return ;
           Debug::Mostrar( $ErrorEstructura );
           $ErrorEstructura = $ErrorEstructura->string;
