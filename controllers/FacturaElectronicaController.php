@@ -79,7 +79,7 @@ class FacturaElectronicaController extends Controller
 
           if  ( empty( $ErrorEstructuraVacio ) )   return ;
 
-          $ErrorEstructura = $ErrorEstructura->string;
+          //$ErrorEstructura = $ErrorEstructura->string;
           Debug::Mostrar($ErrorEstructura );
           foreach ( $ErrorEstructura as $Error) {
               $this->Factura->fact_01_UpdateErroresLayout( $id_fact_elctrnca ,$Error );
