@@ -27,7 +27,7 @@
         public function fact_01_UpdateCadenaWebService ( $_id_fact_elctrnca, $CadenaWebService )   {
            $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_upd_cadena_web_service( $_id_fact_elctrnca, '$CadenaWebService')");
         }
-        public function fact_01_UpdateErroresLayout ( $_id_fact_elctrnca, $errorMessage )   {
+        public function fact_01_UpdateErroresLayout ( $_id_fact_elctrnca, string $errorMessage )   {
            $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_respuesta_operador_errores( $_id_fact_elctrnca, '$errorMessage')");
         }
 
