@@ -51,7 +51,7 @@ class FacturaElectronicaController extends Controller
             //$CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
 
             $this->VerificarFirmaDocumento  ( $XMLFiscalValido, $errorMessage, $id_fact_elctrnca, $transactionId, $documentNumber, 'CUFE'  );
-            $this->VerificarErrorEstructura ( $EmitirComprobanteResult->MensajeErrorLAYOUT , $id_fact_elctrnca);
+            //$this->VerificarErrorEstructura ( $EmitirComprobanteResult->MensajeErrorLAYOUT , $id_fact_elctrnca);
 
           } catch (SoapFault $fault) {
               $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
