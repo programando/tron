@@ -31,7 +31,7 @@ class FacturaElectronicaController extends Controller
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
-            $ErrorEstructura         = $EmitirComprobanteResult->MensajeErrorLAYOUT->string ;
+            //$ErrorEstructura         = $EmitirComprobanteResult->MensajeErrorLAYOUT->string ;
 
             /*
               $fileName                = $EmitirComprobanteResult->fileName;
@@ -51,7 +51,7 @@ class FacturaElectronicaController extends Controller
             //$CUFE                    = $EmitirComprobanteResult->MensajeRespuestaCUFE->CUFE;
 
             $this->VerificarFirmaDocumento  ( $XMLFiscalValido, $errorMessage, $id_fact_elctrnca, $transactionId, $documentNumber, 'CUFE'  );
-            $this->VerificarErrorEstructura ( $ErrorEstructura, $id_fact_elctrnca);
+            $this->VerificarErrorEstructura ( $EmitirComprobanteResult->MensajeErrorLAYOUT , $id_fact_elctrnca);
 
           } catch (SoapFault $fault) {
               $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
@@ -77,6 +77,7 @@ class FacturaElectronicaController extends Controller
       private  function VerificarErrorEstructura ( array $ErrorEstructura, $id_fact_elctrnca ){
           if  ( empty( $ErrorEstructura ) )   return ;
 
+          $ErrorEstructura = $ErrorEstructura->String;
           foreach ( $ErrorEstructura as $Error) {
               $this->Factura->fact_01_UpdateErroresLayout( $id_fact_elctrnca ,$Error );
           }
