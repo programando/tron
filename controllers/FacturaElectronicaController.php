@@ -31,7 +31,7 @@ class FacturaElectronicaController extends Controller
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
-            //$ErrorEstructura         = $EmitirComprobanteResult->MensajeErrorLAYOUT->string ;
+            Debug::Mostrar(  $EmitirComprobanteResult );
 
             /*
               $fileName                = $EmitirComprobanteResult->fileName;
@@ -76,15 +76,14 @@ class FacturaElectronicaController extends Controller
 
       private  function VerificarErrorEstructura (  $ErrorEstructura, $id_fact_elctrnca ){
          $ErrorEstructura =  (array)$ErrorEstructura ;
+
           if  ( empty( $ErrorEstructura ) )   return ;
-          Debug::Mostrar( $ErrorEstructura );
+
           $ErrorEstructura = $ErrorEstructura->string;
           foreach ( $ErrorEstructura as $Error) {
               $this->Factura->fact_01_UpdateErroresLayout( $id_fact_elctrnca ,$Error );
           }
-
           //$this->Correos->FacturaElectronicaError ( implode( "," ,$ErrorEstructura), $id_fact_elctrnca );
-
       }
 
     public function emitirFacturas ()    {
