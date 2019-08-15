@@ -5,9 +5,9 @@ class FacturaElectronicaController extends Controller
     private $TxtoWbSrvce, $id_fact_elctrnca;
     private $_01_Enc, $_02_Emi, $_03_Adq, $_04_Tot, $_05_Imp, $_06_Dsc;
     private $_07_Drf, $_08_Ttd, $_09_Not, $_10_Ref, $_11_Fe1, $_12_Ite;
-
+    private $TotalDscto, $TotalFletes, $VrBaseDcmnto ;
     private $Coma = ';' ;
-    private $Salto = "";
+    private $Salto = '';
 
     public function __construct() {
         parent::__construct();
@@ -17,18 +17,27 @@ class FacturaElectronicaController extends Controller
 
     public function index(){}
 
+
+
+
+
+
+
+
+
     private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
-
-        $param          = array('LayOut' =>   utf8_encode( $CadenaWebService) );
+        $param          = array('LayOut' =>    $CadenaWebService );
         $CUFE           = '';
         $documentNumber = '';
         $error          = 0;
         $transactionId  = '';
+        //Debug::Mostrar( $CadenaWebService );
         try {
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
+            Debug::Mostrar ( $EmitirComprobanteResult ) ;
             /*
               $fileName                = $EmitirComprobanteResult->fileName;
               $processName             = $EmitirComprobanteResult->MensajeDocumentStatus->processName;
@@ -218,6 +227,10 @@ class FacturaElectronicaController extends Controller
     }
 
     private function Fact_04_TOT () {
+
+        $this->TotalFletes  = 0;
+        $this->VrBaseDcmnto = 0;
+
         $this->TxtoWbSrvce .=      $this->Salto . '(TOT)'  . $this->Salto;
         $this->TxtoWbSrvce .= 'TOT_1:'. $this->_04_Tot[0]['_01_sub_total']             . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_2:'. $this->_04_Tot[0]['_02_mnda']                  . $this->Coma  . $this->Salto  ;
@@ -227,11 +240,32 @@ class FacturaElectronicaController extends Controller
         $this->TxtoWbSrvce .= 'TOT_6:'. $this->_04_Tot[0]['_06_mnda']                  . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_7:'. $this->_04_Tot[0]['_07_tot_fctra']             . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_8:'. $this->_04_Tot[0]['_08_mnda']                  . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'TOT_9:'. '0'                 . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'TOT_10:'. $this->_04_Tot[0]['_10_mnda']                 . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'TOT_12:'. $this->_04_Tot[0]['_12_mnda']                 . $this->Coma  . $this->Salto  ;
-       $this->TxtoWbSrvce .= $this->Salto . '(/TOT)'  ;
+        $this->Fact_04_TOT_Descuentos();
+        $this->Fact_04_TOT_Fletes();
+        $this->TxtoWbSrvce .= $this->Salto . '(/TOT)'  ;
+        $this->VrBaseDcmnto =  $this->_04_Tot[0]['_03_base_impsto'] ;
     }
+
+    private function Fact_04_TOT_Descuentos (){
+        $this->TotalDscto   =  $this->_04_Tot[0]['_09_dsctos'] ;
+        if ( $this->TotalDscto > 0 ) {
+              $this->TxtoWbSrvce .= 'TOT_9:'. $this->_04_Tot[0]['_09_dsctos']                . $this->Coma  . $this->Salto  ;
+              $this->TxtoWbSrvce .= 'TOT_10:'. $this->_04_Tot[0]['_10_mnda']                 . $this->Coma  . $this->Salto  ;
+          }
+
+    }
+
+    private function Fact_04_TOT_Fletes(){
+        $this->TotalFletes  =  $this->_04_Tot[0]['_11_tot_crgos'] ;
+        if ( $this->TotalFletes > 0 )  {
+              $this->TxtoWbSrvce .= 'TOT_11:'. $this->_04_Tot[0]['_11_tot_crgos']            . $this->Coma  . $this->Salto  ;
+              $this->TxtoWbSrvce .= 'TOT_12:'. $this->_04_Tot[0]['_12_mnda']                 . $this->Coma  . $this->Salto  ;
+           }
+        }
+
+
+
+
 
     private function Fact_05_IMP () {
         $this->TxtoWbSrvce .=      $this->Salto . '(TIM)'  . $this->Salto;
@@ -250,15 +284,32 @@ class FacturaElectronicaController extends Controller
     }
 
     private function Fact_06_DSC () {
-        $this->TxtoWbSrvce .=      $this->Salto . '(DSC)'  . $this->Salto;
-        $this->TxtoWbSrvce .= 'DSC_1:'. $this->_06_Dsc[0]['_01_tp_dscto']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DSC_2:'. $this->_06_Dsc[0]['_02_pctje']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DSC_3:'. $this->_06_Dsc[0]['_03_vr_dscto']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DSC_4:'. $this->_06_Dsc[0]['_04_mnda']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DSC_5:'. $this->_06_Dsc[0]['_05_cod_dscto']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DSC_8:'. $this->_06_Dsc[0]['_08_mnda']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DSC_9:'. $this->_06_Dsc[0]['_09_indcdor']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= $this->Salto . '(/DSC)'  ;
+        if ( $this->TotalDscto > 0 ) {
+            $this->TxtoWbSrvce .=      $this->Salto . '(DSC)'  . $this->Salto;
+            $this->TxtoWbSrvce .= 'DSC_1:'. $this->_06_Dsc[0]['_01_tp_dscto']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_2:'. $this->_06_Dsc[0]['_02_pctje']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_3:'. $this->_06_Dsc[0]['_03_vr_dscto']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_4:'. $this->_06_Dsc[0]['_04_mnda']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_5:'. $this->_06_Dsc[0]['_05_cod_dscto']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_6:'. 'DESCUENTO COMERCIAL'              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_7:'. $this->VrBaseDcmnto              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_8:'. $this->_06_Dsc[0]['_08_mnda']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_9:'. $this->_06_Dsc[0]['_09_indcdor']              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= $this->Salto . '(/DSC)'  ;
+      }
+        if ( $this->TotalFletes > 0 ) {
+            $this->TxtoWbSrvce .=      $this->Salto . '(DSC)'               . $this->Salto;
+            $this->TxtoWbSrvce .= 'DSC_1:'. 'true'                          . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_2:'. '0'                             . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_3:'. $this->TotalFletes              . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_4:'. 'COP'                           . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_5:'. '55'                            . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_6:'. 'FLETE PRODUCTOS'               . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_8:'. $this->_06_Dsc[0]['_08_mnda']   . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DSC_9:'. '2'                             . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= $this->Salto . '(/DSC)'  ;
+      }
+
     }
 
     private function Fact_06_DRF () {
