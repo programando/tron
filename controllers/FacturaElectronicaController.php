@@ -7,7 +7,7 @@ class FacturaElectronicaController extends Controller
     private $_07_Drf, $_08_Ttd, $_09_Not, $_10_Ref, $_11_Fe1, $_12_Ite;
     private $TotalDscto, $TotalFletes, $VrBaseDcmnto ;
     private $Coma = ';' ;
-    private $Salto = '';
+    private $Salto = '<br>';
 
     public function __construct() {
         parent::__construct();
@@ -19,12 +19,6 @@ class FacturaElectronicaController extends Controller
 
 
 
-
-
-
-
-
-
     private function enviarDocumentoFacturaTech( $CadenaWebService, $id_fact_elctrnca  ){
         ini_set("display_errors","On");
         $param          = array('LayOut' =>    $CadenaWebService );
@@ -32,7 +26,8 @@ class FacturaElectronicaController extends Controller
         $documentNumber = '';
         $error          = 0;
         $transactionId  = '';
-        //Debug::Mostrar( $CadenaWebService );
+        Debug::Mostrar( $CadenaWebService );
+        return ;
         try {
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
@@ -139,7 +134,6 @@ class FacturaElectronicaController extends Controller
 
     private function InicioArchivo(){
       $this->TxtoWbSrvce = '';
-
       $this->TxtoWbSrvce = '[900755214]';
       $this->TxtoWbSrvce .=  '[DEMO900755214_1]';
       $this->TxtoWbSrvce .=  '[SI]';
@@ -198,6 +192,8 @@ class FacturaElectronicaController extends Controller
        $this->TxtoWbSrvce .= '(/' . $Texto . ')' ;
     }
 
+
+
     private function Fact_03_ADQ () {
           $this->TxtoWbSrvce .=      $this->Salto . '(ADQ)'  . $this->Salto;
           $this->TxtoWbSrvce .= 'ADQ_1:'. $this->_03_Adq[0]['_01_tp_prsna']             . $this->Coma  . $this->Salto  ;
@@ -213,9 +209,11 @@ class FacturaElectronicaController extends Controller
           $this->TxtoWbSrvce .= 'ADQ_13:'. $this->_03_Adq[0]['_13_mcipio']              . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'ADQ_15:'. $this->_03_Adq[0]['_15_pais']                . $this->Coma  . $this->Salto  ;
           $this->generaCampoInterno ('TCR', $this->_03_Adq[0]['tcr_01'] ) ;
-          if ( $this->_03_Adq[0]['_01_tp_prsna'] == '1' ){
+
+          /*if ( $this->_03_Adq[0]['_01_tp_prsna'] == '1' ){
             $this->generaCampoInterno ('ICR', '' ) ;
-          }
+          }*/
+
           $this->TxtoWbSrvce .= '(CDA)' . $this->Salto ;
           $this->TxtoWbSrvce .= 'CDA_1:'. $this->_03_Adq[0]['cda_01_tp_cntcto']         . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'CDA_2:'. $this->_03_Adq[0]['cda_02_nom_crgo']          . $this->Coma  . $this->Salto  ;
