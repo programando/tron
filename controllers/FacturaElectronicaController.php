@@ -5,9 +5,9 @@ class FacturaElectronicaController extends Controller
     private $TxtoWbSrvce, $id_fact_elctrnca;
     private $_01_Enc, $_02_Emi, $_03_Adq, $_04_Tot, $_05_Imp, $_06_Dsc;
     private $_07_Drf, $_08_Ttd, $_09_Not, $_10_Ref, $_11_Fe1, $_12_Ite;
-    private $TotalDscto, $TotalFletes, $VrBaseDcmnto ;
+    private $TotalDscto, $TotalFletes, $VrBaseDcmnto , $TipoDocumento;
     private $Coma = ';' ;
-    private $Salto = '<br>';
+    private $Salto = '';
 
     public function __construct() {
         parent::__construct();
@@ -27,8 +27,8 @@ class FacturaElectronicaController extends Controller
         $error          = 0;
         $transactionId  = '';
         Debug::Mostrar( $CadenaWebService );
-        return ;
-        try {
+        //return ;
+         try {
             $client                  = new SoapClient('http://webservice.facturatech.co/WSfacturatech.asmx?WSDL');
             $result                  = $client->__call("EmitirComprobante", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
@@ -87,7 +87,6 @@ class FacturaElectronicaController extends Controller
       }
 
     public function emitirFacturas ()    {
-
       $FacturasPendientes = $this->Factura->fact_01_enc();
       foreach ( $FacturasPendientes as $Factura ) {
            $this->_01_Enc    = $Factura;
@@ -102,7 +101,9 @@ class FacturaElectronicaController extends Controller
     public function configuraDatosFactura ( $id_fact_elctrnca ) {
 
       $this->id_fact_elctrnca = $id_fact_elctrnca ;
-      /*-------------------------------------------------------------------*/
+      /*-------------------------------------------------------------------
+        LLAMADA A CADA UNO DE LO PROCEDIMIENTOS ALMACENADOS
+      */
       $this->_02_Emi = $this->Factura->fact_02_emi ( $this->id_fact_elctrnca );
       $this->_03_Adq = $this->Factura->fact_03_adq ( $this->id_fact_elctrnca );
       $this->_04_Tot = $this->Factura->fact_04_tot ( $this->id_fact_elctrnca );
@@ -115,7 +116,9 @@ class FacturaElectronicaController extends Controller
       $this->_11_Fe1 = $this->Factura->fact_11_fe1 ( $this->id_fact_elctrnca );
       $this->_12_Ite = $this->Factura->fact_12_ite ( $this->id_fact_elctrnca );
 
-      $this->InicioArchivo();
+      $this->TipoDocumento = $this->_02_Emi[0]['_01_tp_doc'] ;
+
+      $this->InicioArchivo(  );
       $this->Fact_01_ENC () ;
       $this->Fact_02_EMI () ;
       $this->Fact_03_ADQ () ;
@@ -128,16 +131,23 @@ class FacturaElectronicaController extends Controller
       $this->Fact_10_REF () ;
       $this->Fact_11_FE1 () ;
       $this->Fact_12_ITE () ;
-      $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]'  ;
+      if ( $this->TipoDocumento == 'FA')  $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]'  ;
+      if ( $this->TipoDocumento == 'NC')  $this->TxtoWbSrvce .= $this->Salto . '[/NOTANC]'  ;
+      if ( $this->TipoDocumento == 'ND')  $this->TxtoWbSrvce .= $this->Salto . '[/NOTADR]'  ;
+
+
       return $this->id_fact_elctrnca ;
     }
 
-    private function InicioArchivo(){
+    private function InicioArchivo(  ){
       $this->TxtoWbSrvce = '';
       $this->TxtoWbSrvce = '[900755214]';
       $this->TxtoWbSrvce .=  '[DEMO900755214_1]';
       $this->TxtoWbSrvce .=  '[SI]';
-      $this->TxtoWbSrvce .=  '[FACTURA]';
+      if ( $this->TipoDocumento == 'FA')  $this->TxtoWbSrvce .=  '[FACTURA]';
+      if ( $this->TipoDocumento == 'NC')  $this->TxtoWbSrvce .=  '[NOTANC]';
+      if ( $this->TipoDocumento == 'ND')  $this->TxtoWbSrvce .=  '[NOTADR]';
+
       $this->TxtoWbSrvce .=  '[nit900755214@facturatech.co]';
       $this->TxtoWbSrvce .=   '[facturas@balquimia]' ; // '[BZF%C7x1]';
 
@@ -192,43 +202,45 @@ class FacturaElectronicaController extends Controller
        $this->TxtoWbSrvce .= '(/' . $Texto . ')' ;
     }
 
-
+    private function generaNodoInterno ( $Nodo, $Valor ){
+      if ( !empty( $Valor  ))
+          $this->TxtoWbSrvce .= "$Nodo:". $Valor                . $this->Coma  . $this->Salto  ;
+    }
 
     private function Fact_03_ADQ () {
           $this->TxtoWbSrvce .=      $this->Salto . '(ADQ)'  . $this->Salto;
-          $this->TxtoWbSrvce .= 'ADQ_1:'. $this->_03_Adq[0]['_01_tp_prsna']             . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_2:'. $this->_03_Adq[0]['_02_nit_emprsa']           . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_3:'. $this->_03_Adq[0]['_03_tp_doc']               . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_4:'. $this->_03_Adq[0]['_04_rgmen']                . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_6:'. $this->_03_Adq[0]['_06_emprsa']               . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_8:'. $this->_03_Adq[0]['_08_nom_prsna_ntral']      . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_9:'. $this->_03_Adq[0]['_09_ape_prsna_ntral']      . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_10:'. utf8_encode($this->_03_Adq[0]['_10_drccion'])             . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_11:'. $this->_03_Adq[0]['_11_dpto']                . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_12:'. $this->_03_Adq[0]['_12_mcipio']              . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_13:'. $this->_03_Adq[0]['_13_mcipio']              . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'ADQ_15:'. $this->_03_Adq[0]['_15_pais']                . $this->Coma  . $this->Salto  ;
+          $this->generaNodoInterno ( 'ADQ_1',  $this->_03_Adq[0]['_01_tp_prsna']   );
+          $this->generaNodoInterno ( 'ADQ_2',  $this->_03_Adq[0]['_02_nit_emprsa']   );
+          $this->generaNodoInterno ( 'ADQ_3',  $this->_03_Adq[0]['_03_tp_doc']   );
+          $this->generaNodoInterno ( 'ADQ_4',  $this->_03_Adq[0]['_04_rgmen']   );
+          $this->generaNodoInterno ( 'ADQ_6',  $this->_03_Adq[0]['_06_emprsa']   );
+          $this->generaNodoInterno ( 'ADQ_8',  $this->_03_Adq[0]['_09_ape_prsna_ntral']  );
+          $this->generaNodoInterno ( 'ADQ_9',  $this->_03_Adq[0]['_09_ape_prsna_ntral'] );
+          $this->generaNodoInterno ( 'ADQ_10',  utf8_encode($this->_03_Adq[0]['_10_drccion']) );
+          $this->generaNodoInterno ( 'ADQ_11',  $this->_03_Adq[0]['_11_dpto'] );
+          $this->generaNodoInterno ( 'ADQ_12',  $this->_03_Adq[0]['_12_mcipio'] );
+          $this->generaNodoInterno ( 'ADQ_13',  $this->_03_Adq[0]['_13_mcipio'] );
+          $this->generaNodoInterno ( 'ADQ_15',  $this->_03_Adq[0]['_15_pais'] );
           $this->generaCampoInterno ('TCR', $this->_03_Adq[0]['tcr_01'] ) ;
+          if ( $this->_03_Adq[0]['_01_tp_prsna'] == '1' ){
+              $this->generaCampoInterno ('ICR', '36254-25' ) ;
+          }
 
-          /*if ( $this->_03_Adq[0]['_01_tp_prsna'] == '1' ){
-            $this->generaCampoInterno ('ICR', '' ) ;
-          }*/
 
           $this->TxtoWbSrvce .= '(CDA)' . $this->Salto ;
-          $this->TxtoWbSrvce .= 'CDA_1:'. $this->_03_Adq[0]['cda_01_tp_cntcto']         . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'CDA_2:'. $this->_03_Adq[0]['cda_02_nom_crgo']          . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'CDA_3:'. $this->_03_Adq[0]['cda_03_tlfno']             . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'CDA_4:'. $this->_03_Adq[0]['cda_04_email']             . $this->Coma  . $this->Salto  ;
+          $this->generaNodoInterno ( 'CDA_1',  $this->_03_Adq[0]['cda_01_tp_cntcto'] );
+          $this->generaNodoInterno ( 'CDA_2',  $this->_03_Adq[0]['cda_02_nom_crgo'] );
+          $this->generaNodoInterno ( 'CDA_3',  $this->_03_Adq[0]['cda_03_tlfno'] );
+          $this->generaNodoInterno ( 'CDA_4',  $this->_03_Adq[0]['cda_04_email'] );
+
           $this->TxtoWbSrvce .= '(/CDA)' . $this->Salto;
           $this->TxtoWbSrvce .= $this->Salto . '(/ADQ)'  ;
 
     }
 
     private function Fact_04_TOT () {
-
         $this->TotalFletes  = 0;
         $this->VrBaseDcmnto = 0;
-
         $this->TxtoWbSrvce .=      $this->Salto . '(TOT)'  . $this->Salto;
         $this->TxtoWbSrvce .= 'TOT_1:'. $this->_04_Tot[0]['_01_sub_total']             . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'TOT_2:'. $this->_04_Tot[0]['_02_mnda']                  . $this->Coma  . $this->Salto  ;
@@ -312,9 +324,12 @@ class FacturaElectronicaController extends Controller
 
     private function Fact_06_DRF () {
         $this->TxtoWbSrvce .=      $this->Salto . '(DRF)'  . $this->Salto;
-        $this->TxtoWbSrvce .= 'DRF_1:'. $this->_07_Drf[0]['_01_num_rslcion']        . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DRF_2:'. $this->_07_Drf[0]['_02_fcha_ini']           . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'DRF_3:'. $this->_07_Drf[0]['_03_fcha_fin']           . $this->Coma  . $this->Salto  ;
+         if ( $this->TipoDocumento == 'FA') {
+            $this->TxtoWbSrvce .= 'DRF_1:'. $this->_07_Drf[0]['_01_num_rslcion']        . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DRF_2:'. $this->_07_Drf[0]['_02_fcha_ini']           . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'DRF_3:'. $this->_07_Drf[0]['_03_fcha_fin']           . $this->Coma  . $this->Salto  ;
+        }
+
         $this->TxtoWbSrvce .= 'DRF_4:'. $this->_07_Drf[0]['_04_prfjo']              . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'DRF_5:'. $this->_07_Drf[0]['_05_num_ini']            . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'DRF_6:'. $this->_07_Drf[0]['_06_num_fin']            . $this->Coma  . $this->Salto  ;
@@ -331,7 +346,8 @@ class FacturaElectronicaController extends Controller
     }
 
     public function Fact_09_NOT () {
-        if ( !empty( $this->_09_Not )){
+
+        if ( !empty( trim ( $this->_09_Not[0]['_01_notas'] ))) {
             $this->TxtoWbSrvce .=      $this->Salto . '(NOT)'  . $this->Salto;
             $this->TxtoWbSrvce .= 'NOT_1:'. $this->_09_Not[0]['_01_notas']           . $this->Coma  . $this->Salto  ;
             $this->TxtoWbSrvce .= $this->Salto . '(/NOT)'  ;
