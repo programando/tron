@@ -923,12 +923,14 @@ private function Asignar_Transportadora_a_Productos(){
       $this->Vr_Transporte_Tron      = 0;
     }
 
-Debug::Mostrar(  $iddireccion_despacho );
+
     Session::Set('tipo_despacho_carga',         Session::Get('tipo_despacho_pedido' ) );
     Session::Set('id_transportadora_carga',     Session::Get('id_transportadora')   );
     Session::Set('vr_flete_carga',              $Valor_Flete_Ocasional      );
     Session::Set('valor_declarado_carga',       $_Carga_Fija_Vr_Declarado) ;
     Session::Set('Peso_Pedido_Carga',           $_Carga_Fija_Peso_Pedido );
+
+    
 
   }
 
