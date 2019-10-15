@@ -297,6 +297,7 @@ class CarritoController extends Controller{
         private function Cerrar_Procesos_Carro() {
 
           $_SESSION['carrito']     = $this->Datos_Carro ;
+           
         }
 
 
@@ -394,7 +395,7 @@ class CarritoController extends Controller{
          Session::Set('valor_real_pedido', $this->Vr_Total_Pedido_Ocasional );
        }
 
-
+ 
         // VERIFICACIÓN DE SI CUMPLE CON EL VALOR MÍNIMO DE PEDIDO PARA PAGO EN PAYU LATAM
        if ( Session::Get('pago_minimo_payulatam') > Session::Get('valor_real_pedido' ) && Session::Get('valor_real_pedido' ) > 0 ){
         Session::Set('cumple_valor_minimo_pedido', FALSE);
@@ -402,6 +403,7 @@ class CarritoController extends Controller{
        Session::Set('cumple_valor_minimo_pedido', TRUE);
      }
 
+   
 
         // VERIFICACIÓN DE SI CUMPLE O NO CON LAS COMPRAS MÍNIMAS DE PRODUCTOS TRON
         //Session::Get('minimo_compras_productos_tron')
@@ -772,10 +774,7 @@ class CarritoController extends Controller{
         $this->SubTotal_Pedido_Amigos         = $this->SubTotal_Pedido_Amigos         + $Productos['sub_total_pv_tron'] ;
         $this->SubTotal_Pedido_Real           = $this->SubTotal_Pedido_Real           + ( $precio_unitario_producto * $cantidad );
           //***
-
-
-
-
+          
           // TOTALIZAR PRODUCTOS TRON POR CATEGORIAS
         $this->Totalizar_Carrito_Productos_Tron_Por_Categoria($id_categoria_producto, $cantidad, $_sub_total_pv_tron , $pv_ocasional, $peso_gramos , $cmv  );
        }// Fin recorrido foreach carrito
@@ -819,6 +818,7 @@ class CarritoController extends Controller{
       $this->Asignar_Transportadora_a_Productos();
       $this->Verificar_Aplicacion_Impuestos() ;
 
+      
 
     /*
           $vr_rte_ica = Session::Get('vr_rte_ica') ;
@@ -886,7 +886,7 @@ private function Asignar_Transportadora_a_Productos(){
       $Anticipo_Recaudo_Tron      =   Session::Get('Carga_Fija_Recaudo_Tron') ;
       $Recaudo_Pedido_Tron        =  Session::Get('Recaudo_Pedido_Tron') ;
 
-
+     
 
 
       $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
@@ -896,7 +896,7 @@ private function Asignar_Transportadora_a_Productos(){
          // $this->Fletes->Sevientrega_Premier     ( $_Carga_Fija_Peso_Pedido , $_Carga_Fija_Vr_Declarado );
       }
 
-     //Debug::Mostrar( Session::Get('Fletes_Cobrados_Transportadoras') );
+    
 
 
 
@@ -904,7 +904,7 @@ private function Asignar_Transportadora_a_Productos(){
       $Valor_Flete_Ocasional         = Session::Get('flete_real_calculado');
       $this->Id_Transportador_Carga  = Session::Get('id_transportadora');
 
-
+       
 
       $Valor_Flete_Ocasional  =  $Valor_Flete_Ocasional    ;
       if (  Session::Get('cumple_compras_tron') ==  FALSE ) {
@@ -957,6 +957,7 @@ private function Asignar_Transportadora_a_Productos(){
     $Recaudo_Pedido_Tron                     = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
     $Anticipo_Recaudo_Tron                   = Session::Get('Otros_Productos_Antic_Rcdo_Tron');
 
+   
 
     if ( Session::Get('cumple_condicion_cpras_tron_industial') == TRUE ) {
       $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado');
@@ -965,6 +966,8 @@ private function Asignar_Transportadora_a_Productos(){
      $Valor_Declarado = Session::Get('Otros_Productos_Vr_Declarado_Ocasional');
    }
    $Valor_Declarado =   $Valor_Declarado ;
+
+
 
         Session::Set('FLETE_VARIABLE_1_OCASIONAL', 0 );  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
         Session::Set('FLETE_VARIABLE_1_AMIGO',     0 );  // CORRESPONDE A LOS FLETES COURRIER Y PREMIER                  ( OTROS PRODUCTOS )
@@ -987,7 +990,6 @@ private function Asignar_Transportadora_a_Productos(){
             //--------------------------------------------------------------------------------------------------------------------
           $this->Fletes->Calcular_Valor_Fletes_Inicializacion_Variables();
           $this->Fletes->Redetrans_Carga         ( $_Courrier_Unidades     , $Valor_Declarado , $_Otros_Productos_Peso_Gramos );
-            //$this->Fletes->Servientrega_Industrial ( $_Courrier_Unidades     , $Valor_Declarado , $_Otros_Productos_Peso_Gramos );
           $this->Fletes->Encontrar_Mejor_Flete();
           $Mejor_Flete_Elejido_2 = Session::Get('flete_real_calculado')  ;
           $Tipo_Despacho_2       = Session::Get('tipo_despacho_pedido') ;
@@ -996,7 +998,7 @@ private function Asignar_Transportadora_a_Productos(){
             //--------------------------------------------------------------------------------------------------------------------
         }
 
-
+        
         //
         $Flete_Ocasional                 = $Mejor_Flete_Elejido_1 ;
         $Tipo_Despacho_Final             = $Tipo_Despacho_1  ;
@@ -1071,8 +1073,6 @@ private function Asignar_Transportadora_a_Productos(){
     Session::Set('valor_declarado'          , $Valor_Declarado );
     Session::Set('Peso_Pedido_Courrier'     , $_Otros_Productos_Peso_Gramos );
     Session::Set('vr_payu_latam'            , $Vrs_Payu_Latam );
-
-
 
   }
 

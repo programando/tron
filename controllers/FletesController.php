@@ -320,7 +320,8 @@
       public function Redetrans_Carga( $Numero_Unidades, $Valor_Declarado, $Peso_Pedido ) {
       /** MARZO 12 DE 2015
       	*				CALCULA EL VALOR DE FLETE QUE SE COBRARA POR CARGA REDE TRANS
-      	*/
+		  */
+		 
       Session::Set('REDETRANS_CARGA_VR_FLETE'        ,0);
 
 						$seguro_fijo                  = 0;
@@ -481,7 +482,8 @@
       public function Redetrans_Courrier( $Peso_Pedido, $Costo_Total, $id_dpto = 0, $re_expedidion = 0 )      {
        /** MARZO 07 DE 2015
       	*					CALCULA EL VALOR DE FLETE QUE SE CORBRA POR COURRIER EN REDETRANS
-      	*/
+		  */
+		  
       	$re_expedidion = Session::Get('re_expedicion');
       	  Session::Set('REDETRANS_COURRIER_VR_FLETE',  0 );
 		 						Session::Set('REDETRANS_COURRIER_VR_SEGURO', 0 );
@@ -666,7 +668,7 @@
 
 
 
-						public function Numero_Unidades_Despacho() {
+public function Numero_Unidades_Despacho() {
 			    /** MARZO 12 de 2015
 			      *         CALCULA LA CANTIDAD DE UNIDES DE DESPACHO QUE RESULTAN
 			      */
@@ -690,7 +692,7 @@
 							$_20_Litros_Garrafas_Unidades                 = 0;
 
 
-							$_04_Litros_Galon_Presentaciones              = array(30, 38, 145, 148, 151, 155, 157, 160, 163, 164, 179, 195, 196, 281, 282, 287, 39, 42, 122, 123, 124, 162 );
+							$_04_Litros_Galon_Presentaciones              = array(17,30, 38, 145, 148, 151, 155, 157, 160, 163, 164, 179, 195, 196, 281, 282, 287, 39, 42, 122, 123, 124, 162 );
 							$_04_Litros_Galon_Cantidad                    = 0;
 							$_04_Litros_Galon_Vr_Declarado                = 0;
 							$_04_Litros_Galon_Vr_Declarado_ocasional      = 0;
@@ -715,25 +717,24 @@
 							$_Otros_Productos_Peso_Gramos                 = 0;
 							$_Otros_Productos_Subsidio_Flete              = 0;
 							$_Otros_Productos_Subsidio_Flete_Ocasional    = 0;
-							$_Otros_Productos_Subsidio_Flete_Tron         = 0;
+							$_Otros_Productos_Subsidio_Flete_Tron 		  = 0;
 
-							$_Otros_Productos_Recaudo                     = 0;
-							$_Otros_Productos_Recaudo_Ocasional           = 0;
-							$_Otros_Productos_Recaudo_Tron                = 0;
+							$_Otros_Productos_Recaudo             		  = 0;
+							$_Otros_Productos_Recaudo_Ocasional   		  = 0;
+							$_Otros_Productos_Recaudo_Tron        		  = 0;
 
-							$_Otros_Productos_Vr_Compra                   = 0;
-							$_Otros_Productos_Unidades                    = 0;
+							$_Otros_Productos_Vr_Compra           		  = 0;
+							$_Otros_Productos_Unidades            		  = 0;
 
-							$Carga_Fija_Vr_Compra 																								= 0;
-							$Carga_Fija_Vr_Compra_Ocasional														 = 0;
-							$_Otros_Productos_Cantidad  																	 = 0;
+							$Carga_Fija_Vr_Compra 						   = 0;
+							$Carga_Fija_Vr_Compra_Ocasional				   = 0;
+							$_Otros_Productos_Cantidad  				   = 0;
 
+							$Espacio_Libre								   = 0;					
+							$_Courrier_Unidades							   = 0;
+							$_Carga_Variable_Unidades					   = 0;
 
-							$Espacio_Libre																		 = 0;
 							Session::Set('Unidades_Adicionales', FALSE );
-							$_Courrier_Unidades														= 0;
-							$_Carga_Variable_Unidades								= 0;
-
 			      $this->Datos_Carro = Session::Get('carrito');
 
 			       foreach ($this->Datos_Carro as &$Productos){
@@ -743,70 +744,70 @@
 
 
 			          if ( in_array($ID_Presentacion, $_20_Litros_Garrafas_Presentaciones )) {
-																			$_20_Litros_Garrafas_Cantidad                 = $_20_Litros_Garrafas_Cantidad  														 + $Productos['cantidad'];
+							$_20_Litros_Garrafas_Cantidad                 = $_20_Litros_Garrafas_Cantidad  														 + $Productos['cantidad'];
 
-																			$_20_Litros_Garrafas_Vr_Declarado             = $_20_Litros_Garrafas_Vr_Declarado 												+ $Productos['valor_declarado'];
-																			$_20_Litros_Garrafas_Vr_Declarado_ocasional   = $_20_Litros_Garrafas_Vr_Declarado_ocasional 		+ $Productos['valor_declarado_ocasional'];
-																			$_20_Litros_Garrafas_Vr_Declarado_tron        = $_20_Litros_Garrafas_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
+							$_20_Litros_Garrafas_Vr_Declarado             = $_20_Litros_Garrafas_Vr_Declarado 												+ $Productos['valor_declarado'];
+							$_20_Litros_Garrafas_Vr_Declarado_ocasional   = $_20_Litros_Garrafas_Vr_Declarado_ocasional 		+ $Productos['valor_declarado_ocasional'];
+							$_20_Litros_Garrafas_Vr_Declarado_tron        = $_20_Litros_Garrafas_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
 
-																			$_20_Litros_Garrafas_Peso_Gramos              = $_20_Litros_Garrafas_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
+							$_20_Litros_Garrafas_Peso_Gramos              = $_20_Litros_Garrafas_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
 
-																			$_20_Litros_Garrafas_Subsidio_Flete           = $_20_Litros_Garrafas_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
-																			$_20_Litros_Garrafas_Subsidio_Flete_Ocasional = $_20_Litros_Garrafas_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
-																			$_20_Litros_Garrafas_Subsidio_Flete_Tron      = $_20_Litros_Garrafas_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
+							$_20_Litros_Garrafas_Subsidio_Flete           = $_20_Litros_Garrafas_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
+							$_20_Litros_Garrafas_Subsidio_Flete_Ocasional = $_20_Litros_Garrafas_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
+							$_20_Litros_Garrafas_Subsidio_Flete_Tron      = $_20_Litros_Garrafas_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
 
-																			$_20_Litros_Garrafas_Recaudo                  = $_20_Litros_Garrafas_Recaudo 																	+ $Productos['vr_anticipo_recaudo'];
-																			$_20_Litros_Garrafas_Recaudo_Ocasional        = $_20_Litros_Garrafas_Recaudo_Ocasional 							+ $Productos['vr_anticipo_recaudo_ocas'];
-																			$_20_Litros_Garrafas_Recaudo_Tron        				 = $_20_Litros_Garrafas_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
+							$_20_Litros_Garrafas_Recaudo                  = $_20_Litros_Garrafas_Recaudo 																	+ $Productos['vr_anticipo_recaudo'];
+							$_20_Litros_Garrafas_Recaudo_Ocasional        = $_20_Litros_Garrafas_Recaudo_Ocasional 							+ $Productos['vr_anticipo_recaudo_ocas'];
+							$_20_Litros_Garrafas_Recaudo_Tron        				 = $_20_Litros_Garrafas_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
 
-																			$_20_Litros_Garrafas_Vr_Compra                = $_20_Litros_Garrafas_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
-																			$_20_Litros_Garrafas_Vr_Compra_Ocasional      = $_20_Litros_Garrafas_Vr_Compra_Ocasional  				+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
-																			$Productos['tipo_despacho_final']='CARGA' ; // Carga
+							$_20_Litros_Garrafas_Vr_Compra                = $_20_Litros_Garrafas_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
+							$_20_Litros_Garrafas_Vr_Compra_Ocasional      = $_20_Litros_Garrafas_Vr_Compra_Ocasional  				+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
+							$Productos['tipo_despacho_final']='CARGA' ; // Carga
 			             }
 
 			          if ( in_array($ID_Presentacion, $_04_Litros_Galon_Presentaciones  )) {
-																			$_04_Litros_Galon_Cantidad                 = $_04_Litros_Galon_Cantidad  									     	+ $Productos['cantidad'];
+							$_04_Litros_Galon_Cantidad                 = $_04_Litros_Galon_Cantidad  									     	+ $Productos['cantidad'];
 
-																			$_04_Litros_Galon_Vr_Declarado             = $_04_Litros_Galon_Vr_Declarado 						 			 	+ $Productos['valor_declarado'];
-																			$_04_Litros_Galon_Vr_Declarado_ocasional   = $_04_Litros_Galon_Vr_Declarado_ocasional  	+ $Productos['valor_declarado_ocasional'];
-																			$_04_Litros_Galon_Vr_Declarado_tron        = $_04_Litros_Galon_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
+							$_04_Litros_Galon_Vr_Declarado             = $_04_Litros_Galon_Vr_Declarado 						 			 	+ $Productos['valor_declarado'];
+							$_04_Litros_Galon_Vr_Declarado_ocasional   = $_04_Litros_Galon_Vr_Declarado_ocasional  	+ $Productos['valor_declarado_ocasional'];
+							$_04_Litros_Galon_Vr_Declarado_tron        = $_04_Litros_Galon_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
 
-																			$_04_Litros_Galon_Peso_Gramos              = $_04_Litros_Galon_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
+							$_04_Litros_Galon_Peso_Gramos              = $_04_Litros_Galon_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
 
-																			$_04_Litros_Galon_Subsidio_Flete           = $_04_Litros_Galon_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
-																			$_04_Litros_Galon_Subsidio_Flete_Ocasional = $_04_Litros_Galon_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
-																			$_04_Litros_Galon_Subsidio_Flete_Tron      = $_04_Litros_Galon_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
+							$_04_Litros_Galon_Subsidio_Flete           = $_04_Litros_Galon_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
+							$_04_Litros_Galon_Subsidio_Flete_Ocasional = $_04_Litros_Galon_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
+							$_04_Litros_Galon_Subsidio_Flete_Tron      = $_04_Litros_Galon_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
 
-																			$_04_Litros_Galon_Recaudo                  = $_04_Litros_Galon_Recaudo 																	+ $Productos['vr_anticipo_recaudo'];
-																			$_04_Litros_Galon_Recaudo_Ocasional        = $_04_Litros_Galon_Recaudo_Ocasional 							+ $Productos['vr_anticipo_recaudo_ocas'];
-																			$_04_Litros_Galon_Recaudo_Tron             = $_04_Litros_Galon_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
+							$_04_Litros_Galon_Recaudo                  = $_04_Litros_Galon_Recaudo 																	+ $Productos['vr_anticipo_recaudo'];
+							$_04_Litros_Galon_Recaudo_Ocasional        = $_04_Litros_Galon_Recaudo_Ocasional 							+ $Productos['vr_anticipo_recaudo_ocas'];
+							$_04_Litros_Galon_Recaudo_Tron             = $_04_Litros_Galon_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
 
-																			$_04_Litros_Galon_Vr_Compra                = $_04_Litros_Galon_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
-																			$_04_Litros_Galon_Vr_Compra_Ocasional      = $_04_Litros_Galon_Vr_Compra_Ocasional  														+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
-																			$Productos['tipo_despacho_final']='CARGA' ; // Carga
+							$_04_Litros_Galon_Vr_Compra                = $_04_Litros_Galon_Vr_Compra  														+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
+							$_04_Litros_Galon_Vr_Compra_Ocasional      = $_04_Litros_Galon_Vr_Compra_Ocasional  														+ $Productos['pv_ocasional'] 																	* $Productos['cantidad'];
+							$Productos['tipo_despacho_final']='CARGA' ; // Carga
 
 			             }
 
 
 			          if ( $ID_categoria_producto != 6 || in_array($ID_Presentacion, $_Otros_Productos_Presentaciones )) {
 
-																			$_Otros_Productos_Cantidad                 = $_Otros_Productos_Cantidad  															+ $Productos['cantidad'];
+							$_Otros_Productos_Cantidad                 = $_Otros_Productos_Cantidad  															+ $Productos['cantidad'];
 
-																			$_Otros_Productos_Vr_Declarado             = $_Otros_Productos_Vr_Declarado 												+ $Productos['valor_declarado'];
-																			$_Otros_Productos_Vr_Declarado_ocasional   = $_Otros_Productos_Vr_Declarado_ocasional 		+ $Productos['valor_declarado_ocasional'];
-																			$_Otros_Productos_Vr_Declarado_tron        = $_Otros_Productos_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
+							$_Otros_Productos_Vr_Declarado             = $_Otros_Productos_Vr_Declarado 												+ $Productos['valor_declarado'];
+							$_Otros_Productos_Vr_Declarado_ocasional   = $_Otros_Productos_Vr_Declarado_ocasional 		+ $Productos['valor_declarado_ocasional'];
+							$_Otros_Productos_Vr_Declarado_tron        = $_Otros_Productos_Vr_Declarado_tron 							+ $Productos['valor_declarado_tron'];
 
-																			$_Otros_Productos_Peso_Gramos              = $_Otros_Productos_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
-																			$_Otros_Productos_Subsidio_Flete           = $_Otros_Productos_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
-																			$_Otros_Productos_Subsidio_Flete_Ocasional = $_Otros_Productos_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
-																			$_Otros_Productos_Subsidio_Flete_Tron      = $_Otros_Productos_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
+							$_Otros_Productos_Peso_Gramos              = $_Otros_Productos_Peso_Gramos 													+ $Productos['peso_gramos'] * $Productos['cantidad'];
+							$_Otros_Productos_Subsidio_Flete           = $_Otros_Productos_Subsidio_Flete 										+ $Productos['vr_ppto_fletes'];
+							$_Otros_Productos_Subsidio_Flete_Ocasional = $_Otros_Productos_Subsidio_Flete_Ocasional + $Productos['vr_ppto_fletes_ocas'];
+							$_Otros_Productos_Subsidio_Flete_Tron      = $_Otros_Productos_Subsidio_Flete_Tron 					+ $Productos['vr_ppto_fletes_tron'];
 
-																			$_Otros_Productos_Recaudo                  = $_Otros_Productos_Recaudo 																	+ $Productos['vr_anticipo_recaudo'];
-																			$_Otros_Productos_Recaudo_Ocasional        = $_Otros_Productos_Recaudo_Ocasional 							+ $Productos['vr_anticipo_recaudo_ocas'];
-																			$_Otros_Productos_Recaudo_Tron             = $_Otros_Productos_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
+							$_Otros_Productos_Recaudo                  = $_Otros_Productos_Recaudo 																	+ $Productos['vr_anticipo_recaudo'];
+							$_Otros_Productos_Recaudo_Ocasional        = $_Otros_Productos_Recaudo_Ocasional 							+ $Productos['vr_anticipo_recaudo_ocas'];
+							$_Otros_Productos_Recaudo_Tron             = $_Otros_Productos_Recaudo_Tron 												+ $Productos['vr_anticipo_recaudo_tron'];
 
-																			$_Otros_Productos_Vr_Compra                = $_Otros_Productos_Vr_Compra 															+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
-																			$Productos['tipo_despacho_final']='COURRIER' ; // COURRIER
+							$_Otros_Productos_Vr_Compra                = $_Otros_Productos_Vr_Compra 															+ $Productos['precio_unitario_produc_pedido'] * $Productos['cantidad'];
+							$Productos['tipo_despacho_final']='COURRIER' ; // COURRIER
 			             }
 
 			        }// end foreach
