@@ -166,7 +166,11 @@ class FacturaElectronicaController extends Controller
         $this->TxtoWbSrvce .= 'ENC_8:'. $this->_01_Enc['_08_hra_fctra']    . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'ENC_9:'. $this->_01_Enc['_09_tp_fctra']     . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'ENC_10:'.$this->_01_Enc['_10_mnda']         . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_15:'.$this->_01_Enc['_15_nro_lineas']   . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'ENC_16:'.$this->_01_Enc['_16_fcha_vncmnto'] . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_20:'.$this->_01_Enc['_20_ambnte'] . $this->Coma  . $this->Salto  ;
+        $this->TxtoWbSrvce .= 'ENC_21:'.$this->_01_Enc['_21_tp_oprcion'] . $this->Coma  . $this->Salto  ;
+
       $this->TxtoWbSrvce .= '(/ENC)'  . $this->Salto;
     }
 
@@ -177,14 +181,16 @@ class FacturaElectronicaController extends Controller
           $this->TxtoWbSrvce .= 'EMI_3:'. $this->_02_Emi[0]['_03_tp_doc']         . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_4:'. $this->_02_Emi[0]['_04_rgmen']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_6:'. $this->_02_Emi[0]['_06_emprsa']         . $this->Coma  . $this->Salto  ;
+          $this->generaNodoInterno ( 'EMI_6',  $this->_02_Emi[0]['_07_nom_ccial']   );
           $this->TxtoWbSrvce .= 'EMI_10:'. $this->_02_Emi[0]['_10_drccion']       . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'EMI_11:'. $this->_02_Emi[0]['_11_dpto']          . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'EMI_12:'. $this->_02_Emi[0]['_12_mcipio']        . $this->Coma  . $this->Salto  ;
+          $this->TxtoWbSrvce .= 'EMI_11:'. $this->_02_Emi[0]['_11_dpto']          . $this->Coma  . $this->Salto  ;       
           $this->TxtoWbSrvce .= 'EMI_13:'. $this->_02_Emi[0]['_13_mcipio']        . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_15:'. $this->_02_Emi[0]['_15_pais']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_19:'. $this->_02_Emi[0]['_19_dpto']          . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'EMI_20:'. $this->_02_Emi[0]['_20_mcipio']        . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_21:'. $this->_02_Emi[0]['_21_pais']          . $this->Coma  . $this->Salto  ;
+          $this->TxtoWbSrvce .= 'EMI_22:'. $this->_02_Emi[0]['_22_dv']          . $this->Coma  . $this->Salto  ;
+          $this->TxtoWbSrvce .= 'EMI_23:'. $this->_02_Emi[0]['_23_cod_mcipio']          . $this->Coma  . $this->Salto  ;
+          $this->generaNodoInterno ( 'EMI_624',  $this->_02_Emi[0]['_07_nom_ccial']   );
           $this->generaCampoInterno ('TAC', $this->_02_Emi[0]['_tac_01_rut_53_1']  ) ;
           $this->generaCampoInterno ('TAC', $this->_02_Emi[0]['_tac_01_rut_53_2']  ) ;
           $this->generaCampoInterno ('TAC', $this->_02_Emi[0]['_tac_01_rut_53_3']  ) ;
