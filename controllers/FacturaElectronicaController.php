@@ -7,7 +7,7 @@ class FacturaElectronicaController extends Controller
     private $_07_Drf, $_08_Ttd, $_09_Not, $_10_Ref, $_11_Fe1, $_12_Ite;
     private $TotalDscto, $TotalFletes, $VrBaseDcmnto , $TipoDocumento;
     private $Coma = ';' ;
-    private $Salto = '<br>';
+    private $Salto = '';
 
     public function __construct() {
         parent::__construct();
@@ -27,10 +27,11 @@ class FacturaElectronicaController extends Controller
         $error          = 0;
         $transactionId  = '';
         Debug::Mostrar( $CadenaWebService );
-        return ;
+        //return ;
          try {
             $client                  = new SoapClient('http://webservice.facturatech.co/WSFacturatechPruebEstruc21.asmx?WSDL');
-            $result                  = $client->__call("EmitirComprobante", array( $param ) );
+            //$result                  = $client->__call("EmitirComprobante", array( $param ) );
+            $result                  = $client->__call("ValidarLayout21", array( $param ) );
             $EmitirComprobanteResult = $result->EmitirComprobanteResult;
             Debug::Mostrar ( $EmitirComprobanteResult ) ;
             /*
@@ -56,12 +57,14 @@ class FacturaElectronicaController extends Controller
 
           } catch (SoapFault $fault) {
               $errorMessage = 'Sorry, blah returned the following Soap ERROR ' . $fault->faultcode."-".$fault->faultstring ;
-              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE');
-          }
-
-          catch (Exception $e){
-              $errorMessage =  'Error: '. $e->getMessage();
-              $this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
+              Debug::Mostrar( $errorMessage );
+              //$this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE');
+            }
+            
+            catch (Exception $e){
+                $errorMessage =  'Error: '. $e->getMessage();
+                Debug::Mostrar( $errorMessage );
+              //$this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE' );
           }
   }
 
@@ -107,14 +110,17 @@ class FacturaElectronicaController extends Controller
       $this->_02_Emi = $this->Factura->fact_02_emi ( $this->id_fact_elctrnca );
       $this->_03_Adq = $this->Factura->fact_03_adq ( $this->id_fact_elctrnca );
       $this->_04_Tot = $this->Factura->fact_04_tot ( $this->id_fact_elctrnca );
-     /* $this->_05_Imp = $this->Factura->fact_05_imp ( $this->id_fact_elctrnca );
-      $this->_06_Dsc = $this->Factura->fact_06_dsc ( $this->id_fact_elctrnca );
+      $this->_05_Imp = $this->Factura->fact_05_imp ( $this->id_fact_elctrnca );
       $this->_07_Drf = $this->Factura->fact_07_drf ( $this->id_fact_elctrnca );
+      $this->_12_Ite = $this->Factura->fact_12_ite ( $this->id_fact_elctrnca );
+
+     /* $this->_06_Dsc = $this->Factura->fact_06_dsc ( $this->id_fact_elctrnca );
+      
       $this->_08_Ttd = $this->Factura->fact_08_ttd ( $this->id_fact_elctrnca );
       $this->_09_Not = $this->Factura->fact_09_not ( $this->id_fact_elctrnca );
       $this->_10_Ref = $this->Factura->fact_10_ref ( $this->id_fact_elctrnca );
       $this->_11_Fe1 = $this->Factura->fact_11_fe1 ( $this->id_fact_elctrnca );
-      $this->_12_Ite = $this->Factura->fact_12_ite ( $this->id_fact_elctrnca );
+      
         */
       $this->TipoDocumento = $this->_02_Emi[0]['_01_tp_doc'] ;
       
@@ -131,14 +137,16 @@ class FacturaElectronicaController extends Controller
       $this->Fact_ICR () ;
       $this->Fact_GTA () ;
       $this->Fact_04_TOT () ;
-      /*$this->Fact_05_IMP () ;
-      $this->Fact_06_DSC () ;
+      $this->Fact_05_IMP () ;
       $this->Fact_06_DRF () ;
+      $this->Fact_12_ITE () ;
+
+      /*$this->Fact_06_DSC () ;
       $this->Fact_08_TTD () ;
       $this->Fact_09_NOT () ;
       $this->Fact_10_REF () ;
       $this->Fact_11_FE1 () ;
-      $this->Fact_12_ITE () ;*/
+      */
       
       if ( $this->TipoDocumento == 'INVOIC')  $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]'  ;
       if ( $this->TipoDocumento == 'NC')  $this->TxtoWbSrvce .= $this->Salto . '[/NOTANC]'  ;
@@ -197,7 +205,7 @@ class FacturaElectronicaController extends Controller
           $this->TxtoWbSrvce .= 'EMI_15:'. $this->_02_Emi[0]['_15_pais']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_19:'. $this->_02_Emi[0]['_19_dpto']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_21:'. $this->_02_Emi[0]['_21_pais']          . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'EMI_22:'. $this->_02_Emi[0]['_22_dv']          . $this->Coma  . $this->Salto  ;
+          $this->TxtoWbSrvce .= 'EMI_22:'. $this->_02_Emi[0]['_22_dv_emprsa']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_23:'. $this->_02_Emi[0]['_23_cod_mcipio']          . $this->Coma  . $this->Salto  ;
           $this->generaNodoSiExiste ( 'EMI_24',  $this->_02_Emi[0]['_07_nom_ccial']   );
       $this->TxtoWbSrvce .= $this->Salto . '(/EMI)'  ;
@@ -323,10 +331,6 @@ class FacturaElectronicaController extends Controller
 
 
     private function Fact_05_IMP () {
-        $this->TxtoWbSrvce .=      $this->Salto . '(TIM)'  . $this->Salto;
-        $this->TxtoWbSrvce .= 'TIM_1:'. $this->_05_Imp[0]['_01_tp_impsto']              . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'TIM_2:'. $this->_05_Imp[0]['imp_04_vr_impsto']                . $this->Coma  . $this->Salto  ;
-        $this->TxtoWbSrvce .= 'TIM_3:'. $this->_05_Imp[0]['_03_mnda']                   . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .=      $this->Salto . '(IMP)'  . $this->Salto;
         $this->TxtoWbSrvce .= 'IMP_1:'. $this->_05_Imp[0]['imp_01_tp_impsto']     . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'IMP_2:'. $this->_05_Imp[0]['imp_02_base']          . $this->Coma  . $this->Salto  ;
@@ -335,7 +339,7 @@ class FacturaElectronicaController extends Controller
         $this->TxtoWbSrvce .= 'IMP_5:'. $this->_05_Imp[0]['imp_05_mnda']          . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'IMP_6:'. $this->_05_Imp[0]['imp_06_pctje']         . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= $this->Salto . '(/IMP)'  ;
-        $this->TxtoWbSrvce .= $this->Salto . '(/TIM)'  ;
+       
     }
 
     private function Fact_06_DSC () {
@@ -433,6 +437,9 @@ class FacturaElectronicaController extends Controller
             $this->TxtoWbSrvce .= 'ITE_20:'. $Producto['_20_mnda']         . $this->Coma  . $this->Salto  ;
             $this->TxtoWbSrvce .= 'ITE_21:'. $Producto['_21_total_item']         . $this->Coma  . $this->Salto  ;
             $this->TxtoWbSrvce .= 'ITE_22:'. $Producto['_22_mnda']         . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'ITE_27:'. $Producto['_27_cantidad']         . $this->Coma  . $this->Salto  ;
+            $this->TxtoWbSrvce .= 'ITE_28:'. $Producto['_28_unidad']         . $this->Coma  . $this->Salto  ;
+
            $this->TxtoWbSrvce .= $this->Salto . '(/ITE)'  ;
         }
     }
