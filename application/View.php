@@ -2,6 +2,7 @@
 /**
  * AGOSTO 24 DE 2014
  * CONTROLA/ADMINISTRA EL TRABAJO CON LAS VISTAS
+ Este cambio es solo para probar git
  */
 
     class View
