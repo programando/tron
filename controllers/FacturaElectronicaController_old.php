@@ -60,7 +60,7 @@ class FacturaElectronicaController extends Controller
               Debug::Mostrar( $errorMessage );
               //$this->Factura->fact_01_Respuesta_Operador( $id_fact_elctrnca , $errorMessage, $transactionId , $documentNumber, 'CUFE');
             }
-            
+
             catch (Exception $e){
                 $errorMessage =  'Error: '. $e->getMessage();
                 Debug::Mostrar( $errorMessage );
@@ -115,22 +115,22 @@ class FacturaElectronicaController extends Controller
       $this->_12_Ite = $this->Factura->fact_12_ite ( $this->id_fact_elctrnca );
 
      /* $this->_06_Dsc = $this->Factura->fact_06_dsc ( $this->id_fact_elctrnca );
-      
+
       $this->_08_Ttd = $this->Factura->fact_08_ttd ( $this->id_fact_elctrnca );
       $this->_09_Not = $this->Factura->fact_09_not ( $this->id_fact_elctrnca );
       $this->_10_Ref = $this->Factura->fact_10_ref ( $this->id_fact_elctrnca );
       $this->_11_Fe1 = $this->Factura->fact_11_fe1 ( $this->id_fact_elctrnca );
-      
+
         */
       $this->TipoDocumento = $this->_02_Emi[0]['_01_tp_doc'] ;
-      
-    
+
+
       $this->InicioArchivo(  );
       $this->Fact_01_ENC () ;
       $this->Fact_02_EMI () ;
       $this->Fact_03_TAC();
       $this->Fac_04_DEF();
-      $this->Fac_05_GTE(); 
+      $this->Fac_05_GTE();
       $this->Fact_03_ADQ () ;
       $this->Fact_TCR () ;
       $this->Fact_ILA () ;
@@ -147,7 +147,7 @@ class FacturaElectronicaController extends Controller
       $this->Fact_10_REF () ;
       $this->Fact_11_FE1 () ;
       */
-      
+
       if ( $this->TipoDocumento == 'INVOIC')  $this->TxtoWbSrvce .= $this->Salto . '[/FACTURA]'  ;
       if ( $this->TipoDocumento == 'NC')  $this->TxtoWbSrvce .= $this->Salto . '[/NOTANC]'  ;
       if ( $this->TipoDocumento == 'ND')  $this->TxtoWbSrvce .= $this->Salto . '[/NOTADR]'  ;
@@ -165,8 +165,8 @@ class FacturaElectronicaController extends Controller
       if ( $this->TipoDocumento == 'NC')  $this->TxtoWbSrvce .=  '[NOTANC]';
       if ( $this->TipoDocumento == 'ND')  $this->TxtoWbSrvce .=  '[NOTADR]';
 
-      $this->TxtoWbSrvce .=  '[nit900755214@facturatech.co]';
-      $this->TxtoWbSrvce .=   '[facturas@balquimia]' ; // '[BZF%C7x1]';
+      $this->TxtoWbSrvce .=  '';
+      $this->TxtoWbSrvce .=   '' ; // '[BZF%C7x1]';
 
     }
 
@@ -200,7 +200,7 @@ class FacturaElectronicaController extends Controller
           $this->TxtoWbSrvce .= 'EMI_6:'. $this->_02_Emi[0]['_06_emprsa']         . $this->Coma  . $this->Salto  ;
           $this->generaNodoSiExiste ( 'EMI_6',  $this->_02_Emi[0]['_07_nom_ccial']   );
           $this->TxtoWbSrvce .= 'EMI_10:'. $this->_02_Emi[0]['_10_drccion']       . $this->Coma  . $this->Salto  ;
-          $this->TxtoWbSrvce .= 'EMI_11:'. $this->_02_Emi[0]['_11_dpto']          . $this->Coma  . $this->Salto  ;       
+          $this->TxtoWbSrvce .= 'EMI_11:'. $this->_02_Emi[0]['_11_dpto']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_13:'. $this->_02_Emi[0]['_13_mcipio']        . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_15:'. $this->_02_Emi[0]['_15_pais']          . $this->Coma  . $this->Salto  ;
           $this->TxtoWbSrvce .= 'EMI_19:'. $this->_02_Emi[0]['_19_dpto']          . $this->Coma  . $this->Salto  ;
@@ -210,7 +210,7 @@ class FacturaElectronicaController extends Controller
           $this->generaNodoSiExiste ( 'EMI_24',  $this->_02_Emi[0]['_07_nom_ccial']   );
       $this->TxtoWbSrvce .= $this->Salto . '(/EMI)'  ;
     }
-    
+
     private function Fact_03_TAC () {
 
         $this->TxtoWbSrvce .=      $this->Salto . '(TAC)'  . $this->Salto;
@@ -219,7 +219,7 @@ class FacturaElectronicaController extends Controller
 
       }
 
-    
+
       private function Fac_04_DEF (){
         if ( $this->TipoDocumento == 'INVOIC' ){
             $this->TxtoWbSrvce .=      $this->Salto . '(DEF)'  . $this->Salto;
@@ -230,7 +230,7 @@ class FacturaElectronicaController extends Controller
         }
     }
 
-    private function Fac_05_GTE (){  
+    private function Fac_05_GTE (){
         $this->TxtoWbSrvce .=      $this->Salto . '(GTE)'  . $this->Salto;
         $this->TxtoWbSrvce .= 'GTE_1:01'. $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'GTE_2:IVA'. $this->Coma  . $this->Salto  ;
@@ -280,14 +280,14 @@ class FacturaElectronicaController extends Controller
         }
     }
 
-    private function Fact_GTA (){  
+    private function Fact_GTA (){
         $this->TxtoWbSrvce .=      $this->Salto . '(GTA)'  . $this->Salto;
         $this->TxtoWbSrvce .= 'GTA_1:01'. $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'GTA_2:IVA'. $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= $this->Salto . '(/GTA)'  ;
     }
 
- 
+
 
 
 
@@ -340,7 +340,7 @@ class FacturaElectronicaController extends Controller
         $this->TxtoWbSrvce .= 'IMP_5:'. $this->_05_Imp[0]['imp_05_mnda']          . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= 'IMP_6:'. $this->_05_Imp[0]['imp_06_pctje']         . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= $this->Salto . '(/IMP)'  ;
-       
+
     }
 
     private function Fact_06_DSC () {
@@ -446,18 +446,18 @@ class FacturaElectronicaController extends Controller
     }
 
 
-    
+
     private function generaCampoInterno( $Texto, $Campo ){
         $this->TxtoWbSrvce .= $this->Salto . '('. $Texto .  ')'                   ;
         $this->TxtoWbSrvce .= $this->Salto . $Texto .    '_1:' . $Campo         . $this->Coma  . $this->Salto  ;
         $this->TxtoWbSrvce .= '(/' . $Texto . ')' ;
      }
- 
+
      private function generaNodoSiExiste ( $Nodo, $Valor ){
        if ( !empty( $Valor  ))
            $this->TxtoWbSrvce .= "$Nodo:". $Valor                . $this->Coma  . $this->Salto  ;
      }
- 
+
 
   }
 ?>
