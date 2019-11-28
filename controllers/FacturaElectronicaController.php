@@ -27,7 +27,7 @@ class FacturaElectronicaController extends Controller
                //Llamada de todos los datos de la factura almacencados en los diferentes archivos
                $this->consultaDatosFactura( $Factura['id_fact_elctrnca'] );
                //Generación de los datos de la factura en cada uno de los archivos
-               $this->xmlInicioArchivo( "Factura", $this->TipoDocumento );
+               $this->xmlInicioArchivo( "Factura.xml", $this->TipoDocumento );
                   $this->_01_ENC () ;
                   $this->_02_EMI () ;
                   $this->_06_ADQ () ;
