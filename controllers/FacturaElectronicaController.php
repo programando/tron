@@ -406,11 +406,8 @@ class FacturaElectronicaController extends Controller
 
 
         private function xmlInicioArchivo( $NombreArchivo, $TipoDocumento  ) {
-          header('Content-type: text/xml');
+
           $this->xml = new XMLWriter();
-
-
-
          $this->xml->openURI ( $NombreArchivo );
          $this->xml->setIndent(true);
          $this->xml->setIndentString("\t");
