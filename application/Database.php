@@ -24,13 +24,14 @@ class Database extends PDO
 
 
     public function Ejecutar_Sp( $nombre_sp_y_parametros ) {
-     Debug::Mostrar($nombre_sp_y_parametros);
+     //Debug::Mostrar($nombre_sp_y_parametros);
       try {
           $this->Cantidad_Registros = 0;
           $resultado_consulta       = $this->query('CALL ' . $nombre_sp_y_parametros);
           $Respuesta_Bd             = $resultado_consulta->fetchall();
           $this->Cantidad_Registros = count($Respuesta_Bd );
           $resultado_consulta       = null;
+          Debug::Mostrar ( $resultado_consulta );
            return  $Respuesta_Bd;
      }
       catch (Exception $e) {
