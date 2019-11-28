@@ -407,8 +407,8 @@ class FacturaElectronicaController extends Controller
 
         private function xmlInicioArchivo( $NombreArchivo, $TipoDocumento  ) {
 
-          $this->xml = new XMLWriter();
-         $this->xml->openURI ( 'file:///opt/lampp/htdocs/tron/public/files/' . $NombreArchivo );
+         $this->xml = new XMLWriter();
+         $this->xml->openURI ('/opt/lampp/htdocs/tron/public/files/Factura.xml');
          $this->xml->setIndent(true);
          $this->xml->setIndentString("\t");
 
