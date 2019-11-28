@@ -407,9 +407,11 @@ class FacturaElectronicaController extends Controller
 
         private function xmlInicioArchivo( $NombreArchivo, $TipoDocumento  ) {
           $this->xml = new XMLWriter();
-         $this->xml->openURI("/public/files/$NombreArchivo.xml");
+         $NombreArchivo = BASE_STATIC_FILES ."$NombreArchivo.xml";
+         Debug::Mostrar ( $NombreArchivo  );
+         $this->xml->openURI ( BASE_STATIC_FILES );
          $this->xml->setIndent(true);
-          $this->xml->setIndentString("\t");
+         $this->xml->setIndentString("\t");
 
           if ( $TipoDocumento === 'INVOIC')  $this->xml->startElement('FACTURA');
           if ( $TipoDocumento === 'NC')      $this->xml->startElement('NOTANC');
