@@ -408,7 +408,7 @@ class FacturaElectronicaController extends Controller
         private function xmlInicioArchivo( $NombreArchivo, $TipoDocumento  ) {
           $this->xml = new XMLWriter();
          $NombreArchivo = "'".$_SERVER['DOCUMENT_ROOT'] ."/public/files/$NombreArchivo.xml"."'";
-         Debug::Mostrar ( $NombreArchivo  );
+         Debug::Mostrar ( $this->xml  );
 
          $this->xml->openURI ( $NombreArchivo );
          $this->xml->setIndent(true);
