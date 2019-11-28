@@ -408,7 +408,8 @@ class FacturaElectronicaController extends Controller
         private function xmlInicioArchivo( $NombreArchivo, $TipoDocumento  ) {
 
          $this->xml = new XMLWriter();
-         $this->xml->openURI ('file:///opt/lampp/htdocs/tron/public/files/Factura.xml');
+         //$this->xml->openURI ('file:///opt/lampp/htdocs/tron/public/files/Factura.xml');
+         $this->xml->openMemory();
          $this->xml->setIndent(true);
          $this->xml->setIndentString("\t");
 
@@ -425,13 +426,19 @@ class FacturaElectronicaController extends Controller
         private function xmlFinalArchivo() {
               $this->xml->endElement(); // Final del elemento factura
               $this->xml->endDocument();
+              $stringXml = $this->xml->outputMemory(true);
               $this->xml->flush();
+              unset(  $this->xml );
+              $file = FACTURAS_ELECTRONICAS .'Factura.xml';
+              file_put_contents($file, $stringXml);
+
         }
 
 
         private function uploadFile(){
             //Obtiene el path de su archivo
-          $xmlCarvajal = file_get_contents("FACTURA.xml");
+          $file = FACTURAS_ELECTRONICAS .'Factura.xml';
+          $xmlCarvajal = file_get_contents( $file );
           $xmlBase64   = base64_encode($xmlCarvajal);
 
           $cliente     = new SoapClient( FACT_ELEC_URL);
