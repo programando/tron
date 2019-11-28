@@ -31,7 +31,6 @@ class Database extends PDO
           $Respuesta_Bd             = $resultado_consulta->fetchall();
           $this->Cantidad_Registros = count($Respuesta_Bd );
           $resultado_consulta       = null;
-          Debug::Mostrar ( $resultado_consulta );
            return  $Respuesta_Bd;
      }
       catch (Exception $e) {
