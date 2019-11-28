@@ -12,8 +12,8 @@
             /** JUNIO 11 2019
             *   CONSULTA FACTURAS GENERAS QUE NO SE HAN ENVIADO A LA DIAN   */
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_01_enc_pndte_envio_dian()");
-            Debug::Mostrar ( $Facturas  );
-            Debug::Mostrar ( "resultado"  );
+            //Debug::Mostrar ( $Facturas  );
+
             return    $Facturas   ;
         }
 
