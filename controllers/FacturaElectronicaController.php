@@ -409,8 +409,8 @@ class FacturaElectronicaController extends Controller
           $this->xml = new XMLWriter();
          $NombreArchivo = $_SERVER['DOCUMENT_ROOT'] ."/public/files/$NombreArchivo.xml";
          Debug::Mostrar ( $NombreArchivo  );
-         Debug::Mostrar ( realpath(dirname( __FILE__ )) );
-         $this->xml->openURI ( BASE_STATIC_FILES );
+
+         $this->xml->openURI ( $NombreArchivo );
          $this->xml->setIndent(true);
          $this->xml->setIndentString("\t");
 
