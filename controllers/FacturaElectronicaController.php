@@ -3,25 +3,25 @@
 class FacturaElectronicaController extends Controller
 {
    var  $id_fact_elctrnca, $EMI, $ADQ, $TOT, $IMP, $DRF, $ITE, $NOT, $REF ;
-   var $xml, $TipoDocumento, $CadenaBase64, $idTransactionXml;
+   var $xml, $TipoDocumento, $CadenaBase64, $idTransactionXml, $statusCode, $statusError ;
 
     public function __construct() {
         parent::__construct();
         $this->Factura = $this->Load_Model('FacturaElectronica');
-
     }
+
 
     public function index(){}
 
         public function GenerarXML () {
-            $this->facturasPendientes() ;
-            //$this->uploadFile        ();
-            //$this->statusFile        ();
+            $this->facturasPendientes  () ;
         }
 
 
         private function facturasPendientes ()    {
+          $this->id_fact_elctrnca = 0 ;
           $FacturasPendientes = $this->Factura->fact_01_enc();
+
           foreach ( $FacturasPendientes as $Factura ) {
                $this->ENC    = $Factura;
                //Llamada de todos los datos de la factura almacencados en los diferentes archivos
@@ -30,23 +30,25 @@ class FacturaElectronicaController extends Controller
                $this->xmlInicioArchivo( "Factura", $this->TipoDocumento );
                   $this->_01_ENC () ;
                   $this->_02_EMI () ;
-
-
                   $this->_06_ADQ () ;
-                  $this->_07_TCR () ;
-                  $this->_08_ILA () ;
-                  $this->_09_ICR () ;
-                  $this->_10_GTA () ;
-                  $this->_11_TOT () ;
-                  $this->_12_IMP () ;
-                  $this->_13_DRF () ;
-                  $this->_14_NOT () ; // Contiene OCR
-                  $this->_15_OCR () ;
-                  $this->_16_REF () ;
-                  $this->_17_ITE () ;
+                  $this->_12_TOT () ;
+                  $this->_13_TIM () ;
+                  $this->_14_DRF () ;
+                  $this->_15_MEP () ;
+                  $this->_16_NOT () ; // Contiene OCR
+                  $this->_17_OCR () ;
+                  $this->_18_REF () ;
+                  $this->_19_ITE () ;
               $this->xmlFinalArchivo();
+              $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
 
-            }
+              if ( $this->id_fact_elctrnca  > 0 )  {
+                $this->uploadFile          ();
+                $this->statusFile          ();
+                $this->updateIdTransaction () ;
+              }
+
+            } // Fin for each
         }
 
 
@@ -177,6 +179,9 @@ class FacturaElectronicaController extends Controller
         $this->CrearSiExite('DFE_1',    $this->EMI['_23_cod_mcipio']        );
         $this->CrearSiExite('DFE_2',    $this->EMI['_11_dpto']              );
         $this->CrearSiExite('DFE_3',    $this->EMI['_15_pais']              );
+        $this->CrearSiExite('DFE_6',    $this->EMI['_19_dpto']              );
+        $this->CrearSiExite('DFE_7',    $this->EMI['_13_mcipio']              );
+
         $this->xml->endElement();
       }
 
@@ -203,22 +208,29 @@ class FacturaElectronicaController extends Controller
           $this->CrearSiExite('ADQ_13',    $this->ADQ['_13_mcipio']                         );
           $this->CrearSiExite('ADQ_15',    $this->ADQ['_15_pais']                           );
           $this->CrearSiExite('ADQ_22',    $this->ADQ['_22_dv_adq']                         );
+
+          $this->_07_TCR () ;
+          $this->_08_ILA () ;
+          $this->_09_ICR () ;
+          $this->_10_CDA () ;
+          $this->_11_GTA () ;
+
         $this->xml->endElement();
       }
 
 
       private function _07_TCR () {
-       if ( empty(  $this->EMI['tcr_01'] )) return ;
+       if ( empty(  $this->ADQ['tcr_01'] )) return ;
         $this->xml->startElement('TCR');
-          $this->CrearSiExite('TCR_1',   $this->EMI['tcr_01']                );
+          $this->CrearSiExite('TCR_1',   $this->ADQ['tcr_01']                );
         $this->xml->endElement();
       }
 
       private function _08_ILA () {
-        if ( !empty( $this->ADQ['_07_nom_ccial'] ) )  return ;
-        $this->xml->startElement('ILA');
-        $this->CrearSiExite('ILA_1',   $this->ADQ['_07_nom_ccial']          );
-        $this->xml->endElement();
+        if ( empty( $this->ADQ['_07_nom_ccial'] ) )  return ;
+          $this->xml->startElement('ILA');
+          $this->CrearSiExite('ILA_1',   $this->ADQ['_07_nom_ccial']          );
+          $this->xml->endElement();
       }
 
       private function _09_ICR () {
@@ -226,19 +238,28 @@ class FacturaElectronicaController extends Controller
           $this->xml->startElement('ICR');
           $this->CrearSiExite('ICR_1',   $this->ADQ['icr_num_mtrcla_mcntil_clnte']          );
           $this->xml->endElement();
-
          }
       }
 
+      private function _10_CDA () {
+        $this->xml->startElement('CDA');
+          $this->CrearSiExite('CDA_1',   $this->ADQ['cda_01_tp_cntcto']          );
+          $this->CrearSiExite('CDA_2',   $this->ADQ['cda_02_nom_crgo']          );
+          $this->CrearSiExite('CDA_3',   $this->ADQ['cda_03_tlfno']          );
+          $this->CrearSiExite('CDA_4',   $this->ADQ['cda_04_email']          );
+        $this->xml->endElement();
 
-      private function _10_GTA () {
+      }
+
+
+      private function _11_GTA () {
         $this->xml->startElement('GTA');
           $this->CrearSiExite('GTA_1',   '01'           );
           $this->CrearSiExite('GTA_2',    'IVA'         );
         $this->xml->endElement();
       }
 
-      private function _11_TOT () {
+      private function _12_TOT () {
         $this->xml->startElement('TOT');
           $this->CrearSiExite('TOT_1',   $this->TOT['_01_sub_total']            );
           $this->CrearSiExite('TOT_2',   $this->TOT['_02_mnda']                 );
@@ -261,7 +282,16 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function _12_IMP ()  {
+      private function _13_TIM() {
+        $this->xml->startElement('TIM');
+          $this->CrearSiExite('TIM_1',   'false'          );
+          $this->CrearSiExite('TIM_2',   $this->IMP['imp_04_vr_impsto']           );
+          $this->CrearSiExite('TIM_3',   $this->IMP['imp_05_mnda']          );
+          $this->_14_IMP ();
+
+        $this->xml->endElement();
+      }
+      private function _14_IMP ()  {
         $this->xml->startElement('IMP');
           $this->CrearSiExite('IMP_1',   $this->IMP['imp_01_tp_impsto']           );
           $this->CrearSiExite('IMP_2',   $this->IMP['imp_02_base']                );
@@ -273,7 +303,7 @@ class FacturaElectronicaController extends Controller
       }
 
 
-      private function _13_DRF () {
+      private function _14_DRF () {
 
         // $this->xml->startElement('DRF');
         // if ( $this->TipoDocumento === 'INVOIC') {
@@ -292,33 +322,37 @@ class FacturaElectronicaController extends Controller
         $this->CrearSiExite('DRF_1',   '201911110152'           );
         $this->CrearSiExite('DRF_2',  '2019-11-11'              );
         $this->CrearSiExite('DRF_3',   '2020-12-31'               );
-
         $this->CrearSiExite('DRF_4',   'TCFA'                  );
         $this->CrearSiExite('DRF_5',   '1'                  );
         $this->CrearSiExite('DRF_6',   '5000000'                  );
-
         $this->xml->endElement();
-
-
-
       }
 
-      private function _14_NOT () {
+      private function _15_MEP () {
+        $this->xml->startElement('MEP');
+        $this->CrearSiExite('MEP_1',   'ZZZ'           ); // Otro
+        $this->CrearSiExite('MEP_2',   '2'           ); // Otro
+        $this->CrearSiExite('MEP_3',   '2019-10-31'           ); // Otro
+        $this->xml->endElement();
+      }
+
+      private function _16_NOT () {
        if ( empty( $this->NOT )) return ;
-        if ( empty( $this->NOT['_01_notas'])) return ;
+
+       if ( empty( trim( $this->NOT['_01_notas'])) ) return ;
           $this->xml->startElement('NOT');
             $this->CrearSiExite('NOT_1',   $this->NOT['_01_notas']           );
           $this->xml->endElement();
       }
 
-      private function _15_OCR () {
+      private function _17_OCR () {
         if ( empty(  $this->NOT['ord_cpra']  )) return ;
         $this->xml->startElement('OCR');
             $this->CrearSiExite('OCR_1',   $this->NOT['ord_cpra']           );
         $this->xml->endElement();
       }
 
-      private function _16_REF () {
+      private function _18_REF () {
         if ( empty( $this->REF )) return ;
         $this->xml->startElement('REF');
             $this->CrearSiExite('REF_1',   $this->REF['_01_tp_doc']            );
@@ -327,7 +361,7 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function _17_ITE () {
+      private function _19_ITE () {
           foreach ( $this->ITE as $Producto) {
             $this->xml->startElement('ITE');
               $this->CrearSiExite('ITE_1',   $Producto['_01_consecutivo']                       );
@@ -347,11 +381,20 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('ITE_22',   $Producto['_22_mnda']                             );
               $this->CrearSiExite('ITE_27',   $Producto['_27_cantidad']                         );
               $this->CrearSiExite('ITE_28',   $Producto['_28_unidad']                           );
+              $this->_20_IAE ( $Producto['_01_consecutivo'] ) ;
             $this->xml->endElement();
+
           }
       }
 
-
+      private function _20_IAE ( $CodigoProducto ) {
+        $this->xml->startElement('IAE');
+        $this->CrearSiExite('IAE_1',   $CodigoProducto                          );
+        $this->CrearSiExite('IAE_2',   '999'                          );
+        $this->CrearSiExite('IAE_3',   ' '                          );
+        $this->CrearSiExite('IAE_4',   'Estándar de adopción del contribuyente'                          );
+        $this->xml->endElement();
+      }
         //========================================================================
         // Funciones utilitarias
         //========================================================================
@@ -403,7 +446,7 @@ class FacturaElectronicaController extends Controller
         //  Debug::Mostrar( $response ) ;
         //  Debug::Mostrar($response->transaccionID );
         //  Debug::Mostrar($response->success );
-         Debug::Mostrar($response->error );
+         //Debug::Mostrar($response );
          $this->idTransactionXml = $response->transaccionID ; // 'dff46f00878a4004b6447b66e506c613' ; //$response->transaccionID;
 
         }
@@ -417,64 +460,44 @@ class FacturaElectronicaController extends Controller
             "transaccionID" => $idTransactionXml
            );
            $response = $cliente->__soapCall("FtechAction.documentStatusFile", $params);
-           Debug::Mostrar( 'statusFile => '  ) ;
+           //Debug::Mostrar( 'statusFile => '  ) ;
            Debug::Mostrar(   $response ) ;
+           $this->statusCode  = $response->code;
+           $this->statusError = str_replace("'","", $response->error);
+           $this->statusError =  $string = preg_replace("/[\r\n|\n|\r]+/", " ", $this->statusError );
+           $this->statusError = substr ( $this->statusError,200,250 );
+           Debug::Mostrar ( $this->statusError );
+        }
+
+        public function showPdf(){
+
+          $params      = array(
+            "username"      => FACT_ELEC_USU,
+            "password"      => FACT_ELEC_PASS,
+            "prefijo"       => 'TCFA',
+            "folio"         => '1202'
+           );
+           $cliente  = new SoapClient( FACT_ELEC_URL);
+           $response = $cliente->__soapCall("FtechAction.downloadXMLFile", $params);
+           $xml      = $response->resourceData;
+           $pdf      = base64_decode( $xml );
+           $file = 'invoice.pdf';
+           file_put_contents($file, $pdf);
+
+          //  $myfilexmlRequest = fopen("pdfinvoice.pdf", "w") or die("Unable to open file!");
+          //  fwrite($myfilexmlRequest,  $pdf );
+          //  fclose($myfilexmlRequest);
+
+        }
+
+        private function updateIdTransaction () {
+          $this->Factura->updateIdTransaction ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->statusCode, $this->statusError ) ;
         }
 
 
-
-//          stdClass Object
-// (
-//     [code] => 201
-//     [success] => Archivo recibido con exito.
-//     [transaccionID] => dff46f00878a4004b6447b66e506c613
-//     [error] =>
-// )
-
-          // /*document status file*/
-          // $resultado2 = $cliente->call('ActionFtech.documentStatusFile', array("username" => "90114300", "password" => "aqui va la contraseÃ±a", "transaccionID" => "12325433664568"));
-
-          //     if ($cliente->fault) {
-          //         echo "<h2>Fault</h2><pre>";
-          //         print_r($resultado);
-          //         echo "</pre>";
-          //     }else {
-          //         $error = $cliente->getError();
-          //         if ($error) {
-          //             echo "<h2>Error</h2><pre>" . $error . "</pre>";
-          //         } else {
-          //             echo "<h2>Resultado</h2><pre>";
-          //             var_dump( $resultado );
-          //             echo "</pre>";
-          //         }
-          //     }
-
-          // /*download file xml*/
-          // $resultado3 = $cliente->call('FtechAction.downloadPDFFile', array( "username" => "900114300", "password" => "aqui va la contraseÃ±a", "prefijo" => "SETT", "folio" => "11"  ));
-
-
-          //     if ($cliente->fault) {
-          //         echo "<h2>Fault</h2><pre>";
-          //         print_r(($resultado));
-          //         echo "</pre>";
-          //     }else{
-          //         $error = $cliente->getError();
-          //         if ($error) {
-          //             print($error);
-          //             echo "<h2>Error</h2><pre>" . $error . "</pre>";
-          //         } else {
-          //             echo "<h2>Resultado</h2><pre>";
-          //             print_r( $resultado );
-          //             print_r( base64_decode($resultado["resourceData"]) );
-
-          //             $myfilexmlRequest = fopen("path\save\to\pdfinvoice.pdf", "w") or die("Unable to open file!");
-          //             fwrite($myfilexmlRequest, (base64_decode($resultado["resourceData"])));
-          //             fclose($myfilexmlRequest);
-          //         }//end
-          //     }//end
-
-            //}
-
      // ====================== Final Documento ====================================
     }
+
+
+
 ?>
