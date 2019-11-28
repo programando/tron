@@ -407,8 +407,7 @@ class FacturaElectronicaController extends Controller
 
         private function xmlInicioArchivo( $NombreArchivo, $TipoDocumento  ) {
 
-          header("Content-Type: text/html/force-download");
-          header("Content-Disposition: attachment; filename='Factura.xml'");
+          header("Content-type: application/xml");
 
           $this->xml = new XMLWriter();
          $this->xml->openURI ( 'php://output');
