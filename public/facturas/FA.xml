@@ -5,7 +5,7 @@
 		<ENC_3>79871755</ENC_3>
 		<ENC_4>UBL 2.1</ENC_4>
 		<ENC_5>DIAN 2.1</ENC_5>
-		<ENC_6>TCFA1220</ENC_6>
+		<ENC_6>TCFA1226</ENC_6>
 		<ENC_7>2019-11-10</ENC_7>
 		<ENC_8>17:13:36-05:00</ENC_8>
 		<ENC_9>01</ENC_9>
@@ -50,13 +50,16 @@
 		</GTE>
 	</EMI>
 	<ADQ>
-		<ADQ_1>2</ADQ_1>
-		<ADQ_2>14590123</ADQ_2>
-		<ADQ_3>13</ADQ_3>
-		<ADQ_10>CR 2C NO 46 A 40 SALOMIA</ADQ_10>
-		<ADQ_11>76</ADQ_11>
-		<ADQ_13>CALI</ADQ_13>
+		<ADQ_1>1</ADQ_1>
+		<ADQ_2>860001615</ADQ_2>
+		<ADQ_3>31</ADQ_3>
+		<ADQ_4>48</ADQ_4>
+		<ADQ_6>AUTOMUNDIAL S.A.</ADQ_6>
+		<ADQ_10>AV  6  47 92</ADQ_10>
+		<ADQ_11>25</ADQ_11>
+		<ADQ_13>BOGOTÁ D.C.</ADQ_13>
 		<ADQ_15>170</ADQ_15>
+		<ADQ_22>4</ADQ_22>
 		<TCR>
 			<TCR_1>O-99</TCR_1>
 		</TCR>
@@ -72,24 +75,24 @@
 		</GTA>
 	</ADQ>
 	<TOT>
-		<TOT_1>5294.0000</TOT_1>
+		<TOT_1>1411134.0000</TOT_1>
 		<TOT_2>COP</TOT_2>
-		<TOT_3>5294.0000</TOT_3>
+		<TOT_3>1411134.0000</TOT_3>
 		<TOT_4>COP</TOT_4>
-		<TOT_5>6299.8600</TOT_5>
+		<TOT_5>1679249.4600</TOT_5>
 		<TOT_6>COP</TOT_6>
-		<TOT_7>6299.8600</TOT_7>
+		<TOT_7>1679249.4600</TOT_7>
 		<TOT_8>COP</TOT_8>
 	</TOT>
 	<TIM>
 		<TIM_1>false</TIM_1>
-		<TIM_2>1005.8600</TIM_2>
+		<TIM_2>268115.4600</TIM_2>
 		<TIM_3>COP</TIM_3>
 		<IMP>
 			<IMP_1>01</IMP_1>
-			<IMP_2>5294.0000</IMP_2>
+			<IMP_2>1411134.0000</IMP_2>
 			<IMP_3>COP</IMP_3>
-			<IMP_4>1005.8600</IMP_4>
+			<IMP_4>268115.4600</IMP_4>
 			<IMP_5>COP</IMP_5>
 			<IMP_6>19.000</IMP_6>
 		</IMP>
@@ -116,45 +119,22 @@
 	</REF>
 	<ITE>
 		<ITE_1>1</ITE_1>
-		<ITE_3>1.0000</ITE_3>
+		<ITE_3>3.0000</ITE_3>
 		<ITE_4>S7</ITE_4>
-		<ITE_5>3529.0000</ITE_5>
+		<ITE_5>1411134.0000</ITE_5>
 		<ITE_6>COP</ITE_6>
-		<ITE_7>3529.0000</ITE_7>
+		<ITE_7>470378.0000</ITE_7>
 		<ITE_8>COP</ITE_8>
-		<ITE_11>Conc. TRON Limpiador desinfectante multiusos - TALCO DE BEBÃ  -- CojÃ­n x 60 mL --  Lote #:      IN1119</ITE_11>
-		<ITE_12>Cojín x 60 mL</ITE_12>
-		<ITE_19>3529.0000</ITE_19>
+		<ITE_11>EMULSION DE SILICONA AL 60%  -- 5 gal.BA --  Lote #:      IN1119</ITE_11>
+		<ITE_12>5 gal.BA</ITE_12>
+		<ITE_19>1411134.0000</ITE_19>
 		<ITE_20>COP</ITE_20>
-		<ITE_21>3529.0000</ITE_21>
+		<ITE_21>1411134.0000</ITE_21>
 		<ITE_22>COP</ITE_22>
-		<ITE_27>1.0000</ITE_27>
+		<ITE_27>3.0000</ITE_27>
 		<ITE_28>S7</ITE_28>
 		<IAE>
 			<IAE_1>1</IAE_1>
-			<IAE_2>999</IAE_2>
-			<IAE_3> </IAE_3>
-			<IAE_4>Estándar de adopción del contribuyente</IAE_4>
-		</IAE>
-	</ITE>
-	<ITE>
-		<ITE_1>2</ITE_1>
-		<ITE_3>1.0000</ITE_3>
-		<ITE_4>S7</ITE_4>
-		<ITE_5>1765.0000</ITE_5>
-		<ITE_6>COP</ITE_6>
-		<ITE_7>1765.0000</ITE_7>
-		<ITE_8>COP</ITE_8>
-		<ITE_11>RETROCHO SF  -- Cojin x 150 mL --  Lote #:      IN1119</ITE_11>
-		<ITE_12>Cojin x 150 mL</ITE_12>
-		<ITE_19>1765.0000</ITE_19>
-		<ITE_20>COP</ITE_20>
-		<ITE_21>1765.0000</ITE_21>
-		<ITE_22>COP</ITE_22>
-		<ITE_27>1.0000</ITE_27>
-		<ITE_28>S7</ITE_28>
-		<IAE>
-			<IAE_1>2</IAE_1>
 			<IAE_2>999</IAE_2>
 			<IAE_3> </IAE_3>
 			<IAE_4>Estándar de adopción del contribuyente</IAE_4>
