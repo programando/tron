@@ -12,10 +12,11 @@ public/images/productos/944x944
 public/images/products/
 public/images/productos/
 public/images/productos/banners/1200x400
+public/facturas/*.xml
+public/facturas/FA.xml
 /libs_external/tcpdf/examples
 logs/error.txt
 resources
 .idea
 *.txt
 .well-known
-*.xml

@@ -29,11 +29,11 @@ class FacturaElectronicaController extends Controller
                $this->consultaDatosFactura( $Factura['id_fact_elctrnca'] );
                //Generación de los datos de la factura en cada uno de los archivos
                $this->xmlInicioArchivo( $this->TipoDocumento );
-                  $this->_01_ENC () ;
-                  $this->_02_EMI () ;
-                  $this->_06_ADQ () ;
-                  $this->_12_TOT () ;
-                  $this->_13_TIM () ;
+                  $this->ENC () ;
+                  $this->EMI () ;
+                  $this->ADQ () ;
+                  $this->TOT () ;
+                  $this->TIM () ;
                   $this->_14_DRF () ;
 
                   $this->_16_NOT () ; // Contiene OCR
@@ -83,7 +83,7 @@ class FacturaElectronicaController extends Controller
         }
 
 
-        private function _01_ENC() {
+        private function ENC() {
           $this->xml->startElement('ENC');
             $this->CrearSiExite('ENC_1',  $this->ENC['_01_tp_doc']        );
             $this->CrearSiExite('ENC_2',  $this->ENC['_02_nit_emprsa']    );
@@ -105,7 +105,7 @@ class FacturaElectronicaController extends Controller
 
       }
 
-      private function _02_EMI() {
+      private function EMI() {
         $this->xml->startElement('EMI');
           $this->CrearSiExite('EMI_1',    $this->EMI['_01_tp_prsna']          );
           $this->CrearSiExite('EMI_2',    $this->EMI['_02_nit_emprsa']        );
@@ -129,7 +129,7 @@ class FacturaElectronicaController extends Controller
 
 
           $this->_03_TAC () ;
-          $this->_04_DFE () ;
+          $this->DFE () ;
           $this->ICC ();
           $this->CDE ();
           $this->_05_GTE () ;
@@ -144,14 +144,16 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function _04_DFE () {
+      private function DFE () {
         $this->xml->startElement('DFE');
         $this->CrearSiExite('DFE_1',    $this->EMI['_23_cod_mcipio']        );
         $this->CrearSiExite('DFE_2',    $this->EMI['_11_dpto']              );
         $this->CrearSiExite('DFE_3',    $this->EMI['_15_pais']              );
         $this->CrearSiExite('DFE_4',    '760001'             );
+        $this->CrearSiExite('DFE_5',    'COLOMBIA'             );
         $this->CrearSiExite('DFE_6',    'Valle del Cauca '             );
         $this->CrearSiExite('DFE_7',    $this->EMI['_13_mcipio']              );
+        $this->CrearSiExite('DFE_8',    'CALLE 35 4 31'             );
         $this->xml->endElement();
       }
 
@@ -167,8 +169,9 @@ class FacturaElectronicaController extends Controller
       private function CDE () {
         $this->xml->startElement('CDE');
         $this->CrearSiExite('CDE_1',    '1'       );
-        $this->CrearSiExite('CDE_2',    'LAURA LENIS'             );
+        $this->CrearSiExite('CDE_2',    'JHON JAMES MONTAÑO'             );
         $this->CrearSiExite('CDE_3',    '3113369005'             );
+        $this->CrearSiExite('CDE_4',    'jhonjamesmg@hotmail.com'             );
         $this->xml->endElement();
       }
 
@@ -180,7 +183,7 @@ class FacturaElectronicaController extends Controller
       }
 
 
-      private function _06_ADQ() {
+      private function ADQ() {
         $this->xml->startElement('ADQ');
           $this->CrearSiExite('ADQ_1',     $this->ADQ['_01_tp_prsna']                       );
           $this->CrearSiExite('ADQ_2',     $this->ADQ['_02_nit_emprsa']                     );
@@ -194,7 +197,10 @@ class FacturaElectronicaController extends Controller
           $this->CrearSiExite('ADQ_13',    $this->ADQ['_13_mcipio']                         );
           $this->CrearSiExite('ADQ_14',    '760001'                          );
           $this->CrearSiExite('ADQ_15',    'CO'                          );
+          $this->CrearSiExite('ADQ_19',    'Valle del cauca'                          );
+          $this->CrearSiExite('ADQ_21',    'COLOMBIA'                          );
           $this->CrearSiExite('ADQ_22',    $this->ADQ['_22_dv_adq']                         );
+          $this->CrearSiExite('ADQ_23',    '76001'                       );
 
           $this->_07_TCR () ;
           $this->_08_ILA () ;
@@ -276,7 +282,7 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function _12_TOT () {
+      private function TOT () {
         $this->xml->startElement('TOT');
           $this->CrearSiExite('TOT_1',   $this->TOT['_01_sub_total']            );
           $this->CrearSiExite('TOT_2',   $this->TOT['_02_mnda']                 );
@@ -299,16 +305,16 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function _13_TIM() {
+      private function TIM() {
         $this->xml->startElement('TIM');
           $this->CrearSiExite('TIM_1',   'false'          );
           $this->CrearSiExite('TIM_2',   $this->IMP['imp_04_vr_impsto']           );
           $this->CrearSiExite('TIM_3',   $this->IMP['imp_05_mnda']          );
-          $this->_14_IMP ();
+          $this->IMP ();
 
         $this->xml->endElement();
       }
-      private function _14_IMP ()  {
+      private function IMP ()  {
         $this->xml->startElement('IMP');
           $this->CrearSiExite('IMP_1',   $this->IMP['imp_01_tp_impsto']           );
           $this->CrearSiExite('IMP_2',   $this->IMP['imp_02_base']                );
