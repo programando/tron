@@ -21,14 +21,23 @@
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_02_emi_pndte_envio_dian( $_id_fact_elctrnca )");
             return    $Facturas   ;
         }
+        public function checkDocumentsStatus (  )   {
+            $Facturas                 = $this->Db->Ejecutar_Sp("fact_01_enc_status_check( )");
+            return    $Facturas   ;
+        }
 
         public function fact_01_Respuesta_Operador ( $_id_fact_elctrnca, $errorMessage, $transactionId, $documentNumber, $CUFE )   {
            $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_respuesta_operador( $_id_fact_elctrnca, '$errorMessage', '$transactionId', '$documentNumber', '$CUFE' )");
         }
 
-        public function updateIdTransaction ( $_id_fact_elctrnca, $idTransaction, $statusCode, $statusError )   {
-           $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_upd_id_transaccion( $_id_fact_elctrnca, '$idTransaction',  '$statusCode', '$statusError')");
+        public function updateUploadFile ( $_id_fact_elctrnca, $idTransaction, $uploadCode, $uploadError, $uploadSuccess )   {
+           $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_upload_update ( $_id_fact_elctrnca, '$idTransaction',  '$uploadCode', '$uploadError', '$uploadSuccess')");
         }
+
+        public function updateDocumentStatus (  $idTransaction, $statusCode, $statusSuccess, $statusError )   {
+           $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_status_update ( '$idTransaction',  '$statusCode', '$statusSuccess', '$statusError')");
+        }
+
         public function fact_01_UpdateErroresLayout ( $_id_fact_elctrnca, $errorMessage )   {
            $Facturas  = $this->Db->Ejecutar_Sp("fact_01_enc_respuesta_operador_errores( $_id_fact_elctrnca, '$errorMessage')");
         }
