@@ -2,16 +2,16 @@
 	<ENC>
 		<ENC_1>INVOIC</ENC_1>
 		<ENC_2>900755214</ENC_2>
-		<ENC_3>890321213</ENC_3>
+		<ENC_3>890326112</ENC_3>
 		<ENC_4>UBL 2.1</ENC_4>
 		<ENC_5>DIAN 2.1</ENC_5>
-		<ENC_6>SETT59</ENC_6>
-		<ENC_7>2019-12-10</ENC_7>
-		<ENC_8>17:31:08-05:00</ENC_8>
+		<ENC_6>SETT133</ENC_6>
+		<ENC_7>2020-01-07</ENC_7>
+		<ENC_8>19:10:48-05:00</ENC_8>
 		<ENC_9>01</ENC_9>
 		<ENC_10>COP</ENC_10>
-		<ENC_15>2</ENC_15>
-		<ENC_16>2019-12-17</ENC_16>
+		<ENC_15>3</ENC_15>
+		<ENC_16>2020-01-07</ENC_16>
 		<ENC_20>2</ENC_20>
 		<ENC_21>10</ENC_21>
 	</ENC>
@@ -27,7 +27,7 @@
 		<EMI_13>CALI</EMI_13>
 		<EMI_14>760001</EMI_14>
 		<EMI_15>CO</EMI_15>
-		<EMI_19>Valle del cauca</EMI_19>
+		<EMI_19>VALLE DEL CAUCA</EMI_19>
 		<EMI_21>COLOMBIA</EMI_21>
 		<EMI_22>4</EMI_22>
 		<EMI_23>76001</EMI_23>
@@ -41,7 +41,7 @@
 			<DFE_3>CO</DFE_3>
 			<DFE_4>760001</DFE_4>
 			<DFE_5>COLOMBIA</DFE_5>
-			<DFE_6>Valle del cauca</DFE_6>
+			<DFE_6>VALLE DEL CAUCA</DFE_6>
 			<DFE_7>CALI</DFE_7>
 			<DFE_8>CALLE 35 - 4 31</DFE_8>
 		</DFE>
@@ -62,43 +62,43 @@
 	</EMI>
 	<ADQ>
 		<ADQ_1>1</ADQ_1>
-		<ADQ_2>890321213</ADQ_2>
+		<ADQ_2>890326112</ADQ_2>
 		<ADQ_3>31</ADQ_3>
 		<ADQ_4>48</ADQ_4>
-		<ADQ_6>PRONAVICOLA S.A</ADQ_6>
-		<ADQ_10>CL 8   20 360 SAN JUANITO</ADQ_10>
+		<ADQ_6>PROCESCO S.A.S</ADQ_6>
+		<ADQ_10>CARRERA 65A # 5 - 46</ADQ_10>
 		<ADQ_11>76</ADQ_11>
-		<ADQ_13>BUGA</ADQ_13>
+		<ADQ_13>CALI</ADQ_13>
 		<ADQ_14>760001</ADQ_14>
 		<ADQ_15>CO</ADQ_15>
 		<ADQ_19>Valle Del Cauca</ADQ_19>
 		<ADQ_21>COLOMBIA</ADQ_21>
-		<ADQ_22>9</ADQ_22>
-		<ADQ_23>76113</ADQ_23>
+		<ADQ_22>6</ADQ_22>
+		<ADQ_23>76001</ADQ_23>
 		<TCR>
 			<TCR_1>O-99</TCR_1>
 		</TCR>
 		<ILA>
-			<ILA_1>PRONAVICOLA S.A</ILA_1>
-			<ILA_2>890321213</ILA_2>
+			<ILA_1>PROCESCO S.A.S</ILA_1>
+			<ILA_2>890326112</ILA_2>
 			<ILA_3>31</ILA_3>
-			<ILA_4>9</ILA_4>
+			<ILA_4>6</ILA_4>
 		</ILA>
 		<DFA>
 			<DFA_1>CO</DFA_1>
 			<DFA_2>76</DFA_2>
 			<DFA_3>760001</DFA_3>
-			<DFA_4>76113</DFA_4>
+			<DFA_4>76001</DFA_4>
 			<DFA_5>COLOMBIA</DFA_5>
 			<DFA_6>Valle Del Cauca</DFA_6>
-			<DFA_7>BUGA</DFA_7>
-			<DFA_8>CL 8   20 360 SAN JUANITO</DFA_8>
+			<DFA_7>CALI</DFA_7>
+			<DFA_8>CARRERA 65A # 5 - 46</DFA_8>
 		</DFA>
 		<CDA>
 			<CDA_1>1</CDA_1>
 			<CDA_2>NO INFORMADO</CDA_2>
-			<CDA_3>3113369005</CDA_3>
-			<CDA_4>jhonjamesmg@hotmail.com</CDA_4>
+			<CDA_3>X</CDA_3>
+			<CDA_4>x</CDA_4>
 		</CDA>
 		<CDA>
 			<CDA_1>5</CDA_1>
@@ -112,24 +112,24 @@
 		</GTA>
 	</ADQ>
 	<TOT>
-		<TOT_1>8324303.0000</TOT_1>
+		<TOT_1>75026.0000</TOT_1>
 		<TOT_2>COP</TOT_2>
-		<TOT_3>8324303.0000</TOT_3>
+		<TOT_3>75026.0000</TOT_3>
 		<TOT_4>COP</TOT_4>
-		<TOT_5>9905920.5700</TOT_5>
+		<TOT_5>89280.9400</TOT_5>
 		<TOT_6>COP</TOT_6>
-		<TOT_7>9905920.5700</TOT_7>
+		<TOT_7>89280.9400</TOT_7>
 		<TOT_8>COP</TOT_8>
 	</TOT>
 	<TIM>
 		<TIM_1>false</TIM_1>
-		<TIM_2>1581617.5700</TIM_2>
+		<TIM_2>14254.9400</TIM_2>
 		<TIM_3>COP</TIM_3>
 		<IMP>
 			<IMP_1>01</IMP_1>
-			<IMP_2>8324303.0000</IMP_2>
+			<IMP_2>75026.0000</IMP_2>
 			<IMP_3>COP</IMP_3>
-			<IMP_4>1581617.5700</IMP_4>
+			<IMP_4>14254.9400</IMP_4>
 			<IMP_5>COP</IMP_5>
 			<IMP_6>19.000</IMP_6>
 		</IMP>
@@ -140,33 +140,32 @@
 		<DRF_3>2030-01-19</DRF_3>
 		<DRF_4>SETT</DRF_4>
 		<DRF_5>1</DRF_5>
-		<DRF_6>5000000</DRF_6>
+		<DRF_6>50000</DRF_6>
 	</DRF>
 	<REF>
 		<REF_1>IV</REF_1>
-		<REF_2>SETT59</REF_2>
+		<REF_2>SETT133</REF_2>
 	</REF>
 	<MEP>
 		<MEP_1>ZZZ</MEP_1>
-		<MEP_2>2</MEP_2>
-		<MEP_3>2019-12-17</MEP_3>
+		<MEP_2>1</MEP_2>
 	</MEP>
 	<ITE>
 		<ITE_1>1</ITE_1>
-		<ITE_3>56.0000</ITE_3>
+		<ITE_3>3.0000</ITE_3>
 		<ITE_4>S7</ITE_4>
-		<ITE_5>6729128.0000</ITE_5>
+		<ITE_5>27189.0000</ITE_5>
 		<ITE_6>COP</ITE_6>
-		<ITE_7>120163.0000</ITE_7>
+		<ITE_7>9063.0000</ITE_7>
 		<ITE_8>COP</ITE_8>
-		<ITE_11>DETERGENTE TEXTIL  -- 20 lts. --  Lote #:      IN1219</ITE_11>
-		<ITE_12>20 lts.</ITE_12>
-		<ITE_19>6729128.0000</ITE_19>
+		<ITE_11>TRON Limp. desinf. LAVANDA  -- 4 lts. --  Lote #:      IN0120</ITE_11>
+		<ITE_12>4 lts.</ITE_12>
+		<ITE_19>27189.0000</ITE_19>
 		<ITE_20>COP</ITE_20>
-		<ITE_21>6729128.0000</ITE_21>
+		<ITE_21>27189.0000</ITE_21>
 		<ITE_22>COP</ITE_22>
-		<ITE_23>6729128.0000</ITE_23>
-		<ITE_27>56</ITE_27>
+		<ITE_23>27189.0000</ITE_23>
+		<ITE_27>3</ITE_27>
 		<ITE_28>S7</ITE_28>
 		<IAE>
 			<IAE_1>1</IAE_1>
@@ -174,14 +173,14 @@
 			<IAE_4>Estándar de adopción del contribuyente</IAE_4>
 		</IAE>
 		<TII>
-			<TII_1>1278534.3200</TII_1>
+			<TII_1>5165.9100</TII_1>
 			<TII_2>COP</TII_2>
 			<TII_3>false</TII_3>
 			<IIM>
 				<IIM_1>01</IIM_1>
-				<IIM_2>1278534.3200</IIM_2>
+				<IIM_2>5165.9100</IIM_2>
 				<IIM_3>COP</IIM_3>
-				<IIM_4>6729128.0000</IIM_4>
+				<IIM_4>27189.0000</IIM_4>
 				<IIM_5>COP</IIM_5>
 				<IIM_6>19.00</IIM_6>
 			</IIM>
@@ -189,20 +188,20 @@
 	</ITE>
 	<ITE>
 		<ITE_1>2</ITE_1>
-		<ITE_3>15.0000</ITE_3>
+		<ITE_3>3.0000</ITE_3>
 		<ITE_4>S7</ITE_4>
-		<ITE_5>1595175.0000</ITE_5>
+		<ITE_5>27189.0000</ITE_5>
 		<ITE_6>COP</ITE_6>
-		<ITE_7>106345.0000</ITE_7>
+		<ITE_7>9063.0000</ITE_7>
 		<ITE_8>COP</ITE_8>
-		<ITE_11>TRON 20-20  -- 20 lts.AP --  Lote #:      IN1219</ITE_11>
-		<ITE_12>20 lts.AP</ITE_12>
-		<ITE_19>1595175.0000</ITE_19>
+		<ITE_11>TRON Limp. desinf. FLORAL  -- 4 lts. --  Lote #:      IN0120</ITE_11>
+		<ITE_12>4 lts.</ITE_12>
+		<ITE_19>27189.0000</ITE_19>
 		<ITE_20>COP</ITE_20>
-		<ITE_21>1595175.0000</ITE_21>
+		<ITE_21>27189.0000</ITE_21>
 		<ITE_22>COP</ITE_22>
-		<ITE_23>1595175.0000</ITE_23>
-		<ITE_27>15</ITE_27>
+		<ITE_23>27189.0000</ITE_23>
+		<ITE_27>3</ITE_27>
 		<ITE_28>S7</ITE_28>
 		<IAE>
 			<IAE_1>2</IAE_1>
@@ -210,14 +209,50 @@
 			<IAE_4>Estándar de adopción del contribuyente</IAE_4>
 		</IAE>
 		<TII>
-			<TII_1>303083.2500</TII_1>
+			<TII_1>5165.9100</TII_1>
 			<TII_2>COP</TII_2>
 			<TII_3>false</TII_3>
 			<IIM>
 				<IIM_1>01</IIM_1>
-				<IIM_2>303083.2500</IIM_2>
+				<IIM_2>5165.9100</IIM_2>
 				<IIM_3>COP</IIM_3>
-				<IIM_4>1595175.0000</IIM_4>
+				<IIM_4>27189.0000</IIM_4>
+				<IIM_5>COP</IIM_5>
+				<IIM_6>19.00</IIM_6>
+			</IIM>
+		</TII>
+	</ITE>
+	<ITE>
+		<ITE_1>3</ITE_1>
+		<ITE_3>2.0000</ITE_3>
+		<ITE_4>S7</ITE_4>
+		<ITE_5>20648.0000</ITE_5>
+		<ITE_6>COP</ITE_6>
+		<ITE_7>10324.0000</ITE_7>
+		<ITE_8>COP</ITE_8>
+		<ITE_11>TRON Desinfectante de baÃ±os - FRESCURA OTOÃAL  -- 4 lts. --  Lote #:      IN0120</ITE_11>
+		<ITE_12>4 lts.</ITE_12>
+		<ITE_19>20648.0000</ITE_19>
+		<ITE_20>COP</ITE_20>
+		<ITE_21>20648.0000</ITE_21>
+		<ITE_22>COP</ITE_22>
+		<ITE_23>20648.0000</ITE_23>
+		<ITE_27>2</ITE_27>
+		<ITE_28>S7</ITE_28>
+		<IAE>
+			<IAE_1>3</IAE_1>
+			<IAE_2>999</IAE_2>
+			<IAE_4>Estándar de adopción del contribuyente</IAE_4>
+		</IAE>
+		<TII>
+			<TII_1>3923.1200</TII_1>
+			<TII_2>COP</TII_2>
+			<TII_3>false</TII_3>
+			<IIM>
+				<IIM_1>01</IIM_1>
+				<IIM_2>3923.1200</IIM_2>
+				<IIM_3>COP</IIM_3>
+				<IIM_4>20648.0000</IIM_4>
 				<IIM_5>COP</IIM_5>
 				<IIM_6>19.00</IIM_6>
 			</IIM>
