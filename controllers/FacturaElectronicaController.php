@@ -40,6 +40,7 @@ class FacturaElectronicaController extends Controller
                   $this->NOT () ; // Contiene OCR
                   $this->REF () ;
                   $this->MEP () ;
+                  $this->CDN () ; // Sólo para notas
                   $this->ITE () ;
               $this->xmlFinalArchivo();
               $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
@@ -97,7 +98,11 @@ class FacturaElectronicaController extends Controller
             $this->CrearSiExite('ENC_15', $this->ENC['_15_nro_lineas']             );
             $this->CrearSiExite('ENC_16', $this->ENC['_16_fcha_vncmnto']           );
             $this->CrearSiExite('ENC_20', $this->ENC['_20_ambnte']                 );
-            $this->CrearSiExite('ENC_21', $this->ENC['_21_tp_oprcion']             );
+            if (  $this->TipoDocumento === 'INVOIC') {
+              $this->CrearSiExite('ENC_21', $this->ENC['_21_tp_oprcion']             );
+            }else {
+              $this->CrearSiExite('ENC_21', '22'             );   // Para facilitar notas credito
+            }
           $this->xml->endElement();
 
 
@@ -343,6 +348,16 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
+      private function CDN () {
+
+        if ( $this->TipoDocumento === 'INVOIC') return ;
+
+        $this->xml->startElement('CDN');
+        $this->CrearSiExite('CDN_1',   '5'                                      );
+        $this->CrearSiExite('CDN_2',   'NOTA APLICABLE A DOCUMENTO EMITIDO'     );
+        $this->xml->endElement();
+      }
+
       private function NOT () {
         if ( empty( $this->NOT )) return ;
         if ( empty( trim( $this->NOT['_01_notas'])) ) return ;
@@ -360,10 +375,12 @@ class FacturaElectronicaController extends Controller
 
       private function REF () {
         if ( empty( $this->REF )) return ;
-        $this->xml->startElement('REF');
-            $this->CrearSiExite('REF_1',   $this->REF['_01_tp_doc']            );
-            $this->CrearSiExite('REF_2',   $this->REF['_02_num_doc']           );
-        $this->xml->endElement();
+        if ( $this->TipoDocumento ==='INVOIC') {
+          $this->xml->startElement('REF');
+              $this->CrearSiExite('REF_1',   $this->REF['_01_tp_doc']            );
+              $this->CrearSiExite('REF_2',   $this->REF['_02_num_doc']           );
+          $this->xml->endElement();
+        }
       }
 
       private function ITE () {
@@ -427,7 +444,7 @@ class FacturaElectronicaController extends Controller
         // Funciones utilitarias
         //========================================================================
         private function CrearSiExite ($Elemento, $Valor ) {
-          if ( !empty( $Valor )) {
+          if ( !empty( $Valor ) || trim($Valor) === '0') {
             $this->xml->writeElement( "$Elemento", $Valor );
           }
         }
