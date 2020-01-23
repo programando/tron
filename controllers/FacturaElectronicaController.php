@@ -100,9 +100,14 @@ class FacturaElectronicaController extends Controller
             $this->CrearSiExite('ENC_20', $this->ENC['_20_ambnte']                 );
             if (  $this->TipoDocumento === 'INVOIC') {
               $this->CrearSiExite('ENC_21', $this->ENC['_21_tp_oprcion']             );
-            }else {
-              $this->CrearSiExite('ENC_21', '22'             );   // Para facilitar notas credito
             }
+            if (  $this->TipoDocumento === 'NC') {
+              $this->CrearSiExite('ENC_21', '22'            );
+            }
+            if (  $this->TipoDocumento === 'ND') {
+              $this->CrearSiExite('ENC_21', '32'            );
+            }
+
           $this->xml->endElement();
 
 
