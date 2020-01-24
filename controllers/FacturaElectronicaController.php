@@ -37,10 +37,10 @@ class FacturaElectronicaController extends Controller
                   $this->TOT () ;
                   $this->TIM () ;
                   $this->DRF () ;
-                  $this->NOT () ; // Contiene OCR
+                  $this->NOT () ;
                   $this->REF () ;
                   $this->MEP () ;
-                  $this->CDN () ; // Sólo para notas
+                  $this->CDN () ;
                   $this->ITE () ;
               $this->xmlFinalArchivo();
               $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
@@ -76,7 +76,7 @@ class FacturaElectronicaController extends Controller
           if ( !empty($this->NOT )) {
             $this->NOT = $this->NOT[0];
           }
-          if ( !empty($this->REF  ))  {    // Contiene OCR
+          if ( !empty($this->REF  ))  {
               $this->REF = $this->REF[0];
           }
           $this->TipoDocumento = $this->EMI['_01_tp_doc'] ;
@@ -107,11 +107,7 @@ class FacturaElectronicaController extends Controller
             if (  $this->TipoDocumento === 'ND') {
               $this->CrearSiExite('ENC_21', '32'            );
             }
-
           $this->xml->endElement();
-
-
-
       }
 
       private function EMI () {
@@ -168,13 +164,13 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      // Pendiente implementar en ERP // Contacto del emisor
+
       private function CDE () {
         $this->xml->startElement('CDE');
           $this->CrearSiExite('CDE_1',    '1'                               );
-          $this->CrearSiExite('CDE_2',    'JHON JAMES MONTAÑO'              );
-          $this->CrearSiExite('CDE_3',    '3113369005'                      );
-          $this->CrearSiExite('CDE_4',    'jhonjamesmg@hotmail.com'         );
+          $this->CrearSiExite('CDE_2',    'CONTACTO EMISOR'              );
+          $this->CrearSiExite('CDE_3',    '4881616'                      );
+          $this->CrearSiExite('CDE_4',    'contabilidadt@balquimia.com'         );
         $this->xml->endElement();
       }
 
@@ -502,18 +498,23 @@ class FacturaElectronicaController extends Controller
             "password"  => FACT_ELEC_PASS,
             "xmlBase64" => $xmlBase64
            );
-         $response = $cliente->__soapCall("FtechAction.uploadInvoiceFile", $params);
+
+           $response = $cliente->__soapCall("FtechAction.uploadInvoiceFile", $params);
 
          $this->uploadCode       = $response->code;
          $this->uploadError      = $response->error;
          $this->uploadSuccess      = $response->success;
          $this->idTransactionXml = $response->transaccionID ;
+
          Debug::Mostrar( $response ) ;
+
+
         }
 
         public function statusFile ( ) {
           $cliente          = new SoapClient( FACT_ELEC_URL);
           $Documentos       = $this->Factura->checkDocumentsStatus();
+
           foreach( $Documentos as $Doc ) {
               $idTransactionXml       = $Doc['transactionId'] ;
               $params                 = array( "username"      => FACT_ELEC_USU,  "password"      => FACT_ELEC_PASS,  "transaccionID" => $idTransactionXml  );
