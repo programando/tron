@@ -6,7 +6,7 @@ class FacturaElectronicaController extends Controller
    var $xml, $TipoDocumento, $CadenaBase64, $idTransactionXml;
    var $statusCode, $statusError, $statusSuccess ;
    var $uploadCode, $uploadError, $uploadSuccess ;
-   var $nombreDocumento ;
+   var $nombreDocumento, $nomDocCreado ;
 
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,7 @@ class FacturaElectronicaController extends Controller
                //Llamada de todos los datos de la factura almacencados en los diferentes archivos
                $this->consultaDatosFactura( $Factura['id_fact_elctrnca'] );
                //Generación de los datos de la factura en cada uno de los archivos
-               $this->xmlInicioArchivo( $this->TipoDocumento );
+               $this->xmlInicioArchivo( $this->TipoDocumento, $Factura['_06_nro_fctra'] );
                   $this->ENC () ;
                   $this->EMI () ;
                   $this->ADQ () ;
@@ -46,7 +46,6 @@ class FacturaElectronicaController extends Controller
               $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
 
               if ( $this->id_fact_elctrnca  > 0 )  {
-
                 $this->uploadFile          ();
                 $this->updateUploadFile    () ;
               }
@@ -451,27 +450,27 @@ class FacturaElectronicaController extends Controller
         }
 
 
-        private function xmlInicioArchivo(  $TipoDocumento  ) {
+        private function xmlInicioArchivo(  $TipoDocumento,  $NomDocumentoCreado ) {
           $this->xml = new XMLWriter();
           $this->xml->openMemory();
           $this->xml->setIndent(true);
           $this->xml->setIndentString("\t");
-          $this->tipoDocumentoCreado ( $TipoDocumento  );
+          $this->tipoDocumentoCreado ( $TipoDocumento, $NomDocumentoCreado  );
         }
 
-        private function tipoDocumentoCreado ( $TipoDocumento ) {
+        private function tipoDocumentoCreado ( $TipoDocumento, $NomDocumentoCreado ) {
 
           if ( $TipoDocumento === 'INVOIC')  {
                 $this->xml->startElement('FACTURA');
-                $this->nombreDocumento = FACTURAS_ELECTRONICAS . 'FA.xml';
+                $this->nombreDocumento = FACTURAS_ELECTRONICAS . $NomDocumentoCreado.'.xml';
             }
             if ( $TipoDocumento === 'NC')     {
                 $this->xml->startElement('NOTA');
-                $this->nombreDocumento  = FACTURAS_ELECTRONICAS.'NC.xml';
+                $this->nombreDocumento  = FACTURAS_ELECTRONICAS.  $NomDocumentoCreado.'.xml';
             }
             if ( $TipoDocumento === 'ND')      {
               $this->xml->startElement('NOTA');
-              $this->nombreDocumento =  FACTURAS_ELECTRONICAS . 'ND.xml';
+              $this->nombreDocumento =  FACTURAS_ELECTRONICAS . $NomDocumentoCreado.'.xml';
             }
             $this->xml->writeAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
             $this->xml->writeAttribute('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
@@ -545,7 +544,6 @@ class FacturaElectronicaController extends Controller
            $pdf      = base64_decode( $xml );
            $file     = 'invoice.xml';
            file_put_contents($file, $pdf);
-
         }
 
         private function updateUploadFile () {
