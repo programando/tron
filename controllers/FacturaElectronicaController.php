@@ -557,6 +557,7 @@ class FacturaElectronicaController extends Controller
           $error      = str_replace("'","", $error );
           $error      = $string = preg_replace("/[\r\n|\n|\r]+/", " ", $error );
           $error      = substr ( $error , $extraerDesde , 250 );
+          $error      = utf8_encode ( $error ) ;
           return $error ;
         }
      // ====================== Final Documento ====================================
