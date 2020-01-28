@@ -501,7 +501,7 @@ class FacturaElectronicaController extends Controller
            $response = $cliente->__soapCall("FtechAction.uploadInvoiceFile", $params);
 
          $this->uploadCode       = $response->code;
-         $this->uploadError      = $this->textoError ( $response->error );
+         $this->uploadError      = $this->textoError ( $response->error, 1 );
          $this->uploadSuccess    = $response->success;
          $this->idTransactionXml = $response->transaccionID ;
 
@@ -520,7 +520,7 @@ class FacturaElectronicaController extends Controller
               $response               = $cliente->__soapCall("FtechAction.documentStatusFile", $params);
               $this->idTransactionXml = $idTransactionXml ;
               $this->statusCode       = $response->code;
-              $this->statusError      = $this->textoError ( $response->error );
+              $this->statusError      = $this->textoError ( $response->error, 200 );
               $this->statusSuccess    = $response->success;
               $this->updateDocumentStatus () ;
           }
@@ -550,13 +550,13 @@ class FacturaElectronicaController extends Controller
           $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
         }
 
-        private function textoError ( $error ) {
+        private function textoError ( $error, $extraerDesde ) {
           if ( strlen(trim( $error)) <=31 ) {
               return $error;
           }
           $error      = str_replace("'","", $error );
           $error      = $string = preg_replace("/[\r\n|\n|\r]+/", " ", $error );
-          $error      = substr ( $error ,200,250 );
+          $error      = substr ( $error , $extraerDesde , 250 );
           return $error ;
         }
      // ====================== Final Documento ====================================
