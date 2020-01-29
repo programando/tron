@@ -502,7 +502,7 @@ class FacturaElectronicaController extends Controller
 
          $this->uploadCode       = $response->code;
          $this->uploadError      = $this->textoError ( $response->error, 0 );
-         $this->uploadSuccess    = $response->success;
+         $this->uploadSuccess    = utf8_decode( $response->success);
          $this->idTransactionXml = $response->transaccionID ;
 
          Debug::Mostrar( $response ) ;
