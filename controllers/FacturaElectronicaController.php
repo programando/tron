@@ -39,6 +39,7 @@ class FacturaElectronicaController extends Controller
                   $this->TIM () ;
                   $this->DRF () ;
                   $this->NOT () ;
+                  $this->ORC () ;
                   $this->REF () ;
                   $this->MEP () ;
                   $this->CDN () ;
@@ -390,7 +391,8 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function OCR () {
+      private function ORC () {
+        if ( empty( $this->NOT ))               return ;
         if ( empty(  $this->NOT['ord_cpra']  )) return ;
         $this->xml->startElement('ORC');
             $this->CrearSiExite('ORC_1',   $this->NOT['ord_cpra']           );
