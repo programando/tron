@@ -314,7 +314,8 @@ class FacturaElectronicaController extends Controller
       }
 
       private function DSC () {
-        if ( ( $this->DSC['_03_vr_dscto'] === 0) || empty($this->DSC  ) ) return ;
+        if ( empty($this->DSC )  )                    return ;
+        if (  $this->DSC['_03_vr_dscto'] === 0   ) ) return ;
           $this->xml->startElement('DSC');
             $this->CrearSiExite('DSC_1',   $this->DSC['_01_tp_dscto']           );
             $this->CrearSiExite('DSC_2',   $this->DSC['_02_pctje']              );
