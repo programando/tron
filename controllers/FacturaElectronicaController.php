@@ -2,7 +2,7 @@
 
 class FacturaElectronicaController extends Controller
 {
-   var  $id_fact_elctrnca, $EMI, $ADQ, $TOT, $IMP, $DRF, $ITE, $NOT, $REF ;
+   var  $id_fact_elctrnca, $EMI, $ADQ, $TOT, $IMP, $DRF, $ITE, $NOT, $REF, $DSC ;
    var $xml, $TipoDocumento, $CadenaBase64, $idTransactionXml;
    var $statusCode, $statusError, $statusSuccess ;
    var $uploadCode, $uploadError, $uploadSuccess ;
@@ -35,6 +35,7 @@ class FacturaElectronicaController extends Controller
                   $this->EMI () ;
                   $this->ADQ () ;
                   $this->TOT () ;
+                  $this->DSC () ;
                   $this->TIM () ;
                   $this->DRF () ;
                   $this->NOT () ;
@@ -61,6 +62,7 @@ class FacturaElectronicaController extends Controller
           $this->EMI = $this->Factura->fact_02_emi ( $this->id_fact_elctrnca );
           $this->ADQ = $this->Factura->fact_03_adq ( $this->id_fact_elctrnca );
           $this->TOT = $this->Factura->fact_04_tot ( $this->id_fact_elctrnca );
+          $this->DSC = $this->Factura->fact_06_dsc ( $this->id_fact_elctrnca );
           $this->IMP = $this->Factura->fact_05_imp ( $this->id_fact_elctrnca );
           $this->DRF = $this->Factura->fact_07_drf ( $this->id_fact_elctrnca );
           $this->ITE = $this->Factura->fact_12_ite ( $this->id_fact_elctrnca );
@@ -70,6 +72,7 @@ class FacturaElectronicaController extends Controller
           $this->EMI = $this->EMI[0] ;
           $this->ADQ = $this->ADQ[0] ;
           $this->TOT = $this->TOT[0];
+          $this->DSC = $this->DSC[0];
           $this->IMP = $this->IMP[0];
           $this->DRF = $this->DRF[0];
           if ( !empty($this->NOT )) {
@@ -301,6 +304,20 @@ class FacturaElectronicaController extends Controller
             $this->CrearSiExite('TOT_11',   $this->TOT['_11_tot_crgos']           );
             $this->CrearSiExite('TOT_12',   $this->TOT['_12_mnda']                );
           }
+        $this->xml->endElement();
+      }
+
+      private function DSC () {
+        if ( $this->DSC['_03_vr_dscto'] == 0 ) return ;
+        $this->xml->startElement('DSC');
+          $this->CrearSiExite('DSC_1',   $this->DSC['_01_tp_dscto']           );
+          $this->CrearSiExite('DSC_2',   $this->DSC['_02_pctje']              );
+          $this->CrearSiExite('DSC_3',   $this->DSC['_03_vr_dscto']           );
+          $this->CrearSiExite('DSC_4',   $this->DSC['_04_mnda']               );
+          $this->CrearSiExite('DSC_5',   $this->DSC['_05_cod_dscto']          );
+          $this->CrearSiExite('DSC_6',   $this->DSC['_06_mtvo_dscto']         );
+          $this->CrearSiExite('DSC_7',   $this->DSC['_07_vr_base_dscto']      );
+          $this->CrearSiExite('DSC_8',   $this->DSC['_08_mnda']               );
         $this->xml->endElement();
       }
 
