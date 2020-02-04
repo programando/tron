@@ -72,12 +72,18 @@ class FacturaElectronicaController extends Controller
           $this->EMI = $this->EMI[0] ;
           $this->ADQ = $this->ADQ[0] ;
           $this->TOT = $this->TOT[0];
-          $this->DSC = $this->DSC[0];
+
+          if ( !empty($this->DSC )) {
+            $this->DSC = $this->DSC[0];
+          }
+
           $this->IMP = $this->IMP[0];
           $this->DRF = $this->DRF[0];
+
           if ( !empty($this->NOT )) {
             $this->NOT = $this->NOT[0];
           }
+
           if ( !empty($this->REF  ))  {
               $this->REF = $this->REF[0];
           }
