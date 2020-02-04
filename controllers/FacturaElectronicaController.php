@@ -314,17 +314,17 @@ class FacturaElectronicaController extends Controller
       }
 
       private function DSC () {
-        if ( $this->DSC['_03_vr_dscto'] == 0 ) return ;
-        $this->xml->startElement('DSC');
-          $this->CrearSiExite('DSC_1',   $this->DSC['_01_tp_dscto']           );
-          $this->CrearSiExite('DSC_2',   $this->DSC['_02_pctje']              );
-          $this->CrearSiExite('DSC_3',   $this->DSC['_03_vr_dscto']           );
-          $this->CrearSiExite('DSC_4',   $this->DSC['_04_mnda']               );
-          $this->CrearSiExite('DSC_5',   $this->DSC['_05_cod_dscto']          );
-          $this->CrearSiExite('DSC_6',   $this->DSC['_06_mtvo_dscto']         );
-          $this->CrearSiExite('DSC_7',   $this->DSC['_07_vr_base_dscto']      );
-          $this->CrearSiExite('DSC_8',   $this->DSC['_08_mnda']               );
-        $this->xml->endElement();
+        if ( ( $this->DSC['_03_vr_dscto'] === 0) || empty($this->DSC  ) ) return ;
+          $this->xml->startElement('DSC');
+            $this->CrearSiExite('DSC_1',   $this->DSC['_01_tp_dscto']           );
+            $this->CrearSiExite('DSC_2',   $this->DSC['_02_pctje']              );
+            $this->CrearSiExite('DSC_3',   $this->DSC['_03_vr_dscto']           );
+            $this->CrearSiExite('DSC_4',   $this->DSC['_04_mnda']               );
+            $this->CrearSiExite('DSC_5',   $this->DSC['_05_cod_dscto']          );
+            $this->CrearSiExite('DSC_6',   $this->DSC['_06_mtvo_dscto']         );
+            $this->CrearSiExite('DSC_7',   $this->DSC['_07_vr_base_dscto']      );
+            $this->CrearSiExite('DSC_8',   $this->DSC['_08_mnda']               );
+          $this->xml->endElement();
       }
 
       private function TIM() {
