@@ -31,11 +31,15 @@
       <?php endif ;?>
 
 
-        <?php if ( $Vr_Transporte > 0 ) :?>
-               <?php if ( Session::Get('cobrar_fletes') == TRUE ) :?>
-                  <div class="col-resumen-pedido"><strong>( + ) Transporte + Recaudo... <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
-               <?php endif ;?>
-          <?php endif ;?>
+        <?php if ( !empty($nommcipio_despacho) ) : ; ?>
+           <div class="col-resumen-pedido"><strong>Transporte a cargo del cliente. Pago contra entrega. <small>( <?= $nommcipio_despacho ;?> ):</small> </strong></div>
+        <?php endif; ?>
+        <?php if ( empty($nommcipio_despacho) ) : ; ?>
+           <div class="col-resumen-pedido"><strong>Transporte a cargo del cliente. Pago contra entrega:   </strong></div>
+        <?php endif; ?>
+
+
+
 
 
         <!-- PUNTOS -->
@@ -71,5 +75,3 @@
 
 
 </tr>
-
-

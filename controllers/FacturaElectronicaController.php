@@ -35,8 +35,8 @@ class FacturaElectronicaController extends Controller
                   $this->EMI () ;
                   $this->ADQ () ;
                   $this->TOT () ;
-                  $this->DSC () ;
                   $this->TIM () ;
+                  $this->DSC () ;
                   $this->DRF () ;
                   $this->NOT () ;
                   $this->ORC () ;
@@ -326,6 +326,9 @@ class FacturaElectronicaController extends Controller
             $this->CrearSiExite('DSC_6',   $this->DSC['_06_mtvo_dscto']         );
             $this->CrearSiExite('DSC_7',   $this->DSC['_07_vr_base_dscto']      );
             $this->CrearSiExite('DSC_8',   $this->DSC['_08_mnda']               );
+            $this->CrearSiExite('DSC_9',   "0"               );
+            $this->CrearSiExite('DSC_10',   '1'              );
+
           $this->xml->endElement();
       }
 

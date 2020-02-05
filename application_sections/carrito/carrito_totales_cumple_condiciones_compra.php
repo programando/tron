@@ -22,7 +22,7 @@
           <?php endif ;?>
 
 
-          <?php if ( $Vr_Transporte > 0 ) :?>
+          <?php if ( $Vr_Transporte == 0 ) :?>
            <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Transporte_Real)  ;?> </strong></div>
          <?php endif ;?>
 
@@ -41,5 +41,3 @@
         <?php endif ;?>
    <div><strong><?=  Numeric_Functions::Formato_Numero( $this->Vr_Total_Pedido_Tron - $impuestos  )  ;?> </strong></div>
 </td>
-
-

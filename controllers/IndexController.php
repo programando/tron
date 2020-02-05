@@ -167,7 +167,7 @@ public function Parametros_Iniciales(){
                 Session::Set('minimo_compras_productos_ta',           $Parametros[0]['pedido_minimo_productos_fabricados_ta']);
 
 
-                Session::Iniciar_Variable('cobrar_fletes'                           , TRUE );   // A todos se cobra fletes por defecto excepto a los terceros marcados
+                Session::Iniciar_Variable('cobrar_fletes'                           ,FALSE );   // A todos se cobra fletes por defecto excepto a los terceros marcados
                 Session::Iniciar_Variable('cumple_anios'                            , FALSE );  // Nadie cumple años por defecto. Esto puede cambiar cuando se loguea.
                 Session::Iniciar_Variable('mostrar_modal_cumple_anios'              , TRUE) ;
                 Session::Iniciar_Variable('cumple_condicion_cpras_tron_industial'   , FALSE ) ; // Cumple condiciones para precio especial
@@ -248,4 +248,3 @@ public function Parametros_Iniciales(){
 
 
 }?>
-

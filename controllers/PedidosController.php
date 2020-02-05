@@ -127,7 +127,7 @@ class PedidosController extends Controller
 					$vr_flete_tron_otros_seguro  = 0 ;
 					$vr_fletes_reserva           = 0 ;
 					$vr_diferencia_recaudo       = 0 ;
-					$vr_fletes_totales           = Session::Get('Vr_Transporte');
+					$vr_fletes_totales           = 0;
 					$vr_total_pedido             = Session::Get('Vr_Total_Pedido_Real');
           $vr_total_pedido             = $vr_total_pedido  - ( $vr_rte_ica + $vr_rte_fte );
 

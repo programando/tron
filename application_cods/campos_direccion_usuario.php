@@ -13,7 +13,7 @@
       $Nombre_Usuario_Pedido = "'".$Direccion['nombre_usuario_pedido']."'";
       $CodigoUsuario         = $Direccion['codigousuario'];
       $IdTercero             = $Direccion['idtercero'];
-      $Cobrar_Fletes         = $Direccion['cobrar_fletes'];
+      $Cobrar_Fletes         = FALSE;
        $I++;
 
 ?>

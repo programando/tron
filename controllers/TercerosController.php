@@ -1551,7 +1551,7 @@ public function Actualizar_Password()
       Session::Set('vr_kilo_idmcipio_servientrega',   $Registro[0]["vr_kilo_servientrega"]);
       Session::Set('re_expedicion_servientrega',      $Registro[0]["re_expedicion_servientrega"]);
       Session::Set('servientrega_tipo_despacho',      $Registro[0]["servientrega_tipo_despacho"]);
-      Session::Set('cobrar_fletes',                   $Registro[0]["cobrar_fletes"]);
+      Session::Set('cobrar_fletes',                   FALSE);
 
       if ( Session::Get('vr_kilo_idmcipio_redetrans') > 0 || Session::Get('vr_re_expedicion_redetrans') > 0 ){
         Session::Set('redetrans_tipo_despacho',         'aplica_redetrans');
@@ -1696,25 +1696,3 @@ public function Actualizar_Password()
 
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
