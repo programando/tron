@@ -20,7 +20,7 @@
 
 
 <!-- INFORMACIÓN PARA USUARIOS LOGUEADOS -->
-<?php if (   $_SESSION['logueado'] == TRUE ) :?>
+<?php if (  ( isset( $_SESSION['logueado'] )  && $_SESSION['logueado'] == TRUE ) ) :?>
 
     <div class="dropCuenta taRC">
     <!-- Bienvenido: -->

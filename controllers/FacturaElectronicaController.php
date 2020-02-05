@@ -418,14 +418,16 @@ class FacturaElectronicaController extends Controller
             $Pctaje_Iva = $Producto['pctaje_iva'] ;
             $CodItem    = $Producto['_01_consecutivo'] ;
             $Valor_Iva  = $Producto['valor_iva'] ;
+            $DsctoItem  = $Producto['_29_dscto_item'];
+            $VrItem     = $Producto['_05_csto_total'] - $Producto['_29_dscto_item'] ;
             $this->xml->startElement('ITE');
               $this->CrearSiExite('ITE_1',   $CodItem                      );
               $this->CrearSiExite('ITE_2',   $Producto['_02_tp_reg']                            );
               $this->CrearSiExite('ITE_3',   $Producto['_03_cant']                              );
               $this->CrearSiExite('ITE_4',   $Producto['_04_und_med']                           );
-              $this->CrearSiExite('ITE_5',   $Producto['_05_csto_total']                        );
+              $this->CrearSiExite('ITE_5',   $VrItem                                            );
               $this->CrearSiExite('ITE_6',   $Producto['_06_mnda']                              );
-              $this->CrearSiExite('ITE_7',   $Producto['_07_vr_unit']                           );
+              $this->CrearSiExite('ITE_7',   $VrItem                                            );
               $this->CrearSiExite('ITE_8',   $Producto['_08_mnda']                              );
               $this->CrearSiExite('ITE_11',  utf8_encode(  $Producto['_11_nom_prdcto'] )        );
               $this->CrearSiExite('ITE_12',   $Producto['_12_nom_prdcto']                       );
@@ -438,7 +440,7 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('ITE_27',   (int)$Producto['_27_cantidad']                    );
               $this->CrearSiExite('ITE_28',   $Producto['_28_unidad']                           );
               $this->IAE ( $CodItem ) ;
-              $this->TII ( $Subtotal, $Pctaje_Iva, $Valor_Iva) ;
+              $this->TII ( $Subtotal, $Pctaje_Iva, $Valor_Iva, $DsctoItem) ;
             $this->xml->endElement();
 
           }
@@ -452,7 +454,7 @@ class FacturaElectronicaController extends Controller
         $this->xml->endElement();
       }
 
-      private function TII ( $Subtotal, $Pctaje_Iva, $Valor_Iva) {
+      private function TII ( $Subtotal, $Pctaje_Iva, $Valor_Iva, $DsctoItem) {
         $this->xml->startElement('TII');
         $this->CrearSiExite('TII_1',   $Valor_Iva ) ;
           $this->CrearSiExite('TII_2',   'COP' ) ;
@@ -461,7 +463,7 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('IIM_1',   '01' ) ;
               $this->CrearSiExite('IIM_2',   $Valor_Iva ) ;
               $this->CrearSiExite('IIM_3',   'COP' ) ;
-              $this->CrearSiExite('IIM_4',   $Subtotal) ;
+              $this->CrearSiExite('IIM_4',   ($Subtotal - $DsctoItem)) ;
               $this->CrearSiExite('IIM_5',   'COP' ) ;
               $this->CrearSiExite('IIM_6',   $Pctaje_Iva ) ;
             $this->xml->endElement();
