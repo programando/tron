@@ -397,7 +397,6 @@ class FacturaElectronicaController extends Controller
       }
 
       private function ORC () {
-        return ;
         if ( empty( $this->NOT ))               return ;
         if ( empty(  $this->NOT['ord_cpra'] || $this->NOT['ord_cpra'] =='N/A'  )) return ;
         $this->xml->startElement('ORC');
