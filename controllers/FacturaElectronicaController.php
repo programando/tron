@@ -430,7 +430,7 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('ITE_4',   $Producto['_04_und_med']                           );
               $this->CrearSiExite('ITE_5',   $VrItem                                            );
               $this->CrearSiExite('ITE_6',   $Producto['_06_mnda']                              );
-              $this->CrearSiExite('ITE_7',   $VrItem                                            );
+              $this->CrearSiExite('ITE_7',   $Producto['_07_vr_unit']                                             );
               $this->CrearSiExite('ITE_8',   $Producto['_08_mnda']                              );
               $this->CrearSiExite('ITE_11',  utf8_encode(  $Producto['_11_nom_prdcto'] )        );
               $this->CrearSiExite('ITE_12',   $Producto['_12_nom_prdcto']                       );
