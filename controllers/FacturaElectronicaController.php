@@ -554,7 +554,7 @@ class FacturaElectronicaController extends Controller
               $this->idTransactionXml = $idTransactionXml ;
               $this->statusCode       = $response->code;
               $this->statusError      = $this->textoError ( $response->error, 200 );
-              $this->statusSuccess    = $response->success;
+              $this->statusSuccess    =  $this->textoError ($response->success, 0 );
               $this->updateDocumentStatus () ;
           }
         }
