@@ -401,6 +401,7 @@ class FacturaElectronicaController extends Controller
         if ( empty(  $this->NOT['ord_cpra'] || $this->NOT['ord_cpra'] =='N/A'  )) return ;
         $this->xml->startElement('ORC');
             $this->CrearSiExite('ORC_1',   $this->NOT['ord_cpra']           );
+            $this->CrearSiExite('ORC_4',   '...'                            );
         $this->xml->endElement();
       }
 
