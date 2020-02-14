@@ -442,11 +442,21 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('ITE_23',   $Producto['_21_total_item']                       );
               $this->CrearSiExite('ITE_27',   (int)$Producto['_27_cantidad']                    );
               $this->CrearSiExite('ITE_28',   $Producto['_28_unidad']                           );
+              $this->IPA ($Producto['_21_total_item'] ) ;
               $this->IAE ( $CodItem ) ;
               $this->TII ( $Subtotal, $Pctaje_Iva, $Valor_Iva, $DsctoItem) ;
             $this->xml->endElement();
 
           }
+      }
+
+      private function IPA ( $valorTotalProducto  ) {
+        if ( $valorTotalProducto > 0 ) return ;
+          $this->xml->startElement('IPA');
+            $this->CrearSiExite('IPA_1',   '01'      );
+            $this->CrearSiExite('IPA_2',   '1'       );
+            $this->CrearSiExite('IPA_3',   'COP'     );
+          $this->xml->endElement();
       }
 
       private function IAE ( $CodigoProducto ) {
