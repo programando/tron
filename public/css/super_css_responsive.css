@@ -10,34 +10,36 @@
 @media only screen and (min-width: 1080px) {
 	.onlySmart								{ display:none; }
 	.onlyPC									{ }
-	
-	 
+
+
 }
 
-
+.clasesss {
+	color : red;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1079px) {
 	body									{ font-size:12px; }
 	.onlySmart								{ }
 	.onlyPC, .onlyMax						{ display:none !important; }
 	.nothere								{ display:none; }
-								
+
 	.tab-hogar, .tab-industrial				{ height:30px; }
-	
+
 	.artPor5								{ width:23%; margin:0 1% 30px; }
 	.artPor4								{ width:31.3%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
-	
+
 	.menGion .navbar-nav li	a				{ padding:0 5px; }
 
-	
+
 }
 
 @media only screen and (min-width: 482px) and (max-width: 767px) {
 	body									{ font-size:11px; }
 	.onlySmart								{ }
 	.onlyPC									{ display:none; }
-	
+
 	.artPor5, .artPor4						{ width:31.3%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
 
@@ -47,13 +49,13 @@
 	body									{ font-size:11px; }
 	.onlySmart								{ }
 	.onlyPC									{ display:none; }
-	
+
 	.artPor5, .artPor4						{ width:48%; margin:0 1% 30px; }
 	.artOpt 								{ padding:10px;}
 
 
 
-	
+
 
 
 }
@@ -67,29 +69,29 @@
 /* BOOTSTRAP */
 
 @media (min-width: 768px) {
-	
+
 	.onlySmartBoo							{ display:none; }
 	.onlyPCBoo								{ }
-	
+
 	.taLC									{ text-align:left; }
 	.taRC									{ text-align:right; }
-	
+
 	.lationT2								{ overflow:hidden; position:relative; }
 	.carrito-resumen-pedido					{ border:1px solid #ccc; width:100%; padding:10px; position:absolute; top:0; }
-				
-	
+
+
 }
 
 @media screen and (max-width: 767px) {
 
 	.onlySmartBoo							{ }
 	.onlyPCBoo								{ display:none; }
-	
+
 	.taLC									{ text-align:center; }
 	.taRC									{ text-align:center; }
 	.mb10_onlySmart							{ margin-bottom:10px; }
 	.mb20_onlySmart							{ margin-bottom:20px; }
-	
+
 	.menTipoZonas							{ position:relative; bottom:; right:0; z-index:10; height:40px; }
 	.tab-hogar,
 	.tab-industrial							{ float:none; width:45%; margin:0 1%; padding:0 10px; text-align:center; height:40px; }
@@ -99,31 +101,31 @@
 	.mukSlide2								{ width:100%; float:none; }
 	.mukSlideIn								{ width:48%; height:60px; margin:0 1% 4px; float:left; }
 	.mukSlideIn img							{ max-height:50px; }
-	 
+
 	 .menGion								{ position:relative; z-index:999; }
 	.menGion .navbar-nav li					{ width:100%; }
 	.menGion .navbar-nav li	a.infoSpecial	{ display:block;  }
 
-	#wowslider-container1  .ws_bullets 		{ display:none !important; } 
+	#wowslider-container1  .ws_bullets 		{ display:none !important; }
 	.avisos4								{ float:left; width:50%; }
-	
+
 	.depuraContForz	img						{ padding:10px; }
 
 	.direccion1,
 	.direccion2,
 	.direccion3								{ display:block; width:98%; margin:0 1%; }
 	.cont-direccion							{ display:block; width:100%; height:auto; }
-	
-	
+
+
 	.li_pasos_registro						{ padding:20px; background:#85ABDD; width:50%; float:left; margin:0; }
 	#columna_izquierdad .li_pasos_registro	{ padding:20px; background:#85ABDD; width:33.3%; float:left; margin:0; min-height:80px; text-align:center; }
 	.rgts_pasos								{ padding:30px; border:0; border-top:solid 5px #003e90; }
-	
+
 	.menuMiCuenta ul						{ display:block; height:auto; }
 	.menuMiCuenta ul li						{ display:block; }
 	.menuMiCuenta ul li a span				{ text-align:left; padding:7px 15px; }
-	
+
 	.ionWin 								{ position:relative !important; left:0 !important;}
-	
-	
+
+
 }
