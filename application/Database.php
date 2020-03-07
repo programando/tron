@@ -10,10 +10,10 @@ class Database extends PDO
             $dsn    = 'mysql:dbname=' . DB_NAME . ';host=' . DB_SERVER;
             $user   = DB_USER;
             $pw     = DB_PW;
-            //$params = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'");
+            $params = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'");
           try
           {
-            parent::__construct($dsn, $user, $pw);
+            parent::__construct($dsn, $user, $pw, $params);
             //$this->setAttribute($params);
           }
             catch(PDOException $e) {
