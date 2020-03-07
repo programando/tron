@@ -119,6 +119,8 @@ class FacturaElectronicaController extends Controller
           $this->xml->endElement();
       }
 
+
+
       private function EMI () {
         $this->xml->startElement('EMI');
           $this->CrearSiExite('EMI_1',    $this->EMI['_01_tp_prsna']          );
@@ -578,16 +580,35 @@ class FacturaElectronicaController extends Controller
           $params      = array(
             "username"      => FACT_ELEC_USU,
             "password"      => FACT_ELEC_PASS,
-            "prefijo"       => 'SETT',
-            "folio"         => '66'
+            "prefijo"       => 'FEL',
+            "folio"         => '349'
            );
            $cliente  = new SoapClient( FACT_ELEC_URL);
            $response = $cliente->__soapCall("FtechAction.downloadXMLFile", $params);
            $xml      = $response->resourceData;
-           $pdf      = base64_decode( $xml );
-           $file     = 'invoice.xml';
-           file_put_contents($file, $pdf);
+
+           $decoded = base64_decode($xml);
+           header('Content-Type: application/pdf');
+          $file = 'invoice.pdf';
+          file_put_contents($file, $decoded);
+
+          if (file_exists($file)) {
+              header('Content-Description: File Transfer');
+              header('Content-Type: application/octet-stream');
+              header('Content-Disposition: attachment; filename="'.basename($file).'"');
+              header('Expires: 0');
+              header('Cache-Control: must-revalidate');
+              header('Pragma: public');
+              header('Content-Length: ' . filesize($file));
+              readfile($file);
+              exit;
+          }
+
+
         }
+
+
+
 
         private function updateUploadFile () {
           $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
