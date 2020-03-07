@@ -60,7 +60,7 @@
                         <ul class="nav navbar-nav t14">
                                                   <li><a href="<?=BASE_URL ;?>productos/categorias_marcas/" id="indus_productos">PRODUCTOS INDUSTRIALES</a></li>
 
-                     <?php if (   $_SESSION['logueado'] == TRUE ) :?>
+                     <?php if (   $_SESSION['logueado'] == TRUE && isset($_SESSION['logueado'] )) :?>
                              <li><a href="<?=BASE_URL ;?>productos/Productos_Comprados_x_Tercero/">MIS COMPRAS</a></li>
                     <?php endif ;?>
 

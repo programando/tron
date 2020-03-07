@@ -26,11 +26,11 @@ class FacturaElectronicaController extends Controller
           $FacturasPendientes     = $this->Factura->fact_01_enc();
 
           foreach ( $FacturasPendientes as $Factura ) {
-               $this->ENC    = $Factura;
+              $this->ENC    = $Factura;
                //Llamada de todos los datos de la factura almacencados en los diferentes archivos
-               $this->consultaDatosFactura( $Factura['id_fact_elctrnca'] );
+              $this->consultaDatosFactura( $Factura['id_fact_elctrnca'] );
                //Generación de los datos de la factura en cada uno de los archivos
-               $this->xmlInicioArchivo( $this->TipoDocumento, $Factura['_06_nro_fctra'] );
+                  $this->xmlInicioArchivo( $this->TipoDocumento, $Factura['_06_nro_fctra'] );
                   $this->ENC () ;
                   $this->EMI () ;
                   $this->ADQ () ;
