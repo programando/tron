@@ -608,10 +608,12 @@ class FacturaElectronicaController extends Controller
 
 
         private function updateUploadFile () {
-          if ( trim($this->uploadError) != '0, Errores: , Advertencias:' ){
-            $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
-          }
+          $msgError   = trim($this->uploadError) ;
+          if ( $msgError == '0, Errores: , Advertencias:'            ) return ;
+          if ( $msgError == 'Error DIAN: , Errores: , Advertencias:' ) return ;
+          $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
         }
+
 
         private function textoError ( $error, $extraerDesde ) {
           if ( strlen(trim( $error)) <=31 ) {
