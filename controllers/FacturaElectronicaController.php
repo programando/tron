@@ -320,7 +320,6 @@ class FacturaElectronicaController extends Controller
 
         if ( empty($this->DSC )  )                    return ;
         if (  $this->DSC['_03_vr_dscto'] == 0   )  return ;
-        Debug::Mostrar ( $this->DSC );
           $this->xml->startElement('DSC');
             $this->CrearSiExite('DSC_1',   $this->DSC['_01_tp_dscto']           );
             $this->CrearSiExite('DSC_2',   $this->DSC['_02_pctje']              );
@@ -608,10 +607,10 @@ class FacturaElectronicaController extends Controller
         }
 
 
-
-
         private function updateUploadFile () {
-          $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
+          if ( trim($this->uploadError) != '0, Errores: , Advertencias:' ){
+            $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
+          }
         }
 
         private function textoError ( $error, $extraerDesde ) {
