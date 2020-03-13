@@ -609,8 +609,9 @@ class FacturaElectronicaController extends Controller
 
         private function updateUploadFile () {
           $msgError   = trim($this->uploadError) ;
-          if ( $msgError == '0, Errores: , Advertencias:'            ) return ;
-          if ( $msgError == 'Error DIAN: , Errores: , Advertencias:' ) return ;
+          if ( $msgError == '0, Errores: , Advertencias:'            )                                              return ;
+          if ( $msgError == 'Error DIAN: , Errores: , Advertencias:' )                                              return ;
+          if ( $msgError == 'Ya existe un documento firmado con este folio, no es posible procesarlo nuevamente' )  return ;
           $this->Factura->updateUploadFile ( $this->id_fact_elctrnca, $this->idTransactionXml, $this->uploadCode, $this->uploadError, $this->uploadSuccess ) ;
         }
 
