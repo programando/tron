@@ -20,3 +20,5 @@ resources
 *.txt
 .well-known
 *.xml
+invoice.pdf
+output.pdf

@@ -575,37 +575,57 @@ class FacturaElectronicaController extends Controller
           $this->Factura->updateDocumentStatus ( $this->idTransactionXml, $this->statusCode, $this->statusSuccess , $this->statusError );
         }
 
-        public function showPdf(){
-          $params      = array(
-            "username"      => FACT_ELEC_USU,
-            "password"      => FACT_ELEC_PASS,
-            "prefijo"       => 'FEL',
-            "folio"         => '349'
-           );
+
+        private function userWebServiceConfig ( $Prefijo , $NroDocumento ){
+          $params = array(
+            "username" => FACT_ELEC_USU,
+            "password" => FACT_ELEC_PASS,
+            "prefijo"  => $Prefijo,
+            "folio"    => $NroDocumento,
+            );
+            return $params;
+        }
+
+        public function generatePdf( ){
+           $params   = $this->userWebServiceConfig ( 'FEL', 458) ;
+           $cliente  = new SoapClient( FACT_ELEC_URL);
+           $response = $cliente->__soapCall("FtechAction.downloadPDFFile", $params);
+           $xml      = $response->resourceData;
+           $decoded  = base64_decode($xml);
+           $file     = 'invoice.pdf';
+           file_put_contents($file, $decoded);    
+           $this->fileHeaders($file, 'PDF' );
+        }
+
+    public function generateXml(){
+           $params   = $this->userWebServiceConfig ('FEL', 458);
            $cliente  = new SoapClient( FACT_ELEC_URL);
            $response = $cliente->__soapCall("FtechAction.downloadXMLFile", $params);
            $xml      = $response->resourceData;
+           $decoded  = base64_decode($xml);
+           $file     = 'invoice.xml';
+           file_put_contents($file, $decoded);   
+           $this->fileHeaders($file, 'XML' );
+  
+        }
 
-           $decoded = base64_decode($xml);
-           header('Content-Type: application/pdf');
-          $file = 'invoice.pdf';
-          file_put_contents($file, $decoded);
-
+        private function fileHeaders ( $file, $tipoDoc ){
           if (file_exists($file)) {
+              if ($tipoDoc=='PDF' ){
+                header("Content-type: application/pdf");
+              }else{
+                header("Content-type: application/xml");
+              }
               header('Content-Description: File Transfer');
               header('Content-Type: application/octet-stream');
-              header('Content-Disposition: attachment; filename="'.basename($file).'"');
+              header('Content-Disposition: attachment; filename="' . basename($file) . '"');
               header('Expires: 0');
               header('Cache-Control: must-revalidate');
               header('Pragma: public');
               header('Content-Length: ' . filesize($file));
               readfile($file);
-              exit;
           }
-
-
         }
-
 
         private function updateUploadFile () {
           $msgError   = trim($this->uploadError) ;
