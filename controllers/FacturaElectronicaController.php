@@ -79,6 +79,7 @@ class FacturaElectronicaController extends Controller
           }
 
           $this->IMP = $this->IMP[0];
+          
           $this->DRF = $this->DRF[0];
 
           if ( !empty($this->NOT )) {
@@ -416,6 +417,7 @@ class FacturaElectronicaController extends Controller
       }
 
       private function ITE () {
+     
           foreach ( $this->ITE as $Producto) {
             $Subtotal   = $Producto['_21_total_item'] ;
             $Pctaje_Iva = $Producto['pctaje_iva'] ;
@@ -476,7 +478,11 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('IIM_1',   '01' ) ;
               $this->CrearSiExite('IIM_2',   $Valor_Iva ) ;
               $this->CrearSiExite('IIM_3',   'COP' ) ;
-              $this->CrearSiExite('IIM_4',   ($Subtotal - $DsctoItem)) ;
+              if ( $Pctaje_Iva == 0 ){
+                $this->CrearSiExite('IIM_4',   '0') ;
+              }else{
+                $this->CrearSiExite('IIM_4',   ($Subtotal - $DsctoItem)) ;
+              }
               $this->CrearSiExite('IIM_5',   'COP' ) ;
               $this->CrearSiExite('IIM_6',   $Pctaje_Iva ) ;
             $this->xml->endElement();
