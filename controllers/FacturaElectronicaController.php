@@ -24,7 +24,7 @@ class FacturaElectronicaController extends Controller
         private function facturasPendientes ()    {
           $this->id_fact_elctrnca = 0 ;
           $FacturasPendientes     = $this->Factura->fact_01_enc();
-
+           
           foreach ( $FacturasPendientes as $Factura ) {
               $this->ENC    = $Factura;
                //Llamada de todos los datos de la factura almacencados en los diferentes archivos
@@ -48,8 +48,8 @@ class FacturaElectronicaController extends Controller
               $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
 
               if ( $this->id_fact_elctrnca  > 0 )  {
-                $this->uploadFile          ();
-                $this->updateUploadFile    () ;
+                  $this->uploadFile          ();
+                  $this->updateUploadFile    () ;  
               }
             } // Fin for each
         }
@@ -556,6 +556,7 @@ class FacturaElectronicaController extends Controller
          $this->idTransactionXml = $response->transaccionID ;
 
          Debug::Mostrar( $response ) ;
+         Debug::Mostrar( $this->nombreDocumento );
 
 
         }
