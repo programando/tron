@@ -533,7 +533,7 @@ class FacturaElectronicaController extends Controller
               $stringXml = $this->xml->outputMemory(true);
               $this->xml->flush();
               unset(  $this->xml );
-              //file_put_contents( $this->nombreDocumento  , $stringXml);
+              file_put_contents( $this->nombreDocumento  , $stringXml);
         }
 
 
