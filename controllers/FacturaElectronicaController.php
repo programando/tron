@@ -557,7 +557,7 @@ class FacturaElectronicaController extends Controller
 
          Debug::Mostrar( $response ) ;
          Debug::Mostrar( $this->nombreDocumento );
-
+         Debug::Mostrar( $params );
 
         }
 
