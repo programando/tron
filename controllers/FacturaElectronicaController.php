@@ -17,11 +17,14 @@ class FacturaElectronicaController extends Controller
     public function index(){}
 
         public function GenerarXML () {
-            $this->facturasPendientes  () ;
+            $this->facturasPendientes  ( true ) ;
         }
 
+        public function xml(  ) {
+          $this->facturasPendientes  ( false ) ;
+        }
 
-        private function facturasPendientes ()    {
+        private function facturasPendientes ( $UploadFiles )    {
           $this->id_fact_elctrnca = 0 ;
           $FacturasPendientes     = $this->Factura->fact_01_enc();
            
@@ -47,7 +50,7 @@ class FacturaElectronicaController extends Controller
               $this->xmlFinalArchivo();
               $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
 
-              if ( $this->id_fact_elctrnca  > 0 )  {
+              if ( $this->id_fact_elctrnca  > 0 && $UploadFiles == true )  {
                   $this->uploadFile          ();
                   $this->updateUploadFile    () ;  
               }
@@ -557,7 +560,7 @@ class FacturaElectronicaController extends Controller
 
          Debug::Mostrar( $response ) ;
          Debug::Mostrar( $this->nombreDocumento );
-         //Debug::Mostrar( $params );
+         unlink( $this->nombreDocumento );
 
         }
 
