@@ -479,7 +479,7 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('IIM_2',   $Valor_Iva ) ;
               $this->CrearSiExite('IIM_3',   'COP' ) ;
               if ( $Pctaje_Iva == 0 ){
-                $this->CrearSiExite('IIM_4',   '0') ;
+                $this->CrearSiExite('IIM_4',   $Subtotal) ;
               }else{
                 $this->CrearSiExite('IIM_4',   ($Subtotal - $DsctoItem)) ;
               }
