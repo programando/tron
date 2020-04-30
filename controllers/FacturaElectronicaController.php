@@ -25,6 +25,11 @@ class FacturaElectronicaController extends Controller
         public function archivoXml( $Folio ,$Numero ) {
           $UploadFiles        = false;
           $FacturasPendientes = $this->Factura->consultaDocumento ( $Folio,$Numero  );
+          Debug::Mostrar ($Folio );
+          Debug::Mostrar ($Numero );
+          Debug::Mostrar ($FacturasPendientes );
+
+
           $this->facturasPendientes  ( false, $FacturasPendientes ) ;
         }
 
