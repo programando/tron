@@ -13,9 +13,16 @@
             *   CONSULTA FACTURAS GENERAS QUE NO SE HAN ENVIADO A LA DIAN   */
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_01_enc_pndte_envio_dian()");
             //Debug::Mostrar ( $Facturas  );
-
             return    $Facturas   ;
         }
+
+        public function consultaDocumento( $Prefijo, $Numero)   {
+            /** ABRIL 30 2020
+            *   CONSULTA DOCUMENTO  */
+            $Facturas                 = $this->Db->Ejecutar_Sp("fact_01_enc_consulta_documento('$Prefijo', $Numero)");
+            return    $Facturas   ;
+        }
+
 
         public function fact_02_emi ( $_id_fact_elctrnca )   {
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_02_emi_pndte_envio_dian( $_id_fact_elctrnca )");

@@ -17,17 +17,19 @@ class FacturaElectronicaController extends Controller
     public function index(){}
 
         public function GenerarXML () {
-            $this->facturasPendientes  ( true ) ;
+          $UploadFiles        = true;
+          $FacturasPendientes = $this->Factura->fact_01_enc();
+          $this->facturasPendientes  ( $UploadFiles, $FacturasPendientes ) ;
         }
 
-        public function xml(  ) {
-          $this->facturasPendientes  ( false ) ;
+        public function archivoXml( $Folio ,$Numero ) {
+          $UploadFiles        = false;
+          $FacturasPendientes = $this->Factura->consultaDocumento ( $Folio,$Numero  );
+          $this->facturasPendientes  ( false, $FacturasPendientes ) ;
         }
 
-        private function facturasPendientes ( $UploadFiles )    {
-          $this->id_fact_elctrnca = 0 ;
-          $FacturasPendientes     = $this->Factura->fact_01_enc();
-           
+        private function facturasPendientes ( $UploadFiles, $FacturasPendientes )    {
+          $this->id_fact_elctrnca = 0 ;  
           foreach ( $FacturasPendientes as $Factura ) {
               $this->ENC    = $Factura;
                //Llamada de todos los datos de la factura almacencados en los diferentes archivos
