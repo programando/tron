@@ -58,12 +58,16 @@ class FacturaElectronicaController extends Controller
               $this->id_fact_elctrnca =  $Factura['id_fact_elctrnca'] ;
 
               if ( $this->id_fact_elctrnca  > 0 && $UploadFiles == true )  {
-                  $this->uploadFile          ();
-                  $this->updateUploadFile    () ;  
+                  $this->uploadFile          () ;
+                  $this->updateUploadFile    () ;
+                  $this->markSendFile        () ;  
               }
             } // Fin for each
         }
 
+     private function markSendFile() {
+        $this->Factura->markSendFile ( $this->id_fact_elctrnca ) ;
+     }
 
       private function consultaDatosFactura ( $id_fact_elctrnca ) {
           /* Octubre 23 2019

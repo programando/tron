@@ -28,6 +28,13 @@
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_02_emi_pndte_envio_dian( $_id_fact_elctrnca )");
             return    $Facturas   ;
         }
+
+        public function markSendFile ( $_id_fact_elctrnca )   {
+            $Facturas                 = $this->Db->Ejecutar_Sp("fact_01_mark_send_file( $_id_fact_elctrnca )");
+        }
+
+
+        
         public function checkDocumentsStatus (  )   {
             $Facturas                 = $this->Db->Ejecutar_Sp("fact_01_enc_status_check( )");
             return    $Facturas   ;
