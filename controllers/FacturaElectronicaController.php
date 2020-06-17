@@ -444,18 +444,18 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('ITE_2',   $Producto['_02_tp_reg']                            );
               $this->CrearSiExite('ITE_3',   $Producto['_03_cant']                              );
               $this->CrearSiExite('ITE_4',   $Producto['_04_und_med']                           );
-              $this->CrearSiExite('ITE_5',   $VrItem                                            );
+              $this->CrearSiExite('ITE_5',   $this->FormatoNum($VrItem,3)                                            );
               $this->CrearSiExite('ITE_6',   $Producto['_06_mnda']                              );
-              $this->CrearSiExite('ITE_7',   $this->FormatoNum($Producto['_07_vr_unit'],2)                                             );
+              $this->CrearSiExite('ITE_7',   $this->FormatoNum($Producto['_07_vr_unit'],3)                                             );
               $this->CrearSiExite('ITE_8',   $Producto['_08_mnda']                              );
               $this->CrearSiExite('ITE_11',  utf8_encode(  $Producto['_11_nom_prdcto'] )        );
               $this->CrearSiExite('ITE_12',   $Producto['_12_nom_prdcto']                       );
               $this->CrearSiExite('ITE_14',   $Producto['_14_und_med']                          );
-              $this->CrearSiExite('ITE_19',   $this->FormatoNum($Producto['_19_total_item'],2)                       );
+              $this->CrearSiExite('ITE_19',   $this->FormatoNum($Producto['_19_total_item'],3)                       );
               $this->CrearSiExite('ITE_20',   $Producto['_20_mnda']                             );
-              $this->CrearSiExite('ITE_21',   $this->FormatoNum($Producto['_21_total_item'],2)                       );
+              $this->CrearSiExite('ITE_21',   $this->FormatoNum($Producto['_21_total_item'],3)                       );
               $this->CrearSiExite('ITE_22',   $Producto['_22_mnda']                             );
-              $this->CrearSiExite('ITE_23',   $this->FormatoNum($Producto['_21_total_item'],2)                       );
+              $this->CrearSiExite('ITE_23',   $this->FormatoNum($Producto['_21_total_item'],3)                       );
               $this->CrearSiExite('ITE_27',   (int)$Producto['_27_cantidad']                    );
               $this->CrearSiExite('ITE_28',   $Producto['_28_unidad']                           );
               $this->IPA ($Producto['_21_total_item'] ) ;
@@ -484,8 +484,8 @@ class FacturaElectronicaController extends Controller
       }
 
       private function TII ( $Subtotal, $Pctaje_Iva, $Valor_Iva, $DsctoItem) {
-        $Subtotal = $this->FormatoNum($Subtotal,2);
-        $Valor_Iva = $this->FormatoNum($Valor_Iva,2);
+        $Subtotal = $this->FormatoNum($Subtotal,3);
+        $Valor_Iva = $this->FormatoNum($Valor_Iva,3);
 
         $this->xml->startElement('TII');
         $this->CrearSiExite('TII_1',   $Valor_Iva ) ;
@@ -495,11 +495,11 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('IIM_1',   '01' ) ;
               $this->CrearSiExite('IIM_2',   $Valor_Iva ) ;
               $this->CrearSiExite('IIM_3',   'COP' ) ;
-               if ( $Pctaje_Iva == 0 ){
-                $this->CrearSiExite('IIM_4',   '0') ;
-              }else{ 
+               //if ( $Pctaje_Iva == 0 ){
+                //$this->CrearSiExite('IIM_4',   '0') ;
+              //}else{ 
                 $this->CrearSiExite('IIM_4',   ($Subtotal )) ;
-               } 
+               //} 
               $this->CrearSiExite('IIM_5',   'COP' ) ;
               $this->CrearSiExite('IIM_6',   $Pctaje_Iva ) ;
             $this->xml->endElement();
