@@ -495,11 +495,11 @@ class FacturaElectronicaController extends Controller
               $this->CrearSiExite('IIM_1',   '01' ) ;
               $this->CrearSiExite('IIM_2',   $Valor_Iva ) ;
               $this->CrearSiExite('IIM_3',   'COP' ) ;
-               //if ( $Pctaje_Iva == 0 ){
-                //$this->CrearSiExite('IIM_4',   '0') ;
-              //}else{ 
-                $this->CrearSiExite('IIM_4',   ($Subtotal )) ;
-               //} 
+               if ( $Pctaje_Iva == 0 ){
+               $this->CrearSiExite('IIM_4',   '0') ;
+              }else{ 
+                $this->CrearSiExite('IIM_4',   $Subtotal ) ;
+               } 
               $this->CrearSiExite('IIM_5',   'COP' ) ;
               $this->CrearSiExite('IIM_6',   $Pctaje_Iva ) ;
             $this->xml->endElement();
