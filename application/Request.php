@@ -19,7 +19,7 @@ class Request
 
         Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
-        Debug::Mostrar ( $_SERVER );
+        Debug::Mostrar ( $_GET['url'] );
 
         if( !isset( $_GET['url'] ))    {
             $this->url  = "";
