@@ -19,10 +19,6 @@ class Request
 
         Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
-        header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-
         $_GET['url'] = $_SERVER['REQUEST_URI'];
 
         if( !isset( $_GET['url'] ))    {
@@ -32,9 +28,8 @@ class Request
           }
          
         $segmentos_url = explode('/',$this->url);
-        
-        $segmentos_url=array_diff($segmentos_url, array('')) ;
-        $segmentos_url = array_values( $segmentos_url );
+        //$segmentos_url = array_diff($segmentos_url, array('')) ;
+        //$segmentos_url = array_values( $segmentos_url );
          
 
         $this->ResolveController( $segmentos_url );
