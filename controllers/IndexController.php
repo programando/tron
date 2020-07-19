@@ -72,7 +72,7 @@ class IndexController extends Controller
 
         $this->View->Mostrar_Vista('industrial');
         //$this->View->Mostrar_Vista('index');
-        $this->industrial();
+    
     }
 
 
