@@ -21,16 +21,21 @@ class Request
 
         //Debug::Mostrar ( $_SERVER['REQUEST_URI'] ) ;
       /*   $_GET['url'] = $_SERVER['REQUEST_URI'];
-        Debug:: Mostrar ( $_GET['url']) ; */
-        $_GET['url'] = 'productos/productos_por_categoria_individual/4/Línea Alimentaria/1';
+         ; */
+       
+        $_GET['url'] = $_SERVER['REQUEST_URI'];
+
         if( !isset( $_GET['url'] ))    {
             $this->url  = "";
           }else{
              $this->url = $_GET['url'];
           }
-
+         
         $segmentos_url = explode('/',$this->url);
-        //Debug::Mostrar ($segmentos_url );
+        
+        $segmentos_url=array_diff($segmentos_url, array('')) ;
+        $segmentos_url = array_values( $segmentos_url );
+         
 
         $this->ResolveController( $segmentos_url );
         $this->ResolveMethod    ( $segmentos_url );
