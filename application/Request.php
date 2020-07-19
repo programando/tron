@@ -19,10 +19,10 @@ class Request
 
         Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
-        //Debug::Mostrar ( $_SERVER['REQUEST_URI'] ) ;
-      /*   $_GET['url'] = $_SERVER['REQUEST_URI'];
-         ; */
-       
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
         $_GET['url'] = $_SERVER['REQUEST_URI'];
 
         if( !isset( $_GET['url'] ))    {
