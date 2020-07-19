@@ -24,14 +24,9 @@ class ProductosController extends Controller
     }
 
     public function Index() {
-       //$this->Redireccionar();
-       echo BASE_URL;
+       $this->Redireccionar();
     }
-
-    public function ejemplo() {
-      echo BASE_URL . BASE_IMG_PRODUCTOS;
-    }
-
+ 
 
     public function Favoritos_Borrar_x_IdTercero_IdProducto(){
          $IdProducto         = General_Functions::Validar_Entrada('idproducto','NUM');

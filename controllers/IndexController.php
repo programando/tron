@@ -39,7 +39,7 @@ class IndexController extends Controller
 
     public function Index() {
 
-
+        echo BASE_CSS ;
         Session::Set('Id_Area_Consulta','1')  ;
 
         //$this->Consultar_Datos_Transportadoras();
