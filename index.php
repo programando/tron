@@ -41,7 +41,7 @@ require_once APP_PATH . 'Database_config.php';
 
  						 try	 {
                  $Url_Solicitada = new Request();
-								Debug::Mostrar( $Url_Solicitada );
+								 
                  Bootstrap::Run( $Url_Solicitada );
          						 }
          						 catch(Exception $e){
