@@ -28,6 +28,10 @@
       <link type="text/css" rel="stylesheet" href="<?=BASE_CSS ;?>tron_notificaciones.css?<?= $FileVersion ;?>"/>
 
 
+        <?php
+            var_dump ($this->Css );
+            var_dump ($this->Js );
+        ?>
 
 
 
@@ -35,6 +39,7 @@
           foreach ($this->Css as $Archivo_Css) { ?>
        <link type="text/css"  rel="stylesheet" href="<?= $Archivo_Css ;?>?<?= $FileVersion ;?>"   />
        <?php }} ?>
+       
       <!-- FIN INLCUSIÓN DE ARCHIVOS CSS
       *******************************************************************************************************************
 			INICIA INLCUSIÓN DE ARCHIVOS SUPER CSS -->
@@ -251,5 +256,3 @@
 
 </body>
 </html>
-
-
