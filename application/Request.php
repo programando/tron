@@ -19,6 +19,7 @@ class Request
 
         Session::Set('CEO_CATEGORIA_INDUSTRIAL'     , 0  );
 
+        Debug::Mostrar ( $_GET['url'] );
         if( !isset( $_GET['url'] ))    {
             $this->url  = "";
           }else{
@@ -26,7 +27,7 @@ class Request
           }
 
         $segmentos_url = explode('/',$this->url);
-        Debug::Mostrar ($segmentos_url );
+        
 
         $this->ResolveController( $segmentos_url );
         $this->ResolveMethod    ( $segmentos_url );
